@@ -1,0 +1,1383 @@
+{
+  "complete": true,
+  "limitations": [
+    "Prescribed-force numerical refinement; not fitted posterior or orbit accuracy evidence.",
+    "Remaining force configurations were restored from hashed saved generated XML after local temporary-runtime loss; no fitted state was reconstructed or claimed.",
+    "This positional bound does not establish exact force Jacobians or uncertainty calibration."
+  ],
+  "maximum_aligned_position_difference_m": 1.4969918259138823e-05,
+  "maximum_offgrid_position_difference_m": 2.5144057453632857e-05,
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "passed": true,
+  "phase_threshold_m": 3e-05,
+  "production_numerical_gate_complete": false,
+  "raw_artifact_sets": [
+    {
+      "id": "local-before-restart",
+      "interruption": "Runtime restart interrupted the remaining checks after nine recorded results; ninth result is preserved in raw manifest and independently rerun in recovered set.",
+      "locator": "workspace work/v3/physics-final-74863-24h",
+      "raw_manifest_sha256": "f0b4c3100857547046b5934aabb3999fa271ec9cd54b1b746c9c5e214eff6689",
+      "records_retained": 8,
+      "verified_artifacts": 128
+    },
+    {
+      "id": "leo800-recovery",
+      "locator": "persistent remote engineering-physics/leo800-current",
+      "raw_manifest_sha256": "8964979a8c759fe57993c3ae4370454f420796beb3e29fe40b15acb6d043a675",
+      "records_retained": 4,
+      "runtime": {
+        "architecture": "x86_64",
+        "cpu_model": "AMD Ryzen Threadripper PRO 7975WX 32-Cores",
+        "logical_cpus": 64,
+        "packages": {
+          "gtsam": "4.2",
+          "numpy": "1.26.4",
+          "scipy": "1.15.3"
+        },
+        "python": "3.11.15",
+        "release": "7.0.0-28-generic",
+        "system": "Linux"
+      },
+      "source_hash": "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481",
+      "verified_artifacts": 64
+    },
+    {
+      "id": "eccentric-recovery",
+      "locator": "persistent remote engineering-physics/eccentric-current",
+      "raw_manifest_sha256": "c9738403c0e4196628eb5eb53b9ad5b480fefcee67485f4e8c47f9b28bf09108",
+      "records_retained": 4,
+      "runtime": {
+        "architecture": "x86_64",
+        "cpu_model": "AMD Ryzen Threadripper PRO 7975WX 32-Cores",
+        "logical_cpus": 64,
+        "packages": {
+          "gtsam": "4.2",
+          "numpy": "1.26.4",
+          "scipy": "1.15.3"
+        },
+        "python": "3.11.15",
+        "release": "7.0.0-28-generic",
+        "system": "Linux"
+      },
+      "source_hash": "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481",
+      "verified_artifacts": 64
+    }
+  ],
+  "records": [
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/evaluate.xml",
+          "sha256": "08cb7a424dcdcdeb17ac9ff8b575558d10b292ec07c114bc8a190f9b480b8148"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "55e50a40b3c01f908432e75d42b1ad274d64c75c833d28c778aaeaca8728a22f"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "41d3cbe5f3e6833051336cb12507ea0b1ff9ca06e471dd7f8111fc295b6608ce"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "bf7e2a275599a846e201f58b57d8bb54dacb45d897491aff3bea992a21dcb0fd"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/coarse/physics.execution.json",
+          "sha256": "518f06e489db79708233eda02c82d8acb470d486ad240d2301c4b02c01a8e4fa"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/evaluate.xml",
+          "sha256": "48cb938acdc8808fdb00a65059484be33927234ca8bbcb6f21d0fb1cbfb1196f"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "55e50a40b3c01f908432e75d42b1ad274d64c75c833d28c778aaeaca8728a22f"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "c2cf332d876d092dabc095e245169c2a413b4700c7f8ea527d2c3442d60b9f6e"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "6e8adae5ead45ce2f08d82c073d67e3a2c409956ed2e542b61ac9f5536e3d33b"
+        },
+        {
+          "path": "leo300-quiet/groops_pulses/fine/physics.execution.json",
+          "sha256": "b90de88e0fdbd686a42b357a3ea733127c2dfd7d4edc6927d1b3dc4b304ca79f"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 9.570416532696975e-06,
+      "max_offgrid_position_difference_m": 2.422727707908734e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "leo300",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "7e27fa65c8f2d0160fe9d41565693217f6b5742bf90ee1f11a71780142174e2e"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "55e50a40b3c01f908432e75d42b1ad274d64c75c833d28c778aaeaca8728a22f"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "806fb4ade7db5800148c28f77bd53a116440e3ef77df9566d7a4e22493a74bb0"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "ac47c6b72a1894d312378ba182cb514b479eb01ded3052be4a4e493433555253"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "544466f3622c970a297f4496e6bcc2737f2e89ba3776d54c3bd61c89a16d76a8"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "9ead221341f0041fb8078c56d459fead1ce5f62d8c64cf34f0a7d759b7088732"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "55e50a40b3c01f908432e75d42b1ad274d64c75c833d28c778aaeaca8728a22f"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "ab3da159553f34771eab20249d817380c294ef6bfcbf5c7aff8c2b180ddad44e"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "70c552b598c878ca023d8c7d6dca19fa630c603c584e7acd92210d5aaf994861"
+        },
+        {
+          "path": "leo300-quiet/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "82fd9cd69dbce3d9ddec726b30112a8efa60ad04d250e6596a4b996b97ab13fb"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 1.4850269087789823e-05,
+      "max_offgrid_position_difference_m": 2.5144057453632857e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "leo300",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/evaluate.xml",
+          "sha256": "a13bc41094ea672c0337131740b5f64fb1e449ff1a1d01cfb17047690ab3a763"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "3971caa92f2a2975a3dd274f48428ad74b59fd3372dacc5d853eea440cfda0b5"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "a3effcbbefd6b9e2eb7a8e5a83418351d889b91830582e4736d5fbc3f9d7aaab"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "102e573b48c0fac63a8fcc8588ce79151d96684a6ce6effe0d541d2156eee54d"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/coarse/physics.execution.json",
+          "sha256": "407b9a8ccd97d9acd51d250994646564cff834a48a27899f91a53be0d642afb2"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/evaluate.xml",
+          "sha256": "17469939096f43e68b5ae8f0f46d6f25a9a35aec171d8d618ffe6e73fc7575de"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "3971caa92f2a2975a3dd274f48428ad74b59fd3372dacc5d853eea440cfda0b5"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "044ed4d4a7a6299e5f3db66aeb83add5c443d2260c9c196b4fdb3cedde388d50"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "c538ac198207a702f46e0165b9e9a0b791fb07658a2c0d22b193949ca319a7d8"
+        },
+        {
+          "path": "leo300-disturbed/groops_pulses/fine/physics.execution.json",
+          "sha256": "9f85062762b16b1c16336f67eb84a9d0118a5135b33387b314498e06a0a8d3af"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 4.288233305302957e-06,
+      "max_offgrid_position_difference_m": 1.5419915596936108e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "leo300",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "39b0dc054516ba6e7d6b99e64188a067f8391a0daa504701743318f01bff8559"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "3971caa92f2a2975a3dd274f48428ad74b59fd3372dacc5d853eea440cfda0b5"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "23afe7062e397f2e55c1f0b7be8e737d2c8cb2ecbea915ec08640fa2ae98092f"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "666a5575cd5ab3c37baa70456c88145a31a3d0883e2abdc70ab5facb7f30c476"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "0edd770a68d35c1864ea04021b22894ed8ad84fdc985615654b4d59c6dbacc73"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "283e542c2a7bbbda36ad0e5f2545a402fdc500b6241b155e7b0927a161a0daa5"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "60cf2e034c7f7be88dd9ea7efeaf93c8ab24549fcf465377b3534eb84d342d8c"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "3971caa92f2a2975a3dd274f48428ad74b59fd3372dacc5d853eea440cfda0b5"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "45e36cc5a8c407ca7df032217b9b0c26984cecc20b96d9d8bfa54824973ff403"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "da51a910c3613bf552b3fd5c6a22aa0cda1e1bcdadeab937cd0c065e5df3c605"
+        },
+        {
+          "path": "leo300-disturbed/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "9fca425d3b10c1af034d7143977699726845a0dbaf0ce5809613c0b0b305e5f8"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 2.793798957763162e-06,
+      "max_offgrid_position_difference_m": 1.709164795733975e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "leo300",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/evaluate.xml",
+          "sha256": "0f2b9c8e8dd3918e3a2029e45c19ebe7e2176a0e88301c56e4f02614e0537b99"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "d3840d99ad8fed6a06d97727f82e5b8eb2668e2e456823195c6daf92aecdaad1"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "8502ec1e927a2df09753029fa8ade93e58f8125002c2037b78b2824a7169c553"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "84697a9d6a25e017d364e5d1924554e14ae8bed8150892b1aa108bcb21a94842"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/coarse/physics.execution.json",
+          "sha256": "d6c82e00141cca334f3a3627f5e2f5ffb3c723c034bdaba4e2ffee1ce26ac207"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/evaluate.xml",
+          "sha256": "172888b8726c308eeee481561e49a40ecf7a2ff79a7c8fbc7e785e3722f6a808"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "d3840d99ad8fed6a06d97727f82e5b8eb2668e2e456823195c6daf92aecdaad1"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "12e0b59abf7659fb4ab8702a61c36eb2fabbd41ff4dbc13cc1e7a52bf42f1cd5"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "ce1b8eb3c2da2351203622fe07263b93cd7093cb35a717a083298dd82dd52d50"
+        },
+        {
+          "path": "leo500-quiet/groops_pulses/fine/physics.execution.json",
+          "sha256": "ad0be02669749025ea327f66aacbe8732d158e7991aa491bb7f59551bfdd5649"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 8.275092852183322e-06,
+      "max_offgrid_position_difference_m": 2.2493435630240437e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "leo500",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "767c8beac233efae602207af99dd50c04b2adc1c4de6a57fe5013ba516d3cef4"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "d3840d99ad8fed6a06d97727f82e5b8eb2668e2e456823195c6daf92aecdaad1"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "a7d1f289f5d58ecfff16e81ee2f3b494f2733d6f3219528fedda8fc93e62af17"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "936a485e6c48a99862b2869c0d15fde6657f3d39d9226094b41be1283943b94f"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "ea34dffd3a72c9db22f84ca67e3c2bc3e686f6260d6bc8fc5300ebd6a001b084"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "65fdb2e552eb115400fdb4986f679317297c543f6dc8cf9ff1b7f0e4176fa225"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "d3840d99ad8fed6a06d97727f82e5b8eb2668e2e456823195c6daf92aecdaad1"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "678789da9b3e980ff5e5e3854035321f751836900188890008185898d3312263"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "293a122fffec490891e55d56af1d4bb409e14de2a1cd91ad9382659fdab55d6f"
+        },
+        {
+          "path": "leo500-quiet/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "bcae96f4ac6035dd4743b1885959c6fc04f64a613b70d2d4a7b81a0d1e34874c"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 1.4969918259138823e-05,
+      "max_offgrid_position_difference_m": 2.5090783606845554e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "leo500",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/evaluate.xml",
+          "sha256": "08e3f0c535aa3573f012edff2de8c4621df1602b0e4bf20fd30c0c62892c8c44"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "a83d250190c605bfae4c14bc5c8e2da417b4133373cdce6e6614180a5134ab34"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "238ab8bbf682e8939ec4804f0f5462456982d8594aaa0674cb1ea10a0b03ad81"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "83908c54ea5a2c5eb58a63a570d309690975f896e6fbc48f57d9d93288435e88"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/coarse/physics.execution.json",
+          "sha256": "67c5195334718b3c175cfb3161c2d97bb6c46af3bfcfed702d4ff39c68421e76"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/evaluate.xml",
+          "sha256": "dc4f8300dd01a0b9e095221f1af434617e48222177b3e1903d3cb21c9e2b696f"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "a83d250190c605bfae4c14bc5c8e2da417b4133373cdce6e6614180a5134ab34"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "100b96777876b307a7935aed8e04d80c70ce8787b911d3f48e73055ea43934c4"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "aff58ded8e648d1c5e53dcb7baef2b3bcd38e8bc2cfff5d7292c00992123ee49"
+        },
+        {
+          "path": "leo500-disturbed/groops_pulses/fine/physics.execution.json",
+          "sha256": "054f2a475876cf9b6c884e48081c0cf4c334705cd3e133f3de1cf1460a539f6c"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 7.934256162396071e-06,
+      "max_offgrid_position_difference_m": 2.2275543274808233e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "leo500",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "local-before-restart",
+      "artifacts": [
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "70535ade1ac1296a32aed5d3456615626bf355f88da0fabac24d05c816f6d042"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "a83d250190c605bfae4c14bc5c8e2da417b4133373cdce6e6614180a5134ab34"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "de57be4ffac7cd42b580687dcda5387d2ce98a3ef5c3ad51365807f1f9122f58"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "cee61e77e47e506e82ba08e8c1bbc52fd2a53d62dacba08a652599c2c5a0c5f2"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "91c2241e47d765ef5fe25f16f8d37811bc71746725fb8de8c1ef059dfb18f0eb"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "b1650464a78cb3a7baf8c74b705c25c959ef9f39efe496c3b3901a85f4cd226b"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "8c2b89e67884014344582b1b9c0710ef8bb63a44f2e54f04d44ac26dee88cef8"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "a83d250190c605bfae4c14bc5c8e2da417b4133373cdce6e6614180a5134ab34"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "089d75d4dd235db2d7ea3ab463cd60bb436d3feb36b27e0626f9c99fbcb6c3a5"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "13da8ee288b3a251ec6954ef85241d33417a521c9acb22222efb6e3e7ffccd87"
+        },
+        {
+          "path": "leo500-disturbed/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "058fbef17bd409e8ecf73a790f6b755f73f95b44f3affea5b5f616696ed055bd"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 1.4948041568111265e-06,
+      "max_offgrid_position_difference_m": 1.5995170891012423e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "leo500",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "leo800-recovery",
+      "artifacts": [
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/evaluate.xml",
+          "sha256": "cd48b4b52cc4d82383802a7ecddf7e5bd995b7496e93587e0934011d0fdb9f1d"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "5e400afb64cb16d46b16ee54762e080ecb146ab8e50bd8172c3f5188f6c3a9e9"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "12fc65e807c957589db5fad4ec768645d451d0ac2bee5c4f49b16aadfe713fe8"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "b74b9d6d35d8c03596d9fc76e06d3d0cd2d569e96e25e81a6a8500a10569713e"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/coarse/physics.execution.json",
+          "sha256": "697c41ed6b2231de95582233a5e85074e8c0b2d1cbd19f3e6ebd95b97afef19d"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/evaluate.xml",
+          "sha256": "f32a5a7d1087027c88f6fdfc1cae91eee2262830ea1f27ce59acc6d9b56ac064"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "5e400afb64cb16d46b16ee54762e080ecb146ab8e50bd8172c3f5188f6c3a9e9"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "19089aedc0a6890714ec99d852db65cc0c8ddf2bd6e050321541e6d241b520d7"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "24e0caa20a214efebd7df6c8f3a59fee49699040fb97867870b0ef1d81374edb"
+        },
+        {
+          "path": "leo800-quiet/groops_pulses/fine/physics.execution.json",
+          "sha256": "37de9f83fdff41942769c32492a9e05bbf1c5ec988811b9424b844b38211fbf0"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 8.007643007678523e-06,
+      "max_offgrid_position_difference_m": 2.208883519450989e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "leo800",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "leo800-recovery",
+      "artifacts": [
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "7fba4a6ab417578dd14b6f0be59c85e694fbf2bfe7ba96e61b9e85abdc037610"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "5e400afb64cb16d46b16ee54762e080ecb146ab8e50bd8172c3f5188f6c3a9e9"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "e4b846518f6f2d3a8d27bee1f14cec16cac180d7e66a8eb889ba4c3227de0375"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "ddf32f66a5574f1d6d544712d75587c9db0494aea3107238df0e677a27d2e3d7"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "1733df77a58216a7416f5f2000ad8dff2f16e0cf136f6e56194e301ac2a3e08e"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "131140929f65e330803a66060db0fb05a8e689e3e35d1266229dd9b6e210ef19"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "5e400afb64cb16d46b16ee54762e080ecb146ab8e50bd8172c3f5188f6c3a9e9"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "43d323d4e449997800a5ebeadaf939c751034405e46356d370c6d3f7efe29741"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "cbc78a43aea2c4e58c4def31fa2deb6793fab9093c974a685f07390e2456f242"
+        },
+        {
+          "path": "leo800-quiet/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "42dda55fb4e57b0c2bd6a17085fa03ba50a5b490c72970176eb496cd29af3d61"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 6.43571597223088e-06,
+      "max_offgrid_position_difference_m": 2.049262469569633e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "leo800",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "leo800-recovery",
+      "artifacts": [
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/evaluate.xml",
+          "sha256": "92e5ca859c63d7d6870cf6ee8ee912ebce66caa288c522a896f121a946bd074c"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "8c6aafbd097a10c200ea64a6c05f9c8acc9b0e6fb0130f2aaed61384e8f0218c"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "4b85d6f184b17fcd150d71fbbba8e626a161aca55d48b80978600391775e8e3c"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "37b0a4e9c360c973aa5bee2962f788c0e9b711284e4d8fc83f009fe2af361d2b"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/coarse/physics.execution.json",
+          "sha256": "942a3817f55aa09b6ec3b1befcd888515f969b170131bfdcb544365d90ea6c39"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/evaluate.xml",
+          "sha256": "10ad7670db6ce1b67032ea95849fb6fcaa6563a18aefec71991346d68a9a4b42"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "8c6aafbd097a10c200ea64a6c05f9c8acc9b0e6fb0130f2aaed61384e8f0218c"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "ab48139278f5204b32e13122a6325253e67037704163b71dd5b396579ea9b790"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "80d2c3dc0a1ca660d2f9707af0886451ecad7e075fcb46d9c024d27de4051704"
+        },
+        {
+          "path": "leo800-disturbed/groops_pulses/fine/physics.execution.json",
+          "sha256": "b7d0d99b5bb64761572558b1b32ba6a3374d23a058824c0fdc8593957f336a7f"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 4.393362508372553e-06,
+      "max_offgrid_position_difference_m": 1.8575323616255688e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "leo800",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "leo800-recovery",
+      "artifacts": [
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "8db561ad575d0ba69ed4d5e2c8696291bcade81ebb0afbed4f0190ae8f034563"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "8c6aafbd097a10c200ea64a6c05f9c8acc9b0e6fb0130f2aaed61384e8f0218c"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "6a84acbd23b193af4cb9e74464a6e7c77f4b340cd3d5c11edccb3c8cd952252a"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "527b495d0d8759d77335a528a5416af04a852795f2ce2ddbb5bb5f060bcb191d"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "5339cbbe6561100707759bed88106a2cb0557de40583a2ac6abbb7bc6fbf8c17"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "1194beebd09fa4978a33ad2b4024275a0bc26c7d8577c91d65544c2e505a8b9e"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "a27b69420d48c338a89de805d78149dfb6a11973da66f6300ffe66f6ba85e490"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "8c6aafbd097a10c200ea64a6c05f9c8acc9b0e6fb0130f2aaed61384e8f0218c"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "84b57f0b023e2d10dbee329f6b4c80c1cc4e116e4f75d4386312f02d66a3eaab"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "ddb3a1f6af6ffc9d4a470089240390915d1b3e506d72aaa93455c22c90d646ab"
+        },
+        {
+          "path": "leo800-disturbed/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "c68d5342a9cefb99ab075381ab11c9205fb7803e21a9b7c52d63f5dccbec44d8"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 4.121479981954967e-06,
+      "max_offgrid_position_difference_m": 1.8309590101726164e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "leo800",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "eccentric-recovery",
+      "artifacts": [
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/evaluate.xml",
+          "sha256": "f5ef7d31cb7ee1fcbacac561fe7de85c4f21c2d747ac1b3500aa3181fad22ec4"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "392bc1212be08297ccd9a5e663f18a818e52fbd01e16682f8dc6b91b834bf743"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "3b3ab8c81feb60393f30eb10529e2804958648b593f4225fb51779c3910e9425"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "4f1c077535ab9aa65aa2015c9bee454429f9041fa7f29559cbdc50db3611b732"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/coarse/physics.execution.json",
+          "sha256": "2233907ea72e73f5498d87ba3a953ae1bbe755d6cc24bd8027d79021316c259b"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/evaluate.xml",
+          "sha256": "9de78c491577d2d3533432d045158ec8cbdab5a31cba4bfb97c9459e9760b260"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "392bc1212be08297ccd9a5e663f18a818e52fbd01e16682f8dc6b91b834bf743"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "db88a960beaaaaf2e2ca4ba6e786db8779f315257684fc47350acf6e4397f148"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "3c74b49cb8d7bf83fddfa64bc2525255ca6494a0726be69687275b0cfb59fbeb"
+        },
+        {
+          "path": "eccentric-quiet/groops_pulses/fine/physics.execution.json",
+          "sha256": "4127f49ad4519659c9415563f2443083d3102a7611e1060875cb0ab4d2fed7a2"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 7.594507124127493e-06,
+      "max_offgrid_position_difference_m": 2.2572665207472934e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "eccentric",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "eccentric-recovery",
+      "artifacts": [
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "d2143148e305446ef95581cd4e0834f12cbcee74f58df56d2cbfac733a4d3a72"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "392bc1212be08297ccd9a5e663f18a818e52fbd01e16682f8dc6b91b834bf743"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "e8a6e11a3f1daeb9078b980714e3489c698ecbff09e1bd28eeb538e80772978a"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "071f9ea1af36ae022c2c71a5b1c602901334c34a81a655cd82c4e5647f30145f"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "d47e093f2b432f17674d29d6fc7a9666465c9cc450dc5f80d723d2010518c1f1"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "8f19d79e1d93e4385338cdc7c2a929835e3c5ecd1b8e725d64f04577a4034f4b"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "392bc1212be08297ccd9a5e663f18a818e52fbd01e16682f8dc6b91b834bf743"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "edcc20e93c8e9c21f7f3c62868645bc217f59431cd6019fb26fa8ff6d3e7e40e"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "dd3d2ec63908604bf05ef6d5d9ea6e8e57c5507cc6ce17a15f4038e8c760a948"
+        },
+        {
+          "path": "eccentric-quiet/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "17cec6b38694ffc91c540c6b087d3e130230e763ee62e6a905b55ea376d70f7c"
+        }
+      ],
+      "atmosphere": "quiet",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 1.4829840379591787e-06,
+      "max_offgrid_position_difference_m": 1.643748413558431e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "eccentric",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "eccentric-recovery",
+      "artifacts": [
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/evaluate.xml",
+          "sha256": "3b4d7b9c3c6682d0276d9cc158073250c88489bf007422e1190553e3a8c57a4c"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/prescribed_log_density.txt",
+          "sha256": "dcd958747e752908a8c759bbbbea54b2811c6360f82ad2f26e3a41f6f3dff59e"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "816e6c4e713cd5b9d476b76b31d6895ffdcf5255ccf72423e6a590527f39b1d9"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "dcc2ddf8a7917b117b0cc65393d001b2d8611f308c6893d4ffe577371f0ec733"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/coarse/physics.execution.json",
+          "sha256": "3c3666840353c8d4eda941a3abad6694c80bac1ef0d82b4269421f4956628582"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/evaluate.xml",
+          "sha256": "d593bddc80dce06cf8d8d0e8381951b0a12c9e3924a80a095689de5f77fbf61b"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/parameters.txt",
+          "sha256": "b8396949982a7632b43417f494e2116dd96f6578028878026af7608ef57395de"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/prescribed_log_density.txt",
+          "sha256": "dcd958747e752908a8c759bbbbea54b2811c6360f82ad2f26e3a41f6f3dff59e"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "c2b043dce90a86274cacec5ad11631f9b2ab46550fe2d2f42c759034c67ee455"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "b0dae1436395abca6e0dae7e79d95c493ced112d3b43dd4a7c88dfc535f00df8"
+        },
+        {
+          "path": "eccentric-disturbed/groops_pulses/fine/physics.execution.json",
+          "sha256": "f03d818887f2a79a1f94d4d87542781c1b16402c5d55bd2ea45cd5bd5db7f776"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 1.8661462955895842e-06,
+      "max_offgrid_position_difference_m": 1.655594616127036e-05,
+      "method": "groops_pulses",
+      "offgrid_epochs": 21597,
+      "orbit": "eccentric",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": 0.01
+    },
+    {
+      "aligned_epochs": 2880,
+      "artifact_set": "eccentric-recovery",
+      "artifacts": [
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "e4be360b42fdb03c5b921c578bdb9b2532e77e26f2dbba96973e128d0e086db9"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/prescribed_log_density.txt",
+          "sha256": "dcd958747e752908a8c759bbbbea54b2811c6360f82ad2f26e3a41f6f3dff59e"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "5d600576d3a05a3b3852f22f42633664583de4aa5f95c70ba41c03c18c98c4c4"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "17e31b1fcabce401006c6a7aa0025db5ef2e2f26bfd77e18205901cbac6fabd6"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/coarse/physics.execution.json",
+          "sha256": "99f42bdb543202d33aa79d8ab4eb59a35d470ed816fb1273a6ec7e5ef181dd84"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "a031a0744ffa3ed8b5b9369b7103f6d5b67482dcf45ff7af8def41932636ad68"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "051feef7e25ed24bd01cd5fe21f4c2046bdcebd38be30761d3646cb1cdad2a94"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/initial.txt",
+          "sha256": "fe3aecb386bbc6e817163274faa18623178d451eda5f6e6dc5cd4d3301fc292f"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/prescribed_log_density.txt",
+          "sha256": "dcd958747e752908a8c759bbbbea54b2811c6360f82ad2f26e3a41f6f3dff59e"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "6e1b94858fbe55161b19c30f3b8cf732d502748450fa47dcf2548f234c8beb14"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "b1b5161267a2c036424e7065ff5887cb1083110c63da1de41b6514403b7a0129"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "f3d3007c3ce4d2df9c1991b43d3df03c804b924ec43f0e9c2d5594eb4596839c"
+        },
+        {
+          "path": "eccentric-disturbed/groops_log_drag_ou/fine/physics.execution.json",
+          "sha256": "e9fb3988e550409fee5e825e56f0158d5bf86573dca31f9f4803b5dd72e068ce"
+        }
+      ],
+      "atmosphere": "disturbed",
+      "coarse_seconds": 5.0,
+      "duration_hours": 24.0,
+      "fine_seconds": 2.5,
+      "max_aligned_position_difference_m": 2.6896585978164583e-06,
+      "max_offgrid_position_difference_m": 1.753395077604944e-05,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 21597,
+      "orbit": "eccentric",
+      "passed": true,
+      "phase_threshold_m": 3e-05,
+      "prescribed_pulse_amplitude_m_s": null
+    }
+  ],
+  "schema_version": 3,
+  "scope": "Prescribed-force native integration and shared boundary-aware interpolation, not fitted posterior validation, GNSS corrections, or operational orbit accuracy. Same fixed physical initial state and pulse vector or density curve at both resolutions; state reanchoring is linearized.",
+  "updated_at": "2026-10-13T23:37:10.525904+00:00"
+}

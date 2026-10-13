@@ -12,6 +12,14 @@ orbit-determination or collision-avoidance system. See the generated HTML report
 and run manifests for what was actually run; a supported configuration is not
 evidence that its experiment completed.
 
+## GROOPS comparison protocol v3
+
+The separate [GROOPS comparison implementation](groops/README.md) adds matched
+reduced-dynamic pulse and log-density OU models, blind GNSS data preparation,
+native covariance export and independent validation. Its acceptance gates and
+production runs are distinct from the published v2 campaign below; preparation
+or unit-test success is not a completed accuracy comparison.
+
 ## Completed v2 campaign
 
 Open [results.html](results.html) for the scientific summary and

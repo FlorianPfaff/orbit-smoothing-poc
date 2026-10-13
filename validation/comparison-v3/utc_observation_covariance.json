@@ -1,0 +1,74 @@
+{
+  "complete": true,
+  "force_reference_binary_sha256": "2e2ab009ede3950dc676ef36f5fed99e780295cabfdb37351268bea333f20479",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "passed": true,
+  "path_aliases": {
+    "{scratch}": "scratch UTC receiver diagnostic directory",
+    "{workspace}": "workspace root"
+  },
+  "records": [
+    {
+      "audit_sha256": "569c84bc8f8756a78279fee1b904cdddeb8324e271cc3b48bc21b431258efd3b",
+      "audit_unchanged_from_activation": true,
+      "covariance_rows": 2880,
+      "covariance_rows_cover_all_withheld_epochs": true,
+      "covariance_sha256": "43a79fbcf30d47c2b915729c09f5cc3aca531606a40e5cfc375f907f8380c370",
+      "exact_receiver_orbit_attitude_epoch_tokens_match": true,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "{scratch}/groops-final",
+          "{scratch}/normal/one_iteration_covariance.xml"
+        ],
+        "config_sha256": "f207a3e1f8008008b4115b83bc9f3605209b1f402976de692b7440f28f542501",
+        "elapsed_seconds": 28.612837171007413,
+        "log": "{scratch}/normal/one_iteration_covariance.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+        "peak_rss_bytes": 501936128,
+        "pid": 283328,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "invalid_positive_definite_blocks": [],
+      "mask": "normal",
+      "maximum_float64_epoch_error_seconds": 3.073364496231079e-07,
+      "nominal_GNSS_epochs_in_UTC_blackout": 240,
+      "passed": true,
+      "receiver_epochs": 2879
+    },
+    {
+      "audit_sha256": "2483caa180692f9557f931e625429a7dde52b2fdf9c2afff3b83b5e6c28b6442",
+      "audit_unchanged_from_activation": true,
+      "covariance_rows": 2880,
+      "covariance_rows_cover_all_withheld_epochs": true,
+      "covariance_sha256": "bb785d1c5344cbeec3a0da94666822d9877ba265a7987b5336477c7c3f6ae624",
+      "exact_receiver_orbit_attitude_epoch_tokens_match": true,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "{scratch}/groops-final",
+          "{scratch}/blackout/one_iteration_covariance.xml"
+        ],
+        "config_sha256": "9e612c1aee3fce43df035ef8e59796e256f25ed89e6a69664f7807d2e86f0229",
+        "elapsed_seconds": 23.3681816040189,
+        "log": "{scratch}/blackout/one_iteration_covariance.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+        "peak_rss_bytes": 495345664,
+        "pid": 283488,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "invalid_positive_definite_blocks": [],
+      "mask": "blackout",
+      "maximum_float64_epoch_error_seconds": 3.073364496231079e-07,
+      "nominal_GNSS_epochs_in_UTC_blackout": 240,
+      "passed": true,
+      "receiver_epochs": 2639
+    }
+  ],
+  "reference_or_slr_evaluation": false,
+  "scope": "One native estimate iteration and covariance export; no converged flight result"
+}

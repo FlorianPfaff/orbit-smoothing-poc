@@ -1,0 +1,27 @@
+{
+  "analytic_resampling_test": {
+    "epoch_tolerance_seconds": 1e-09,
+    "exact_pulse_epoch_uses_post_pulse_velocity": true,
+    "model": "quadratic position plus a known 1m/s velocity jump",
+    "position_tolerance_m": 1e-06,
+    "query_epochs_seconds": [
+      0,
+      12,
+      87,
+      90,
+      92,
+      177,
+      180
+    ],
+    "velocity_tolerance_m_s": 1e-09
+  },
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "scope": "Implementation and native geometry/covariance checks only; no convergence or orbit-accuracy claim",
+  "status": "passed",
+  "tests": [
+    "test_comparison_data.py",
+    "test_comparison_slr.py",
+    "test_receiver_geometry_native.py"
+  ],
+  "tests_passed": 29
+}

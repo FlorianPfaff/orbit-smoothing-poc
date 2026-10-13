@@ -1,0 +1,85 @@
+{
+  "complete": true,
+  "cpu_groups": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ]
+  ],
+  "evaluation_performed": false,
+  "failure_interpretation": "Blackout log-density first step reached +17.8218 (exp(g) about5.49e7); next propagation diverged and the normal factorization failed. Three other fits converged. This gate failed and is not reused as acceptance.",
+  "mode": "fit",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "passed": false,
+  "recorded_at": "2026-10-13T23:37:10.699722+00:00",
+  "records": [
+    {
+      "audit_sha256": "4df1948a3bae158ed2740557da7ba08dae931fd757f48ca884f9c93f0d0d1e62",
+      "audit_stable_across_outer_iterations": true,
+      "converged": false,
+      "covariance_valid": false,
+      "elapsed_seconds": 443.7460779619869,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/groops_log_drag_ou/iteration-02/estimate.log",
+      "iterations": 1,
+      "label": "blackout/groops_log_drag_ou",
+      "result": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/groops_log_drag_ou/result.json",
+      "result_sha256": "70e6f7cd866a090ca85d75d40a4e5a8d33bdb23bcc0f03402f99a5e6a8347313",
+      "status": "failed"
+    },
+    {
+      "audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "elapsed_seconds": 506.140771417995,
+      "error": null,
+      "iterations": 4,
+      "label": "normal/groops_pulses",
+      "result": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/normal/groops_pulses/result.json",
+      "result_sha256": "28cfda33609ff69f256b828e014affc9b82f75e630db085e229543b713612076",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "4df1948a3bae158ed2740557da7ba08dae931fd757f48ca884f9c93f0d0d1e62",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "elapsed_seconds": 596.2828717939556,
+      "error": null,
+      "iterations": 5,
+      "label": "blackout/groops_pulses",
+      "result": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/groops_pulses/result.json",
+      "result_sha256": "0543b0759cafe0c184eb319d53ffb994d9a17c01470441a96cbdbedf5ab0aebb",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "elapsed_seconds": 1744.3556506310124,
+      "error": null,
+      "iterations": 8,
+      "label": "normal/groops_log_drag_ou",
+      "result": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/normal/groops_log_drag_ou/result.json",
+      "result_sha256": "5234fee38f042a7817fef8e27ab3705c5eb974ef908137957c6dbcf38a0b5ff8",
+      "status": "complete"
+    }
+  ],
+  "same_audit_across_methods": {
+    "blackout": true,
+    "normal": true
+  },
+  "schema_version": 3,
+  "scope": "Historical full UTC-day engineering failure before common nominal closure; no scientific calibration or evaluation.",
+  "source_sha256": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e",
+  "workers": 4
+}

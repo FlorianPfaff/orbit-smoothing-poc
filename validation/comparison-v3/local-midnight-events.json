@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "Actual native local-midnight crossing regression; does not replace flight force refinement",
+  "test_cases": 4,
+  "crossing_directions": [
+    -1,
+    1
+  ],
+  "input_steps_seconds": [
+    2.5,
+    5.0
+  ],
+  "known_crossing_seconds": 53.123,
+  "crossing_tolerance_seconds": 2e-06,
+  "noon_false_events": 0,
+  "native_binary_sha256": "1f133175c1b572a100a565e3301fa1fce3ccd86e405801190392dec9750f9c66",
+  "source_hashes": {
+    "groops/extension/atmosphereLocalEvents.h": "22cea5f25f5a2ba6912a7aaf29708d5254b1f6eced0098fd4f8c6b4ec98de973",
+    "groops/extension/orbitPocForceDesign.cpp": "25570a7bcec94c25e7177a39eefedf1a51266949ea2c77d2f1e879c843be2113",
+    "tests/test_comparison_local_events.py": "b7eb5dfaf4c428b833470e268382985f8f7066d4a7bd4a867fe5913d60eda729"
+  },
+  "command": "ORBIT_POC_GROOPS=<frozen-groops> PYTHONPATH=src python -m pytest tests/test_comparison_local_events.py -q",
+  "observed_test_output": "4 passed in 4.40 s",
+  "raw_artifact_locator": "raw-artifacts/local-event-tests-final",
+  "junit_sha256": "5fb76f1d42698ef25c1a45b7d85a9f438dbd56924cb72cf863d4b522d49ba864"
+}

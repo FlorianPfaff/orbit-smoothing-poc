@@ -1,0 +1,204 @@
+{
+  "schema_version": 3,
+  "scope": "One-hour independent-Tudat synthetic pipeline with current native covariance, GNSS receiver geometry, held-out prediction and support audit; not the scientific calibration/evaluation campaign.",
+  "complete": true,
+  "passed": true,
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "records": [
+    {
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "elapsed_seconds": 41.83689216297353,
+      "peak_rss_bytes": 301080576,
+      "preprocessing_audit_sha256": "d529eff72f0d77b5f165736958f464052a7a9302ec605e5f8e23a0f3843e73cc",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "629516ed48d1bd7cc77e5668f18506076b6535ca202b3aac2743e9d344b1ae67",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "ionosphere_policy": "Slant ionosphere is eliminated locally by the native GNSS observation model, rather than retained as a global parameter block",
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "prediction_covariance_epochs": 120,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "retain_native_diagnostics": true,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "normal",
+      "method": "groops_pulses",
+      "evaluation_status": "complete",
+      "result_sha256": "faafdeb9aaea17f74bdaddcbb1f687f8b4f555c3bb466aacc80164e66beced5e",
+      "evaluation_result_sha256": "9277e3ca2d15e66c3285d76a150b689f73e1719b2d92151e38553d364d0fd16f",
+      "raw_directory": "raw-artifacts/functional-74863/normal/groops_pulses"
+    },
+    {
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "elapsed_seconds": 40.29700734897051,
+      "peak_rss_bytes": 301305856,
+      "preprocessing_audit_sha256": "d529eff72f0d77b5f165736958f464052a7a9302ec605e5f8e23a0f3843e73cc",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "629516ed48d1bd7cc77e5668f18506076b6535ca202b3aac2743e9d344b1ae67",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "ionosphere_policy": "Slant ionosphere is eliminated locally by the native GNSS observation model, rather than retained as a global parameter block",
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "prediction_covariance_epochs": 120,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "retain_native_diagnostics": true,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "normal",
+      "method": "groops_log_drag_ou",
+      "evaluation_status": "complete",
+      "result_sha256": "f33ea27ff2f49e7a3efc026f898bb3f14f46fd5278687f99e009275491529235",
+      "evaluation_result_sha256": "273bce40b0cf83fa3c3aa2d1fe5f0a303129a604b87144795be128b3d232be91",
+      "raw_directory": "raw-artifacts/functional-74863/normal/groops_log_drag_ou"
+    },
+    {
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "elapsed_seconds": 50.568432293017395,
+      "peak_rss_bytes": 301105152,
+      "preprocessing_audit_sha256": "cebc2ce983d9c3c2190026ecb3927934a42c2f90a6509a90f053a7e66ffd12f4",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "629516ed48d1bd7cc77e5668f18506076b6535ca202b3aac2743e9d344b1ae67",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "ionosphere_policy": "Slant ionosphere is eliminated locally by the native GNSS observation model, rather than retained as a global parameter block",
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "prediction_covariance_epochs": 120,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "retain_native_diagnostics": true,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "masked",
+      "method": "groops_pulses",
+      "evaluation_status": "complete",
+      "result_sha256": "98b0cc29f0dc818304e3be8e5a698382851f3473c74ad85c01e22331f48f75cd",
+      "evaluation_result_sha256": "64cc62e53899070110ad322de40ce005d310c31dfe6377ff77abd5391cb35987",
+      "raw_directory": "raw-artifacts/functional-74863/masked/groops_pulses",
+      "predictive_support_sha256": "c52939bdf23fb19381eed0487ada9874ef9e84af1fc6ee4e3256e881b414a8ce",
+      "predictive_support_columns": [
+        "GPSMJD",
+        "PRN",
+        "first_code_type",
+        "second_code_type"
+      ],
+      "prediction_rows": 236,
+      "scored_epochs": 20,
+      "calibration_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 1.285071551742207
+        },
+        "dimensions": 216,
+        "invalid_epoch_indices": [],
+        "mean_nll": 1.285071551742207,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 216,
+        "uninformative_epochs": 0,
+        "valid": true
+      }
+    },
+    {
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "elapsed_seconds": 42.419099989987444,
+      "peak_rss_bytes": 301129728,
+      "preprocessing_audit_sha256": "cebc2ce983d9c3c2190026ecb3927934a42c2f90a6509a90f053a7e66ffd12f4",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "629516ed48d1bd7cc77e5668f18506076b6535ca202b3aac2743e9d344b1ae67",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "ionosphere_policy": "Slant ionosphere is eliminated locally by the native GNSS observation model, rather than retained as a global parameter block",
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "prediction_covariance_epochs": 120,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "retain_native_diagnostics": true,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "masked",
+      "method": "groops_log_drag_ou",
+      "evaluation_status": "complete",
+      "result_sha256": "bb275248d16eb8697983755539d69404e7e48b8f8a74782f866a23be36d29815",
+      "evaluation_result_sha256": "98f7c2dd76c1b9a21875cb75b35fd7b92b2411105533345c8428ff7169929bab",
+      "raw_directory": "raw-artifacts/functional-74863/masked/groops_log_drag_ou",
+      "predictive_support_sha256": "c52939bdf23fb19381eed0487ada9874ef9e84af1fc6ee4e3256e881b414a8ce",
+      "predictive_support_columns": [
+        "GPSMJD",
+        "PRN",
+        "first_code_type",
+        "second_code_type"
+      ],
+      "prediction_rows": 236,
+      "scored_epochs": 20,
+      "calibration_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 1.2854929390555514
+        },
+        "dimensions": 216,
+        "invalid_epoch_indices": [],
+        "mean_nll": 1.2854929390555514,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 216,
+        "uninformative_epochs": 0,
+        "valid": true
+      }
+    }
+  ],
+  "same_preprocessing_across_arms": {
+    "normal": true,
+    "masked": true
+  },
+  "same_predictive_support_across_arms": true,
+  "original_functional_gate_sha256": "3999ee3031425212e1a82fea1266e5879f9f8811e9e527836145312d924b0fb0",
+  "uncertainty_scope": "Conditional local Gaussian covariance; no statistical calibration claim from this engineering pilot."
+}

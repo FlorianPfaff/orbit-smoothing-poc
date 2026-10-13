@@ -1,0 +1,83 @@
+{
+  "attitudes_identical_between_masks": true,
+  "bootstrap_recomputed_after_mask": true,
+  "date": "2024-04-24",
+  "epoch_check_method": "Decimal arithmetic on native long-double ASCII exports against exact integer-second UTC-aligned grid; no binary64 MJD subtraction",
+  "native_binary_sha256": "4421170b681d593d88a893b7416ba05eac5d8d521d05b3dd9026e7f13534438c",
+  "passed": true,
+  "production_fits_run": false,
+  "provider_boundary_epoch_status": "GPS00:00:00 of adjacent day excluded by preserved provider phase-break quality flags; no fabricated or replacement measurements",
+  "records": {
+    "blackout": {
+      "bootstrap_sha256": "224b1a03149656b491f1478d7036e4c8b832812a0d6dce440457c4d1653bc923",
+      "bootstrap_solved_epochs": 2638,
+      "epochs_in_utc_blackout_window": 0,
+      "first_epoch_after_blackout_utc_seconds": 46812,
+      "first_receiver_utc_seconds": 12,
+      "last_epoch_before_blackout_utc_seconds": 39582,
+      "last_receiver_utc_seconds": 86352,
+      "native_grids": {
+        "attitude": {
+          "epochs": 17281,
+          "first_gps_seconds_after_midnight": 17.999999999983643,
+          "last_gps_seconds_after_midnight": 86417.99999999999,
+          "maximum_exact_grid_error_seconds": 1.610016e-10
+        },
+        "orbit": {
+          "epochs": 17281,
+          "first_gps_seconds_after_midnight": 17.999999999983643,
+          "last_gps_seconds_after_midnight": 86417.99999999999,
+          "maximum_exact_grid_error_seconds": 1.610016e-10
+        }
+      },
+      "native_inputs": {
+        "attitude": "cdf685dd281310097f55d9d9db5cf2ecc68faa1b2f4a10d59576d37626a1a241",
+        "orbit": "8490c2353d46390266b2d3c7829371254a510d045221d64b1f5f7087ed1a3db2",
+        "receiver": "5f154f9ad8891ae87f476b38e937173ac4b37d3076bcb50dd1923cea5ef65ef6"
+      },
+      "preparation_manifest_sha256": "316f24ef0a6b7b74ae92011c00822dd46a7b8e7442097fe1c12a697896161e3d",
+      "preprocessing_hash": "da3b46d544acaa843a5b0d7e0cd17768b08fb84e7a5abe454f81f5c7a50d9689",
+      "receiver_epochs": 2639
+    },
+    "normal": {
+      "bootstrap_sha256": "6a0e8a5d31469e89551b195156c670f6cfb1556e1e9d8a27c4dbf917b5169f6c",
+      "bootstrap_solved_epochs": 2878,
+      "epochs_in_utc_blackout_window": 240,
+      "first_epoch_after_blackout_utc_seconds": 46812,
+      "first_receiver_utc_seconds": 12,
+      "last_epoch_before_blackout_utc_seconds": 39582,
+      "last_receiver_utc_seconds": 86352,
+      "native_grids": {
+        "attitude": {
+          "epochs": 17281,
+          "first_gps_seconds_after_midnight": 17.999999999983643,
+          "last_gps_seconds_after_midnight": 86417.99999999999,
+          "maximum_exact_grid_error_seconds": 1.610016e-10
+        },
+        "orbit": {
+          "epochs": 17281,
+          "first_gps_seconds_after_midnight": 17.999999999983643,
+          "last_gps_seconds_after_midnight": 86417.99999999999,
+          "maximum_exact_grid_error_seconds": 1.610016e-10
+        }
+      },
+      "native_inputs": {
+        "attitude": "cdf685dd281310097f55d9d9db5cf2ecc68faa1b2f4a10d59576d37626a1a241",
+        "orbit": "f3113a3a37c82b885940b004ec210878d5aa47a102fb035502c02187df0f1e98",
+        "receiver": "b18a62a849af28af36c619d3c92c605982ce30cd64733e9e8b3f830bdc0de347"
+      },
+      "preparation_manifest_sha256": "9ed7e09f01ee9d3dd2985ce35da4f9ebd14636e2e169c1bc051da14bf708f59d",
+      "preprocessing_hash": "143160c54dc5dd8c7b0822212ee36c0fad41daef6d0356dda4e851f1ddff3089",
+      "receiver_epochs": 2879
+    }
+  },
+  "reference_inputs_used": false,
+  "removed_receiver_epochs": 240,
+  "retained_observations_identical_between_masks": true,
+  "runtime_source_sha256": {
+    "data.py": "b0badcbd6ee3d1d896e0cdaebaaf9e7d814babad6264f5a577c0f57c6c87a2df",
+    "groops_config.py": "7b972ec148d5aed943fdebe6a3050b17974a5af9e8bf8545edd6f12815316cf1",
+    "slr.py": "148fc540e3439157093892504c20b1bf45faed79cff7e4f81a77a0e0aa7920e9"
+  },
+  "scope": "Input conversion, epoch precision, masking, pairing and GNSS-only initialization; not orbit-fit accuracy or numerical propagation acceptance"
+}

@@ -1,0 +1,106 @@
+{
+  "empty_session_reason": "Station7090 source session5 has five normal points, all below fixed20-degree elevation cutoff; prior geometry-only audit establishes their11.96\u201313.93-degree elevation.",
+  "files": [
+    {
+      "path": "flight-postfit-crd-sessions-74863/evaluation_audit.json",
+      "sha256": "bb97bbd98177b7f42bfc43b1aea9e4b00d96a1a6384cd17f3477d7851a098843"
+    },
+    {
+      "path": "flight-postfit-crd-sessions-74863/flight_metrics.json",
+      "sha256": "c61c9039365fbbdebc6a1ed84ca2ccfaf82bdc16291fa3b71bf740ed7e8dfbad"
+    },
+    {
+      "path": "flight-postfit-crd-sessions-74863/reporting_source.json",
+      "sha256": "4093bc26b852f5cf9cc3ea7daec98eb0bb78d330bd612aed138df33dc37df1d6"
+    },
+    {
+      "path": "flight-postfit-crd-sessions-74863/request.json",
+      "sha256": "9307cd239978dd42f385f77a630f0138675c37ed3452959c4896f537123f9b9c"
+    },
+    {
+      "path": "flight-postfit-crd-sessions-74863/slr_diagnostic_arrays.npz",
+      "sha256": "eaf1358ab134edd03b4beead96d9be0193a35c0eab85fb0076789d8e6a84cbd2"
+    },
+    {
+      "path": "flight-postfit-crd-sessions-74863/slr_manifest.json",
+      "sha256": "7997855bc0809be68c946f996eb0ff25af4d4e7206b64cbecede5c7a9272308f"
+    }
+  ],
+  "fit_preparation_and_original_evaluation_unchanged": true,
+  "fit_source_hash": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e",
+  "formal_prediction": {
+    "observations": 17,
+    "selection": "fixed external ILRS calibration availability; no residual selection",
+    "station_bias_uncertainty": "shared station-common covariance from published external calibration",
+    "stations": [
+      7105
+    ],
+    "status": "complete"
+  },
+  "gate": "flight_postfit_crd_session_reporting_engineering",
+  "helper_sha256": "305c481bd0620b248551447737d4a3c753e1b50448ee7978a1808cedcf73805d",
+  "independent_session_covariance_checks": [
+    {
+      "dimensions": 17,
+      "nll_difference": -1.4210854715202004e-14,
+      "session": "2024-04-24/station-7105/crd-session-10"
+    }
+  ],
+  "may_data_used": false,
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "native_predicted_points": 80,
+  "native_predictions_and_full_covariance_byte_identical_to_original": true,
+  "native_station_arcs": 7,
+  "original_before_fix_evidence": {
+    "limitation": "Its native per_pass labels group station arcs, not original CRD sessions; use this new evidence for per-session reporting.",
+    "path": "flight_postfit_74863.json",
+    "sha256": "5de123741ab907a8f9ab9085cb903120bb62e229238428cf64b999d4086d267d"
+  },
+  "passed": true,
+  "postfit_reporting_source_hash": "fb04bb58dbd9531c27a598302999877bf761da1cc34a349e903407c3c0eb2348",
+  "preserved_remote_output": "{engineering_root}/normal-pulse-postfit-crd-sessions",
+  "protocol_deviation": "April24 GNV is opened only after a completed engineering fit to exercise post-fit evaluation. This repeats the already disclosed April24 development diagnostic solely to verify CRD session reporting; it must not influence calibration settings or scientific claims.",
+  "raw_result_sha256": "1a222256ad70ac67450055525297c4ac562742e69871359f437b718b832b633d",
+  "reporting_changed_files": {
+    "src/orbit_poc/comparison/backend.py": {
+      "after": "afa73a28b4df2ab7b5755843988b1ce01b3e8325b75f06f78176c82bac1ce7e8",
+      "before": "8704896747bdb09beca4176ef221de76d4f08116a86854c25f1c4661dd2289e1"
+    },
+    "src/orbit_poc/comparison/slr.py": {
+      "after": "33cb24ed51ac033d0d6218e3073b81a29759e70d8b7908ecb75aa01a4cec7075",
+      "before": "148fc540e3439157093892504c20b1bf45faed79cff7e4f81a77a0e0aa7920e9"
+    }
+  },
+  "reproduction": "Run post-fit evaluate_job using the existing converged fit and unchanged April24/25 reference and April24 SLR inputs; reporting source differs only in slr.py and its summary call arguments.",
+  "schema_version": 1,
+  "scope": "April24 completed pulse fit, post-fit reporting only. No orbit refit, May spacecraft data, scientific selection or uncertainty-coverage claim.",
+  "session_mapping": {
+    "definition": "Original provider CRD H4/H8 session, not a native station arc",
+    "match_tolerance_seconds": 1e-05,
+    "maximum_epoch_match_error_seconds": 3.137101884931326e-07,
+    "predicted_rows_matched": 80,
+    "selection": "Station and source ground-transmit epoch only; no residual selection",
+    "session_bounds_sha256": "ac8b00cc0fdc086c710c367387e0899bf48d5a65cae6e2e3830e764877e2ff3c",
+    "sessions_with_native_predictions": 10,
+    "source_sessions": 11,
+    "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+    "status": "complete"
+  },
+  "sessions_with_physically_usable_points": 10,
+  "sessions_without_predictions": [
+    "2024-04-24/station-7090/crd-session-5"
+  ],
+  "slr_or_reference_used_in_fit": false,
+  "source_crd_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+  "source_normal_points": 85,
+  "source_sessions": 11,
+  "unchanged_scores": {
+    "by_geometry": true,
+    "per_date": true,
+    "per_station": true,
+    "predictive": true,
+    "top_level_formal_prediction": true,
+    "top_level_predictive": true,
+    "top_level_reference_agreement": true
+  }
+}

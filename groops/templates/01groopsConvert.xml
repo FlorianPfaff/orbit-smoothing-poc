@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<groops>
+	<global>
+		<time label="timeStart">58849</time>
+		<time label="timeEnd">timeStart+2</time>
+		<filename label="groopsDataDir">/itsg/groops/data</filename>
+		<loopType label="loopPrn">
+			<fileStringList>
+				<inputfile>{groopsDataDir}/gnss/transmitter/transmitterList.gps.txt</inputfile>
+				<variableLoopString>prn</variableLoopString>
+			</fileStringList>
+		</loopType>
+	</global>
+	<program comment="daily - satellite data">
+		<LoopPrograms>
+			<loop>
+				<timeIntervals>
+					<timeIntervals>
+						<uniformSampling>
+							<timeStart link="timeStart"/>
+							<timeEnd link="timeEnd"/>
+							<sampling>1</sampling>
+						</uniformSampling>
+					</timeIntervals>
+					<variableLoopTimeStart>loopTime</variableLoopTimeStart>
+					<variableLoopTimeEnd>loopTimeEnd</variableLoopTimeEnd>
+				</timeIntervals>
+			</loop>
+			<continueAfterError>0</continueAfterError>
+			<processCountPerIteration>0</processCountPerIteration>
+			<parallelLog>1</parallelLog>
+			<program comment="data/{loopTime:%D}/orbit">
+				<FileCreateDirectories>
+					<directory>data/{loopTime:%D}/orbit</directory>
+					<directory>data/{loopTime:%D}/attitude</directory>
+					<directory>data/{loopTime:%D}/clock</directory>
+					<directory>data/{loopTime:%D}/signalBias</directory>
+				</FileCreateDirectories>
+			</program>
+			<program comment="orbits">
+				<LoopPrograms>
+					<loop link="loopPrn"/>
+					<continueAfterError>1</continueAfterError>
+					<processCountPerIteration>1</processCountPerIteration>
+					<parallelLog>1</parallelLog>
+					<program comment="data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat">
+						<Sp3Format2Orbit>
+							<outputfileOrbit>data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</outputfileOrbit>
+							<satelliteIdentifier>{prn}</satelliteIdentifier>
+							<earthRotation>
+								<file>
+									<inputfileEOP>{groopsDataDir}/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+									<interpolationDegree>3</interpolationDegree>
+								</file>
+							</earthRotation>
+							<inputfile>igs/TUG0R03FIN_{loopTime:%y%03O}0000_01D_05M_ORB.SP3.gz</inputfile>
+						</Sp3Format2Orbit>
+					</program>
+					<program comment="data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat">
+						<OrbitAddVelocityAndAcceleration>
+							<outputfileOrbit>data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</outputfileOrbit>
+							<inputfileOrbit>data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</inputfileOrbit>
+							<polynomialDegree>2</polynomialDegree>
+						</OrbitAddVelocityAndAcceleration>
+					</program>
+				</LoopPrograms>
+			</program>
+			<program comment="data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.dat">
+				<GnssOrbex2StarCamera>
+					<outputfileStarCamera>data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.dat</outputfileStarCamera>
+					<inputfileOrbex>igs/TUG0R03FIN_{loopTime:%y%03O}0000_01D_30S_ATT.OBX.gz</inputfileOrbex>
+					<identifier loop="loopPrn">{prn}</identifier>
+					<earthRotation>
+						<file>
+							<inputfileEOP>{groopsDataDir}/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+							<interpolationDegree>3</interpolationDegree>
+						</file>
+					</earthRotation>
+				</GnssOrbex2StarCamera>
+			</program>
+			<program disabled="1" comment="(alternative) simulated satellite attitude">
+				<LoopPrograms>
+					<loop comment=" loop prn and sets variable svn">
+						<loop>
+							<loop link="loopPrn"/>
+							<loop comment="sets variable svn">
+								<platformEquipment>
+									<inputfilePlatform>{groopsDataDir}/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.{prn}.xml</inputfilePlatform>
+									<equipmentType>
+										<gnssAntenna/>
+									</equipmentType>
+									<variableLoopName>block</variableLoopName>
+									<variableLoopSerial>svn</variableLoopSerial>
+									<variableLoopTimeStart>svnTimeStart</variableLoopTimeStart>
+									<variableLoopTimeEnd>svnTimeEnd</variableLoopTimeEnd>
+									<condition>
+										<expression>
+											<expression>(svnTimeStart &lt;= loopTime) &amp;&amp; (loopTime &lt; svnTimeEnd)</expression>
+										</expression>
+									</condition>
+								</platformEquipment>
+							</loop>
+						</loop>
+					</loop>
+					<continueAfterError>1</continueAfterError>
+					<processCountPerIteration>1</processCountPerIteration>
+					<parallelLog>1</parallelLog>
+					<program comment="fileVariational">
+						<GnssPrn2SvnBlockVariables/>
+					</program>
+					<program comment="data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.{prn}.dat">
+						<SimulateStarCameraGnss>
+							<outputfileStarCamera>data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.{prn}.dat</outputfileStarCamera>
+							<inputfileOrbit>data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</inputfileOrbit>
+							<inputfileAttitudeInfo>{groopsDataDir}/gnss/transmitter/attitudeInfo/attitudeInfo.{svn}.txt</inputfileAttitudeInfo>
+							<interpolationDegree>7</interpolationDegree>
+							<modelingResolution>1</modelingResolution>
+							<ephemerides>
+								<jpl>
+									<inputfileEphemerides>{groopsDataDir}/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+									<origin>
+										<earth/>
+									</origin>
+								</jpl>
+							</ephemerides>
+							<eclipse>
+								<conical/>
+							</eclipse>
+						</SimulateStarCameraGnss>
+					</program>
+				</LoopPrograms>
+			</program>
+			<program comment="data/{loopTime:%D}/clock/clock_{loopTime:%D}.dat">
+				<GnssClockRinex2InstrumentClock>
+					<outputfileInstrument>data/{loopTime:%D}/clock/clock_{loopTime:%D}.dat</outputfileInstrument>
+					<inputfileClockRinex>igs/TUG0R03FIN_{loopTime:%y%03O}0000_01D_30S_CLK.CLK.gz</inputfileClockRinex>
+					<identifier loop="loopPrn">{prn}</identifier>
+					<intervals>
+						<uniformInterval>
+							<timeStart>loopTime</timeStart>
+							<timeEnd>loopTimeEnd</timeEnd>
+							<intervalCount>1</intervalCount>
+						</uniformInterval>
+					</intervals>
+					<minEpochsPerInterval>2</minEpochsPerInterval>
+				</GnssClockRinex2InstrumentClock>
+			</program>
+			<program comment="data/{loopTime:%D}/signalBias/signalBias_{loopTime:%D}.txt">
+				<GnssSinexBias2SignalBias>
+					<outputfileSignalBias>data/{loopTime:%D}/signalBias/signalBias_{loopTime:%D}.txt</outputfileSignalBias>
+					<inputfileSinexBias>igs/TUG0R03FIN_{loopTime:%y%03O}0000_01D_01D_OSB.BIA.gz</inputfileSinexBias>
+					<inputfileGlonassSignalDefinition>{groopsDataDir}/gnss/transmitter/signalDefinition/signalDefinition.xml</inputfileGlonassSignalDefinition>
+					<identifier loop="loopPrn">{prn}</identifier>
+				</GnssSinexBias2SignalBias>
+			</program>
+		</LoopPrograms>
+	</program>
+</groops>

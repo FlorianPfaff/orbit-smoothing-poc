@@ -1,0 +1,37 @@
+{
+  "command": "PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 ORBIT_POC_GROOPS=<immutable-74863-binary> <native-env>/bin/python -m pytest -q --junitxml=work/v3/tests-74863/junit.xml",
+  "elapsed_seconds": 87.248,
+  "errors": 0,
+  "failures": 0,
+  "files_changed_during_run": [
+    "scripts/check_combined_refinement.py",
+    "src/orbit_poc/comparison/backend.py"
+  ],
+  "junit_sha256": "7c2a41cd2f3f90dce5fdd587806af5220e13d8bce79890484f1da32d3626133b",
+  "log_sha256": "98f03a269162c0c1ac8c86789ba66f14a0ebf852a70c2c20facd3ee9d7872104",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "native_tests_enabled": true,
+  "passed": 168,
+  "production_accuracy_acceptance": false,
+  "raw_artifact_locator": "work/v3/tests-74863",
+  "recorded_at_utc": "2026-10-13T20:38:13.760122+00:00",
+  "scope": "Automated source and native component checks; excludes full flight accuracy and frozen scientific campaign acceptance",
+  "skip_reasons": [
+    "Optional archived real v1 pilot fixture is not present"
+  ],
+  "skipped": 1,
+  "source_scope": "In-flight engineering suite; backend failure provenance and a new refinement script changed between snapshots. This run does not certify one immutable final source snapshot. A final suite remains required after thermal configuration and diagnostic script changes stabilize.",
+  "source_snapshot_after": {
+    "manifest": "automated-tests-74863-source-after.json",
+    "manifest_sha256": "a7f821738f27ee5cd94b689f0db4d247e5dcf97f6c4593ecff9e9f99f289e2a3",
+    "sha256": "0909c69b6ada34c694387e642eb1ebc59cab820fa1fe2dfaf959ad708998f32c"
+  },
+  "source_snapshot_before": {
+    "manifest": "automated-tests-74863-source-before.json",
+    "manifest_sha256": "b11f4b8f1f4f952d847a12dcd276865da17a555c19bfcc8b4219a84b71489c34",
+    "sha256": "d452889da7045ccfe9eacda97d3f96890b4d247c4770e3d071b67042303b958e"
+  },
+  "source_stable_during_run": false,
+  "status": "passed",
+  "tests": 169
+}

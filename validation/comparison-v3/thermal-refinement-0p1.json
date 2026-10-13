@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "production_accuracy_acceptance_requires_separate_full_gate": true,
+  "records": [
+    {
+      "combined_refinement": {
+        "coarse": "/tmp/orbit-v3-flight-refinement-thermal-0p1/groops_pulses/coarse",
+        "coarse_config_sha256": "bb375e9d42a9bf8762defd9880212ca0c2d8bedc32a6ba58f571054dc90e97d5",
+        "fine": "/tmp/orbit-v3-thermal-smallstep-pulse/step-0.05",
+        "fine_config_sha256": "a6ca17df7355b91e1b529da39d3f2bf974210857a04c99564d8f8bac691f38e8",
+        "metrics": {
+          "fixed_orbit.txt": {
+            "epochs": 17280,
+            "maximum_position_difference_m": 1.691188767901997e-05,
+            "rms_position_difference_m": 7.342736227513884e-06
+          },
+          "offgrid_orbit.txt": {
+            "epochs": 21597,
+            "maximum_position_difference_m": 1.7978348314515614e-05,
+            "rms_position_difference_m": 7.377087247876061e-06
+          }
+        },
+        "passed": true,
+        "scope": "Combined state-grid and thermal-step geometric refinement; complements separate atmosphere and thermal checks and native prediction comparisons",
+        "threshold_m": 3e-05
+      },
+      "method": "groops_pulses",
+      "raw_artifacts": "/tmp/orbit-v3-thermal-smallstep-pulse",
+      "thermal_refinement": {
+        "comparisons": [
+          {
+            "below_30_micrometres": true,
+            "metrics": {
+              "fixed_orbit.txt": {
+                "maximum_position_difference_m": 1.252128012391198e-05,
+                "rms_position_difference_m": 4.5081942190626616e-06
+              },
+              "offgrid_orbit.txt": {
+                "maximum_position_difference_m": 1.2521179871039415e-05,
+                "rms_position_difference_m": 4.507309423651948e-06
+              }
+            },
+            "steps_seconds": [
+              0.1,
+              0.05
+            ]
+          }
+        ],
+        "complete": true,
+        "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+        "production_accuracy_acceptance": false,
+        "reference_config": "/tmp/orbit-v3-flight-refinement-quaternion/groops_pulses/fine/evaluate.xml",
+        "reference_config_sha256": "5c8286955a7311b8cf88c04543593d0c01fc73f9ce13791a711fa04f43b33676",
+        "scope": "Only thermal maximum step varied; identical fixed initial state, physical model, geometry grid, pressure endpoints, and atmospheric quadrature. This does not certify absolute integration error or replace state-grid refinement.",
+        "status": "diagnostic_complete",
+        "steps_seconds": [
+          0.1,
+          0.05
+        ]
+      }
+    },
+    {
+      "combined_refinement": {
+        "coarse": "/tmp/orbit-v3-flight-refinement-thermal-0p1/groops_log_drag_ou/coarse",
+        "coarse_config_sha256": "4cb5a4853554148e2731822ce73d57154c1220da11ff601017133847020ca829",
+        "fine": "/tmp/orbit-v3-thermal-smallstep-density/step-0.05",
+        "fine_config_sha256": "77f4bed2b370a70881dc3b3b540e1de5f7d4c5bf109c7f899c8bfa7c126d7ad0",
+        "metrics": {
+          "fixed_orbit.txt": {
+            "epochs": 17280,
+            "maximum_position_difference_m": 2.3312958872975476e-05,
+            "rms_position_difference_m": 1.0280642545081639e-05
+          },
+          "offgrid_orbit.txt": {
+            "epochs": 21597,
+            "maximum_position_difference_m": 2.443706260384844e-05,
+            "rms_position_difference_m": 1.0307509866149124e-05
+          }
+        },
+        "passed": true,
+        "scope": "Combined state-grid and thermal-step geometric refinement; complements separate atmosphere and thermal checks and native prediction comparisons",
+        "threshold_m": 3e-05
+      },
+      "method": "groops_log_drag_ou",
+      "raw_artifacts": "/tmp/orbit-v3-thermal-smallstep-density",
+      "thermal_refinement": {
+        "comparisons": [
+          {
+            "below_30_micrometres": true,
+            "metrics": {
+              "fixed_orbit.txt": {
+                "maximum_position_difference_m": 1.3278524149737004e-05,
+                "rms_position_difference_m": 4.8334755356731805e-06
+              },
+              "offgrid_orbit.txt": {
+                "maximum_position_difference_m": 1.3278474473294942e-05,
+                "rms_position_difference_m": 4.832548865900686e-06
+              }
+            },
+            "steps_seconds": [
+              0.1,
+              0.05
+            ]
+          }
+        ],
+        "complete": true,
+        "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+        "production_accuracy_acceptance": false,
+        "reference_config": "/tmp/orbit-v3-flight-refinement-quaternion/groops_log_drag_ou/fine/evaluate.xml",
+        "reference_config_sha256": "b7ee750f97cef036ca4c6fda36074d5e147e2ebea5ad34de74df2166dab130e4",
+        "scope": "Only thermal maximum step varied; identical fixed initial state, physical model, geometry grid, pressure endpoints, and atmospheric quadrature. This does not certify absolute integration error or replace state-grid refinement.",
+        "status": "diagnostic_complete",
+        "steps_seconds": [
+          0.1,
+          0.05
+        ]
+      }
+    }
+  ]
+}

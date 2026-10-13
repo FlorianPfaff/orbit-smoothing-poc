@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "gate": "external_baseline",
+  "passed": true,
+  "groops_upstream_commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+  "example_sha256": "5a9d10bbab419489e5a62306ab5f1c840963ca66fb0b1b9e70fb648e9629f63b",
+  "execution": [
+    {
+      "config": "01groopsConvert.xml",
+      "returncode": 0,
+      "seconds": 179.2923690120224,
+      "config_sha256": "55486fd270fe86d06d39006616ed4a3d9f722a9a0ad906aa4a3ca9312a79517e"
+    },
+    {
+      "config": "02groopsConvertGracefo.xml",
+      "returncode": 0,
+      "seconds": 36.028449768025894,
+      "config_sha256": "6afdd812647e8eb95e5409b8b24cc59e86807c60f67d506444f68df297947d3b"
+    },
+    {
+      "config": "03groopsVariational.xml",
+      "returncode": 0,
+      "seconds": 93.32396095304284,
+      "config_sha256": "c5a67e7c8d549a05cc56903b0cc499fdc0234f3068f9f4727535ca072685c46d"
+    },
+    {
+      "config": "04groopsGnssProcessing.xml",
+      "returncode": 0,
+      "seconds": 952.4039726539631,
+      "config_sha256": "67a5c5fdf9ed080a25c55f874538d7db110d17c243a722105c430927fcfe570b"
+    }
+  ],
+  "supplied_example_agreement": [
+    {
+      "date": "2020-01-01",
+      "epochs": 8640,
+      "supplied_example_position_difference_rms_m": 0.0004492680597701518,
+      "supplied_example_position_difference_max_m": 0.002121209555346854,
+      "orbit_sha256": "f88f4d250305b80a46addc0855a0e5899d54cabb29694e44bd486014b30ce4bc",
+      "supplied_orbit_sha256": "cd1de2608669dfaf7f8541a527b644828fed95f9d17d7594d2223e3c4a2c38ef"
+    },
+    {
+      "date": "2020-01-02",
+      "epochs": 8640,
+      "supplied_example_position_difference_rms_m": 0.00038624184560054136,
+      "supplied_example_position_difference_max_m": 0.001520713315391484,
+      "orbit_sha256": "8cd054d9abc8bb1e6d829a235fab6abe647001725c0b4c3cfc52118f6085ca51",
+      "supplied_orbit_sha256": "5c7971a9db2270f53db573c71d042032ecd13313d8a20fa15307841ed37da86e"
+    }
+  ],
+  "interpretation": "Reproduction of supplied example outputs, not flight truth accuracy. All four official configs run for both days. Main comparator uses different float-ambiguity settings and full pulse constraints.",
+  "pulse_conventions": {
+    "frame": "CRF",
+    "native_unit": "um/s",
+    "constraint_full_value": "relativeToApriori=false",
+    "velocity_at_pulse_epoch": "post-pulse"
+  },
+  "scientific_comparison_complete": false
+}

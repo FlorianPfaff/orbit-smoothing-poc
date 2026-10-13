@@ -1,0 +1,80 @@
+{
+  "status": "prototype_only",
+  "final_specification_pass": false,
+  "purpose": "Validate physical phase diagnostic export and truth matching; not a nuisance accuracy acceptance result.",
+  "noise_limitation": "Earlier official angle-dependent GRACE-FO noise experiment; fixed 0.3m code/0.003m phase experiment will replace it.",
+  "binary_sha256": "dc7cb208bb9853130a4016f97cb6b6a931d2ea846d34f9a9f125b31fbc12690b",
+  "results": [
+    {
+      "formula": "effective ambiguity[m] = input_phase - processed_phase - removed_windup + fitted_physical_ambiguity + fitted_receiver_signal_bias; IF=alpha*L1W+(1-alpha)*L2W",
+      "gauge": "one constant IF offset removed globally, not per satellite, arc, frequency or epoch",
+      "ionosphere_free": {
+        "constant_gauge_aligned_max_m": 0.3601976817470308,
+        "constant_gauge_aligned_rms_m": 0.1237851499081789,
+        "mean_m": -0.006933834300767301,
+        "rms_m": 0.12397919743207253,
+        "rows": 1187
+      },
+      "method": "groops_pulses",
+      "per_type": {
+        "L1C": {
+          "centered_rms_m": 0.03913791587424976,
+          "max_centered_m": 0.1073944792015667,
+          "mean_m": 0.01868004855946731,
+          "rms_m": 0.04336727652463212
+        },
+        "L1W": {
+          "centered_rms_m": 0.06654739716142923,
+          "max_centered_m": 0.16483998833906352,
+          "mean_m": 0.01662817381508323,
+          "rms_m": 0.06859338330615876
+        },
+        "L2W": {
+          "centered_rms_m": 0.05385338476726989,
+          "max_centered_m": 0.1395000186292658,
+          "mean_m": 0.031871484065587645,
+          "rms_m": 0.0625777799816726
+        }
+      },
+      "phase_rows": 3561,
+      "source_sha256": "ac61fe368da32b687042a8debd0738a66556cd34e54c2a59e54a0647446ee0ab",
+      "truth_match_missing": 0
+    },
+    {
+      "formula": "effective ambiguity[m] = input_phase - processed_phase - removed_windup + fitted_physical_ambiguity + fitted_receiver_signal_bias; IF=alpha*L1W+(1-alpha)*L2W",
+      "gauge": "one constant IF offset removed globally, not per satellite, arc, frequency or epoch",
+      "ionosphere_free": {
+        "constant_gauge_aligned_max_m": 0.3553592980385667,
+        "constant_gauge_aligned_rms_m": 0.12392984797970591,
+        "mean_m": -0.006742649234383305,
+        "rms_m": 0.1241131360451864,
+        "rows": 1187
+      },
+      "method": "groops_log_drag_ou",
+      "per_type": {
+        "L1C": {
+          "centered_rms_m": 0.04071431105385706,
+          "max_centered_m": 0.12395862622025713,
+          "mean_m": -0.0350372857147924,
+          "rms_m": 0.053714676903526305
+        },
+        "L1W": {
+          "centered_rms_m": 0.0673743958563482,
+          "max_centered_m": 0.181013436683847,
+          "mean_m": -0.03708973369801654,
+          "rms_m": 0.07690876128763026
+        },
+        "L2W": {
+          "centered_rms_m": 0.05546905366114404,
+          "max_centered_m": 0.150946216220831,
+          "mean_m": -0.05672261139685038,
+          "rms_m": 0.07933643902861394
+        }
+      },
+      "phase_rows": 3561,
+      "source_sha256": "534a6512af4968328be3271bee3c47065e10dcf3a4da092c366bb0f8a0833788",
+      "truth_match_missing": 0
+    }
+  ],
+  "uncertainty": "These are gauge-aligned point differences only. No native ambiguity posterior covariance or independent statistical acceptance threshold is asserted."
+}

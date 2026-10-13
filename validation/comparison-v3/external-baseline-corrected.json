@@ -1,0 +1,118 @@
+{
+  "agreement": [
+    {
+      "artifacts": [
+        {
+          "path": "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/output/2020-01-01/gracefo1_orbit_2020-01-01.txt",
+          "role": "fitted_example_orbit",
+          "sha256": "39a01480edfd79eb025ff1c458c25bb6c3a858f1d3ab0cc1cc919b1676a2fa30"
+        },
+        {
+          "path": "raw-artifacts/official-corrected-7ed97818/supplied-output/2020-01-01/gracefo1_orbit_2020-01-01.txt",
+          "role": "supplied_example_orbit",
+          "sha256": "cd1de2608669dfaf7f8541a527b644828fed95f9d17d7594d2223e3c4a2c38ef"
+        }
+      ],
+      "date": "2020-01-01",
+      "epochs": 8640,
+      "passed": false,
+      "supplied_example_position_difference_max_m": 0.00291784390819907,
+      "supplied_example_position_difference_rms_m": 0.0017281234164909138
+    },
+    {
+      "artifacts": [
+        {
+          "path": "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/output/2020-01-02/gracefo1_orbit_2020-01-02.txt",
+          "role": "fitted_example_orbit",
+          "sha256": "9bea4ec29721e8987c2291a461ae54a3eca22a06362adde75931c86e77a2f6c1"
+        },
+        {
+          "path": "raw-artifacts/official-corrected-7ed97818/supplied-output/2020-01-02/gracefo1_orbit_2020-01-02.txt",
+          "role": "supplied_example_orbit",
+          "sha256": "5c7971a9db2270f53db573c71d042032ecd13313d8a20fa15307841ed37da86e"
+        }
+      ],
+      "date": "2020-01-02",
+      "epochs": 8640,
+      "passed": true,
+      "supplied_example_position_difference_max_m": 0.0018594115193681566,
+      "supplied_example_position_difference_rms_m": 0.00043402171935364613
+    }
+  ],
+  "example_sha256": "5a9d10bbab419489e5a62306ab5f1c840963ca66fb0b1b9e70fb648e9629f63b",
+  "execution": [
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "extended-binary/groops-7ed97818b253feb9",
+        "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/01groopsConvert.xml"
+      ],
+      "config_sha256": "55486fd270fe86d06d39006616ed4a3d9f722a9a0ad906aa4a3ca9312a79517e",
+      "elapsed_seconds": 118.53064182098024,
+      "log": "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/01groopsConvert.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "7ed97818b253feb9bb7be511ced5502563408e86dc52c033c58347ef84ab35c6",
+      "peak_rss_bytes": 308744192,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "extended-binary/groops-7ed97818b253feb9",
+        "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/02groopsConvertGracefo.xml"
+      ],
+      "config_sha256": "6afdd812647e8eb95e5409b8b24cc59e86807c60f67d506444f68df297947d3b",
+      "elapsed_seconds": 9.508619377040304,
+      "log": "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/02groopsConvertGracefo.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "7ed97818b253feb9bb7be511ced5502563408e86dc52c033c58347ef84ab35c6",
+      "peak_rss_bytes": 308080640,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "extended-binary/groops-7ed97818b253feb9",
+        "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/03groopsVariational.xml"
+      ],
+      "config_sha256": "c5a67e7c8d549a05cc56903b0cc499fdc0234f3068f9f4727535ca072685c46d",
+      "elapsed_seconds": 93.03627550503006,
+      "log": "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/03groopsVariational.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "7ed97818b253feb9bb7be511ced5502563408e86dc52c033c58347ef84ab35c6",
+      "peak_rss_bytes": 432947200,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "extended-binary/groops-7ed97818b253feb9",
+        "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/04groopsGnssProcessing.xml"
+      ],
+      "config_sha256": "67a5c5fdf9ed080a25c55f874538d7db110d17c243a722105c430927fcfe570b",
+      "elapsed_seconds": 197.88488279498415,
+      "log": "raw-artifacts/official-corrected-7ed97818/scenarioLeoReducedDynamicOrbit/04groopsGnssProcessing.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "7ed97818b253feb9bb7be511ced5502563408e86dc52c033c58347ef84ab35c6",
+      "peak_rss_bytes": 464822272,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "finished_at": "2026-10-13T18:39:37.443276+00:00",
+  "native_binary_sha256": "7ed97818b253feb9bb7be511ced5502563408e86dc52c033c58347ef84ab35c6",
+  "passed": false,
+  "schema_version": 3,
+  "scope": "Official example recipe reproduction; supplied output agreement is not independent truth accuracy",
+  "started_at": "2026-10-13T18:32:38.244119+00:00",
+  "status": "complete",
+  "thresholds_m": {
+    "maximum": 0.003,
+    "rms": 0.001
+  },
+  "interpretation": "All official programs completed; corrected-build agreement failed the declared 1mm RMS software threshold on Jan1. Preserve separately from clean upstream reproduction; this is not flight truth accuracy.",
+  "raw_artifact_root": "raw-artifacts/official-corrected-7ed97818"
+}

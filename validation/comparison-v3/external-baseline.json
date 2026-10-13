@@ -1,0 +1,419 @@
+{
+  "agreement": [
+    {
+      "artifacts": [
+        {
+          "path": "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/output/2020-01-01/gracefo1_orbit_2020-01-01.txt",
+          "role": "fitted_example_orbit",
+          "sha256": "af9ab8a668d03579ca71f5bc79ec90d3471edeb8f360ec2365a6ff53ec11ff80"
+        },
+        {
+          "path": "raw-artifacts/official-upstream-final/supplied-output/2020-01-01/gracefo1_orbit_2020-01-01.txt",
+          "role": "supplied_example_orbit",
+          "sha256": "cd1de2608669dfaf7f8541a527b644828fed95f9d17d7594d2223e3c4a2c38ef"
+        }
+      ],
+      "date": "2020-01-01",
+      "epochs": 8640,
+      "passed": true,
+      "supplied_example_position_difference_max_m": 0.002168749563522837,
+      "supplied_example_position_difference_rms_m": 0.0004502426083097744
+    },
+    {
+      "artifacts": [
+        {
+          "path": "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/output/2020-01-02/gracefo1_orbit_2020-01-02.txt",
+          "role": "fitted_example_orbit",
+          "sha256": "b402fc2405aa294c0e1cc0e9fc0dd015800686d4bec9d5b2edd9310b60ef5dd1"
+        },
+        {
+          "path": "raw-artifacts/official-upstream-final/supplied-output/2020-01-02/gracefo1_orbit_2020-01-02.txt",
+          "role": "supplied_example_orbit",
+          "sha256": "5c7971a9db2270f53db573c71d042032ecd13313d8a20fa15307841ed37da86e"
+        }
+      ],
+      "date": "2020-01-02",
+      "epochs": 8640,
+      "passed": true,
+      "supplied_example_position_difference_max_m": 0.0015217772495449801,
+      "supplied_example_position_difference_rms_m": 0.00038643449284865946
+    }
+  ],
+  "example_sha256": "5a9d10bbab419489e5a62306ab5f1c840963ca66fb0b1b9e70fb648e9629f63b",
+  "execution": [
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "clean-upstream-build/groops",
+        "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/01groopsConvert.xml"
+      ],
+      "config_sha256": "55486fd270fe86d06d39006616ed4a3d9f722a9a0ad906aa4a3ca9312a79517e",
+      "elapsed_seconds": 142.10943240800407,
+      "log": "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/01groopsConvert.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "95135abaec2bba755210a06a17262524b4e7c838b360d82989359b92729f9a43",
+      "peak_rss_bytes": 308867072,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "clean-upstream-build/groops",
+        "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/02groopsConvertGracefo.xml"
+      ],
+      "config_sha256": "6afdd812647e8eb95e5409b8b24cc59e86807c60f67d506444f68df297947d3b",
+      "elapsed_seconds": 7.600171680969652,
+      "log": "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/02groopsConvertGracefo.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "95135abaec2bba755210a06a17262524b4e7c838b360d82989359b92729f9a43",
+      "peak_rss_bytes": 308518912,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "clean-upstream-build/groops",
+        "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/03groopsVariational.xml"
+      ],
+      "config_sha256": "c5a67e7c8d549a05cc56903b0cc499fdc0234f3068f9f4727535ca072685c46d",
+      "elapsed_seconds": 81.12244482396636,
+      "log": "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/03groopsVariational.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "95135abaec2bba755210a06a17262524b4e7c838b360d82989359b92729f9a43",
+      "peak_rss_bytes": 433197056,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "clean-upstream-build/groops",
+        "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/04groopsGnssProcessing.xml"
+      ],
+      "config_sha256": "67a5c5fdf9ed080a25c55f874538d7db110d17c243a722105c430927fcfe570b",
+      "elapsed_seconds": 245.876123286027,
+      "log": "raw-artifacts/official-upstream-final/scenarioLeoReducedDynamicOrbit/04groopsGnssProcessing.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "95135abaec2bba755210a06a17262524b4e7c838b360d82989359b92729f9a43",
+      "peak_rss_bytes": 454508544,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "finished_at": "2026-10-13T19:31:55.788736+00:00",
+  "native_binary_sha256": "95135abaec2bba755210a06a17262524b4e7c838b360d82989359b92729f9a43",
+  "passed": true,
+  "schema_version": 3,
+  "scope": "Official example recipe reproduction; supplied output agreement is not independent truth accuracy",
+  "started_at": "2026-10-13T18:51:18.567398+00:00",
+  "status": "complete",
+  "thresholds_m": {
+    "maximum": 0.003,
+    "rms": 0.001
+  },
+  "gate": "external_baseline",
+  "groops_upstream_commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+  "unmodified_upstream": true,
+  "build": {
+    "schema_version": 1,
+    "upstream_commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+    "extension": null,
+    "executable_sha256": "95135abaec2bba755210a06a17262524b4e7c838b360d82989359b92729f9a43",
+    "cmake_cache_sha256": "5ea24e920206a3610306e7da9075fc0df27e9c09c7ada4e4413de06584f8dbef",
+    "mpi": false,
+    "compiler": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0"
+  },
+  "interpretation": "Fresh clean pinned upstream reproduction. Supplied-example agreement is a software check, not independent flight truth accuracy. Extended-build numerical changes are recorded separately.",
+  "pulse_conventions": {
+    "frame": "CRF",
+    "native_unit": "um/s",
+    "constraint_full_value": "relativeToApriori=false",
+    "velocity_at_pulse_epoch": "post-pulse"
+  },
+  "scientific_comparison_complete": false,
+  "auxiliary_sources": [
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/DISCLAIMER.txt",
+      "sha256": "544a8fb286fb20ef0ad7a2cfb0030049cc51f469d69cb9dae187738418377a01",
+      "bytes": 1738
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/earthRadiationPressure/CERES_SYN1deg_albedo_climatology.dat",
+      "sha256": "980bfd52dfe607393dc6bc21d7ab581a8fc301893a1c4b15095f425aa3419f80",
+      "bytes": 1250943724
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/earthRadiationPressure/CERES_SYN1deg_longwaveFlux_climatology.dat",
+      "sha256": "9412d0ed9c4d5fbda63bbd7e38809dd1223ba2e1f9ec59837edac7b50d4b29da",
+      "bytes": 1250943724
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat",
+      "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d",
+      "bytes": 46014862
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_accuracyDefinition.xml",
+      "sha256": "a4b0b4e1a0e187475509300fb7c17628ccd79ced3e5b97345795e02ad4a60a87",
+      "bytes": 2820332
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_antennaDefinition.xml",
+      "sha256": "112c7fe40b8da06a1c296df6e61b0837240b4fdc9cb2ae8dd4e0966b8fb28394",
+      "bytes": 9501446
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_receiverDefinition.xml",
+      "sha256": "e667e34be415352b9f1216776abf0233e842a72fe3f96b2a863da4cd3cf81482",
+      "bytes": 470
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_satelliteInfo.xml",
+      "sha256": "d4f56c2cb5ff566b0447181d9b9302798a811b09f90ea13b8bd3ab6d17510704",
+      "bytes": 1391
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/antennaDefinition/igs/igsR3/antennaDefinition_igsR3.dat",
+      "sha256": "a89419c079a8877f164e9cbd49b5c2f9803b5fb11e9f744fb355dc86e21c569c",
+      "bytes": 3355324
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/signalDefinition/signalDefinition.xml",
+      "sha256": "5461c95d39a6458965fe83d2d22f83fa6881d0d7f340bb0a538ea36c81b357e9",
+      "bytes": 61772
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G01.xml",
+      "sha256": "a8ec43db34e53c529391bb4ff87eaa0752d8c3f3f27b1c59358009b584d21800",
+      "bytes": 5084
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G02.xml",
+      "sha256": "627eeacdc0dbfa5e2216fb30c4afee3f3cf2327f3eb01e963713f8918ca33bd1",
+      "bytes": 2344
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G03.xml",
+      "sha256": "3ae44b864cc2c4f0c6a10f83202f78e3dd179509bea4f6fa9f136bff10936cd9",
+      "bytes": 4163
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G04.xml",
+      "sha256": "2c8635f4753aee6b4f2949a048d7da25fe5749eb9b745717fe478d32f6eb14a4",
+      "bytes": 11655
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G05.xml",
+      "sha256": "e931761d219e24fc3699c89420bd3e136a10e4810f29035e6247fe4f50c53df2",
+      "bytes": 2347
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G06.xml",
+      "sha256": "5c8ddc5d376d767c8338e4bb7c8e754132606f24331f5202224dd9b8d32961a9",
+      "bytes": 3258
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G07.xml",
+      "sha256": "e69c274959d2e14248943a094c2ec8a32cf927e63dfbe38730b1f990e1074dc8",
+      "bytes": 2346
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G08.xml",
+      "sha256": "7706b111a872d1ac918399f625bb3bdc0be5ea91bee6f44a9864d9404f113f4a",
+      "bytes": 3258
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G09.xml",
+      "sha256": "3c5c7c333baf161085ea95250f743e86226dd4bd580fa318ac4bc8149e4f3f63",
+      "bytes": 2341
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G10.xml",
+      "sha256": "a81e1db14860812a3d40982db3abef689576397ad5e4d4837238b9f80939988f",
+      "bytes": 3254
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G11.xml",
+      "sha256": "eea2e3490ca325192c749ba8f74f6b58507d61d6cc6b1a274bb1708f40f2066c",
+      "bytes": 2404
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G12.xml",
+      "sha256": "07fce3907cbb046a483eae0b2a8d45f0c5544b016127e1dccaf787230a81856a",
+      "bytes": 2342
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G13.xml",
+      "sha256": "85079c9f2a5101779ade1d271bdd83053a3d50dd4f843fa207b4e83538133ff3",
+      "bytes": 2343
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G14.xml",
+      "sha256": "913682587ccd9554fffd5cb1c0021551551af8a428292095d5541b9e2d778e06",
+      "bytes": 3315
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G15.xml",
+      "sha256": "e689e082f65bc00683e2b61b321d6d1bb90b1c926da2f3cfea5edccc8c846866",
+      "bytes": 2343
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G16.xml",
+      "sha256": "5d3fc041fe4b763838b11bb4c2b0c7d0f0f3af753d94c042108d18b9e3803348",
+      "bytes": 2344
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G17.xml",
+      "sha256": "a72a4d0d724ad1f12ab0563044c260874bc7b4da2c8774eb2ae1cf84b9761d83",
+      "bytes": 2343
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G18.xml",
+      "sha256": "c4ea8e2b67c87938ca009b2d5612f927ee9b7d10015e6feea76e0fa46a2b5b18",
+      "bytes": 4226
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G19.xml",
+      "sha256": "e7c628b473966d2b02be7c9464883c9d6a74a7aab7dc29f2cad0259f30694e17",
+      "bytes": 2344
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G20.xml",
+      "sha256": "c75691a6ff65a3727127e2cc2a09b9f2c23ce7d4d3c12e2655caa8cbdfadd30f",
+      "bytes": 2344
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G21.xml",
+      "sha256": "8a9dfcde3748366889606b22a686f65197b617ff5d845e1e27cb3487aa060d1f",
+      "bytes": 2344
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G22.xml",
+      "sha256": "c888e57cd55fec94b98e22f1cb2619adc51f0f567451a67431f127f29e575d24",
+      "bytes": 3265
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G23.xml",
+      "sha256": "e98e0f2c8b53a1be19a755879c500a02c5cecebde79571c4006302537bea60a5",
+      "bytes": 3315
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G24.xml",
+      "sha256": "1a1880df970f1ebe02002bc8e466c9f00ca9fd4f214c7e02003872a6b27e9118",
+      "bytes": 6001
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G25.xml",
+      "sha256": "705c4a23df3ae7d78552c047a508410278905d31e42ba8e01d302ffa595cf502",
+      "bytes": 3254
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G26.xml",
+      "sha256": "e3bde302a9b6b1bbe28015a9779a991e83a15c0b16be1743dcb522c695834985",
+      "bytes": 4167
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G27.xml",
+      "sha256": "000594ecffa0a8779cf9570f50a8bee2f7f0e6dcafef153b0e49bbd154f0424c",
+      "bytes": 3258
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G28.xml",
+      "sha256": "e8e595256391a89639c046d2ba81fbf26859e13cc647a4e33cd85882e9434898",
+      "bytes": 2345
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G29.xml",
+      "sha256": "ec481532b91546f06160503df9db2fe236cefb0b50e359522a33b8fbcdb4a020",
+      "bytes": 2346
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G30.xml",
+      "sha256": "79826515d1e5c04c78e602cf67e2b18ade429ae9d08ada9f5dc0d9f11b9290b1",
+      "bytes": 7827
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G31.xml",
+      "sha256": "8c5a95b9fdbc70dd00a18dc884a30c1c40366964a566f0e91a76cca46ea22481",
+      "bytes": 2346
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterInfo/igs/igsR3/transmitterInfo_igsR3.G32.xml",
+      "sha256": "0fcf135f3fdfda4fa71f853694ceed7c46a880043fc2a7489ea66f8586415b44",
+      "bytes": 2341
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/gnss/transmitter/transmitterList.gps.txt",
+      "sha256": "6afadc2451df02be80f86457e5d68a3c7a10493fc76aa493d3f1440c6fabdeee",
+      "bytes": 128
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/magnetosphere/magneticNorthPole.txt",
+      "sha256": "7c6019275108686f3ee464617ac4c9d53ba93c7bd4cc7170674560851ef849ce",
+      "bytes": 1216
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/potential/goco06s/GOCO06s_static_2010-01-01.gfc",
+      "sha256": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24",
+      "bytes": 4318316
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/satelliteModel/gracefo1_satelliteModel.xml",
+      "sha256": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13",
+      "bytes": 24642
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/thermosphere/hwm14/apActivity.txt",
+      "sha256": "d097e395dbd949a656cd04b0a4f2e63b2d64ca28e8b97f43af030e19aa8f910c",
+      "bytes": 4829930
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/thermosphere/hwm14/dwm07b104i.dat",
+      "sha256": "f2b8eff002d55b0f6d49d202c73b7a9cb6685f2c6bb57f1291a2adc7aa07cf4f",
+      "bytes": 4848
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/thermosphere/hwm14/gd2qd.dat",
+      "sha256": "6bb1f2384e30b409240ee92c32726ed2a3d73eb550c05e0969d1178032319804",
+      "bytes": 1500
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/thermosphere/hwm14/hwm123114.bin",
+      "sha256": "6e445f8337c7efc815b7ff7f9f967d8a9a16b469d93df9c46e54930553beb906",
+      "bytes": 193608
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/thermosphere/jb2008/DTCFILE.TXT",
+      "sha256": "f6485450c363e9be8e71c37e143ac768462deca77565b727ec2e96c025ab8d91",
+      "bytes": 1191190
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/thermosphere/jb2008/SOLFSMY.TXT",
+      "sha256": "9bc734e66da7b5919ce6fd2b3475db82c28e500988dbb2f8d994d5ff3c074e35",
+      "bytes": 835846
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/earthAnelastic2003.xml",
+      "sha256": "b1138de9ef8766d3a3b6fc41bf208bc4c87c545f1712c848f96bb412b757ecc1",
+      "bytes": 17513
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/ephemerides_JPL_DE432.dat",
+      "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3",
+      "bytes": 102256504
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/oceanTide_fes2014b_admittance_linear_linear.txt",
+      "sha256": "98f5db50ad22522e418d735a256f8db81a6a35bc568e16dd7e03511c5ff84c00",
+      "bytes": 322792
+    },
+    {
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/oceanTide_fes2014b_n180_version20170520.dat",
+      "sha256": "bc34fa4b2aeb796a9e27710493c9ec1a2afcc180ca539cbb087a52c39645d554",
+      "bytes": 17925408
+    }
+  ],
+  "auxiliary_verification": "All56 frozen example-source hashes verified again after reproduction; no acquisition selection changed."
+}

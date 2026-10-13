@@ -1,0 +1,202 @@
+{
+  "schema_version": 3,
+  "scope": "One-hour 500 km quiet synthetic functional check, independent Tudat truth, native GNSS measurements with seeded clock/ambiguity noise and cycle slips. Normal coverage plus a diagnostic ten-minute holdout. Not a production comparison, calibration selection, or uncertainty coverage validation.",
+  "fit_and_prediction_status": "passed",
+  "nuisance_recovery_status": "pending_separate_gauge_aware_check",
+  "records": [
+    {
+      "method": "groops_pulses",
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "covariance_scope": "marginalized",
+      "elapsed_seconds": 81.37892039504368,
+      "peak_rss_bytes": 301031424,
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "91b42feec803dc75b962e91326aa187d5c3d023ace5d8bc1e67c3dd0f2b8edb2",
+      "native_binary_sha256": "08ab38a37bb603c0a1485f1230f654fed487923caab42a70da912ddb4acadc66",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "normal",
+      "position_rmse_m": 0.030632586715431124,
+      "result_record": {
+        "path": "raw-artifacts/prototype-functional/normal/groops_pulses/result.json",
+        "sha256": "660ac5968fd424e13f06a32f516e6847a6e639691ec6045d2e400ab3bf520487"
+      }
+    },
+    {
+      "method": "groops_log_drag_ou",
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "covariance_scope": "marginalized",
+      "elapsed_seconds": 94.06938428099966,
+      "peak_rss_bytes": 301486080,
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "91b42feec803dc75b962e91326aa187d5c3d023ace5d8bc1e67c3dd0f2b8edb2",
+      "native_binary_sha256": "08ab38a37bb603c0a1485f1230f654fed487923caab42a70da912ddb4acadc66",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 6,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "normal",
+      "position_rmse_m": 0.034080604935267975,
+      "result_record": {
+        "path": "raw-artifacts/prototype-functional/normal/groops_log_drag_ou/result.json",
+        "sha256": "4f8cb6531306eb83f6c81d6ee4147bfcc1a926d09494bf07ace68f14d0746003"
+      }
+    },
+    {
+      "method": "groops_pulses",
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "covariance_scope": "marginalized",
+      "elapsed_seconds": 17.993625364964828,
+      "peak_rss_bytes": 301199360,
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "91b42feec803dc75b962e91326aa187d5c3d023ace5d8bc1e67c3dd0f2b8edb2",
+      "native_binary_sha256": "08ab38a37bb603c0a1485f1230f654fed487923caab42a70da912ddb4acadc66",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "ten_minute_mask",
+      "position_rmse_m": 0.041858113150875564,
+      "result_record": {
+        "path": "raw-artifacts/prototype-functional/masked/groops_pulses/result.json",
+        "sha256": "227079fc3f8efc268ac998bd415eb9b9dea01d09c925929a9653f8a252c54946"
+      },
+      "heldout_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 0.49175161782898236
+        },
+        "dimensions": 204,
+        "invalid_epoch_indices": [],
+        "mean_nll": 0.49175161782898236,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 204,
+        "uninformative_epochs": 0,
+        "valid": true
+      },
+      "heldout_score_artifacts": [
+        {
+          "path": "raw-artifacts/prototype-functional/masked/groops_pulses/heldout-evaluation/predictive_code_score.json",
+          "role": "calibration_score",
+          "sha256": "a8a0ce7c15a88511e8c41d44c39613e898af4d58fd9e08cba6ee3ce6e6a7af90"
+        },
+        {
+          "path": "raw-artifacts/prototype-functional/masked/groops_pulses/heldout-evaluation/heldout_predictions.txt",
+          "role": "native_code_predictions",
+          "sha256": "8d4ed0e82d12611ac67b6805ccd7d4ba2ed2f8d23871b5296f3b1d1ae553bb59"
+        }
+      ]
+    },
+    {
+      "method": "groops_log_drag_ou",
+      "status": "complete",
+      "converged": true,
+      "covariance_valid": true,
+      "covariance_scope": "marginalized",
+      "elapsed_seconds": 24.308380700007547,
+      "peak_rss_bytes": 301297664,
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "91b42feec803dc75b962e91326aa187d5c3d023ace5d8bc1e67c3dd0f2b8edb2",
+      "native_binary_sha256": "08ab38a37bb603c0a1485f1230f654fed487923caab42a70da912ddb4acadc66",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 5,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "case": "ten_minute_mask",
+      "position_rmse_m": 0.03200891375428731,
+      "result_record": {
+        "path": "raw-artifacts/prototype-functional/masked/groops_log_drag_ou/result.json",
+        "sha256": "e1255a18205ff929274fc6730dfab2b2ea4e3ae47dc7e14dba51428a8e3f6bb7"
+      },
+      "heldout_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 0.4891338533962487
+        },
+        "dimensions": 204,
+        "invalid_epoch_indices": [],
+        "mean_nll": 0.4891338533962487,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 204,
+        "uninformative_epochs": 0,
+        "valid": true
+      },
+      "heldout_score_artifacts": [
+        {
+          "path": "raw-artifacts/prototype-functional/masked/groops_log_drag_ou/heldout-evaluation/predictive_code_score.json",
+          "role": "calibration_score",
+          "sha256": "89f918876e694af18a7973812559515b755c8411fab09d30811b686221f23cbf"
+        },
+        {
+          "path": "raw-artifacts/prototype-functional/masked/groops_log_drag_ou/heldout-evaluation/heldout_predictions.txt",
+          "role": "native_code_predictions",
+          "sha256": "37d3792fa3573070e53d1d954e8e452ea64768aac57253f0b3dee71f15cfc738"
+        }
+      ]
+    }
+  ],
+  "drivers": [
+    "historical development driver; superseded by scripts/validate_comparison_native.py",
+    "historical development driver; superseded by scripts/validate_comparison_native.py"
+  ],
+  "native_refinement_record": "v3-native-refinement.json",
+  "noise_specification": "prototype: official angle-dependent GRACE-FO accuracy pattern, not final constant synthetic0.3m/.003m noise",
+  "production_gate_eligible": false,
+  "raw_locator_documentation": "../../docs/comparison-native-validation.md"
+}

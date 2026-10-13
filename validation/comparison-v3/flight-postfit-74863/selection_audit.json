@@ -1,0 +1,54 @@
+{
+  "all_removed_below_fixed_cutoff": true,
+  "excluded": [
+    {
+      "elevation_deg": 13.929678114348476,
+      "gps_mjd": 60424.44175347915,
+      "reason": "below fixed20deg native elevation cutoff",
+      "station": 7090
+    },
+    {
+      "elevation_deg": 13.30012641728303,
+      "gps_mjd": 60424.44181019208,
+      "reason": "below fixed20deg native elevation cutoff",
+      "station": 7090
+    },
+    {
+      "elevation_deg": 12.999593581058923,
+      "gps_mjd": 60424.44183796985,
+      "reason": "below fixed20deg native elevation cutoff",
+      "station": 7090
+    },
+    {
+      "elevation_deg": 12.389111793806348,
+      "gps_mjd": 60424.44189584025,
+      "reason": "below fixed20deg native elevation cutoff",
+      "station": 7090
+    },
+    {
+      "elevation_deg": 11.962024377773373,
+      "gps_mjd": 60424.44193750693,
+      "reason": "below fixed20deg native elevation cutoff",
+      "station": 7090
+    }
+  ],
+  "execution": {
+    "blas_openmp_threads": 1,
+    "command": [
+      "{runtime_root}/native/bin/groops-74863d5a16dbcb1f",
+      "{engineering_root}/normal-pulse-postfit-evaluation/geometry_cutoff_audit.xml"
+    ],
+    "config_sha256": "9fab5e1a9d26df8f0489b00ce2cb58829e58df7086f7987f7e052fcf36557da6",
+    "elapsed_seconds": 1.2071028830250725,
+    "log": "{engineering_root}/normal-pulse-postfit-evaluation/geometry_cutoff_audit.log",
+    "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+    "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+    "peak_rss_bytes": 339255296,
+    "pid": 233747,
+    "returncode": 0,
+    "timed_out": false
+  },
+  "geometry_audit_rows": 85,
+  "original_rows": 80,
+  "purpose": "Audit only: lower native geometry cutoff to classify exclusions; original20deg evaluation unchanged"
+}

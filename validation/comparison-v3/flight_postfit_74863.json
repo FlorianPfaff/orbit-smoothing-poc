@@ -1,0 +1,124 @@
+{
+  "date": "2024-04-24",
+  "files": [
+    {
+      "path": "flight-postfit-74863/evaluation_audit.json",
+      "sha256": "7aa2d6a27feb0bfb3811d360eafaeeb1b5402d4b71a47d33472d5f45cb2ea2e3"
+    },
+    {
+      "path": "flight-postfit-74863/flight_metrics.json",
+      "sha256": "76bca29e6ddc71efa916cdb11b2051be8bf3ecfe542b6ba18d5c9802b8adb988"
+    },
+    {
+      "path": "flight-postfit-74863/request.json",
+      "sha256": "24ce40345dc13b78ae4ba71f4bba75e8ca8667692163896c77ad99ece5787026"
+    },
+    {
+      "path": "flight-postfit-74863/selection_audit.json",
+      "sha256": "9a0c904e29ddabe5e85c59694eba3b041b18e3a894868480aeb447e7c3b97a21"
+    },
+    {
+      "path": "flight-postfit-74863/slr_diagnostic_arrays.npz",
+      "sha256": "5ba2fbaab0a565d197c2e9c2a47a0de132d9e7fffdc0fd6cbc3c8d5cd6e21a86"
+    },
+    {
+      "path": "flight-postfit-74863/slr_manifest.json",
+      "sha256": "4291964170ae880ab3fd166e08cae96157869549df8561affb35b51dca4c6fb5"
+    }
+  ],
+  "fit_and_preparation_inputs_unchanged": true,
+  "fit_converged": true,
+  "fit_covariance_valid": true,
+  "fixed_engineering_parameters": {
+    "interval_seconds": 1200,
+    "sigma_velocity_m_s": 0.0001
+  },
+  "gate": "flight_postfit_codepath_engineering",
+  "gnv_diagnostic_agreement": {
+    "frame": "CRF through the same native Earth-rotation model",
+    "interpretation": "agreement with an external reference; not known truth",
+    "matched_epochs": 17281,
+    "position_rms_m": 0.044183810822091496,
+    "reference_input_files": 2,
+    "reference_used_in_fit": false,
+    "unmatched_fit_epochs": 0,
+    "velocity_rms_m_s": 5.875066366064813e-05
+  },
+  "helper_sha256": "0206fafe07ef82acbb65b9cded7690bf686b9c733947de0837a2b08065d3da1c",
+  "may_data_used": false,
+  "method": "groops_pulses",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "passed": true,
+  "preserved_remote_directory": "{engineering_root}/normal-pulse-postfit-evaluation",
+  "raw_audit_sha256": "d11b91bb8b127fe5f5f1c4127c32d37160e90e1813a94cc98c6fa806af4d3c73",
+  "raw_input_preservation": "Provider files, fitted artifacts and original20deg SLR outputs remain unchanged; 0deg geometry-only audit writes separate outputs",
+  "raw_result_sha256": "22937aba1e4f1c7adeaab76602e9e072c3aa958e34c6dedeefdcf9fb3d7775d4",
+  "schema_version": 1,
+  "scope": "April24 24h UTC post-fit engineering validation of corrected SLR and separate GNV comparison; not a calibrated scientific result or uncertainty-coverage claim",
+  "scope_deviation": "April24 GNV is opened only after this completed engineering fit for codepath validation. This extends the already disclosed April24 development diagnostic; it must not influence calibration settings or scientific claims.",
+  "slr": {
+    "corrections": [
+      "CRD UTC-to-GPS event time",
+      "station calibration already applied in CRD",
+      "SLRF2020_CM station positions and eccentricity",
+      "solid Earth/ocean/pole tides",
+      "Mendes-Pavlis with measured meteorology",
+      "native round-trip light time and Shapiro",
+      "measured spacecraft attitude and CSR SRF reflector offset",
+      "GFZ wavelength-dependent angular prism correction"
+    ],
+    "covariance_check": {
+      "formal_covariance_shape": [
+        17,
+        17
+      ],
+      "independent_nll": -67.97382339506837,
+      "independent_nll_difference": 2.8137492336099967e-12,
+      "maximum_asymmetry_m2": 3.284786357913888e-16,
+      "maximum_formal_off_diagonal_m2": 9.410714666802875e-06,
+      "native_covariance_shape": [
+        80,
+        80
+      ],
+      "positive_definite_formal_block": true,
+      "station_common_bias_variance_added_once": true
+    },
+    "descriptive_rms_m": 0.014345498844210236,
+    "diagnostic_correlated_score": {
+      "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+      "dimensions": 17,
+      "logdet": -177.91097710929824,
+      "marginal_95_fraction": 0.9411764705882353,
+      "nees": 10.719420190197026,
+      "nll": -67.97382339507118,
+      "nll_per_dimension": -3.9984601997100695,
+      "valid": true
+    },
+    "elevation_excluded_points": 5,
+    "elevation_exclusion_range_degrees": [
+      11.962024377773373,
+      13.929678114348476
+    ],
+    "fixed_elevation_cutoff_degrees": 20,
+    "formal_prediction": {
+      "observations": 17,
+      "selection": "fixed external ILRS calibration availability; no residual selection",
+      "station_bias_uncertainty": "shared station-common covariance from published external calibration",
+      "stations": [
+        7105
+      ],
+      "status": "complete"
+    },
+    "limitations": [
+      "No non-tidal loading supplied; unmodeled displacement contributes to external residuals.",
+      "CSR post-launch reflector z=.2188m differs from prelaunch ILRS/manual .221m by2.2mm; CSR convention fixed before evaluation.",
+      "Dominating-prism approximation has documented sub-millimetre error; no SLR parameter estimation."
+    ],
+    "metadata_eligible_points": 85,
+    "native_prediction_points": 80,
+    "prism_cutoff_excluded_points": 0,
+    "raw_points": 85
+  },
+  "slr_or_reference_used_in_fit": false,
+  "source_hash": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e"
+}
