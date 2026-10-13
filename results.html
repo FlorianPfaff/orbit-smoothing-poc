@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orbit smoothing — results and limits</title>
+  <style>
+    :root{--ink:#172e30;--muted:#536665;--paper:#f6f6f1;--white:#fff;--line:#d9e2dd;--green:#086953;--warn:#8c351e;--warn-bg:#fff0e7}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main,header,footer{max-width:1120px;margin:auto;padding:0 32px}a{color:var(--green);text-underline-offset:3px}a:hover{color:#034534}a:focus-visible{outline:3px solid #cf8c29;outline-offset:4px}header{padding-top:42px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:14px 0 18px;max-width:900px}h2{font-size:27px;line-height:1.25;letter-spacing:-.025em;margin:0 0 16px}h3{font-size:19px;margin:20px 0 8px}p{margin:0 0 16px}.lede{max-width:890px;font-size:21px;line-height:1.55;color:#314b4a}.small{font-size:14px;color:var(--muted)}.muted{color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px;margin:24px 0 28px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:24px 0 30px;padding:20px 0;gap:20px}.metric strong{display:block;font-size:34px;line-height:1.2;letter-spacing:-.03em}.metric span{font-size:14px;color:var(--muted)}section{padding:30px 0;border-bottom:1px solid var(--line)}.warning{background:var(--warn-bg);border-left:5px solid var(--warn);padding:24px 28px;margin:0 0 10px}.warning h2{color:var(--warn);font-size:24px}.warning p:last-child{margin-bottom:0}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}.table-wrap{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:8px}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}caption{text-align:left;padding:18px 20px;color:var(--muted);font-size:14px}th,td{padding:11px 18px;border-bottom:1px solid #e6ece8;text-align:left;white-space:nowrap}thead th{background:#eaf1ed;font-weight:650}tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}tbody tr.group-start>*{border-top:2px solid var(--line)}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.best{font-weight:750;color:var(--green)}.note{padding-top:12px;font-size:14px;color:var(--muted)}.figure-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0}figure{margin:0}figure img{width:100%;height:auto;display:block;background:white;border:1px solid var(--line);border-radius:6px}figcaption{font-size:14px;margin-top:8px;color:var(--muted)}.download-list{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px}.download-list p{margin:0}.status{display:inline-block;padding:3px 10px;border-radius:4px;background:#fff2cf;color:#755006;font-size:13px;font-weight:700;letter-spacing:.025em}.records{display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;padding:0;list-style:none}.records li{padding:8px 0}.records small{display:block;color:var(--muted)}ul{padding-left:23px}li{margin-bottom:8px}code{font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}footer{padding-top:24px;padding-bottom:36px;font-size:13px;color:var(--muted)}.anchor{scroll-margin-top:20px}
+    @media(max-width:760px){main,header,footer{padding-left:20px;padding-right:20px}.two-col,.figure-grid,.records{grid-template-columns:1fr}.metrics{gap:12px}.metric strong{font-size:27px}.metric span{font-size:12px}.lede{font-size:19px}th,td{padding:10px 13px}.warning{padding:20px}.figure-grid{gap:20px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{body{background:white;font-size:11pt}header{padding-top:0}nav{display:none}section{break-inside:avoid}a{color:inherit}h1{font-size:30pt}.warning{background:#fff6ef}.table-wrap{overflow:visible}footer{font-size:9pt}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Research proof of concept · 13 October 2026 · v2 campaign</div>
+  <h1>Orbit smoothing:<br>results and limits</h1>
+  <p class="lede">A factor graph reconstructed past satellite trajectories from synthetic ground tracking. The complete numerical experiment passed. The uncertainty estimates still failed in a demanding observation gap.</p>
+  <nav aria-label="Results navigation"><a href="#findings">Trajectory results</a><a href="#uncertainty">Uncertainty failure</a><a href="#calibration">Calibration</a><a href="#computation">Computation</a><a href="#artifacts">Data &amp; code</a><a href="runs/v2/combined/report/report.html">Full diagnostic report ↗</a></nav>
+  <div class="metrics" aria-label="Completed campaign counts">
+    <div class="metric"><strong>1,280 / 1,280</strong><span>Primary fits converged and passed numerical checks</span></div>
+    <div class="metric"><strong>96 / 96</strong><span>GTSAM–IEKS equivalence checks passed</span></div>
+    <div class="metric"><strong>20 seeds</strong><span>Per orbit, atmosphere, and tracking condition</span></div>
+  </div>
+</header>
+<main>
+  <section class="warning anchor" id="uncertainty" aria-labelledby="uncertainty-heading">
+    <h2 id="uncertainty-heading">A critical result: 0 of 20 covered</h2>
+    <p>At the 12-hour disturbance peak in the <strong>500 km orbit with an 11–13 h tracking blackout</strong>, nominal 95% position ellipsoids contained <strong>0 of 20 true positions</strong> for every stochastic model. The density model covered 13 of 20 at the same epoch with normal tracking.</p>
+    <p>Whole-trajectory averages hide this failure: the density model averaged 95.7% position coverage with normal tracking and 84.6% with the blackout. <strong>Solver agreement and successful reconstruction do not establish trustworthy uncertainty.</strong> Coverage must be inspected at fixed epochs across independent seeds.</p>
+    <figure><img src="runs/v2/combined/analysis/coverage_at_peak.png" alt="Coverage at the disturbance peak across four orbits and two tracking conditions, with Wilson confidence intervals across 20 independent seeds"><figcaption>The sampling uncertainty of each coverage estimate is shown explicitly. <a href="runs/v2/combined/analysis/coverage_at_peak.pdf">Vector PDF</a> · <a href="runs/v2/combined/analysis/coverage_at_peak.csv">CSV</a></figcaption></figure>
+  </section>
+
+  <section id="findings" class="anchor">
+    <h2>Where the atmospheric model helped</h2>
+    <p>A time-varying log-density correction improved reconstruction where drag mattered, especially on the eccentric orbit. At 800 km it offered essentially no trajectory advantage over correlated acceleration. These are retrospective estimates using the full observation arc, including observations after a gap.</p>
+    <div class="table-wrap" tabindex="0" aria-label="Scrollable position error comparison">
+      <table>
+        <caption>Disturbed atmosphere · mean 24-hour position RMSE over 20 seeds, in meters. “Blackout” removes hours 11–13; errors below describe the full trajectory.</caption>
+        <thead><tr><th scope="col">Orbit</th><th scope="col">Tracking</th><th scope="col" class="num">White acceleration</th><th scope="col" class="num">Colored acceleration</th><th scope="col" class="num">Log density</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">300 km</th><td>Normal</td><td class="num">9.28</td><td class="num">6.26</td><td class="num best">5.47</td></tr>
+          <tr><th scope="row">300 km</th><td>Blackout</td><td class="num">28.72</td><td class="num">13.32</td><td class="num best">9.49</td></tr>
+          <tr class="group-start"><th scope="row">500 km</th><td>Normal</td><td class="num">1.27</td><td class="num">1.39</td><td class="num best">1.07</td></tr>
+          <tr><th scope="row">500 km</th><td>Blackout</td><td class="num">2.39</td><td class="num">2.57</td><td class="num best">2.09</td></tr>
+          <tr class="group-start"><th scope="row">300 × 800 km</th><td>Normal</td><td class="num">4.97</td><td class="num">4.83</td><td class="num best">1.13</td></tr>
+          <tr><th scope="row">300 × 800 km</th><td>Blackout</td><td class="num">7.79</td><td class="num">8.08</td><td class="num best">1.21</td></tr>
+          <tr class="group-start"><th scope="row">800 km</th><td>Normal</td><td class="num">0.73</td><td class="num">0.65</td><td class="num">0.65</td></tr>
+          <tr><th scope="row">800 km</th><td>Blackout</td><td class="num">0.76</td><td class="num">0.69</td><td class="num">0.69</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The constant-drag deterministic baseline, velocity errors, errors inside the gap, and paired-seed comparisons are included in the <a href="runs/v2/combined/report/report.html">full report</a>. Small differences are not automatically practically meaningful.</p>
+    <p>With quiet atmosphere and normal tracking, density/colored RMSE was 5.41/5.98 m at 300 km, 0.94/0.97 m at 500 km, and 1.09/3.26 m on the eccentric orbit. All stochastic models were close at 800 km. The quiet atmosphere still contains smooth multiscale variation.</p>
+    <div class="figure-grid">
+      <figure><a href="runs/v2/combined/analysis/trajectory-leo500.png"><img src="runs/v2/combined/analysis/trajectory-leo500.png" alt="Example seed 42 for the 500 kilometer orbit under disturbed atmosphere and a two-hour blackout, showing position error and inferred density multiplier." loading="lazy"></a><figcaption>500 km, example seed 42: disturbance and 2 h blackout · <a href="runs/v2/combined/analysis/trajectory-leo500.pdf">Vector PDF</a></figcaption></figure>
+      <figure><a href="runs/v2/combined/analysis/trajectory-eccentric.png"><img src="runs/v2/combined/analysis/trajectory-eccentric.png" alt="Example seed 42 for the eccentric 300 by 800 kilometer orbit under disturbed atmosphere and a two-hour blackout, showing position error and inferred density multiplier." loading="lazy"></a><figcaption>Eccentric, example seed 42: disturbance and 2 h blackout · <a href="runs/v2/combined/analysis/trajectory-eccentric.pdf">Vector PDF</a></figcaption></figure>
+    </div>
+    <div class="download-list"><p>300 km: <a href="runs/v2/combined/analysis/trajectory-leo300.png">PNG</a> · <a href="runs/v2/combined/analysis/trajectory-leo300.pdf">PDF</a></p><p>800 km: <a href="runs/v2/combined/analysis/trajectory-leo800.png">PNG</a> · <a href="runs/v2/combined/analysis/trajectory-leo800.pdf">PDF</a></p><p><a href="runs/v2/combined/analysis/group_summary.csv">Group summary CSV</a></p></div>
+  </section>
+
+  <section class="two-col">
+    <div>
+      <h2>Orbit accuracy is not density recovery</h2>
+      <p>At 800 km, the mean true log-density correction at the disturbance peak was <strong>0.683</strong>. Its estimated mean was only <strong>0.00385</strong>, with posterior standard deviation <strong>0.09993</strong>—almost unchanged from the 0.1 prior.</p>
+      <p>The orbit was reconstructed to about 0.65 m, but the atmosphere remained weakly observed. Selecting hyperparameters by tracking prediction alone does not guarantee calibrated uncertainty for an unobserved density signal.</p>
+    </div>
+    <div id="posterior-status" data-status="running" aria-labelledby="posterior-heading">
+      <h2 id="posterior-heading">Bayesian posterior checks</h2>
+      <p><span class="status">RUNNING · NOT YET A REFERENCE</span></p>
+      <p>The first short-arc NumPyro check reached its 30-minute limit without completing; four checks remain running. No posterior reference is established. A sampled posterior becomes a reference only after four chains meet R-hat &lt;1.01, effective sample size ≥400, and zero unresolved divergences.</p>
+      <p class="small">Pending or failed diagnostics do not validate the local Gaussian approximation. They also cannot fix a misspecified disturbance prior. This status is a saved report snapshot, not a live monitor.</p>
+    </div>
+  </section>
+
+  <section id="calibration" class="anchor">
+    <h2>A fairer comparison required broader tuning</h2>
+    <p>Independent six-hour calibration exposed truncated acceleration-noise grids. Expanding both acceleration amplitude grids before final evaluation changed eccentric-orbit predictive negative log likelihood from <strong>44.07 to 0.904</strong> for white acceleration and <strong>2.355 to 0.913</strong> for colored acceleration; density scored 0.881. The early comparison overstated the gap.</p>
+    <p>V2 attempted <strong>740 calibration fits</strong>. Four candidate fits did not qualify; every selected candidate had five valid calibration seeds. No selected amplitude remained at an improving upper endpoint. Evaluation used separate seeds and frozen selections. This checks the declared grids; it does not establish globally optimal hyperparameters.</p>
+    <p><a href="runs/v2/calibration/calibration.json">Calibration selections, boundary checks, and predictive scores</a></p>
+  </section>
+
+  <section id="computation" class="anchor">
+    <h2>Sparse inference and trajectory boundaries</h2>
+    <p>GTSAM and an independent iterated Kalman/RTS smoother agreed in all 96 required comparisons: state differences below 1% of marginal posterior standard deviations, relative objective differences below 10<sup>−4</sup>, and identical frozen process-covariance references. The observed maxima were 0.000665 posterior standard deviations and 3.49 × 10<sup>−7</sup> relative objective difference.</p>
+    <p>For 6-, 12-, and 24-hour arcs, retaining uncertain boundary states in a Gaussian separator calculation reproduced the full linearized solution:</p>
+    <div class="table-wrap" tabindex="0" aria-label="Gaussian separator validation measurements"><table>
+      <caption>One measured case per duration. The check concerns a fixed nonlinear linearization; it is not exact nonlinear marginalization.</caption>
+      <thead><tr><th scope="col">Arc</th><th scope="col" class="num">Nodes</th><th scope="col" class="num">Max position difference</th><th scope="col" class="num">Relative linear objective difference</th></tr></thead>
+      <tbody><tr><th scope="row">6 h</th><td class="num">361</td><td class="num">6.80 × 10<sup>−9</sup> m</td><td class="num">5.37 × 10<sup>−16</sup></td></tr><tr><th scope="row">12 h</th><td class="num">721</td><td class="num">5.41 × 10<sup>−9</sup> m</td><td class="num">1.34 × 10<sup>−16</sup></td></tr><tr><th scope="row">24 h</th><td class="num">1,441</td><td class="num">3.03 × 10<sup>−9</sup> m</td><td class="num">0 at reported precision</td></tr></tbody>
+    </table></div>
+    <p class="note">These measurements establish numerical agreement. They do not establish a speedup or a general runtime scaling law. <a href="runs/v2/scaling/scaling.json">Scaling record</a> · <a href="runs/v2/scaling/24h/separator.json">24 h separator details</a></p>
+    <p>Separate fresh-process profiles of these same fits used <strong>273.0, 278.3, and 286.2 MiB peak RSS</strong> for 6, 12, and 24 hours, respectively. Process wall times were 4.59, 5.36, and 6.06 seconds on cpu-gpu-server-b, using two CPU cores and one BLAS thread. Memory includes Python/JAX overhead; these are single observations, not asymptotic scaling evidence. <a href="validation/resource_usage/summary.json">Resource measurements and reproduction details</a></p>
+    <h3>CPU versus GPU: measure the actual workload</h3>
+    <p>For one actual two-hour, 121-node JAX float64 posterior-gradient workload, synchronized median evaluation time was <strong>13.9 ms on CPU versus 409 ms on an RTX 6000 Ada GPU</strong>. CPU was about 29.5× faster for this sequential small-state calculation. Compilation was excluded; each platform had five timed evaluations on a shared host. This is a gradient microbenchmark, not a complete NUTS speed comparison.</p>
+    <p><a href="validation/performance/profile_manifest.json">Hardware, affinity, timing protocol, and limits</a> · <a href="validation/performance/cpu.json">CPU timings</a> · <a href="validation/performance/gpu.json">GPU timings</a></p>
+  </section>
+
+  <section>
+    <h2>What the realistic stress case showed</h2>
+    <p>One 500 km case changed gravity, third-body forces, solar radiation pressure, and the atmosphere together, using NRLMSISE-00 and archived space weather. With the controlled-calibration parameters frozen, position RMSE was <strong>731 m for the baseline, 369 m for white acceleration, and 467 m for colored acceleration</strong>. The density fit did not converge and is not a valid competing result.</p>
+    <p>This single deliberately mismatched case demonstrates a limit of the current estimator. It is not an ensemble validation, and it cannot isolate which omitted force caused the error. <a href="runs/v2/stress/benchmark.json">Stress result record</a> · <a href="runs/v2/stress/data/manifest.json">Truth provenance and weather archive metadata</a> · <a href="validation/stress_diagnosis.json">Nonconvergence diagnosis</a></p>
+  </section>
+
+  <section>
+    <h2>Limits and the next experiment</h2>
+    <ul>
+      <li>The main campaign uses independent Tudat simulation with controlled synthetic physics, ideal geometric range/range-rate, fixed spacecraft properties, and prescribed stations. It is not a flight-data validation.</li>
+      <li>Local Gaussian covariance and a fixed process-noise reference are approximations. An atmosphere correction cannot generally be separated from an unknown drag coefficient or attitude without additional information.</li>
+      <li>Twenty seeds give coarse fixed-epoch coverage estimates. Paired bootstrap intervals are descriptive, with no multiple-comparison correction; time samples are not independent Monte Carlo trials.</li>
+      <li>Calibration uses six-hour arcs and held-out individual observations. A useful next step is tuning and testing on held-out tracking gaps and broader disturbance families, then inspecting coverage at the hardest epochs.</li>
+    </ul>
+  </section>
+
+  <section id="artifacts" class="anchor">
+    <h2>Inspect and reproduce</h2>
+    <ul class="records">
+      <li><a href="runs/v2/combined/report/report.html">Full diagnostic report</a><small>Every fit, paired comparisons, fixed-epoch coverage, and provenance.</small></li>
+      <li><a href="runs/v2/combined/benchmark.json">Combined campaign manifest</a><small>1,280 primary fits and 96 solver-equivalence checks.</small></li>
+      <li><a href="runs/v2/combined/analysis/group_summary.csv">Group summary CSV</a><small>Machine-readable aggregate results.</small></li>
+      <li><a href="runs/v2/combined/analysis/measurement_residuals.csv">Measurement residual summary</a><small><a href="README.md#repository-contents">Regenerate residual arrays</a> · <a href="runs/v2/combined/analysis/derived_manifest.json">Derived-artifact manifest</a></small></li>
+      <li><a href="README.md">README and reproduction commands</a><small>Environment installation, scientific model, and acceptance rules.</small></li>
+      <li><a href="notebooks/walkthrough.ipynb">Walkthrough notebook</a><small>Simulation, fitting, plotting, and solver consistency.</small></li>
+      <li><a href="notebooks/walkthrough.executed.ipynb">Executed walkthrough</a><small>All six code cells executed successfully. <a href="validation/notebook_execution.json">Execution record</a></small></li>
+      <li><a href="validation/tests-v2.log">49 passing tests</a><small><a href="validation/propagation_acceptance.json">Independent propagation checks</a> · <a href="validation/solver_v2_acceptance.json">Solver validation</a></small></li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <p>V2 inference source SHA256:<br><code>9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1</code></p>
+  <p>This page summarizes the completed controlled campaign and explicitly records outstanding posterior diagnostics. Numerical acceptance is separate from scientific uncertainty calibration.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,158 @@
+{
+  "scope": "Completed local controlled main matrix; no inference rerun.",
+  "expected_source_sha256": "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1",
+  "directories": {
+    "benchmark6000": {
+      "local": {
+        "file_count": 3513,
+        "total_bytes": 514827729,
+        "fit_record_count": 688,
+        "dataset_count": 160
+      },
+      "remote": {
+        "file_count": 3513,
+        "total_bytes": 514827729,
+        "fit_record_count": 688,
+        "dataset_count": 160
+      },
+      "inventory_matches_remote": true
+    },
+    "benchmark4090": {
+      "local": {
+        "file_count": 3513,
+        "total_bytes": 513881630,
+        "fit_record_count": 688,
+        "dataset_count": 160
+      },
+      "remote": {
+        "file_count": 3513,
+        "total_bytes": 513881630,
+        "fit_record_count": 688,
+        "dataset_count": 160
+      },
+      "inventory_matches_remote": true
+    }
+  },
+  "fit_record_count": 1376,
+  "fit_status_counts": {
+    "('complete', True, True)": 1376
+  },
+  "fit_source_sha256_counts": {
+    "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1": 1376
+  },
+  "observation_dataset_count": 320,
+  "unique_dataset_sha256_count": 320,
+  "unique_orbit_atmosphere_coverage_seed_count": 320,
+  "node_count_distribution": {
+    "1441": 320
+  },
+  "permitted_dataset_arrays": [
+    "metadata",
+    "obs_node",
+    "obs_sigma",
+    "obs_station_pos",
+    "obs_station_vel",
+    "obs_y",
+    "prior_mean",
+    "prior_sigma",
+    "times"
+  ],
+  "dataset_truth_arrays_present": false,
+  "inventory_issues": [],
+  "residual_archive_spot_check": {
+    "status": "passed",
+    "archive": "../runs/v2/combined/analysis/measurement_residuals.npz",
+    "archive_fit_count": 1376,
+    "checked_fit_count": 28,
+    "checked_observation_count": 5698,
+    "independent_method": "Scalar Python math.fsum/sqrt geometric range and line-of-sight projection of relative inertial velocity, using stored SI fit states and stations. Dataset resolved from fit-record dataset path independently of postprocessor helper.",
+    "maximum_absolute_prediction_difference_columns_m_m_s": [
+      4.656612873077393e-10,
+      2.7284841053187847e-12
+    ],
+    "maximum_absolute_residual_difference_columns_m_m_s": [
+      4.656612873077393e-10,
+      2.7284841053187847e-12
+    ],
+    "maximum_absolute_normalized_residual_difference": [
+      4.6566306366457866e-11,
+      2.7284841053187847e-10
+    ],
+    "maximum_absolute_index_rms_difference_columns_m_m_s": [
+      1.1551648526619829e-11,
+      6.773748228994236e-14
+    ],
+    "index_observed_nodes_times_match": true,
+    "issues": [],
+    "checked_array_prefixes": [
+      "run0000",
+      "run0639",
+      "run0002",
+      "run0641",
+      "run0040",
+      "run0685",
+      "run0042",
+      "run0687",
+      "run0324",
+      "run0632",
+      "run0326",
+      "run0677",
+      "run0371",
+      "run0679",
+      "run0688",
+      "run1327",
+      "run0690",
+      "run1329",
+      "run0728",
+      "run1373",
+      "run0730",
+      "run1375",
+      "run1020",
+      "run1312",
+      "run1022",
+      "run1357",
+      "run1067",
+      "run1359"
+    ],
+    "checked_strata": {
+      "orbits": [
+        "leo300",
+        "leo500",
+        "leo800",
+        "eccentric"
+      ],
+      "models": [
+        "baseline",
+        "white",
+        "colored",
+        "density"
+      ],
+      "solvers": [
+        "deterministic",
+        "gtsam",
+        "ieks"
+      ],
+      "atmospheres": [
+        "quiet",
+        "disturbed"
+      ],
+      "coverages": [
+        "normal",
+        "blackout"
+      ]
+    }
+  },
+  "passed": true,
+  "postprocessor_review": {
+    "path": "../analysis/derive_artifacts.py",
+    "sha256": "09d2a3724b8c1d9c307519f0ca3e04259881587ec445a6e5d712603f52118e4b",
+    "matches_derived_manifest_sha256": true,
+    "geometry": "Position and velocity differences both use inertial SI states and stations. Range is the position-difference norm; positive range rate is recession along the line of sight.",
+    "sign_convention": "Observed minus predicted; explicitly documented in the derived manifest.",
+    "units": "Range and range-rate remain metres and metres/second; normalized residuals divide by measurement sigma and are dimensionless.",
+    "plot_intervals": "Density multiplier plots exponentiate the Gaussian log-density mean and its plus/minus 1.959964 sigma endpoints, which preserves the stated pointwise probability interval under the monotone transform.",
+    "dataset_resolution": "Worker/case path construction agrees with independent resolution from the stored fit-record dataset paths in all 28 checked runs.",
+    "scope": "No material geometry, sign or units issue found. Post-fit residuals are correlated and their normalization is not a claim that they are independent standard-normal samples."
+  },
+  "checked_at_utc": "2026-10-13T11:50:33.378612+00:00"
+}

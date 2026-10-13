@@ -1,0 +1,116 @@
+{
+  "kind": "read-only diagnosis of saved realism-stress density fit",
+  "fit_record": "../runs/v2/stress/fits/density/fit.json",
+  "truth_artifact": "../runs/v2/stress/data/truth.npz",
+  "source_sha256": "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1",
+  "case": {
+    "atmosphere": "disturbed",
+    "coverage": "normal",
+    "duration_hours": 24,
+    "model": "density",
+    "orbit": "leo500",
+    "seed": 20000,
+    "solver": "gtsam",
+    "stage": "stress",
+    "truth_profile": "stress"
+  },
+  "parameters": {
+    "model": "density",
+    "sigma": 0.1,
+    "substep": 2.5,
+    "tau": 1800.0
+  },
+  "observed_termination": {
+    "termination": "maximum iterations",
+    "iterations": 60,
+    "accepted_steps": 60,
+    "converged": false,
+    "valid_for_comparison": false,
+    "undamped_step_max_posterior_sigma": 1434.9982879036431,
+    "required_step_sigma_tolerance": 0.001,
+    "undamped_step_whitened_squared_norm": 7999684.262334261,
+    "joint_decrement_squared_limit": 0.08453187271186922
+  },
+  "objective_progression": {
+    "convention": "half squared whitened residual; fixed normalizing constants omitted",
+    "recorded_accepted_objectives": 60,
+    "first_recorded_accepted_objective": 4217315.608468008,
+    "final_objective": 2323491.977370593,
+    "all_finite": true,
+    "strictly_decreasing": true,
+    "fractional_decrease_from_first_recorded": 0.4490590240139437,
+    "last_step_absolute_decrease": 27881.20986050088,
+    "last_step_fractional_decrease": 0.01185741591845442,
+    "last_ten_recorded_objectives": [
+      2480821.306882709,
+      2480100.9092160384,
+      2479291.46246039,
+      2477618.527681061,
+      2472630.0309542255,
+      2458323.8679321124,
+      2422264.874592735,
+      2359445.999144707,
+      2351373.187231094,
+      2323491.977370593
+    ]
+  },
+  "metrics_at_unconverged_iterate": {
+    "coordinate_95_coverage": 0.0026601896830904465,
+    "epoch_count": 1441,
+    "gap_position_rmse_m": null,
+    "invalid_covariance_epochs": 0,
+    "log_density_95_coverage": 0.03747397640527411,
+    "log_density_rmse": 4.6377594626171526,
+    "mean_nees_6": 2606807.606505318,
+    "outside_gap_position_rmse_m": 681.952941651258,
+    "position_joint_95_coverage": 0.0,
+    "position_rmse_m": 681.952941651258,
+    "rtn_position_rmse_m": [
+      152.44095332296095,
+      642.472069637365,
+      170.44415540778084
+    ],
+    "state_joint_95_coverage": 0.0,
+    "velocity_rmse_m_s": 0.6982052402009138
+  },
+  "log_density_correction_ranges": {
+    "fit": [
+      -9.853520240824356,
+      5.686930786842894
+    ],
+    "truth_relative_to_inference_exponential_baseline": [
+      0.6553322493257908,
+      2.156863780890619
+    ],
+    "interpretation": "These are log density multipliers relative to the exponential baseline; truth was read only for this post-fit diagnostic."
+  },
+  "other_saved_fits": {
+    "baseline": {
+      "converged": true,
+      "position_rmse_m": 731.2664943961736,
+      "coordinate_95_coverage": 0.002197547999074717,
+      "state_joint_95_coverage": 0.0
+    },
+    "white": {
+      "converged": true,
+      "position_rmse_m": 368.90938448399254,
+      "coordinate_95_coverage": 0.007864908628267407,
+      "state_joint_95_coverage": 0.0
+    },
+    "colored": {
+      "converged": true,
+      "position_rmse_m": 466.64781762994926,
+      "coordinate_95_coverage": 0.005320379366180893,
+      "state_joint_95_coverage": 0.0
+    }
+  },
+  "measured_conclusion": "The density fit exhausted its 60-iteration cap while still decreasing its objective. Its undamped proposed step and joint decrement remain far above the recorded convergence thresholds; this is not a near-threshold rounding rejection.",
+  "plausible_explanation": "The controlled-case calibration fixes sigma=0.1 and tau=1800 s, while stress truth includes SH4x4 gravity, Sun/Moon gravity, SRP and NRLMSISE-00 density that the inference force model does not include. A scalar density correction cannot generally represent those omitted force directions. Strong model mismatch combined with nonlinear density scaling and this fixed prior may account for the large proposed steps and extreme fitted log density. The stored artifacts establish mismatch and nonconvergence, but do not isolate the cause.",
+  "limits": [
+    "No reruns, retuning or production source changes were made.",
+    "More iterations, a different initializer or different priors were not tested, so eventual convergence is unknown.",
+    "Metrics at this unconverged iterate are descriptive diagnostics, not validated posterior performance or a fair model ranking.",
+    "Even the converged saved baselines have poor coverage in this deliberately mismatched single case; it is not an ensemble or real-world validation.",
+    "Objective values omit model-dependent fixed constants and must not be compared across different stochastic models as evidence scores."
+  ]
+}

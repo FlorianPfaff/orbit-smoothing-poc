@@ -1,0 +1,75 @@
+{
+  "measured_at_utc": "2026-10-13T11:55:29.542491+00:00",
+  "hostname": "cpu-gpu-server-b",
+  "cpu_model": "AMD Ryzen Threadripper 7980X 64-Cores",
+  "cpu_affinity": [
+    0,
+    1
+  ],
+  "jax_platform": "cpu",
+  "blas_threads": 1,
+  "method": "Three sequential, fresh child processes, one existing scaling case each; GNU /usr/bin/time -v captures complete child lifetime",
+  "source_sha256": "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1",
+  "profiler_sha256": "171655f814af9a14dfcaa80f46fb8a4c713b07d57afd40a9c87029bab12021a9",
+  "original_fits_preserved": true,
+  "rows": [
+    {
+      "duration_hours": 6,
+      "nodes": 361,
+      "observations": 58,
+      "whole_process_wall_seconds": 4.59,
+      "whole_process_user_cpu_seconds": 5.48,
+      "whole_process_system_cpu_seconds": 0.29,
+      "whole_process_peak_rss_kib": 279552,
+      "whole_process_peak_rss_bytes": 286261248,
+      "whole_process_peak_rss_mib": 273.0,
+      "exit_status": 0,
+      "fit_elapsed_seconds": 3.965519094024785,
+      "solver_seconds": 2.3292327190283686,
+      "converged": true,
+      "max_position_difference_from_original_m": 0.0,
+      "max_velocity_difference_from_original_m_s": 0.0
+    },
+    {
+      "duration_hours": 12,
+      "nodes": 721,
+      "observations": 114,
+      "whole_process_wall_seconds": 5.36,
+      "whole_process_user_cpu_seconds": 6.62,
+      "whole_process_system_cpu_seconds": 0.3,
+      "whole_process_peak_rss_kib": 285016,
+      "whole_process_peak_rss_bytes": 291856384,
+      "whole_process_peak_rss_mib": 278.3359375,
+      "exit_status": 0,
+      "fit_elapsed_seconds": 4.5489423259859905,
+      "solver_seconds": 2.62065259704832,
+      "converged": true,
+      "max_position_difference_from_original_m": 0.0,
+      "max_velocity_difference_from_original_m_s": 0.0
+    },
+    {
+      "duration_hours": 24,
+      "nodes": 1441,
+      "observations": 193,
+      "whole_process_wall_seconds": 6.06,
+      "whole_process_user_cpu_seconds": 7.22,
+      "whole_process_system_cpu_seconds": 0.32,
+      "whole_process_peak_rss_kib": 293032,
+      "whole_process_peak_rss_bytes": 300064768,
+      "whole_process_peak_rss_mib": 286.1640625,
+      "exit_status": 0,
+      "fit_elapsed_seconds": 5.178634896990843,
+      "solver_seconds": 3.337932095048018,
+      "converged": true,
+      "max_position_difference_from_original_m": 0.0,
+      "max_velocity_difference_from_original_m_s": 0.0
+    }
+  ],
+  "interpretation": [
+    "Peak RSS includes Python, imported libraries, JAX/XLA compilation, deterministic initialization, inference, diagnostics and output I/O; it is not graph storage alone.",
+    "The fresh-process measurements include compilation. Fit and solver timing cover narrower parts of the same child workload.",
+    "Each arc length was measured once on a shared host; process startup and compilation overhead can dominate differences.",
+    "These three measurements do not establish an asymptotic memory or time complexity law and are not repeated-run confidence intervals.",
+    "The original recorded density-model parameters and solver options were unchanged; these runs were not used for scientific model selection or the main comparison."
+  ]
+}

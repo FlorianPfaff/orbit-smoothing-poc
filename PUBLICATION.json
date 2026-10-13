@@ -1,0 +1,27 @@
+{
+  "source_project": "orbit-poc",
+  "purpose": "Public source and compact result snapshot",
+  "scientific_source_sha256": "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1",
+  "scientific_source_unchanged": true,
+  "numerical_results_unchanged": true,
+  "excluded": [
+    "raw trajectory/observation/residual arrays",
+    "full per-fit archives",
+    "third-party space-weather archive",
+    "installed environments",
+    "machine configuration and process-control logs",
+    "one-off process takeover/audit scripts"
+  ],
+  "metadata_transformations": [
+    "absolute local paths changed to relative paths or generic placeholders",
+    "machine names generalized",
+    "process-control audit omitted"
+  ],
+  "file_count": 121,
+  "clean_checkout_tests": {
+    "passed": 48,
+    "skipped": 1,
+    "skip_reason": "Optional archived v1 regression dataset excluded from public snapshot",
+    "log": "validation/publication-tests.log"
+  }
+}

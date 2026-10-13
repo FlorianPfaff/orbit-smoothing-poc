@@ -1,0 +1,70 @@
+{
+  "dataset": "runs/v2/stress/data/dataset.npz",
+  "truth": "runs/v2/stress/data/truth.npz",
+  "manifest": "runs/v2/stress/data/manifest.json",
+  "metadata": {
+    "config": {
+      "duration_hours": 24,
+      "orbit": "leo500",
+      "seed": 20000,
+      "atmosphere": "disturbed",
+      "coverage": "normal",
+      "cadence": 60,
+      "epoch": "2024-05-10T00:00:00",
+      "truth_profile": "stress",
+      "blackout_hours": [
+        11,
+        13
+      ],
+      "substep": 2.5,
+      "gravity_degree": 4,
+      "gravity_order": 4,
+      "sun_moon": true,
+      "srp": true,
+      "atmosphere_model": "NRLMSISE-00",
+      "space_weather_file": null
+    },
+    "truth_backend": "tudat",
+    "benchmark_truth": true,
+    "force_models": [
+      "Earth SH4x4",
+      "Sun gravity",
+      "Moon gravity",
+      "SRP",
+      "corotating_drag"
+    ],
+    "atmosphere_model": "NRLMSISE-00_with_synthetic_multiscale_multiplier",
+    "frame": "Earth-centered inertial, fixed z pole; synthetic Earth angle zero at arc start",
+    "units": "SI",
+    "stations_lat_lon_deg": [
+      [
+        45,
+        0
+      ],
+      [
+        45,
+        120
+      ],
+      [
+        45,
+        -120
+      ],
+      [
+        -35,
+        60
+      ],
+      [
+        -35,
+        180
+      ],
+      [
+        -35,
+        -60
+      ]
+    ],
+    "elevation_mask_deg": 10.0,
+    "measurement_model": "instantaneous geometric one-way range and range-rate",
+    "measurement_count": 193,
+    "random_streams": "density4812,noise912,prior913"
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T10:58:52.288921+00:00",
+  "experiment": "24-hour deterministic force/integrator equivalence, zero log-density correction",
+  "interpretation": "Numerical acceptance for the controlled dynamics; not orbit-estimator performance or real-world fidelity.",
+  "thresholds": {
+    "max_range_m_strictly_below": 0.1,
+    "max_range_rate_m_s_strictly_below": 0.0001
+  },
+  "selected_step_seconds": 2.5,
+  "reference": "Independent Tudat built-in central/J2/aerodynamic forces, fixed-step RKF78 at 10 seconds",
+  "measurements": "Six prescribed rotating stations, 10-degree mask, 60-second cadence, noiseless geometric range/range-rate",
+  "versions": {
+    "python": "3.11.15",
+    "jax": "0.6.2",
+    "numpy": "1.26.4"
+  },
+  "source_sha256": {
+    "src/orbit_poc/dynamics.py": "b584b0ddb1e9232eac906e1f529d645f4f7ce9bb382dd56c01ccc93ea78d6502",
+    "src/orbit_poc/simulator.py": "a8e74b3a30ba1c0386de34bd5894f848d36d7538dc6a79abd33d117dc95ca75e",
+    "scripts/tudat_truth.py": "10a141708e5798f6797b08dbe853e7918beea92c852d9d37239259ed6c612de9",
+    "scripts/validate_propagation.py": "45232e1af38759695e481e348ddc15b8a950cccfd8c89b53ef1c18622b25550d"
+  },
+  "cases": {
+    "leo300": {
+      "sample_count": 1441,
+      "visible_measurement_count": 101,
+      "truth_sha256": "e22518cc3bcae66cd87c606a27c2cd98112adb52ea9789ac100476ac654f736f",
+      "tudat_version": "1.0.0",
+      "config": {
+        "duration_hours": 24.0,
+        "orbit": "leo300",
+        "seed": 31415,
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "cadence": 60.0,
+        "truth_profile": "controlled",
+        "truth_step_seconds": 10.0,
+        "density_parameters": {
+          "offset": 0.0,
+          "amplitudes": [],
+          "periods_seconds": [],
+          "phases": []
+        }
+      },
+      "jax_against_tudat": {
+        "5.0": {
+          "max_position_m": 0.03438150640943214,
+          "max_velocity_m_s": 3.974865299392592e-05,
+          "max_range_m": 0.023562764516100287,
+          "max_range_rate_m_s": 0.00037559639486062224,
+          "rms_range_m": 0.008953638404335619,
+          "rms_range_rate_m_s": 0.00011394829146188399,
+          "pass": false
+        },
+        "2.5": {
+          "max_position_m": 0.0018708813845014045,
+          "max_velocity_m_s": 2.1622256479203447e-06,
+          "max_range_m": 0.0012843157164752483,
+          "max_range_rate_m_s": 2.090883805294652e-05,
+          "rms_range_m": 0.0004994060815759334,
+          "rms_range_rate_m_s": 6.35009903455635e-06,
+          "pass": true
+        },
+        "1.25": {
+          "max_position_m": 0.00011601020045111672,
+          "max_velocity_m_s": 1.3388184803844152e-07,
+          "max_range_m": 7.853331044316292e-05,
+          "max_range_rate_m_s": 1.2316099287090765e-06,
+          "rms_range_m": 2.9576714629117068e-05,
+          "rms_range_rate_m_s": 3.762430280225612e-07,
+          "pass": true
+        }
+      },
+      "jax_5s_against_2_5s": {
+        "max_position_m": 0.032510625781113245,
+        "max_velocity_m_s": 3.758642750737766e-05,
+        "max_range_m": 0.02227844879962504,
+        "max_range_rate_m_s": 0.0003546875568076757,
+        "rms_range_m": 0.008454322555932125,
+        "rms_range_rate_m_s": 0.0001075992934976705,
+        "pass": false
+      },
+      "selected_against_half_step": {
+        "max_position_m": 0.001754871300081556,
+        "max_velocity_m_s": 2.0283438607212032e-06,
+        "max_range_m": 0.0012057824060320854,
+        "max_range_rate_m_s": 1.9677228124237445e-05,
+        "rms_range_m": 0.00046983336489428727,
+        "rms_range_rate_m_s": 5.973912005442631e-06,
+        "pass": true
+      },
+      "tudat_10s_against_5s": {
+        "max_position_m": 1.3255370760059377e-05,
+        "max_velocity_m_s": 1.539286614048513e-08,
+        "max_range_m": 9.3081034719944e-06,
+        "max_range_rate_m_s": 1.4767630318601732e-07,
+        "rms_range_m": 3.5727953320090094e-06,
+        "rms_range_rate_m_s": 4.5511116217193515e-08,
+        "pass": true
+      }
+    },
+    "leo500": {
+      "sample_count": 1441,
+      "visible_measurement_count": 193,
+      "truth_sha256": "dd8233efc11d28559ba7ea205df86a14a31deab9c0bc445b3522a26ed319798a",
+      "tudat_version": "1.0.0",
+      "config": {
+        "duration_hours": 24.0,
+        "orbit": "leo500",
+        "seed": 31415,
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "cadence": 60.0,
+        "truth_profile": "controlled",
+        "truth_step_seconds": 10.0,
+        "density_parameters": {
+          "offset": 0.0,
+          "amplitudes": [],
+          "periods_seconds": [],
+          "phases": []
+        }
+      },
+      "jax_against_tudat": {
+        "5.0": {
+          "max_position_m": 0.021153520185126107,
+          "max_velocity_m_s": 2.3537852160688532e-05,
+          "max_range_m": 0.014763262821361423,
+          "max_range_rate_m_s": 0.00020883370379465305,
+          "rms_range_m": 0.005942097527740111,
+          "rms_range_rate_m_s": 4.772855116727223e-05,
+          "pass": false
+        },
+        "2.5": {
+          "max_position_m": 0.0010884172649255864,
+          "max_velocity_m_s": 1.2124286777353357e-06,
+          "max_range_m": 0.0007657965179532766,
+          "max_range_rate_m_s": 1.105741708329333e-05,
+          "rms_range_m": 0.00031971847000958873,
+          "rms_range_rate_m_s": 2.5709174261171583e-06,
+          "pass": true
+        },
+        "1.25": {
+          "max_position_m": 5.4525063457480234e-05,
+          "max_velocity_m_s": 6.081902626953312e-08,
+          "max_range_m": 3.8171419873833656e-05,
+          "max_range_rate_m_s": 5.51752492583546e-07,
+          "rms_range_m": 1.618726086816698e-05,
+          "rms_range_rate_m_s": 1.3028578160425155e-07,
+          "pass": true
+        }
+      },
+      "jax_5s_against_2_5s": {
+        "max_position_m": 0.020065103697512063,
+        "max_velocity_m_s": 2.2325423528477802e-05,
+        "max_range_m": 0.013997466303408146,
+        "max_range_rate_m_s": 0.00019777628671135972,
+        "rms_range_m": 0.005622520237691916,
+        "rms_range_rate_m_s": 4.51587923521945e-05,
+        "pass": false
+      },
+      "selected_against_half_step": {
+        "max_position_m": 0.0010339625889295107,
+        "max_velocity_m_s": 1.151609708065143e-06,
+        "max_range_m": 0.000727625098079443,
+        "max_range_rate_m_s": 1.0505664590709785e-05,
+        "rms_range_m": 0.0003035372319589526,
+        "rms_range_rate_m_s": 2.440682564339795e-06,
+        "pass": true
+      },
+      "tudat_10s_against_5s": {
+        "max_position_m": 9.974430471771032e-06,
+        "max_velocity_m_s": 1.1031538748203744e-08,
+        "max_range_m": 7.134396582841873e-06,
+        "max_range_rate_m_s": 9.392630317961448e-08,
+        "rms_range_m": 2.358584343256426e-06,
+        "rms_range_rate_m_s": 1.8816946013870256e-08,
+        "pass": true
+      }
+    },
+    "leo800": {
+      "sample_count": 1441,
+      "visible_measurement_count": 336,
+      "truth_sha256": "542597860d7bcaf4c4d1c18fcf06dbb4ea8e32cded08179870d4415931b5380a",
+      "tudat_version": "1.0.0",
+      "config": {
+        "duration_hours": 24.0,
+        "orbit": "leo800",
+        "seed": 31415,
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "cadence": 60.0,
+        "truth_profile": "controlled",
+        "truth_step_seconds": 10.0,
+        "density_parameters": {
+          "offset": 0.0,
+          "amplitudes": [],
+          "periods_seconds": [],
+          "phases": []
+        }
+      },
+      "jax_against_tudat": {
+        "5.0": {
+          "max_position_m": 0.015190309077954114,
+          "max_velocity_m_s": 1.5872850412709697e-05,
+          "max_range_m": 0.01297364360652864,
+          "max_range_rate_m_s": 8.554836718133174e-05,
+          "rms_range_m": 0.0043904782053362686,
+          "rms_range_rate_m_s": 2.3401613921997835e-05,
+          "pass": true
+        },
+        "2.5": {
+          "max_position_m": 0.0008008185441501177,
+          "max_velocity_m_s": 8.376461175815034e-07,
+          "max_range_m": 0.0006837479304522276,
+          "max_range_rate_m_s": 4.68483806059794e-06,
+          "rms_range_m": 0.00024060055623394087,
+          "rms_range_rate_m_s": 1.2852374522557848e-06,
+          "pass": true
+        },
+        "1.25": {
+          "max_position_m": 5.660107105673145e-05,
+          "max_velocity_m_s": 5.926255071902012e-08,
+          "max_range_m": 4.832097329199314e-05,
+          "max_range_rate_m_s": 3.532869641276193e-07,
+          "rms_range_m": 1.7668366341791576e-05,
+          "rms_range_rate_m_s": 9.44496362699889e-08,
+          "pass": true
+        }
+      },
+      "jax_5s_against_2_5s": {
+        "max_position_m": 0.014389490752836593,
+        "max_velocity_m_s": 1.5035204321901074e-05,
+        "max_range_m": 0.012289895676076412,
+        "max_range_rate_m_s": 8.08635291207338e-05,
+        "rms_range_m": 0.004149980662210603,
+        "rms_range_rate_m_s": 2.2116906716724573e-05,
+        "pass": true
+      },
+      "selected_against_half_step": {
+        "max_position_m": 0.000744217474229381,
+        "max_velocity_m_s": 7.783835765219967e-07,
+        "max_range_m": 0.0006354269571602345,
+        "max_range_rate_m_s": 4.331551096470321e-06,
+        "rms_range_m": 0.00022294107883188621,
+        "rms_range_rate_m_s": 1.1908345420112516e-06,
+        "pass": true
+      },
+      "tudat_10s_against_5s": {
+        "max_position_m": 1.2009599150257123e-06,
+        "max_velocity_m_s": 1.174305329112623e-09,
+        "max_range_m": 9.271316230297089e-07,
+        "max_range_rate_m_s": 7.401695256703533e-09,
+        "rms_range_m": 3.640739981065844e-07,
+        "rms_range_rate_m_s": 2.013804939613421e-09,
+        "pass": true
+      }
+    },
+    "eccentric": {
+      "sample_count": 1441,
+      "visible_measurement_count": 215,
+      "truth_sha256": "6fe57684f1658c3202edf27afcec715c1db2c8c4cadfaf301387ed6d223e2640",
+      "tudat_version": "1.0.0",
+      "config": {
+        "duration_hours": 24.0,
+        "orbit": "eccentric",
+        "seed": 31415,
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "cadence": 60.0,
+        "truth_profile": "controlled",
+        "truth_step_seconds": 10.0,
+        "density_parameters": {
+          "offset": 0.0,
+          "amplitudes": [],
+          "periods_seconds": [],
+          "phases": []
+        }
+      },
+      "jax_against_tudat": {
+        "5.0": {
+          "max_position_m": 0.023869783198744065,
+          "max_velocity_m_s": 2.564410115330716e-05,
+          "max_range_m": 0.017416886519640684,
+          "max_range_rate_m_s": 0.00023148308741838264,
+          "rms_range_m": 0.006461083403212016,
+          "rms_range_rate_m_s": 4.857103291089708e-05,
+          "pass": false
+        },
+        "2.5": {
+          "max_position_m": 0.0012933988455164015,
+          "max_velocity_m_s": 1.3472343850697308e-06,
+          "max_range_m": 0.0009298752993345261,
+          "max_range_rate_m_s": 1.2388626714709972e-05,
+          "rms_range_m": 0.00035387645321104767,
+          "rms_range_rate_m_s": 2.6507146875211373e-06,
+          "pass": true
+        },
+        "1.25": {
+          "max_position_m": 7.894989061748641e-05,
+          "max_velocity_m_s": 8.142261824806246e-08,
+          "max_range_m": 5.646608769893646e-05,
+          "max_range_rate_m_s": 7.527669367846102e-07,
+          "rms_range_m": 2.1745351291989624e-05,
+          "rms_range_rate_m_s": 1.6275477453507988e-07,
+          "pass": true
+        }
+      },
+      "jax_5s_against_2_5s": {
+        "max_position_m": 0.022576596172723826,
+        "max_velocity_m_s": 2.4296884135972485e-05,
+        "max_range_m": 0.016487011220306158,
+        "max_range_rate_m_s": 0.00021909446070367267,
+        "rms_range_m": 0.006107328831955216,
+        "rms_range_rate_m_s": 4.5921154172669094e-05,
+        "pass": false
+      },
+      "selected_against_half_step": {
+        "max_position_m": 0.0012144489877024657,
+        "max_velocity_m_s": 1.2658118115563518e-06,
+        "max_range_m": 0.0008734092116355896,
+        "max_range_rate_m_s": 1.1635859777925361e-05,
+        "rms_range_m": 0.00033213260825564817,
+        "rms_range_rate_m_s": 2.487970667378706e-06,
+        "pass": true
+      },
+      "tudat_10s_against_5s": {
+        "max_position_m": 8.126018168041539e-06,
+        "max_velocity_m_s": 9.26214312525137e-09,
+        "max_range_m": 6.202375516295433e-06,
+        "max_range_rate_m_s": 7.846631433494622e-08,
+        "rms_range_m": 1.810760945716666e-06,
+        "rms_range_rate_m_s": 1.3889844136968553e-08,
+        "pass": true
+      }
+    }
+  },
+  "stress_smoke": {
+    "pass": true,
+    "sample_count": 121,
+    "min_density_kg_m3": 9.836902587759858e-13,
+    "max_density_kg_m3": 5.580932175135754e-12,
+    "truth_sha256": "a214ca78ec9b50ac52c85b38c081f32335b3c487b1fdd41c45832914506c4bb1",
+    "force_models": [
+      "Earth SH4x4",
+      "Sun gravity",
+      "Moon gravity",
+      "SRP",
+      "corotating_drag"
+    ],
+    "atmosphere_model": "NRLMSISE-00_with_synthetic_multiscale_multiplier",
+    "space_weather_sha256": "e1a509b6cd8e52d8e114f07cbfa02f889a8c8ac18ef28a5d41a7a4b25a8f4a9d",
+    "observed_weather_start": "1957-10-01",
+    "observed_weather_end": "2025-07-02",
+    "tudat_version": "1.0.0",
+    "config": {
+      "duration_hours": 2.0,
+      "orbit": "leo500",
+      "seed": 31416,
+      "truth_profile": "stress",
+      "atmosphere": "disturbed",
+      "pulse_center_hours": 1.0,
+      "pulse_width_hours": 0.25
+    },
+    "interpretation": "Smoke test of the additional truth forces and archived atmosphere, not an equivalence check against simplified inference dynamics."
+  },
+  "candidate_5s_pass": false,
+  "selected_step_pass": true,
+  "overall_pass": true,
+  "elapsed_seconds": 17.690234910929576
+}

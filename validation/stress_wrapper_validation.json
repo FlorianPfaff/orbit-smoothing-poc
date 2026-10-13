@@ -1,0 +1,73 @@
+{
+  "checked_at_utc": "2026-10-13T11:59:54.877416+00:00",
+  "method": "Invoke documented wrapper CLI through runpy on a copied stress artifact tree; only JSON absolute paths were relocated. Hard guards reject any simulator generation, deterministic initialization or solver execution.",
+  "wrapper": "../analysis/run_stress_campaign.py",
+  "wrapper_sha256": "422e50a7de5066c565ee9eb36e4dff09e01a16fbef8a34c2fac0713e39f360f4",
+  "original_campaign": "../validation/stress_runner_original.py",
+  "source_sha256": "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1",
+  "host": "cpu-gpu-server-b",
+  "original_tree": "runs/v2/stress",
+  "copy_tree": "work/stress-wrapper-validation",
+  "invocation": [
+    "analysis/run_stress_campaign.py",
+    "--config",
+    "configs/stress.json",
+    "--calibration",
+    "runs/v2/calibration/calibration.json",
+    "--output-dir",
+    "work/stress-wrapper-validation",
+    "--tudat-python",
+    "ENVIRONMENT_ROOT/tudat-env/bin/python",
+    "--max-iterations",
+    "60"
+  ],
+  "forbidden_fresh_operation_calls": {
+    "truth_generation": 0,
+    "deterministic_initialization": 0,
+    "solver_fit": 0
+  },
+  "original_tree_unchanged": true,
+  "original_file_count": 23,
+  "copied_files_changed_by_wrapper": [
+    "benchmark.json"
+  ],
+  "model_checks": [
+    {
+      "model": "baseline",
+      "metrics_and_status_match_original": true,
+      "copied_fit_records_and_arrays_unchanged": true,
+      "status": "complete",
+      "converged": true,
+      "valid_for_comparison": true
+    },
+    {
+      "model": "white",
+      "metrics_and_status_match_original": true,
+      "copied_fit_records_and_arrays_unchanged": true,
+      "status": "complete",
+      "converged": true,
+      "valid_for_comparison": true
+    },
+    {
+      "model": "colored",
+      "metrics_and_status_match_original": true,
+      "copied_fit_records_and_arrays_unchanged": true,
+      "status": "complete",
+      "converged": true,
+      "valid_for_comparison": true
+    },
+    {
+      "model": "density",
+      "metrics_and_status_match_original": true,
+      "copied_fit_records_and_arrays_unchanged": true,
+      "status": "complete",
+      "converged": false,
+      "valid_for_comparison": false
+    }
+  ],
+  "manifest_status": "complete",
+  "manifest_primary_complete": true,
+  "manifest_valid_benchmark": false,
+  "review": "Model order, frozen calibration parameters, baseline integration step, 60-iteration options and stress context match the original campaign. The completed but unconverged density fit resumes without becoming valid. This validates orchestration and resume behavior only, not a new inference run.",
+  "passed": true
+}

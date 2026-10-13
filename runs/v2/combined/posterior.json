@@ -1,0 +1,413 @@
+{
+  "all_diagnostics_passed": false,
+  "budget": {
+    "allowed_seconds": 10800.0,
+    "elapsed_seconds": 3059.569999999949,
+    "exhausted": false,
+    "max_jobs": null,
+    "started_jobs": 10
+  },
+  "cases": [
+    {
+      "case": {
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "model": "white",
+        "orbit": "leo500"
+      },
+      "complete": true,
+      "fits": [
+        {
+          "metadata": {
+            "accepted_steps": 1,
+            "covariance": "local Gaussian at MAP, LM damping excluded",
+            "fixed_process_covariance": true,
+            "joint_decrement_squared_limit": 6.947728528919682e-06,
+            "linear_solver": "GTSAM Gaussian factor elimination",
+            "objective_convention": "half squared whitened residual; fixed normalizing constants omitted",
+            "objective_history": [
+              23.05432719683452
+            ],
+            "process_roundoff_squared_bound": 6.486641984982992e-06,
+            "relative_objective_tolerance": 1e-08,
+            "solver": "gtsam",
+            "step_sigma_tolerance": 0.001,
+            "termination": "small undamped marginal step and joint decrement",
+            "timing": {
+              "assembly_seconds": 0.0018909249920397997,
+              "convergence_check_seconds": 0.01154692005366087,
+              "covariance_seconds": 0.005463005974888802,
+              "initialization_seconds": 7.997732609510422e-08,
+              "linearization_seconds": 0.547681595897302,
+              "problem_setup_seconds": 0.3847615378908813,
+              "process_covariance_seconds": 0.3845558079192415,
+              "solve_seconds": 0.003008320927619934
+            },
+            "undamped_step_max_posterior_sigma": 2.8254266038543667e-06,
+            "undamped_step_whitened_squared_norm": 3.534901647330521e-06,
+            "variable_equilibration": "per-node Jacobian column norms; exact invertible change of coordinates"
+          },
+          "metrics": {
+            "coordinate_95_coverage": 0.9077134986225895,
+            "epoch_count": 121,
+            "gap_position_rmse_m": null,
+            "invalid_covariance_epochs": 0,
+            "mean_nees_6": 9.92236842257566,
+            "outside_gap_position_rmse_m": 1.8829242115111169,
+            "position_joint_95_coverage": 0.9256198347107438,
+            "position_rmse_m": 1.8829242115111169,
+            "rtn_position_rmse_m": [
+              0.5854168181995227,
+              1.1404076033850825,
+              1.3791886141515963
+            ],
+            "state_joint_95_coverage": 0.8347107438016529,
+            "velocity_rmse_m_s": 0.002088718857103344
+          },
+          "path": "runs/v2/posterior/1-leo500-quiet-normal-white/gtsam/fit.json",
+          "solver": "gtsam",
+          "status": "complete",
+          "valid_for_comparison": true
+        },
+        {
+          "error": "Original per-job deadline of 1800.0s exceeded; existing child was never restarted",
+          "metadata": {},
+          "metrics": {},
+          "path": "runs/v2/posterior/1-leo500-quiet-normal-white/numpyro/fit.json",
+          "solver": "numpyro",
+          "status": "timeout",
+          "valid_for_comparison": false
+        }
+      ],
+      "posterior_reference_valid": false
+    },
+    {
+      "case": {
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "model": "colored",
+        "orbit": "leo500"
+      },
+      "complete": true,
+      "fits": [
+        {
+          "metadata": {
+            "accepted_steps": 1,
+            "covariance": "local Gaussian at MAP, LM damping excluded",
+            "fixed_process_covariance": true,
+            "joint_decrement_squared_limit": 7.318182175867864e-06,
+            "linear_solver": "GTSAM Gaussian factor elimination",
+            "objective_convention": "half squared whitened residual; fixed normalizing constants omitted",
+            "objective_history": [
+              26.122137816301834
+            ],
+            "process_roundoff_squared_bound": 6.7957394195418274e-06,
+            "relative_objective_tolerance": 1e-08,
+            "solver": "gtsam",
+            "step_sigma_tolerance": 0.001,
+            "termination": "small undamped marginal step and joint decrement",
+            "timing": {
+              "assembly_seconds": 0.0015004450688138604,
+              "convergence_check_seconds": 0.011218341998755932,
+              "covariance_seconds": 0.005495795980095863,
+              "initialization_seconds": 8.998904377222061e-08,
+              "linearization_seconds": 1.2055482239229605,
+              "problem_setup_seconds": 0.9506417439552024,
+              "process_covariance_seconds": 0.9503596579888836,
+              "solve_seconds": 0.0009874709649011493
+            },
+            "undamped_step_max_posterior_sigma": 7.120371056269911e-05,
+            "undamped_step_whitened_squared_norm": 3.686554928237279e-06,
+            "variable_equilibration": "per-node Jacobian column norms; exact invertible change of coordinates"
+          },
+          "metrics": {
+            "coordinate_95_coverage": 1.0,
+            "epoch_count": 121,
+            "gap_position_rmse_m": null,
+            "invalid_covariance_epochs": 0,
+            "mean_nees_6": 3.742627734789202,
+            "outside_gap_position_rmse_m": 2.0578722429304492,
+            "position_joint_95_coverage": 1.0,
+            "position_rmse_m": 2.0578722429304492,
+            "rtn_position_rmse_m": [
+              0.4312999194067146,
+              1.0098519993263368,
+              1.7404072762431095
+            ],
+            "state_joint_95_coverage": 1.0,
+            "velocity_rmse_m_s": 0.002208612772630198
+          },
+          "path": "runs/v2/posterior/2-leo500-quiet-normal-colored/gtsam/fit.json",
+          "solver": "gtsam",
+          "status": "complete",
+          "valid_for_comparison": true
+        },
+        {
+          "error": "Per-job deadline of 1800.0s exceeded",
+          "metadata": {},
+          "metrics": {},
+          "path": "runs/v2/posterior/2-leo500-quiet-normal-colored/numpyro/fit.json",
+          "solver": "numpyro",
+          "status": "timeout",
+          "valid_for_comparison": false
+        }
+      ],
+      "posterior_reference_valid": false
+    },
+    {
+      "case": {
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "model": "density",
+        "orbit": "leo500"
+      },
+      "complete": true,
+      "fits": [
+        {
+          "metadata": {
+            "accepted_steps": 5,
+            "covariance": "local Gaussian at MAP, LM damping excluded",
+            "fixed_process_covariance": true,
+            "joint_decrement_squared_limit": 7.433491279345388e-06,
+            "linear_solver": "GTSAM Gaussian factor elimination",
+            "objective_convention": "half squared whitened residual; fixed normalizing constants omitted",
+            "objective_history": [
+              24.959075965834884,
+              24.937834475970384,
+              24.93767542005118,
+              24.937672881136752,
+              24.937672695026162
+            ],
+            "process_roundoff_squared_bound": 6.934737825444865e-06,
+            "relative_objective_tolerance": 1e-08,
+            "solver": "gtsam",
+            "step_sigma_tolerance": 0.001,
+            "termination": "small undamped marginal step and joint decrement",
+            "timing": {
+              "assembly_seconds": 0.009275660151615739,
+              "convergence_check_seconds": 0.0109204628970474,
+              "covariance_seconds": 0.0053553530015051365,
+              "initialization_seconds": 7.101334631443024e-08,
+              "linearization_seconds": 0.6950457718921825,
+              "problem_setup_seconds": 0.5357573910150677,
+              "process_covariance_seconds": 0.5355133130215108,
+              "solve_seconds": 0.0038117931690067053
+            },
+            "undamped_step_max_posterior_sigma": 3.5043446164296597e-06,
+            "undamped_step_whitened_squared_norm": 2.8967290867533337e-06,
+            "variable_equilibration": "per-node Jacobian column norms; exact invertible change of coordinates"
+          },
+          "metrics": {
+            "coordinate_95_coverage": 0.6914600550964187,
+            "epoch_count": 121,
+            "gap_position_rmse_m": null,
+            "invalid_covariance_epochs": 0,
+            "log_density_95_coverage": 1.0,
+            "log_density_rmse": 0.08188304236754124,
+            "mean_nees_6": 15.336210898578816,
+            "outside_gap_position_rmse_m": 3.617301986906567,
+            "position_joint_95_coverage": 0.6528925619834711,
+            "position_rmse_m": 3.617301986906567,
+            "rtn_position_rmse_m": [
+              0.3940970660733373,
+              0.9755324596528878,
+              3.4609099362962583
+            ],
+            "state_joint_95_coverage": 0.2892561983471074,
+            "velocity_rmse_m_s": 0.004435672277025322
+          },
+          "path": "runs/v2/posterior/3-leo500-quiet-normal-density/gtsam/fit.json",
+          "solver": "gtsam",
+          "status": "complete",
+          "valid_for_comparison": true
+        },
+        {
+          "error": "Per-job deadline of 1800.0s exceeded",
+          "metadata": {},
+          "metrics": {},
+          "path": "runs/v2/posterior/3-leo500-quiet-normal-density/numpyro/fit.json",
+          "solver": "numpyro",
+          "status": "timeout",
+          "valid_for_comparison": false
+        }
+      ],
+      "posterior_reference_valid": false
+    },
+    {
+      "case": {
+        "atmosphere": "disturbed",
+        "coverage": "blackout",
+        "model": "density",
+        "orbit": "leo500"
+      },
+      "complete": true,
+      "fits": [
+        {
+          "metadata": {
+            "accepted_steps": 24,
+            "covariance": "local Gaussian at MAP, LM damping excluded",
+            "fixed_process_covariance": true,
+            "joint_decrement_squared_limit": 7.960594391321297e-06,
+            "linear_solver": "GTSAM Gaussian factor elimination",
+            "objective_convention": "half squared whitened residual; fixed normalizing constants omitted",
+            "objective_history": [
+              19.35202610715691,
+              19.1136922396145,
+              18.98592595830197,
+              18.906353068210382,
+              18.855561998781788,
+              18.752546268221007,
+              18.5349240064953,
+              18.427198944513062,
+              18.258056190551276,
+              18.18858583777985,
+              18.0541875645816,
+              17.973978558643417,
+              17.642229996266714,
+              17.51420199424307,
+              17.381436413636894,
+              17.27461073592839,
+              17.215113486220638,
+              17.137581483521977,
+              17.081130125111116,
+              17.045946730429215,
+              16.809522971559904,
+              16.76492602316356,
+              16.764040714736876,
+              16.76403410364077
+            ],
+            "process_roundoff_squared_bound": 7.625313709248481e-06,
+            "relative_objective_tolerance": 1e-08,
+            "solver": "gtsam",
+            "step_sigma_tolerance": 0.001,
+            "termination": "small undamped marginal step and joint decrement",
+            "timing": {
+              "assembly_seconds": 0.03974845656193793,
+              "convergence_check_seconds": 0.010894613922573626,
+              "covariance_seconds": 0.005344777018763125,
+              "initialization_seconds": 7.997732609510422e-08,
+              "linearization_seconds": 0.7633204348385334,
+              "problem_setup_seconds": 0.5288639459758997,
+              "process_covariance_seconds": 0.5286274499958381,
+              "solve_seconds": 0.015238881926052272
+            },
+            "undamped_step_max_posterior_sigma": 0.0001690560939849037,
+            "undamped_step_whitened_squared_norm": 2.9465847600203475e-06,
+            "variable_equilibration": "per-node Jacobian column norms; exact invertible change of coordinates"
+          },
+          "metrics": {
+            "coordinate_95_coverage": 0.8870523415977961,
+            "epoch_count": 121,
+            "gap_position_rmse_m": 2.043739667416375,
+            "invalid_covariance_epochs": 0,
+            "log_density_95_coverage": 0.9008264462809917,
+            "log_density_rmse": 0.2939882696221006,
+            "mean_nees_6": 13.065963914524373,
+            "outside_gap_position_rmse_m": 2.257260442609693,
+            "position_joint_95_coverage": 0.5619834710743802,
+            "position_rmse_m": 2.2045281165066153,
+            "rtn_position_rmse_m": [
+              1.1368574114597039,
+              1.8036306279198568,
+              0.5607280985529172
+            ],
+            "state_joint_95_coverage": 0.49586776859504134,
+            "velocity_rmse_m_s": 0.0017801224409532662
+          },
+          "path": "runs/v2/posterior/4-leo500-disturbed-blackout-density/gtsam/fit.json",
+          "solver": "gtsam",
+          "status": "complete",
+          "valid_for_comparison": true
+        },
+        {
+          "error": "Per-job deadline of 1800.0s exceeded",
+          "metadata": {},
+          "metrics": {},
+          "path": "runs/v2/posterior/4-leo500-disturbed-blackout-density/numpyro/fit.json",
+          "solver": "numpyro",
+          "status": "timeout",
+          "valid_for_comparison": false
+        }
+      ],
+      "posterior_reference_valid": false
+    },
+    {
+      "case": {
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "model": "density",
+        "orbit": "leo800"
+      },
+      "complete": true,
+      "fits": [
+        {
+          "metadata": {
+            "accepted_steps": 1,
+            "covariance": "local Gaussian at MAP, LM damping excluded",
+            "fixed_process_covariance": true,
+            "joint_decrement_squared_limit": 7.748786695237322e-06,
+            "linear_solver": "GTSAM Gaussian factor elimination",
+            "objective_convention": "half squared whitened residual; fixed normalizing constants omitted",
+            "objective_history": [
+              34.6755152772717
+            ],
+            "process_roundoff_squared_bound": 7.055276389691889e-06,
+            "relative_objective_tolerance": 1e-08,
+            "solver": "gtsam",
+            "step_sigma_tolerance": 0.001,
+            "termination": "small undamped marginal step and joint decrement",
+            "timing": {
+              "assembly_seconds": 0.0015676059992983937,
+              "convergence_check_seconds": 0.011092493077740073,
+              "covariance_seconds": 0.005465380032546818,
+              "initialization_seconds": 9.103678166866302e-08,
+              "linearization_seconds": 0.6785185970366001,
+              "problem_setup_seconds": 0.5411174410255626,
+              "process_covariance_seconds": 0.5408833279507235,
+              "solve_seconds": 0.0008195270784199238
+            },
+            "undamped_step_max_posterior_sigma": 9.957685151251506e-06,
+            "undamped_step_whitened_squared_norm": 3.4143991657171812e-06,
+            "variable_equilibration": "per-node Jacobian column norms; exact invertible change of coordinates"
+          },
+          "metrics": {
+            "coordinate_95_coverage": 1.0,
+            "epoch_count": 121,
+            "gap_position_rmse_m": null,
+            "invalid_covariance_epochs": 0,
+            "log_density_95_coverage": 1.0,
+            "log_density_rmse": 0.11270354533703196,
+            "mean_nees_6": 3.8592703370353836,
+            "outside_gap_position_rmse_m": 2.8796884841151416,
+            "position_joint_95_coverage": 1.0,
+            "position_rmse_m": 2.8796884841151416,
+            "rtn_position_rmse_m": [
+              0.49490112713368356,
+              1.1864706046397395,
+              2.576813176043809
+            ],
+            "state_joint_95_coverage": 1.0,
+            "velocity_rmse_m_s": 0.002878604462893626
+          },
+          "path": "runs/v2/posterior/5-leo800-quiet-normal-density/gtsam/fit.json",
+          "solver": "gtsam",
+          "status": "complete",
+          "valid_for_comparison": true
+        },
+        {
+          "error": "Per-job deadline of 1800.0s exceeded",
+          "metadata": {},
+          "metrics": {},
+          "path": "runs/v2/posterior/5-leo800-quiet-normal-density/numpyro/fit.json",
+          "solver": "numpyro",
+          "status": "timeout",
+          "valid_for_comparison": false
+        }
+      ],
+      "posterior_reference_valid": false
+    }
+  ],
+  "complete": true,
+  "note": "Five bounded checks attempted: 0 MCMC checks completed, 5 timed out, 0 accepted posterior references. Execution completion is separate from diagnostic validity.",
+  "scheduling_provenance": "runs/v2/posterior/parallel-schedule/schedule.json"
+}

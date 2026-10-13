@@ -1,0 +1,29 @@
+{
+  "change": "Composite convergence for undamped Gauss-Newton steps",
+  "owned_sources_changed": ["outputs/orbit-poc/src/orbit_poc/solvers.py", "outputs/orbit-poc/tests/test_solvers.py"],
+  "criterion": {
+    "marginal": "max(abs(delta)/sqrt(diag(P))) <= 1e-3",
+    "joint": "sum(squared linearized whitened factor changes) <= roundoff_squared_bound + 2*1e-8*max(1,abs(objective))",
+    "roundoff_squared_bound": "sum((abs(inverse_cholesky_Q) @ (machine_epsilon*(abs(state_k)+abs(state_k1))))**2)",
+    "notes": "Only an undamped step can pass. The explicit process residual representational bound is an additive numerical allowance, not a new process covariance. External objective agreement 1e-4 and state agreement 1 percent of posterior sigma are unchanged."
+  },
+  "tests": {"passed": 9, "seconds": 6.61, "includes": ["Strongly correlated Gaussian update that is tiny in marginal sigma but large in joint Mahalanobis distance", "Archived real 24-hour colored-model v1 failure fixture", "Existing sparse algebra, filter/RTS, GTSAM and separator regression suite"]},
+  "real_regressions": [
+    {
+      "case": "leo500 disturbed normal seed43 colored, archived uncalibrated v1 pilot",
+      "ieks": {"objective": 179.5481693780655, "converged": true, "iterations": 3, "step_sigma_fraction": 2.703721603451686e-7, "joint_decrement_squared": 3.9697600688238153e-5, "joint_decrement_squared_limit": 8.526884923755528e-5},
+      "gtsam": {"objective": 179.54816891703445, "converged": true, "iterations": 3},
+      "relative_objective_difference": 2.5677290466283927e-9,
+      "maximum_position_difference_m": 8.303414618587233e-7
+    },
+    {
+      "case": "leo500 disturbed blackout seed43 colored, archived uncalibrated v1 pilot",
+      "ieks": {"objective": 168.84959111056585, "converged": true, "iterations": 3, "step_sigma_fraction": 2.4870588920137173e-7, "joint_decrement_squared": 3.903477762079384e-5, "joint_decrement_squared_limit": 8.505487621414573e-5},
+      "gtsam": {"objective": 168.8495917267193, "converged": true, "iterations": 3},
+      "relative_objective_difference": 3.6491260587678632e-9,
+      "maximum_position_difference_m": 2.6887005928823896e-6
+    }
+  ],
+  "previous_diagnosis_preserved": "work/pilot_solver_diagnosis.json",
+  "remaining_limitation": "Uncalibrated 300-km disturbed white-model nonconvergence was not relabeled as passing. Calibrated broader-white-noise cases require their own final evaluation gates."
+}

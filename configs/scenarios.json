@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "duration_hours": 24,
+    "cadence": 60,
+    "epoch": "2024-05-10T00:00:00",
+    "truth_profile": "controlled",
+    "blackout_hours": [
+      11,
+      13
+    ],
+    "substep": 2.5
+  },
+  "orbits": [
+    "leo300",
+    "leo500",
+    "leo800",
+    "eccentric"
+  ],
+  "atmospheres": [
+    "quiet",
+    "disturbed"
+  ],
+  "coverages": [
+    "normal",
+    "blackout"
+  ],
+  "evaluation_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "calibration": {
+    "duration_hours": 6,
+    "orbit": "leo500",
+    "atmosphere": "quiet",
+    "coverage": "normal",
+    "seeds": [
+      10000,
+      10001,
+      10002,
+      10003,
+      10004
+    ]
+  },
+  "stress": {
+    "truth_profile": "stress",
+    "orbit": "leo500",
+    "atmosphere": "disturbed",
+    "coverage": "normal",
+    "seed": 20000,
+    "duration_hours": 24,
+    "gravity_degree": 4,
+    "gravity_order": 4,
+    "sun_moon": true,
+    "srp": true,
+    "atmosphere_model": "NRLMSISE-00",
+    "space_weather_file": null
+  },
+  "notes": "Stress archives and hashes its explicit space_weather_file or Tudat bundled resource; it fails if absent. Controlled truth has independent smooth density variation. SciPy is diagnostic only."
+}

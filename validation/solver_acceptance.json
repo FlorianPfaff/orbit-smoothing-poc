@@ -1,0 +1,111 @@
+{
+  "status": "passed",
+  "dataset": "runs/pilot-data/dataset.npz on cpu-gpu-server-a",
+  "case": "24-hour 500 km LEO pilot with visibility-limited ground range and range-rate observations",
+  "nodes": 1441,
+  "integration_substep_seconds": 2.5,
+  "methods": {
+    "gtsam": "Gaussian factor graph elimination with chronological ordering and invertible per-node Jacobian column equilibration",
+    "ieks": "Independent linearized Kalman forward filter and Rauch-Tung-Striebel backward smoother",
+    "initialization": "Initial Cartesian state plus one constant log-drag parameter, fitted to observations and priors; constant-drag prior sigma fixed at 1.0 across candidate models",
+    "process_covariance": "Full joint augmented-state covariance integrated on the common reference and frozen for all trajectory inference",
+    "covariance": "Undamped local Gaussian covariance computed by filtering and RTS recursion; no full trajectory covariance allocated"
+  },
+  "tolerances": {
+    "convergence_max_undamped_step_divided_by_marginal_sigma": 0.001,
+    "comparison_relative_objective": 0.0001,
+    "comparison_max_position_difference_m": 0.1,
+    "separator_relative_linear_objective": 0.0001,
+    "separator_max_position_difference_m": 0.1,
+    "initial_lm_damping": 0.0
+  },
+  "models": {
+    "white": {
+      "ieks_objective": 319.4702131777253,
+      "gtsam_objective": 319.47017632986524,
+      "ieks_converged": true,
+      "gtsam_converged": true,
+      "ieks_iterations": 2,
+      "gtsam_iterations": 2,
+      "ieks_final_step_sigma_fraction": 0.000021088911358001844,
+      "gtsam_final_step_sigma_fraction": 0.00003221252377849778,
+      "max_position_difference_m": 0.000021382907438673214
+    },
+    "colored": {
+      "ieks_objective": 183.06171946592121,
+      "gtsam_objective": 183.06171849655024,
+      "ieks_converged": true,
+      "gtsam_converged": true,
+      "ieks_iterations": 2,
+      "gtsam_iterations": 2,
+      "ieks_final_step_sigma_fraction": 0.000008042760807649868,
+      "gtsam_final_step_sigma_fraction": 0.00014726032855891293,
+      "max_position_difference_m": 0.00031747321622387835
+    },
+    "density": {
+      "ieks_objective": 183.383497430804,
+      "gtsam_objective": 183.38349730014212,
+      "ieks_converged": true,
+      "gtsam_converged": true,
+      "ieks_iterations": 4,
+      "gtsam_iterations": 4,
+      "ieks_final_step_sigma_fraction": 0.00019386124057262685,
+      "gtsam_final_step_sigma_fraction": 0.0001921035871324223,
+      "max_position_difference_m": 0.000010637819542719798
+    }
+  },
+  "separator": {
+    "model": "density",
+    "boundary_indices": [0, 360, 720, 1080, 1440],
+    "boundary_spacing_hours": 6,
+    "interior_nodes_eliminated": 1436,
+    "reduced_factors": 5,
+    "method": "GTSAM eliminatePartialSequential of interior states, reduced boundary solve, saved Gaussian conditional back-substitution",
+    "max_position_difference_m": 1.4214363865635574e-7,
+    "max_velocity_difference_m_s": 1.5699381245161034e-10,
+    "max_latent_difference": 5.059823208132987e-9,
+    "relative_linear_objective_difference": 1.5498511534396399e-16,
+    "linearization_seconds": 0.04259009100496769,
+    "assembly_seconds": 0.008028127020224929,
+    "full_solve_seconds": 0.005378808011300862,
+    "partial_elimination_seconds": 0.00392442406155169,
+    "boundary_solve_seconds": 0.00010416691657155752,
+    "backsubstitution_seconds": 0.00046247802674770355,
+    "interpretation": "Exact Gaussian separator construction at one frozen nonlinear linearization, subject to finite precision; timings are a single CPU run and do not establish a speedup"
+  },
+  "numerical_precision": {
+    "observation": "For white acceleration, a 3.64 micrometre undamped orbital update changed predicted measurements by at most 1.57e-6 measurement sigma, while the accumulated whitened process-step squared norm was 4.00e-5. A floating-point residual subtraction bound was 7.79e-5.",
+    "consequence": "Convergence requires a small undamped update relative to every marginal posterior sigma. Tiny damped objective improvements alone never imply convergence. Whitened process roundoff is reported rather than used to tighten the stopping scale beyond machine precision."
+  },
+  "numpyro_execution_smoke": {
+    "status": "finite_execution_passed_posterior_diagnostics_inconclusive",
+    "model": "white",
+    "nodes": 3,
+    "warmup": 20,
+    "samples_per_chain": 20,
+    "chains": 1,
+    "state_shape": [3, 6],
+    "covariance_shape": [3, 6, 6],
+    "objective_at_posterior_mean": 7.3820946527525395,
+    "max_rhat": 1.6357877570866308,
+    "min_ess": 3.7661729499959042,
+    "divergences": 0,
+    "converged": false,
+    "diagnostic_status": "inconclusive",
+    "mass_matrix": "Dense initial-innovation block and diagonal process innovations",
+    "note": "This verifies execution only. The actual posterior acceptance gate requires at least four chains, Rhat below 1.01, ESS at least 400 for every reported state component, and no divergences."
+  },
+  "regression_tests": {
+    "command": "JAX_PLATFORM_NAME=cpu PYTHONPATH=src ../env/bin/python -m pytest tests/test_solvers.py -q",
+    "passed": 7,
+    "coverage": [
+      "Block chain means and covariance marginals against independent dense Gaussian calculation",
+      "Prefix separator retains information rather than discarding historical factors",
+      "Single-node and multiple-right-hand-side chain solves",
+      "Invalid separator rejection",
+      "Actual filter-RTS recursion against independent dense least squares",
+      "Physical orbit GTSAM/IEKS parity and GTSAM partial separator equivalence",
+      "Common deterministic reference independent of candidate OU sigma and constant drag along baseline"
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "calibrated": true,
+  "expected_primary_runs": 4,
+  "kind": "realism_stress",
+  "note": "One deliberately mismatched-force case with frozen controlled-calibration parameters; no ensemble performance claim.",
+  "primary_complete": true,
+  "provenance": {
+    "cpu_count": 128,
+    "packages": {
+      "gtsam": "4.2",
+      "jax": "0.6.2",
+      "jaxlib": "0.6.2",
+      "numpy": "1.26.4",
+      "numpyro": "0.19.0",
+      "scipy": "1.15.3",
+      "tudatpy": null
+    },
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.11.15",
+    "schema_version": 1,
+    "source_sha256": "9fd0d00d8e732d75275206173701c1bf701e618703a775b40686314f1381e7b1"
+  },
+  "runs": [
+    {
+      "context": {
+        "atmosphere": "disturbed",
+        "coverage": "normal",
+        "duration_hours": 24,
+        "model": "baseline",
+        "orbit": "leo500",
+        "seed": 20000,
+        "solver": "deterministic",
+        "stage": "stress",
+        "truth_profile": "stress"
+      },
+      "converged": true,
+      "elapsed_seconds": 2.0185738389845937,
+      "error": null,
+      "metrics": {
+        "coordinate_95_coverage": 0.002197547999074717,
+        "epoch_count": 1441,
+        "gap_position_rmse_m": null,
+        "invalid_covariance_epochs": 0,
+        "mean_nees_6": 75330798.41039014,
+        "outside_gap_position_rmse_m": 731.2664943961736,
+        "position_joint_95_coverage": 0.0,
+        "position_rmse_m": 731.2664943961736,
+        "rtn_position_rmse_m": [
+          159.97210344119958,
+          692.8816006943093,
+          170.51304749595866
+        ],
+        "state_joint_95_coverage": 0.0,
+        "velocity_rmse_m_s": 0.7496176839476686
+      },
+      "path": "runs/v2/stress/fits/baseline/fit.json",
+      "status": "complete",
+      "valid_for_comparison": true
+    },
+    {
+      "context": {
+        "atmosphere": "disturbed",
+        "coverage": "normal",
+        "duration_hours": 24,
+        "model": "white",
+        "orbit": "leo500",
+        "seed": 20000,
+        "solver": "gtsam",
+        "stage": "stress",
+        "truth_profile": "stress"
+      },
+      "converged": true,
+      "elapsed_seconds": 3.9437282499857247,
+      "error": null,
+      "metrics": {
+        "coordinate_95_coverage": 0.007864908628267407,
+        "epoch_count": 1441,
+        "gap_position_rmse_m": null,
+        "invalid_covariance_epochs": 0,
+        "mean_nees_6": 633209.0731315562,
+        "outside_gap_position_rmse_m": 368.90938448399254,
+        "position_joint_95_coverage": 0.0,
+        "position_rmse_m": 368.90938448399254,
+        "rtn_position_rmse_m": [
+          103.59316984599839,
+          315.14998390762406,
+          161.3786750616093
+        ],
+        "state_joint_95_coverage": 0.0,
+        "velocity_rmse_m_s": 0.35360941817407077
+      },
+      "path": "runs/v2/stress/fits/white/fit.json",
+      "status": "complete",
+      "valid_for_comparison": true
+    },
+    {
+      "context": {
+        "atmosphere": "disturbed",
+        "coverage": "normal",
+        "duration_hours": 24,
+        "model": "colored",
+        "orbit": "leo500",
+        "seed": 20000,
+        "solver": "gtsam",
+        "stage": "stress",
+        "truth_profile": "stress"
+      },
+      "converged": true,
+      "elapsed_seconds": 5.449520930997096,
+      "error": null,
+      "metrics": {
+        "coordinate_95_coverage": 0.005320379366180893,
+        "epoch_count": 1441,
+        "gap_position_rmse_m": null,
+        "invalid_covariance_epochs": 0,
+        "mean_nees_6": 2299882.394489477,
+        "outside_gap_position_rmse_m": 466.64781762994926,
+        "position_joint_95_coverage": 0.0,
+        "position_rmse_m": 466.64781762994926,
+        "rtn_position_rmse_m": [
+          138.92784121378816,
+          415.4729186722677,
+          160.75289883674947
+        ],
+        "state_joint_95_coverage": 0.0,
+        "velocity_rmse_m_s": 0.440661146782614
+      },
+      "path": "runs/v2/stress/fits/colored/fit.json",
+      "status": "complete",
+      "valid_for_comparison": true
+    },
+    {
+      "context": {
+        "atmosphere": "disturbed",
+        "coverage": "normal",
+        "duration_hours": 24,
+        "model": "density",
+        "orbit": "leo500",
+        "seed": 20000,
+        "solver": "gtsam",
+        "stage": "stress",
+        "truth_profile": "stress"
+      },
+      "converged": false,
+      "elapsed_seconds": 8.422000895021483,
+      "error": null,
+      "metrics": {
+        "coordinate_95_coverage": 0.0026601896830904465,
+        "epoch_count": 1441,
+        "gap_position_rmse_m": null,
+        "invalid_covariance_epochs": 0,
+        "log_density_95_coverage": 0.03747397640527411,
+        "log_density_rmse": 4.6377594626171526,
+        "mean_nees_6": 2606807.606505318,
+        "outside_gap_position_rmse_m": 681.952941651258,
+        "position_joint_95_coverage": 0.0,
+        "position_rmse_m": 681.952941651258,
+        "rtn_position_rmse_m": [
+          152.44095332296095,
+          642.472069637365,
+          170.44415540778084
+        ],
+        "state_joint_95_coverage": 0.0,
+        "velocity_rmse_m_s": 0.6982052402009138
+      },
+      "path": "runs/v2/stress/fits/density/fit.json",
+      "status": "complete",
+      "valid_for_comparison": false
+    }
+  ],
+  "status": "complete",
+  "truth_backend": "tudat",
+  "valid_benchmark": false
+}

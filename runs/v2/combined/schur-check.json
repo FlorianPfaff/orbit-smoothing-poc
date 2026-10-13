@@ -1,0 +1,81 @@
+{
+  "kind": "actual_orbit_Gaussian_separator",
+  "passed": true,
+  "runs": [
+    {
+      "duration_hours": 6.0,
+      "assembly_seconds": 0.0035758059239014983,
+      "backsubstitution_seconds": 0.00021846103481948376,
+      "boundary_indices": [
+        0,
+        360
+      ],
+      "boundary_solve_seconds": 4.877406172454357e-05,
+      "dimension": 7,
+      "full_solve_seconds": 0.0026703120674937963,
+      "interior_nodes": 359,
+      "interpretation": "exact Gaussian separator construction at a frozen nonlinear linearization, subject to finite precision",
+      "linearization_seconds": 0.03514175198506564,
+      "max_latent_difference": 4.2733097047278624e-10,
+      "max_position_difference_m": 6.797934398021294e-09,
+      "max_velocity_difference_m_s": 7.0493982123487e-12,
+      "nodes": 361,
+      "partial_elimination_seconds": 0.002003470086492598,
+      "reduced_factors": 2,
+      "relative_linear_objective_difference": 5.366353788651551e-16
+    },
+    {
+      "duration_hours": 12.0,
+      "assembly_seconds": 0.007626201957464218,
+      "backsubstitution_seconds": 0.0009443929884582758,
+      "boundary_indices": [
+        0,
+        360,
+        720
+      ],
+      "boundary_solve_seconds": 0.00016569101717323065,
+      "dimension": 7,
+      "full_solve_seconds": 0.007394971093162894,
+      "interior_nodes": 718,
+      "interpretation": "exact Gaussian separator construction at a frozen nonlinear linearization, subject to finite precision",
+      "linearization_seconds": 0.0410944449249655,
+      "max_latent_difference": 3.434427373294978e-10,
+      "max_position_difference_m": 5.414254281647341e-09,
+      "max_velocity_difference_m_s": 5.675617023036914e-12,
+      "nodes": 721,
+      "partial_elimination_seconds": 0.004235707107000053,
+      "reduced_factors": 3,
+      "relative_linear_objective_difference": 1.3353950835582993e-16
+    },
+    {
+      "duration_hours": 24.0,
+      "assembly_seconds": 0.014480973011814058,
+      "backsubstitution_seconds": 0.0033290209248661995,
+      "boundary_indices": [
+        0,
+        360,
+        720,
+        1080,
+        1440
+      ],
+      "boundary_solve_seconds": 0.00036889989860355854,
+      "dimension": 7,
+      "full_solve_seconds": 0.01874217903241515,
+      "interior_nodes": 1436,
+      "interpretation": "exact Gaussian separator construction at a frozen nonlinear linearization, subject to finite precision",
+      "linearization_seconds": 0.048202269012108445,
+      "max_latent_difference": 9.227709985906442e-11,
+      "max_position_difference_m": 3.0316198998064777e-09,
+      "max_velocity_difference_m_s": 3.3297241695658176e-12,
+      "nodes": 1441,
+      "partial_elimination_seconds": 0.009217716986313462,
+      "reduced_factors": 5,
+      "relative_linear_objective_difference": 0.0
+    }
+  ],
+  "thresholds": {
+    "separator_relative_linear_objective": 0.0001,
+    "separator_max_position_difference_m": 0.1
+  },
+  "note": "Actual density-augmented 6/12/24 h orbit graphs, retaining 6 h boundaries, agree with full Gaussian elimination. Frozen linearization only; no nonlinear exactness or speedup claim."
+}
