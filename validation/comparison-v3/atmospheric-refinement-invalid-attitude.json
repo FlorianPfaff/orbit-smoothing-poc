@@ -1,0 +1,25 @@
+{
+  "complete": false,
+  "duration_hours": 24,
+  "gates_relaxed": false,
+  "method": "groops_pulses",
+  "native_binary_sha256": "2846937c06875c6767969ad37785bb4988f62098db2211f6c8cb25964a467200",
+  "observed_differences": [
+    {
+      "comparison": "state5_to_2p5_force1",
+      "maximum_position_difference_m": 3.153012645603707e-05,
+      "rms_position_difference_m": 1.2562653377748096e-05
+    },
+    {
+      "comparison": "force1_to_0p5_state2p5",
+      "maximum_position_difference_m": 0.004030329332678145,
+      "rms_position_difference_m": 0.0018864644676938737
+    }
+  ],
+  "passed": false,
+  "prediction_status": "not_completed_receiver_orbit_attitude_epochs_mismatched",
+  "raw_artifacts": "raw-artifacts/flight-refinement-invalid-attitude-raw",
+  "raw_relocated_from": "/tmp/orbit-v3-flight-refinement-dense",
+  "reason": "Auxiliary attitude interpolation omitted native quaternion sign unwrapping and normalization; independent force refinement exposed invalid rotations. Corrected runs must replace this evidence for numerical acceptance.",
+  "status": "invalid_implementation_preserved"
+}

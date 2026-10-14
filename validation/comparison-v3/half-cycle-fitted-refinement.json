@@ -1,0 +1,207 @@
+{
+  "case": {
+    "atmosphere": "quiet",
+    "cadence": 30,
+    "coverage": "normal",
+    "duration_hours": 1.0,
+    "epoch": "2024-04-24T00:00:00",
+    "mask": {
+      "cadence_seconds": 30,
+      "intervals_seconds": [],
+      "time_scale": "elapsed"
+    },
+    "orbit": "leo500",
+    "seed": 300000,
+    "truth_model": "tudat_independent_central_j2_exponential_gnss"
+  },
+  "interpretation": "Historical constant-noise diagnostic with incompatible independent half-cycle injections; not final physical ambiguity acceptance.",
+  "native_binary_sha256": "d5e8b541ec47355368a92ae10bc2010828f795a36b721ee1c29f1f456bbb23a1",
+  "production_numerical_gate_complete": false,
+  "raw_artifact_root": "raw-artifacts/piecewise-fitted-refinement",
+  "reproduction": "../../docs/comparison-native-validation.md",
+  "results": [
+    {
+      "artifacts": [
+        {
+          "path": "groops_pulses/coarse/evaluate.xml",
+          "sha256": "2bf4436b434a5dd10b23e962395420a08441b43543d055ae8f8ded7f7314064c"
+        },
+        {
+          "path": "groops_pulses/coarse/reference.npz",
+          "sha256": "7d2ebef523f95a665bf370e6931da5c4df1b993267b21d4162e04f99d3a98c3f"
+        },
+        {
+          "path": "groops_pulses/coarse/initial.txt",
+          "sha256": "8c0bced4363415a44f12c23a593da2a284665cd734b755b6c1c8ddde66da8ee4"
+        },
+        {
+          "path": "groops_pulses/coarse/parameters.txt",
+          "sha256": "1bd7c954f5589186eea99cc8e2e4f91f3375842c7512b1a0844e9abc91fba0f5"
+        },
+        {
+          "path": "groops_pulses/coarse/reanchored_parameters.txt",
+          "sha256": "746ad933a543d734e56b17facc2f57c340b64ac700b8d0a74a4cdbdbf3c615fd"
+        },
+        {
+          "path": "groops_pulses/coarse/fixed_orbit.txt",
+          "sha256": "01f901be4135da636eb99bac5729f3dc302393b25c8b52cf3f9a8e863404c786"
+        },
+        {
+          "path": "groops_pulses/coarse/refinement.execution.json",
+          "sha256": "1bccfd5cc59fbc96d9ae305a1febafa4427890c6fba1dd3270e652200778b98c"
+        },
+        {
+          "path": "groops_pulses/coarse/offgrid_epochs.txt",
+          "sha256": "fce82495b7e516fd3b62705179eb18799c73bb8ad84906f7a1987870434cd140"
+        },
+        {
+          "path": "groops_pulses/coarse/offgrid_orbit.txt",
+          "sha256": "9561ff6509e406e81f255edc7820a1bd221c5c025a159c6670a3d75acbf4d5fd"
+        },
+        {
+          "path": "groops_pulses/fine/evaluate.xml",
+          "sha256": "afa2244512389892c4f688c31f01d5105c00820c7e81de02cd297d89ec178b72"
+        },
+        {
+          "path": "groops_pulses/fine/reference.npz",
+          "sha256": "080881ec3d0b94fb6a0ef43ce3261db12d89c5bb835a1506ef2ab998dd8e7519"
+        },
+        {
+          "path": "groops_pulses/fine/initial.txt",
+          "sha256": "8c0bced4363415a44f12c23a593da2a284665cd734b755b6c1c8ddde66da8ee4"
+        },
+        {
+          "path": "groops_pulses/fine/parameters.txt",
+          "sha256": "1bd7c954f5589186eea99cc8e2e4f91f3375842c7512b1a0844e9abc91fba0f5"
+        },
+        {
+          "path": "groops_pulses/fine/reanchored_parameters.txt",
+          "sha256": "cdb6ff0e90d683f45c2ae2f38343109401bdd54bdca138f36b9b3a2f932757db"
+        },
+        {
+          "path": "groops_pulses/fine/fixed_orbit.txt",
+          "sha256": "3f009045742358de7dc7911d19e26cc236488fcce376b471c65b3c99df6dd84c"
+        },
+        {
+          "path": "groops_pulses/fine/refinement.execution.json",
+          "sha256": "3696065037da989da549cbbd771ceb2a2ed716d4e54098f16711abbca156321d"
+        },
+        {
+          "path": "groops_pulses/fine/offgrid_epochs.txt",
+          "sha256": "fce82495b7e516fd3b62705179eb18799c73bb8ad84906f7a1987870434cd140"
+        },
+        {
+          "path": "groops_pulses/fine/offgrid_orbit.txt",
+          "sha256": "c3fafaf6adccacb89f1b64e435cd7755a5ee1394f94023d00793f4d8792791b0"
+        }
+      ],
+      "coarse_seconds": 5.0,
+      "code_threshold_m": 0.003,
+      "epochs": 120,
+      "fine_seconds": 2.5,
+      "initial_state_difference_max": 6.938893903907228e-18,
+      "max_position_difference_m": 6.124817970192947e-09,
+      "max_velocity_difference_m_s": 6.3175521015408794e-12,
+      "method": "groops_pulses",
+      "offgrid_epochs": 897,
+      "offgrid_max_position_difference_m": 1.4525135251182335e-05,
+      "offgrid_max_velocity_difference_m_s": 9.877803063503725e-08,
+      "passed": true,
+      "phase_geometry_bound_m": 1.4525135251182335e-05,
+      "phase_threshold_m": 3e-05
+    },
+    {
+      "artifacts": [
+        {
+          "path": "groops_log_drag_ou/coarse/evaluate.xml",
+          "sha256": "207b9a85e54277dcfabe604955e8388a2699d939b24bbd3bb59854c038896bac"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/reference.npz",
+          "sha256": "7d2ebef523f95a665bf370e6931da5c4df1b993267b21d4162e04f99d3a98c3f"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/initial.txt",
+          "sha256": "1a6541e7ce3edecca96afa35f3cb69f3124546853b9b755e39a72ef41fa54ff0"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/parameters.txt",
+          "sha256": "5640e18f360028d16686cc4311d6182a07a247aa48999d4092268666b6b160e3"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/reanchored_parameters.txt",
+          "sha256": "bcb39312fe2abf7f5c8d3587168c84c99630bd5810b6b8f36b3caa452aca62b4"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/fixed_orbit.txt",
+          "sha256": "c21c9309535c182133768255f43ca23aa51039c6e7242ced9a602a27de062a33"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/refinement.execution.json",
+          "sha256": "0cffa1e4fe57a1ce48c8e4c1399c27978805ec2f181467ca241f444ed68260eb"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/offgrid_epochs.txt",
+          "sha256": "fce82495b7e516fd3b62705179eb18799c73bb8ad84906f7a1987870434cd140"
+        },
+        {
+          "path": "groops_log_drag_ou/coarse/offgrid_orbit.txt",
+          "sha256": "a0d0ae3403899464d956b98d99e7d129c3bd14e776bc20059a88bf4d81092502"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/evaluate.xml",
+          "sha256": "8e6c075c3cdea8e41fd3f4e97bd5e48573c9445a2943935a5cfd167ee1a481a9"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/reference.npz",
+          "sha256": "080881ec3d0b94fb6a0ef43ce3261db12d89c5bb835a1506ef2ab998dd8e7519"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/initial.txt",
+          "sha256": "1a6541e7ce3edecca96afa35f3cb69f3124546853b9b755e39a72ef41fa54ff0"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/parameters.txt",
+          "sha256": "5640e18f360028d16686cc4311d6182a07a247aa48999d4092268666b6b160e3"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/reanchored_parameters.txt",
+          "sha256": "b72bb898b00474f3436ea3a2e4aec3476b126efc360977889b78ccf76c7a06b8"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/fixed_orbit.txt",
+          "sha256": "f12eacaf95804bf21e33186c0e063d9a2efa95c096411d79359a053a2b75990d"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/refinement.execution.json",
+          "sha256": "8ce6c1151f8640c713bff3e8f8bdb38cab91bb127ae49a8eb93794b720b8558e"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/offgrid_epochs.txt",
+          "sha256": "fce82495b7e516fd3b62705179eb18799c73bb8ad84906f7a1987870434cd140"
+        },
+        {
+          "path": "groops_log_drag_ou/fine/offgrid_orbit.txt",
+          "sha256": "7a2a9944784b8a66c901b21d2f4817d3a4c8cdaef1d01b92df29a85e9934f5f7"
+        }
+      ],
+      "coarse_seconds": 5.0,
+      "code_threshold_m": 0.003,
+      "epochs": 120,
+      "fine_seconds": 2.5,
+      "initial_state_difference_max": 3.469446951953614e-18,
+      "max_position_difference_m": 7.251469186692236e-09,
+      "max_velocity_difference_m_s": 8.11249391286368e-12,
+      "method": "groops_log_drag_ou",
+      "offgrid_epochs": 897,
+      "offgrid_max_position_difference_m": 1.4520568578626995e-05,
+      "offgrid_max_velocity_difference_m_s": 1.6119341279282797e-08,
+      "passed": true,
+      "phase_geometry_bound_m": 1.4520568578626995e-05,
+      "phase_threshold_m": 3e-05
+    }
+  ],
+  "scope": "Native force integration and variational evaluation at a fixed fitted physical initial state and fixed posterior density/pulses. State reanchoring is linearized. Nearly identical Tudat reference geometry is used only for this numerical diagnostic, never fitting. Euclidean position difference bounds common geometric code/carrier range with fixed nuisance parameters.",
+  "source_hash": "2366d7a794212db2547a21e1d5790195d4de4efab8bb09710cb9e5d7bc9a5352",
+  "status": "passed"
+}

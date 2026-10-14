@@ -1,0 +1,316 @@
+{
+  "execution": {
+    "binary_sha256": "8b985719950b13af13e6a923a38997917d1b71efeb6bb1225bf800cb8e5760f1",
+    "execution": [
+      {
+        "elapsed_seconds": 0.20974472298985347,
+        "label": "convert_slr",
+        "returncode": 0
+      },
+      {
+        "elapsed_seconds": 4.1514772300142795,
+        "label": "predict_slr",
+        "returncode": 0
+      }
+    ],
+    "purpose": "correction wiring only; GNSS-only bootstrap orbit, not fitted orbit or scientific accuracy result"
+  },
+  "formal_normal_points_after_incidence_mask": 17,
+  "formal_prediction_stations": [
+    "7105"
+  ],
+  "ilrs_dhf": {
+    "sha256": "d4f0a69ba9d293e7c544b20dbabcc5b2a02f30924705582bda6e67b5442ba5ab",
+    "url": "https://ilrs.gsfc.nasa.gov/docs/2025/ILRS_Data_Handling_File_20250513.snx"
+  },
+  "native_elevation_selected": 80,
+  "native_stations": 7,
+  "purpose": "SLR corrections/wiring validation only; bootstrap trajectory, not orbit-accuracy evidence",
+  "range_bias_sign_check": {
+    "expected_observed_minus_model_shift_m": 0.0047,
+    "max_abs_difference_from_expected_m": 2.957703526540456e-16,
+    "passed": true,
+    "published_bias_m": -0.0047,
+    "station": 7105
+  },
+  "raw_normal_points": 85,
+  "station_bias_policy": {
+    "7090": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7090 67  501 A 22:212:00000 00:000:00000 R          3.6     0.3             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.3,
+          "target": "67",
+          "value": 3.6
+        },
+        {
+          "code": "E",
+          "record": " 7090 51  501 A 22:324:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7090 52  501 A 22:324:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7105": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7105 51  501 A 20:047:00000 00:000:00000 R         -5.1     0.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.4,
+          "target": "51",
+          "value": -5.1
+        },
+        {
+          "code": "R",
+          "record": " 7105 52  501 A 20:047:00000 00:000:00000 R         -4.3     0.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.4,
+          "target": "52",
+          "value": -4.3
+        },
+        {
+          "code": "R",
+          "record": " 7105 53  501 A 20:047:00000 00:000:00000 R          7.4     0.8             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.8,
+          "target": "53",
+          "value": 7.4
+        },
+        {
+          "code": "R",
+          "record": " 7105 54  501 A 20:047:00000 00:000:00000 R          7.4     0.8             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.8,
+          "target": "54",
+          "value": 7.4
+        },
+        {
+          "code": "R",
+          "record": " 7105 67  501 A 22:212:00000 00:000:00000 R         -9.9     0.5             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.5,
+          "target": "67",
+          "value": -9.9
+        }
+      ],
+      "descriptive_only": false,
+      "exclude_station": false,
+      "formal_prediction_eligible": true,
+      "range_bias_m": -0.004699999999999999,
+      "range_bias_sigma_m": 0.0004,
+      "reason": "externally calibrated LAGEOS1/2 mean",
+      "uncertainty_policy": "mean of published standard deviations (conservative perfect correlation); station-common across normal points"
+    },
+    "7110": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7110 51  501 A 20:201:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 52  501 A 20:201:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 53  501 A 22:156:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 54  501 A 22:156:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 67  501 A 22:212:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "67",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7124": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7124 51  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 52  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 53  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 54  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 67  501 A 00:000:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "67",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7237": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7237 67  501 A 24:105:00000 00:000:00000 R          9.5     1.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 1.4,
+          "target": "67",
+          "value": 9.5
+        },
+        {
+          "code": "E",
+          "record": " 7237 51  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 52  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 53  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 54  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7403": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7403 --  501 A 13:001:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "--",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7701": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7701 -- ---- A 21:172:00000 00:000:00000 E                                  mm   NSP",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "--",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    }
+  }
+}

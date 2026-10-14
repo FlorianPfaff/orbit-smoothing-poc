@@ -1,0 +1,500 @@
+{
+  "schema_version": 3,
+  "scope": "Read-only verification of all 12 flight calibration preparations; no fit or evaluation invoked",
+  "status": "verified_prepared",
+  "source_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e",
+  "protocol_hash": "502db43a34ac769f29f087be2a0c8d7c8c73afb1769d1339162ff87a26c9ad9c",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "source_config_native_identity_verified": true,
+  "source_snapshot_unchanged": true,
+  "preparation_manifest_sha256": "5a1cd8ce1cfaafebc0255f5d7e28b7f90e5b959ec08f99e54980a6748b1c09b8",
+  "config_file_sha256": "094bbd60a6736af35299e061efa05b157de79228e7f7db2b723e5a528547d905",
+  "audit_script_sha256": "683d0c2b4e834a5df44f9870689d37c30d31e6a3ee65374f9820f9299d49b914",
+  "cases": 12,
+  "dates": [
+    "2024-04-18",
+    "2024-04-19",
+    "2024-04-20",
+    "2024-04-23",
+    "2024-04-24",
+    "2024-04-25"
+  ],
+  "holdout_minutes": [
+    30,
+    120
+  ],
+  "hash_record_counts": {
+    "estimation_inputs": 1344,
+    "evaluation_inputs": 36,
+    "calibration_inputs": 12,
+    "nominal_initialization": 36,
+    "transitive_native_artifacts": 1664,
+    "acquisition_manifest_files": 12,
+    "acquisition_declared_files": 516,
+    "acquisition_cache_copies": 108
+  },
+  "unique_verified_artifact_paths": 2183,
+  "unique_artifact_manifest_sha256": "d08d42f2492247f494f8a1d2632dd2f38224e58c5e4c5caacacd2d989288825c",
+  "resume_request_hashes_match": true,
+  "saved_requests_and_result_indexes_match": true,
+  "all_result_indexes_and_artifacts_verified": true,
+  "acquisition_sources_and_cache_copies_verified": true,
+  "evaluation_reference_files_only_hashed": true,
+  "estimation_evaluation_paths_disjoint": true,
+  "nominal_initialization_iterations": [
+    4,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    3,
+    4,
+    3,
+    3
+  ],
+  "source_artifacts_rechecked_at_end": true,
+  "scientific_comparison_complete": false,
+  "recorded_at_utc": "2026-10-14T02:04:11.804184+00:00",
+  "elapsed_seconds": 13.669452395988628,
+  "platform": {
+    "system": "Linux",
+    "python": "3.11.15"
+  },
+  "rows": [
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-18",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-18",
+        "holdout_minutes": 30,
+        "mask": {
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-010cfbc498c328f6703d",
+      "result_sha256": "ec6221b5ed1ab7af1215e3959a3c00fd5b1b16445a9f0acbc1aadcefae76c4b4",
+      "request_hash": "6a86112aa0ba4c46c332cc44e9bb54081b81aa2dd9a0549c052aec56b806deda",
+      "status": "prepared",
+      "nominal_initialization_iterations": 4,
+      "hashed_transitive_native_artifacts": 137,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-010cfbc498c328f6703d/observations/data_manifest.json",
+          "sha256": "f139dea3341766d863c901b646ef009fc458cf93b93af8df22df11dcbfcdcd78"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-18",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-18",
+        "holdout_minutes": 120,
+        "mask": {
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-cbfba68d7858bc35369d",
+      "result_sha256": "85d6d43d20a7bbb55d1532f8ae015d506fd4a0616703a52d0e87f6f9f90a7cca",
+      "request_hash": "70a3bd6761f0209fc9e9ba7798517c22133e500dd6caf14f894ab75695148775",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 137,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-cbfba68d7858bc35369d/observations/data_manifest.json",
+          "sha256": "42ece0ce12ea5b4c197ffe25de722b3fbbadd53800c93c73db86d318c7e37bc9"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-19",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-19",
+        "holdout_minutes": 30,
+        "mask": {
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-2b4774785b195a5582a3",
+      "result_sha256": "70d8fa365a2427eff3ff16401abc51e8b0fa5f7c4191da82f032dbf7b8aea0b7",
+      "request_hash": "839f35611096a5a97030501874f05231b9241fe7df04788efc80074eafc8802e",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 137,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-2b4774785b195a5582a3/observations/data_manifest.json",
+          "sha256": "2fe8968ede7ac3a70eecf677aec56cbd2aa07c9a0580e5c25d214aaeb539c656"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-19",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-19",
+        "holdout_minutes": 120,
+        "mask": {
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-854698ce36b1bd7b8bef",
+      "result_sha256": "34065daaaa856c8d6e959b9912f9dd874c4a8decaec4b694e1a9fa0a8434c3dc",
+      "request_hash": "b3a9474ae7692ebeffd8d5e6d261bdc2836ad065b38115fa02720c8b8ee756a5",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 137,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-854698ce36b1bd7b8bef/observations/data_manifest.json",
+          "sha256": "b96f68c6c706eb4b0610ed1d45a290498ddf4b2a2209f549305ea98926a33649"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-20",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-20",
+        "holdout_minutes": 30,
+        "mask": {
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-d0dbe2e9c70ac52f47e9",
+      "result_sha256": "c81e95cdd33d9c18fa9b48444878cf82ce95293ef65d1dccb8847774ec850daf",
+      "request_hash": "1125f9fa65e98cb7cac3d073f74f480fcea50ba032bc860dfac58bd7dd1dda12",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 137,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-d0dbe2e9c70ac52f47e9/observations/data_manifest.json",
+          "sha256": "7929f03ed93c24248b0589fd5f05916b94a6679c174a4978379a2ac6be55b74b"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-20",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-20",
+        "holdout_minutes": 120,
+        "mask": {
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-b26d576b0ca59f486c10",
+      "result_sha256": "81ff5c6e1f3ceb644261668758e4a81d256748b84868143604e192edcb2e6368",
+      "request_hash": "20793b82300955d65c080939295183fab6307598a4f7f57369cca3403398ddcb",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 137,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-b26d576b0ca59f486c10/observations/data_manifest.json",
+          "sha256": "c98fc1a7caa91d941348114f0bd9a71eb4bb53853bebd4051879db530ee984c7"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-23",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-23",
+        "holdout_minutes": 30,
+        "mask": {
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-be0dced42f3c8529d769",
+      "result_sha256": "def9f72ccf848528009cacc5512a3e165049bcddd3f701cf260fd1f98808d413",
+      "request_hash": "0e8b7b14d151a78ab02ccd8053224680932acaa76f4146056d2e68423b89b83d",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 139,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-be0dced42f3c8529d769/observations/data_manifest.json",
+          "sha256": "ba2194aaf254a84af0f32682b2d67fd9bc89eb2a537172379f0a950842fb5311"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-23",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-23",
+        "holdout_minutes": 120,
+        "mask": {
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-390b3bd0902de48b99d0",
+      "result_sha256": "f22c99a13fc45953ac5593160ded7d31c099271621081a4e488b7fb0ad7869a2",
+      "request_hash": "11780be23e2a2603164334476c4316cee08a9947310b0f06e96ade60d5136fa1",
+      "status": "prepared",
+      "nominal_initialization_iterations": 4,
+      "hashed_transitive_native_artifacts": 139,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-390b3bd0902de48b99d0/observations/data_manifest.json",
+          "sha256": "a8cc13f9acb9990d13e2cad3b4bc7bcde9fd0bcc9d3bfa5684e39b35a5558ebc"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-24",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-24",
+        "holdout_minutes": 30,
+        "mask": {
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-21536b5dafe68142d866",
+      "result_sha256": "063d121f74fdc6f1aed929c89a8c3ee70065985164c70c5d359d07139f66cc36",
+      "request_hash": "a1d49403c067991369c85692acd2ce4fa21459d60902abce7a2e15aba36441f0",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 141,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-21536b5dafe68142d866/observations/data_manifest.json",
+          "sha256": "d809c848418855fa5ddff22b9ac871f5c2af7a7e5e8663cfcd62308726591532"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-24",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-24",
+        "holdout_minutes": 120,
+        "mask": {
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-b38f4c4453e0d61adc4d",
+      "result_sha256": "7c98cb4202232227b1f910edbb72bc4e7eb0e28d334c3ed5e88cfc1a6764d274",
+      "request_hash": "74f9b77efff54dbb68f288d92948de3548ddf485f96e726299bfc49e4f5d7bf8",
+      "status": "prepared",
+      "nominal_initialization_iterations": 4,
+      "hashed_transitive_native_artifacts": 141,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-b38f4c4453e0d61adc4d/observations/data_manifest.json",
+          "sha256": "7f6c9d0f459fe5cfd0ee9aede6f57019957d26252b91395727a4750c59dd7e92"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-25",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-25",
+        "holdout_minutes": 30,
+        "mask": {
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-4a9f5676d9a4369b313a",
+      "result_sha256": "23128b1d3d1cd907a05c9ffb0c0ac4cb0bd607ae69aecd6c6c8cfaf695753785",
+      "request_hash": "c8fcfe8bb7c1dbc7f3f1a2b3a621e1ad6252fb9297508873d9dbb488426e318d",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 141,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-4a9f5676d9a4369b313a/observations/data_manifest.json",
+          "sha256": "b01745e251e793c4c8ce350c73b476206ab6301afee2cf90c7507df2af249805"
+        }
+      ]
+    },
+    {
+      "case": {
+        "spacecraft": "GRACEFO1",
+        "date": "2024-04-25",
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "cadence": 30.0,
+        "ambiguity_policy": "float",
+        "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+        "bootstrap": "gnss_only_recomputed_after_mask",
+        "arc_id": "GRACEFO1-2024-04-25",
+        "holdout_minutes": 120,
+        "mask": {
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "cadence_seconds": 30,
+          "time_scale": "UTC"
+        }
+      },
+      "id": "flight-calibration-prepare-a78ac021daa44745483b",
+      "result_sha256": "0e187b2f3252393cdfa02be3a70504fff034a0396bfc866cb197fcbf46894ba4",
+      "request_hash": "86f15e561209e0e3f705efba3f0d780a9808992cc9cb1f38c94d06685fcac902",
+      "status": "prepared",
+      "nominal_initialization_iterations": 3,
+      "hashed_transitive_native_artifacts": 141,
+      "acquisition_manifests": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/flight-calibration-prepare-a78ac021daa44745483b/observations/data_manifest.json",
+          "sha256": "882c54f29cc55697788ef41131a45fb41fbe91c2a5c635bb8f49db7b7b65d757"
+        }
+      ]
+    }
+  ]
+}

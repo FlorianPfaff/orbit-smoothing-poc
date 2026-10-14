@@ -1,0 +1,507 @@
+{
+  "audit_artifacts": {
+    "masked": {
+      "bytes": 824380,
+      "file": "common_preprocessing_masked.audit.txt",
+      "observable_records": 6630,
+      "sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+    },
+    "normal": {
+      "bytes": 999587,
+      "file": "common_preprocessing_normal.audit.txt",
+      "observable_records": 8064,
+      "sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+    }
+  },
+  "bootstrap_recomputed_after_each_mask": true,
+  "complete": true,
+  "flight_only_builder_edits_during_run": "Later flight-only quadrature/canonical-attitude edits did not change these already imported synthetic routines or the immutable native executable/configurations.",
+  "interpretation": "Within each mask, audits are identical across both methods and both prior settings, and stable across all34 outer iterations; normal and masked audits intentionally differ.",
+  "native_binary_sha256": "274bd986bb55a1ac358f4c5fcf789683ac4084b157159ea4380059bd95b45554",
+  "observations_regenerated": false,
+  "original_observation_manifest_sha256": "c9ff7891833700f439828b6be9da88944352f0fddf937c8f2100d477058f495c",
+  "passed": true,
+  "records": [
+    {
+      "audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 4,
+      "mask": "normal",
+      "method": "groops_pulses",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 0.0001655514923859058,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 7.520664319623079e-09,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 5.366882289591747e-09,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        }
+      ],
+      "parameters": {
+        "interval_seconds": 1200.0,
+        "sigma_velocity_m_s": 0.0001
+      },
+      "result_sha256": "7a5c83402043aa25fb571f11af48c542ba508e4ce865bae7434cf6d13268dfd0",
+      "setting": "default",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 4,
+      "mask": "normal",
+      "method": "groops_log_drag_ou",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.1324440506717751,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.006990317918160354,
+          "maximum_orbit_change_m": 0.00021765491601354156,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 6.982633381201059e-05,
+          "maximum_orbit_change_m": 2.6303146685724912e-06,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 1.0268034288121189e-06,
+          "maximum_orbit_change_m": 7.548404811768544e-08,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        }
+      ],
+      "parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.3,
+        "tau_seconds": 7200.0
+      },
+      "result_sha256": "271549658dbf2f4d66e34f3eccc5dffb415380cc63aff082bd5d30a1d2e91d47",
+      "setting": "default",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 4,
+      "mask": "normal",
+      "method": "groops_pulses",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 0.00016638296400344228,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 6.264831892714701e-09,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 5.6841204016160695e-09,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        }
+      ],
+      "parameters": {
+        "interval_seconds": 1200.0,
+        "sigma_velocity_m_s": 0.0002
+      },
+      "result_sha256": "fbe0930c05088bd9f447168077e891269c70c1bbd96eccd8127848df139901cd",
+      "setting": "alternate",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 5,
+      "mask": "normal",
+      "method": "groops_log_drag_ou",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.16538070047320416,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.011359598505396216,
+          "maximum_orbit_change_m": 0.00019428161167365967,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.00020995534535731106,
+          "maximum_orbit_change_m": 2.1560876425800874e-06,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 4.558472617841704e-06,
+          "maximum_orbit_change_m": 1.7276979163318562e-07,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 5,
+          "maximum_log_density_update": 2.1820628530583534e-07,
+          "maximum_orbit_change_m": 7.580975232198314e-09,
+          "preprocessing_audit_sha256": "c0cd01eed9465b9fa3f5d2344c37f43cb2ecd3ae2d2e98eebe9ece1982aba60c"
+        }
+      ],
+      "parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.6,
+        "tau_seconds": 3600.0
+      },
+      "result_sha256": "248ab58701157c5042ecbfb6c0b94e9e90b58a3e59312feb5f202db81aca05cc",
+      "setting": "alternate",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 4,
+      "mask": "masked",
+      "method": "groops_pulses",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 0.00039883939296865226,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 1.122427246830794e-08,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 6.401784291894883e-09,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        }
+      ],
+      "parameters": {
+        "interval_seconds": 1200.0,
+        "sigma_velocity_m_s": 0.0001
+      },
+      "result_sha256": "b1c77cfa36e60ab73658da7a9db0c4931e8078f90727a921ccbfff73e4edc571",
+      "setting": "default",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 4,
+      "mask": "masked",
+      "method": "groops_log_drag_ou",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.11138601701992784,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.006239583828761489,
+          "maximum_orbit_change_m": 0.0005816145614493792,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 4.8456760871673384e-05,
+          "maximum_orbit_change_m": 3.205479255422211e-06,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 2.7089481745492384e-07,
+          "maximum_orbit_change_m": 4.081913642736362e-08,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        }
+      ],
+      "parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.3,
+        "tau_seconds": 7200.0
+      },
+      "result_sha256": "3c22bae467f4b6317c9b6c5f1cc89f630217c2af13cb39408d6a3a5de10a82ff",
+      "setting": "default",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 4,
+      "mask": "masked",
+      "method": "groops_pulses",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 0.00040222525209164284,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 9.53327053579187e-09,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 7.580416554631528e-09,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        }
+      ],
+      "parameters": {
+        "interval_seconds": 1200.0,
+        "sigma_velocity_m_s": 0.0002
+      },
+      "result_sha256": "56470f897e637665b5af6a3198bb082a93275ee6b4bb8225767ac9ed8861a1ec",
+      "setting": "alternate",
+      "status": "complete"
+    },
+    {
+      "audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d",
+      "audit_stable_across_outer_iterations": true,
+      "converged": true,
+      "covariance_valid": true,
+      "error": null,
+      "iterations": 5,
+      "mask": "masked",
+      "method": "groops_log_drag_ou",
+      "outer_iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.14488655092305752,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.009975682863669249,
+          "maximum_orbit_change_m": 0.0005380414798342581,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.0002843303213981951,
+          "maximum_orbit_change_m": 5.249038892778123e-06,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 4.045345283161761e-06,
+          "maximum_orbit_change_m": 3.384459586165629e-07,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "iteration": 5,
+          "maximum_log_density_update": 1.558348596707929e-07,
+          "maximum_orbit_change_m": 4.8838967837866e-09,
+          "preprocessing_audit_sha256": "c4de6e4527ce6053b3210d0550804823c77962eff2b26f682f99b244a0bef67d"
+        }
+      ],
+      "parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.6,
+        "tau_seconds": 3600.0
+      },
+      "result_sha256": "5c92f68e98e79cf69f85170f7981bf2b6a43ce008666bbdd700ea2cc56df20c8",
+      "setting": "alternate",
+      "status": "complete"
+    }
+  ],
+  "reference_or_truth_used_in_fitting": false,
+  "same_audit_across_methods_and_hyperparameters": {
+    "masked": true,
+    "normal": true
+  },
+  "scope": "Engineering check of common native preprocessing; no calibration or scientific comparison",
+  "source_sha256_at_start": "6808047d1f0119e376c94a71669816330ce475fa7885cb68d027b9599a8649b4"
+}

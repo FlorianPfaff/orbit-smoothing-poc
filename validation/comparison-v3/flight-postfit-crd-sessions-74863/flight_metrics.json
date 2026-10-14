@@ -1,0 +1,1886 @@
+{
+  "corrections": [
+    "CRD UTC-to-GPS event time",
+    "station calibration already applied in CRD",
+    "SLRF2020_CM station positions and eccentricity",
+    "solid Earth/ocean/pole tides",
+    "Mendes-Pavlis with measured meteorology",
+    "native round-trip light time and Shapiro",
+    "measured spacecraft attitude and CSR SRF reflector offset",
+    "GFZ wavelength-dependent angular prism correction"
+  ],
+  "execution": [
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "{runtime_root}/native/bin/groops-74863d5a16dbcb1f",
+        "{engineering_root}/normal-pulse-postfit-crd-sessions/convert_slr.xml"
+      ],
+      "config_sha256": "7fc406fc353acb84079a47510991e4720d2664d7cdb4add869502e69a7b8e40e",
+      "elapsed_seconds": 0.050711227930150926,
+      "log": "{engineering_root}/normal-pulse-postfit-crd-sessions/convert_slr.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "peak_rss_bytes": 16384,
+      "pid": 237092,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "{runtime_root}/native/bin/groops-74863d5a16dbcb1f",
+        "{engineering_root}/normal-pulse-postfit-crd-sessions/predict_slr.xml"
+      ],
+      "config_sha256": "ed840ed8137b1d595c140071d2495328993baee25dede08c958533ab624dc61c",
+      "elapsed_seconds": 1.3086256741080433,
+      "log": "{engineering_root}/normal-pulse-postfit-crd-sessions/predict_slr.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "peak_rss_bytes": 339423232,
+      "pid": 237093,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "{runtime_root}/native/bin/groops-74863d5a16dbcb1f",
+        "{engineering_root}/normal-pulse-postfit-crd-sessions/convert_reference.xml"
+      ],
+      "config_sha256": "1db1374dc688a2273bc21315fabba52016cab400e339403c612d75d9699cc87a",
+      "elapsed_seconds": 3.1205648289760575,
+      "log": "{engineering_root}/normal-pulse-postfit-crd-sessions/convert_reference.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "peak_rss_bytes": 300765184,
+      "pid": 237094,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "limitations": [
+    "No non-tidal loading supplied; unmodeled displacement contributes to external residuals.",
+    "CSR post-launch reflector z=.2188m differs from prelaunch ILRS/manual .221m by2.2mm; CSR convention fixed before evaluation.",
+    "Dominating-prism approximation has documented sub-millimetre error; no SLR parameter estimation."
+  ],
+  "metrics": {
+    "formal_prediction": {
+      "observations": 17,
+      "selection": "fixed external ILRS calibration availability; no residual selection",
+      "station_bias_uncertainty": "shared station-common covariance from published external calibration",
+      "stations": [
+        7105
+      ],
+      "status": "complete"
+    },
+    "kind": "independent flight SLR residuals",
+    "mean_m": 0.006479547208793035,
+    "measurement_normalized_rms": 2.8688470046647145,
+    "median_m": 0.005478313871232123,
+    "native_slr": {
+      "by_geometry": {
+        "azimuth": {
+          "0_to_90_deg": {
+            "count": 23,
+            "geometry": {
+              "azimuth_max_deg": 87.68686084477824,
+              "azimuth_min_deg": 6.531668018307393,
+              "elevation_max_deg": 57.26919058921719,
+              "elevation_min_deg": 22.11451830986663
+            },
+            "kind": "independent flight SLR residuals",
+            "mean_m": 0.0017834197292030157,
+            "measurement_normalized_rms": 0.7170444438067426,
+            "median_m": 0.0023765479140568126,
+            "native_points": 23,
+            "observations": 23,
+            "predictive": {
+              "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+              "dimensions": 11,
+              "logdet": -114.96020970979973,
+              "marginal_95_fraction": 1.0,
+              "nees": 2.0950242073342524,
+              "nll": -46.32426888598134,
+              "nll_per_dimension": -4.211297171452849,
+              "stations": [
+                7105
+              ],
+              "status": "complete",
+              "valid": true
+            },
+            "reflector_cutoff_excluded": 0,
+            "rms_m": 0.0036027677589186586,
+            "slr_used_in_fit": false,
+            "status": "complete",
+            "std_m": 0.003200745940518781,
+            "truth_error_claim": false
+          },
+          "180_to_270_deg": {
+            "count": 36,
+            "geometry": {
+              "azimuth_max_deg": 268.3521587486263,
+              "azimuth_min_deg": 204.45817085480965,
+              "elevation_max_deg": 53.91390095756176,
+              "elevation_min_deg": 28.088132831342673
+            },
+            "kind": "independent flight SLR residuals",
+            "mean_m": 0.007319227838509537,
+            "measurement_normalized_rms": 3.8675374815720227,
+            "median_m": 0.009185242484374138,
+            "native_points": 36,
+            "observations": 36,
+            "predictive": {
+              "dimensions": 0,
+              "nll": null,
+              "reason": "No physically usable externally calibrated points",
+              "status": "unavailable",
+              "valid": false
+            },
+            "reflector_cutoff_excluded": 0,
+            "rms_m": 0.019337687407860113,
+            "slr_used_in_fit": false,
+            "status": "complete",
+            "std_m": 0.018152923489663783,
+            "truth_error_claim": false
+          },
+          "270_to_360_deg": {
+            "count": 15,
+            "geometry": {
+              "azimuth_max_deg": 318.5599851890425,
+              "azimuth_min_deg": 271.63512999219233,
+              "elevation_max_deg": 33.07495964785792,
+              "elevation_min_deg": 25.22650727753293
+            },
+            "kind": "independent flight SLR residuals",
+            "mean_m": 0.011818328520458365,
+            "measurement_normalized_rms": 2.489970006724254,
+            "median_m": 0.012007508101819594,
+            "native_points": 15,
+            "observations": 15,
+            "predictive": {
+              "dimensions": 0,
+              "nll": null,
+              "reason": "No physically usable externally calibrated points",
+              "status": "unavailable",
+              "valid": false
+            },
+            "reflector_cutoff_excluded": 0,
+            "rms_m": 0.01244985003362127,
+            "slr_used_in_fit": false,
+            "status": "complete",
+            "std_m": 0.004052231771617603,
+            "truth_error_claim": false
+          },
+          "90_to_180_deg": {
+            "count": 6,
+            "geometry": {
+              "azimuth_max_deg": 106.22218188090437,
+              "azimuth_min_deg": 91.02653940610303,
+              "elevation_max_deg": 36.267297121025486,
+              "elevation_min_deg": 34.64136901291844
+            },
+            "kind": "independent flight SLR residuals",
+            "mean_m": 0.006096332156425784,
+            "measurement_normalized_rms": 1.5872101477075578,
+            "median_m": 0.0045302475277118545,
+            "native_points": 6,
+            "observations": 6,
+            "predictive": {
+              "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+              "dimensions": 6,
+              "logdet": -62.42158357995826,
+              "marginal_95_fraction": 0.8333333333333334,
+              "nees": 8.8309620569786,
+              "nll": -21.281679562261793,
+              "nll_per_dimension": -3.546946593710299,
+              "stations": [
+                7105
+              ],
+              "status": "complete",
+              "valid": true
+            },
+            "reflector_cutoff_excluded": 0,
+            "rms_m": 0.007936050738537788,
+            "slr_used_in_fit": false,
+            "status": "complete",
+            "std_m": 0.00556585686806714,
+            "truth_error_claim": false
+          }
+        },
+        "elevation": {
+          "-90_to_30_deg": {
+            "count": 22,
+            "geometry": {
+              "azimuth_max_deg": 318.5599851890425,
+              "azimuth_min_deg": 6.531668018307393,
+              "elevation_max_deg": 29.987605564285197,
+              "elevation_min_deg": 22.11451830986663
+            },
+            "kind": "independent flight SLR residuals",
+            "mean_m": 0.0072682616582209125,
+            "measurement_normalized_rms": 2.6300815915372335,
+            "median_m": 0.006416640763817264,
+            "native_points": 22,
+            "observations": 22,
+            "predictive": {
+              "dimensions": 0,
+              "nll": null,
+              "reason": "No physically usable externally calibrated points",
+              "status": "unavailable",
+              "valid": false
+            },
+            "reflector_cutoff_excluded": 0,
+            "rms_m": 0.013150407957686168,
+            "slr_used_in_fit": false,
+            "status": "complete",
+            "std_m": 0.011217170601288544,
+            "truth_error_claim": false
+          },
+          "30_to_60_deg": {
+            "count": 58,
+            "geometry": {
+              "azimuth_max_deg": 293.89449687253807,
+              "azimuth_min_deg": 7.379836691324812,
+              "elevation_max_deg": 57.26919058921719,
+              "elevation_min_deg": 30.3158530974376
+            },
+            "kind": "independent flight SLR residuals",
+            "mean_m": 0.006180379659010046,
+            "measurement_normalized_rms": 2.954369671306735,
+            "median_m": 0.005478313871232123,
+            "native_points": 58,
+            "observations": 58,
+            "predictive": {
+              "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+              "dimensions": 17,
+              "logdet": -177.91097710929824,
+              "marginal_95_fraction": 0.9411764705882353,
+              "nees": 10.719420190197026,
+              "nll": -67.97382339507118,
+              "nll_per_dimension": -3.9984601997100695,
+              "stations": [
+                7105
+              ],
+              "status": "complete",
+              "valid": true
+            },
+            "reflector_cutoff_excluded": 0,
+            "rms_m": 0.014773541073405236,
+            "slr_used_in_fit": false,
+            "status": "complete",
+            "std_m": 0.01353585527071089,
+            "truth_error_claim": false
+          },
+          "60_to_90_deg": {
+            "count": 0,
+            "kind": "independent flight SLR residuals",
+            "mean_m": null,
+            "measurement_normalized_rms": null,
+            "median_m": null,
+            "native_points": 0,
+            "observations": 0,
+            "predictive": {
+              "dimensions": 0,
+              "nll": null,
+              "reason": "No physically usable externally calibrated points",
+              "status": "unavailable",
+              "valid": false
+            },
+            "reason": "No native points within the fixed reflector incidence cutoff",
+            "reflector_cutoff_excluded": 0,
+            "rms_m": null,
+            "slr_used_in_fit": false,
+            "status": "unavailable",
+            "std_m": null,
+            "truth_error_claim": false
+          }
+        }
+      },
+      "count": 80,
+      "date_time_scale": "UTC",
+      "fit_to_slr": false,
+      "geometry": {
+        "azimuth_max_deg": 318.5599851890425,
+        "azimuth_min_deg": 6.531668018307393,
+        "elevation_max_deg": 57.26919058921719,
+        "elevation_min_deg": 22.11451830986663
+      },
+      "gps_minus_utc_seconds": 18,
+      "grouping_note": "Each formal score uses the full covariance principal submatrix including shared external station-bias uncertainty. Groups overlap; scores are not additive and points are not independent trials.",
+      "kind": "independent flight SLR residuals",
+      "mean_m": 0.006479547208793035,
+      "measurement_normalized_rms": 2.8688470046647145,
+      "median_m": 0.005478313871232123,
+      "native_points": 80,
+      "normal_points": 80,
+      "observations": 80,
+      "pass_mapping": {
+        "definition": "Original provider CRD H4/H8 session, not a native station arc",
+        "match_tolerance_seconds": 1e-05,
+        "maximum_epoch_match_error_seconds": 3.137101884931326e-07,
+        "predicted_rows_matched": 80,
+        "selection": "Station and source ground-transmit epoch only; no residual selection",
+        "session_bounds_sha256": "ac8b00cc0fdc086c710c367387e0899bf48d5a65cae6e2e3830e764877e2ff3c",
+        "sessions_with_native_predictions": 10,
+        "source_sessions": 11,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "status": "complete"
+      },
+      "passes": 10,
+      "per_date": {
+        "2024-04-24": {
+          "count": 80,
+          "geometry": {
+            "azimuth_max_deg": 318.5599851890425,
+            "azimuth_min_deg": 6.531668018307393,
+            "elevation_max_deg": 57.26919058921719,
+            "elevation_min_deg": 22.11451830986663
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.006479547208793035,
+          "measurement_normalized_rms": 2.8688470046647145,
+          "median_m": 0.005478313871232123,
+          "native_points": 80,
+          "observations": 80,
+          "predictive": {
+            "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+            "dimensions": 17,
+            "logdet": -177.91097710929824,
+            "marginal_95_fraction": 0.9411764705882353,
+            "nees": 10.719420190197026,
+            "nll": -67.97382339507118,
+            "nll_per_dimension": -3.9984601997100695,
+            "stations": [
+              7105
+            ],
+            "status": "complete",
+            "valid": true
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.014345498844210236,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.012879531600031588,
+          "truth_error_claim": false
+        }
+      },
+      "per_native_arc": {
+        "2024-04-24/station-7090/arc-0": {
+          "count": 9,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 14.312030762049904,
+            "azimuth_min_deg": 6.531668018307393,
+            "elevation_max_deg": 57.26919058921719,
+            "elevation_min_deg": 24.639528295939215
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0006736494467569084,
+          "measurement_normalized_rms": 0.8417736895599719,
+          "median_m": 0.0008809570525836474,
+          "native_arc": 0,
+          "native_points": 9,
+          "observations": 9,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.00424698399245517,
+          "slr_used_in_fit": false,
+          "station": 7090,
+          "status": "complete",
+          "std_m": 0.0044475783452274775,
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7105/arc-1": {
+          "count": 17,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 106.22218188090437,
+            "azimuth_min_deg": 54.772614267576664,
+            "elevation_max_deg": 36.33382073232254,
+            "elevation_min_deg": 31.27753083250022
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0036563306094141213,
+          "measurement_normalized_rms": 1.0590047152154078,
+          "median_m": 0.0029256898089164464,
+          "native_arc": 1,
+          "native_points": 17,
+          "observations": 17,
+          "predictive": {
+            "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+            "dimensions": 17,
+            "logdet": -177.91097710929824,
+            "marginal_95_fraction": 0.9411764705882353,
+            "nees": 10.719420190197026,
+            "nll": -67.97382339507118,
+            "nll_per_dimension": -3.9984601997100695,
+            "stations": [
+              7105
+            ],
+            "status": "complete",
+            "valid": true
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.00529502357607704,
+          "slr_used_in_fit": false,
+          "station": 7105,
+          "status": "complete",
+          "std_m": 0.003947822655273423,
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7110/arc-2": {
+          "count": 29,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 318.5599851890425,
+            "azimuth_min_deg": 239.39715821339067,
+            "elevation_max_deg": 33.2428223183959,
+            "elevation_min_deg": 25.22650727753293
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.006151028784218884,
+          "measurement_normalized_rms": 1.86406844709595,
+          "median_m": 0.008244378875398972,
+          "native_arc": 2,
+          "native_points": 29,
+          "observations": 29,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.009320342235479749,
+          "slr_used_in_fit": false,
+          "station": 7110,
+          "status": "complete",
+          "std_m": 0.007126347251530693,
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7124/arc-3": {
+          "count": 3,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 35.40265730632687,
+            "azimuth_min_deg": 32.99697269354997,
+            "elevation_max_deg": 23.712723184429688,
+            "elevation_min_deg": 22.11451830986663
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0031253937764572754,
+          "measurement_normalized_rms": 0.7067144479060015,
+          "median_m": 0.003965477784139915,
+          "native_arc": 3,
+          "native_points": 3,
+          "observations": 3,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.0035335722395300074,
+          "slr_used_in_fit": false,
+          "station": 7124,
+          "status": "complete",
+          "std_m": 0.002019175517652902,
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7237/arc-4": {
+          "count": 5,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 242.775428671197,
+            "azimuth_min_deg": 232.80261301603372,
+            "elevation_max_deg": 35.45405051281055,
+            "elevation_min_deg": 31.306729960043665
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": -0.025943555137257462,
+          "measurement_normalized_rms": 5.1976838396373015,
+          "median_m": -0.02657731374120432,
+          "native_arc": 4,
+          "native_points": 5,
+          "observations": 5,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.025988419198186508,
+          "slr_used_in_fit": false,
+          "station": 7237,
+          "status": "complete",
+          "std_m": 0.0017065605983787161,
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7403/arc-5": {
+          "count": 9,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 225.99411876549817,
+            "azimuth_min_deg": 204.45817085480965,
+            "elevation_max_deg": 53.91390095756176,
+            "elevation_min_deg": 39.214033996748334
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.025560729501385788,
+          "measurement_normalized_rms": 5.146007897156712,
+          "median_m": 0.024281273057294994,
+          "native_arc": 5,
+          "native_points": 9,
+          "observations": 9,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.02573003948578356,
+          "slr_used_in_fit": false,
+          "station": 7403,
+          "status": "complete",
+          "std_m": 0.0031256270105513477,
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7701/arc-6": {
+          "count": 8,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 293.89449687253807,
+            "azimuth_min_deg": 250.39741474001374,
+            "elevation_max_deg": 32.258729417639636,
+            "elevation_min_deg": 29.38223816660153
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.02025731317808579,
+          "measurement_normalized_rms": 4.434266788518805,
+          "median_m": 0.015985313161498232,
+          "native_arc": 6,
+          "native_points": 8,
+          "observations": 8,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.022171333942594025,
+          "slr_used_in_fit": false,
+          "station": 7701,
+          "status": "complete",
+          "std_m": 0.009633827994488928,
+          "truth_error_claim": false
+        }
+      },
+      "per_pass": {
+        "2024-04-24/station-7090/crd-session-3": {
+          "count": 6,
+          "crd_session": 3,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 7.379836691324812,
+            "azimuth_min_deg": 6.531668018307393,
+            "elevation_max_deg": 30.502666351939556,
+            "elevation_min_deg": 24.639528295939215
+          },
+          "header_end_utc": "2024-04-24T10:31:08",
+          "header_sha256": "15be7478aeabf50552a4eab543bcaf5a2f4cba40dacc95458dd305e4384740cb",
+          "header_start_utc": "2024-04-24T10:30:42",
+          "kind": "independent flight SLR residuals",
+          "mean_m": -0.0015600434316022603,
+          "measurement_normalized_rms": 0.7365535745552177,
+          "median_m": -0.0007758256736102066,
+          "native_arc_ids": [
+            0
+          ],
+          "native_points": 6,
+          "observations": 6,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.003682767872776089,
+          "slr_used_in_fit": false,
+          "source_normal_points": 6,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7090",
+          "status": "complete",
+          "std_m": 0.0036544291531673775,
+          "transmit_end_utc": "2024-04-24T10:31:06.500602",
+          "transmit_start_utc": "2024-04-24T10:30:44.200599",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7090/crd-session-4": {
+          "count": 3,
+          "crd_session": 4,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 14.312030762049904,
+            "azimuth_min_deg": 12.319033020172942,
+            "elevation_max_deg": 57.26919058921719,
+            "elevation_min_deg": 52.1366430444028
+          },
+          "header_end_utc": "2024-04-24T10:32:05",
+          "header_sha256": "1d294663f5cdd395509bfba1257e99f6a43d9959e788c5f74ccb28ad81b75b3b",
+          "header_start_utc": "2024-04-24T10:31:55",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.005141035203475246,
+          "measurement_normalized_rms": 1.0201600349582836,
+          "median_m": 0.004705606926104361,
+          "native_arc_ids": [
+            0
+          ],
+          "native_points": 3,
+          "observations": 3,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.005194714687738676,
+          "slr_used_in_fit": false,
+          "source_normal_points": 3,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7090",
+          "status": "complete",
+          "std_m": 0.0009122645369925622,
+          "transmit_end_utc": "2024-04-24T10:32:05.600598",
+          "transmit_start_utc": "2024-04-24T10:31:57.300618",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7090/crd-session-5": {
+          "count": 0,
+          "crd_session": 5,
+          "date": "2024-04-24",
+          "header_end_utc": "2024-04-24T10:36:05",
+          "header_sha256": "0696ca60fcb43c7333cdc15c2706f13714b5afd50ab2087508589e89ef5ba58a",
+          "header_start_utc": "2024-04-24T10:35:49",
+          "kind": "independent flight SLR residuals",
+          "mean_m": null,
+          "measurement_normalized_rms": null,
+          "median_m": null,
+          "native_arc_ids": [],
+          "native_points": 0,
+          "observations": 0,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reason": "No native prediction rows after provider and fixed physical selection",
+          "reflector_cutoff_excluded": 0,
+          "rms_m": null,
+          "slr_used_in_fit": false,
+          "source_normal_points": 5,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7090",
+          "status": "unavailable",
+          "std_m": null,
+          "transmit_end_utc": "2024-04-24T10:36:05.400598",
+          "transmit_start_utc": "2024-04-24T10:35:49.500599",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7105/crd-session-10": {
+          "count": 17,
+          "crd_session": 10,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 106.22218188090437,
+            "azimuth_min_deg": 54.772614267576664,
+            "elevation_max_deg": 36.33382073232254,
+            "elevation_min_deg": 31.27753083250022
+          },
+          "header_end_utc": "2024-04-24T22:49:30",
+          "header_sha256": "7094c2f9ebd2f3417874627a11a4dadcb3f9fd9c9ce0b31c53e964f5856e701b",
+          "header_start_utc": "2024-04-24T22:48:06",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0036563306094141213,
+          "measurement_normalized_rms": 1.0590047152154078,
+          "median_m": 0.0029256898089164464,
+          "native_arc_ids": [
+            1
+          ],
+          "native_points": 17,
+          "observations": 17,
+          "predictive": {
+            "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+            "dimensions": 17,
+            "logdet": -177.91097710929824,
+            "marginal_95_fraction": 0.9411764705882353,
+            "nees": 10.719420190197026,
+            "nll": -67.97382339507118,
+            "nll_per_dimension": -3.9984601997100695,
+            "stations": [
+              7105
+            ],
+            "status": "complete",
+            "valid": true
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.00529502357607704,
+          "slr_used_in_fit": false,
+          "source_normal_points": 17,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7105",
+          "status": "complete",
+          "std_m": 0.003947822655273423,
+          "transmit_end_utc": "2024-04-24T22:49:30.300418",
+          "transmit_start_utc": "2024-04-24T22:48:09.800418",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7110/crd-session-0": {
+          "count": 7,
+          "crd_session": 0,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 318.5599851890425,
+            "azimuth_min_deg": 307.40560210880426,
+            "elevation_max_deg": 29.530550425018617,
+            "elevation_min_deg": 25.22650727753293
+          },
+          "header_end_utc": "2024-04-24T02:24:20",
+          "header_sha256": "4b4a79882d941b7fc5a8d529c96ef4cee64ef37c348af72a7cac1a72acce6e60",
+          "header_start_utc": "2024-04-24T02:23:51",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.010739688282259827,
+          "measurement_normalized_rms": 2.1689209829600298,
+          "median_m": 0.010697827961522091,
+          "native_arc_ids": [
+            2
+          ],
+          "native_points": 7,
+          "observations": 7,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.01084460491480015,
+          "slr_used_in_fit": false,
+          "source_normal_points": 7,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7110",
+          "status": "complete",
+          "std_m": 0.0016254158189003627,
+          "transmit_end_utc": "2024-04-24T02:24:20.200689",
+          "transmit_start_utc": "2024-04-24T02:23:53.000688",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7110/crd-session-1": {
+          "count": 8,
+          "crd_session": 1,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 260.08925485297397,
+            "azimuth_min_deg": 242.72984402710262,
+            "elevation_max_deg": 33.2428223183959,
+            "elevation_min_deg": 29.13226178816465
+          },
+          "header_end_utc": "2024-04-24T02:26:11",
+          "header_sha256": "94ed6f04769a39a5a4323d686ede1ac59ccea1f793246b9b939a20c362336328",
+          "header_start_utc": "2024-04-24T02:25:37",
+          "kind": "independent flight SLR residuals",
+          "mean_m": -0.004251031443615061,
+          "measurement_normalized_rms": 0.9036089920753316,
+          "median_m": -0.004219987481863526,
+          "native_arc_ids": [
+            2
+          ],
+          "native_points": 8,
+          "observations": 8,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.004518044960376658,
+          "slr_used_in_fit": false,
+          "source_normal_points": 8,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7110",
+          "status": "complete",
+          "std_m": 0.001635835104991058,
+          "transmit_end_utc": "2024-04-24T02:26:10.600687",
+          "transmit_start_utc": "2024-04-24T02:25:38.500688",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7110/crd-session-7": {
+          "count": 14,
+          "crd_session": 7,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 276.11501598871394,
+            "azimuth_min_deg": 239.39715821339067,
+            "elevation_max_deg": 33.07495964785792,
+            "elevation_min_deg": 28.088132831342673
+          },
+          "header_end_utc": "2024-04-24T14:29:31",
+          "header_sha256": "b906e85420d83ede2d8b24699ff67585596c27b33c0ceed5089a2d6d8479f6e8",
+          "header_start_utc": "2024-04-24T14:28:24",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.009800733451103523,
+          "measurement_normalized_rms": 2.0926091504482622,
+          "median_m": 0.008671054822440499,
+          "native_arc_ids": [
+            2
+          ],
+          "native_points": 14,
+          "observations": 14,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.010463045752241312,
+          "slr_used_in_fit": false,
+          "source_normal_points": 14,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7110",
+          "status": "complete",
+          "std_m": 0.00380175367707321,
+          "transmit_end_utc": "2024-04-24T14:29:30.300698",
+          "transmit_start_utc": "2024-04-24T14:28:26.100698",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7124/crd-session-8": {
+          "count": 3,
+          "crd_session": 8,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 35.40265730632687,
+            "azimuth_min_deg": 32.99697269354997,
+            "elevation_max_deg": 23.712723184429688,
+            "elevation_min_deg": 22.11451830986663
+          },
+          "header_end_utc": "2024-04-24T15:52:24",
+          "header_sha256": "d2451d876fec99737ccefb3acf4ed7f8ebe59a6a8aaac89b1798b768fddafe05",
+          "header_start_utc": "2024-04-24T15:52:09",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0031253937764572754,
+          "measurement_normalized_rms": 0.7067144479060015,
+          "median_m": 0.003965477784139915,
+          "native_arc_ids": [
+            3
+          ],
+          "native_points": 3,
+          "observations": 3,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.0035335722395300074,
+          "slr_used_in_fit": false,
+          "source_normal_points": 3,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7124",
+          "status": "complete",
+          "std_m": 0.002019175517652902,
+          "transmit_end_utc": "2024-04-24T15:52:22.100479",
+          "transmit_start_utc": "2024-04-24T15:52:12.900477",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7237/crd-session-2": {
+          "count": 5,
+          "crd_session": 2,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 242.775428671197,
+            "azimuth_min_deg": 232.80261301603372,
+            "elevation_max_deg": 35.45405051281055,
+            "elevation_min_deg": 31.306729960043665
+          },
+          "header_end_utc": "2024-04-24T10:14:53",
+          "header_sha256": "62e74b24c24aad071bece4774e358c4b10a20db3a4ac3859968e3ad45ba7a4a7",
+          "header_start_utc": "2024-04-24T10:14:25",
+          "kind": "independent flight SLR residuals",
+          "mean_m": -0.025943555137257462,
+          "measurement_normalized_rms": 5.1976838396373015,
+          "median_m": -0.02657731374120432,
+          "native_arc_ids": [
+            4
+          ],
+          "native_points": 5,
+          "observations": 5,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.025988419198186508,
+          "slr_used_in_fit": false,
+          "source_normal_points": 5,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7237",
+          "status": "complete",
+          "std_m": 0.0017065605983787161,
+          "transmit_end_utc": "2024-04-24T10:14:47.369001",
+          "transmit_start_utc": "2024-04-24T10:14:27.308001",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7403/crd-session-6": {
+          "count": 9,
+          "crd_session": 6,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 225.99411876549817,
+            "azimuth_min_deg": 204.45817085480965,
+            "elevation_max_deg": 53.91390095756176,
+            "elevation_min_deg": 39.214033996748334
+          },
+          "header_end_utc": "2024-04-24T11:07:31",
+          "header_sha256": "17488cd96b402227f3c3da4a8f974ab120242b09b3097d32352502ad235e6cac",
+          "header_start_utc": "2024-04-24T11:06:54",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.025560729501385788,
+          "measurement_normalized_rms": 5.146007897156712,
+          "median_m": 0.024281273057294994,
+          "native_arc_ids": [
+            5
+          ],
+          "native_points": 9,
+          "observations": 9,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.02573003948578356,
+          "slr_used_in_fit": false,
+          "source_normal_points": 9,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7403",
+          "status": "complete",
+          "std_m": 0.0031256270105513477,
+          "transmit_end_utc": "2024-04-24T11:07:30.423771",
+          "transmit_start_utc": "2024-04-24T11:06:54.623686",
+          "truth_error_claim": false
+        },
+        "2024-04-24/station-7701/crd-session-9": {
+          "count": 8,
+          "crd_session": 9,
+          "date": "2024-04-24",
+          "geometry": {
+            "azimuth_max_deg": 293.89449687253807,
+            "azimuth_min_deg": 250.39741474001374,
+            "elevation_max_deg": 32.258729417639636,
+            "elevation_min_deg": 29.38223816660153
+          },
+          "header_end_utc": "2024-04-24T19:43:57",
+          "header_sha256": "f3dbfd0c67451a4df5d0d710ca77582aad51d3a56df65f8cf36cf1d9264e77a1",
+          "header_start_utc": "2024-04-24T19:42:43",
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.02025731317808579,
+          "measurement_normalized_rms": 4.434266788518805,
+          "median_m": 0.015985313161498232,
+          "native_arc_ids": [
+            6
+          ],
+          "native_points": 8,
+          "observations": 8,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "provider_exclusion_reasons": [],
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.022171333942594025,
+          "slr_used_in_fit": false,
+          "source_normal_points": 8,
+          "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "station": "7701",
+          "status": "complete",
+          "std_m": 0.009633827994488928,
+          "transmit_end_utc": "2024-04-24T19:43:57.592912",
+          "transmit_start_utc": "2024-04-24T19:42:43.270411",
+          "truth_error_claim": false
+        }
+      },
+      "per_station": {
+        "7090": {
+          "count": 9,
+          "geometry": {
+            "azimuth_max_deg": 14.312030762049904,
+            "azimuth_min_deg": 6.531668018307393,
+            "elevation_max_deg": 57.26919058921719,
+            "elevation_min_deg": 24.639528295939215
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0006736494467569084,
+          "measurement_normalized_rms": 0.8417736895599719,
+          "median_m": 0.0008809570525836474,
+          "native_points": 9,
+          "observations": 9,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.00424698399245517,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.0044475783452274775,
+          "truth_error_claim": false
+        },
+        "7105": {
+          "count": 17,
+          "geometry": {
+            "azimuth_max_deg": 106.22218188090437,
+            "azimuth_min_deg": 54.772614267576664,
+            "elevation_max_deg": 36.33382073232254,
+            "elevation_min_deg": 31.27753083250022
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0036563306094141213,
+          "measurement_normalized_rms": 1.0590047152154078,
+          "median_m": 0.0029256898089164464,
+          "native_points": 17,
+          "observations": 17,
+          "predictive": {
+            "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+            "dimensions": 17,
+            "logdet": -177.91097710929824,
+            "marginal_95_fraction": 0.9411764705882353,
+            "nees": 10.719420190197026,
+            "nll": -67.97382339507118,
+            "nll_per_dimension": -3.9984601997100695,
+            "stations": [
+              7105
+            ],
+            "status": "complete",
+            "valid": true
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.00529502357607704,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.003947822655273423,
+          "truth_error_claim": false
+        },
+        "7110": {
+          "count": 29,
+          "geometry": {
+            "azimuth_max_deg": 318.5599851890425,
+            "azimuth_min_deg": 239.39715821339067,
+            "elevation_max_deg": 33.2428223183959,
+            "elevation_min_deg": 25.22650727753293
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.006151028784218884,
+          "measurement_normalized_rms": 1.86406844709595,
+          "median_m": 0.008244378875398972,
+          "native_points": 29,
+          "observations": 29,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.009320342235479749,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.007126347251530693,
+          "truth_error_claim": false
+        },
+        "7124": {
+          "count": 3,
+          "geometry": {
+            "azimuth_max_deg": 35.40265730632687,
+            "azimuth_min_deg": 32.99697269354997,
+            "elevation_max_deg": 23.712723184429688,
+            "elevation_min_deg": 22.11451830986663
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.0031253937764572754,
+          "measurement_normalized_rms": 0.7067144479060015,
+          "median_m": 0.003965477784139915,
+          "native_points": 3,
+          "observations": 3,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.0035335722395300074,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.002019175517652902,
+          "truth_error_claim": false
+        },
+        "7237": {
+          "count": 5,
+          "geometry": {
+            "azimuth_max_deg": 242.775428671197,
+            "azimuth_min_deg": 232.80261301603372,
+            "elevation_max_deg": 35.45405051281055,
+            "elevation_min_deg": 31.306729960043665
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": -0.025943555137257462,
+          "measurement_normalized_rms": 5.1976838396373015,
+          "median_m": -0.02657731374120432,
+          "native_points": 5,
+          "observations": 5,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.025988419198186508,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.0017065605983787161,
+          "truth_error_claim": false
+        },
+        "7403": {
+          "count": 9,
+          "geometry": {
+            "azimuth_max_deg": 225.99411876549817,
+            "azimuth_min_deg": 204.45817085480965,
+            "elevation_max_deg": 53.91390095756176,
+            "elevation_min_deg": 39.214033996748334
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.025560729501385788,
+          "measurement_normalized_rms": 5.146007897156712,
+          "median_m": 0.024281273057294994,
+          "native_points": 9,
+          "observations": 9,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.02573003948578356,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.0031256270105513477,
+          "truth_error_claim": false
+        },
+        "7701": {
+          "count": 8,
+          "geometry": {
+            "azimuth_max_deg": 293.89449687253807,
+            "azimuth_min_deg": 250.39741474001374,
+            "elevation_max_deg": 32.258729417639636,
+            "elevation_min_deg": 29.38223816660153
+          },
+          "kind": "independent flight SLR residuals",
+          "mean_m": 0.02025731317808579,
+          "measurement_normalized_rms": 4.434266788518805,
+          "median_m": 0.015985313161498232,
+          "native_points": 8,
+          "observations": 8,
+          "predictive": {
+            "dimensions": 0,
+            "nll": null,
+            "reason": "No physically usable externally calibrated points",
+            "status": "unavailable",
+            "valid": false
+          },
+          "reflector_cutoff_excluded": 0,
+          "rms_m": 0.022171333942594025,
+          "slr_used_in_fit": false,
+          "status": "complete",
+          "std_m": 0.009633827994488928,
+          "truth_error_claim": false
+        }
+      },
+      "predictive": {
+        "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+        "dimensions": 17,
+        "logdet": -177.91097710929824,
+        "marginal_95_fraction": 0.9411764705882353,
+        "nees": 10.719420190197026,
+        "nll": -67.97382339507118,
+        "nll_per_dimension": -3.9984601997100695,
+        "stations": [
+          7105
+        ],
+        "status": "complete",
+        "valid": true
+      },
+      "range_abs_p95_m": 0.027636193555772397,
+      "range_mean_m": 0.006479547208793035,
+      "range_median_m": 0.005478313871232123,
+      "range_rms_m": 0.014345498844210236,
+      "reflector_cutoff_excluded": 0,
+      "residual_sign": "observed-minus-modeled one-way range",
+      "rms_m": 0.014345498844210236,
+      "slr_used_in_fit": false,
+      "stations": [
+        7090,
+        7105,
+        7110,
+        7124,
+        7237,
+        7403,
+        7701
+      ],
+      "status": "complete",
+      "std_m": 0.012879531600031588,
+      "truth_error_claim": false
+    },
+    "observations": 80,
+    "predictive": {
+      "coverage_note": "Descriptive correlated-observation fraction; no independent-trial confidence interval",
+      "dimensions": 17,
+      "logdet": -177.91097710929824,
+      "marginal_95_fraction": 0.9411764705882353,
+      "nees": 10.719420190197026,
+      "nll": -67.97382339507118,
+      "nll_per_dimension": -3.9984601997100695,
+      "valid": true
+    },
+    "predictive_conditioning": "Conditional on fixed station, reflector, atmosphere, Earth-rotation and known-bias corrections; model-systematic uncertainties are not fitted to SLR",
+    "predictive_covariance_scope": "Full H P_dynamic H' plus native observation noise and shared external station-bias uncertainty, including cross-observation correlations; P_dynamic is marginalized over GNSS nuisance parameters",
+    "reference_agreement": {
+      "frame": "CRF through the same native Earth-rotation model",
+      "interpretation": "agreement with an external reference; not known truth",
+      "matched_epochs": 17281,
+      "position_rms_m": 0.044183810822091496,
+      "reference_input_files": 2,
+      "reference_used_in_fit": false,
+      "unmatched_fit_epochs": 0,
+      "velocity_rms_m_s": 5.875066366064813e-05
+    },
+    "rms_m": 0.014345498844210236,
+    "slr_used_in_fit": false,
+    "std_m": 0.012879531600031588,
+    "truth_error_claim": false
+  },
+  "quality_control": {
+    "excluded_sessions": [],
+    "raw_normal_points": 85,
+    "retained_normal_points": 85,
+    "selection": "provider flags, correction convention, epoch event and meteorology; no residual cuts",
+    "sessions": [
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T02:24:20",
+        "header_sha256": "4b4a79882d941b7fc5a8d529c96ef4cee64ef37c348af72a7cac1a72acce6e60",
+        "header_start_utc": "2024-04-24T02:23:51",
+        "normal_points": 7,
+        "reasons": [],
+        "session": 0,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7110",
+        "transmit_end_utc": "2024-04-24T02:24:20.200689",
+        "transmit_seconds_from_origin": [
+          "8633.000688100001",
+          "8637.500688000000",
+          "8642.500688700000",
+          "8647.400688399999",
+          "8652.600688299999",
+          "8658.300688200001",
+          "8660.200688800000"
+        ],
+        "transmit_start_utc": "2024-04-24T02:23:53.000688",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T02:26:11",
+        "header_sha256": "94ed6f04769a39a5a4323d686ede1ac59ccea1f793246b9b939a20c362336328",
+        "header_start_utc": "2024-04-24T02:25:37",
+        "normal_points": 8,
+        "reasons": [],
+        "session": 1,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7110",
+        "transmit_end_utc": "2024-04-24T02:26:10.600687",
+        "transmit_seconds_from_origin": [
+          "8738.500687600001",
+          "8742.300686400000",
+          "8747.600686899999",
+          "8752.600687100001",
+          "8757.300687400000",
+          "8762.700687600000",
+          "8767.500686699999",
+          "8770.600687100001"
+        ],
+        "transmit_start_utc": "2024-04-24T02:25:38.500688",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:14:53",
+        "header_sha256": "62e74b24c24aad071bece4774e358c4b10a20db3a4ac3859968e3ad45ba7a4a7",
+        "header_start_utc": "2024-04-24T10:14:25",
+        "normal_points": 5,
+        "reasons": [],
+        "session": 2,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7237",
+        "transmit_end_utc": "2024-04-24T10:14:47.369001",
+        "transmit_seconds_from_origin": [
+          "36867.308000869998",
+          "36872.221500860003",
+          "36877.434500859999",
+          "36882.208500870001",
+          "36887.369000860002"
+        ],
+        "transmit_start_utc": "2024-04-24T10:14:27.308001",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:31:08",
+        "header_sha256": "15be7478aeabf50552a4eab543bcaf5a2f4cba40dacc95458dd305e4384740cb",
+        "header_start_utc": "2024-04-24T10:30:42",
+        "normal_points": 6,
+        "reasons": [],
+        "session": 3,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7090",
+        "transmit_end_utc": "2024-04-24T10:31:06.500602",
+        "transmit_seconds_from_origin": [
+          "37844.200598900003",
+          "37846.300600100003",
+          "37851.600599799996",
+          "37858.500599200001",
+          "37862.600598600002",
+          "37866.500602400003"
+        ],
+        "transmit_start_utc": "2024-04-24T10:30:44.200599",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:32:05",
+        "header_sha256": "1d294663f5cdd395509bfba1257e99f6a43d9959e788c5f74ccb28ad81b75b3b",
+        "header_start_utc": "2024-04-24T10:31:55",
+        "normal_points": 3,
+        "reasons": [],
+        "session": 4,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7090",
+        "transmit_end_utc": "2024-04-24T10:32:05.600598",
+        "transmit_seconds_from_origin": [
+          "37917.300618399997",
+          "37922.300597000001",
+          "37925.600598400000"
+        ],
+        "transmit_start_utc": "2024-04-24T10:31:57.300618",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:36:05",
+        "header_sha256": "0696ca60fcb43c7333cdc15c2706f13714b5afd50ab2087508589e89ef5ba58a",
+        "header_start_utc": "2024-04-24T10:35:49",
+        "normal_points": 5,
+        "reasons": [],
+        "session": 5,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7090",
+        "transmit_end_utc": "2024-04-24T10:36:05.400598",
+        "transmit_seconds_from_origin": [
+          "38149.500598799998",
+          "38154.400595599996",
+          "38156.800594699998",
+          "38161.800598100002",
+          "38165.400598499997"
+        ],
+        "transmit_start_utc": "2024-04-24T10:35:49.500599",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T11:07:31",
+        "header_sha256": "17488cd96b402227f3c3da4a8f974ab120242b09b3097d32352502ad235e6cac",
+        "header_start_utc": "2024-04-24T11:06:54",
+        "normal_points": 9,
+        "reasons": [],
+        "session": 6,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7403",
+        "transmit_end_utc": "2024-04-24T11:07:30.423771",
+        "transmit_seconds_from_origin": [
+          "40014.623685799997",
+          "40017.023798299997",
+          "40022.223702199997",
+          "40027.623154300003",
+          "40032.423599299997",
+          "40037.223443399998",
+          "40042.223811399999",
+          "40045.823724100002",
+          "40050.423770900001"
+        ],
+        "transmit_start_utc": "2024-04-24T11:06:54.623686",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T14:29:31",
+        "header_sha256": "b906e85420d83ede2d8b24699ff67585596c27b33c0ceed5089a2d6d8479f6e8",
+        "header_start_utc": "2024-04-24T14:28:24",
+        "normal_points": 14,
+        "reasons": [],
+        "session": 7,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7110",
+        "transmit_end_utc": "2024-04-24T14:29:30.300698",
+        "transmit_seconds_from_origin": [
+          "52106.100697900001",
+          "52113.200697200002",
+          "52117.400698899997",
+          "52123.700699499997",
+          "52126.100698000002",
+          "52132.400698400001",
+          "52136.800697899998",
+          "52141.600697599999",
+          "52147.600696800000",
+          "52153.400696999997",
+          "52158.000696700001",
+          "52163.200698900000",
+          "52166.900698600002",
+          "52170.300698300001"
+        ],
+        "transmit_start_utc": "2024-04-24T14:28:26.100698",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T15:52:24",
+        "header_sha256": "d2451d876fec99737ccefb3acf4ed7f8ebe59a6a8aaac89b1798b768fddafe05",
+        "header_start_utc": "2024-04-24T15:52:09",
+        "normal_points": 3,
+        "reasons": [],
+        "session": 8,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7124",
+        "transmit_end_utc": "2024-04-24T15:52:22.100479",
+        "transmit_seconds_from_origin": [
+          "57132.900477100004",
+          "57138.000478800001",
+          "57142.100479200002"
+        ],
+        "transmit_start_utc": "2024-04-24T15:52:12.900477",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T19:43:57",
+        "header_sha256": "f3dbfd0c67451a4df5d0d710ca77582aad51d3a56df65f8cf36cf1d9264e77a1",
+        "header_start_utc": "2024-04-24T19:42:43",
+        "normal_points": 8,
+        "reasons": [],
+        "session": 9,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7701",
+        "transmit_end_utc": "2024-04-24T19:43:57.592912",
+        "transmit_seconds_from_origin": [
+          "70963.270411482343",
+          "70972.070411735476",
+          "70978.485411601578",
+          "70981.852911490365",
+          "70987.957911647434",
+          "71027.720411799310",
+          "71032.422911548914",
+          "71037.592911861910"
+        ],
+        "transmit_start_utc": "2024-04-24T19:42:43.270411",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T22:49:30",
+        "header_sha256": "7094c2f9ebd2f3417874627a11a4dadcb3f9fd9c9ce0b31c53e964f5856e701b",
+        "header_start_utc": "2024-04-24T22:48:06",
+        "normal_points": 17,
+        "reasons": [],
+        "session": 10,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7105",
+        "transmit_end_utc": "2024-04-24T22:49:30.300418",
+        "transmit_seconds_from_origin": [
+          "82089.800417799997",
+          "82097.800417799997",
+          "82102.600418300004",
+          "82107.400417400000",
+          "82112.400417500001",
+          "82117.800417699997",
+          "82122.400417099998",
+          "82127.500417500007",
+          "82132.000417599993",
+          "82136.600417800000",
+          "82142.700417700005",
+          "82147.500417699994",
+          "82152.200417100001",
+          "82156.900417700002",
+          "82162.500417400006",
+          "82167.900417800003",
+          "82170.300417899998"
+        ],
+        "transmit_start_utc": "2024-04-24T22:48:09.800418",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      }
+    ],
+    "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+    "station_metadata_exclusions": [],
+    "stations": [
+      "7090",
+      "7105",
+      "7110",
+      "7124",
+      "7237",
+      "7403",
+      "7701"
+    ]
+  },
+  "slr_used_in_fit": false,
+  "station_bias_policy": {
+    "7090": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7090 67  501 A 22:212:00000 00:000:00000 R          3.6     0.3             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.3,
+          "target": "67",
+          "value": 3.6
+        },
+        {
+          "code": "E",
+          "record": " 7090 51  501 A 22:324:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7090 52  501 A 22:324:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7105": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7105 51  501 A 20:047:00000 00:000:00000 R         -5.1     0.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.4,
+          "target": "51",
+          "value": -5.1
+        },
+        {
+          "code": "R",
+          "record": " 7105 52  501 A 20:047:00000 00:000:00000 R         -4.3     0.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.4,
+          "target": "52",
+          "value": -4.3
+        },
+        {
+          "code": "R",
+          "record": " 7105 53  501 A 20:047:00000 00:000:00000 R          7.4     0.8             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.8,
+          "target": "53",
+          "value": 7.4
+        },
+        {
+          "code": "R",
+          "record": " 7105 54  501 A 20:047:00000 00:000:00000 R          7.4     0.8             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.8,
+          "target": "54",
+          "value": 7.4
+        },
+        {
+          "code": "R",
+          "record": " 7105 67  501 A 22:212:00000 00:000:00000 R         -9.9     0.5             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.5,
+          "target": "67",
+          "value": -9.9
+        }
+      ],
+      "descriptive_only": false,
+      "exclude_station": false,
+      "formal_prediction_eligible": true,
+      "range_bias_m": -0.004699999999999999,
+      "range_bias_sigma_m": 0.0004,
+      "reason": "externally calibrated LAGEOS1/2 mean",
+      "uncertainty_policy": "mean of published standard deviations (conservative perfect correlation); station-common across normal points"
+    },
+    "7110": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7110 51  501 A 20:201:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 52  501 A 20:201:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 53  501 A 22:156:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 54  501 A 22:156:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 67  501 A 22:212:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "67",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7124": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7124 51  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 52  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 53  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 54  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 67  501 A 00:000:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "67",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7237": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7237 67  501 A 24:105:00000 00:000:00000 R          9.5     1.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 1.4,
+          "target": "67",
+          "value": 9.5
+        },
+        {
+          "code": "E",
+          "record": " 7237 51  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 52  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 53  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 54  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7403": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7403 --  501 A 13:001:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "--",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7701": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7701 -- ---- A 21:172:00000 00:000:00000 E                                  mm   NSP",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "--",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    }
+  }
+}

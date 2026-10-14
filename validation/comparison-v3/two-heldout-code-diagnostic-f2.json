@@ -1,0 +1,246 @@
+{
+  "checked_at_utc": "2026-10-14T01:06:39.603642+00:00",
+  "diagnostic_script": {
+    "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/diagnostic_two_holdout_scores.py",
+    "sha256": "fed5a5e193117d456ad7fd052652aeb9f24cecc6a9d55d29df6f2e275eee0641"
+  },
+  "hyperparameters_changed": false,
+  "native_binary": {
+    "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+    "sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453"
+  },
+  "output_directory": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-calibration-score-02",
+  "passed": true,
+  "preserved_input_hash_mismatches": [],
+  "preserved_input_hashes_checked": 32,
+  "protocol_hash": "5c818bbe0defd317714f33b10fb79e193da61e6a307aca308fa2f0a58869b60a",
+  "records": [
+    {
+      "calibration_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 1.3184701391440987
+        },
+        "dimensions": 577,
+        "invalid_epoch_indices": [],
+        "mean_nll": 1.3184701391440987,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 577,
+        "uninformative_epochs": 0,
+        "valid": true
+      },
+      "case": {
+        "arc_id": "eccentric-300000",
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 30,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300000,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "diagnostic_request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-calibration-score-02/holdout-30/request.json",
+        "sha256": "7fc0f7efc9faea96058f841456a5fcddb81e3ad1a8b4566aabddf82b754acd50"
+      },
+      "elapsed_seconds": 1.000144487945363,
+      "evaluation_status": "complete",
+      "heldout_inputs": [
+        {
+          "bytes": 105048,
+          "mask_hash": "788aa0e18286d4f22a310e593c10925b74c6a44f94e1dc07ea5a42aa2535c9c4",
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-prepare-323761729e57404e87c1/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.heldout.txt",
+          "records": 637,
+          "role": "heldout_gnss_code",
+          "sha256": "176f656d20bf26dd38c630d1b8fef8c00d13023a7015a559c48c3ab6c5d7a65d",
+          "source_sha256": "cbc990efc97c665cf9cba1cf463645ce4469516315b5e087d418ff4709e7a562"
+        }
+      ],
+      "original_fit_source_hash": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "original_request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-fit-25724341bfba5f41e4f0/request.json",
+        "sha256": "71b9fd1234995be00abd5b191707df38f16eef228c78e761792f034cacd4750c"
+      },
+      "original_request_hash": "e95217d0a909bc59de083507227e1ecad88ac39007af4adeca6f07ed9f988f8a",
+      "original_result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-fit-25724341bfba5f41e4f0/result.json",
+        "sha256": "1db979aa9ef64bcf3d572051d25a83a8d23830b56a99ad14b6388b0bde090f2c"
+      },
+      "original_result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-fit-25724341bfba5f41e4f0/result-record.json",
+        "sha256": "72aee9afa07e6b9b6b31801c50456aa499d4f040a92b2a901e5be9a8d5840ed2"
+      },
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 1e-05
+      },
+      "passed": true,
+      "planned_queue_index": 0,
+      "predictive_support_sha256": "e4f93c88a4ac2402b981fff76a558ef275674f317f7d950aad512376836dd030",
+      "prepared_result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-prepare-323761729e57404e87c1/result.json",
+        "sha256": "db4cd2ce73e529b2cc43ff624c6f590d911d8db4cf883e833b6276a863ea47f0"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-calibration-score-02/holdout-30/result.json",
+        "sha256": "de81d9d9912710d1c4ce93ee743681c1f64d6a96d6ff9f1dc3506925e3273cc1"
+      },
+      "support_and_projection": {
+        "all_informative_dimensions_satellites_minus_one": true,
+        "calibration_predictive_support_contract_passed": true,
+        "clock_rank": 1,
+        "epochs": 60,
+        "informative_epochs": 60,
+        "minimum_projected_covariance_eigenvalue_m2": 0.7983003870956312,
+        "native_signal_columns": [
+          "GPSMJD",
+          "PRN",
+          "first_code_type",
+          "second_code_type"
+        ],
+        "native_support_manifest_hash_matches": true,
+        "prediction_rows": 637,
+        "projected_covariance_and_logdet_retained": true,
+        "status": "passed"
+      }
+    },
+    {
+      "calibration_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 1.3587560345404868
+        },
+        "dimensions": 2545,
+        "invalid_epoch_indices": [],
+        "mean_nll": 1.3587560345404868,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 2545,
+        "uninformative_epochs": 0,
+        "valid": true
+      },
+      "case": {
+        "arc_id": "eccentric-300000",
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300000,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "diagnostic_request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-calibration-score-02/holdout-120/request.json",
+        "sha256": "b00a1e9627f9081e796addb4dc2a508aff9b68e2dea29f54108956a1f031e654"
+      },
+      "elapsed_seconds": 1.10067994100973,
+      "evaluation_status": "complete",
+      "heldout_inputs": [
+        {
+          "bytes": 458697,
+          "mask_hash": "144c645900232a543af87bf766153e3eeaaf8a0b1628fae654195178b9ab80f6",
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-prepare-ea1afbb301565f1bbeea/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.heldout.txt",
+          "records": 2785,
+          "role": "heldout_gnss_code",
+          "sha256": "a67e49c13c59e4d22602bb34c87a09e8d6766ad410f9dba86259ccb78eaae6f9",
+          "source_sha256": "cbc990efc97c665cf9cba1cf463645ce4469516315b5e087d418ff4709e7a562"
+        }
+      ],
+      "original_fit_source_hash": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "original_request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-fit-e30ccd5b129453b114cf/request.json",
+        "sha256": "67e6b634fb85d93046992f09cf5802cc4f7c9980ccb288910a76098a3810f613"
+      },
+      "original_request_hash": "f23e98470486a2fe2a6e2efe8ca773043bd04ca7b0021a1379bd202e9a10bbbc",
+      "original_result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-fit-e30ccd5b129453b114cf/result.json",
+        "sha256": "d2e2d0d017a0079ac21889501cd837f4f75da13c94ad80a0af05fa5f75117f34"
+      },
+      "original_result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-fit-e30ccd5b129453b114cf/result-record.json",
+        "sha256": "0355bfac119b6e003d8771092353eb95fc6f7c982f869da2094a7ae058770a38"
+      },
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 1e-05
+      },
+      "passed": true,
+      "planned_queue_index": 1,
+      "predictive_support_sha256": "cbf80c99c4028ece34d883c1a251e1d7fd2716b2941709d4287c2b1f4e20ed20",
+      "prepared_result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/jobs/synthetic-calibration-prepare-ea1afbb301565f1bbeea/result.json",
+        "sha256": "5a084f4da0e80808ea84f273e87a9319924fbbb3d6a69218f80efd61ad8ab936"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-calibration-score-02/holdout-120/result.json",
+        "sha256": "ce5620ef277b04a027236fd5840aa482ae54bfa0505c9324d885f56edd4d1f4a"
+      },
+      "support_and_projection": {
+        "all_informative_dimensions_satellites_minus_one": true,
+        "calibration_predictive_support_contract_passed": true,
+        "clock_rank": 1,
+        "epochs": 240,
+        "informative_epochs": 240,
+        "minimum_projected_covariance_eigenvalue_m2": 0.7983003870956309,
+        "native_signal_columns": [
+          "GPSMJD",
+          "PRN",
+          "first_code_type",
+          "second_code_type"
+        ],
+        "native_support_manifest_hash_matches": true,
+        "prediction_rows": 2785,
+        "projected_covariance_and_logdet_retained": true,
+        "status": "passed"
+      }
+    }
+  ],
+  "schema_version": 1,
+  "scientific_comparison_complete": false,
+  "scope": "Engineering diagnostic of unchanged f2 held-out code evaluation on exactly two preserved completed pulse fits. Not calibration, tuning, acceptance, or scientific comparison completion.",
+  "scorer_modules": [
+    {
+      "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-final-f2b41a4b/src/orbit_poc/comparison/backend.py",
+      "sha256": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51"
+    },
+    {
+      "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-final-f2b41a4b/src/orbit_poc/comparison/groops_config.py",
+      "sha256": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63"
+    },
+    {
+      "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-final-f2b41a4b/src/orbit_poc/comparison/metrics.py",
+      "sha256": "dddc4380191ba3226326529945d263be4071993c749f79a9d4480b8705a1612e"
+    }
+  ],
+  "selection_manifest": {
+    "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-calibration-score-02/selection.json",
+    "sha256": "c638e3779947659ede0cd8889ffeb992a18ea460cb12bc7f250b02d28d36e126"
+  },
+  "source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+  "truth_or_evaluation_references_read": false
+}

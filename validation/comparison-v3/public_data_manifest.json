@@ -1,0 +1,1483 @@
+{
+  "May_spacecraft_data_downloaded": false,
+  "campaign": "fixed April2024 development dates only",
+  "checksum_authority": "local acquisition SHA256, not a provider signature",
+  "dates": [
+    {
+      "date": "2024-04-18",
+      "estimation_inputs": [
+        {
+          "archive_member": "GPS1B_2024-04-18_C_04.rnx",
+          "bytes": 12161158,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-18_C_04.rnx",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "3a1c603f3f3530d2017b993a36ad01d4c237d04e2bb89e87363fd1d1c0c46ced"
+        },
+        {
+          "archive_member": "GPS1B_2024-04-18_C_04.txt",
+          "bytes": 15273614,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-18_C_04.txt",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "caa292d74efb6c4534e7d3ae09c9a319219a4fa36a6a7e678cfd311309b5f3c0"
+        },
+        {
+          "archive_member": "MAS1B_2024-04-18_C_04.txt",
+          "bytes": 8429,
+          "mission": "GRACE-FO-1",
+          "path": "MAS1B_2024-04-18_C_04.txt",
+          "product": "MAS1B",
+          "role": "spacecraft_metadata",
+          "sha256": "c23bb45802e36ffb6fc95eb8ecf8637d7d45bc4958709b7f84242803387c6777"
+        },
+        {
+          "archive_member": "SCA1B_2024-04-18_C_04.txt",
+          "bytes": 10716014,
+          "mission": "GRACE-FO-1",
+          "path": "SCA1B_2024-04-18_C_04.txt",
+          "product": "SCA1B",
+          "role": "attitude",
+          "sha256": "82f78e8ada3ed47e5546c6acf07e0094707f4e6810208c594855ab7a26e79130"
+        },
+        {
+          "archive_member": "THR1B_2024-04-18_C_04.txt",
+          "bytes": 14623,
+          "mission": "GRACE-FO-1",
+          "path": "THR1B_2024-04-18_C_04.txt",
+          "product": "THR1B",
+          "role": "spacecraft_metadata",
+          "sha256": "5e3745dad78e9b17888d28184816acf84323a59ea9855e78bf044fc962a2128c"
+        },
+        {
+          "bytes": 618412,
+          "path": "COD0OPSFIN_20241090000_01D_05M_ORB.SP3.gz",
+          "role": "gnss_orbits",
+          "sha256": "c9ff715fb97dd6bfe90eca587d9163b8b9aee9503e66de78786924e8981d0c9b",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 5009711,
+          "path": "COD0OPSFIN_20241090000_01D_30S_CLK.CLK.gz",
+          "role": "gnss_clocks",
+          "sha256": "b3a0c0b3488d5977df3e4caa96c982c852d3520689dfc9bbbc3fbb06cad010d9",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 123865,
+          "path": "COD0OPSFIN_20241090000_01D_01D_OSB.BIA.gz",
+          "role": "gnss_biases",
+          "sha256": "81ce58fc615b4399494be5f21b507a51fe730f757bb31326eb13ac715b91acd8",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8804365,
+          "path": "COD0OPSFIN_20241090000_01D_30S_ATT.OBX.gz",
+          "role": "gnss_attitudes",
+          "sha256": "0a869680c4758018620827e4bf4cd7aca937a76d709b720ce3123b1c24898eb4",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "evaluation_inputs": [
+        {
+          "archive_member": "GNV1B_2024-04-18_C_04.txt",
+          "bytes": 22928166,
+          "mission": "GRACE-FO-1",
+          "path": "GNV1B_2024-04-18_C_04.txt",
+          "product": "GNV1B",
+          "role": "reference_orbit",
+          "sha256": "2664004fea421dbb8c2a3af46e1fdb87a7ce9720ed041cf9cdf926fa5c19bc9d"
+        },
+        {
+          "bytes": 33705,
+          "path": "gracefo1_20240418.np2",
+          "role": "slr_validation",
+          "sha256": "8cceb68694213ebe590d0c5f617295f76bbea1c12fb5f1e8ef1a08d01c923838",
+          "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240418.np2"
+        }
+      ],
+      "manifest_sha256": "b8ebc7375f7721a076523f1a4a0c5c5db9ff6b3192f84d3c8c4ccd7c3ce1caa3",
+      "screening": {
+        "counts": {
+          "attitude": {
+            "known_flag_policy": "count documented interpolation/IMU/single-camera flags; reject undefined flags or invalid quaternion",
+            "quality_flags": {
+              "0": 86400
+            },
+            "records": 86400
+          },
+          "gnss": {
+            "low_snr_records": 0,
+            "phase_break_or_cycle_slip_records": 588,
+            "policy": "drop low-SNR and provider phase-break/cycle-slip records before native conversion; native receiver preprocessing also detects track discontinuities",
+            "quality_flags": {
+              "0": 79107,
+              "3": 588
+            },
+            "records": 79695
+          },
+          "thruster": {
+            "attitude_control_events": 7,
+            "event_gps_seconds": [
+              766673636.094177,
+              766684901.594004,
+              766707589.593657,
+              766729853.093316,
+              766735680.593227,
+              766746718.593058,
+              766747118.093052
+            ],
+            "orbit_control_accumulated_duration_ms": [
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000
+            ],
+            "orbital_control_events": 0,
+            "quality_flags": {
+              "12": 7
+            },
+            "records": 7
+          }
+        },
+        "date": "2024-04-18",
+        "exclusion_reasons": [],
+        "replacement_date_allowed": false,
+        "selection_basis": "THR1B orbital-control on-times, timing flags, SCA/GPS instrument metadata only; no reference or fit residuals",
+        "sources": [
+          {
+            "path": "THR1B_2024-04-18_C_04.txt",
+            "sha256": "5e3745dad78e9b17888d28184816acf84323a59ea9855e78bf044fc962a2128c"
+          },
+          {
+            "path": "SCA1B_2024-04-18_C_04.txt",
+            "sha256": "82f78e8ada3ed47e5546c6acf07e0094707f4e6810208c594855ab7a26e79130"
+          },
+          {
+            "path": "GPS1B_2024-04-18_C_04.txt",
+            "sha256": "caa292d74efb6c4534e7d3ae09c9a319219a4fa36a6a7e678cfd311309b5f3c0"
+          }
+        ],
+        "status": "eligible"
+      },
+      "sources": [
+        {
+          "bytes": 143516735,
+          "checksum_authority": "local_acquisition_record",
+          "etag": "\"88de43f-617e2c8ab41f2\"",
+          "last_modified": "Tue, 07 May 2024 20:10:56 GMT",
+          "path": "gracefo_1B_2024-04-18_RL04.ascii.noLRI.tgz",
+          "resolved_url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-18_RL04.ascii.noLRI.tgz",
+          "retrieved_utc": "2026-10-13T17:29:14.728524+00:00",
+          "sha256": "29fad5b724cca5de46b29fafa980433625772f8f500d85dbeb66364eb7d26175",
+          "url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-18_RL04.ascii.noLRI.tgz"
+        },
+        {
+          "bytes": 33705,
+          "cache_path": "gracefo1_20240418.np2",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": "Fri, 26 Apr 2024 04:30:39 GMT",
+          "path": "gracefo1_20240418.np2",
+          "resolved_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240418.np2",
+          "retrieved_utc": "2026-10-13T17:29:34.126003+00:00",
+          "sha256": "8cceb68694213ebe590d0c5f617295f76bbea1c12fb5f1e8ef1a08d01c923838",
+          "url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240418.np2"
+        },
+        {
+          "bytes": 618412,
+          "cache_path": "COD0OPSFIN_20241090000_01D_05M_ORB.SP3.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241090000_01D_05M_ORB.SP3.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241090000_01D_05M_ORB.SP3.gz",
+          "retrieved_utc": "2026-10-13T17:29:35.456827+00:00",
+          "sha256": "c9ff715fb97dd6bfe90eca587d9163b8b9aee9503e66de78786924e8981d0c9b",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 5009711,
+          "cache_path": "COD0OPSFIN_20241090000_01D_30S_CLK.CLK.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241090000_01D_30S_CLK.CLK.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241090000_01D_30S_CLK.CLK.gz",
+          "retrieved_utc": "2026-10-13T17:29:36.020454+00:00",
+          "sha256": "b3a0c0b3488d5977df3e4caa96c982c852d3520689dfc9bbbc3fbb06cad010d9",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 123865,
+          "cache_path": "COD0OPSFIN_20241090000_01D_01D_OSB.BIA.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241090000_01D_01D_OSB.BIA.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241090000_01D_01D_OSB.BIA.gz",
+          "retrieved_utc": "2026-10-13T17:29:36.458775+00:00",
+          "sha256": "81ce58fc615b4399494be5f21b507a51fe730f757bb31326eb13ac715b91acd8",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8804365,
+          "cache_path": "COD0OPSFIN_20241090000_01D_30S_ATT.OBX.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241090000_01D_30S_ATT.OBX.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241090000_01D_30S_ATT.OBX.gz",
+          "retrieved_utc": "2026-10-13T17:29:37.279657+00:00",
+          "sha256": "0a869680c4758018620827e4bf4cd7aca937a76d709b720ce3123b1c24898eb4",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241090000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "status": "observations_ready"
+    },
+    {
+      "date": "2024-04-19",
+      "estimation_inputs": [
+        {
+          "archive_member": "GPS1B_2024-04-19_C_04.rnx",
+          "bytes": 11896385,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-19_C_04.rnx",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "c59219a77cccc1647e30298568abb95e3eefcdd915ab30c1dd0aea878ba07655"
+        },
+        {
+          "archive_member": "GPS1B_2024-04-19_C_04.txt",
+          "bytes": 14935025,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-19_C_04.txt",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "d858f436dd951574a9641f95b7fe8389091ba03f71d5e21cdcd8b647e0d893c7"
+        },
+        {
+          "archive_member": "MAS1B_2024-04-19_C_04.txt",
+          "bytes": 8424,
+          "mission": "GRACE-FO-1",
+          "path": "MAS1B_2024-04-19_C_04.txt",
+          "product": "MAS1B",
+          "role": "spacecraft_metadata",
+          "sha256": "a090887fc11ffead6f4f986c2ad34784c5316e4a517a845a012a89053e7cb75b"
+        },
+        {
+          "archive_member": "SCA1B_2024-04-19_C_04.txt",
+          "bytes": 10710392,
+          "mission": "GRACE-FO-1",
+          "path": "SCA1B_2024-04-19_C_04.txt",
+          "product": "SCA1B",
+          "role": "attitude",
+          "sha256": "9857d100b08eacdf732775a845686909f737714dfdd290bae46d1feeb6b389e2"
+        },
+        {
+          "archive_member": "THR1B_2024-04-19_C_04.txt",
+          "bytes": 14810,
+          "mission": "GRACE-FO-1",
+          "path": "THR1B_2024-04-19_C_04.txt",
+          "product": "THR1B",
+          "role": "spacecraft_metadata",
+          "sha256": "00834b70e86832db7461d19266601b8c7622f4294b8072b94b0f3b5506916d0a"
+        },
+        {
+          "bytes": 618343,
+          "path": "COD0OPSFIN_20241100000_01D_05M_ORB.SP3.gz",
+          "role": "gnss_orbits",
+          "sha256": "75a86baeeadc546949f2db9d2a19bb489c06e6ca972e138ed3721b669ff1b32b",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 4956386,
+          "path": "COD0OPSFIN_20241100000_01D_30S_CLK.CLK.gz",
+          "role": "gnss_clocks",
+          "sha256": "7c979b1d508be0bfb29a4d2b3a07ae88d5fa23bdbec8d89e8a99af0c3eb72349",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 121513,
+          "path": "COD0OPSFIN_20241100000_01D_01D_OSB.BIA.gz",
+          "role": "gnss_biases",
+          "sha256": "bd34dadeaed6f32d526fae53daaf082dd7911c7cc2966b974126d22bc18e7b0e",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8803258,
+          "path": "COD0OPSFIN_20241100000_01D_30S_ATT.OBX.gz",
+          "role": "gnss_attitudes",
+          "sha256": "6398c2221a0592114f92b0759a8d786357063c04d2f9773ebced6e85dd3005aa",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "evaluation_inputs": [
+        {
+          "archive_member": "GNV1B_2024-04-19_C_04.txt",
+          "bytes": 22930678,
+          "mission": "GRACE-FO-1",
+          "path": "GNV1B_2024-04-19_C_04.txt",
+          "product": "GNV1B",
+          "role": "reference_orbit",
+          "sha256": "775e3a2793ac4afc3fc407995bf20853939e41ec285a327c291333f0a1b9c96d"
+        },
+        {
+          "bytes": 8062,
+          "path": "gracefo1_20240419.np2",
+          "role": "slr_validation",
+          "sha256": "3a0fc7e309648ecf2496eeee8e6ebe3ab100e596ae5e7071a6b17e604338e748",
+          "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240419.np2"
+        }
+      ],
+      "manifest_sha256": "0a2b0282073429d1d7b59e68b4c6909b7b0514ba9351470b6857204d0652a839",
+      "screening": {
+        "counts": {
+          "attitude": {
+            "known_flag_policy": "count documented interpolation/IMU/single-camera flags; reject undefined flags or invalid quaternion",
+            "quality_flags": {
+              "0": 86400
+            },
+            "records": 86400
+          },
+          "gnss": {
+            "low_snr_records": 0,
+            "phase_break_or_cycle_slip_records": 1659,
+            "policy": "drop low-SNR and provider phase-break/cycle-slip records before native conversion; native receiver preprocessing also detects track discontinuities",
+            "quality_flags": {
+              "0": 76259,
+              "3": 1659
+            },
+            "records": 77918
+          },
+          "thruster": {
+            "attitude_control_events": 8,
+            "event_gps_seconds": [
+              766764257.09279,
+              766781329.592529,
+              766809326.5921,
+              766820181.591934,
+              766820465.09193,
+              766831434.591762,
+              766831750.091757,
+              766843099.091584
+            ],
+            "orbit_control_accumulated_duration_ms": [
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000
+            ],
+            "orbital_control_events": 0,
+            "quality_flags": {
+              "12": 8
+            },
+            "records": 8
+          }
+        },
+        "date": "2024-04-19",
+        "exclusion_reasons": [],
+        "replacement_date_allowed": false,
+        "selection_basis": "THR1B orbital-control on-times, timing flags, SCA/GPS instrument metadata only; no reference or fit residuals",
+        "sources": [
+          {
+            "path": "THR1B_2024-04-19_C_04.txt",
+            "sha256": "00834b70e86832db7461d19266601b8c7622f4294b8072b94b0f3b5506916d0a"
+          },
+          {
+            "path": "SCA1B_2024-04-19_C_04.txt",
+            "sha256": "9857d100b08eacdf732775a845686909f737714dfdd290bae46d1feeb6b389e2"
+          },
+          {
+            "path": "GPS1B_2024-04-19_C_04.txt",
+            "sha256": "d858f436dd951574a9641f95b7fe8389091ba03f71d5e21cdcd8b647e0d893c7"
+          }
+        ],
+        "status": "eligible"
+      },
+      "sources": [
+        {
+          "bytes": 143201575,
+          "checksum_authority": "local_acquisition_record",
+          "etag": "\"8891527-6186e55718043\"",
+          "last_modified": "Tue, 14 May 2024 18:40:19 GMT",
+          "path": "gracefo_1B_2024-04-19_RL04.ascii.noLRI.tgz",
+          "resolved_url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-19_RL04.ascii.noLRI.tgz",
+          "retrieved_utc": "2026-10-13T17:29:13.734402+00:00",
+          "sha256": "6b5f3bd026e8a58c67c9c993ff20ae10fda7212109b80eabf7a7c60a2a972b2c",
+          "url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-19_RL04.ascii.noLRI.tgz"
+        },
+        {
+          "bytes": 8062,
+          "cache_path": "gracefo1_20240419.np2",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": "Sat, 20 Apr 2024 02:30:01 GMT",
+          "path": "gracefo1_20240419.np2",
+          "resolved_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240419.np2",
+          "retrieved_utc": "2026-10-13T17:29:32.730377+00:00",
+          "sha256": "3a0fc7e309648ecf2496eeee8e6ebe3ab100e596ae5e7071a6b17e604338e748",
+          "url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240419.np2"
+        },
+        {
+          "bytes": 618343,
+          "cache_path": "COD0OPSFIN_20241100000_01D_05M_ORB.SP3.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241100000_01D_05M_ORB.SP3.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241100000_01D_05M_ORB.SP3.gz",
+          "retrieved_utc": "2026-10-13T17:29:33.170211+00:00",
+          "sha256": "75a86baeeadc546949f2db9d2a19bb489c06e6ca972e138ed3721b669ff1b32b",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 4956386,
+          "cache_path": "COD0OPSFIN_20241100000_01D_30S_CLK.CLK.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241100000_01D_30S_CLK.CLK.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241100000_01D_30S_CLK.CLK.gz",
+          "retrieved_utc": "2026-10-13T17:29:33.716948+00:00",
+          "sha256": "7c979b1d508be0bfb29a4d2b3a07ae88d5fa23bdbec8d89e8a99af0c3eb72349",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 121513,
+          "cache_path": "COD0OPSFIN_20241100000_01D_01D_OSB.BIA.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241100000_01D_01D_OSB.BIA.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241100000_01D_01D_OSB.BIA.gz",
+          "retrieved_utc": "2026-10-13T17:29:34.020173+00:00",
+          "sha256": "bd34dadeaed6f32d526fae53daaf082dd7911c7cc2966b974126d22bc18e7b0e",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8803258,
+          "cache_path": "COD0OPSFIN_20241100000_01D_30S_ATT.OBX.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241100000_01D_30S_ATT.OBX.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241100000_01D_30S_ATT.OBX.gz",
+          "retrieved_utc": "2026-10-13T17:29:34.721698+00:00",
+          "sha256": "6398c2221a0592114f92b0759a8d786357063c04d2f9773ebced6e85dd3005aa",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241100000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "status": "observations_ready"
+    },
+    {
+      "date": "2024-04-20",
+      "estimation_inputs": [
+        {
+          "archive_member": "GPS1B_2024-04-20_C_04.rnx",
+          "bytes": 12283145,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-20_C_04.rnx",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "892e0ffc57152c4806d67624ba039b5de3ea1c4e77e5f4d67ce3c6cc92524a41"
+        },
+        {
+          "archive_member": "GPS1B_2024-04-20_C_04.txt",
+          "bytes": 15433203,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-20_C_04.txt",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "2770e5c143c5e1ddbadd066a44aaf407a98b9592f57e194d937b0603fb5d7553"
+        },
+        {
+          "archive_member": "MAS1B_2024-04-20_C_04.txt",
+          "bytes": 8432,
+          "mission": "GRACE-FO-1",
+          "path": "MAS1B_2024-04-20_C_04.txt",
+          "product": "MAS1B",
+          "role": "spacecraft_metadata",
+          "sha256": "482f4d64862125caf9dde7cdd9571e84087c75cbe2e2bf538f4d19bdab60906c"
+        },
+        {
+          "archive_member": "SCA1B_2024-04-20_C_04.txt",
+          "bytes": 10709577,
+          "mission": "GRACE-FO-1",
+          "path": "SCA1B_2024-04-20_C_04.txt",
+          "product": "SCA1B",
+          "role": "attitude",
+          "sha256": "272908267ff9a69e57656333e6391f78367611ce9da4859b4a9f4f51e3d6944e"
+        },
+        {
+          "archive_member": "THR1B_2024-04-20_C_04.txt",
+          "bytes": 14622,
+          "mission": "GRACE-FO-1",
+          "path": "THR1B_2024-04-20_C_04.txt",
+          "product": "THR1B",
+          "role": "spacecraft_metadata",
+          "sha256": "f2bcf997dfe2287a349aba944c07f71e11cf58c705618759e785c6c47cf33883"
+        },
+        {
+          "bytes": 618643,
+          "path": "COD0OPSFIN_20241110000_01D_05M_ORB.SP3.gz",
+          "role": "gnss_orbits",
+          "sha256": "2b3185165305395c69db2e2217b0b6912ed60eeaf420300f102aab6d2995df7e",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 4978609,
+          "path": "COD0OPSFIN_20241110000_01D_30S_CLK.CLK.gz",
+          "role": "gnss_clocks",
+          "sha256": "9464aa0dc94048d53389ff042971136432ff7f590e33f82ce5779e194d8e602a",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 121755,
+          "path": "COD0OPSFIN_20241110000_01D_01D_OSB.BIA.gz",
+          "role": "gnss_biases",
+          "sha256": "f4716303ead0bb4deeb81c6ffe2fecd3778276ae6c1ec5aff11b0142ffcc5654",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8804151,
+          "path": "COD0OPSFIN_20241110000_01D_30S_ATT.OBX.gz",
+          "role": "gnss_attitudes",
+          "sha256": "3e9e6cdaa19ebe470799a915e92ff0244999c2393bd44fd60a78d9535b0332ab",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "evaluation_inputs": [
+        {
+          "archive_member": "GNV1B_2024-04-20_C_04.txt",
+          "bytes": 22935513,
+          "mission": "GRACE-FO-1",
+          "path": "GNV1B_2024-04-20_C_04.txt",
+          "product": "GNV1B",
+          "role": "reference_orbit",
+          "sha256": "844cbb02040dcd5adacbe8c8ddd209615947c33bf5efe509a237b172a6b08247"
+        },
+        {
+          "bytes": 25630,
+          "path": "gracefo1_20240420.np2",
+          "role": "slr_validation",
+          "sha256": "6f0c3f0eff1c5c7d410f226b16807fe39bbec30a543dc395337e87801c3faf1a",
+          "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240420.np2"
+        }
+      ],
+      "manifest_sha256": "31ce4748f89f8872145b60f094edb5816e3534eb0cbe965338176e3f902a5cc9",
+      "screening": {
+        "counts": {
+          "attitude": {
+            "known_flag_policy": "count documented interpolation/IMU/single-camera flags; reject undefined flags or invalid quaternion",
+            "quality_flags": {
+              "0": 86400
+            },
+            "records": 86400
+          },
+          "gnss": {
+            "low_snr_records": 0,
+            "phase_break_or_cycle_slip_records": 1528,
+            "policy": "drop low-SNR and provider phase-break/cycle-slip records before native conversion; native receiver preprocessing also detects track discontinuities",
+            "quality_flags": {
+              "0": 78997,
+              "3": 1528
+            },
+            "records": 80525
+          },
+          "thruster": {
+            "attitude_control_events": 7,
+            "event_gps_seconds": [
+              766843613.091576,
+              766865895.091235,
+              766894096.590803,
+              766905152.590634,
+              766910887.590547,
+              766916773.090457,
+              766928113.099973
+            ],
+            "orbit_control_accumulated_duration_ms": [
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000
+            ],
+            "orbital_control_events": 0,
+            "quality_flags": {
+              "12": 7
+            },
+            "records": 7
+          }
+        },
+        "date": "2024-04-20",
+        "exclusion_reasons": [],
+        "replacement_date_allowed": false,
+        "selection_basis": "THR1B orbital-control on-times, timing flags, SCA/GPS instrument metadata only; no reference or fit residuals",
+        "sources": [
+          {
+            "path": "THR1B_2024-04-20_C_04.txt",
+            "sha256": "f2bcf997dfe2287a349aba944c07f71e11cf58c705618759e785c6c47cf33883"
+          },
+          {
+            "path": "SCA1B_2024-04-20_C_04.txt",
+            "sha256": "272908267ff9a69e57656333e6391f78367611ce9da4859b4a9f4f51e3d6944e"
+          },
+          {
+            "path": "GPS1B_2024-04-20_C_04.txt",
+            "sha256": "2770e5c143c5e1ddbadd066a44aaf407a98b9592f57e194d937b0603fb5d7553"
+          }
+        ],
+        "status": "eligible"
+      },
+      "sources": [
+        {
+          "bytes": 143881241,
+          "checksum_authority": "local_acquisition_record",
+          "etag": "\"8937419-6186ea400b8a3\"",
+          "last_modified": "Tue, 14 May 2024 19:02:17 GMT",
+          "path": "gracefo_1B_2024-04-20_RL04.ascii.noLRI.tgz",
+          "resolved_url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-20_RL04.ascii.noLRI.tgz",
+          "retrieved_utc": "2026-10-13T17:29:04.525483+00:00",
+          "sha256": "bcbf591716b004c7731a16ef1f645ebf2f90c301d5b27cf695257c2bb411184b",
+          "url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-20_RL04.ascii.noLRI.tgz"
+        },
+        {
+          "bytes": 25630,
+          "cache_path": "gracefo1_20240420.np2",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": "Mon, 22 Apr 2024 12:27:32 GMT",
+          "path": "gracefo1_20240420.np2",
+          "resolved_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240420.np2",
+          "retrieved_utc": "2026-10-13T17:29:23.185188+00:00",
+          "sha256": "6f0c3f0eff1c5c7d410f226b16807fe39bbec30a543dc395337e87801c3faf1a",
+          "url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240420.np2"
+        },
+        {
+          "bytes": 618643,
+          "cache_path": "COD0OPSFIN_20241110000_01D_05M_ORB.SP3.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241110000_01D_05M_ORB.SP3.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241110000_01D_05M_ORB.SP3.gz",
+          "retrieved_utc": "2026-10-13T17:29:23.681093+00:00",
+          "sha256": "2b3185165305395c69db2e2217b0b6912ed60eeaf420300f102aab6d2995df7e",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 4978609,
+          "cache_path": "COD0OPSFIN_20241110000_01D_30S_CLK.CLK.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241110000_01D_30S_CLK.CLK.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241110000_01D_30S_CLK.CLK.gz",
+          "retrieved_utc": "2026-10-13T17:29:24.313712+00:00",
+          "sha256": "9464aa0dc94048d53389ff042971136432ff7f590e33f82ce5779e194d8e602a",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 121755,
+          "cache_path": "COD0OPSFIN_20241110000_01D_01D_OSB.BIA.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241110000_01D_01D_OSB.BIA.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241110000_01D_01D_OSB.BIA.gz",
+          "retrieved_utc": "2026-10-13T17:29:24.736960+00:00",
+          "sha256": "f4716303ead0bb4deeb81c6ffe2fecd3778276ae6c1ec5aff11b0142ffcc5654",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8804151,
+          "cache_path": "COD0OPSFIN_20241110000_01D_30S_ATT.OBX.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241110000_01D_30S_ATT.OBX.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241110000_01D_30S_ATT.OBX.gz",
+          "retrieved_utc": "2026-10-13T17:29:25.409646+00:00",
+          "sha256": "3e9e6cdaa19ebe470799a915e92ff0244999c2393bd44fd60a78d9535b0332ab",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241110000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "status": "observations_ready"
+    },
+    {
+      "date": "2024-04-23",
+      "estimation_inputs": [
+        {
+          "archive_member": "GPS1B_2024-04-23_C_04.rnx",
+          "bytes": 12225079,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-23_C_04.rnx",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "337070707ccec5b9e2f58ca41c072b04e88b26e4b2808159f5ed79c47d062e51"
+        },
+        {
+          "archive_member": "GPS1B_2024-04-23_C_04.txt",
+          "bytes": 15357093,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-23_C_04.txt",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "034cd3aae1c9f1eda186d44f5eff0e9cfcbd3548d95ba28de50d119d8ecd4462"
+        },
+        {
+          "archive_member": "MAS1B_2024-04-23_C_04.txt",
+          "bytes": 8424,
+          "mission": "GRACE-FO-1",
+          "path": "MAS1B_2024-04-23_C_04.txt",
+          "product": "MAS1B",
+          "role": "spacecraft_metadata",
+          "sha256": "27952763f33a0ea79b4621fed96a34ee5faa5e1a42e3e637ee48b8b609c9abda"
+        },
+        {
+          "archive_member": "SCA1B_2024-04-23_C_04.txt",
+          "bytes": 10711709,
+          "mission": "GRACE-FO-1",
+          "path": "SCA1B_2024-04-23_C_04.txt",
+          "product": "SCA1B",
+          "role": "attitude",
+          "sha256": "3bd3c719b05c7ab5c386e0a11dca9c010fbe199e3823a7e00f17b7d309ad33ad"
+        },
+        {
+          "archive_member": "THR1B_2024-04-23_C_04.txt",
+          "bytes": 14622,
+          "mission": "GRACE-FO-1",
+          "path": "THR1B_2024-04-23_C_04.txt",
+          "product": "THR1B",
+          "role": "spacecraft_metadata",
+          "sha256": "fed86bc57b6b01c69284f7576b678df1027e4ec623317b16456cba1b602b7673"
+        },
+        {
+          "bytes": 618027,
+          "path": "COD0OPSFIN_20241140000_01D_05M_ORB.SP3.gz",
+          "role": "gnss_orbits",
+          "sha256": "f53b06457258760434fc61e6e12ca45f87b8a814b027d3d3b30b5011dd89ae7a",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 4990957,
+          "path": "COD0OPSFIN_20241140000_01D_30S_CLK.CLK.gz",
+          "role": "gnss_clocks",
+          "sha256": "9e82c484873c47c16775e544e5e271ee67a7ea16962bf60f64c79c306094b38a",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 126401,
+          "path": "COD0OPSFIN_20241140000_01D_01D_OSB.BIA.gz",
+          "role": "gnss_biases",
+          "sha256": "b9004b2a8fe8a946cdc1f1d60c99586693d172eb65ae6cc862312928065da967",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8803602,
+          "path": "COD0OPSFIN_20241140000_01D_30S_ATT.OBX.gz",
+          "role": "gnss_attitudes",
+          "sha256": "2f9b69792e073966a37f1bd436287aa87084973c427cbcbf77caf746d8d37eaa",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "evaluation_inputs": [
+        {
+          "archive_member": "GNV1B_2024-04-23_C_04.txt",
+          "bytes": 22931647,
+          "mission": "GRACE-FO-1",
+          "path": "GNV1B_2024-04-23_C_04.txt",
+          "product": "GNV1B",
+          "role": "reference_orbit",
+          "sha256": "ae82401a921bdf32afe78c379d97e83524df930ceb022a66fa991679cec7088b"
+        },
+        {
+          "bytes": 4242,
+          "path": "gracefo1_20240423.np2",
+          "role": "slr_validation",
+          "sha256": "9ef88a5ec96374d29b33afd83c8bc299c067fcbc6990477cbd55136fc131b7b7",
+          "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240423.np2"
+        }
+      ],
+      "manifest_sha256": "68b0e6719730a876d87b136bcb24e4219dc26cb870ae3141c1788f5e11f63b85",
+      "screening": {
+        "counts": {
+          "attitude": {
+            "known_flag_policy": "count documented interpolation/IMU/single-camera flags; reject undefined flags or invalid quaternion",
+            "quality_flags": {
+              "0": 86400
+            },
+            "records": 86400
+          },
+          "gnss": {
+            "low_snr_records": 0,
+            "phase_break_or_cycle_slip_records": 1541,
+            "policy": "drop low-SNR and provider phase-break/cycle-slip records before native conversion; native receiver preprocessing also detects track discontinuities",
+            "quality_flags": {
+              "0": 78583,
+              "3": 1541
+            },
+            "records": 80124
+          },
+          "thruster": {
+            "attitude_control_events": 7,
+            "event_gps_seconds": [
+              767115444.097107,
+              767148536.096601,
+              767159759.096429,
+              767165621.096339,
+              767176573.596172,
+              767182357.096083,
+              767188430.09599
+            ],
+            "orbit_control_accumulated_duration_ms": [
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000
+            ],
+            "orbital_control_events": 0,
+            "quality_flags": {
+              "12": 7
+            },
+            "records": 7
+          }
+        },
+        "date": "2024-04-23",
+        "exclusion_reasons": [],
+        "replacement_date_allowed": false,
+        "selection_basis": "THR1B orbital-control on-times, timing flags, SCA/GPS instrument metadata only; no reference or fit residuals",
+        "sources": [
+          {
+            "path": "THR1B_2024-04-23_C_04.txt",
+            "sha256": "fed86bc57b6b01c69284f7576b678df1027e4ec623317b16456cba1b602b7673"
+          },
+          {
+            "path": "SCA1B_2024-04-23_C_04.txt",
+            "sha256": "3bd3c719b05c7ab5c386e0a11dca9c010fbe199e3823a7e00f17b7d309ad33ad"
+          },
+          {
+            "path": "GPS1B_2024-04-23_C_04.txt",
+            "sha256": "034cd3aae1c9f1eda186d44f5eff0e9cfcbd3548d95ba28de50d119d8ecd4462"
+          }
+        ],
+        "status": "eligible"
+      },
+      "sources": [
+        {
+          "bytes": 143921896,
+          "checksum_authority": "local_acquisition_record",
+          "etag": "\"89412e8-6186f926867c4\"",
+          "last_modified": "Tue, 14 May 2024 20:08:57 GMT",
+          "path": "gracefo_1B_2024-04-23_RL04.ascii.noLRI.tgz",
+          "resolved_url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-23_RL04.ascii.noLRI.tgz",
+          "retrieved_utc": "2026-10-13T17:29:42.868710+00:00",
+          "sha256": "d9646feb70e44892e8cd3e3a46cf69a64f064c8b3fd81d987cad160f46be369f",
+          "url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-23_RL04.ascii.noLRI.tgz"
+        },
+        {
+          "bytes": 4242,
+          "cache_path": "gracefo1_20240423.np2",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": "Wed, 24 Apr 2024 03:30:02 GMT",
+          "path": "gracefo1_20240423.np2",
+          "resolved_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240423.np2",
+          "retrieved_utc": "2026-10-13T17:29:57.498040+00:00",
+          "sha256": "9ef88a5ec96374d29b33afd83c8bc299c067fcbc6990477cbd55136fc131b7b7",
+          "url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240423.np2"
+        },
+        {
+          "bytes": 618027,
+          "cache_path": "COD0OPSFIN_20241140000_01D_05M_ORB.SP3.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241140000_01D_05M_ORB.SP3.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241140000_01D_05M_ORB.SP3.gz",
+          "retrieved_utc": "2026-10-13T17:29:57.841526+00:00",
+          "sha256": "f53b06457258760434fc61e6e12ca45f87b8a814b027d3d3b30b5011dd89ae7a",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 4990957,
+          "cache_path": "COD0OPSFIN_20241140000_01D_30S_CLK.CLK.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241140000_01D_30S_CLK.CLK.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241140000_01D_30S_CLK.CLK.gz",
+          "retrieved_utc": "2026-10-13T17:29:58.406538+00:00",
+          "sha256": "9e82c484873c47c16775e544e5e271ee67a7ea16962bf60f64c79c306094b38a",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 126401,
+          "cache_path": "COD0OPSFIN_20241140000_01D_01D_OSB.BIA.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241140000_01D_01D_OSB.BIA.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241140000_01D_01D_OSB.BIA.gz",
+          "retrieved_utc": "2026-10-13T17:29:58.743343+00:00",
+          "sha256": "b9004b2a8fe8a946cdc1f1d60c99586693d172eb65ae6cc862312928065da967",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8803602,
+          "cache_path": "COD0OPSFIN_20241140000_01D_30S_ATT.OBX.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241140000_01D_30S_ATT.OBX.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241140000_01D_30S_ATT.OBX.gz",
+          "retrieved_utc": "2026-10-13T17:29:59.460590+00:00",
+          "sha256": "2f9b69792e073966a37f1bd436287aa87084973c427cbcbf77caf746d8d37eaa",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241140000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "status": "observations_ready"
+    },
+    {
+      "date": "2024-04-24",
+      "estimation_inputs": [
+        {
+          "archive_member": "GPS1B_2024-04-24_C_04.rnx",
+          "bytes": 12352474,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-24_C_04.rnx",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "07cd0605afc6a9f4598fd1606d94ea9407c86f90d9602dc3b6321154e2ad9cad"
+        },
+        {
+          "archive_member": "GPS1B_2024-04-24_C_04.txt",
+          "bytes": 15521342,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-24_C_04.txt",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "f9ef5da9f71416744afd3bcf7346e34f36bd2f09d9f65f0d42c4e352ac697336"
+        },
+        {
+          "archive_member": "MAS1B_2024-04-24_C_04.txt",
+          "bytes": 8426,
+          "mission": "GRACE-FO-1",
+          "path": "MAS1B_2024-04-24_C_04.txt",
+          "product": "MAS1B",
+          "role": "spacecraft_metadata",
+          "sha256": "821b9d5bdd7ebf28afa609770ffdbc9c46e4f648283fc5bfbf895946bafc2738"
+        },
+        {
+          "archive_member": "SCA1B_2024-04-24_C_04.txt",
+          "bytes": 10708794,
+          "mission": "GRACE-FO-1",
+          "path": "SCA1B_2024-04-24_C_04.txt",
+          "product": "SCA1B",
+          "role": "attitude",
+          "sha256": "a00323f455368a9cef664cb84d68bcd588b535811370426ed4d7a265e18f0714"
+        },
+        {
+          "archive_member": "THR1B_2024-04-24_C_04.txt",
+          "bytes": 14435,
+          "mission": "GRACE-FO-1",
+          "path": "THR1B_2024-04-24_C_04.txt",
+          "product": "THR1B",
+          "role": "spacecraft_metadata",
+          "sha256": "69a983c3b2273f1713feeba9c0f78576aa900a81635338ded52c4e718028ac5e"
+        },
+        {
+          "bytes": 625782,
+          "path": "COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz",
+          "role": "gnss_orbits",
+          "sha256": "c3a969a44c3dca28905d2ab48dd9c48aad39eb6bbc71b392a2438c4b7428919a",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 5021543,
+          "path": "COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz",
+          "role": "gnss_clocks",
+          "sha256": "671d42fb1aa33fb9e20a3b68696a07267ff06df47fb012c8372ad806eb23fc9b",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 126116,
+          "path": "COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+          "role": "gnss_biases",
+          "sha256": "0a58a9004d31f0f92a055251720d6df33da085e6bcc672ca3c3cbfef14609510",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8914839,
+          "path": "COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz",
+          "role": "gnss_attitudes",
+          "sha256": "9f7ac6ac8751ad2edfc162dae8082e6e6875cb2b5ca6451823eccddd87fb9034",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "evaluation_inputs": [
+        {
+          "archive_member": "GNV1B_2024-04-24_C_04.txt",
+          "bytes": 22935194,
+          "mission": "GRACE-FO-1",
+          "path": "GNV1B_2024-04-24_C_04.txt",
+          "product": "GNV1B",
+          "role": "reference_orbit",
+          "sha256": "705be482f40df6426e9c8b4bb7932a34e2145535d851aeec26df8279056fb1bd"
+        },
+        {
+          "bytes": 23310,
+          "path": "gracefo1_20240424.np2",
+          "role": "slr_validation",
+          "sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240424.np2"
+        }
+      ],
+      "manifest_sha256": "2aa5fb2839516ef2a6bd9bf62956d2e85eb6115a42a97c380f83283eaf9abfbd",
+      "screening": {
+        "counts": {
+          "attitude": {
+            "known_flag_policy": "count documented interpolation/IMU/single-camera flags; reject undefined flags or invalid quaternion",
+            "quality_flags": {
+              "0": 86400
+            },
+            "records": 86400
+          },
+          "gnss": {
+            "low_snr_records": 0,
+            "phase_break_or_cycle_slip_records": 1459,
+            "policy": "drop low-SNR and provider phase-break/cycle-slip records before native conversion; native receiver preprocessing also detects track discontinuities",
+            "quality_flags": {
+              "0": 79520,
+              "3": 1459
+            },
+            "records": 80979
+          },
+          "thruster": {
+            "attitude_control_events": 6,
+            "event_gps_seconds": [
+              767200017.595813,
+              767233652.095299,
+              767250042.595048,
+              767250359.595043,
+              767262023.094865,
+              767273542.094688
+            ],
+            "orbit_control_accumulated_duration_ms": [
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000
+            ],
+            "orbital_control_events": 0,
+            "quality_flags": {
+              "12": 6
+            },
+            "records": 6
+          }
+        },
+        "date": "2024-04-24",
+        "exclusion_reasons": [],
+        "replacement_date_allowed": false,
+        "selection_basis": "THR1B orbital-control on-times, timing flags, SCA/GPS instrument metadata only; no reference or fit residuals",
+        "sources": [
+          {
+            "path": "THR1B_2024-04-24_C_04.txt",
+            "sha256": "69a983c3b2273f1713feeba9c0f78576aa900a81635338ded52c4e718028ac5e"
+          },
+          {
+            "path": "SCA1B_2024-04-24_C_04.txt",
+            "sha256": "a00323f455368a9cef664cb84d68bcd588b535811370426ed4d7a265e18f0714"
+          },
+          {
+            "path": "GPS1B_2024-04-24_C_04.txt",
+            "sha256": "f9ef5da9f71416744afd3bcf7346e34f36bd2f09d9f65f0d42c4e352ac697336"
+          }
+        ],
+        "status": "eligible"
+      },
+      "sources": [
+        {
+          "bytes": 143545297,
+          "checksum_authority": "local_acquisition_record",
+          "etag": "\"88e53d1-6186fdc513742\"",
+          "last_modified": "Tue, 14 May 2024 20:29:37 GMT",
+          "path": "gracefo_1B_2024-04-24_RL04.ascii.noLRI.tgz",
+          "resolved_url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-24_RL04.ascii.noLRI.tgz",
+          "retrieved_utc": "2026-10-13T13:37:52.455811+00:00",
+          "sha256": "24a2787ea890641f9bccd9e49ce8cf62c45e3d09ee9c0a980e0771da4bc62352",
+          "url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-24_RL04.ascii.noLRI.tgz"
+        },
+        {
+          "bytes": 23310,
+          "cache_path": "gracefo1_20240424.np2",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": "Thu, 25 Apr 2024 10:12:09 GMT",
+          "path": "gracefo1_20240424.np2",
+          "resolved_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240424.np2",
+          "retrieved_utc": "2026-10-13T13:38:08.293443+00:00",
+          "sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+          "url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240424.np2"
+        },
+        {
+          "bytes": 625782,
+          "cache_path": "COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz",
+          "retrieved_utc": "2026-10-13T13:38:09.096633+00:00",
+          "sha256": "c3a969a44c3dca28905d2ab48dd9c48aad39eb6bbc71b392a2438c4b7428919a",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 5021543,
+          "cache_path": "COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz",
+          "retrieved_utc": "2026-10-13T13:38:15.482780+00:00",
+          "sha256": "671d42fb1aa33fb9e20a3b68696a07267ff06df47fb012c8372ad806eb23fc9b",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 126116,
+          "cache_path": "COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+          "retrieved_utc": "2026-10-13T13:38:16.118734+00:00",
+          "sha256": "0a58a9004d31f0f92a055251720d6df33da085e6bcc672ca3c3cbfef14609510",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8914839,
+          "cache_path": "COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz",
+          "retrieved_utc": "2026-10-13T13:38:17.890420+00:00",
+          "sha256": "9f7ac6ac8751ad2edfc162dae8082e6e6875cb2b5ca6451823eccddd87fb9034",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "status": "observations_ready"
+    },
+    {
+      "date": "2024-04-25",
+      "estimation_inputs": [
+        {
+          "archive_member": "GPS1B_2024-04-25_C_04.rnx",
+          "bytes": 12337574,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-25_C_04.rnx",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "d13e6ebf122a9637be77152e5ab28ec3831d9c9f682dc24dedd2a48cdd8dbf5b"
+        },
+        {
+          "archive_member": "GPS1B_2024-04-25_C_04.txt",
+          "bytes": 15502975,
+          "mission": "GRACE-FO-1",
+          "path": "GPS1B_2024-04-25_C_04.txt",
+          "product": "GPS1B",
+          "role": "gnss_observations",
+          "sha256": "5cf5a8e3033fa6b0082dc2325cf2e768da466bdd96d6d325311648fd5208ec91"
+        },
+        {
+          "archive_member": "MAS1B_2024-04-25_C_04.txt",
+          "bytes": 8431,
+          "mission": "GRACE-FO-1",
+          "path": "MAS1B_2024-04-25_C_04.txt",
+          "product": "MAS1B",
+          "role": "spacecraft_metadata",
+          "sha256": "95984b5bed64c827ca2f6c8dd2588569dd7b77d77829348d4c77c2f85b31fea2"
+        },
+        {
+          "archive_member": "SCA1B_2024-04-25_C_04.txt",
+          "bytes": 10715859,
+          "mission": "GRACE-FO-1",
+          "path": "SCA1B_2024-04-25_C_04.txt",
+          "product": "SCA1B",
+          "role": "attitude",
+          "sha256": "852da94bbcd083af00edb6056c7a66f5a9c699854f4e41a2cfdb77d113139f94"
+        },
+        {
+          "archive_member": "THR1B_2024-04-25_C_04.txt",
+          "bytes": 14246,
+          "mission": "GRACE-FO-1",
+          "path": "THR1B_2024-04-25_C_04.txt",
+          "product": "THR1B",
+          "role": "spacecraft_metadata",
+          "sha256": "f4c44f4258d9b63b2cbb7167f799cfb196d7a3f5170a82abeb869cb65795cb22"
+        },
+        {
+          "bytes": 626246,
+          "path": "COD0OPSFIN_20241160000_01D_05M_ORB.SP3.gz",
+          "role": "gnss_orbits",
+          "sha256": "3e321737814cf3309c02d3838ab6f52c99f8d7b38c8817aff64ce15f59a91e5b",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 5032503,
+          "path": "COD0OPSFIN_20241160000_01D_30S_CLK.CLK.gz",
+          "role": "gnss_clocks",
+          "sha256": "08d51ad14f8f2cf6d8d98b8ed964510f1501d9103f507470d7101ea7259caef4",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 125584,
+          "path": "COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+          "role": "gnss_biases",
+          "sha256": "027f0f0568634f44e7b8ce414dc506b0a9becc338f4e832d45ce25f8065de54b",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8915174,
+          "path": "COD0OPSFIN_20241160000_01D_30S_ATT.OBX.gz",
+          "role": "gnss_attitudes",
+          "sha256": "07495e74891d8e7ef71529334c1dba655341748e8516ae4b1ca054a7059cba41",
+          "source_url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "evaluation_inputs": [
+        {
+          "archive_member": "GNV1B_2024-04-25_C_04.txt",
+          "bytes": 22931871,
+          "mission": "GRACE-FO-1",
+          "path": "GNV1B_2024-04-25_C_04.txt",
+          "product": "GNV1B",
+          "role": "reference_orbit",
+          "sha256": "f22efb398f8723bee2c75966f8f0cef5269250f9796e0e44cdf5220f76eb0e64"
+        },
+        {
+          "bytes": 11990,
+          "path": "gracefo1_20240425.np2",
+          "role": "slr_validation",
+          "sha256": "5f5bb3439bc43435f1ef11303e7b4c30d37264a93c20622e11bd5cad87f2e542",
+          "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240425.np2"
+        }
+      ],
+      "manifest_sha256": "c3938101d9579b017be252276a0f7c730b61cbc18011c0124612e7e4fa107d83",
+      "screening": {
+        "counts": {
+          "attitude": {
+            "known_flag_policy": "count documented interpolation/IMU/single-camera flags; reject undefined flags or invalid quaternion",
+            "quality_flags": {
+              "0": 86400
+            },
+            "records": 86400
+          },
+          "gnss": {
+            "low_snr_records": 0,
+            "phase_break_or_cycle_slip_records": 1466,
+            "policy": "drop low-SNR and provider phase-break/cycle-slip records before native conversion; native receiver preprocessing also detects track discontinuities",
+            "quality_flags": {
+              "0": 79413,
+              "3": 1466
+            },
+            "records": 80879
+          },
+          "thruster": {
+            "attitude_control_events": 5,
+            "event_gps_seconds": [
+              767290323.094432,
+              767329352.093835,
+              767335199.593745,
+              767346274.593576,
+              767352098.593487
+            ],
+            "orbit_control_accumulated_duration_ms": [
+              29162000,
+              29162000,
+              29162000,
+              29162000,
+              29162000
+            ],
+            "orbital_control_events": 0,
+            "quality_flags": {
+              "12": 5
+            },
+            "records": 5
+          }
+        },
+        "date": "2024-04-25",
+        "exclusion_reasons": [],
+        "replacement_date_allowed": false,
+        "selection_basis": "THR1B orbital-control on-times, timing flags, SCA/GPS instrument metadata only; no reference or fit residuals",
+        "sources": [
+          {
+            "path": "THR1B_2024-04-25_C_04.txt",
+            "sha256": "f4c44f4258d9b63b2cbb7167f799cfb196d7a3f5170a82abeb869cb65795cb22"
+          },
+          {
+            "path": "SCA1B_2024-04-25_C_04.txt",
+            "sha256": "852da94bbcd083af00edb6056c7a66f5a9c699854f4e41a2cfdb77d113139f94"
+          },
+          {
+            "path": "GPS1B_2024-04-25_C_04.txt",
+            "sha256": "5cf5a8e3033fa6b0082dc2325cf2e768da466bdd96d6d325311648fd5208ec91"
+          }
+        ],
+        "status": "eligible"
+      },
+      "sources": [
+        {
+          "bytes": 143808135,
+          "checksum_authority": "local_acquisition_record",
+          "etag": "\"8925687-618702a91556d\"",
+          "last_modified": "Tue, 14 May 2024 20:51:29 GMT",
+          "path": "gracefo_1B_2024-04-25_RL04.ascii.noLRI.tgz",
+          "resolved_url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-25_RL04.ascii.noLRI.tgz",
+          "retrieved_utc": "2026-10-13T17:29:53.675639+00:00",
+          "sha256": "69e3162647232f3d55e676ed3490bea14ee1b70b045b25408e4d533135f27072",
+          "url": "https://isdc-data.gfz.de/grace-fo/Level-1B/JPL/INSTRUMENT/RL04/2024/gracefo_1B_2024-04-25_RL04.ascii.noLRI.tgz"
+        },
+        {
+          "bytes": 11990,
+          "cache_path": "gracefo1_20240425.np2",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": "Fri, 26 Apr 2024 21:40:12 GMT",
+          "path": "gracefo1_20240425.np2",
+          "resolved_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240425.np2",
+          "retrieved_utc": "2026-10-13T17:30:06.573371+00:00",
+          "sha256": "5f5bb3439bc43435f1ef11303e7b4c30d37264a93c20622e11bd5cad87f2e542",
+          "url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240425.np2"
+        },
+        {
+          "bytes": 626246,
+          "cache_path": "COD0OPSFIN_20241160000_01D_05M_ORB.SP3.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241160000_01D_05M_ORB.SP3.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241160000_01D_05M_ORB.SP3.gz",
+          "retrieved_utc": "2026-10-13T17:30:06.875896+00:00",
+          "sha256": "3e321737814cf3309c02d3838ab6f52c99f8d7b38c8817aff64ce15f59a91e5b",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_05M_ORB.SP3.gz"
+        },
+        {
+          "bytes": 5032503,
+          "cache_path": "COD0OPSFIN_20241160000_01D_30S_CLK.CLK.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241160000_01D_30S_CLK.CLK.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241160000_01D_30S_CLK.CLK.gz",
+          "retrieved_utc": "2026-10-13T17:32:07.535465+00:00",
+          "sha256": "08d51ad14f8f2cf6d8d98b8ed964510f1501d9103f507470d7101ea7259caef4",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_30S_CLK.CLK.gz"
+        },
+        {
+          "bytes": 125584,
+          "cache_path": "COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+          "retrieved_utc": "2026-10-13T17:32:07.846403+00:00",
+          "sha256": "027f0f0568634f44e7b8ce414dc506b0a9becc338f4e832d45ce25f8065de54b",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz"
+        },
+        {
+          "bytes": 8915174,
+          "cache_path": "COD0OPSFIN_20241160000_01D_30S_ATT.OBX.gz",
+          "checksum_authority": "local_acquisition_record",
+          "etag": null,
+          "last_modified": null,
+          "path": "COD0OPSFIN_20241160000_01D_30S_ATT.OBX.gz",
+          "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241160000_01D_30S_ATT.OBX.gz",
+          "retrieved_utc": "2026-10-13T17:32:08.617808+00:00",
+          "sha256": "07495e74891d8e7ef71529334c1dba655341748e8516ae4b1ca054a7059cba41",
+          "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241160000_01D_30S_ATT.OBX.gz"
+        }
+      ],
+      "status": "observations_ready"
+    }
+  ],
+  "fixed_dates_replaced": false,
+  "prior_development_deviation": "development_protocol_deviation.json",
+  "reference_contents_inspected_for_this_acquisition": false,
+  "synthetic_transmitter_only": {
+    "date": "2024-05-10",
+    "flight_observations_or_reference_accessed": false,
+    "purpose": "GNSS transmitter ephemerides, clocks, biases and attitudes for synthetic generation only",
+    "sources": [
+      {
+        "bytes": 626304,
+        "checksum_authority": "local_acquisition_record",
+        "etag": null,
+        "last_modified": null,
+        "path": "COD0OPSFIN_20241310000_01D_05M_ORB.SP3.gz",
+        "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241310000_01D_05M_ORB.SP3.gz",
+        "retrieved_utc": "2026-10-13T17:28:59.091437+00:00",
+        "role": "gnss_orbits",
+        "sha256": "b08bcf1400087a905213a593b5442583789acbcab1dbf4de11a5e7939fff7528",
+        "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241310000_01D_05M_ORB.SP3.gz"
+      },
+      {
+        "bytes": 5007138,
+        "checksum_authority": "local_acquisition_record",
+        "etag": null,
+        "last_modified": null,
+        "path": "COD0OPSFIN_20241310000_01D_30S_CLK.CLK.gz",
+        "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241310000_01D_30S_CLK.CLK.gz",
+        "retrieved_utc": "2026-10-13T17:28:59.663647+00:00",
+        "role": "gnss_clocks",
+        "sha256": "f44b9bfdbd585a5ff8cc71b8c97983535c33ee71adf66a6b16ba7297edbf695f",
+        "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241310000_01D_30S_CLK.CLK.gz"
+      },
+      {
+        "bytes": 125006,
+        "checksum_authority": "local_acquisition_record",
+        "etag": null,
+        "last_modified": null,
+        "path": "COD0OPSFIN_20241310000_01D_01D_OSB.BIA.gz",
+        "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241310000_01D_01D_OSB.BIA.gz",
+        "retrieved_utc": "2026-10-13T17:29:00.117720+00:00",
+        "role": "gnss_biases",
+        "sha256": "aa3fb4495127cc20c86ef430f3c7b3394ac08cc145a65cfe6e772786535bae31",
+        "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241310000_01D_01D_OSB.BIA.gz"
+      },
+      {
+        "bytes": 8914804,
+        "checksum_authority": "local_acquisition_record",
+        "etag": null,
+        "last_modified": null,
+        "path": "COD0OPSFIN_20241310000_01D_30S_ATT.OBX.gz",
+        "resolved_url": "https://zhw-b.s3.cloud.switch.ch/aiub/CODE/2024/COD0OPSFIN_20241310000_01D_30S_ATT.OBX.gz",
+        "retrieved_utc": "2026-10-13T17:29:00.707395+00:00",
+        "role": "gnss_attitudes",
+        "sha256": "2254fc66bea7dcbfcda05d07bb63155acbce97d533f1f08228f0963155ba7fb7",
+        "url": "https://www.aiub.unibe.ch/download/CODE/2024/COD0OPSFIN_20241310000_01D_30S_ATT.OBX.gz"
+      }
+    ]
+  }
+}

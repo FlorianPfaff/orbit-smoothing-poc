@@ -1,0 +1,157 @@
+{
+  "approximation": "Native transition uses low-degree gravity-only state gradient; full drag, other force position/velocity gradients are omitted. The FD repropagates all nonlinear forces.",
+  "artifacts": [
+    {
+      "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/derivatives.npz",
+      "role": "derivatives",
+      "sha256": "c59d75d76b7a3120dd418b8537e1433f57d45b3257ae4664851a5566480a2b53"
+    }
+  ],
+  "atmospheric_quadrature_step_seconds": 1.0,
+  "closure_position_tolerance_m": 2e-06,
+  "closure_velocity_tolerance_m_s": 3e-09,
+  "comparison_derivative": "Central differences at h and h/2; (4 D(h/2)-D(h))/3 removes leading O(h^2) truncation",
+  "diagnostic_source_hash": "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481",
+  "diagnostic_timing": "Post-fit diagnostic; its script revision may be newer than the source-fit revision, while the native executable is identical",
+  "evidence_class": "diagnostic_only",
+  "first_state_gps_mjd": 60424.00020833333,
+  "force_gravity_maximum_degree": "120",
+  "knot_hours": 6.0,
+  "knot_index": 360,
+  "limitations": [
+    "One density knot on one April development fit; no global trajectory-Jacobian error bound.",
+    "The native model uses a low-degree gravity-only state gradient; propagated finite differences reevaluate full nonlinear forces.",
+    "This check does not establish posterior uncertainty calibration or scientific orbit accuracy.",
+    "Fit source4aad and diagnostic sourcec8d are distinct and explicitly recorded; native executable is identical."
+  ],
+  "metrics": {
+    "position": {
+      "closure_change_proxy_per_unit_log_density": 2.1084552376363644e-05,
+      "fd_maximum_norm_per_unit_log_density": 2.43156508554007,
+      "fd_richardson_correction_maximum_norm": 0.00011889471543102061,
+      "fd_step_halving_maximum_difference": 0.00035668414629301944,
+      "fd_step_halving_relative_maximum_norm": 0.00014668912151031196,
+      "native_vs_fd_maximum_absolute_per_unit_log_density": 0.0006484038268101442,
+      "native_vs_fd_relative_frobenius_norm": 0.0002591953065529852,
+      "native_vs_fd_relative_maximum_norm": 0.00026666110262318085,
+      "pre_support_fd_maximum_norm": 6.3073668093351796e-06
+    },
+    "velocity": {
+      "closure_change_proxy_per_unit_log_density": 2.3258458101667617e-08,
+      "fd_maximum_norm_per_unit_log_density": 0.002705983473746714,
+      "fd_richardson_correction_maximum_norm": 1.322857051069924e-07,
+      "fd_step_halving_maximum_difference": 3.968571153211674e-07,
+      "fd_step_halving_relative_maximum_norm": 0.0001466591053387616,
+      "native_vs_fd_maximum_absolute_per_unit_log_density": 7.470237520973603e-07,
+      "native_vs_fd_relative_frobenius_norm": 0.00025907218154222196,
+      "native_vs_fd_relative_maximum_norm": 0.0002760636786384466,
+      "pre_support_fd_maximum_norm": 6.881826549292453e-09
+    }
+  },
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "native_design_execution": {
+    "blas_openmp_threads": 1,
+    "command": [
+      "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/bin/groops",
+      "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/native_design/evaluate.xml"
+    ],
+    "config_sha256": "42b5df683ba2c7cfc079638f1b3e1235e2d5e4baf360ba844158001f7cc9509e",
+    "elapsed_seconds": 38.4944364130497,
+    "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/native_design/evaluate.log",
+    "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+    "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+    "peak_rss_bytes": 1461145600,
+    "pid": 281406,
+    "returncode": 0,
+    "timed_out": false
+  },
+  "precision_limitation": "The propagated last-iteration closure changes are an empirical derivative-noise proxy, not a mathematically certified error bound. Pre-support FD values provide a separate observed cancellation floor.",
+  "raw_artifact_directory": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863",
+  "raw_diagnostic_sha256": "7868b1e9539dc53e8c245a3c783697a0ee9bff29c4675cc6bca6aab411aa3f8e",
+  "records": [
+    {
+      "closed": true,
+      "displacement": 0.0,
+      "elapsed_seconds": 145.99077802198008,
+      "final_position_change_m": 1.6213524269765246e-07,
+      "final_velocity_change_m_s": 1.7596607248231298e-10,
+      "iterations": 2,
+      "label": "nominal"
+    },
+    {
+      "closed": true,
+      "displacement": 0.05,
+      "elapsed_seconds": 233.27096244203858,
+      "final_position_change_m": 5.185386732123647e-07,
+      "final_velocity_change_m_s": 5.829465515356024e-10,
+      "iterations": 3,
+      "label": "plus"
+    },
+    {
+      "closed": true,
+      "displacement": -0.05,
+      "elapsed_seconds": 236.18823830899782,
+      "final_position_change_m": 4.685820680785943e-07,
+      "final_velocity_change_m_s": 5.151942299468775e-10,
+      "iterations": 3,
+      "label": "minus"
+    },
+    {
+      "closed": true,
+      "displacement": 0.025,
+      "elapsed_seconds": 235.23732277890667,
+      "final_position_change_m": 3.353010258808544e-07,
+      "final_velocity_change_m_s": 3.657667040534239e-10,
+      "iterations": 3,
+      "label": "plus_half"
+    },
+    {
+      "closed": true,
+      "displacement": -0.025,
+      "elapsed_seconds": 236.38951401005033,
+      "final_position_change_m": 3.3197959557141234e-07,
+      "final_velocity_change_m_s": 3.6915787707380165e-10,
+      "iterations": 3,
+      "label": "minus_half"
+    }
+  ],
+  "scientific_acceptance": "Diagnostic only; no automatic exact-derivative or covariance acceptance",
+  "scope": "One April development density knot, fixed physical initial state, full-flight native forces",
+  "script_sha256": "96b82da985cdaad3e166fe9f84be55d528f97e7bd1dddc7baa6fa1f483c69588",
+  "seed_execution": {
+    "blas_openmp_threads": 1,
+    "command": [
+      "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/bin/groops",
+      "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/seed.xml"
+    ],
+    "config_sha256": "a5d3262083bc86ec422751559f3750ae9cb26b9d1e1cac162ca4246415beb6ad",
+    "elapsed_seconds": 0.05059858097229153,
+    "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/seed.log",
+    "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+    "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+    "peak_rss_bytes": 12288,
+    "pid": 276812,
+    "returncode": 0,
+    "timed_out": false
+  },
+  "source_arc": {
+    "duration_seconds": 86400,
+    "end_gps_seconds_since_j2000": 767275218.0,
+    "gps_minus_utc_seconds": 18,
+    "gps_start_offset_seconds": 18,
+    "interval_convention": "[start,end)",
+    "start_gps_seconds_since_j2000": 767188818.0,
+    "time_scale": "UTC",
+    "utc_end": "2024-04-25T00:00:00Z",
+    "utc_start": "2024-04-24T00:00:00Z"
+  },
+  "source_fit_source_hash": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e",
+  "source_loop_globals": "<global>\n    <time label=\"timeStart\">60424</time>\n    <time label=\"timeEnd\">timeStart+86400.0/86400</time>\n    <filename label=\"groopsDataDir\">/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary</filename>\n    <double label=\"arcStartOffsetSeconds\">18.0</double>\n  </global>\n  ",
+  "source_result_sha256": "5234fee38f042a7817fef8e27ab3705c5eb974ef908137957c6dbcf38a0b5ff8",
+  "state_arc_duration_seconds": 86400.0,
+  "state_gradient_maximum_degree": "10",
+  "status": "complete",
+  "step": 0.05,
+  "thermal_maximum_step_seconds": 0.1,
+  "validation_helper_sha256": "be06c0d32a3f6831b0a62663ede7ba8e5bef4f26ca7e4bbe51471eedd6956bfb"
+}

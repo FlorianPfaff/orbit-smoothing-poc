@@ -1,0 +1,1097 @@
+{
+  "final_specification_pass": false,
+  "limitation": "Constant noise was correct but independent same-frequency half-cycle injections were incompatible with native full-cycle repair. Superseded by coherent full-cycle generation.",
+  "noise": {
+    "code_sigma_m": 0.3,
+    "phase_sigma_m": 0.003
+  },
+  "purpose": "Measured nuisance differences in independent Tudat, fixed-noise synthetic diagnostic; acceptance mapping assessed separately by noiseless fixture",
+  "results": [
+    {
+      "case": "normal",
+      "clock": {
+        "epochs": 120,
+        "gauge_aligned_max_abs_m": 0.059484230959142195,
+        "gauge_aligned_rms_m": 0.019625152879762766,
+        "global_gauge_offset_m": 0.016522410547109154,
+        "raw_rms_m": 0.025654174627948657,
+        "selection": "epochs with retained fitted carrier phases; gap clocks are unobserved",
+        "total_clock_file_epochs": 120
+      },
+      "gauge": "one constant global IF datum; no per-track, per-satellite, trend or epoch-specific truth alignment",
+      "method": "groops_pulses",
+      "phase": {
+        "IF_pairs": 1344,
+        "gauge_aligned_max_abs_m": 0.4392716265479093,
+        "gauge_aligned_rms_m": 0.12298647127426446,
+        "global_gauge_offset_m": -0.012409131005426495,
+        "missing_truth_matches": [],
+        "raw_rms_m": 0.12361091638203042,
+        "rows": 4032
+      },
+      "physical_formula": "effective ambiguity = input_phase - processed_phase - removed_windup + fitted_track_ambiguity + fitted_receiver_signal_bias; IF = alpha*L1W + (1-alpha)*L2W",
+      "slips": [
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1640.7974600988327,
+          "prn": 2,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1074.6345801109674,
+          "prn": 4,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.0025905972483997175,
+          "first_retained_after_seconds": 2520.0,
+          "injected_seconds": 2492.238913183484,
+          "last_retained_before_seconds": 2490.0,
+          "prn": 5,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1586.372238396973,
+          "prn": 6,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1513.6212149816631,
+          "prn": 7,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1908.5523271172606,
+          "prn": 8,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1127.2650740290787,
+          "prn": 10,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1545.3526828372765,
+          "prn": 11,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2212.963342405436,
+          "prn": 12,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.4594979064202107,
+          "first_retained_after_seconds": 1770.0,
+          "injected_seconds": 1741.0361462271537,
+          "last_retained_before_seconds": 1740.0,
+          "prn": 13,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1892.7623893533394,
+          "prn": 14,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.45254854881909523,
+          "first_retained_after_seconds": 1980.0,
+          "injected_seconds": 1957.6553482684149,
+          "last_retained_before_seconds": 1950.0,
+          "prn": 15,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": -0.006633191077526135,
+          "first_retained_after_seconds": 1110.0,
+          "injected_seconds": 1092.8010918009852,
+          "last_retained_before_seconds": 1080.0,
+          "prn": 16,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1347.7562273779952,
+          "prn": 17,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.00492530197607266,
+          "first_retained_after_seconds": 1320.0,
+          "injected_seconds": 1296.4653354570044,
+          "last_retained_before_seconds": 1290.0,
+          "prn": 18,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1158.0463701766828,
+          "prn": 19,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1760.6667436776424,
+          "prn": 20,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2239.4733407319163,
+          "prn": 21,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2038.296824592024,
+          "prn": 22,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": 0.002038496551449498,
+          "first_retained_after_seconds": 2160.0,
+          "injected_seconds": 2154.0422487485316,
+          "last_retained_before_seconds": 2130.0,
+          "prn": 23,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": 0.004413776639012212,
+          "first_retained_after_seconds": 2040.0,
+          "injected_seconds": 2011.9968622809854,
+          "last_retained_before_seconds": 2010.0,
+          "prn": 24,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2049.695142515605,
+          "prn": 25,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2112.179839920927,
+          "prn": 26,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1943.930072954923,
+          "prn": 27,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1528.8666724278908,
+          "prn": 28,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.003141636307304907,
+          "first_retained_after_seconds": 1350.0,
+          "injected_seconds": 1339.5642229078726,
+          "last_retained_before_seconds": 1320.0,
+          "prn": 29,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": 0.016127604597159007,
+          "first_retained_after_seconds": 1920.0,
+          "injected_seconds": 1892.246980767295,
+          "last_retained_before_seconds": 1890.0,
+          "prn": 30,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2249.0308475221173,
+          "prn": 31,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        }
+      ],
+      "source_sha256": {
+        "ambiguity_truth.txt": "3349d06f947b2581929cc5cfe9bea1a7b1026838d3c49641b3f04760f779c3b9",
+        "data_manifest.json": "ba4930e5f601e09796ad50534f58566d45d2c6536971ab16ac16ece2e27f195b",
+        "phase_recovery.txt": "7fd64ae86914f2d4ed333eb60156d575024fb294571afebaadb6e0ab549689f0",
+        "receiver_clock.txt": "c4f2b6f49788fde3e2f89053e93f88406e9491fc3028fda5a7d80b44ba118cbc",
+        "simulated_clock.txt": "d8638f057ecddb3a008fbc897dabea90c61a06b71467d045e923ea8ccb23ae13"
+      },
+      "uncertainty_claim": false
+    },
+    {
+      "case": "normal",
+      "clock": {
+        "epochs": 120,
+        "gauge_aligned_max_abs_m": 0.06905405192231859,
+        "gauge_aligned_rms_m": 0.019545253576015727,
+        "global_gauge_offset_m": 0.011026557829833583,
+        "raw_rms_m": 0.02244107650994978,
+        "selection": "epochs with retained fitted carrier phases; gap clocks are unobserved",
+        "total_clock_file_epochs": 120
+      },
+      "gauge": "one constant global IF datum; no per-track, per-satellite, trend or epoch-specific truth alignment",
+      "method": "groops_log_drag_ou",
+      "phase": {
+        "IF_pairs": 1344,
+        "gauge_aligned_max_abs_m": 0.444035614119027,
+        "gauge_aligned_rms_m": 0.12340262588210414,
+        "global_gauge_offset_m": -0.01241009114229426,
+        "missing_truth_matches": [],
+        "raw_rms_m": 0.12402507180710926,
+        "rows": 4032
+      },
+      "physical_formula": "effective ambiguity = input_phase - processed_phase - removed_windup + fitted_track_ambiguity + fitted_receiver_signal_bias; IF = alpha*L1W + (1-alpha)*L2W",
+      "slips": [
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1640.7974600988327,
+          "prn": 2,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1074.6345801109674,
+          "prn": 4,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.003570642979866534,
+          "first_retained_after_seconds": 2520.0,
+          "injected_seconds": 2492.238913183484,
+          "last_retained_before_seconds": 2490.0,
+          "prn": 5,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1586.372238396973,
+          "prn": 6,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1513.6212149816631,
+          "prn": 7,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1908.5523271172606,
+          "prn": 8,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1127.2650740290787,
+          "prn": 10,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1545.3526828372765,
+          "prn": 11,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2212.963342405436,
+          "prn": 12,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.46260018838711403,
+          "first_retained_after_seconds": 1770.0,
+          "injected_seconds": 1741.0361462271537,
+          "last_retained_before_seconds": 1740.0,
+          "prn": 13,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1892.7623893533394,
+          "prn": 14,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.45181808860320416,
+          "first_retained_after_seconds": 1980.0,
+          "injected_seconds": 1957.6553482684149,
+          "last_retained_before_seconds": 1950.0,
+          "prn": 15,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": -0.0019229088002248318,
+          "first_retained_after_seconds": 1110.0,
+          "injected_seconds": 1092.8010918009852,
+          "last_retained_before_seconds": 1080.0,
+          "prn": 16,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1347.7562273779952,
+          "prn": 17,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": 0.013581526154212042,
+          "first_retained_after_seconds": 1320.0,
+          "injected_seconds": 1296.4653354570044,
+          "last_retained_before_seconds": 1290.0,
+          "prn": 18,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1158.0463701766828,
+          "prn": 19,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1760.6667436776424,
+          "prn": 20,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2239.4733407319163,
+          "prn": 21,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2038.296824592024,
+          "prn": 22,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": 0.007108368949957367,
+          "first_retained_after_seconds": 2160.0,
+          "injected_seconds": 2154.0422487485316,
+          "last_retained_before_seconds": 2130.0,
+          "prn": 23,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": -0.007422194970331475,
+          "first_retained_after_seconds": 2040.0,
+          "injected_seconds": 2011.9968622809854,
+          "last_retained_before_seconds": 2010.0,
+          "prn": 24,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2049.695142515605,
+          "prn": 25,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2112.179839920927,
+          "prn": 26,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1943.930072954923,
+          "prn": 27,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1528.8666724278908,
+          "prn": 28,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": 0.0022640320474920372,
+          "first_retained_after_seconds": 1350.0,
+          "injected_seconds": 1339.5642229078726,
+          "last_retained_before_seconds": 1320.0,
+          "prn": 29,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": 0.00980897704812378,
+          "first_retained_after_seconds": 1920.0,
+          "injected_seconds": 1892.246980767295,
+          "last_retained_before_seconds": 1890.0,
+          "prn": 30,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2249.0308475221173,
+          "prn": 31,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        }
+      ],
+      "source_sha256": {
+        "ambiguity_truth.txt": "3349d06f947b2581929cc5cfe9bea1a7b1026838d3c49641b3f04760f779c3b9",
+        "data_manifest.json": "ba4930e5f601e09796ad50534f58566d45d2c6536971ab16ac16ece2e27f195b",
+        "phase_recovery.txt": "5c0d5dd6dc0bddd098fdea82e2925621cbcafc4c22ecaaf6b7952063fdd6246d",
+        "receiver_clock.txt": "6926c643c013874c807d5b3bf2f24cdc3e490e07b652b2b6c9f235714256cd24",
+        "simulated_clock.txt": "d8638f057ecddb3a008fbc897dabea90c61a06b71467d045e923ea8ccb23ae13"
+      },
+      "uncertainty_claim": false
+    },
+    {
+      "case": "masked",
+      "clock": {
+        "epochs": 100,
+        "gauge_aligned_max_abs_m": 0.0628887766446639,
+        "gauge_aligned_rms_m": 0.031790620575620314,
+        "global_gauge_offset_m": 0.02342174393431559,
+        "raw_rms_m": 0.039486980708933715,
+        "selection": "epochs with retained fitted carrier phases; gap clocks are unobserved",
+        "total_clock_file_epochs": 100
+      },
+      "gauge": "one constant global IF datum; no per-track, per-satellite, trend or epoch-specific truth alignment",
+      "method": "groops_pulses",
+      "phase": {
+        "IF_pairs": 1105,
+        "gauge_aligned_max_abs_m": 0.42767442630380376,
+        "gauge_aligned_rms_m": 0.13127714542700716,
+        "global_gauge_offset_m": -0.013098139872910128,
+        "missing_truth_matches": [],
+        "raw_rms_m": 0.13192895883616265,
+        "rows": 3315
+      },
+      "physical_formula": "effective ambiguity = input_phase - processed_phase - removed_windup + fitted_track_ambiguity + fitted_receiver_signal_bias; IF = alpha*L1W + (1-alpha)*L2W",
+      "slips": [
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1640.7974600988327,
+          "prn": 2,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1074.6345801109674,
+          "prn": 4,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.01372585436774898,
+          "first_retained_after_seconds": 2520.0,
+          "injected_seconds": 2492.238913183484,
+          "last_retained_before_seconds": 2490.0,
+          "prn": 5,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1586.372238396973,
+          "prn": 6,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1513.6212149816631,
+          "prn": 7,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1908.5523271172606,
+          "prn": 8,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1127.2650740290787,
+          "prn": 10,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1545.3526828372765,
+          "prn": 11,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2212.963342405436,
+          "prn": 12,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1741.0361462271537,
+          "prn": 13,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1892.7623893533394,
+          "prn": 14,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.4795098839504135,
+          "first_retained_after_seconds": 1980.0,
+          "injected_seconds": 1957.6553482684149,
+          "last_retained_before_seconds": 1950.0,
+          "prn": 15,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1092.8010918009852,
+          "prn": 16,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1347.7562273779952,
+          "prn": 17,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1296.4653354570044,
+          "prn": 18,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1158.0463701766828,
+          "prn": 19,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1760.6667436776424,
+          "prn": 20,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2239.4733407319163,
+          "prn": 21,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2038.296824592024,
+          "prn": 22,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.013083121710337764,
+          "first_retained_after_seconds": 2160.0,
+          "injected_seconds": 2154.0422487485316,
+          "last_retained_before_seconds": 2130.0,
+          "prn": 23,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": 0.016779421327100863,
+          "first_retained_after_seconds": 2040.0,
+          "injected_seconds": 2011.9968622809854,
+          "last_retained_before_seconds": 2010.0,
+          "prn": 24,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2049.695142515605,
+          "prn": 25,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2112.179839920927,
+          "prn": 26,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1943.930072954923,
+          "prn": 27,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1528.8666724278908,
+          "prn": 28,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1339.5642229078726,
+          "prn": 29,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1892.246980767295,
+          "prn": 30,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2249.0308475221173,
+          "prn": 31,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        }
+      ],
+      "source_sha256": {
+        "ambiguity_truth.txt": "3349d06f947b2581929cc5cfe9bea1a7b1026838d3c49641b3f04760f779c3b9",
+        "data_manifest.json": "ba4930e5f601e09796ad50534f58566d45d2c6536971ab16ac16ece2e27f195b",
+        "phase_recovery.txt": "d6b6c86bd2b6c3ae46d6b9d8a619b03648bb42d92d5f6160ed2c08e6caf1eb20",
+        "receiver_clock.txt": "cbc1f2322c783bab4c9eccc748f721b40d9a9f713d2a183cf30a42e0794ee482",
+        "simulated_clock.txt": "d8638f057ecddb3a008fbc897dabea90c61a06b71467d045e923ea8ccb23ae13"
+      },
+      "uncertainty_claim": false
+    },
+    {
+      "case": "masked",
+      "clock": {
+        "epochs": 100,
+        "gauge_aligned_max_abs_m": 0.07549838907995435,
+        "gauge_aligned_rms_m": 0.041732124184596264,
+        "global_gauge_offset_m": 0.011015545979326684,
+        "raw_rms_m": 0.043161469416381375,
+        "selection": "epochs with retained fitted carrier phases; gap clocks are unobserved",
+        "total_clock_file_epochs": 100
+      },
+      "gauge": "one constant global IF datum; no per-track, per-satellite, trend or epoch-specific truth alignment",
+      "method": "groops_log_drag_ou",
+      "phase": {
+        "IF_pairs": 1105,
+        "gauge_aligned_max_abs_m": 0.4062617763446899,
+        "gauge_aligned_rms_m": 0.12860364519870723,
+        "global_gauge_offset_m": -0.013096294802388104,
+        "missing_truth_matches": [],
+        "raw_rms_m": 0.12926875297590687,
+        "rows": 3315
+      },
+      "physical_formula": "effective ambiguity = input_phase - processed_phase - removed_windup + fitted_track_ambiguity + fitted_receiver_signal_bias; IF = alpha*L1W + (1-alpha)*L2W",
+      "slips": [
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1640.7974600988327,
+          "prn": 2,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1074.6345801109674,
+          "prn": 4,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.0130506225600584,
+          "first_retained_after_seconds": 2520.0,
+          "injected_seconds": 2492.238913183484,
+          "last_retained_before_seconds": 2490.0,
+          "prn": 5,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1586.372238396973,
+          "prn": 6,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1513.6212149816631,
+          "prn": 7,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1908.5523271172606,
+          "prn": 8,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1127.2650740290787,
+          "prn": 10,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1545.3526828372765,
+          "prn": 11,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2212.963342405436,
+          "prn": 12,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1741.0361462271537,
+          "prn": 13,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1892.7623893533394,
+          "prn": 14,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": -0.47808314061512647,
+          "first_retained_after_seconds": 1980.0,
+          "injected_seconds": 1957.6553482684149,
+          "last_retained_before_seconds": 1950.0,
+          "prn": 15,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1092.8010918009852,
+          "prn": 16,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1347.7562273779952,
+          "prn": 17,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1296.4653354570044,
+          "prn": 18,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1158.0463701766828,
+          "prn": 19,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1760.6667436776424,
+          "prn": 20,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2239.4733407319163,
+          "prn": 21,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2038.296824592024,
+          "prn": 22,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": 0.0002332260946786846,
+          "first_retained_after_seconds": 2160.0,
+          "injected_seconds": 2154.0422487485316,
+          "last_retained_before_seconds": 2130.0,
+          "prn": 23,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": -0.005343593326870177,
+          "first_retained_after_seconds": 2040.0,
+          "injected_seconds": 2011.9968622809854,
+          "last_retained_before_seconds": 2010.0,
+          "prn": 24,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "segmented"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2049.695142515605,
+          "prn": 25,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2112.179839920927,
+          "prn": 26,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1943.930072954923,
+          "prn": 27,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1528.8666724278908,
+          "prn": 28,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1339.5642229078726,
+          "prn": 29,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 1892.246980767295,
+          "prn": 30,
+          "raw_two_sided_30s_visibility": true,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        },
+        {
+          "estimated_jump_error_m": null,
+          "injected_seconds": 2249.0308475221173,
+          "prn": 31,
+          "raw_two_sided_30s_visibility": false,
+          "retained_track_crosses_slip": false,
+          "status": "not_two_sided_after_mask_or_preprocessing"
+        }
+      ],
+      "source_sha256": {
+        "ambiguity_truth.txt": "3349d06f947b2581929cc5cfe9bea1a7b1026838d3c49641b3f04760f779c3b9",
+        "data_manifest.json": "ba4930e5f601e09796ad50534f58566d45d2c6536971ab16ac16ece2e27f195b",
+        "phase_recovery.txt": "2f479fc5abb0c1c68932624b2bceb253112361940ba525466e8e7231c5b294db",
+        "receiver_clock.txt": "9bf2cf63e79df1841a3de528051b73ae3f275c00509fb5252e1ab999740123f3",
+        "simulated_clock.txt": "d8638f057ecddb3a008fbc897dabea90c61a06b71467d045e923ea8ccb23ae13"
+      },
+      "uncertainty_claim": false
+    }
+  ],
+  "statistical_uncertainty_acceptance_claim": false,
+  "status": "superseded_incoherent_half_cycle_generation"
+}

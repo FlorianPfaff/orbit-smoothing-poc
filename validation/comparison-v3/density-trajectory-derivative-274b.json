@@ -1,0 +1,100 @@
+{
+  "approximation": "Native transition uses low-degree gravity-only state gradient; full drag, other force position/velocity gradients are omitted. The FD repropagates all nonlinear forces.",
+  "artifacts": [
+    {
+      "path": "raw-artifacts/density-trajectory-fd-local-events/derivatives.npz",
+      "role": "derivatives",
+      "sha256": "684f25ce78abada820a4003c9b56bb7e4dc50ef822d801b2f14e9250c21c1007"
+    }
+  ],
+  "closure_position_tolerance_m": 2e-06,
+  "closure_velocity_tolerance_m_s": 3e-09,
+  "comparison_derivative": "Central differences at h and h/2; (4 D(h/2)-D(h))/3 removes leading O(h^2) truncation",
+  "force_gravity_maximum_degree": "120",
+  "knot_hours": 6.0,
+  "knot_index": 360,
+  "metrics": {
+    "position": {
+      "closure_change_proxy_per_unit_log_density": 1.761300536731043e-05,
+      "fd_maximum_norm_per_unit_log_density": 2.6603877624304255,
+      "fd_richardson_correction_maximum_norm": 0.00013035871479072898,
+      "fd_step_halving_maximum_difference": 0.0003910761443721836,
+      "fd_step_halving_relative_maximum_norm": 0.00014699967797736065,
+      "native_vs_fd_maximum_absolute_per_unit_log_density": 0.0007103633160311757,
+      "native_vs_fd_relative_frobenius_norm": 0.00025527519695992917,
+      "native_vs_fd_relative_maximum_norm": 0.0002670149540088907,
+      "pre_support_fd_maximum_norm": 4.704705600547972e-06
+    },
+    "velocity": {
+      "closure_change_proxy_per_unit_log_density": 1.928294024800314e-08,
+      "fd_maximum_norm_per_unit_log_density": 0.002960951675059357,
+      "fd_richardson_correction_maximum_norm": 1.451547483013466e-07,
+      "fd_step_halving_maximum_difference": 4.354642449042577e-07,
+      "fd_step_halving_relative_maximum_norm": 0.00014706901452403074,
+      "native_vs_fd_maximum_absolute_per_unit_log_density": 8.185641628198723e-07,
+      "native_vs_fd_relative_frobenius_norm": 0.00025513752928316494,
+      "native_vs_fd_relative_maximum_norm": 0.00027645306396412666,
+      "pre_support_fd_maximum_norm": 5.102413209545857e-09
+    }
+  },
+  "native_binary_sha256": "274bd986bb55a1ac358f4c5fcf789683ac4084b157159ea4380059bd95b45554",
+  "precision_limitation": "The propagated last-iteration closure changes are an empirical derivative-noise proxy, not a mathematically certified error bound. Pre-support FD values provide a separate observed cancellation floor.",
+  "records": [
+    {
+      "closed": true,
+      "displacement": 0.0,
+      "elapsed_seconds": 520.3526277409983,
+      "final_position_change_m": 9.71108675717585e-07,
+      "final_velocity_change_m_s": 1.0881377208796999e-09,
+      "iterations": 3,
+      "label": "nominal"
+    },
+    {
+      "closed": true,
+      "displacement": 0.05,
+      "elapsed_seconds": 773.6486685260315,
+      "final_position_change_m": 5.304707841698261e-07,
+      "final_velocity_change_m_s": 5.896628431225493e-10,
+      "iterations": 3,
+      "label": "plus"
+    },
+    {
+      "closed": true,
+      "displacement": -0.05,
+      "elapsed_seconds": 777.4550578619819,
+      "final_position_change_m": 5.706159909351062e-07,
+      "final_velocity_change_m_s": 6.304814138744979e-10,
+      "iterations": 3,
+      "label": "minus"
+    },
+    {
+      "closed": true,
+      "displacement": 0.025,
+      "elapsed_seconds": 776.664203147986,
+      "final_position_change_m": 3.9514769533827684e-07,
+      "final_velocity_change_m_s": 4.362338030838861e-10,
+      "iterations": 3,
+      "label": "plus_half"
+    },
+    {
+      "closed": true,
+      "displacement": -0.025,
+      "elapsed_seconds": 777.915188198036,
+      "final_position_change_m": 1.277041590477478e-07,
+      "final_velocity_change_m_s": 1.3435842409160062e-10,
+      "iterations": 3,
+      "label": "minus_half"
+    }
+  ],
+  "scientific_acceptance": "Diagnostic only; no automatic exact-derivative or covariance acceptance",
+  "scope": "April 24 development GPS-midnight arc, one density knot at6h, fixed physical initial state, fully repropagated flight forces; binary274bd before the independent dense atmospheric mesh",
+  "script_sha256": "ce59f124009cbc65e71afe0b58df5c89a09a358b0f6e95c2c04d9f43b0ee793d",
+  "source_result_sha256": "d3d6440757384344eb2b96a1eced29ed7aab559f2f63fb250437d3f418c2b400",
+  "state_gradient_maximum_degree": "10",
+  "status": "complete",
+  "step": 0.05,
+  "raw_evidence_locator": "raw-artifacts/density-trajectory-fd-local-events/density_trajectory_derivative.json",
+  "raw_evidence_sha256": "ee27a58bb96b16875ff424027f947cd25b1daeb9346324025f10a74ae90c79d8",
+  "supersession": "A bounded diagnosis of the shared state-transition approximation. This is not acceptance evidence for a later executable or the production UTC-day campaign.",
+  "interpretation": "The native position derivative differs from the nonlinear finite-difference extrapolation by0.0267% in maximum norm. The discrepancy exceeds the observed closure/cancellation proxies; the derivative is measurably approximate in this case. Finite step and closure errors remain reported, and no covariance validity follows from this single column."
+}

@@ -1,0 +1,49 @@
+{
+  "complete": true,
+  "followup": "A thermal endpoint defect was identified and patched; radiation removal alone leaves about8.2mm discrepancy, so the full cause remains under investigation.",
+  "native_binary_sha256": "aef8338046998fe80c363147351c547dd14159845902fe6aba3d0b9c2ffebb0c",
+  "passed": false,
+  "raw_evidence": "../../../../work/v3/flight-refinement-precise",
+  "records": [
+    {
+      "aligned_maximum_position_difference_m": 0.008285509683933165,
+      "carrier_geometric_bound_m": 0.008289629235992904,
+      "carrier_geometry_threshold_m": 3e-05,
+      "carrier_limitation": "Carrier is assessed by geometric range bound; this predictor exports native IF code, not a phase residual",
+      "duration_hours": 24,
+      "fixed_fitted_initial_state_and_forces": true,
+      "gnss_code_threshold_m": 0.003,
+      "gnss_native_if_code_maximum_difference_m": 0.009469691755640497,
+      "gnss_satellite_epochs": 26558,
+      "method": "groops_pulses",
+      "no_refitting": true,
+      "offgrid_maximum_position_difference_m": 0.008289629235992904,
+      "passed": false,
+      "slr_maximum_fraction_of_measurement_sigma": 0.815381838627946,
+      "slr_minimum_per_observation_threshold_m": 5e-05,
+      "slr_native_maximum_difference_m": 0.00407690919313973,
+      "slr_points": 80
+    },
+    {
+      "aligned_maximum_position_difference_m": 0.006576105402264941,
+      "carrier_geometric_bound_m": 0.006579403068318046,
+      "carrier_geometry_threshold_m": 3e-05,
+      "carrier_limitation": "Carrier is assessed by geometric range bound; this predictor exports native IF code, not a phase residual",
+      "duration_hours": 24,
+      "fixed_fitted_initial_state_and_forces": true,
+      "gnss_code_threshold_m": 0.003,
+      "gnss_native_if_code_maximum_difference_m": 0.00749094046443588,
+      "gnss_satellite_epochs": 26558,
+      "method": "groops_log_drag_ou",
+      "no_refitting": true,
+      "offgrid_maximum_position_difference_m": 0.006579403068318046,
+      "passed": false,
+      "slr_maximum_fraction_of_measurement_sigma": 0.6624301826019752,
+      "slr_minimum_per_observation_threshold_m": 5e-05,
+      "slr_native_maximum_difference_m": 0.003312150913009876,
+      "slr_points": 80
+    }
+  ],
+  "scope": "Apr24 development numerical convergence at fixed fitted parameters; no orbit accuracy or calibrated-uncertainty claim",
+  "status": "failed_initial_full_force_numerical_gate"
+}

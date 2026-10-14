@@ -1,0 +1,85 @@
+Finite candidate03 completion handoff (scratch; NOT LAUNCHED)
+==========================================================
+
+completion_handoff_03.py is a one-shot dependency stage of the existing finite
+campaign. It is not a scheduled task, daemon, reminder, or estimator launcher.
+It reads candidate03's protocol and terminal campaign-driver record and waits
+at most 336 hours by default, in intervals no longer than 60 seconds. While
+waiting it does not read observations, truth, GNV, SLR, fits or scientific scores.
+
+After both driver stages complete it rehashes all 89 frozen runtime files and
+the native binary. It requires the exact reviewed collector/renderer hashes,
+runs collector --check-only with explicit source03, and only then --collect.
+Both commands are local subprocesses using the selected Python interpreter.
+It never runs fit/calibrate/run, changes frozen inputs, interprets a winner,
+pushes Git, opens PRs, deploys a site, or sends external messages.
+
+Example for later authorized launch only (established destination; never overwrite a conflicting bundle):
+
+  /home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python \
+    /home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03/completion_handoff_03.py \
+    --campaign /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03 \
+    --project /home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete \
+    --collector /home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03/harvest_v3.py \
+    --output /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/v3 \
+    --max-wait-hours 336 --poll-seconds 30
+
+The output must end in /v3 and stay outside the campaign, runtime and helper
+directories. The helper never overwrites it. Destination control files are at
+<output.parent>/.v3-handoff-03/:
+
+* handoff.lock uses nonblocking flock. The collector inherits the descriptor so
+  a crashed parent cannot permit a concurrent second collector while its child
+  still runs. A duplicate invocation exits without altering the active status.
+* status.json is atomically replaced. Every transition also has a new immutable
+  numbered JSON record; command stdout/stderr are new, never-overwritten files.
+* Complete status contains binding, verification and upstream records. Binding
+  pins campaign/project/collector/output paths, source/protocol/native identities
+  and the reviewed collector/renderer hashes. Verification includes the final
+  publication.json hash, canonical bundle content hash, verified file/payload/
+  figure counts and the 1,650 expected fit count. It makes no scientific claim.
+* Campaign failure, readiness/collection failure, identity changes, verification
+  failure or wait deadline produce terminal status blocked. Subsequent calls
+  return this retained record without retrying. Failed collector staging trees
+  remain untouched and their paths are recorded. No seed is replaced or refitted.
+* Interrupted waiting can resume. If collection had started but left no terminal
+  bundle, resume blocks for manual inspection rather than launching it again.
+  If the collector had already atomically renamed a bundle before interruption,
+  resume verifies it without collecting again. A previously completed bundle
+  must retain exactly the previously recorded publication.json hash.
+
+Final verification checks the exact listed file set, every file hash, the
+canonical manifest hash, decompressed original-payload hashes, protocol/source/
+native identities, required reports and their 1,650 fit counts, acceptance gate
+identity, reviewed postprocessing source bytes, fixed six figure hashes and
+their exact compact input hashes. Fictional fixture outputs are rejected. Source,
+protocol and helper identities are rechecked before the complete record is saved.
+The original archive bytes and hashes are never rewritten.
+
+Verification independently compares all 1,650 unique metrics case/method rows
+against archived run manifests and frozen input cases. Checkpoint identities and
+validity must agree with those runs. Every calibration-score row and every invalid
+calibration/evaluation row must remain in the appropriate JSONL files, including
+duplicates where explicitly present in calibration. Missing/duplicated/unfrozen
+metrics, dropped failures, altered selections, or any file over 95 MiB block the
+handoff even if someone has recomputed the archive's file hashes. Verification
+returns verified_metric_rows, verified_calibration_rows and verified_failure_rows
+as counts, without deciding scientific significance or a winning method.
+
+The raw input inventory is deliberately not reread in full. Completion records
+explicitly state bulky_raw_input_inventory_rehashed:false. The reviewed collector
+performs the exact frozen-design/readiness checks and preserves every failed or
+excluded fit. Scientific interpretation remains the report reader's responsibility.
+
+The read-only API verify_bundle(path, protocol_bytes=None, driver_bytes=None)
+returns the compact verification record for an existing archive. A downstream
+transfer worker must additionally match publication_sha256 and bundle_content_hash
+to the terminal handoff record before using that transferred archive.
+
+Fictional tests only; safe to execute without a campaign:
+
+  python work/v3/publication/test_completion_handoff_03.py -v
+
+The tests never execute the collector or any native estimator. They create
+temporary source/manifests/bundles, patch expected identities only inside tests,
+and use a toy Python child solely to verify lock-descriptor inheritance/logging.

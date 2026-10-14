@@ -1,0 +1,114 @@
+{
+  "scope": "April24 canonical5s quaternion extraction; reproduces former helper before sign-continuity and normalization fix",
+  "sample_count": 17280,
+  "negative_adjacent_dot_count": 16,
+  "minimum_adjacent_dot": -0.9999961528004269,
+  "records": [
+    {
+      "interval_seconds": 785,
+      "dot": -0.9999961227263272,
+      "minimum_interpolated_quaternion_norm": 0.14042434397911188,
+      "minimum_rotation_determinant": 7.667511251459622e-06
+    },
+    {
+      "interval_seconds": 6445,
+      "dot": -0.9999961090294389,
+      "minimum_interpolated_quaternion_norm": 0.1404243553095094,
+      "minimum_rotation_determinant": 7.667514963464198e-06
+    },
+    {
+      "interval_seconds": 12095,
+      "dot": -0.9999961202139835,
+      "minimum_interpolated_quaternion_norm": 0.14042434607341756,
+      "minimum_rotation_determinant": 7.667511937584795e-06
+    },
+    {
+      "interval_seconds": 17750,
+      "dot": -0.9999961230449972,
+      "minimum_interpolated_quaternion_norm": 0.14042434283130278,
+      "minimum_rotation_determinant": 7.667510875420592e-06
+    },
+    {
+      "interval_seconds": 23405,
+      "dot": -0.9999961297877642,
+      "minimum_interpolated_quaternion_norm": 0.1404243378594763,
+      "minimum_rotation_determinant": 7.667509246577781e-06
+    },
+    {
+      "interval_seconds": 29065,
+      "dot": -0.9999961288422483,
+      "minimum_interpolated_quaternion_norm": 0.14042433969293378,
+      "minimum_rotation_determinant": 7.667509847245134e-06
+    },
+    {
+      "interval_seconds": 34720,
+      "dot": -0.9999961348932589,
+      "minimum_interpolated_quaternion_norm": 0.14042433258934914,
+      "minimum_rotation_determinant": 7.667507520007633e-06
+    },
+    {
+      "interval_seconds": 40375,
+      "dot": -0.9999961446264057,
+      "minimum_interpolated_quaternion_norm": 0.14042432674117047,
+      "minimum_rotation_determinant": 7.667505604059803e-06
+    },
+    {
+      "interval_seconds": 46025,
+      "dot": -0.9999961528004269,
+      "minimum_interpolated_quaternion_norm": 0.1404243192351161,
+      "minimum_rotation_determinant": 7.667503144968524e-06
+    },
+    {
+      "interval_seconds": 51680,
+      "dot": -0.9999961379162166,
+      "minimum_interpolated_quaternion_norm": 0.14042433203647103,
+      "minimum_rotation_determinant": 7.66750733887676e-06
+    },
+    {
+      "interval_seconds": 57345,
+      "dot": -0.9999961315118473,
+      "minimum_interpolated_quaternion_norm": 0.1404243361454027,
+      "minimum_rotation_determinant": 7.667508685022356e-06
+    },
+    {
+      "interval_seconds": 62985,
+      "dot": -0.9999961434284412,
+      "minimum_interpolated_quaternion_norm": 0.14042432661134538,
+      "minimum_rotation_determinant": 7.66750556152723e-06
+    },
+    {
+      "interval_seconds": 68645,
+      "dot": -0.9999961308858352,
+      "minimum_interpolated_quaternion_norm": 0.14042433794833176,
+      "minimum_rotation_determinant": 7.66750927568812e-06
+    },
+    {
+      "interval_seconds": 74300,
+      "dot": -0.9999961393053397,
+      "minimum_interpolated_quaternion_norm": 0.1404243302590536,
+      "minimum_rotation_determinant": 7.667506756569095e-06
+    },
+    {
+      "interval_seconds": 79960,
+      "dot": -0.9999961331471994,
+      "minimum_interpolated_quaternion_norm": 0.14042433617987463,
+      "minimum_rotation_determinant": 7.66750869631586e-06
+    },
+    {
+      "interval_seconds": 85615,
+      "dot": -0.9999961248391487,
+      "minimum_interpolated_quaternion_norm": 0.14042434232706946,
+      "minimum_rotation_determinant": 7.667510710226396e-06
+    }
+  ],
+  "status": "confirmed_defect_before_correction",
+  "native_binary_sha256": "2846937c06875c6767969ad37785bb4988f62098db2211f6c8cb25964a467200",
+  "source_attitude_sha256": "8dbb8d4a82eed07cd0f311e27c713d5bd61ee986504ce10727dbc281e56a5dca",
+  "converted_attitude_sha256": "97f0471eb71a887ac4cb1176200fe52295ae231b76a784d76d6da556f0fa8391",
+  "raw_evidence_locator": "raw-artifacts/atmosphere-attitude-diagnosis/audit.json",
+  "raw_evidence_sha256": "9c09550fdd4d7978abef6be41274f46e896d60789aeb8a8980d20a5fec2924c2",
+  "diagnosis": "The former helper omitted upstream Arc::matrix quaternion sign continuity and StarCameraEpoch::setData normalization. Antipodal matrix-to-quaternion branches therefore entered the interpolant, producing non-orthonormal matrices.",
+  "calculation": "Convert the native 2.5 s attitude instrument to ASCII, select every second row, find adjacent quaternion dot products <0, and evaluate the centered degree7 interpolating polynomial at eight interior nodes per affected5s interval. The unnormalized quaternion norm to the sixth power is its matrix determinant.",
+  "correction": "Reuse canonical StarCameraArc.matrix().column(1,4) before interpolation and StarCameraEpoch.setData for every interpolated quaternion.",
+  "acceptance": "This record diagnoses the historical defect. Corrected native regression and independent full-force refinement are separate requirements."
+}

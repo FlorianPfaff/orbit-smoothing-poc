@@ -1,0 +1,64 @@
+{
+  "actual_harvest_performed": false,
+  "created_at_utc": "2026-10-14T02:23:20.780909+00:00",
+  "fictional_visual_qa": {
+    "experimental_evidence": false,
+    "figures": 6,
+    "inspection": "Primary and fixed-epoch coverage PNGs inspected; text/intervals/denominators readable and prominently fictional",
+    "manifest_sha256": "92bf8fcc91ca101dbdeae28eab7a114183faee9b47e0c24883d7dccefdf15261",
+    "path": "figure-qa-03"
+  },
+  "files": {
+    "README.txt": "97c3c90139746b3bfede599627d5667e1489cafbabe71d0c8b9d3786068c8dc2",
+    "harvest_v3.py": "8765d404ecffa4f34359e0286ad3c0767676270db69caccfffba32ab01924834",
+    "render_v3_figures.py": "8fe08102f6fbd6d77af5cb184e104d024a2b834cac0b27cc4a51b0684dcc6a10",
+    "test_harvest_v3.py": "264ad26fe79bbbbc455c0605833d5e4f0b79fccd1f8653d2bb6efa41b210592a",
+    "test_render_v3_figures.py": "4ff55d515fc978cfd9743bf100da7326a365fa92cc0827a3d18ffc58e6aaa52d"
+  },
+  "publication_instruction": "Use the reviewed helper pair in publication-audit-03 (or sync these exact scratch bytes) with --expected-source 3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e. Collect only after the real completed campaign passes --check-only; never overwrite an existing v3 bundle.",
+  "real_evaluation_outcomes_read": false,
+  "resolved_findings": [
+    "Required JSON must be a nonempty object and report HTML must be nonempty",
+    "Both completed stage drivers, run/report source identities, protocol/selection/gate identities and all planned/observed fit counts are checked",
+    "All 1650 unique case/method rows must match each frozen input case list; failures and exclusions count as attempted fits, not valid fits",
+    "Collection binds copied originals to readiness byte hashes, preventing a changed manifest from being combined with a stale parsed summary",
+    "Stress table retains method orientation, valid/planned pairs, failed/missing pairs and unavailable intervals",
+    "Derived summary and landing preserve per-campaign validity, scope, limitations and calibration disclosures",
+    "Figure reader requires paired independent-seed intervals and rejects coverage estimates or 95-percent confidence labels inconsistent with recorded counts",
+    "README commands explicitly bind campaign03 to the 3b434b8c source override"
+  ],
+  "runtime_modified": false,
+  "runtime_source_unchanged": {
+    "files": 89,
+    "sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+  },
+  "schema_version": 1,
+  "scientific_interpretation_review": [
+    "Primary predeclared 500 km disturbed blackout whole-arc and gap RMSE, with density-minus-pulses orientation and correctly inverted CI bounds when needed",
+    "Coverage at 11,12,13 hours has independent-seed Wilson intervals and preserves the 50-seed planned denominator; correlated epochs are not pooled as independent trials",
+    "Unavailable means and intervals remain unavailable, including zero valid pairs/trials",
+    "Secondary figure shows all 15 cells in frozen order, with disclosed separate x scales",
+    "No superiority is inferred automatically; unresolved improving calibration boundaries withhold claims",
+    "Formal covariance is conditional on selected hyperparameters and fixed weights; model-selection uncertainty excluded",
+    "SLR fields verified independently against backend schema by slr_freeze; pass/station/date/geometry evidence and correction limitations retained in exact full report bytes and metrics",
+    "GNV agreement remains a separate GPS-derived reference; no flight truth coverage or Cartesian NEES claim",
+    "Native 20-minute ambiguity-resolution reference remains separate from the primary float comparison"
+  ],
+  "scope": "Scratch postprocessing audit and explicitly fictional tests only; no real outcomes read or harvested",
+  "status": "passed",
+  "tests": {
+    "elapsed_seconds": 1.391,
+    "errors": 0,
+    "executable": "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+    "failures": 0,
+    "host": "gpuserver6000",
+    "integration": "Temporary fictional atomic bundle rendered all six figures and retained all 1650 excluded fits in metrics/failures, conditional calibration limitations, original manifest bytes, and verified every publication file hash; temporary bundle deleted by test cleanup",
+    "log": "publication-audit-03-tests.log",
+    "log_sha256": "bbe44a7daca9e9541552e198f11d7144724f94b5b4a6ae0aa6d9e3f5b375a27a",
+    "passed": 14,
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 23 2026, 15:19:43) [Clang 22.1.3 ]",
+    "remote_directory": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03",
+    "skipped": 0
+  }
+}

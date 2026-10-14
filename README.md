@@ -12,6 +12,30 @@ orbit-determination or collision-avoidance system. See the generated HTML report
 and run manifests for what was actually run; a supported configuration is not
 evidence that its experiment completed.
 
+## GROOPS comparison protocol v3
+
+The separate [GROOPS comparison implementation](groops/README.md) adds matched
+reduced-dynamic pulse and log-density OU models, blind GNSS data preparation,
+native covariance export and independent validation. Its acceptance gates and
+production runs are distinct from the published v2 campaign below; preparation
+or unit-test success is not a completed accuracy comparison.
+The [frozen candidate protocol](validation/comparison-v3/protocol-candidate-03.json)
+records the source, native executable, seeds and complete case matrix before
+calibration. The [engineering report](validation/comparison-v3/report/index.html)
+records validation progress and preserved failures. The
+[ordered engineering acceptance review](validation/comparison-v3/acceptance-gates-candidate-03.json)
+passed, including normal and blackout full-day fits for both methods.
+[Candidate 03 calibration started](validation/comparison-v3/campaign-launch-03.json)
+on October 14, 2026 at 02:07:54 UTC, after independent verification of all
+[48 synthetic](validation/comparison-v3/campaign-launch-audit-3b434b8c.json) and
+[12 flight](validation/comparison-v3/flight-preparation-audit-3b434b8c.json)
+input preparations. The previous campaign
+[stopped at an orchestration audit check](validation/comparison-v3/campaign-driver-02.json)
+after 22 converged native fits and remains preserved. Candidate 03 corrects that
+audit-record lookup; the numerical implementation and scientific configuration
+are unchanged. No selected settings or scientific comparison results are
+available yet.
+
 ## Completed v2 campaign
 
 Open [results.html](results.html) for the scientific summary and
@@ -48,11 +72,13 @@ those artifacts locally. Saved manifests may refer to raw artifacts that are
 not bundled; the included HTML reports are static snapshots and can be opened
 locally after cloning. Regenerating them requires the corresponding raw runs.
 
-Published result metadata generalizes absolute paths and machine names. The
+Published v2 result metadata generalizes absolute paths and machine names. The
 scientific source files and recorded numerical results are unchanged. See
 [PUBLICATION.json](PUBLICATION.json) for the export scope. The reported 49-test
 campaign included an optional historical regression dataset; a fresh checkout
 skips that one test unless `ORBIT_POC_REGRESSION_DATA_ROOT` is supplied.
+V3 validation records retain exact artifact locators and hashes; the bulky raw
+artifacts are excluded from Git and must be regenerated to inspect them.
 
 ![Coverage at the disturbance peak](runs/v2/combined/analysis/coverage_at_peak.png)
 

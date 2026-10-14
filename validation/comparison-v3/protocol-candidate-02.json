@@ -1,0 +1,293 @@
+{
+  "config": {
+    "backend": {
+      "auxiliary_dir": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary",
+      "cache_dir": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/cache",
+      "example_directory": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/example",
+      "example_sha256": "5a9d10bbab419489e5a62306ab5f1c840963ca66fb0b1b9e70fb648e9629f63b",
+      "groops_commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+      "groops_executable": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+      "groops_source": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/groops-source",
+      "retain_native_diagnostics": false,
+      "tudat_python": "/home/florianpfaff/codex-runs/orbit-poc-20261013/tudat-env/bin/python"
+    },
+    "density": {
+      "empirical_acceleration": false,
+      "initial_prior": "stationary_ou",
+      "interpolation": "linear_log_density",
+      "knot_seconds": 60.0,
+      "sigma_log_density": [
+        0.03,
+        0.1,
+        0.3,
+        1.0
+      ],
+      "tau_seconds": [
+        600.0,
+        1800.0,
+        7200.0,
+        21600.0
+      ]
+    },
+    "flight": {
+      "ambiguity_policy": "float",
+      "blackout_hours": [
+        11.0,
+        13.0
+      ],
+      "bootstrap": "gnss_only_recomputed_after_mask",
+      "coverages": [
+        "normal",
+        "blackout"
+      ],
+      "development_dates": [
+        "2024-04-18",
+        "2024-04-19",
+        "2024-04-20",
+        "2024-04-23",
+        "2024-04-24",
+        "2024-04-25"
+      ],
+      "evaluation_dates": [
+        "2024-05-07",
+        "2024-05-08",
+        "2024-05-09",
+        "2024-05-10",
+        "2024-05-11",
+        "2024-05-12"
+      ],
+      "force_recipe": "shared_groops_modeled_forces_no_accelerometer",
+      "reference_usage": "postfit_only",
+      "spacecraft": "GRACEFO1"
+    },
+    "methods": [
+      "groops_pulses",
+      "groops_log_drag_ou"
+    ],
+    "name": "orbit-comparison-v3",
+    "output_dir": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02",
+    "primary_cell": [
+      "leo500",
+      "disturbed",
+      "blackout"
+    ],
+    "pulses": {
+      "frame": "CRF",
+      "intervals_seconds": [
+        300.0,
+        600.0,
+        1200.0,
+        2400.0
+      ],
+      "sigma_velocity_m_s": [
+        1e-05,
+        0.0001,
+        0.001,
+        0.01
+      ]
+    },
+    "schema_version": 3,
+    "synthetic": {
+      "atmospheres": [
+        "quiet",
+        "disturbed"
+      ],
+      "blackout_hours": [
+        11.0,
+        13.0
+      ],
+      "cadence_seconds": 30.0,
+      "calibration_seeds": [
+        300000,
+        300001,
+        300002,
+        300003,
+        300004,
+        300005
+      ],
+      "code_sigma_m": 0.3,
+      "coverages": [
+        "normal",
+        "blackout"
+      ],
+      "duration_hours": 24.0,
+      "epoch": "2024-05-10T00:00:00",
+      "evaluation_seeds": [
+        400000,
+        400001,
+        400002,
+        400003,
+        400004,
+        400005,
+        400006,
+        400007,
+        400008,
+        400009,
+        400010,
+        400011,
+        400012,
+        400013,
+        400014,
+        400015,
+        400016,
+        400017,
+        400018,
+        400019,
+        400020,
+        400021,
+        400022,
+        400023,
+        400024,
+        400025,
+        400026,
+        400027,
+        400028,
+        400029,
+        400030,
+        400031,
+        400032,
+        400033,
+        400034,
+        400035,
+        400036,
+        400037,
+        400038,
+        400039,
+        400040,
+        400041,
+        400042,
+        400043,
+        400044,
+        400045,
+        400046,
+        400047,
+        400048,
+        400049
+      ],
+      "orbits": [
+        "leo300",
+        "leo500",
+        "leo800",
+        "eccentric"
+      ],
+      "phase_sigma_m": 0.003,
+      "truth_model": "tudat_independent_central_j2_exponential_gnss"
+    },
+    "tuning": {
+      "boundary_expansion_rounds": 2,
+      "boundary_improvement_nats": 1e-06,
+      "holdout_blocks_hours": [
+        [
+          11.75,
+          12.25
+        ],
+        [
+          11.0,
+          13.0
+        ]
+      ],
+      "minimum_valid_arcs": 6,
+      "score": "clock_nullspace_code_predictive_nll_per_dimension"
+    }
+  },
+  "native_binary": {
+    "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+    "sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453"
+  },
+  "protocol_hash": "5c818bbe0defd317714f33b10fb79e193da61e6a307aca308fa2f0a58869b60a",
+  "schema_version": 3,
+  "source": {
+    "files": {
+      "configs/comparison-v3.json": "f999b2e8cd08481d57fb1e4bf3c80216a8c8a11ebc04b81f506f4707d5b836a5",
+      "configs/scenarios.json": "0475b2155d1762fc45d1cca6de59a25303077a8ccd0e98c8a7cc5b25c2b26407",
+      "configs/smoke.json": "f5049e1d39a460f903a9a0be594106f7f27e2096bf1890b78eced74b7f838127",
+      "configs/stress.json": "7030bc71c8d4b22ea7d5c3968e87a123671f39ffda7a0def147c57dbd78b3675",
+      "groops/extension/apply_extension.py": "b85cace2c092a52980e80f746ef06310ee825b996acd173e656d143fa9ab75cc",
+      "groops/extension/atmosphereEvents.h": "8a033d4431702ff81cc25056466f3676c8a61c730503ff096e534e2eb808caec",
+      "groops/extension/atmosphereExtraSamples.h": "eb30fb1086f6b2e98347303875ea0f0bc41564138d5e488e9173447279ff7718",
+      "groops/extension/atmosphereLocalEvents.h": "22cea5f25f5a2ba6912a7aaf29708d5254b1f6eced0098fd4f8c6b4ec98de973",
+      "groops/extension/eventQuadrature.h": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5",
+      "groops/extension/gnssParametrizationLogDensityOu.h": "9efaa686086deac106e9ab985f6f1d6d225fbe999e68eaf9b3cdc8a5d6ef15d3",
+      "groops/extension/integrationWindows.h": "a7215fdaa3f3d3f16a13dbf2afa9301ff88c2979f616af65864474d6bbdaa40f",
+      "groops/extension/linearTrace.h": "aeb7f39140c5f8149daf953140d6c892ded942a2513e9e098aff52eeb4194c65",
+      "groops/extension/logDensitySeries.h": "9176b172e4c5259bfa18daefa436bb869b870e4680548fba82af6974d184838b",
+      "groops/extension/miscAccelerationsLogDensity.h": "526684d8d26e9b65c2050c98bc0fbd9b3c425a959d623c149b9aa0b31fbf0f80",
+      "groops/extension/miscAccelerationsSyntheticDrag.h": "7793642b422df8b1a41539949526dcce4143dab571116613dfe35ba082a13d98",
+      "groops/extension/miscAccelerationsSyntheticGravity.h": "4afa4f0e9eadabe362d0feebc13f031a79297b85a0123ad0945dc04de0efe142",
+      "groops/extension/native_atmosphere.py": "336f9da6c938238029abddbade27ab694828dca1fd2780e38881af1abd657233",
+      "groops/extension/native_covariance.py": "a6c73bec930d928abf465ebde98a885155ac51d98ccb97b298319cab225daf0b",
+      "groops/extension/native_epoch_grid.py": "1151a121dc1b636bcd1e2f91fc1faa9e6c191f3ea8be98cd49f3ad8e810219bf",
+      "groops/extension/native_integration.py": "b6da765b809ec2e5c46e3aa1cda97712aa525cb14f3259f2004c12a22114dd4d",
+      "groops/extension/native_interpolation.py": "38577d79a1f71dd9616d11f7dfaa132c674ccd94dadf1e7be776d64ed906295f",
+      "groops/extension/native_linear_trace.py": "7104efc1057f6e8d7088fcd785637cb49c7937a69c146f291195c9faeedb405c",
+      "groops/extension/native_nuisance_export.py": "d82f845cef98cde038011e2979513f3a614220c15f214c3467df394dab6f613e",
+      "groops/extension/native_preprocessing.py": "a69ad543b37bc5fa9737400086e9ce98acbcaf490cc105697796d0faff068f3b",
+      "groops/extension/native_simulation.py": "3b14fbfb301d1dab04cf77fb7aed077890b5d739cd4ca1255cba90a82b73fa80",
+      "groops/extension/native_thermal.py": "752d45d81bf326536804ff20648f83c390f509f8b52d7872d6cb5b5e8288df23",
+      "groops/extension/orbitPocEvaluateVariational.cpp": "e7500e63909d6e5b3773ee10b835f7dc852cbe5ffdee14329e35a8dbf20e0e30",
+      "groops/extension/orbitPocForceDesign.cpp": "39d74b8c2b629c92883e1fdcee74a5ba3fc2c45bb125ce8b4e788028ad4f7fcc",
+      "groops/extension/orbitPocPredictCode.cpp": "6c725cd721efcc6d4599e285072e7fbff750c2e938666c3122ded951a939ad72",
+      "groops/extension/orbitPocPredictSlr.cpp": "e4479f0107de3b0ac6ab92281496f481077e8cc8fc7c37d6b99179289027fb02",
+      "groops/extension/orbitPocResampleOrbit.cpp": "3408c17a776dfa826403d19ff5f1bf5daeb6b8ed8ec914b81d6efc5d3827c92f",
+      "groops/extension/parametrizationAccelerationLogDensity.h": "4d7f9e1b099aeeca0b44320e3a0c93d13ff83ff960070e91c970592b74978fe5",
+      "groops/extension/piecewisePolynomial.h": "f159a5a0909661f3406993a7bf74a9ff23e96b46db6b32bad85b7b45ccc512cc",
+      "groops/extension/thermalIntegrationStep.h": "15a2a736eb212aee22a936e78389cdbca816d8a308b356017a0a0ca9aa19cd59",
+      "groops/linux-64.lock.txt": "e37c8c1d61e7f1d7bbcc2b219339358966af3de76c9cdbbd9170a40417ce49c8",
+      "groops/python-requirements.lock.txt": "4cd3f0d79599d714ba0928688e775ace8f044346670b57cf3b461d5f8215aa68",
+      "groops/templates/01groopsConvert.xml": "53d3b83ecca58479ad18e1d148842fa5e2355454b46c5857505b7cdd199f9e62",
+      "groops/templates/03groopsVariational.xml": "7cfb0708d1d1905247b412a9c7db4658b1bc0cb26b8cc3ba1d53bbdeb4158484",
+      "groops/templates/04groopsGnssProcessing.xml": "a7c0f27bb5b6385ac9dc8f105505fd4405f95682ef7a8b6b97f6a4bfec1dc404",
+      "pyproject.toml": "c2768980c8d33445c6f3e37a35508f4c3071a1c586b44f6d2d43ed5a075dcc54",
+      "scripts/build_groops.py": "7c48a2510fd1d73b25a78293f3d9c7fe332eda2ebfdb0d6b07656e1bbe9e8ea3",
+      "scripts/capture_environment.py": "cf63f87ebbd6437590dce885e13fd3ef4b3f638107bbad4690c1b5b5437149a7",
+      "scripts/check_combined_refinement.py": "f43506af2c7da9b9b1f45ebf1bfe595827face7b7f4e8904991bbfb139ec93fe",
+      "scripts/check_deferred_covariance.py": "f9759ac0856c4ea47c444b3d6666416d20d8701cb55ef39a4044b96a7f1253f2",
+      "scripts/check_density_damping.py": "678c26c420dbc39e5e0dd8ab9e12f04f312cd92ef7bb3d0473fc3eee416e6ff0",
+      "scripts/check_density_trajectory_derivative.py": "96b82da985cdaad3e166fe9f84be55d528f97e7bd1dddc7baa6fa1f483c69588",
+      "scripts/check_flight_refinement.py": "863479e09bd8d4793d3783b4b87dcfb44327f1687c16c2819967c38d2af8279d",
+      "scripts/check_native_epoch_precision.py": "704127d85b2cef8c0ae45df256225f46b691c3a20d2b6dce7bf428e3e27848ad",
+      "scripts/check_native_linear.py": "1378a5ac7e26d19df7bc2d5f313f0cc948b4f4bde01737ff515e80f9bc2b468f",
+      "scripts/check_observation_covariance.py": "d840c26b1235fbffd3247b6024522f626e84f15898ffa9e6587517daa9bc6c44",
+      "scripts/check_thermal_refinement.py": "53b02b7e17b6a3bfcecf4b54303404b6d0b571afa6c4481d855d275747473ccf",
+      "scripts/prepare_groops_data.py": "6a5a03ea4cfc7e3c5529cd22dc4a02a8a8b815d374b97289df5fcd1a7dbc759b",
+      "scripts/reproduce_groops_example.py": "6b46a3e51b161b5b7645760321e83f0799111d98b9d4c8d09032c73d7fbec5bb",
+      "scripts/run_comparison_campaign.py": "8149750dc0b91af317b3afc124563773c7b153838da7991152e690a2564d34d0",
+      "scripts/runtime.sh": "a1069b7a8382957439d1f5077c49fe76b0daf90ceddcf4794bcac0cb1132b2e9",
+      "scripts/tudat_truth.py": "b0756a86e667cc5598425ed81ae1dade7023d72cea63251a6ec881541e84d0df",
+      "scripts/validate_comparison_native.py": "88e1a2a51852aef22a1a1ed336bd0d73c7c61da9c77d179f8582992c989c6f52",
+      "scripts/validate_propagation.py": "45232e1af38759695e481e348ddc15b8a950cccfd8c89b53ef1c18622b25550d",
+      "src/orbit_poc.egg-info/SOURCES.txt": "b25c2b97df0268e3518fee834369010edc5525f11b4bb9412847bde5b059025a",
+      "src/orbit_poc.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/orbit_poc.egg-info/entry_points.txt": "dab762369e2592ba9b10a0b1733a264622d24efffa1a4a7c982037b3fcc5783e",
+      "src/orbit_poc.egg-info/requires.txt": "388fc0de9146404959d00593b284af0580cb549aa82bf40d18854c249a9a6803",
+      "src/orbit_poc.egg-info/top_level.txt": "bed51e9ec14e80e3564876b7d1f57abda95530ae5cca417c138b8a52c8d18ee2",
+      "src/orbit_poc/__init__.py": "2a71f94402bd80a470e3bd369b68d2cb7e2c826f890312077bf287c93e79f813",
+      "src/orbit_poc/benchmark.py": "3c5731ac6bbee71f3ac72d6a56243f5bb9fff1d9ce6e7d65d118b6e35a47c309",
+      "src/orbit_poc/cli.py": "67ec3210c8dd34ec1aa22e867f483d5a04409cfb03b99b76d447ddfa0fe0a230",
+      "src/orbit_poc/comparison/__init__.py": "ec32def0222df29c5ff021bc5ee87b7a94afd1326d1e03a5f8fd7c0534ab33f7",
+      "src/orbit_poc/comparison/backend.py": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51",
+      "src/orbit_poc/comparison/cli.py": "741357205d100568186caed6f1acdf2d1f053973f1bacc708ca72a3081a9d0f5",
+      "src/orbit_poc/comparison/config.py": "283f241bc5e7793492db8959c7ae728dcb0082f92ad28203e15a15992466142b",
+      "src/orbit_poc/comparison/data.py": "566dc07200df3e26d24ab1baef9c7b6b925710435299b67d40836ed4b74d3449",
+      "src/orbit_poc/comparison/density.py": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e",
+      "src/orbit_poc/comparison/density_step.py": "9afa2c8993e63398d32de9f36be6cc190150ad76314745c65b91b6c5ce8bfe24",
+      "src/orbit_poc/comparison/gates.py": "da962bbd12fea560f7a93f6c8a992b3adb96080e4e8da79154f5e2356473ce73",
+      "src/orbit_poc/comparison/groops_config.py": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63",
+      "src/orbit_poc/comparison/initialization.py": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655",
+      "src/orbit_poc/comparison/metrics.py": "dddc4380191ba3226326529945d263be4071993c749f79a9d4480b8705a1612e",
+      "src/orbit_poc/comparison/protocol.py": "9417f81184032df7a2a1cc34090e4a80cb9f825c9349040982ff2b6cc3c81e96",
+      "src/orbit_poc/comparison/report.py": "a6e4124b2949533c3de40181f918c2452648cdc953fc552e9b0deef689bf2cbe",
+      "src/orbit_poc/comparison/slr.py": "f6fab7c06bed4deab3d0773da6052e4102968bfdafb8989f7adef9880da736a4",
+      "src/orbit_poc/comparison/synthetic.py": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9",
+      "src/orbit_poc/config.py": "8fce436eda03f2185d6a616e618eae55d24e534a4c74876eebbdcaf14ecbcb3f",
+      "src/orbit_poc/data.py": "bc0bfa7dff49b326996c81c30cabcf3cc2502e52de79ebf959efa8447ad8df8a",
+      "src/orbit_poc/dynamics.py": "b584b0ddb1e9232eac906e1f529d645f4f7ce9bb382dd56c01ccc93ea78d6502",
+      "src/orbit_poc/numpyro_backend.py": "914a7723d00acb0f6eec76be9ffa40ec8d7b7237b82347a1e04f3fae3d00e871",
+      "src/orbit_poc/report.py": "1fb166c269067fc0c3fae83b11397e1488f1ae4d13c88cc28f6ffb5af9104efe",
+      "src/orbit_poc/simulator.py": "a8e74b3a30ba1c0386de34bd5894f848d36d7538dc6a79abd33d117dc95ca75e",
+      "src/orbit_poc/solvers.py": "a2cd18324b65a42a3ef73d2025615fd3d6c251acb397ca9c48d67ac1ae61f841",
+      "tudat-linux-64.lock.txt": "ed87e639c5a75158e1ab38bc5b3ae7f872021ae3c8876638e407adcbcea7ba7c"
+    },
+    "sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd"
+  }
+}

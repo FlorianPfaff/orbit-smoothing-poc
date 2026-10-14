@@ -1,0 +1,61 @@
+{
+  "backend_changed_symbols": [
+    "_close_prepared_nominal_reference",
+    "evaluate_native_slr",
+    "fit_job",
+    "prepare_job"
+  ],
+  "controlled_source_sha256": "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481",
+  "final_source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+  "limitations": [
+    "The source contains real changes for density fits, preparation error handling and SLR evaluation-product freezing; those are not covered by this pulse-only review."
+  ],
+  "pulse_branch_equivalent": true,
+  "review_basis": [
+    "Pulse defaults remain twelve iterations and a 30 micrometre raw orbit convergence threshold.",
+    "The density controller is None and the density-only acceptance and g-update branches do not execute.",
+    "The primary native variational/MAP calls, final undamped covariance confirmation and raw state criteria are unchanged.",
+    "accepted_orbit equals the same native output filename previously copied directly; no additional native operation occurs for pulses.",
+    "Additional numerical-control validation and history fields do not change these fixed valid requests.",
+    "The SLR module, evaluate_native_slr and campaign-driver differences freeze evaluation-only correction products; none is called by this engineering fit_job replay, which performs no evaluation.",
+    "All shared XML-generation, data, preparation-reading, native-execution and covariance-reading functions are byte-identical."
+  ],
+  "reviewed_method": "groops_pulses; density=False; no numerical_control overrides",
+  "scope": "Scoped review of the primary pulse execution branch, not whole-project or density-branch equivalence",
+  "source_file_differences": {
+    "scripts/check_density_damping.py": {
+      "controlled_sha256": null,
+      "final_sha256": "678c26c420dbc39e5e0dd8ab9e12f04f312cd92ef7bb3d0473fc3eee416e6ff0"
+    },
+    "scripts/run_comparison_campaign.py": {
+      "controlled_sha256": "f739371f388fa732a55577b79d4e1b00ad228e7fc13a9faf560e0f07af0eb439",
+      "final_sha256": "8149750dc0b91af317b3afc124563773c7b153838da7991152e690a2564d34d0"
+    },
+    "scripts/validate_comparison_native.py": {
+      "controlled_sha256": "be06c0d32a3f6831b0a62663ede7ba8e5bef4f26ca7e4bbe51471eedd6956bfb",
+      "final_sha256": "88e1a2a51852aef22a1a1ed336bd0d73c7c61da9c77d179f8582992c989c6f52"
+    },
+    "src/orbit_poc/comparison/backend.py": {
+      "controlled_sha256": "cb6c7074203e302d85e84165556c3d4e00e606f6a896c082fb4f8740fcfba08c",
+      "final_sha256": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51"
+    },
+    "src/orbit_poc/comparison/density_step.py": {
+      "controlled_sha256": null,
+      "final_sha256": "9afa2c8993e63398d32de9f36be6cc190150ad76314745c65b91b6c5ce8bfe24"
+    },
+    "src/orbit_poc/comparison/slr.py": {
+      "controlled_sha256": "33cb24ed51ac033d0d6218e3073b81a29759e70d8b7908ecb75aa01a4cec7075",
+      "final_sha256": "f6fab7c06bed4deab3d0773da6052e4102968bfdafb8989f7adef9880da736a4"
+    }
+  },
+  "unchanged_backend_function_sha256": {
+    "_binary": "ca61c3503d81b6fa088918ef856c2aafd4005cf980d54f5d574c97b92c3074de",
+    "_covariance": "021ab939b8790d9b81bfbacd3384f2d9b40c39e1420c1011db654f37f9d673c1",
+    "_map_only_config": "d4a5950134db109067b4c883ff40ba07ac8a280dce51dc67d6d4cf2eafbb7594",
+    "_orbit": "5d0782747d9bf17cdfa34b4f392004427048123be8a776aa1edadc6795cb9238",
+    "_preparation": "6445afd3565032f4ecb34e73b900c13676f36e6228d59a688322e3cae70cd299",
+    "_private_data": "231b287219ea6541cc92c94b15eb21256c81b955009a140506c6b4c619238cc0",
+    "read_native_table": "2434b1b0da8a3e4980f61cb70367798616417e4c9e701fcb223afbf04c27ff97",
+    "run_native": "567fad01667ff6c3f67050b852f700328142f6520068e50f7c59834e74c3fccf"
+  }
+}

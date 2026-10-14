@@ -1,0 +1,811 @@
+{
+  "classification": "native_candidate_factorization_failure",
+  "failure_policy": {
+    "accepted_posterior_created": false,
+    "accepted_posterior_files_absent_verified": true,
+    "candidate_effect": "This pulse setting cannot qualify from the surviving 30-minute fits because every two-hour fit failed",
+    "converged": false,
+    "covariance_valid": false,
+    "evaluation_requests_checked": 49,
+    "manifest_caveat": "The in-progress calibration manifest is not yet checkpointed for this round; terminal per-job result/index records already retain the failures.",
+    "no_failed_fit_referenced_by_evaluation_request": true,
+    "score_policy": "protocol.calibrate skips evaluation for failed fits, retains status/error rows, and requires both masks on all six arcs for candidate eligibility",
+    "terminal_failed_records_preserved": true
+  },
+  "interpretation": "The widest pulse prior on a dense pulse grid with a two-hour observation gap fails the initial native normal-equation Cholesky. Successful identical-input neighbors with stronger priors and the absence of timeout, missing-file or process-kill symptoms support a conditioning/rank explanation, not infrastructure failure. The exact matrix condition/rank is not established by logs alone.",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "recorded_at_utc": "2026-10-14T02:17:33.791046+00:00",
+  "records": [
+    {
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/native_runtime.json",
+          "role": "native_runtime",
+          "sha256": "f85fb7f32ff7a0300eecd03b435fa629acd4263bf3365fb0af1cceb4f2b5b636"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/outer_iterations.json",
+          "role": "outer_iteration_diagnostics",
+          "sha256": "2b542b1aa6c852160062ea933bed568734bf51b3fd92a93061d0228a75ba000b"
+        }
+      ],
+      "case": {
+        "arc_id": "eccentric-300005",
+        "atmosphere": "disturbed",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300005,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "constraint_bias": 0,
+      "constraint_relative_to_apriori": false,
+      "constraint_sigma_native_um_s": 10000.0,
+      "converged": false,
+      "covariance_valid": false,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/iteration-01/estimate.log",
+      "job": "synthetic-calibration-fit-094078d1bf76b4bcff8f",
+      "native_calls": [
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/native-fit/variational.xml"
+          ],
+          "config_sha256": "379241b65067ccbb9d2abd72978653e550aa1a72dad283cc1ef43ff8fb977357",
+          "elapsed_seconds": 1.155223877984099,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/iteration-01/variational.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 300740608,
+          "pid": 344927,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/native-fit/estimate_map.xml"
+          ],
+          "config_sha256": "dcc32aacd4c98afa9e5d1ab7fe2c5ea396952011e55adda05da8e7406324ef94",
+          "elapsed_seconds": 9.860758896102197,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/iteration-01/estimate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 915234816,
+          "pid": 344928,
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "native_error": "****** Error ******\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/system/loopPrograms.cpp:176 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/gnss/gnssProcessing.cpp:168 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:147 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStepEstimate.h:124 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:910 (estimateSolution)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/parallel/matrixDistributed.cpp:540 (cholesky): In block row 2640 with parameter index 5280\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/base/matrix.cpp:1377 (cholesky): W'W = A(872 x 872)\u001b[0m\n\u001b[1;31mcannot compute decomposition, error = 436\u001b[0m\n=== Finished GROOPS with error ===",
+      "native_log": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/iteration-01/estimate.log",
+        "sha256": "2cf9897a56634f7bf4bc2748c142aa844b3a5838db91acaeaaa458cd98148880"
+      },
+      "outer_iterations": [],
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 0.01
+      },
+      "request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/request.json",
+        "sha256": "5c8bb689088d72ba92d684740b6477ccaa99ed35e8b6ce4e117aba931054273e"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/result.json",
+        "sha256": "35085ecdccbc777f8f2792f5117bcdc4ef19b15f1c3780c58582f13558724445"
+      },
+      "result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-094078d1bf76b4bcff8f/result-record.json",
+        "sha256": "3d3f376ab69d49249407a332a42587d53e6f20cf1bfcad0791acc4591f2f7f88"
+      },
+      "status": "failed"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/native_runtime.json",
+          "role": "native_runtime",
+          "sha256": "b832ddafa58bc1c9cb35dbe0108310ad0a4146aade9d399bee4832be9f0f34f2"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/outer_iterations.json",
+          "role": "outer_iteration_diagnostics",
+          "sha256": "2a55e0403e79c85790c7fb285106ff21ec503071aafbf3c2f1c27d7dd4647b0b"
+        }
+      ],
+      "case": {
+        "arc_id": "eccentric-300004",
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300004,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "constraint_bias": 0,
+      "constraint_relative_to_apriori": false,
+      "constraint_sigma_native_um_s": 10000.0,
+      "converged": false,
+      "covariance_valid": false,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/iteration-01/estimate.log",
+      "job": "synthetic-calibration-fit-3a74c988f6911c7f656e",
+      "native_calls": [
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/native-fit/variational.xml"
+          ],
+          "config_sha256": "7fd7c873fe463fde5bcbee0365a038d362aa59250cd237e024212cf622ec86ea",
+          "elapsed_seconds": 1.0860295159509405,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/iteration-01/variational.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 301322240,
+          "pid": 344755,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/native-fit/estimate_map.xml"
+          ],
+          "config_sha256": "1309e1906594c7e4b9a5e57d91b22053a1fc63a1610002844e87fe92666c7986",
+          "elapsed_seconds": 10.24782793992199,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/iteration-01/estimate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 914976768,
+          "pid": 344758,
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "native_error": "****** Error ******\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/system/loopPrograms.cpp:176 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/gnss/gnssProcessing.cpp:168 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:147 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStepEstimate.h:124 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:910 (estimateSolution)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/parallel/matrixDistributed.cpp:540 (cholesky): In block row 2640 with parameter index 5280\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/base/matrix.cpp:1377 (cholesky): W'W = A(872 x 872)\u001b[0m\n\u001b[1;31mcannot compute decomposition, error = 439\u001b[0m\n=== Finished GROOPS with error ===",
+      "native_log": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/iteration-01/estimate.log",
+        "sha256": "e1f9c866debb73e0a1292b43c98850c95fd631fddfa50b4f3a9464fa8537a0e3"
+      },
+      "outer_iterations": [],
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 0.01
+      },
+      "request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/request.json",
+        "sha256": "9b2629ee940413235d6f781d76e8a62788d728f8bf2fa343ac396f711f506317"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/result.json",
+        "sha256": "de47ab488bd8827a18e2e2f31f224bc8c67c82f6fdac7698099482ab48395b37"
+      },
+      "result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-3a74c988f6911c7f656e/result-record.json",
+        "sha256": "a336b763c866d136f6d6a02492160af695fececda1006fb3f09d04eb69f6e6be"
+      },
+      "status": "failed"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/native_runtime.json",
+          "role": "native_runtime",
+          "sha256": "492ed351ed3eda3c6bce73515307c7e479fe15fa7aef1e5e129029e01eb4c998"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/outer_iterations.json",
+          "role": "outer_iteration_diagnostics",
+          "sha256": "70ff4c0d2e991f03cb08458bbcec98421458b59a6aa76aa5f79460ca224c4b35"
+        }
+      ],
+      "case": {
+        "arc_id": "eccentric-300002",
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300002,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "constraint_bias": 0,
+      "constraint_relative_to_apriori": false,
+      "constraint_sigma_native_um_s": 10000.0,
+      "converged": false,
+      "covariance_valid": false,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/iteration-01/estimate.log",
+      "job": "synthetic-calibration-fit-8fe7bf8d608067e0e2f9",
+      "native_calls": [
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/native-fit/variational.xml"
+          ],
+          "config_sha256": "622b3c5fad22838576c3825bd28e37a9f08c8375fb1b922c8327d8b24c6d9dd0",
+          "elapsed_seconds": 1.1376864389749244,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/iteration-01/variational.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 301301760,
+          "pid": 344696,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/native-fit/estimate_map.xml"
+          ],
+          "config_sha256": "e94ac8a417298cf32ef156b311a503c87b5135e7ba4ad7e49a6e80833b0be0a0",
+          "elapsed_seconds": 9.896462306962349,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/iteration-01/estimate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 914890752,
+          "pid": 344698,
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "native_error": "****** Error ******\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/system/loopPrograms.cpp:176 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/gnss/gnssProcessing.cpp:168 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:147 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStepEstimate.h:124 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:910 (estimateSolution)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/parallel/matrixDistributed.cpp:540 (cholesky): In block row 2640 with parameter index 5280\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/base/matrix.cpp:1377 (cholesky): W'W = A(872 x 872)\u001b[0m\n\u001b[1;31mcannot compute decomposition, error = 426\u001b[0m\n=== Finished GROOPS with error ===",
+      "native_log": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/iteration-01/estimate.log",
+        "sha256": "36cf294e7462e673a71a1104bd5653fdda1d2e1bfe97b2a010e74faaa60fa0c8"
+      },
+      "outer_iterations": [],
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 0.01
+      },
+      "request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/request.json",
+        "sha256": "fc9dd3c463406de205b1ccb077d8994221a7eccb3f4a44243b628de6ace4fd5d"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/result.json",
+        "sha256": "12ec074077b84481186bbaae1d347c16c56327b5a1a744f56c8bf59e38781987"
+      },
+      "result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-8fe7bf8d608067e0e2f9/result-record.json",
+        "sha256": "609ef3a56a14dac2b9e3ac3c23dd4398c2e4e230024a7cc06d57164a8dcb1db0"
+      },
+      "status": "failed"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/native_runtime.json",
+          "role": "native_runtime",
+          "sha256": "228a9a68e5314220b7be36118db89fa8deed5fbd81a00ddfa47d468ee186daf8"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/outer_iterations.json",
+          "role": "outer_iteration_diagnostics",
+          "sha256": "740d281d5ec21f74d76349a240d1467125875298dae350c759da8f2160571d82"
+        }
+      ],
+      "case": {
+        "arc_id": "eccentric-300003",
+        "atmosphere": "disturbed",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300003,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "constraint_bias": 0,
+      "constraint_relative_to_apriori": false,
+      "constraint_sigma_native_um_s": 10000.0,
+      "converged": false,
+      "covariance_valid": false,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/iteration-01/estimate.log",
+      "job": "synthetic-calibration-fit-96148fe0ab11c8c7f9d6",
+      "native_calls": [
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/native-fit/variational.xml"
+          ],
+          "config_sha256": "526aad158ef7ca697f93ab4e06666e9838a4f2ecd99a653923965f3e9e8f09d7",
+          "elapsed_seconds": 1.0058866100152954,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/iteration-01/variational.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 300396544,
+          "pid": 344729,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/native-fit/estimate_map.xml"
+          ],
+          "config_sha256": "7137c7946068308b894d152edb113a82f15fc9fe3f5b7e2fad613f1ffa7a3abe",
+          "elapsed_seconds": 9.820227702963166,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/iteration-01/estimate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 915034112,
+          "pid": 344731,
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "native_error": "****** Error ******\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/system/loopPrograms.cpp:176 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/gnss/gnssProcessing.cpp:168 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:147 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStepEstimate.h:124 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:910 (estimateSolution)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/parallel/matrixDistributed.cpp:540 (cholesky): In block row 2640 with parameter index 5280\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/base/matrix.cpp:1377 (cholesky): W'W = A(872 x 872)\u001b[0m\n\u001b[1;31mcannot compute decomposition, error = 426\u001b[0m\n=== Finished GROOPS with error ===",
+      "native_log": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/iteration-01/estimate.log",
+        "sha256": "e00e50884d6b119b45e34bd25f1c677438e752b3f1083d9da41c3fe718ca6865"
+      },
+      "outer_iterations": [],
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 0.01
+      },
+      "request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/request.json",
+        "sha256": "58ddbee32a7e69862752047244b20a55bd57f74ad27bc69f21313ebd10812d3d"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/result.json",
+        "sha256": "b777f270d1c06f7f985846fdf7ce0592180a4fec20e9f214876cb3f3801465ee"
+      },
+      "result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-96148fe0ab11c8c7f9d6/result-record.json",
+        "sha256": "171e98935cb35ae953b35cc85bdad4fb405011ce7c65e378aa6490a98fccd358"
+      },
+      "status": "failed"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/native_runtime.json",
+          "role": "native_runtime",
+          "sha256": "b3e6e43eab32957f6e97e29c8a92f5a636b11535666faefbb1e4ac709f17efb1"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/outer_iterations.json",
+          "role": "outer_iteration_diagnostics",
+          "sha256": "c7b5e2842719001258c936e8c3d762dfa7e80d0b2cbbc7280bada9d918f8db0c"
+        }
+      ],
+      "case": {
+        "arc_id": "eccentric-300001",
+        "atmosphere": "disturbed",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300001,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "constraint_bias": 0,
+      "constraint_relative_to_apriori": false,
+      "constraint_sigma_native_um_s": 10000.0,
+      "converged": false,
+      "covariance_valid": false,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/iteration-01/estimate.log",
+      "job": "synthetic-calibration-fit-b9e6d5c5a5cd33c7679a",
+      "native_calls": [
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/native-fit/variational.xml"
+          ],
+          "config_sha256": "5acfe33fc30d0be92f86453462cb696b4e3327072ad726fa2f9358a038f91ebe",
+          "elapsed_seconds": 1.153953277040273,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/iteration-01/variational.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 301522944,
+          "pid": 344423,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/native-fit/estimate_map.xml"
+          ],
+          "config_sha256": "53221b746f2d92f8c4ff40a40ac5bc7b54a9f4207c246035a5a9baa6a264b9de",
+          "elapsed_seconds": 9.929648673045449,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/iteration-01/estimate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 915091456,
+          "pid": 344425,
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "native_error": "****** Error ******\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/system/loopPrograms.cpp:176 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/gnss/gnssProcessing.cpp:168 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:147 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStepEstimate.h:124 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:910 (estimateSolution)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/parallel/matrixDistributed.cpp:540 (cholesky): In block row 2640 with parameter index 5280\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/base/matrix.cpp:1377 (cholesky): W'W = A(872 x 872)\u001b[0m\n\u001b[1;31mcannot compute decomposition, error = 431\u001b[0m\n=== Finished GROOPS with error ===",
+      "native_log": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/iteration-01/estimate.log",
+        "sha256": "e87eb803d0b274c39aa3712d76d675a24dfcd4420b07f10e70f44d194caf348a"
+      },
+      "outer_iterations": [],
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 0.01
+      },
+      "request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/request.json",
+        "sha256": "96986ee12492ebf56d5963bc654c2cd4e6aca58c4409fb75a71efe943e8a5bf7"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/result.json",
+        "sha256": "ae78cb536a7b63cd4d6ee9e64adb525876e752ab001bd86176c4ffb99248adad"
+      },
+      "result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-b9e6d5c5a5cd33c7679a/result-record.json",
+        "sha256": "2b451218587f27bc71d9948ee623ca98c52227a68205d705297ed73c6795d958"
+      },
+      "status": "failed"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/native_runtime.json",
+          "role": "native_runtime",
+          "sha256": "c43265d934373dc0c399d205c8719f66b29341839827816fad5c05ac5d98bfec"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/outer_iterations.json",
+          "role": "outer_iteration_diagnostics",
+          "sha256": "93419150175c617209a8fe9b752918bcd34d31b7e892df3df7565b98319efb45"
+        }
+      ],
+      "case": {
+        "arc_id": "eccentric-300000",
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 120,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              39600,
+              46800
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300000,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "constraint_bias": 0,
+      "constraint_relative_to_apriori": false,
+      "constraint_sigma_native_um_s": 10000.0,
+      "converged": false,
+      "covariance_valid": false,
+      "error": "NativeExecutionError: Native estimate exited 1; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/iteration-01/estimate.log",
+      "job": "synthetic-calibration-fit-c341390f5c96a35feb69",
+      "native_calls": [
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/native-fit/variational.xml"
+          ],
+          "config_sha256": "e1c61a4dd718733cb7201f373ffc5b3ed39eb85019115fd70fd4b1e77f7b7596",
+          "elapsed_seconds": 1.1573466360569,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/iteration-01/variational.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 301555712,
+          "pid": 344382,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+            "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/native-fit/estimate_map.xml"
+          ],
+          "config_sha256": "1d89e3d6dbd9ddf710c2cf93c8fc1ca115f5d4159b28e260bfda4bbaeda6459d",
+          "elapsed_seconds": 9.744382889941335,
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/iteration-01/estimate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+          "peak_rss_bytes": 915255296,
+          "pid": 344384,
+          "returncode": 1,
+          "timed_out": false
+        }
+      ],
+      "native_error": "****** Error ******\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/system/loopPrograms.cpp:176 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/config/config.cpp:742 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/programs/gnss/gnssProcessing.cpp:168 (run)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:147 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStepEstimate.h:124 (process)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:910 (estimateSolution)\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/parallel/matrixDistributed.cpp:540 (cholesky): In block row 2640 with parameter index 5280\u001b[0m\n\u001b[1;31min /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-source/source/base/matrix.cpp:1377 (cholesky): W'W = A(872 x 872)\u001b[0m\n\u001b[1;31mcannot compute decomposition, error = 429\u001b[0m\n=== Finished GROOPS with error ===",
+      "native_log": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/iteration-01/estimate.log",
+        "sha256": "7093706fd5da1f8be6392f0875fdc2a90039fb5a371ed89e65dbf276b54e4ffd"
+      },
+      "outer_iterations": [],
+      "parameters": {
+        "frame": "CRF",
+        "interval_seconds": 300.0,
+        "sigma_velocity_m_s": 0.01
+      },
+      "request": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/request.json",
+        "sha256": "72905b6317853d36ea1da6b874a0ac7bb3ff0e2e36a5ffbf37b12aa34936e254"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/result.json",
+        "sha256": "9892c77bb23817ef1dfaa66068c54985c19615e85c86bd29895ca7cc9c4b3e84"
+      },
+      "result_index": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-fit-c341390f5c96a35feb69/result-record.json",
+        "sha256": "2be8449f7e1b123302a34a5ea9a7f619a0e9105f95af5cc712ec260b90975492"
+      },
+      "status": "failed"
+    }
+  ],
+  "same_input_neighbors": [
+    {
+      "failed_job": "synthetic-calibration-fit-094078d1bf76b4bcff8f",
+      "retained_inputs_identical": true,
+      "successful_stronger_priors": [
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-1b09345356d90044ab6c",
+          "result_sha256": "af3b5185ff4b31f99bb352672124a53189201a6deed821ee0df69cad9952e7f4",
+          "sigma_velocity_m_s": 0.0001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-98564e484a4a104da4d9",
+          "result_sha256": "08ad5c146f6b8893caa441964478364d4f54ac9e88945c53a41b95fce6878256",
+          "sigma_velocity_m_s": 1e-05,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-ee535435698155e5aa33",
+          "result_sha256": "87ed789604e3466cad5f24038a5ac63fc1d6f54f7546246ddc0be3a93b0ae0bc",
+          "sigma_velocity_m_s": 0.001,
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "failed_job": "synthetic-calibration-fit-3a74c988f6911c7f656e",
+      "retained_inputs_identical": true,
+      "successful_stronger_priors": [
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-0c56240065b0d7389abd",
+          "result_sha256": "b7e5965ac75de4e4b74a0e6841c6e157e98046d72dc4c4534f765e7a08707fb3",
+          "sigma_velocity_m_s": 0.001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-357741de54100fa19dac",
+          "result_sha256": "a6d71ec9c07941aaea373014ae79cd49ab0794d95f09077faa79ecb83bfde58e",
+          "sigma_velocity_m_s": 0.0001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-bb4d27e08ca7e86e566f",
+          "result_sha256": "b8c17163a17edff01f3094a40a75e72a57073d6b572558896ba4fdd4e111b106",
+          "sigma_velocity_m_s": 1e-05,
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "failed_job": "synthetic-calibration-fit-8fe7bf8d608067e0e2f9",
+      "retained_inputs_identical": true,
+      "successful_stronger_priors": [
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-a82c151134f931912644",
+          "result_sha256": "51a2584f49a26a71a2dafb26490c3b0fda4b813c8b2ae337dc8e1cc65f3a31e4",
+          "sigma_velocity_m_s": 1e-05,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-c552f7f77a1dd88339b9",
+          "result_sha256": "81cb1ee8ae0f3d1fbd0232c505829e3a1471ee00ed15acbb5bc1c2ee10270add",
+          "sigma_velocity_m_s": 0.001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-d8d38be0a8be0d5d85f6",
+          "result_sha256": "55926f870aabb075c33ab698664c0b97cc54d2c2a1a5e8bab5589302395468a8",
+          "sigma_velocity_m_s": 0.0001,
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "failed_job": "synthetic-calibration-fit-96148fe0ab11c8c7f9d6",
+      "retained_inputs_identical": true,
+      "successful_stronger_priors": [
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-54226cd118e2613a495b",
+          "result_sha256": "5098e9c2eeb538588680dcd240586a0ccae4f87ca9da6933f0516b458e8e7ccb",
+          "sigma_velocity_m_s": 1e-05,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-5bbdb5b37453b6b82db0",
+          "result_sha256": "8019b801b1e71070c87cbdd5f1772b7b1a85bc9b30e3733e92d48596ccf50e76",
+          "sigma_velocity_m_s": 0.001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-8a743288a6d25981dad1",
+          "result_sha256": "3f596d2595a21fc41a0524d860d02d6e6dad8ef84f4ee39887d2745650ad1cbd",
+          "sigma_velocity_m_s": 0.0001,
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "failed_job": "synthetic-calibration-fit-b9e6d5c5a5cd33c7679a",
+      "retained_inputs_identical": true,
+      "successful_stronger_priors": [
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-37171954ad460a809572",
+          "result_sha256": "85a630e4892c880bec330fe31b4b91214a94c1bf20c15f5894c08b27f125d12b",
+          "sigma_velocity_m_s": 0.001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-5d774299cc56fa39f546",
+          "result_sha256": "7e9fd4ac7b8a694c33458c541ebf8ae43cce59d4782fbd66175927dab84ff10f",
+          "sigma_velocity_m_s": 1e-05,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-b6620c115e3887f3e9b8",
+          "result_sha256": "898e09a582542922bcf885eeec0c7c720036fb4fb11f84df6a1b2a1163abb9d0",
+          "sigma_velocity_m_s": 0.0001,
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "failed_job": "synthetic-calibration-fit-c341390f5c96a35feb69",
+      "retained_inputs_identical": true,
+      "successful_stronger_priors": [
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-92b6b2e43c9e2f0a76a1",
+          "result_sha256": "82dcf4c57451704909bc8fe7453d0238a129c920c4b984408e4d545224eb2367",
+          "sigma_velocity_m_s": 1e-05,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-9718b5c55d4c8bbf2b0d",
+          "result_sha256": "0dff2700b68a11a8f6f27a2d1aad23d3260e27b8343b33c69c6435b2a525a50b",
+          "sigma_velocity_m_s": 0.001,
+          "status": "complete"
+        },
+        {
+          "converged": true,
+          "covariance_valid": true,
+          "job": "synthetic-calibration-fit-ab19d46db156610cb4f1",
+          "result_sha256": "c18e79c3d4972fb6a28fcb0a1218e131347bc6a1b0f901f3474f9caaf27f549f",
+          "sigma_velocity_m_s": 0.0001,
+          "status": "complete"
+        }
+      ]
+    }
+  ],
+  "schema_version": 3,
+  "scope": "Read-only diagnosis of the first six candidate03 native pulse factorization failures; no retries, tuning, process control, truth, GNV or held-out score values accessed",
+  "source_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+}

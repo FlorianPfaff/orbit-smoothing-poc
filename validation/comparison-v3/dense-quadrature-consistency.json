@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "scope": "Standalone C++ quadrature fixture, not a native flight-force accuracy gate",
+  "fixture": {
+    "continuous_boundaries_seconds": 5,
+    "single_discontinuity_seconds": 53.123,
+    "force": "sin(0.07*t) + exp(0.00003*t) + 2*I(t>53.123)",
+    "polynomial_degree": 7,
+    "parity_duration_seconds": 120,
+    "setup_duration_seconds": 86400
+  },
+  "claims": [
+    "At either fixed force mesh, the same nonpolynomial interpolant integrates consistently on state grids of 5 and 2.5 seconds.",
+    "All replacement quadrature indices refer to genuine auxiliary force evaluations.",
+    "Full-day figures count node and weight construction for this single-event fixture only."
+  ],
+  "limitations": [
+    "Actual flight has different event counts and expensive atmosphere/design evaluations; these timings exclude those computations.",
+    "CPU timings are descriptive on a shared busy machine.",
+    "This check does not certify either force-mesh resolution against the true physical force."
+  ],
+  "parity_comparisons": [
+    {
+      "nonpolynomial_state_mesh_difference_position": 3.63797880709171e-12,
+      "velocity": 5.6843418860808e-14
+    },
+    {
+      "nonpolynomial_state_mesh_difference_position": 1.81898940354586e-12,
+      "velocity": 2.8421709430404e-14
+    }
+  ],
+  "setup_records": [
+    {
+      "end": 120.0,
+      "state_step": 5.0,
+      "force_step": 1.0,
+      "extra_nodes": 200.0,
+      "weight_terms": 200.0,
+      "seconds": 0.006493149
+    },
+    {
+      "end": 120.0,
+      "state_step": 2.5,
+      "force_step": 1.0,
+      "extra_nodes": 200.0,
+      "weight_terms": 392.0,
+      "seconds": 0.007579715
+    },
+    {
+      "end": 120.0,
+      "state_step": 5.0,
+      "force_step": 0.5,
+      "extra_nodes": 269.0,
+      "weight_terms": 269.0,
+      "seconds": 0.012068282
+    },
+    {
+      "end": 120.0,
+      "state_step": 2.5,
+      "force_step": 0.5,
+      "extra_nodes": 269.0,
+      "weight_terms": 438.0,
+      "seconds": 0.012353555
+    },
+    {
+      "end": 86400.0,
+      "state_step": 5.0,
+      "force_step": 1.0,
+      "extra_nodes": 138248.0,
+      "weight_terms": 138248.0,
+      "seconds": 6.576679053
+    },
+    {
+      "end": 86400.0,
+      "state_step": 2.5,
+      "force_step": 1.0,
+      "extra_nodes": 138248.0,
+      "weight_terms": 276488.0,
+      "seconds": 7.692279322
+    },
+    {
+      "end": 86400.0,
+      "state_step": 2.5,
+      "force_step": 0.5,
+      "extra_nodes": 190085.0,
+      "weight_terms": 311046.0,
+      "seconds": 9.21195195
+    }
+  ],
+  "source_hashes": {
+    "groops/extension/eventQuadrature.h": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5",
+    "tests/fixtures/dense_quadrature.cpp": "35df09ba427b7ad551e2d8a63cd454e356f025d36787ca3c84961913b42a0fb5",
+    "tests/test_comparison_dense_quadrature.py": "72f6e69595c1d65b45121cba42caa3ae7edfd2b1072e8c89b27bc54bed118b1a"
+  },
+  "raw_evidence_locator": "raw-artifacts/dense-quadrature-review/published-check.log",
+  "raw_evidence_sha256": "3387010ebbca2696f5e4a11cbef9ad0539dfbe8495e5d6da5cb07feaa88311a1",
+  "reproduce": [
+    "c++ -std=c++17 -O2 -I groops/extension tests/fixtures/dense_quadrature.cpp -o work/dense-quadrature-check",
+    "work/dense-quadrature-check full-day"
+  ],
+  "regression_command": "python -m pytest -q tests/test_comparison_dense_quadrature.py"
+}

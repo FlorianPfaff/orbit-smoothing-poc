@@ -1,0 +1,45 @@
+{
+  "backend_changed_symbols": [
+    "_close_prepared_nominal_reference",
+    "prepare_job"
+  ],
+  "controlled_source_sha256": "c766500ab9d3f151c9657508ec19744707b0d662a5ad95b6735aed21ce6fb533",
+  "density_step_identical": true,
+  "final_source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+  "fit_job_exact_source_sha256": [
+    "c11845f7dbe4e96147950ae33469caac90ddbdc8194a9dee673447bf841849cf",
+    "c11845f7dbe4e96147950ae33469caac90ddbdc8194a9dee673447bf841849cf"
+  ],
+  "fit_job_identical": true,
+  "limitations": [
+    "The controlled replay does not execute final-source prepare_job; the shared prepared artifact hashes are checked before and after fitting.",
+    "The normal-coverage replay executes the final f2 source directly."
+  ],
+  "scope": "Controlled blackout replay uses the identical final fitting algorithm with previously verified immutable preparation; not whole-project equivalence",
+  "source_file_differences": {
+    "scripts/validate_comparison_native.py": {
+      "controlled_sha256": "be06c0d32a3f6831b0a62663ede7ba8e5bef4f26ca7e4bbe51471eedd6956bfb",
+      "final_sha256": "88e1a2a51852aef22a1a1ed336bd0d73c7c61da9c77d179f8582992c989c6f52"
+    },
+    "src/orbit_poc/comparison/backend.py": {
+      "controlled_sha256": "c363b53cf1e2dda07c9d276356a7434855aa832f5114d864744b7a1f117f198a",
+      "final_sha256": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51"
+    }
+  },
+  "unchanged_runtime_dependencies": [
+    "src/orbit_poc/comparison/__init__.py",
+    "src/orbit_poc/comparison/cli.py",
+    "src/orbit_poc/comparison/config.py",
+    "src/orbit_poc/comparison/data.py",
+    "src/orbit_poc/comparison/density.py",
+    "src/orbit_poc/comparison/density_step.py",
+    "src/orbit_poc/comparison/gates.py",
+    "src/orbit_poc/comparison/groops_config.py",
+    "src/orbit_poc/comparison/initialization.py",
+    "src/orbit_poc/comparison/metrics.py",
+    "src/orbit_poc/comparison/protocol.py",
+    "src/orbit_poc/comparison/report.py",
+    "src/orbit_poc/comparison/slr.py",
+    "src/orbit_poc/comparison/synthetic.py"
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "arc": {
+    "duration_seconds": 3600,
+    "end_gps_seconds_since_j2000": 767192418.0,
+    "gps_minus_utc_seconds": 18,
+    "gps_start_offset_seconds": 18,
+    "interval_convention": "[start,end)",
+    "start_gps_seconds_since_j2000": 767188818.0,
+    "time_scale": "UTC",
+    "utc_end": "2024-04-24T01:00:00Z",
+    "utc_start": "2024-04-24T00:00:00Z"
+  },
+  "bundled_covariance_witness": {
+    "file": "utc_small_fit_observation_covariance_arrays.npz",
+    "scope": "Compact matrices and native Cartesian covariance arrays for independently recomputing J P J^T; no raw GNSS observations included.",
+    "sha256": "9349d713ba12c9e47dee00b8a819ce19246aa015078dbd719f3fdf5ac8cf0b73"
+  },
+  "checker_source_sha256_at_recording": "d840c26b1235fbffd3247b6024522f626e84f15898ffa9e6587517daa9bc6c44",
+  "epochs": {
+    "all_gnss_epochs_off_state_grid": true,
+    "all_prediction_covariances_positive_definite": true,
+    "gnss_count": 120,
+    "gnss_gps_seconds_range": [
+      30.00000009778887,
+      3599.9999997904524
+    ],
+    "minimum_distance_to_state_grid_seconds_range": [
+      1.9999998388811946,
+      2.0000004675239325
+    ],
+    "state_count": 721,
+    "state_gps_seconds_range": [
+      17.999999807216227,
+      3618.0000002263114
+    ]
+  },
+  "fit": {
+    "converged": true,
+    "covariance_scope": "marginalized",
+    "covariance_valid": true,
+    "elapsed_seconds": 123.43143942102324,
+    "iteration_history": {
+      "controls": {
+        "maximum_log_density_update": 0.0001,
+        "maximum_orbit_change_m": 3e-05,
+        "maximum_outer_iterations": 12
+      },
+      "converged": true,
+      "iterations": [
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "invalid_prediction_covariance_epochs": [],
+          "iteration": 1,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "68632956cff2fafddd5a3c9c6dffb290712f4df5fd821c0d575a010a286fa051"
+        },
+        {
+          "criteria_met": false,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "invalid_prediction_covariance_epochs": [],
+          "iteration": 2,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 0.00014207001855447198,
+          "preprocessing_audit_sha256": "68632956cff2fafddd5a3c9c6dffb290712f4df5fd821c0d575a010a286fa051"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": false,
+          "invalid_covariance_epochs": [],
+          "invalid_prediction_covariance_epochs": [],
+          "iteration": 3,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 8.921546502013655e-09,
+          "preprocessing_audit_sha256": "68632956cff2fafddd5a3c9c6dffb290712f4df5fd821c0d575a010a286fa051"
+        },
+        {
+          "criteria_met": true,
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "invalid_prediction_covariance_epochs": [],
+          "iteration": 4,
+          "maximum_log_density_update": 0.0,
+          "maximum_orbit_change_m": 8.786079596780802e-09,
+          "preprocessing_audit_sha256": "68632956cff2fafddd5a3c9c6dffb290712f4df5fd821c0d575a010a286fa051"
+        }
+      ],
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "status": "complete"
+    },
+    "peak_rss_bytes": 504696832
+  },
+  "fit_and_probe_binary_hashes_equal": true,
+  "fit_and_probe_native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "independent_covariance_check": {
+    "basis_amplitude_native_units": 10000.0,
+    "basis_orbits": [
+      {
+        "path": "orbit-0000-minus.txt",
+        "sha256": "fafbc72806ec3bc9dab72d14bdde32ec08cc2d084ca4273eb7a43bc85dc40dca"
+      },
+      {
+        "path": "orbit-0000-plus.txt",
+        "sha256": "ed030185544a45ec0f8f8aa939c91237216f1bb93af719aff123958decdef50e"
+      },
+      {
+        "path": "orbit-0001-minus.txt",
+        "sha256": "d55b79c09a5486b98df37d7b21875318640a05877574ef580537fb749fa05b33"
+      },
+      {
+        "path": "orbit-0001-plus.txt",
+        "sha256": "b8123b489f94adb43e0a8d78635d881e65af65dafa644539ad182de45b064d34"
+      },
+      {
+        "path": "orbit-0002-minus.txt",
+        "sha256": "4c1d05ed0590a92601e4c26258fe365a2e7eda0a7deb0cd601218c7f64448e25"
+      },
+      {
+        "path": "orbit-0002-plus.txt",
+        "sha256": "16bb54588a135e0d26d70853f7d10e4c96520bd4552e018f74722169ce1331dc"
+      },
+      {
+        "path": "orbit-0003-minus.txt",
+        "sha256": "2e51c15423a1c8cf80932e1c57bb635f27a68eb542e7b138ab8eadf3f315c9d9"
+      },
+      {
+        "path": "orbit-0003-plus.txt",
+        "sha256": "ccca6f84fad018078dd6dfb7e767a8cd6ad30359b2387d959b4857db0cca1935"
+      },
+      {
+        "path": "orbit-0004-minus.txt",
+        "sha256": "0ab0b22fa5da8f32e9f2d337f4ff50b63d579e69cf7f2f154fbfceeaeda4b6ab"
+      },
+      {
+        "path": "orbit-0004-plus.txt",
+        "sha256": "2c78b4b00eff89ddf6688761dbb37b6ced0dfa676f4e90cecbb46c58da587636"
+      },
+      {
+        "path": "orbit-0005-minus.txt",
+        "sha256": "b1b99dc56cb35bf58bc537a03619bf1ac7fb921bd55890c2f3833f8bd1b44061"
+      },
+      {
+        "path": "orbit-0005-plus.txt",
+        "sha256": "052574df6996dc682b1183245cc3594b6286abc28b4c08022534b1954c52d2f2"
+      },
+      {
+        "path": "orbit-0006-minus.txt",
+        "sha256": "a1ccd7d3d319fe6f74e78d91f77610c55bfa33202b78576264fe08ff5f99961e"
+      },
+      {
+        "path": "orbit-0006-plus.txt",
+        "sha256": "ca6d925f34aa0f154fc75c1ea9744526fb6ca66c744d06f263ee056022651309"
+      },
+      {
+        "path": "orbit-0007-minus.txt",
+        "sha256": "44aed9807a40396f72f3c1d011a5cf78a0765de48b34bf3ebae53b59d52fbdad"
+      },
+      {
+        "path": "orbit-0007-plus.txt",
+        "sha256": "3776b3f383a6d1c0ddc52c7b07156700572fbf8260228c69e37ef04d738c1bb1"
+      },
+      {
+        "path": "orbit-0008-minus.txt",
+        "sha256": "f184e5e3d85d98e0b55f30a5a78173befa20a4abe861e0847f7c0fc805aba4e6"
+      },
+      {
+        "path": "orbit-0008-plus.txt",
+        "sha256": "93a7ae397547841ba6ca3fcea625af9eb294de3ca7c2eb39ab8ebbb7b254b94b"
+      },
+      {
+        "path": "orbit-0009-minus.txt",
+        "sha256": "e532a2dadac6c1d8274384075834e456c0d3ec702e50f5ed5d835df05be82e50"
+      },
+      {
+        "path": "orbit-0009-plus.txt",
+        "sha256": "53905e3a50a322f7b0405037d7168d688a98c1ae84321d98ffcebd6444939030"
+      },
+      {
+        "path": "orbit-0010-minus.txt",
+        "sha256": "8f52e33376a800dce64eeef3f8c168ef5fbc0aa2be32e8c546b114b57bcbee05"
+      },
+      {
+        "path": "orbit-0010-plus.txt",
+        "sha256": "cb82924616c2c70b39818b60201f15554a22179c6167631f43f1ddd53f5dd57a"
+      },
+      {
+        "path": "orbit-0011-minus.txt",
+        "sha256": "d9f1c06987920781ebbcce882a535ada580ca027b8afc5b6b8dc8502d4ee4327"
+      },
+      {
+        "path": "orbit-0011-plus.txt",
+        "sha256": "bec29a24dfd5c96d26ac0b5c183e9fb75e7219078febb5d900d266a062c4ef2c"
+      }
+    ],
+    "epochs": 120,
+    "execution": {
+      "blas_openmp_threads": 1,
+      "command": [
+        "{scratch}/basis-check-final/groops",
+        "{scratch}/basis-check-final/basis.xml"
+      ],
+      "config_sha256": "3df22b17d74c7535a91050c9051e1ca1318a30c51f4df95b65f04dabda41172b",
+      "elapsed_seconds": 0.60492512997007,
+      "log": "{scratch}/basis-check-final/basis.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "peak_rss_bytes": 25145344,
+      "pid": 285751,
+      "returncode": 0,
+      "timed_out": false
+    },
+    "inputs": [
+      {
+        "path": "{scratch}/fit/result.json",
+        "sha256": "78cc8e9d8ce11c74831e0f1199454a73b0051d30f9a4df5273cb4c0aae362e1e"
+      },
+      {
+        "path": "{scratch}/fit/request.json",
+        "sha256": "d01b57423e06ca57fe43e9383a35cbdeb7d19f4a23970bf6326ec912bba2d0d7"
+      },
+      {
+        "path": "{scratch}/fit/native-fit/estimate.xml",
+        "sha256": "4729bc5159ba48f80c7222ba0f929c47e4061e678a329e74fee7c319e457370c"
+      },
+      {
+        "path": "{scratch}/fit/native-fit/output/2024-04-24/parameter_covariance.txt",
+        "sha256": "d183017649d470e1b3916e6fdc61ea8633f2fa589425c4ff92d6608fab0ce897"
+      },
+      {
+        "path": "{scratch}/fit/native-fit/output/2024-04-24/state_covariance_observations.txt",
+        "sha256": "b5f42da94bd3ac68ee0e225923c18dc22bdd055aef0956806d1a54c5d736e257"
+      },
+      {
+        "path": "{scratch}/fit/native-fit/data/2024-04-24/gracefo/gracefo1_variational_2024-04-24.dat",
+        "sha256": "2d74c6e703aa81ecd7271c951522955ed933f23c8a3c006b3d16741934418c99"
+      }
+    ],
+    "maximum_normalized_covariance_error": 5.246316917554994e-10,
+    "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+    "normalization": "sqrt(C_ii C_jj) of native Cartesian covariance",
+    "parameters": 12,
+    "passed": true,
+    "scope": "Check small native Cartesian covariance exports using linear basis probes.\n\nA separate native variational evaluator probes every dynamic parameter at the\nnominal GNSS epochs. Python forms J P J^T from the full nuisance-marginalized\nparameter covariance. This checks output epochs, column order and cross terms;\nGTSAM/QR separately validates the native full inverse. It is an engineering\ncheck of the linearized model, not a nonlinear uncertainty-calibration result.",
+    "threshold": 1e-06
+  },
+  "inputs": {
+    "cropped_manifest_sha256": "c4484aeac5b15470d2b0a9a2fe2f2e7500221a9d16e92258070457671dad76b0",
+    "evaluation_inputs_count": 0,
+    "force_model_hash": "acece50f90b6db229f296821beaf2711a30bded2602a971aa2c5dea9457af6a9",
+    "measurement_model_hash": "f1d941e252cb85fdfc2aea2fdaf90555e50a60470a42dc868b1f4f34f0b43142",
+    "production_inputs_modified": false,
+    "raw_data_crop": {
+      "production_inputs_modified": false,
+      "products": [
+        {
+          "cropped_sha256": "e079b43d663404f6d0ba3f9c5be36f3f9f5c6876d6a8b381bf69fd58820d998d",
+          "endpoint_retained": false,
+          "product": "GPS1B",
+          "records": 3261,
+          "source_sha256": "73996097c0e36435907b4988d8285cf43775edd43d320669eeeabe328f37b8ff"
+        },
+        {
+          "cropped_sha256": "4e92c5becd966a40cbc9218249493584367e900ca1a1158deeddd33eedb25120",
+          "endpoint_retained": true,
+          "product": "SCA1B",
+          "records": 3601,
+          "source_sha256": "003c9930f1d603f796bd00824c6b1285803efd39ad61560ff65eda2007ef6a64"
+        },
+        {
+          "cropped_sha256": "e8a9936e845bb93c76e5f9a334f906dba640cfc363187e02874d6e8cc910b6b6",
+          "endpoint_retained": false,
+          "product": "THR1B",
+          "records": 0,
+          "source_sha256": "c3754328fb19bd04689949db8d3fe424d89c3781be6c9355864685bf870fd6fb"
+        },
+        {
+          "cropped_sha256": "8cb34224ef95643d890360c53675a93bdefd26fbcb58a902175dfd8fc7cdcff3",
+          "endpoint_retained": false,
+          "product": "MAS1B",
+          "records": 1,
+          "source_sha256": "68baff8707f953511bd758828ff24616ba67178d2fa354fe567bde8fe921bf62"
+        }
+      ],
+      "selection_arc": {
+        "duration_seconds": 3600,
+        "end_gps_seconds_since_j2000": 767192418.0,
+        "gps_minus_utc_seconds": 18,
+        "gps_start_offset_seconds": 18,
+        "interval_convention": "[start,end)",
+        "start_gps_seconds_since_j2000": 767188818.0,
+        "time_scale": "UTC",
+        "utc_end": "2024-04-24T01:00:00Z",
+        "utc_start": "2024-04-24T00:00:00Z"
+      },
+      "source_arc": {
+        "duration_seconds": 86400,
+        "end_gps_seconds_since_j2000": 767275218.0,
+        "gps_minus_utc_seconds": 18,
+        "gps_start_offset_seconds": 18,
+        "interval_convention": "[start,end)",
+        "start_gps_seconds_since_j2000": 767188818.0,
+        "time_scale": "UTC",
+        "utc_end": "2024-04-25T00:00:00Z",
+        "utc_start": "2024-04-24T00:00:00Z"
+      },
+      "source_manifest_sha256": "8693deea918b3222cc4fbcaf0579a8ab4e2297384202e718bd5a52830554ecb0"
+    },
+    "reference_inputs_used": false,
+    "request_sha256": "d01b57423e06ca57fe43e9383a35cbdeb7d19f4a23970bf6326ec912bba2d0d7",
+    "result_sha256": "78cc8e9d8ce11c74831e0f1199454a73b0051d30f9a4df5273cb4c0aae362e1e",
+    "source_hash": "d452889da7045ccfe9eacda97d3f96890b4d247c4770e3d071b67042303b958e"
+  },
+  "limitations": [
+    "The basis evaluator shares native design interpolation semantics with the estimator; this validates epochs, column ordering, and cross terms. QR/GTSAM tests separately validate the full inverse.",
+    "The one-hour raw-data crops were made for this engineering diagnostic only; no production date or raw provider file was altered.",
+    "This run uses the then-current shared thermal setting of1s and is not the later final flight force-refinement acceptance run."
+  ],
+  "method": "groops_pulses",
+  "parameters": {
+    "interval_seconds": 1200.0,
+    "sigma_velocity_m_s": 0.0001
+  },
+  "passed": true,
+  "preserved_scratch": "{scratch}",
+  "runner_sha256": "4fe26befa9eafb09d33074fdc162e34930108c29eb634c6305b3df2c30ddf57d",
+  "scope": "One-hour engineering validation of GNSS-epoch covariance export, with real April24 retained observations; not an orbit accuracy or uncertainty-calibration result. Full campaign numerical gates remain separate.",
+  "status": "passed"
+}

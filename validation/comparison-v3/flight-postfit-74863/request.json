@@ -1,0 +1,55 @@
+{
+  "backend": {
+    "auxiliary_dir": "{runtime_root}/inputs/auxiliary",
+    "cache_dir": "{runtime_root}/inputs/cache",
+    "command_timeout_seconds": 7200.0,
+    "example_directory": "{runtime_root}/inputs/example",
+    "groops_executable": "{runtime_root}/native/bin/groops-74863d5a16dbcb1f",
+    "retain_native_diagnostics": true
+  },
+  "case": {
+    "coverage": "normal",
+    "date": "2024-04-24",
+    "duration_hours": 24.0,
+    "mask": {
+      "cadence_seconds": 30,
+      "intervals_seconds": [],
+      "time_scale": "UTC"
+    }
+  },
+  "evaluation_inputs": [
+    {
+      "archive_member": "GNV1B_2024-04-24_C_04.txt",
+      "bytes": 22935194,
+      "mission": "GRACE-FO-1",
+      "path": "{engineering_root}/normal/preparation/inputs/observations/raw_gps_days/2024-04-24/evaluation/GNV1B_2024-04-24_C_04.txt",
+      "product": "GNV1B",
+      "role": "reference_orbit",
+      "sha256": "705be482f40df6426e9c8b4bb7932a34e2145535d851aeec26df8279056fb1bd"
+    },
+    {
+      "archive_member": "GNV1B_2024-04-25_C_04.txt",
+      "bytes": 22931871,
+      "mission": "GRACE-FO-1",
+      "path": "{engineering_root}/normal/preparation/inputs/observations/raw_gps_days/2024-04-25/evaluation/GNV1B_2024-04-25_C_04.txt",
+      "product": "GNV1B",
+      "role": "reference_orbit",
+      "sha256": "f22efb398f8723bee2c75966f8f0cef5269250f9796e0e44cdf5220f76eb0e64"
+    },
+    {
+      "bytes": 23310,
+      "path": "{engineering_root}/normal/preparation/inputs/observations/evaluation/gracefo1_20240424.np2",
+      "role": "slr_validation",
+      "sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+      "source_url": "https://edc.dgfi.tum.de/pub/slr/data/npt_crd_v2/gracefo1/2024/gracefo1_20240424.np2"
+    }
+  ],
+  "expected_native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "frozen_evaluation": false,
+  "kind": "evaluate",
+  "method": "groops_pulses",
+  "scope": "April24 development post-fit codepath smoke only; no May data or production accuracy claim",
+  "source_hash": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e",
+  "split": "engineering",
+  "stage": "flight"
+}

@@ -111,6 +111,27 @@ def run(input_path: Path, output_path: Path):
     if stress:
         acc["Sun"] = [propagation_setup.acceleration.point_mass_gravity(), propagation_setup.acceleration.radiation_pressure()]
         acc["Moon"] = [propagation_setup.acceleration.point_mass_gravity()]
+    extra = cfg.get("extra_acceleration")
+    if extra is not None:
+        required = {"radial_amplitude_m_s2", "normal_amplitude_m_s2", "radial_period_seconds",
+                    "normal_period_seconds", "radial_phase", "normal_phase", "seed"}
+        if not isinstance(extra, dict) or set(extra) != required:
+            raise ValueError("extra_acceleration must explicitly specify two RTN sinusoids and seed")
+        for key in required - {"seed"}:
+            if not np.isfinite(extra[key]):
+                raise ValueError("extra_acceleration parameters must be finite")
+        if min(extra["radial_period_seconds"], extra["normal_period_seconds"]) <= 0:
+            raise ValueError("extra_acceleration periods must be positive")
+        def additional_acceleration(epoch_seconds):
+            state = np.asarray(bodies.get("Satellite").state)
+            radial = state[:3] / np.linalg.norm(state[:3])
+            normal = np.cross(state[:3], state[3:])
+            normal /= np.linalg.norm(normal)
+            seconds = epoch_seconds - t0
+            ar = extra["radial_amplitude_m_s2"] * np.sin(2*np.pi*seconds/extra["radial_period_seconds"] + extra["radial_phase"])
+            an = extra["normal_amplitude_m_s2"] * np.sin(2*np.pi*seconds/extra["normal_period_seconds"] + extra["normal_phase"])
+            return ar * radial + an * normal
+        acc["Satellite"] = [propagation_setup.acceleration.custom(additional_acceleration)]
     accelerations = propagation_setup.create_acceleration_models(bodies, {"Satellite": acc}, ["Satellite"], ["Earth"])
     # A fixed 10s RKF78 grid nests inside the 60s observation grid. An override
     # permits convergence checks without interpolating the state history.
@@ -152,6 +173,7 @@ def run(input_path: Path, output_path: Path):
                 "density_correction_reference": "5e-13*exp(-(geocentric_altitude_m-500000)/60000)",
                 "gravity_model": "Tudat default Earth gravity truncated at degree/order4" if stress else "controlled exact J2",
                 "stress_flags": {"higher_gravity": stress, "sun_moon": stress, "srp": stress, "nrlmsise00": stress},
+                **({"extra_acceleration": extra} if extra is not None else {}),
                 **weather_metadata}
     reference_density = 5e-13 * np.exp(-(np.linalg.norm(states[:, :3], axis=1) - 6378137. - 500e3) / 60000.)
     np.savez_compressed(output_path, times=times, states=states, density=density,

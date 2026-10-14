@@ -1,0 +1,49 @@
+{
+  "acceptance_frozen": false,
+  "approved_replacement": {
+    "new": "        audit = result.get(\"preprocessing_audit_sha256\")\n        legacy_audit = result.get(\"metadata\", {}).get(\"preprocessing_audit_sha256\")\n        if \"preprocessing_audit_sha256\" not in result:\n            audit = legacy_audit\n        elif legacy_audit is not None and legacy_audit != audit:\n            raise BackendBlocked(\"Conflicting top-level and metadata preprocessing audits\")\n",
+    "old": "        audit = result.get(\"metadata\", {}).get(\"preprocessing_audit_sha256\")\n",
+    "path": "src/orbit_poc/comparison/protocol.py"
+  },
+  "audit_script_sha256": "03e0ab09cbf0ad766e7fca3d25787fcd146d07e9a43f595f698f4e346ee2a646",
+  "controlled_source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+  "final_source_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e",
+  "fit_job_identical": true,
+  "full_suite_requirement": "Fresh automated-tests-3b434b8c evidence must separately pass before acceptance; this source audit does not stand in for that suite.",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "native_source_identical": true,
+  "passed": true,
+  "recorded_at_utc": "2026-10-14T01:14:46.266637+00:00",
+  "review_basis": [
+    "The backend already emits the audit at top level; the protocol now reads this documented result field.",
+    "Legacy metadata is consulted only when the top-level key is absent; conflicting non-null legacy values explicitly block.",
+    "The unchanged SHA-format and cross-method/candidate equality checks still reject missing, malformed or unequal audits.",
+    "The exact approved lookup block is the sole byte difference in the complete runtime source file inventory.",
+    "The native/backend numerical engineering evidence retains its original f2/c8/c766 source identities; only this post-fit protocol reader differs."
+  ],
+  "review_helper_sha256": "df49e53763ef04f3772f2eea3d7945369b93c5f2099e678211101cc01aa4e0d6",
+  "runtime_files_verified": 89,
+  "schema_version": 3,
+  "scientific_comparison_complete": false,
+  "scope": "Only protocol._fit preprocessing-audit lookup changes; native, backend fitting, model, numerical settings, preparation, scoring and evaluation bytes are unchanged",
+  "source_file_differences": {
+    "src/orbit_poc/comparison/protocol.py": {
+      "controlled_sha256": "9417f81184032df7a2a1cc34090e4a80cb9f825c9349040982ff2b6cc3c81e96",
+      "final_sha256": "b4ed6109d295a45b98596abf756bc74b52ebcef9397ce7872275f2061c58b5b5"
+    }
+  },
+  "source_manifests": {
+    "after": {
+      "file": "protocol-reader-source-equivalence-f2-3b434b8c-after.json",
+      "sha256": "341f0fa3e6dddfccecdf69512eebe160091f81f05eeb878d74a6e30298904363",
+      "source_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+    },
+    "before": {
+      "file": "protocol-reader-source-equivalence-f2-3b434b8c-before.json",
+      "sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9",
+      "source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd"
+    }
+  },
+  "unchanged_backend_sha256": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51",
+  "unchanged_native_files_verified": 35
+}

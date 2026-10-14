@@ -1,0 +1,32 @@
+{
+  "approximation": "independent quaternion interpolation at transmit time; native geometry uses reflection time",
+  "binary_sha256": "8b985719950b13af13e6a923a38997917d1b71efeb6bb1225bf800cb8e5760f1",
+  "checks": [
+    {
+      "axis_srf": "x",
+      "max_abs_derivative_difference": 2.057325018589573e-05,
+      "passed": true,
+      "rms_derivative_difference": 5.136660579013122e-06
+    },
+    {
+      "axis_srf": "y",
+      "max_abs_derivative_difference": 1.321482907945537e-05,
+      "passed": true,
+      "rms_derivative_difference": 6.141812708744376e-06
+    },
+    {
+      "axis_srf": "z",
+      "max_abs_derivative_difference": 2.570546558677833e-05,
+      "passed": true,
+      "rms_derivative_difference": 1.1602957508101344e-05
+    }
+  ],
+  "derivative_definition": "d(observed-minus-modeled)/d(SRF reflector offset) = -J_position * R_SRF_to_CRF",
+  "normal_points": 80,
+  "passed": true,
+  "purpose": "native sign/frame validation only; bootstrap trajectory, no scientific orbit accuracy claim",
+  "range_bias_sign_check": null,
+  "reflector_perturbation_m": 0.01,
+  "slr_manifest_sha256": "d008faf2b512b7ad147060474b2959a95b3352d8a68bc0887dcd2e2993deb720",
+  "star_camera_sha256": "a00323f455368a9cef664cb84d68bcd588b535811370426ed4d7a265e18f0714"
+}

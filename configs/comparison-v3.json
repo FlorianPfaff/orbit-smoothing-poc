@@ -1,0 +1,190 @@
+{
+  "schema_version": 3,
+  "name": "orbit-comparison-v3",
+  "output_dir": "runs/comparison-v3",
+  "methods": [
+    "groops_pulses",
+    "groops_log_drag_ou"
+  ],
+  "primary_cell": [
+    "leo500",
+    "disturbed",
+    "blackout"
+  ],
+  "synthetic": {
+    "orbits": [
+      "leo300",
+      "leo500",
+      "leo800",
+      "eccentric"
+    ],
+    "atmospheres": [
+      "quiet",
+      "disturbed"
+    ],
+    "coverages": [
+      "normal",
+      "blackout"
+    ],
+    "duration_hours": 24.0,
+    "cadence_seconds": 30.0,
+    "code_sigma_m": 0.3,
+    "phase_sigma_m": 0.003,
+    "epoch": "2024-05-10T00:00:00",
+    "blackout_hours": [
+      11.0,
+      13.0
+    ],
+    "calibration_seeds": [
+      300000,
+      300001,
+      300002,
+      300003,
+      300004,
+      300005
+    ],
+    "evaluation_seeds": [
+      400000,
+      400001,
+      400002,
+      400003,
+      400004,
+      400005,
+      400006,
+      400007,
+      400008,
+      400009,
+      400010,
+      400011,
+      400012,
+      400013,
+      400014,
+      400015,
+      400016,
+      400017,
+      400018,
+      400019,
+      400020,
+      400021,
+      400022,
+      400023,
+      400024,
+      400025,
+      400026,
+      400027,
+      400028,
+      400029,
+      400030,
+      400031,
+      400032,
+      400033,
+      400034,
+      400035,
+      400036,
+      400037,
+      400038,
+      400039,
+      400040,
+      400041,
+      400042,
+      400043,
+      400044,
+      400045,
+      400046,
+      400047,
+      400048,
+      400049
+    ],
+    "truth_model": "tudat_independent_central_j2_exponential_gnss"
+  },
+  "flight": {
+    "spacecraft": "GRACEFO1",
+    "development_dates": [
+      "2024-04-18",
+      "2024-04-19",
+      "2024-04-20",
+      "2024-04-23",
+      "2024-04-24",
+      "2024-04-25"
+    ],
+    "evaluation_dates": [
+      "2024-05-07",
+      "2024-05-08",
+      "2024-05-09",
+      "2024-05-10",
+      "2024-05-11",
+      "2024-05-12"
+    ],
+    "coverages": [
+      "normal",
+      "blackout"
+    ],
+    "blackout_hours": [
+      11.0,
+      13.0
+    ],
+    "ambiguity_policy": "float",
+    "reference_usage": "postfit_only",
+    "bootstrap": "gnss_only_recomputed_after_mask",
+    "force_recipe": "shared_groops_modeled_forces_no_accelerometer"
+  },
+  "pulses": {
+    "intervals_seconds": [
+      300.0,
+      600.0,
+      1200.0,
+      2400.0
+    ],
+    "sigma_velocity_m_s": [
+      1e-05,
+      0.0001,
+      0.001,
+      0.01
+    ],
+    "frame": "CRF"
+  },
+  "density": {
+    "knot_seconds": 60.0,
+    "tau_seconds": [
+      600.0,
+      1800.0,
+      7200.0,
+      21600.0
+    ],
+    "sigma_log_density": [
+      0.03,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "interpolation": "linear_log_density",
+    "initial_prior": "stationary_ou",
+    "empirical_acceleration": false
+  },
+  "tuning": {
+    "boundary_expansion_rounds": 2,
+    "boundary_improvement_nats": 1e-06,
+    "score": "clock_nullspace_code_predictive_nll_per_dimension",
+    "holdout_blocks_hours": [
+      [
+        11.75,
+        12.25
+      ],
+      [
+        11.0,
+        13.0
+      ]
+    ],
+    "minimum_valid_arcs": 6
+  },
+  "backend": {
+    "groops_executable": "groops",
+    "groops_source": "work/v3/groops-source",
+    "groops_commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+    "example_directory": "work/v3/native-example/scenarioLeoReducedDynamicOrbit",
+    "example_sha256": "5a9d10bbab419489e5a62306ab5f1c840963ca66fb0b1b9e70fb648e9629f63b",
+    "auxiliary_dir": "work/comparison-v3/auxiliary",
+    "cache_dir": "work/comparison-v3/cache",
+    "tudat_python": ""
+  }
+}

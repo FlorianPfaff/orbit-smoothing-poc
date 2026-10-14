@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "interpretation": "Historical constant-noise diagnostic with incompatible independent half-cycle injections; not final physical ambiguity acceptance.",
+  "noise_definition_sha256": "e58e04008615bea9e065ab655a13367f51063deffe872f383e6e122a876033b7",
+  "noise_specification": {
+    "angular_dependence": "constant",
+    "code_sigma_m": 0.3,
+    "distribution": "independent Gaussian per signal and observation",
+    "phase_sigma_m": 0.003
+  },
+  "nuisance_recovery": "Requires the separately documented physical-observable recovery check",
+  "production_gate_complete": false,
+  "raw_artifact_root": "raw-artifacts/final-noise-functional",
+  "records": [
+    {
+      "case": "normal",
+      "converged": true,
+      "covariance_scope": "marginalized",
+      "covariance_valid": true,
+      "elapsed_seconds": 13.634737686021253,
+      "error": null,
+      "evaluation_status": "complete",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "2ce35e77735dfbc5c74fb6d39088aa7478a983300bd4922653c74cc9123ef734",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "method": "groops_pulses",
+      "native_binary_sha256": "dc7cb208bb9853130a4016f97cb6b6a931d2ea846d34f9a9f125b31fbc12690b",
+      "peak_rss_bytes": 301191168,
+      "position_rmse_m": 0.06190442468617039,
+      "status": "complete"
+    },
+    {
+      "case": "normal",
+      "converged": true,
+      "covariance_scope": "marginalized",
+      "covariance_valid": true,
+      "elapsed_seconds": 23.93480610800907,
+      "error": null,
+      "evaluation_status": "complete",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "2ce35e77735dfbc5c74fb6d39088aa7478a983300bd4922653c74cc9123ef734",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 6,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "method": "groops_log_drag_ou",
+      "native_binary_sha256": "dc7cb208bb9853130a4016f97cb6b6a931d2ea846d34f9a9f125b31fbc12690b",
+      "peak_rss_bytes": 301174784,
+      "position_rmse_m": 0.06134454229571805,
+      "status": "complete"
+    },
+    {
+      "calibration_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 1.2858610853250787
+        },
+        "dimensions": 216,
+        "invalid_epoch_indices": [],
+        "mean_nll": 1.2858610853250787,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 216,
+        "uninformative_epochs": 0,
+        "valid": true
+      },
+      "case": "masked",
+      "converged": true,
+      "covariance_scope": "marginalized",
+      "covariance_valid": true,
+      "elapsed_seconds": 14.960688782040961,
+      "error": null,
+      "evaluation_status": "complete",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "2ce35e77735dfbc5c74fb6d39088aa7478a983300bd4922653c74cc9123ef734",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 4,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "method": "groops_pulses",
+      "native_binary_sha256": "dc7cb208bb9853130a4016f97cb6b6a931d2ea846d34f9a9f125b31fbc12690b",
+      "peak_rss_bytes": 301322240,
+      "status": "complete"
+    },
+    {
+      "calibration_score": {
+        "arc_count": 1,
+        "arc_mean_nll": {
+          "300000": 1.2870104432182052
+        },
+        "dimensions": 216,
+        "invalid_epoch_indices": [],
+        "mean_nll": 1.2870104432182052,
+        "normalization": "NLL per retained dimension; equal epoch weight within each arc; equal arc weight",
+        "retained_dimensions": 216,
+        "uninformative_epochs": 0,
+        "valid": true
+      },
+      "case": "masked",
+      "converged": true,
+      "covariance_scope": "marginalized",
+      "covariance_valid": true,
+      "elapsed_seconds": 19.88236541202059,
+      "error": null,
+      "evaluation_status": "complete",
+      "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+      "measurement_model_hash": "2ce35e77735dfbc5c74fb6d39088aa7478a983300bd4922653c74cc9123ef734",
+      "metadata": {
+        "ambiguity_policy": "jointly estimated float ambiguities",
+        "convergence_controls": {
+          "maximum_log_density_update": 0.0001,
+          "maximum_orbit_change_m": 3e-05,
+          "maximum_outer_iterations": 12
+        },
+        "final_covariance_confirmation": true,
+        "nuisance_marginalization": "Full native inverse includes clocks and other retained nuisance parameters; all dynamic columns propagated",
+        "orbit_epochs": 720,
+        "outer_iterations": 6,
+        "pulse_reference": "Every primary full pulse solve uses a force-only six-state initializer; coefficients are not accumulated into unregularized offsets",
+        "reference_inputs_used": false,
+        "states_frame": "CRF",
+        "states_units": "m,m/s"
+      },
+      "method": "groops_log_drag_ou",
+      "native_binary_sha256": "dc7cb208bb9853130a4016f97cb6b6a931d2ea846d34f9a9f125b31fbc12690b",
+      "peak_rss_bytes": 301223936,
+      "status": "complete"
+    }
+  ],
+  "reproduction": "../../docs/comparison-native-validation.md",
+  "reproduction_command": "PYTHONPATH=src python scripts/validate_comparison_native.py fits --help",
+  "scope": "One-hour 500 km quiet synthetic check with normal coverage and a ten-minute diagnostic holdout. The native pipeline executes. This is not calibration, statistical coverage validation, or the 50-seed production comparison.",
+  "source_hash": "5b332876c0ad82c85985bb6ca6c0fd96a822edc9fd42d36e9656e99b720d0c29"
+}

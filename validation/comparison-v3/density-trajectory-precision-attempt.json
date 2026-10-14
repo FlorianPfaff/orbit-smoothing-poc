@@ -1,0 +1,37 @@
+{
+  "status": "inconclusive",
+  "scope": "April 24 development, full 24-hour flight forces, nominal nonlinear reference closure before density finite differences",
+  "native_binary_sha256": "1fe255f20feb580354db69ac538943cdf28171fc9436e85c50a8820f023e4adf",
+  "requested_position_closure_m": 2e-07,
+  "requested_velocity_closure_m_s": 2e-10,
+  "reason": "Requested 0.2-micrometre closure was below the observed roughly 1-micrometre numerical floor. This diagnostic attempt was stopped; no density derivative conclusion was produced.",
+  "iterations": [
+    {
+      "closed": false,
+      "iteration": 1,
+      "maximum_position_change_m": null,
+      "maximum_velocity_change_m_s": null
+    },
+    {
+      "closed": false,
+      "iteration": 2,
+      "maximum_position_change_m": 1.8797337810555553e-05,
+      "maximum_velocity_change_m_s": 2.172723601796239e-08
+    },
+    {
+      "closed": false,
+      "iteration": 3,
+      "maximum_position_change_m": 1.045521695320543e-06,
+      "maximum_velocity_change_m_s": 1.1643855425620374e-09
+    },
+    {
+      "closed": false,
+      "iteration": 4,
+      "maximum_position_change_m": 1.1066856621446453e-06,
+      "maximum_velocity_change_m_s": 1.2338166373789865e-09
+    }
+  ],
+  "raw_evidence_locator": "raw-artifacts/density-trajectory-fd-events/inconclusive_precision.json",
+  "raw_evidence_sha256": "ccfa7d89b70e2d3b4e8d4374212b93c571f36144e2f29947904720159aabe7ca",
+  "followup": "Use an explicit 2-micrometre / 3-nanometres-per-second diagnostic closure tolerance, step-halving and closure-noise reporting on the final corrected binary. Production estimator and acceptance thresholds are unchanged."
+}

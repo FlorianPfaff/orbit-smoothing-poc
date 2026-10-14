@@ -1,0 +1,68 @@
+{
+  "finished_at": "2026-10-14T01:00:12.898952+00:00",
+  "interpretation": "Execution completeness only; scientific validity and unavailable SLR are reported separately",
+  "stages": [
+    {
+      "calibration_input_preparation": {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/calibration-input-preparation-synthetic.json",
+        "prepared_cases": 48,
+        "workers": 15
+      },
+      "calibration_preparation_resources": {
+        "available_after_estimated_worker_budget_bytes": 10618650624,
+        "available_bytes": 66990096384,
+        "chosen_workers": 15,
+        "estimated_worker_budget_bytes": 56371445760,
+        "observed_at": "2026-10-14T00:55:15.580354+00:00",
+        "planning_budget_per_worker_bytes": 3758096384,
+        "policy": "Cap each launch by available memory, reserving 8 GiB and budgeting 3.5 GiB per worker; this estimate is not a hard RSS limit",
+        "requested_workers": 24,
+        "reserve_bytes": 8589934592,
+        "total_bytes": 134508224512
+      },
+      "commands": [
+        {
+          "argv": [
+            "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+            "-m",
+            "orbit_poc.cli",
+            "comparison",
+            "calibrate",
+            "--config",
+            "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/production-config-02.json",
+            "--stage",
+            "synthetic",
+            "--workers",
+            "15",
+            "--budget-hours",
+            "168"
+          ],
+          "finished_at": "2026-10-14T01:00:12.897084+00:00",
+          "launch_resources": {
+            "available_after_estimated_worker_budget_bytes": 10394542080,
+            "available_bytes": 66765987840,
+            "chosen_workers": 15,
+            "estimated_worker_budget_bytes": 56371445760,
+            "observed_at": "2026-10-14T00:55:22.054788+00:00",
+            "planning_budget_per_worker_bytes": 3758096384,
+            "policy": "Cap each launch by available memory, reserving 8 GiB and budgeting 3.5 GiB per worker; this estimate is not a hard RSS limit",
+            "requested_workers": 24,
+            "reserve_bytes": 8589934592,
+            "total_bytes": 134508224512
+          },
+          "log": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/calibrate-synthetic.log",
+          "returncode": 1,
+          "started_at": "2026-10-14T00:55:22.054802+00:00"
+        }
+      ],
+      "error": "RuntimeError: calibrate-synthetic failed; see /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-02/calibrate-synthetic.log",
+      "finished_at": "2026-10-14T01:00:12.897444+00:00",
+      "protocol_hash": "5c818bbe0defd317714f33b10fb79e193da61e6a307aca308fa2f0a58869b60a",
+      "requested_workers": 24,
+      "stage": "synthetic",
+      "started_at": "2026-10-14T00:55:15.580288+00:00",
+      "status": "failed"
+    }
+  ],
+  "status": "failed"
+}

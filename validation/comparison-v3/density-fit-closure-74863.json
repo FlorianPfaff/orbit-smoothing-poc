@@ -1,0 +1,23 @@
+{
+  "computation": "For each exact matching epoch, subtract retained MAP Cartesian states from independently closed nominal states; take maximum Euclidean position/velocity norms.",
+  "inputs": [
+    {
+      "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/normal/groops_log_drag_ou/fit.npz",
+      "role": "fitted_states",
+      "sha256": "95a56c999ef7c57b54d9e5d4391f1e7844c2011d0167f51ed85c6e1fd8427e01"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/nominal/states.npz",
+      "role": "independently_closed_states",
+      "sha256": "e0a2ce91df177558f43aa81b5c440bed187bac893db6d72397af41c5e3e213c3"
+    }
+  ],
+  "maximum_position_difference_m": 1.0232794213425044e-07,
+  "maximum_velocity_difference_m_s": 1.0837999442791282e-10,
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "passed": true,
+  "same_epochs": true,
+  "scope": "Converged normal UTC density fit versus independently closed full-force trajectory at its fitted physical initial state and posterior density; engineering consistency only",
+  "state_epochs": 17281,
+  "status": "complete"
+}

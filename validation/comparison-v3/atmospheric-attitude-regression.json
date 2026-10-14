@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "Actual native canonical atmospheric attitude interpolation; synthetic smooth physical rotations with quaternion sign changes and off-grid queries",
+  "native_binary_sha256": "2e2ab009ede3950dc676ef36f5fed99e780295cabfdb37351268bea333f20479",
+  "tests": 1,
+  "checks": {
+    "matches_upstream_InstrumentResample_matrix_absolute_tolerance": 2e-14,
+    "rotation_orthonormality_absolute_tolerance": 2e-14,
+    "rotation_determinant_absolute_tolerance": 2e-14
+  },
+  "correction": "The helper reuses StarCameraArc.matrix() sign continuity and StarCameraEpoch.setData() quaternion normalization. Force and density-design auxiliary evaluations call this same helper.",
+  "source_hashes": {
+    "groops/extension/atmosphereExtraSamples.h": "eb30fb1086f6b2e98347303875ea0f0bc41564138d5e488e9173447279ff7718",
+    "groops/extension/orbitPocForceDesign.cpp": "39d74b8c2b629c92883e1fdcee74a5ba3fc2c45bb125ce8b4e788028ad4f7fcc",
+    "tests/test_comparison_attitude.py": "96755db2bc8b17e5039afb172dbc83e7ea6ddcd2f52cb2abce07df1b4e41b5fd"
+  },
+  "raw_evidence_locator": "raw-artifacts/atmosphere-attitude-diagnosis/corrected-regression.xml",
+  "raw_evidence_sha256": "e8800f5f71ae9491e5d1bbf72e7eb31e34952f3b40aeb33b322f2ab3dc45422b",
+  "reproduce": "ORBIT_POC_GROOPS=/path/to/extended/groops python -m pytest -q tests/test_comparison_attitude.py",
+  "limitation": "This checks the corrected interpolation semantics and rotation geometry, not full-flight force integration accuracy. The state-grid and atmospheric force-mesh refinements remain separate native gates."
+}

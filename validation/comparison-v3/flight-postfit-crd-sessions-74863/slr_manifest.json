@@ -1,0 +1,848 @@
+{
+  "attitude": {
+    "bytes": 829550,
+    "path": "{engineering_root}/normal/preparation/inputs/native-prepared/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat",
+    "role": "attitude",
+    "sha256": "cdf685dd281310097f55d9d9db5cf2ecc68faa1b2f4a10d59576d37626a1a241"
+  },
+  "bias_policy": "Bounded ILRS2025 mean LAGEOS1/2 biases; no fitted SLR bias. Stations without external bias calibration are descriptive only.",
+  "configs": {
+    "convert_slr": "{engineering_root}/normal-pulse-postfit-crd-sessions/convert_slr.xml",
+    "predict_slr": "{engineering_root}/normal-pulse-postfit-crd-sessions/predict_slr.xml"
+  },
+  "corrections": [
+    "CRD UTC-to-GPS event time",
+    "station calibration already applied in CRD",
+    "SLRF2020_CM station positions and eccentricity",
+    "solid Earth/ocean/pole tides",
+    "Mendes-Pavlis with measured meteorology",
+    "native round-trip light time and Shapiro",
+    "measured spacecraft attitude and CSR SRF reflector offset",
+    "GFZ wavelength-dependent angular prism correction"
+  ],
+  "date": "2024-04-24",
+  "fit_to_slr": false,
+  "fitted_orbit": {
+    "bytes": 1520790,
+    "path": "{engineering_root}/normal/groops_pulses/native-fit/output/2024-04-24/gracefo1_orbit_2024-04-24.dat",
+    "role": "fitted_orbit",
+    "sha256": "dcd7689c368dbfacaef2f81c65c391c5c93abac5ef4db7c1a9db0db9009b8664"
+  },
+  "formal_prediction_stations": [
+    "7105"
+  ],
+  "limitations": [
+    "No non-tidal loading supplied; unmodeled displacement contributes to external residuals.",
+    "CSR post-launch reflector z=.2188m differs from prelaunch ILRS/manual .221m by2.2mm; CSR convention fixed before evaluation.",
+    "Dominating-prism approximation has documented sub-millimetre error; no SLR parameter estimation."
+  ],
+  "predictions": "{engineering_root}/normal-pulse-postfit-crd-sessions/slr_predictions.txt",
+  "predictive_covariance": "{engineering_root}/normal-pulse-postfit-crd-sessions/slr_predictive_covariance.txt",
+  "published_bias_stations": {
+    "rangeBias": [
+      "7090",
+      "7105",
+      "7110",
+      "7124",
+      "7237",
+      "7403",
+      "7701"
+    ],
+    "timeBias": []
+  },
+  "quality_control": {
+    "excluded_sessions": [],
+    "raw_normal_points": 85,
+    "retained_normal_points": 85,
+    "selection": "provider flags, correction convention, epoch event and meteorology; no residual cuts",
+    "sessions": [
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T02:24:20",
+        "header_sha256": "4b4a79882d941b7fc5a8d529c96ef4cee64ef37c348af72a7cac1a72acce6e60",
+        "header_start_utc": "2024-04-24T02:23:51",
+        "normal_points": 7,
+        "reasons": [],
+        "session": 0,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7110",
+        "transmit_end_utc": "2024-04-24T02:24:20.200689",
+        "transmit_seconds_from_origin": [
+          "8633.000688100001",
+          "8637.500688000000",
+          "8642.500688700000",
+          "8647.400688399999",
+          "8652.600688299999",
+          "8658.300688200001",
+          "8660.200688800000"
+        ],
+        "transmit_start_utc": "2024-04-24T02:23:53.000688",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T02:26:11",
+        "header_sha256": "94ed6f04769a39a5a4323d686ede1ac59ccea1f793246b9b939a20c362336328",
+        "header_start_utc": "2024-04-24T02:25:37",
+        "normal_points": 8,
+        "reasons": [],
+        "session": 1,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7110",
+        "transmit_end_utc": "2024-04-24T02:26:10.600687",
+        "transmit_seconds_from_origin": [
+          "8738.500687600001",
+          "8742.300686400000",
+          "8747.600686899999",
+          "8752.600687100001",
+          "8757.300687400000",
+          "8762.700687600000",
+          "8767.500686699999",
+          "8770.600687100001"
+        ],
+        "transmit_start_utc": "2024-04-24T02:25:38.500688",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:14:53",
+        "header_sha256": "62e74b24c24aad071bece4774e358c4b10a20db3a4ac3859968e3ad45ba7a4a7",
+        "header_start_utc": "2024-04-24T10:14:25",
+        "normal_points": 5,
+        "reasons": [],
+        "session": 2,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7237",
+        "transmit_end_utc": "2024-04-24T10:14:47.369001",
+        "transmit_seconds_from_origin": [
+          "36867.308000869998",
+          "36872.221500860003",
+          "36877.434500859999",
+          "36882.208500870001",
+          "36887.369000860002"
+        ],
+        "transmit_start_utc": "2024-04-24T10:14:27.308001",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:31:08",
+        "header_sha256": "15be7478aeabf50552a4eab543bcaf5a2f4cba40dacc95458dd305e4384740cb",
+        "header_start_utc": "2024-04-24T10:30:42",
+        "normal_points": 6,
+        "reasons": [],
+        "session": 3,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7090",
+        "transmit_end_utc": "2024-04-24T10:31:06.500602",
+        "transmit_seconds_from_origin": [
+          "37844.200598900003",
+          "37846.300600100003",
+          "37851.600599799996",
+          "37858.500599200001",
+          "37862.600598600002",
+          "37866.500602400003"
+        ],
+        "transmit_start_utc": "2024-04-24T10:30:44.200599",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:32:05",
+        "header_sha256": "1d294663f5cdd395509bfba1257e99f6a43d9959e788c5f74ccb28ad81b75b3b",
+        "header_start_utc": "2024-04-24T10:31:55",
+        "normal_points": 3,
+        "reasons": [],
+        "session": 4,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7090",
+        "transmit_end_utc": "2024-04-24T10:32:05.600598",
+        "transmit_seconds_from_origin": [
+          "37917.300618399997",
+          "37922.300597000001",
+          "37925.600598400000"
+        ],
+        "transmit_start_utc": "2024-04-24T10:31:57.300618",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T10:36:05",
+        "header_sha256": "0696ca60fcb43c7333cdc15c2706f13714b5afd50ab2087508589e89ef5ba58a",
+        "header_start_utc": "2024-04-24T10:35:49",
+        "normal_points": 5,
+        "reasons": [],
+        "session": 5,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7090",
+        "transmit_end_utc": "2024-04-24T10:36:05.400598",
+        "transmit_seconds_from_origin": [
+          "38149.500598799998",
+          "38154.400595599996",
+          "38156.800594699998",
+          "38161.800598100002",
+          "38165.400598499997"
+        ],
+        "transmit_start_utc": "2024-04-24T10:35:49.500599",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T11:07:31",
+        "header_sha256": "17488cd96b402227f3c3da4a8f974ab120242b09b3097d32352502ad235e6cac",
+        "header_start_utc": "2024-04-24T11:06:54",
+        "normal_points": 9,
+        "reasons": [],
+        "session": 6,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7403",
+        "transmit_end_utc": "2024-04-24T11:07:30.423771",
+        "transmit_seconds_from_origin": [
+          "40014.623685799997",
+          "40017.023798299997",
+          "40022.223702199997",
+          "40027.623154300003",
+          "40032.423599299997",
+          "40037.223443399998",
+          "40042.223811399999",
+          "40045.823724100002",
+          "40050.423770900001"
+        ],
+        "transmit_start_utc": "2024-04-24T11:06:54.623686",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T14:29:31",
+        "header_sha256": "b906e85420d83ede2d8b24699ff67585596c27b33c0ceed5089a2d6d8479f6e8",
+        "header_start_utc": "2024-04-24T14:28:24",
+        "normal_points": 14,
+        "reasons": [],
+        "session": 7,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7110",
+        "transmit_end_utc": "2024-04-24T14:29:30.300698",
+        "transmit_seconds_from_origin": [
+          "52106.100697900001",
+          "52113.200697200002",
+          "52117.400698899997",
+          "52123.700699499997",
+          "52126.100698000002",
+          "52132.400698400001",
+          "52136.800697899998",
+          "52141.600697599999",
+          "52147.600696800000",
+          "52153.400696999997",
+          "52158.000696700001",
+          "52163.200698900000",
+          "52166.900698600002",
+          "52170.300698300001"
+        ],
+        "transmit_start_utc": "2024-04-24T14:28:26.100698",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T15:52:24",
+        "header_sha256": "d2451d876fec99737ccefb3acf4ed7f8ebe59a6a8aaac89b1798b768fddafe05",
+        "header_start_utc": "2024-04-24T15:52:09",
+        "normal_points": 3,
+        "reasons": [],
+        "session": 8,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7124",
+        "transmit_end_utc": "2024-04-24T15:52:22.100479",
+        "transmit_seconds_from_origin": [
+          "57132.900477100004",
+          "57138.000478800001",
+          "57142.100479200002"
+        ],
+        "transmit_start_utc": "2024-04-24T15:52:12.900477",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T19:43:57",
+        "header_sha256": "f3dbfd0c67451a4df5d0d710ca77582aad51d3a56df65f8cf36cf1d9264e77a1",
+        "header_start_utc": "2024-04-24T19:42:43",
+        "normal_points": 8,
+        "reasons": [],
+        "session": 9,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7701",
+        "transmit_end_utc": "2024-04-24T19:43:57.592912",
+        "transmit_seconds_from_origin": [
+          "70963.270411482343",
+          "70972.070411735476",
+          "70978.485411601578",
+          "70981.852911490365",
+          "70987.957911647434",
+          "71027.720411799310",
+          "71032.422911548914",
+          "71037.592911861910"
+        ],
+        "transmit_start_utc": "2024-04-24T19:42:43.270411",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      },
+      {
+        "epoch_convention": "UTC ground transmit: event0 subtracts full round-trip time, event1 half, event2 none",
+        "header_end_utc": "2024-04-24T22:49:30",
+        "header_sha256": "7094c2f9ebd2f3417874627a11a4dadcb3f9fd9c9ce0b31c53e964f5856e701b",
+        "header_start_utc": "2024-04-24T22:48:06",
+        "normal_points": 17,
+        "reasons": [],
+        "session": 10,
+        "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+        "station": "7105",
+        "transmit_end_utc": "2024-04-24T22:49:30.300418",
+        "transmit_seconds_from_origin": [
+          "82089.800417799997",
+          "82097.800417799997",
+          "82102.600418300004",
+          "82107.400417400000",
+          "82112.400417500001",
+          "82117.800417699997",
+          "82122.400417099998",
+          "82127.500417500007",
+          "82132.000417599993",
+          "82136.600417800000",
+          "82142.700417700005",
+          "82147.500417699994",
+          "82152.200417100001",
+          "82156.900417700002",
+          "82162.500417400006",
+          "82167.900417800003",
+          "82170.300417899998"
+        ],
+        "transmit_start_utc": "2024-04-24T22:48:09.800418",
+        "transmit_time_origin_utc": "2024-04-24T00:00:00"
+      }
+    ],
+    "source_sha256": "efa6ba88ade35d5edd71e457bb9fcf7eb8d1c466e5f5a94c9289b23b2a2feb80",
+    "station_metadata_exclusions": [],
+    "stations": [
+      "7090",
+      "7105",
+      "7110",
+      "7124",
+      "7237",
+      "7403",
+      "7701"
+    ]
+  },
+  "reflector_offset_srf_m": [
+    -0.6,
+    -0.3275,
+    0.2188
+  ],
+  "sources": [
+    {
+      "bytes": 54376,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"d468-64909909fa076\"",
+      "last_modified": "Fri, 23 Jan 2026 08:01:30 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/loading/deformationLoveNumbers_CM_Gegout97.txt",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/loading/deformationLoveNumbers_CM_Gegout97.txt",
+      "retrieved_utc": "2026-10-13T14:23:06.239423+00:00",
+      "sha256": "a19cf5f9baf10887022f4a1058a985587e086496ee7c1bc201a947fdcf2ea638",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/loading/deformationLoveNumbers_CM_Gegout97.txt"
+    },
+    {
+      "bytes": 27726,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"6c4e-6490990a21177\"",
+      "last_modified": "Fri, 23 Jan 2026 08:01:30 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/loading/loadLoveNumbers_Gegout97.txt",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/loading/loadLoveNumbers_Gegout97.txt",
+      "retrieved_utc": "2026-10-13T14:23:07.301137+00:00",
+      "sha256": "a358a725ade2e0900f76a9ad39790a488a8d58b063456689bf5a6978c3839735",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/loading/loadLoveNumbers_Gegout97.txt"
+    },
+    {
+      "bytes": 404,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"194-6490993c8f477\"",
+      "last_modified": "Fri, 23 Jan 2026 08:02:23 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/tides/secularPole2018.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/secularPole2018.xml",
+      "retrieved_utc": "2026-10-13T14:23:07.447744+00:00",
+      "sha256": "e071b5892fdf60c8fcf2ec042c569cabfbffe8a51bc56b74549dc9879e72940f",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/secularPole2018.xml"
+    },
+    {
+      "bytes": 2091180,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"1fe8ac-64909914882f1\"",
+      "last_modified": "Fri, 23 Jan 2026 08:01:41 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/tides/oceanPoleTide_desai2004.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/oceanPoleTide_desai2004.dat",
+      "retrieved_utc": "2026-10-13T14:23:09.706810+00:00",
+      "sha256": "d441906e7df6358bf2e4132c383279fab9473789eec996b97fee0f90d24f2568",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/tides/oceanPoleTide_desai2004.dat"
+    },
+    {
+      "bytes": 6917,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"1b05-64f9f2d394bc6\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:17 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7090.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7090.xml",
+      "retrieved_utc": "2026-10-13T14:23:09.981664+00:00",
+      "sha256": "70b94751542e244589296556452f3176068b518dcbd90986632699f58dc63597",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7090.xml"
+    },
+    {
+      "bytes": 686302,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"a78de-64f9f2ce9b4ba\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:12 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7090.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7090.dat",
+      "retrieved_utc": "2026-10-13T14:23:10.384182+00:00",
+      "sha256": "d119ae10f1b870243944ef6a889b0f6807ce50aa79d85a90a11f729e054fbef7",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7090.dat"
+    },
+    {
+      "bytes": 10692,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"29c4-64f9f2d3a74a6\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:17 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7105.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7105.xml",
+      "retrieved_utc": "2026-10-13T14:23:10.600633+00:00",
+      "sha256": "502d60592117186381c716e40f05a300ce0aaa4e346a58bf644f74cf65c307e3",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7105.xml"
+    },
+    {
+      "bytes": 686830,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"a7aee-64f9f2ced1fbb\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:12 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7105.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7105.dat",
+      "retrieved_utc": "2026-10-13T14:23:12.026071+00:00",
+      "sha256": "f3bc901b0af1bcba0b1ad4cfd3a878f4c8b2db5742a876c48a83c4992e3d07fd",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7105.dat"
+    },
+    {
+      "bytes": 5903,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"170f-64f9f2d3b3fc6\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:17 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7110.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7110.xml",
+      "retrieved_utc": "2026-10-13T14:16:18.042435+00:00",
+      "sha256": "57a6efa7b4775eaf3c8c24699ebe0a2c6a905859bf74aa4955016de476ae4a33",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7110.xml"
+    },
+    {
+      "bytes": 686886,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"a7b26-64f9f2cedfa7b\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:12 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7110.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7110.dat",
+      "retrieved_utc": "2026-10-13T14:23:12.430444+00:00",
+      "sha256": "0872a9a22e653246165617630c0b3f5852d00b8964879a41ccabbc1aa4509de2",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7110.dat"
+    },
+    {
+      "bytes": 1525,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"5f5-64f9f2d3dfee6\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:17 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7124.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7124.xml",
+      "retrieved_utc": "2026-10-13T14:23:12.630451+00:00",
+      "sha256": "bf66e475d8239ab9659fe6429b6393d2db661675b6ec510e5b94468dcb44132a",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7124.xml"
+    },
+    {
+      "bytes": 469390,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"7298e-64f9f2cf0e87b\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:12 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7124.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7124.dat",
+      "retrieved_utc": "2026-10-13T14:23:13.000944+00:00",
+      "sha256": "75a7cbe0047ac11108f5eed1cf26e7c47d3b6e8b80f2ee1dbde36e093fd4f6e0",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7124.dat"
+    },
+    {
+      "bytes": 818,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"332-64f9f2d401227\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:17 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7237.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7237.xml",
+      "retrieved_utc": "2026-10-13T14:23:13.238969+00:00",
+      "sha256": "b89293676cdacf87fce2307389e205d72e8e3bbdc9020f8bc6015faafaf1ce42",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7237.xml"
+    },
+    {
+      "bytes": 494590,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"78bfe-64f9f2cf4249c\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:12 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7237.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7237.dat",
+      "retrieved_utc": "2026-10-13T14:23:14.399111+00:00",
+      "sha256": "1d515ea8e247729a9a1895bfad9839ab4ef75e3a9969f96e318fc6089f7ec0f9",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7237.dat"
+    },
+    {
+      "bytes": 2654,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"a5e-64f9f2d468a68\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:18 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7403.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7403.xml",
+      "retrieved_utc": "2026-10-13T14:23:14.635441+00:00",
+      "sha256": "a614a0f18e94d9a6bba5fd4820be381015cf230732a43f8160faf06ad985e0ad",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7403.xml"
+    },
+    {
+      "bytes": 576662,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"8cc96-64f9f2d00693e\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:13 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7403.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7403.dat",
+      "retrieved_utc": "2026-10-13T14:23:14.998906+00:00",
+      "sha256": "008295bb4b3f3c90f46e3463e0afd63386a13e0b951c23d9cd5153ff36d0162c",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7403.dat"
+    },
+    {
+      "bytes": 812,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"32c-64f9f2d4ce368\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:18 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/stationInfo/stationInfo.7701.xml",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7701.xml",
+      "retrieved_utc": "2026-10-13T14:23:15.193880+00:00",
+      "sha256": "c32a14f3e989b2cbf00fee0f28426aba1745335c9a75e7759ee2e641e70b57fe",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/stationInfo/stationInfo.7701.xml"
+    },
+    {
+      "bytes": 124702,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"1e71e-64f9f2d12a920\"",
+      "last_modified": "Fri, 17 Apr 2026 03:02:14 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/stations/position/slrf2020_CM/stationPosition.7701.dat",
+      "resolved_url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7701.dat",
+      "retrieved_utc": "2026-10-13T14:23:15.577876+00:00",
+      "sha256": "b3313cf28642c3cc30bf005e35dbb5e66d4ab5433287429081fe1bfa392e4034",
+      "url": "https://ftp.tugraz.at/pub/ITSG/groops/data/slr/stations/position/slrf2020_CM/stationPosition.7701.dat"
+    },
+    {
+      "bytes": 184248,
+      "checksum_authority": "local_acquisition_record",
+      "path": "{runtime_root}/inputs/auxiliary/slr/documentation/ILRS_Data_Handling_File_20250513.snx",
+      "retrieved_utc": "2026-10-13T17:07:11.246094+00:00",
+      "sha256": "d4f0a69ba9d293e7c544b20dbabcc5b2a02f30924705582bda6e67b5442ba5ab",
+      "url": "https://ilrs.gsfc.nasa.gov/docs/2025/ILRS_Data_Handling_File_20250513.snx"
+    },
+    {
+      "bytes": 642679,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"9ce77-56d08b71f48c0\"",
+      "last_modified": "Fri, 25 May 2018 14:38:03 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/documentation/GFO-LRR-manual.pdf",
+      "resolved_url": "https://ilrs.gsfc.nasa.gov/docs/2015/GFO-MA-GFZ-LR-0001_2.pdf",
+      "retrieved_utc": "2026-10-13T14:23:19.560981+00:00",
+      "sha256": "d7d63ce4bdd60171ed394aebddd59ee6f6dddc75bdb20ca1e01a683bd6027902",
+      "url": "https://ilrs.gsfc.nasa.gov/docs/2015/GFO-MA-GFZ-LR-0001_2.pdf"
+    },
+    {
+      "bytes": 720405,
+      "checksum_authority": "local_acquisition_record",
+      "etag": "\"afe15-58b2736cd7532\"",
+      "last_modified": "Wed, 12 Jun 2019 21:37:02 GMT",
+      "path": "{runtime_root}/inputs/auxiliary/slr/documentation/CSR-RL06-standards.pdf",
+      "resolved_url": "https://isdc-data.gfz.de/grace-fo/DOCUMENTS/Level-2/GRACE-FO_CSR_L2_Processing_Standards_Document_for_RL06.pdf",
+      "retrieved_utc": "2026-10-13T14:23:19.829581+00:00",
+      "sha256": "1f5282d42bd81e1ea51beb67d5b26b478a64fed2d27608411246f5635cc5330d",
+      "url": "https://isdc-data.gfz.de/grace-fo/DOCUMENTS/Level-2/GRACE-FO_CSR_L2_Processing_Standards_Document_for_RL06.pdf"
+    }
+  ],
+  "station_bias_policy": {
+    "7090": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7090 67  501 A 22:212:00000 00:000:00000 R          3.6     0.3             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.3,
+          "target": "67",
+          "value": 3.6
+        },
+        {
+          "code": "E",
+          "record": " 7090 51  501 A 22:324:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7090 52  501 A 22:324:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7105": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7105 51  501 A 20:047:00000 00:000:00000 R         -5.1     0.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.4,
+          "target": "51",
+          "value": -5.1
+        },
+        {
+          "code": "R",
+          "record": " 7105 52  501 A 20:047:00000 00:000:00000 R         -4.3     0.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.4,
+          "target": "52",
+          "value": -4.3
+        },
+        {
+          "code": "R",
+          "record": " 7105 53  501 A 20:047:00000 00:000:00000 R          7.4     0.8             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.8,
+          "target": "53",
+          "value": 7.4
+        },
+        {
+          "code": "R",
+          "record": " 7105 54  501 A 20:047:00000 00:000:00000 R          7.4     0.8             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.8,
+          "target": "54",
+          "value": 7.4
+        },
+        {
+          "code": "R",
+          "record": " 7105 67  501 A 22:212:00000 00:000:00000 R         -9.9     0.5             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 0.5,
+          "target": "67",
+          "value": -9.9
+        }
+      ],
+      "descriptive_only": false,
+      "exclude_station": false,
+      "formal_prediction_eligible": true,
+      "range_bias_m": -0.004699999999999999,
+      "range_bias_sigma_m": 0.0004,
+      "reason": "externally calibrated LAGEOS1/2 mean",
+      "uncertainty_policy": "mean of published standard deviations (conservative perfect correlation); station-common across normal points"
+    },
+    "7110": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7110 51  501 A 20:201:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 52  501 A 20:201:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 53  501 A 22:156:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 54  501 A 22:156:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7110 67  501 A 22:212:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "67",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7124": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7124 51  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 52  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 53  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 54  501 A 18:105:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7124 67  501 A 00:000:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "67",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7237": {
+      "active_records": [
+        {
+          "code": "R",
+          "record": " 7237 67  501 A 24:105:00000 00:000:00000 R          9.5     1.4             mm",
+          "section": "MODEL/RANGE_BIAS",
+          "sigma": 1.4,
+          "target": "67",
+          "value": 9.5
+        },
+        {
+          "code": "E",
+          "record": " 7237 51  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "51",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 52  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "52",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 53  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "53",
+          "value": null
+        },
+        {
+          "code": "E",
+          "record": " 7237 54  501 A 23:085:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "54",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7403": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7403 --  501 A 13:001:00000 00:000:00000 E                                  mm",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "--",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    },
+    "7701": {
+      "active_records": [
+        {
+          "code": "E",
+          "record": " 7701 -- ---- A 21:172:00000 00:000:00000 E                                  mm   NSP",
+          "section": "SOLUTION/DATA_HANDLING",
+          "sigma": null,
+          "target": "--",
+          "value": null
+        }
+      ],
+      "descriptive_only": true,
+      "exclude_station": false,
+      "formal_prediction_eligible": false,
+      "range_bias_m": 0.0,
+      "range_bias_sigma_m": null,
+      "reason": "no complete bounded external bias calibration or ILRS requires bias estimation",
+      "uncertainty_policy": "unknown station bias; no formal predictive score"
+    }
+  },
+  "status": "configured"
+}

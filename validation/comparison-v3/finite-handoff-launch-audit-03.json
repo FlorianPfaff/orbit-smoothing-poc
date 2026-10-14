@@ -1,0 +1,286 @@
+{
+  "campaign_or_runtime_mutated": false,
+  "checks": {
+    "local_locks_held_and_pipeline_fd_inherited": true,
+    "local_no_publication_step_or_bundle": true,
+    "local_pipeline_matches_launch_receipt": true,
+    "local_pipeline_only_wait_step_started": true,
+    "local_source_and_public_archives_match_review": true,
+    "local_worker_is_pipeline_child": true,
+    "local_worker_waiting_for_correct_remote": true,
+    "remote_binding_matches_candidate03": true,
+    "remote_handoff_lock_held": true,
+    "remote_helper_hashes_match_review": true,
+    "remote_no_bundle_or_staging": true,
+    "remote_no_check_or_collect_command_logs": true,
+    "remote_process_matches_launch_receipt": true,
+    "remote_waiting_without_collection": true,
+    "upstream_campaign_live_with_launch_lock": true
+  },
+  "collection_started": false,
+  "issues": [],
+  "launch_receipts": {
+    "handoff-launch-03.json": "d5e12414b25cb49ad8ad2f021b782b5f0eb8e53bce43eca0d99a02d5c4298478",
+    "local-publication-launch-03.json": "1c1336ecf747f2808a1c7f0c9224c0bc767a31253271b262be72d59d46619773"
+  },
+  "local": {
+    "control_files": [
+      "pipeline-status.json",
+      "pipeline.lock",
+      "wait-for-bundle.log",
+      "worker/000001-waiting.json",
+      "worker/000002-waiting.json",
+      "worker/status.json",
+      "worker/worker.lock"
+    ],
+    "helper_hashes": {
+      "completion_handoff_03.py": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+      "publication_worker_03.py": "0792bbf2b35ab4419919e819a733ab8ea801f391eb62b40493353ae9177b40c1",
+      "run_finite_publication_03.py": "0b1921d0f0395b834b138aadb26b009f9ea03b07692ea3b2722c41715d11d55b"
+    },
+    "pipeline_status": {
+      "estimators_launched": false,
+      "phase": "--wait-for-bundle",
+      "pid": 17546,
+      "repo": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc",
+      "scientific_superiority_claim": false,
+      "started_at": "2026-10-14T03:04:10.956307+00:00",
+      "status": "running",
+      "steps": [
+        {
+          "action": "--wait-for-bundle",
+          "argv": [
+            "/usr/bin/python3",
+            "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/publication_worker_03.py",
+            "--wait-for-bundle",
+            "--repo",
+            "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc",
+            "--control",
+            "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/finite-publication-03/worker",
+            "--max-wait-hours",
+            "336"
+          ],
+          "started_at": "2026-10-14T03:04:10.967847+00:00"
+        }
+      ],
+      "verifier_sha256": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+      "worker": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/publication_worker_03.py",
+      "worker_sha256": "0792bbf2b35ab4419919e819a733ab8ea801f391eb62b40493353ae9177b40c1"
+    },
+    "pipeline_status_sha256": "2e2282b442cdaa5e45586778ad8535d72e7173f9fac0dccf634796798b0b92d9",
+    "processes": [
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/run_finite_publication_03.py",
+          "--worker",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/publication_worker_03.py",
+          "--repo",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc",
+          "--control",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/finite-publication-03",
+          "--expected-worker",
+          "0792bbf2b35ab4419919e819a733ab8ea801f391eb62b40493353ae9177b40c1",
+          "--expected-verifier",
+          "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804"
+        ],
+        "cwd": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20",
+        "locks": [
+          {
+            "fd": 3,
+            "kernel_entries": [
+              "lock:\t1: POSIX  ADVISORY  WRITE 17546 00:46:3940649677716688 0 EOF"
+            ],
+            "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/finite-publication-03/pipeline.lock"
+          }
+        ],
+        "parent_pid": 1485,
+        "pid": 17546,
+        "state": "S (sleeping)"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/publication_worker_03.py",
+          "--wait-for-bundle",
+          "--repo",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc",
+          "--control",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/finite-publication-03/worker",
+          "--max-wait-hours",
+          "336"
+        ],
+        "cwd": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20",
+        "locks": [
+          {
+            "fd": 3,
+            "kernel_entries": [
+              "lock:\t1: POSIX  ADVISORY  WRITE 17546 00:46:3940649677716688 0 EOF"
+            ],
+            "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/finite-publication-03/pipeline.lock"
+          },
+          {
+            "fd": 5,
+            "kernel_entries": [
+              "lock:\t1: POSIX  ADVISORY  WRITE 17556 00:46:5910974514745942 0 EOF"
+            ],
+            "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/finite-publication-03/worker/worker.lock"
+          }
+        ],
+        "parent_pid": 17546,
+        "pid": 17556,
+        "state": "S (sleeping)"
+      }
+    ],
+    "public_archive_hashes": {
+      "completion_handoff_03.py": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+      "publication_worker_03.py": "0792bbf2b35ab4419919e819a733ab8ea801f391eb62b40493353ae9177b40c1",
+      "run_finite_publication_03.py": "0b1921d0f0395b834b138aadb26b009f9ea03b07692ea3b2722c41715d11d55b"
+    },
+    "worker_status": {
+      "binding": {
+        "branch": "comparison-groops-v3",
+        "local_repo": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc",
+        "native_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+        "protocol_hash": "502db43a34ac769f29f087be2a0c8d7c8c73afb1769d1339162ff87a26c9ad9c",
+        "remote_bundle": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/v3",
+        "remote_status": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/.v3-handoff-03/status.json",
+        "repository": "https://github.com/FlorianPfaff/orbit-smoothing-poc.git",
+        "source_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+      },
+      "estimators_launched": false,
+      "phase": "remote_handoff",
+      "recorded_at_utc": "2026-10-14T03:04:20.457813+00:00",
+      "remote_phase": "waiting",
+      "remote_sequence": 1,
+      "schema_version": 1,
+      "scientific_superiority_claim": false,
+      "sequence": 2,
+      "status": "waiting",
+      "verifier_sha256": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+      "worker_sha256": "0792bbf2b35ab4419919e819a733ab8ea801f391eb62b40493353ae9177b40c1"
+    },
+    "worker_status_sha256": "9543fe2a15b35b2b52fb8d074203cc13cd1deaeb0dbf95268b60c3e1868f4400"
+  },
+  "local_publication_started": false,
+  "lock_scope_note": "The remote lock is reported as FLOCK. WSL reports local locks as POSIX; inherited pipeline descriptor presence is verified, but parent-death lock survival is not established by this read-only snapshot. Existing durable pipeline status independently refuses automatic relaunch.",
+  "native_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "observed_at_utc": "2026-10-14T03:09:17.237210+00:00",
+  "processes_restarted": false,
+  "protocol_hash": "502db43a34ac769f29f087be2a0c8d7c8c73afb1769d1339162ff87a26c9ad9c",
+  "remote": {
+    "bundle_exists": false,
+    "campaign_terminal_driver_exists": false,
+    "control_files": [
+      "000001-waiting.json",
+      "handoff.lock",
+      "status.json"
+    ],
+    "helper_hashes": {
+      "completion_handoff_03.py": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+      "harvest_v3.py": "8765d404ecffa4f34359e0286ad3c0767676270db69caccfffba32ab01924834",
+      "render_v3_figures.py": "8fe08102f6fbd6d77af5cb184e104d024a2b834cac0b27cc4a51b0684dcc6a10"
+    },
+    "host": "gpuserver6000",
+    "observed_at_utc": "2026-10-14T03:09:21.584912+00:00",
+    "processes": [
+      {
+        "argv": [
+          "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+          "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03/completion_handoff_03.py",
+          "--campaign",
+          "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03",
+          "--project",
+          "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete",
+          "--collector",
+          "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03/harvest_v3.py",
+          "--output",
+          "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/v3",
+          "--poll-seconds",
+          "60",
+          "--max-wait-hours",
+          "336"
+        ],
+        "cwd": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03",
+        "locks": [
+          {
+            "fd": 4,
+            "kernel_entries": [
+              "lock:\t1: FLOCK  ADVISORY  WRITE 361871 08:00:49417538 0 EOF"
+            ],
+            "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/.v3-handoff-03/handoff.lock"
+          }
+        ],
+        "parent_pid": 1,
+        "pid": 361871,
+        "state": "S (sleeping)"
+      },
+      {
+        "argv": [
+          "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+          "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete/scripts/run_comparison_campaign.py",
+          "--config",
+          "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/production-config-03.json",
+          "--synthetic-workers",
+          "24",
+          "--flight-workers",
+          "24"
+        ],
+        "cwd": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete",
+        "locks": [
+          {
+            "fd": 3,
+            "kernel_entries": [
+              "lock:\t1: FLOCK  ADVISORY  WRITE 341251 08:00:284427785 0 EOF"
+            ],
+            "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/campaign-driver-launch.lock"
+          }
+        ],
+        "parent_pid": 1,
+        "pid": 341252,
+        "state": "S (sleeping)"
+      }
+    ],
+    "protocol": {
+      "native_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "protocol_hash": "502db43a34ac769f29f087be2a0c8d7c8c73afb1769d1339162ff87a26c9ad9c",
+      "source_files": 89,
+      "source_hash": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+    },
+    "staging_directories": [],
+    "status": {
+      "binding": {
+        "campaign": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03",
+        "collector": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03/harvest_v3.py",
+        "collector_sha256": "8765d404ecffa4f34359e0286ad3c0767676270db69caccfffba32ab01924834",
+        "native_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+        "output": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/v3",
+        "project": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete",
+        "protocol_hash": "502db43a34ac769f29f087be2a0c8d7c8c73afb1769d1339162ff87a26c9ad9c",
+        "renderer_sha256": "8fe08102f6fbd6d77af5cb184e104d024a2b834cac0b27cc4a51b0684dcc6a10",
+        "source_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+      },
+      "collection_started": false,
+      "estimators_launched": false,
+      "external_publication_performed": false,
+      "helper_sha256": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+      "max_wait_hours": 336.0,
+      "phase": "waiting",
+      "pid": 361871,
+      "poll_seconds": 60.0,
+      "recorded_at_utc": "2026-10-14T03:02:33.655429+00:00",
+      "schema_version": 1,
+      "scientific_superiority_claim": false,
+      "sequence": 1,
+      "status": "waiting"
+    },
+    "status_sha256": "1065d3fa5fdbbce77d3dfadfa7e85a9ef66e2f9302f905e6abadd9b1d682b6da"
+  },
+  "repository_commit": "c10a2368e516fd736a3f1a299939ad2ca9e2b932",
+  "schema_version": 1,
+  "scientific_completion_claim": false,
+  "scientific_outcomes_read": false,
+  "scope": "Read-only launch audit of finite dependency stages; no scientific outcomes or raw observations inspected",
+  "source_hash": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e",
+  "status": "passed"
+}

@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "assembly": "Actual native whitened GNSS and constraint rows before A transpose A; independent GTSAM square-root nuisance elimination and SciPy pivoted QR. Full-reference OU/pulse rows independently checked against analytic priors.",
+  "thresholds": {
+    "normalized_map_discrepancy": 1e-07,
+    "covariance_relative_error": 1e-08
+  },
+  "methods": [
+    {
+      "method": "groops_pulses",
+      "passed": true,
+      "native_binary_sha256": "aef8338046998fe80c363147351c547dd14159845902fe6aba3d0b9c2ffebb0c",
+      "snapshots": [
+        {
+          "rows": 8070,
+          "columns": 331,
+          "native_checks": {
+            "native_map": {
+              "normalized_discrepancy": 1.3547064305698157e-10,
+              "passed": true,
+              "scope": "all dynamic and nuisance parameters"
+            },
+            "native_prior_rows": {
+              "absolute_tolerance": 1e-12,
+              "full_apriori_value_included": true,
+              "maximum_coefficient_error": 0.0,
+              "maximum_target_error": 0.0,
+              "model": "independent full-value CRF pulse rows with native micrometre/second units",
+              "native_sigma_um_s": 100.0,
+              "passed": true,
+              "physical_sigma_velocity_m_s": 9.999999999999999e-05,
+              "pulse_components": 6,
+              "relative_tolerance": 1e-10
+            }
+          },
+          "gtsam_vs_qr_normalized_map_discrepancy": 3.3532888099266146e-13,
+          "gtsam_vs_qr_covariance_relative_error": 1.0873660254121843e-14
+        },
+        {
+          "rows": 8070,
+          "columns": 331,
+          "native_checks": {
+            "native_covariance": {
+              "passed": true,
+              "relative_error": 8.298696733116425e-12,
+              "scope": "dynamic parameter block marginalized over all GNSS nuisance parameters"
+            },
+            "native_prior_rows": {
+              "absolute_tolerance": 1e-12,
+              "full_apriori_value_included": true,
+              "maximum_coefficient_error": 0.0,
+              "maximum_target_error": 0.0,
+              "model": "independent full-value CRF pulse rows with native micrometre/second units",
+              "native_sigma_um_s": 100.0,
+              "passed": true,
+              "physical_sigma_velocity_m_s": 9.999999999999999e-05,
+              "pulse_components": 6,
+              "relative_tolerance": 1e-10
+            }
+          },
+          "gtsam_vs_qr_normalized_map_discrepancy": 1.9938774245355025e-13,
+          "gtsam_vs_qr_covariance_relative_error": 4.239988131358003e-15
+        }
+      ],
+      "raw_gate": "../../../../../work/v3/native-linear-coherent/groops_pulses/gate.json",
+      "raw_checksums": "../../../../../work/v3/native-linear-coherent/groops_pulses/checksums.json"
+    },
+    {
+      "method": "groops_log_drag_ou",
+      "passed": true,
+      "native_binary_sha256": "aef8338046998fe80c363147351c547dd14159845902fe6aba3d0b9c2ffebb0c",
+      "snapshots": [
+        {
+          "rows": 8125,
+          "columns": 386,
+          "native_checks": {
+            "native_map": {
+              "normalized_discrepancy": 3.77105182787284e-11,
+              "passed": true,
+              "scope": "all dynamic and nuisance parameters"
+            },
+            "native_prior_rows": {
+              "absolute_tolerance": 1e-12,
+              "knots": 61,
+              "maximum_coefficient_error": 0.0,
+              "maximum_target_error": 7.129713486264677e-16,
+              "model": "stationary initial OU plus exact transition rows on full reference g + current increment",
+              "passed": true,
+              "reference_log_density_included": true,
+              "relative_tolerance": 1e-10,
+              "sigma_log_density": 0.3,
+              "tau_seconds": 7200.0
+            }
+          },
+          "gtsam_vs_qr_normalized_map_discrepancy": 3.2851218730931395e-13,
+          "gtsam_vs_qr_covariance_relative_error": 4.909687598284851e-15
+        },
+        {
+          "rows": 8125,
+          "columns": 386,
+          "native_checks": {
+            "native_covariance": {
+              "passed": true,
+              "relative_error": 1.0977605116311841e-11,
+              "scope": "dynamic parameter block marginalized over all GNSS nuisance parameters"
+            },
+            "native_prior_rows": {
+              "absolute_tolerance": 1e-12,
+              "knots": 61,
+              "maximum_coefficient_error": 0.0,
+              "maximum_target_error": 8.049116928532385e-16,
+              "model": "stationary initial OU plus exact transition rows on full reference g + current increment",
+              "passed": true,
+              "reference_log_density_included": true,
+              "relative_tolerance": 1e-10,
+              "sigma_log_density": 0.3,
+              "tau_seconds": 7200.0
+            }
+          },
+          "gtsam_vs_qr_normalized_map_discrepancy": 1.2066109273369178e-13,
+          "gtsam_vs_qr_covariance_relative_error": 3.974269607752531e-15
+        }
+      ],
+      "raw_gate": "../../../../../work/v3/native-linear-coherent/groops_log_drag_ou/gate.json",
+      "raw_checksums": "../../../../../work/v3/native-linear-coherent/groops_log_drag_ou/checksums.json"
+    }
+  ]
+}
