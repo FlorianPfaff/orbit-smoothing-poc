@@ -2,6 +2,7 @@
 #ifndef ORBIT_POC_GNSS_RANGE_RESIDUAL_H
 #define ORBIT_POC_GNSS_RANGE_RESIDUAL_H
 #include "base/import.h"
+#include "misc/orbitPoc/twofoldGeometry.h"
 #include <cstdlib>
 #include <string>
 namespace orbitPocQr
@@ -27,25 +28,30 @@ inline Double stableRangeResidual(Double measured,const Vector3d &receiverPositi
                                   Double receiverClock,Double transmitterClock,Double scale,
                                   const Vector3d &receiverRemainder=Vector3d(),const Vector3d &transmitterRemainder=Vector3d())
 {
-  const long double rx=static_cast<long double>(receiverPosition.x())+receiverRemainder.x(),ry=static_cast<long double>(receiverPosition.y())+receiverRemainder.y(),rz=static_cast<long double>(receiverPosition.z())+receiverRemainder.z();
-  const long double tx=static_cast<long double>(transmitterPosition.x())+transmitterRemainder.x(),ty=static_cast<long double>(transmitterPosition.y())+transmitterRemainder.y(),tz=static_cast<long double>(transmitterPosition.z())+transmitterRemainder.z();
-  const long double dx=rx-tx,dy=ry-ty,dz=rz-tz;
+  requireGeometryArithmetic();
+  const TwofoldGeometry rx(receiverPosition.x(),receiverRemainder.x()),ry(receiverPosition.y(),receiverRemainder.y()),rz(receiverPosition.z(),receiverRemainder.z());
+  const TwofoldGeometry tx(transmitterPosition.x(),transmitterRemainder.x()),ty(transmitterPosition.y(),transmitterRemainder.y()),tz(transmitterPosition.z(),transmitterRemainder.z());
+  const auto dx=rx-tx,dy=ry-ty,dz=rz-tz;
   const char *auditMode=std::getenv("ORBIT_POC_NUMERICS_ARITHMETIC_AUDIT_MODE");
   const Bool reverse=auditMode&&std::string(auditMode)=="3";
-  auto squares=[&](long double x,long double y,long double z){return reverse?z*z+y*y+x*x:x*x+y*y+z*z;};
-  const long double range=std::sqrt(squares(dx,dy,dz)),r1=std::sqrt(squares(tx,ty,tz)),r2=std::sqrt(squares(rx,ry,rz));
+  const auto range=geometrySqrt(geometrySquares(dx,dy,dz,reverse));
+  const auto r1=geometrySqrt(geometrySquares(tx,ty,tz,reverse)),r2=geometrySqrt(geometrySquares(rx,ry,rz,reverse));
   const long double c=LIGHT_VELOCITY;
-  const long double dot=reverse?tz*transmitterVelocity.z()+ty*transmitterVelocity.y()+tx*transmitterVelocity.x():tx*transmitterVelocity.x()+ty*transmitterVelocity.y()+tz*transmitterVelocity.z();
-  const long double geometric=range+2.L*DEFAULT_GM/(c*c)*std::log((r1+r2+range)/(r1+r2-range))+2.L*dot/c;
-  const long double clock=c*(static_cast<long double>(receiverClock)-transmitterClock);
-  return static_cast<Double>((static_cast<long double>(measured)-geometric*scale)-clock*scale);
+  const auto dot=reverse?tz*TwofoldGeometry(transmitterVelocity.z())+ty*TwofoldGeometry(transmitterVelocity.y())+tx*TwofoldGeometry(transmitterVelocity.x()):tx*TwofoldGeometry(transmitterVelocity.x())+ty*TwofoldGeometry(transmitterVelocity.y())+tz*TwofoldGeometry(transmitterVelocity.z());
+  // Log rounding is multiplied by millimetres, never by the orbital range.
+  const long double shapiro=2.L*DEFAULT_GM/(c*c)*std::log(((r1+r2+range)/(r1+r2-range)).rounded());
+  const auto geometric=range+TwofoldGeometry(shapiro)+TwofoldGeometry(2.L)*dot/TwofoldGeometry(c);
+  const auto clock=TwofoldGeometry(c)*(TwofoldGeometry(receiverClock)-TwofoldGeometry(transmitterClock));
+  const auto residual=TwofoldGeometry(measured)-geometric*TwofoldGeometry(scale)-clock*TwofoldGeometry(scale);
+  return static_cast<Double>(residual.rounded());
 }
 inline long double preciseDistance(const Vector3d &a,const Vector3d &aLow,const Vector3d &b,const Vector3d &bLow)
 {
-  const long double x=(static_cast<long double>(a.x())-b.x())+(static_cast<long double>(aLow.x())-bLow.x());
-  const long double y=(static_cast<long double>(a.y())-b.y())+(static_cast<long double>(aLow.y())-bLow.y());
-  const long double z=(static_cast<long double>(a.z())-b.z())+(static_cast<long double>(aLow.z())-bLow.z());
-  return std::sqrt(x*x+y*y+z*z);
+  requireGeometryArithmetic();
+  const auto x=TwofoldGeometry(a.x(),aLow.x())-TwofoldGeometry(b.x(),bLow.x());
+  const auto y=TwofoldGeometry(a.y(),aLow.y())-TwofoldGeometry(b.y(),bLow.y());
+  const auto z=TwofoldGeometry(a.z(),aLow.z())-TwofoldGeometry(b.z(),bLow.z());
+  return geometrySqrt(geometrySquares(x,y,z)).rounded();
 }
 }
 #endif

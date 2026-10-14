@@ -155,6 +155,8 @@ Tensor3d Forces::orbitPocForwardGravityGradient(const Time &time,const Vector3d 
     if anchor in text:
         text = replace(text, anchor, '    readConfig(config, "gradientfield",     gradientfield,     orbitPocDerivativeProfile=="legacy_v3" ? Config::MUSTSET : Config::OPTIONAL,')
         path.write_text(text)
+    from native_synthetic_force import apply as apply_synthetic_force_arithmetic
+    apply_synthetic_force_arithmetic(source)
 
 
 if __name__ == "__main__":

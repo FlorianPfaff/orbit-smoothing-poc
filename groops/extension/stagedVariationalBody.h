@@ -215,6 +215,8 @@ if(orbitPocDerivativeProfile!="legacy_v3")
        <<"\",\"coordinates\":\"CRF SI\",\"gravity_source\":\"actual_forward_force\",\"maximum_tangent_relative_residual\":"<<maximumTangentResidual
        <<",\"tangent_integral_accumulation\":\"long_double_local_moments\",\"tangent_accumulator_binary_digits\":"<<std::numeric_limits<long double>::digits
        <<",\"mean_solve_coordinates\":\"residual_then_single_absolute_restore_v1\""
+       <<",\"synthetic_force_arithmetic\":\""<<(synthetic ? "configured_crf_parts_stable_reference_v1" : "unchanged_flight_forward")<<"\""
+       <<",\"reference_GM_m3_s2\":"<<GM
        <<",\"maximum_tangent_iterations\":"<<maximumTangentIterations<<",\"drag_fd_evaluations\":"<<fdEvaluations
        <<",\"drag_fd_maximum_refinements\":"<<fdRefinements<<",\"drag_fd_maximum_relative_difference\":"<<maximumFdDifference
        <<",\"drag_fd_position_derivative_floor_s_minus2\":"<<(synthetic ? 0 : 1e-15)

@@ -20,6 +20,10 @@ def apply(source, *, numerics=False):
     actual = subprocess.check_output(["git", "-C", str(source), "rev-parse", "HEAD"], text=True).strip()
     if actual != COMMIT:
         raise ValueError(f"Expected GROOPS {COMMIT}, found {actual}")
+    if numerics:
+        # Reject incompatible generated trees before mkdir, copies, or any patcher.
+        from positionRemainder import require_install_state
+        require_install_state(source / "source")
     here = Path(__file__).resolve().parent
     entries = [
         ("MiscAccelerations", "classes/miscAccelerations", "miscAccelerations", "logDensity", "MiscAccelerationsLogDensity", "acc"),

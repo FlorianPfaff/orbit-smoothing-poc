@@ -101,6 +101,7 @@ def _continuous_interpolation(source):
 def _stable_measurement_arithmetic(source):
     """Preserve native equations while removing avoidable clock cancellation."""
     shutil.copyfile(Path(__file__).with_name("gnssRangeResidual.h"),source/"misc/orbitPoc/gnssRangeResidual.h")
+    shutil.copyfile(Path(__file__).with_name("twofoldGeometry.h"),source/"misc/orbitPoc/twofoldGeometry.h")
     marker="ORBIT_POC_STABLE_GNSS_CLOCK_RANGE_V31"
     path=source/"gnss/gnssObservation.cpp"
     text=path.read_text()
@@ -126,6 +127,8 @@ def _stable_measurement_arithmetic(source):
 
 def apply(root):
     source = Path(root) / "source"
+    from positionRemainder import require_install_state
+    require_install_state(source)  # reject an old representation before any write
     _continuous_interpolation(source)
     _stable_measurement_arithmetic(source)
     from relativeQueryInterpolation import apply as relative_query_interpolation
