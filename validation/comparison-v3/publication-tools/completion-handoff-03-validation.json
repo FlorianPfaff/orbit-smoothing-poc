@@ -1,0 +1,60 @@
+{
+  "actual_campaign_or_result_read": false,
+  "actual_collection_performed": false,
+  "created_at_utc": "2026-10-14T02:59:06.624701+00:00",
+  "destination": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/v3",
+  "external_publication_performed": false,
+  "files": {
+    "HANDOFF03.txt": "d6b98fc69119d0e859969b45a81becb37612d8b7f37841c774511a41217c0dd2",
+    "completion_handoff_03.py": "f5508c70b9bfb59b870ca0daab454e53a2ccab71108f012f7109eef68a621804",
+    "test_completion_handoff_03.py": "a5532d0917da64a28845efa25f81a3693f7268e621bdda0cec8871a003219c5f"
+  },
+  "helper_launched": false,
+  "limits": [
+    "No real campaign was harvested or interpreted during these tests.",
+    "The bulky raw input inventory is not reread in full; the terminal record states this explicitly.",
+    "The helper never publishes externally. A downstream worker must match the receipt publication hash and canonical bundle hash."
+  ],
+  "reviewed_dependencies": {
+    "harvest_v3.py": "8765d404ecffa4f34359e0286ad3c0767676270db69caccfffba32ab01924834",
+    "render_v3_figures.py": "8fe08102f6fbd6d77af5cb184e104d024a2b834cac0b27cc4a51b0684dcc6a10"
+  },
+  "runtime_modified": false,
+  "runtime_snapshot": {
+    "files": 89,
+    "sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e"
+  },
+  "schema_version": 1,
+  "scope": "Scratch finite completion handoff; fictional fixtures and toy child only",
+  "status": "passed",
+  "terminal_status": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/.v3-handoff-03/status.json",
+  "tests": {
+    "collector_figure_tests": 14,
+    "elapsed_seconds": 5.062,
+    "errors": 0,
+    "failures": 0,
+    "handoff_tests": 13,
+    "host": "gpuserver6000",
+    "log": "completion-handoff-03-tests.log",
+    "log_sha256": "6ecb156847bf54392569589c6a520a01cf264bb787c16e0b32661b476eb18ae5",
+    "passed": 27,
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 23 2026, 15:19:43) [Clang 22.1.3 ]",
+    "remote_directory": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/publication-audit-03",
+    "skipped": 0
+  },
+  "verified_cases": [
+    "Wait for the terminal driver without launching estimators; stop on campaign failure.",
+    "Pin the reviewed collector and renderer, candidate03 protocol, exact 89-file source snapshot and native executable; recheck before and after collection.",
+    "Require check-only success before collect with the explicit source03 override and 1,650-fit design.",
+    "Keep the destination flock inherited by the child; duplicate locking fails without altering status.",
+    "Save atomic status and numbered retained transitions; never overwrite logs.",
+    "Do not retry readiness or collection failures. Interrupted waiting can resume; interrupted collection without a terminal bundle blocks.",
+    "Resume after an atomic bundle rename by verification alone, without another collector invocation.",
+    "Verify existing bundle identity, exact listed files, original byte payloads including gzip, and figure/input/postprocessing hashes.",
+    "Verify all 1,650 unique metrics case/method rows against archived run and frozen input inventories, including checkpoint and validity identities.",
+    "Verify every calibration score and every invalid calibration/evaluation row remains in failures, and summary failure counts agree.",
+    "Reject missing, duplicate or unfrozen metrics, dropped failures, fictional figures, unlisted bytes and changes to completed manifests.",
+    "Enforce the 95 MiB cap even for listed artifacts with matching hashes."
+  ]
+}

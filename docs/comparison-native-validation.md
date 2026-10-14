@@ -4,7 +4,11 @@ These are development checks, separate from the frozen 24-hour calibration and
 evaluation campaign. A successful one-hour run does not close the production
 numerical or uncertainty-validation gates.
 
-**The scientific comparison is incomplete.** Candidate 03 has a
+This development snapshot was recorded on October 14, 2026 before frozen
+evaluation. See the [repository overview](../README.md#groops-comparison-protocol-v3)
+for the current campaign status and any subsequently published results.
+
+**At this checkpoint, the scientific comparison is incomplete.** Candidate 03 has a
 [frozen acceptance review of gates 1–4](../validation/comparison-v3/acceptance-gates-candidate-03.json).
 [Calibration started](../validation/comparison-v3/campaign-launch-03.json) on
 October 14, 2026 at 02:07:54 UTC after independent verification of all

@@ -1,0 +1,89 @@
+Finite local publication worker for candidate03
+==============================================
+
+This helper has not been launched. It is a single dependency step of the already
+authorized comparison, not an automation or recurring reminder. It never starts
+an estimator, campaign driver, remote collector or another worker.
+
+Keep publication_worker_03.py and its reviewed completion_handoff_03.py dependency
+together. Use explicit --repo and --control arguments even when running the
+archived public copies; their parent-directory layout differs from scratch.
+
+The remote completion handoff must use exactly:
+  output: /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/v3
+  status: /mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/publication/.v3-handoff-03/status.json
+The worker polls only that already-existing status over SSH. It waits at most
+336 hours by default, sleeps no more than 60 seconds at once, and stops after
+five consecutive transport failures. A valid status resets that failure count.
+Terminal campaign/collector failures, malformed statuses or identity mismatches
+stop immediately. No outcome ranking or raw observations are read while waiting.
+
+After review, from any directory on the existing WSL workstation:
+
+  python3 /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/publication_worker_03.py \
+    --wait-for-bundle \
+    --repo /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc \
+    --control /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/local-publication-03 \
+    --max-wait-hours 336
+
+This step does not publish remotely. Once the terminal remote receipt says the
+bundle is complete, it uses rsync into a fresh same-filesystem staging directory.
+It checks exact files and hashes, gzip original payloads, candidate03 identities,
+all 1,650 unique case/method rows against run/selection/input freezes, all failed
+evaluation and calibration rows, six actual figures and their source/input hashes.
+It rejects fixture outputs. Linux renameat2 NOREPLACE installs runs/v3 atomically;
+a preexisting destination is accepted only if its verified publication hash is
+identical. Existing v2 bytes and local README remain untouched. Failed staging
+directories are retained for diagnosis, never silently reused as results.
+
+Only after bundle_ready, the separate already-authorized publication action is:
+
+  python3 /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/publication_worker_03.py \
+    --publish \
+    --repo /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-smoothing-poc \
+    --control /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/publication/local-publication-03
+
+Publication creates a fresh isolated clone of the current remote
+comparison-groops-v3 branch. It verifies all 89 frozen source files, using the
+explicit archived package metadata mapping for the five generated egg-info files.
+It rejects a changed runtime, dirty clone, conflicting public v3 bundle, changed
+README v3 section, wrong repository/branch/PR or concurrent remote branch advance.
+Only runs/v3 and the existing README v3 section are staged. Other README sections,
+results.html and runs/v2 remain byte-identical. The concrete completed report link
+states attempts and failures without claiming scientific superiority.
+
+Git uses the established Windows GitHub CLI credential helper:
+  /mnt/c/Program Files/GitHub CLI/gh.exe
+No credentials are displayed, stored by this script or relayed over SSH. Push is
+an ordinary fast-forward push; there is no force, rebase, merge or branch retry.
+The script fetches the public branch afterward, creates a detached verification
+worktree, and verifies its actual published bundle/runtime/v2/README bytes.
+
+It then updates only existing PR #1's body using gh api PATCH --input - with JSON
+stdin. The body records source/protocol/native and bundle hashes, all attempts,
+failure retention and uncertainty/calibration/SLR/GNV limitations. PR head/base/repo,
+response body, final GET body, commit and unchanged draft state are verified.
+It does not create a PR, post a comment, mark ready, merge or change the title.
+
+Terminal local states:
+* bundle_ready: verified local bytes, no remote publication claimed.
+* published: fetched repository bytes and PR body both verified.
+* published_repo_pr_update_failed: repository publication verified, PR body failed;
+  the verified commit remains recorded and no automatic retry is allowed.
+* failed/interrupted: diagnostics retained; if interruption occurred during push,
+  remote_push_may_have_completed is recorded. Never assume nothing was published.
+
+Every transition has an atomic status.json and separate historical JSON receipt.
+The control-directory lock refuses duplicate local workers. A prior uncertain,
+failed or partially published receipt requires explicit reconciliation, not an
+automatic retry. Fresh source/bundle mismatches are not repaired by this helper.
+Successful published receipts can be reverified idempotently against identical
+bytes. No bulky raw-data revalidation is claimed by postprocessing.
+
+Fictional tests (no campaign data, network or publish):
+  python3 work/v3/publication/test_publication_worker_03.py
+
+Tests include exact design/failure retention, fixture/corruption rejection,
+archived package metadata, no-replace installation, bounded SSH retry/reset,
+duplicate-worker lock, README preservation, mocked normal push/fetch, branch
+advance/dirty-clone refusal, PR identity/body checks and post-push PR failure.
