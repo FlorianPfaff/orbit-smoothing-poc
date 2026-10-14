@@ -19,10 +19,17 @@ reduced-dynamic pulse and log-density OU models, blind GNSS data preparation,
 native covariance export and independent validation. Its acceptance gates and
 production runs are distinct from the published v2 campaign below; preparation
 or unit-test success is not a completed accuracy comparison.
-The [frozen candidate protocol](validation/comparison-v3/protocol-candidate-02.json)
+The [frozen candidate protocol](validation/comparison-v3/protocol-candidate-03.json)
 records the source, native executable, seeds and complete case matrix before
 calibration. The [engineering report](validation/comparison-v3/report/index.html)
-records validation progress and preserved failures.
+records validation progress and preserved failures. The
+[ordered engineering acceptance review](validation/comparison-v3/acceptance-gates-candidate-03.json)
+passed, including normal and blackout full-day fits for both methods.
+[Production calibration started](validation/comparison-v3/campaign-launch-02.json)
+on October 14, 2026, then [stopped at an orchestration audit check](validation/comparison-v3/campaign-driver-02.json)
+after 22 converged native fits. Candidate 03 corrects the audit-record lookup;
+the numerical implementation and scientific configuration are unchanged.
+The scientific comparison remains incomplete.
 
 ## Completed v2 campaign
 

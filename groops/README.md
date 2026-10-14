@@ -330,11 +330,25 @@ clock/ambiguity/slip recovery and integration-refinement gates.
 The [validation guide](../docs/comparison-native-validation.md#cartesian-covariance-at-actual-gnss-epochs)
 includes the retained-fit command for checking covariance at GNSS epochs, plus
 regressions for predictive support, missing planned seeds, checkpoint integrity
-and report provenance. The [stable 74863 suite](../validation/comparison-v3/automated-tests-74863-final.json)
-records its source snapshot and native/JUnit hashes. The earlier
-[168-pass run](../validation/comparison-v3/automated-tests-74863.json), during
-which source files changed, is preserved separately. These automated checks do
+and report provenance. The [candidate 03 suite](../validation/comparison-v3/automated-tests-3b434b8c.json)
+records 241 passing tests, its unchanged source snapshot and native/JUnit hashes.
+The earlier [stable 74863 suite](../validation/comparison-v3/automated-tests-74863-final.json)
+is preserved, as is the [168-pass run](../validation/comparison-v3/automated-tests-74863.json)
+during which source files changed. These automated checks do
 not replace scientific calibration and evaluation.
+
+The frozen source fingerprint includes five generated package metadata files.
+Their exact bytes are archived in
+[frozen-package-metadata](../validation/comparison-v3/frozen-package-metadata/manifest.json).
+To reproduce the recorded fingerprint, install dependencies first, then copy
+those five files to the `source_path` locations in that manifest before
+recomputing the snapshot. A fresh package installation can regenerate different
+metadata without changing the numerical implementation; its fingerprint must
+still be recorded as a different source snapshot.
+The [execution-script archive](../validation/comparison-v3/execution-scripts/manifest.json)
+also preserves the exact host-specific acceptance review and launch helpers.
+Use the generic campaign commands above with your own configuration when
+running on another host.
 
 For a small serial native problem, `ORBIT_POC_LINEAR_TRACE=/absolute/prefix`
 exports each linearization's actual whitened observation and constraint rows

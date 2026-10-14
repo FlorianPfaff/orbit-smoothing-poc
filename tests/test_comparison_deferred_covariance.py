@@ -10,7 +10,7 @@ import pytest
 from orbit_poc.comparison import backend, groops_config
 
 
-def _fake_native_fit(tmp_path, monkeypatch, method="groops_log_drag_ou", failure=None):
+def _fake_native_fit(tmp_path, monkeypatch, method="groops_log_drag_ou", failure=None, *, retain_native=True):
     """Exercise the real wrapper and XML selection with deterministic native I/O."""
     root = tmp_path / "fit"
     observed = []
@@ -69,7 +69,7 @@ def _fake_native_fit(tmp_path, monkeypatch, method="groops_log_drag_ou", failure
         observed.append({"computed":computed, "steps":steps, "outputs":outputs})
         assert computed == ("outputfileCovariance" in outputs)
         assert computed == ("outputfileCovarianceObservationEpochs" in outputs)
-        assert computed == ("outputfileParameterCovariance" in outputs)
+        assert (computed and retain_native) == ("outputfileParameterCovariance" in outputs)
         if computed and failure == "native_final":
             raise backend.NativeExecutionError("final inverse failed", execution=record)
         states = np.tile([7e6, 0., 0., 0., 7500., 0.], (3,1))
@@ -85,13 +85,14 @@ def _fake_native_fit(tmp_path, monkeypatch, method="groops_log_drag_ou", failure
             if failure == "invalid_final": blocks[1,0,0] = -1.
             for key in ("covariance", "covariance_observations"):
                 np.savetxt(holder["result_paths"][key], np.column_stack([mjd, blocks.reshape(3,36)]))
-            np.savetxt(holder["result_paths"]["parameter_covariance"], np.eye(count))
+            if "parameter_covariance" in holder["result_paths"]:
+                np.savetxt(holder["result_paths"]["parameter_covariance"], np.eye(count))
         return record
 
     monkeypatch.setattr(backend, "run_native", run)
     job = {"method":method, "parameters":{}, "stage":"synthetic", "source_hash":"fixture",
            "force_model_hash":"force", "measurement_model_hash":"measurement",
-           "backend":{"retain_native_diagnostics":True},
+           "backend":{"retain_native_diagnostics":retain_native},
            "numerical_controls":{"maximum_outer_iterations":3}}
     result = backend.fit_job(job, root)
     return root, result, observed

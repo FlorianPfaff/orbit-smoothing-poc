@@ -1,0 +1,108 @@
+{
+  "command": [
+    "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--junitxml=/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/tests-3b434b8c/junit.xml"
+  ],
+  "completed_at_utc": "2026-10-14T01:14:15.808898+00:00",
+  "cwd": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete",
+  "elapsed_seconds": 17.001098281005397,
+  "environment": {
+    "JAX_PLATFORMS": "cpu",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "ORBIT_POC_GROOPS": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "errors": 0,
+  "expected_native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "failures": 0,
+  "gtsam_import_succeeded": true,
+  "junit_sha256": "78e4c1d0fc181204ad182fae955c70b8eb654b5d061bc60ce12258524f195e78",
+  "log_sha256": "d1c8b064db45d2f64b30d62ed85dbe977b6fdfc3a2bde5090c3354e923801b73",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "native_tests_enabled": true,
+  "passed": 241,
+  "platform": {
+    "executable": "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+    "machine": "x86_64",
+    "packages": {
+      "gtsam": "4.2",
+      "jax": "0.6.2",
+      "numpy": "1.26.4",
+      "numpyro": "0.19.0",
+      "psutil": "7.2.2",
+      "pytest": "9.1.1",
+      "scipy": "1.15.3",
+      "threadpoolctl": "3.7.0"
+    },
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 23 2026, 15:19:43) [Clang 22.1.3 ]"
+  },
+  "production_accuracy_acceptance": false,
+  "raw_artifact_directory": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/tests-3b434b8c",
+  "raw_artifact_host": "gpuserver6000",
+  "returncode": 0,
+  "schema_version": 3,
+  "scientific_comparison_complete": false,
+  "scope": "Complete v2 and v3 automated suite on an immutable complete source/test staging copy; component verification only, not scientific calibration or frozen evaluation.",
+  "skip_reasons": [
+    "Optional archived real v1 pilot fixture is not present"
+  ],
+  "skipped": 1,
+  "source_manifest_sha256": "341f0fa3e6dddfccecdf69512eebe160091f81f05eeb878d74a6e30298904363",
+  "source_snapshot_after_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e",
+  "source_snapshot_before_sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e",
+  "source_stable_during_run": true,
+  "started_at_utc": "2026-10-14T01:13:58.777073+00:00",
+  "status": "passed",
+  "test_source_manifest_sha256": "ffca66b7b3767158e9ecbf7d43619346dea2a4c4ed7b6cbb405ad12bb832a0e3",
+  "test_source_snapshot_sha256": "411ae503fb0c45043f4787c838acb77b7d6346aa1151be9f20717cf38c17e917",
+  "test_source_stable_during_run": true,
+  "tests": 242,
+  "source_snapshot": {
+    "sha256": "3b434b8c6d185187cc394795f901d082abd8fd2d38e6a7202feb0c52a105e33e",
+    "manifest": "automated-tests-3b434b8c-source-before.json",
+    "manifest_sha256": "341f0fa3e6dddfccecdf69512eebe160091f81f05eeb878d74a6e30298904363",
+    "scope": "Complete runtime source, scripts, templates, configuration and native dependency locks"
+  },
+  "test_source_snapshot_at_completion": {
+    "sha256": "411ae503fb0c45043f4787c838acb77b7d6346aa1151be9f20717cf38c17e917",
+    "manifest": "automated-tests-3b434b8c-tests-after.json",
+    "manifest_sha256": "ffca66b7b3767158e9ecbf7d43619346dea2a4c4ed7b6cbb405ad12bb832a0e3"
+  },
+  "artifacts": {
+    "source-before.json": {
+      "file": "automated-tests-3b434b8c-source-before.json",
+      "sha256": "341f0fa3e6dddfccecdf69512eebe160091f81f05eeb878d74a6e30298904363"
+    },
+    "source-after.json": {
+      "file": "automated-tests-3b434b8c-source-after.json",
+      "sha256": "341f0fa3e6dddfccecdf69512eebe160091f81f05eeb878d74a6e30298904363"
+    },
+    "test-sources-before.json": {
+      "file": "automated-tests-3b434b8c-tests-before.json",
+      "sha256": "ffca66b7b3767158e9ecbf7d43619346dea2a4c4ed7b6cbb405ad12bb832a0e3"
+    },
+    "test-sources-after.json": {
+      "file": "automated-tests-3b434b8c-tests-after.json",
+      "sha256": "ffca66b7b3767158e9ecbf7d43619346dea2a4c4ed7b6cbb405ad12bb832a0e3"
+    },
+    "pytest.log": {
+      "file": "automated-tests-3b434b8c-log.txt",
+      "sha256": "d1c8b064db45d2f64b30d62ed85dbe977b6fdfc3a2bde5090c3354e923801b73"
+    },
+    "junit.xml": {
+      "file": "automated-tests-3b434b8c-junit.xml",
+      "sha256": "78e4c1d0fc181204ad182fae955c70b8eb654b5d061bc60ce12258524f195e78"
+    }
+  },
+  "previous_canonical_evidence": "automated-tests.json",
+  "snapshot_policy": "Complete source/tests/scripts/config/native-extension/locks copy; bulky runs, work and validation evidence excluded. Snapshot files made read-only before execution. No selective module overlay was used.",
+  "files_changed_during_run": []
+}

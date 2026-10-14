@@ -4,11 +4,14 @@ These are development checks, separate from the frozen 24-hour calibration and
 evaluation campaign. A successful one-hour run does not close the production
 numerical or uncertainty-validation gates.
 
-**The scientific comparison is incomplete.** The development flight numerical
-checks passed, and the shared campaign force model now explicitly selects a
-0.1-second thermal maximum step. Calibration, frozen evaluation and uncertainty
-assessment remain separate work. The native default and official upstream
-reproduction template are unchanged.
+**The scientific comparison is incomplete.** Candidate 03 has a
+[frozen acceptance review of gates 1–4](../validation/comparison-v3/acceptance-gates-candidate-03.json).
+Its fresh calibration inputs are being prepared after correcting a protocol
+record lookup; the prior campaign and all its fits remain preserved.
+Calibration selection, frozen evaluation and uncertainty assessment remain
+separate work. The shared campaign force model selects a 0.1-second thermal
+maximum step; the native default and official upstream reproduction template
+are unchanged.
 
 Use a Python environment with this project installed, a working TudatPy
 interpreter, and the pinned GROOPS build with this repository's extension.
@@ -184,6 +187,11 @@ it reduced the first log-density update from 17.82 to 2.652,
 but the undamped solve then approached a two-cycle: successive update directions
 had cosines approaching -1, updates near 2.15 and orbit changes near 3 metres.
 That result is a failed fit, regardless of the old wrapper's covariance flag.
+The subsequent [four-fit undamped replay](../validation/comparison-v3/utc-engineering-undamped-c8-74863.json)
+preserves this failure with the corrected status handling: both pulse fits and
+the normal-coverage density fit converge, while blackout density ends after 12
+iterations with a raw log-density update of 2.151 and a 2.978 metre orbit change.
+Its last MAP arrays are diagnostics, with no accepted posterior covariance.
 
 The density wrapper therefore bounds an accepted log-density increment to 0.5
 and uses a relaxation factor of at most 0.5 for the remainder of a solve after
@@ -217,6 +225,36 @@ PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   --request /path/to/retained-density-fit/request.json \
   --output work/native-validation/density-damping
 ```
+
+The [full-day normal-coverage replay](../validation/comparison-v3/density-damping-normal-74863.json)
+converges in seven iterations, including an undamped covariance confirmation
+with a 1.80 micrometre orbit change and a maximum log-density update of
+`1.71e-5`. Its [agreement with the converged undamped fit](../validation/comparison-v3/density-damping-normal-agreement-74863.json)
+is 58.9 nanometres in maximum position and `2.11e-7` in relative Frobenius
+covariance difference. Both use the same input bytes, preprocessing audit,
+statistical settings and native binary. This verifies numerical agreement for
+one case in which both solvers converge; it establishes no scientific accuracy
+or runtime advantage.
+
+The [full-day blackout replay](../validation/comparison-v3/density-damping-blackout-74863.json)
+converges in 24 iterations. Its final undamped confirmation has a 13.26
+micrometre orbit change, a maximum log-density update of `2.08e-6`, and valid
+Cartesian covariance blocks at every exported dynamic and GNSS epoch. It uses
+the same statistical settings and prepared native inputs as the preserved
+undamped failure. The [four-fit engineering record](../validation/comparison-v3/utc_engineering_fits_74863.json)
+combines these two density replays with the converged pulse fits, verifies all
+four full UTC-day exports, and records matching observations, initial reference
+orbits, attitude and preprocessing audits within each coverage mask. The only
+normalized provenance difference is the filesystem location of two verified
+OSB products inside an otherwise identical correction ledger; both original
+ledger hashes remain recorded.
+
+The normal density replay runs the final frozen source directly. The blackout
+density replay uses an [identical fitting implementation](../validation/comparison-v3/density-damping-source-equivalence.json),
+and the earlier pulse runs have a [scoped pulse-branch equivalence review](../validation/comparison-v3/pulse-source-equivalence-c8-f2.json).
+These records establish engineering convergence and common inputs at fixed,
+uncalibrated settings. They do not establish orbit accuracy or uncertainty
+coverage.
 
 The two primary methods now omit covariance inversion and covariance exports
 from intermediate outer iterations. Those iterations retain the same native
@@ -276,6 +314,26 @@ The [UTC held-out geometry check](../validation/comparison-v3/utc_prediction_geo
 records 2,128 prediction/support rows over 240 epochs; it is a functional check,
 not a calibrated score or orbit-accuracy result.
 
+The [preserved campaign 02 contract failure](../validation/comparison-v3/campaign-02-preprocessing-contract-diagnostic.json)
+occurred after 22 converged native fits. Their top-level preprocessing hashes
+were valid and agreed across repeated candidates, but the protocol reader
+looked only inside `metadata` and stopped the campaign. The corrected reader
+uses the top-level field, accepts the legacy location only when that field is
+absent, and rejects conflicting duplicates. Missing, malformed and unequal
+audits still block comparison. The [source review](../validation/comparison-v3/protocol-reader-source-equivalence-f2-3b434b8c.json)
+verifies that this lookup is the only runtime change; fitting, preparation,
+scoring, numerical settings and native code are byte-identical. Candidate 03
+uses a new source/protocol freeze and fresh preparations.
+
+A separate [native held-out scoring diagnostic](../validation/comparison-v3/two-heldout-code-diagnostic-f2.json)
+uses the unchanged scorer on two preserved pulse fits with 30-minute and
+two-hour holdouts. Both produce valid projected code scores, retaining the
+projected covariance and log determinant with 577 and 2,545 informative
+dimensions respectively. Predictive support identities and receiver-clock
+projection checks pass. No truth or evaluation reference was opened, and these
+two diagnostic scores do not select hyperparameters or establish a scientific
+comparison.
+
 Campaign manifests retain the frozen planned cases. Reports use those cases for
 paired-seed and fixed-epoch coverage denominators, including a missing seed when
 neither method produced a row. Intervals use valid independent paired seeds;
@@ -306,11 +364,16 @@ PYTHONPATH=src python -m pytest -q \
   tests/test_comparison_backend.py
 ```
 
-The [stable 74863 suite](../validation/comparison-v3/automated-tests-74863-final.json)
-records the exact runtime source snapshot, native SHA, JUnit hash and optional
-archived-fixture skip. The earlier [168-pass run](../validation/comparison-v3/automated-tests-74863.json)
-is preserved with its two differing source snapshots. A passing suite validates
-the recorded implementation; it is not the scientific campaign.
+The [candidate 03 full suite](../validation/comparison-v3/automated-tests-3b434b8c.json)
+passes 241 tests, with one expected archived-fixture skip. It records the exact
+runtime and test source snapshots, native SHA and JUnit hash. Its new regression
+passes real compact backend result records through all six calibration arcs,
+both holdout durations, both primary methods, four candidates per method and
+cached resume. Native execution is mocked for that orchestration regression;
+the separate retained-fit scoring diagnostic above uses the actual native
+predictor. Earlier suites, including the [235-pass f2 run](../validation/comparison-v3/automated-tests-f2b41a4b.json),
+remain preserved. A passing suite validates the recorded implementation; it is
+not the scientific campaign.
 
 ## Production campaign driver
 

@@ -463,7 +463,12 @@ def _fit(runner, frozen, stage, split, case, prepared, method, parameters):
     validate_estimation_inputs(job["estimation_inputs"], flight=stage == "flight")
     result = runner.execute(job)
     if result.get("status") == "complete" and result.get("native_binary_sha256") and method in METHODS:
-        audit = result.get("metadata", {}).get("preprocessing_audit_sha256")
+        audit = result.get("preprocessing_audit_sha256")
+        legacy_audit = result.get("metadata", {}).get("preprocessing_audit_sha256")
+        if "preprocessing_audit_sha256" not in result:
+            audit = legacy_audit
+        elif legacy_audit is not None and legacy_audit != audit:
+            raise BackendBlocked("Conflicting top-level and metadata preprocessing audits")
         if not isinstance(audit, str) or len(audit) != 64 or any(c not in "0123456789abcdef" for c in audit):
             raise BackendBlocked("A complete primary native fit requires a retained-observation/weight preprocessing audit")
         key = canonical_hash({"stage": stage, "split": split, "case": case})

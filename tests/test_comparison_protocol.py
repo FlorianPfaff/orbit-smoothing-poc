@@ -88,11 +88,13 @@ def test_defaults_define_full_independent_campaign():
     assert config.synthetic.evaluation_seeds[0] == 400000
 
 
-def test_different_native_preprocessing_blocks_candidate_or_arm_comparison(tmp_path):
+@pytest.mark.parametrize("location", ["top_level", "legacy_metadata"])
+def test_different_native_preprocessing_blocks_candidate_or_arm_comparison(tmp_path, location):
     class ChangedWeightsBackend(FakeBackend):
         def fit_job(self, job, directory):
+            audit = {"preprocessing_audit_sha256": p.canonical_hash(job["parameters"])}
             return {**super().fit_job(job, directory), "native_binary_sha256": "b" * 64,
-                    "metadata": {"preprocessing_audit_sha256": p.canonical_hash(job["parameters"])}}
+                    **(audit if location == "top_level" else {"metadata": audit})}
     config = ComparisonConfig()
     frozen = p.freeze_protocol(config, tmp_path)
     backend = ChangedWeightsBackend()
@@ -105,6 +107,72 @@ def test_different_native_preprocessing_blocks_candidate_or_arm_comparison(tmp_p
     with pytest.raises(p.BackendBlocked, match="Common preprocessing differs"):
         p._fit(runner, frozen, "synthetic", "calibration", case, prepared,
                "groops_log_drag_ou", {"sigma_log_density": .3})
+
+
+@pytest.mark.parametrize("top_level,legacy,error", [
+    (None, None, "requires a retained-observation"),
+    ("invalid", None, "requires a retained-observation"),
+    (None, "a" * 64, "Conflicting"),
+    ("a" * 64, "b" * 64, "Conflicting"),
+])
+def test_native_preprocessing_audit_missing_malformed_or_conflicting_blocks(tmp_path, top_level, legacy, error):
+    class InvalidAuditBackend(FakeBackend):
+        def fit_job(self, job, directory):
+            return {**super().fit_job(job, directory), "native_binary_sha256": "b" * 64,
+                    "preprocessing_audit_sha256": top_level,
+                    "metadata": {"preprocessing_audit_sha256": legacy}}
+    config = ComparisonConfig()
+    frozen = p.freeze_protocol(config, tmp_path)
+    runner = p.Runner(tmp_path, backend=InvalidAuditBackend())
+    case = p.case_matrix(config, "synthetic", "calibration")[0]
+    prepared = p._prepared(runner, frozen, "synthetic", "calibration", case)
+    with pytest.raises(p.BackendBlocked, match=error):
+        p._fit(runner, frozen, "synthetic", "calibration", case, prepared,
+               "groops_pulses", {"sigma_velocity_m_s": .001})
+
+
+def test_calibration_accepts_real_compact_backend_result_contract(tmp_path, monkeypatch):
+    from copy import deepcopy
+    from test_comparison_deferred_covariance import _fake_native_fit
+
+    config = config_from_dict({"synthetic": {"orbits": ["leo500"]}})
+    frozen_results = {}
+    for method in config.methods:
+        _, result, _ = _fake_native_fit(tmp_path / "native" / method, monkeypatch,
+                                        method, retain_native=False)
+        assert result["status"] == "complete" and result["covariance_valid"]
+        assert result["preprocessing_audit_sha256"]
+        assert "preprocessing_audit_sha256" not in result["metadata"]
+        assert not result["metadata"]["retain_native_diagnostics"]
+        assert not any(item["role"] == "native_preprocessing_audit" for item in result["artifacts"])
+        frozen_results[method] = result
+
+    class NativeResultBackend(FakeBackend):
+        def fit_job(self, job, directory):
+            self.calls.append(job)
+            assert "evaluation_inputs" not in job and "calibration_inputs" not in job
+            return deepcopy(frozen_results[job["method"]])
+
+    initial = p.initial_candidates
+    grids = {method: [initial(config, method)[index] for index in (0, 1, 4, 5)]
+             for method in config.methods}
+    monkeypatch.setattr(p, "initial_candidates", lambda config, method: grids[method])
+    campaign = tmp_path / "campaign"
+    fake_acceptance(config, campaign)
+    native = NativeResultBackend()
+    result = p.calibrate(config, campaign, backend=native)
+    assert result["complete"] and result["calibration_adequate"] and result["selection_hash"]
+    assert len(result["runs"]) == 6 * 2 * 4 * 2
+    assert all(row["valid"] for row in result["runs"])
+    assert len([job for job in native.calls if job["kind"] == "fit"]) == 96
+    assert len([job for job in native.calls if job["kind"] == "evaluate"]) == 96
+    for method in config.methods:
+        for parameters in grids[method]:
+            rows = [row for row in result["runs"] if row["method"] == method and row["parameters"] == parameters]
+            assert len({row["case"]["arc_id"] for row in rows}) == 6
+            assert {row["case"]["holdout_minutes"] for row in rows} == {30, 120}
+    resumed = p.calibrate(config, campaign, backend=native)
+    assert resumed["jobs_started"] == 0 and resumed["selection_hash"] == result["selection_hash"]
 
 
 @pytest.mark.parametrize("change", [
