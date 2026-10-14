@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "All five pinned launch artifacts are verified before runtime traversal/exec",
+    "A changed hash for each artifact blocks startup with no success receipt",
+    "Missing wrapper identity fails closed",
+    "An identical verifier at a different path is rejected"
+  ],
+  "command": "PYTHONPATH=src OPENBLAS_NUM_THREADS=1 <pinned-python> -m pytest tests/test_numerics_runtime_startup.py -q",
+  "elapsed_seconds": 0.72,
+  "failed": 0,
+  "log": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/runtime-startup-artifact-tests.log",
+    "sha256": "ffcbb10fd620312ebbe610b07ec434d165efbc0422917a94152843a371f3bc56"
+  },
+  "passed": 8,
+  "scope": "Startup launch-artifact hash enforcement and executing-verifier path identity; runtime mount flags mocked only in these focused unit tests. Complete live namespace/runtime-tree smoke remains a separate receipt. No native numerical source changed and no benchmark fit executed.",
+  "sources": {
+    "scripts/verify_numerics_runtime.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/scripts/verify_numerics_runtime.py",
+      "sha256": "5e444c25ada1e8d51f0d5f74584feb905cbe8d06b3a8f936c8dbdb9bb6323b5e"
+    },
+    "tests/test_numerics_runtime_startup.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/tests/test_numerics_runtime_startup.py",
+      "sha256": "b65d2c17b5a9e0da9312e11cba8f87c1efe3c64a3fad97d48037aca8898fa9c8"
+    }
+  },
+  "status": "passed"
+}

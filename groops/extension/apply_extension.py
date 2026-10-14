@@ -15,7 +15,7 @@ def copy_changed(source, destination):
         shutil.copyfile(source, destination)
 
 
-def apply(source):
+def apply(source, *, numerics=False):
     source = Path(source).resolve()
     actual = subprocess.check_output(["git", "-C", str(source), "rev-parse", "HEAD"], text=True).strip()
     if actual != COMMIT:
@@ -72,7 +72,10 @@ def apply(source):
     revised = contents.replace(marker, marker + "\n" + "\n".join(entries), 1) + "\n"
     if revised != original:
         sources.write_text(revised)
-    manifest = {"upstream_commit": COMMIT, "files": {
+    if numerics:
+        for name in ("native_row_qr.py", "native_objective.py", "native_derivatives.py"):
+            subprocess.run([__import__('sys').executable, str(here / name), str(source)], check=True)
+    manifest = {"upstream_commit": COMMIT, "extension_profile": "numerics_v31" if numerics else "legacy_v3", "files": {
         p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(here.iterdir()) if p.is_file()},
         "registration_files": modified}
     (source / "orbit-poc-extension.json").write_text(json.dumps(manifest, indent=2) + "\n")
@@ -82,4 +85,6 @@ def apply(source):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
-    print(json.dumps(apply(parser.parse_args().source), indent=2))
+    parser.add_argument("--numerics", action="store_true")
+    args = parser.parse_args()
+    print(json.dumps(apply(args.source, numerics=args.numerics), indent=2))

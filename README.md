@@ -36,6 +36,21 @@ audit-record lookup; the numerical implementation and scientific configuration
 are unchanged. No selected settings or scientific comparison results are
 available yet.
 
+## Numerical reliability v3.1 — in development
+
+The separate [v3.1 numerical protocol](docs/numerics-v3.1.md) compares the
+archived v3 runtime with original-row QR/LM and staged trajectory derivatives.
+It preserves the v3 statistical models and defines 50 fixed cases across three
+profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
+independently pinned deployment configuration. The native build is opt-in;
+existing comparison commands retain their compatibility path.
+
+The implementation and engineering gates are still being validated. The
+150-attempt numerical benchmark has not completed; no v3.1 reliability or
+speed improvement is claimed. See the [objective/controller](docs/numerics-objective-v3.1.md),
+[QR](docs/numerics-qr-v3.1.md) and [derivative](docs/numerics-derivatives-v3.1.md)
+documentation for the implementation and remaining flight approximations.
+
 ## Completed v2 campaign
 
 Open [results.html](results.html) for the scientific summary and

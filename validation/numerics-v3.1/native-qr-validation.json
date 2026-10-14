@@ -1,0 +1,436 @@
+{
+  "binary_unchanged": true,
+  "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+  "executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "limits": {
+    "map_discrepancy_posterior_standard_deviations": 1e-07,
+    "relative_covariance_error": 1e-08
+  },
+  "packages": {
+    "gtsam": "4.2",
+    "numpy": "1.26.4",
+    "pytest": "8.4.2",
+    "scipy": "1.15.3"
+  },
+  "passed": true,
+  "patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+  "returncode": 0,
+  "schema": "orbit-poc-native-qr-validation-v1",
+  "scope": "Small native original-row systems; does not certify the GNSS pipeline, derivative accuracy, or benchmark completion",
+  "source_hashes": {
+    "groops/extension/artifactReceipt.h": "908660f0ceb25e6282a423ae562ead8b2fb43bb3f395ea9c0a4e45251c5a84d2",
+    "groops/extension/gnssRangeResidual.h": "0895d6eb363e99eb8495a84d0b4a1843ed0b17329bbd16f8878e09eb204fd718",
+    "groops/extension/native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+    "groops/extension/nuisanceLineSearch.h": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c",
+    "groops/extension/orbitPocQrSolve.cpp": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+    "groops/extension/positionRemainder.py": "bf3db4972e60e549e8a9e70ad943202f18cc224f81948aa4f4a35e7b731d8cbf",
+    "groops/extension/relativeQueryInterpolation.py": "fb9e709dec67b23b3b4831cf77c6264727116fce11e811338d650bbc2f70fe64",
+    "groops/extension/scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+    "groops/extension/triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14",
+    "tests/test_numerics_native_qr.py": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+  },
+  "tests": [
+    {
+      "metrics": {
+        "map_error_posterior_standard_deviations": 4.862787390594552e-15,
+        "relative_covariance_error": 3.235376272953251e-16
+      },
+      "name": "test_native_original_row_qr_map_covariance_and_profile",
+      "seconds": 0.706,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_row_order_and_block_size[1]",
+      "seconds": 0.49,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_row_order_and_block_size[7]",
+      "seconds": 0.537,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_row_order_and_block_size[1000]",
+      "seconds": 0.549,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_triangular_merge_across_lapack_reflector_blocks[1]",
+      "seconds": 1.103,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_triangular_merge_across_lapack_reflector_blocks[17]",
+      "seconds": 0.946,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_triangular_merge_across_lapack_reflector_blocks[128]",
+      "seconds": 1.246,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_triangular_merge_across_lapack_reflector_blocks[1000]",
+      "seconds": 0.836,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_local_global_and_unit_invariance",
+      "seconds": 0.741,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_profile_holds_dynamics_fixed",
+      "seconds": 0.662,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_nuisance_potential_resolves_objective_subtraction_floor",
+      "seconds": 0.776,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_full_bias_coordinates_survive_overlapping_phase_updates",
+      "seconds": 1.046,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_lm_excluded_from_covariance",
+      "seconds": 0.682,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_rank_failure_has_no_covariance[unused]",
+      "seconds": 0.674,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_rank_failure_has_no_covariance[duplicate]",
+      "seconds": 0.64,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_rank_failure_has_no_covariance[unresolved]",
+      "seconds": 0.681,
+      "status": "passed"
+    },
+    {
+      "metrics": {
+        "gtsam_vs_qr_map_error_posterior_standard_deviations": 3.510977465318627e-15,
+        "gtsam_vs_qr_relative_covariance_error": 1.0087884016126042e-16
+      },
+      "name": "test_native_matches_independent_gtsam_nuisance_elimination",
+      "seconds": 1.59,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_restores_eliminated_group_energy_to_direct_objective",
+      "seconds": 0.541,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_ambiguity_datum_distinguishes_gauges_from_unresolved_rank[False]",
+      "seconds": 0.352,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_ambiguity_datum_distinguishes_gauges_from_unresolved_rank[True]",
+      "seconds": 0.504,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_factor_retention_and_secure_spool_do_not_change_arithmetic[False]",
+      "seconds": 1.612,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_factor_retention_and_secure_spool_do_not_change_arithmetic[True]",
+      "seconds": 1.532,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_failed_successor_preserves_previous_factor_and_cleans_spool",
+      "seconds": 0.675,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_nuisance_search_is_transactional[accept]",
+      "seconds": 0.541,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_nuisance_search_is_transactional[reject]",
+      "seconds": 0.412,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_nuisance_search_is_transactional[stationary]",
+      "seconds": 0.569,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_nuisance_search_is_transactional[support]",
+      "seconds": 0.356,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_nuisance_search_is_transactional[exception]",
+      "seconds": 0.445,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_cost_only_objective_has_no_factor_exports[False]",
+      "seconds": 0.819,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_cost_only_objective_has_no_factor_exports[True]",
+      "seconds": 0.693,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_joint_epoch_vtec_clock_stec_map_covariance_and_profile",
+      "seconds": 1.802,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_joint_epoch_vtec_clock_units_rows_damping_invariance",
+      "seconds": 0.959,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_joint_epoch_local_rank_failures_reject_covariance[missing]",
+      "seconds": 0.32,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_joint_epoch_local_rank_failures_reject_covariance[dependent]",
+      "seconds": 0.345,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_joint_epoch_local_rank_failures_reject_covariance[near]",
+      "seconds": 0.358,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_continuous_interpolation_preserves_exact_grid_and_clock_derivative",
+      "seconds": 0.281,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_lossless_rows_survive_intermediate_factor_cleanup",
+      "seconds": 1.498,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_lossless_rows_preserve_previous_generation_on_successor_failure",
+      "seconds": 0.551,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_corrected_range_preserves_subnanometre_clock_updates",
+      "seconds": 0.24,
+      "status": "passed"
+    },
+    {
+      "metrics": {
+        "early_day_direct_shift_time_error_seconds": 2.99864579947146e-13,
+        "early_day_legacy_time_error_seconds": 7.792400369561934e-12,
+        "maximum_direct_shift_time_error_seconds": 4.798505174826363e-12,
+        "maximum_relative_query_position_error_m": 2.3283064365386963e-10
+      },
+      "name": "test_native_receiver_clock_shift_avoids_negative_duration_loss_and_records_intrinsic_floor",
+      "seconds": 0.311,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_relative_clock_queries_preserve_exact_pulse_side",
+      "seconds": 0.337,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_subdouble_coordinate_remainders_preserve_range_changes",
+      "seconds": 0.335,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_accept-]",
+      "seconds": 0.256,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_refine-]",
+      "seconds": 0.38,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_small_direction-]",
+      "seconds": 0.304,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_influence_cap-required_probe_influence_exceeds_limit]",
+      "seconds": 0.283,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_actual_influence-actual_probe_influence_exceeds_limit]",
+      "seconds": 0.23,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_derived_nonfinite-nonfinite_symmetric_probe_diagnostics]",
+      "seconds": 0.339,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_numeric_cap-required_probe_amplitude_exceeds_numeric_limit]",
+      "seconds": 0.27,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_exception-fixed_parameter_arithmetic_audit_failed]",
+      "seconds": 0.518,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_nonfinite-fixed_parameter_arithmetic_audit_failed]",
+      "seconds": 0.361,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_nonfinite-symmetric_probe_failed]",
+      "seconds": 0.573,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_allowance-empirical_quadratic_potential_with_allowance_exceeds_resolution]",
+      "seconds": 0.444,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_support-fixed_parameter_arithmetic_audit_failed]",
+      "seconds": 0.369,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_resolution-potential_not_within_positive_measured_resolution]",
+      "seconds": 0.309,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_small_resolution-potential_not_within_positive_measured_resolution]",
+      "seconds": 0.487,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]",
+      "seconds": 0.284,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_support-symmetric_probe_failed]",
+      "seconds": 0.295,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_exception-symmetric_probe_failed]",
+      "seconds": 0.415,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_wrong_slope-symmetric_slope_disagrees_with_undamped_gradient]",
+      "seconds": 0.412,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_negative_curvature-negative_or_unresolved_symmetric_curvature]",
+      "seconds": 0.384,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_unresolved_curvature-negative_or_unresolved_symmetric_curvature]",
+      "seconds": 0.374,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_amplitude-amplitude_dependent_symmetric_curvature]",
+      "seconds": 0.384,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_weak_curvature-empirical_quadratic_potential_exceeds_resolution]",
+      "seconds": 0.412,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_native_floor_limited_profile_cannot_export_covariance",
+      "seconds": 0.689,
+      "status": "passed"
+    }
+  ],
+  "validation_seconds": 53.68333324699961
+}

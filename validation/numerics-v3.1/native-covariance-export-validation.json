@@ -1,0 +1,81 @@
+{
+  "accepted_fit_covariance": false,
+  "evidence": {
+    "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/covariance-validation-03/pulses-staged/validation.json",
+    "sha256": "c4a748d9d20b680d2c001fa01502334b4eee574db2d1123f4e4796c6a8aa0ffd"
+  },
+  "initial_cartesian_covariance_relative_error": 1.2070271728642012e-16,
+  "initial_export_difference_si": [
+    0.0,
+    -4.336808689942018e-19,
+    0.0,
+    -3.3881317890172014e-21,
+    0.0,
+    0.0
+  ],
+  "invalid_orbital_covariances": [],
+  "invalid_prediction_covariances": [],
+  "native_binary_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "nuisance_converged": true,
+  "objective": 4434.956511330055,
+  "orbital_epochs": 720,
+  "parameter_covariance": {
+    "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/covariance-validation-03/pulses-staged/point-001-covariance-export/native/output/2024-04-24/parameter_covariance.txt",
+    "role": "native_dynamic_covariance",
+    "sha256": "cc6b381abcec53c8aa3ff03fd630958d8b1d37104d21f51730f268b576ae804a"
+  },
+  "parameter_covariance_relative_error": 9.135831499736833e-17,
+  "passed": true,
+  "prediction_epochs": 120,
+  "previous_evidence": [
+    {
+      "evidence": {
+        "path": "/home/emper/orbit-numerics-v3.1-engineering/covariance-validation-01/pulses-staged/validation.json",
+        "sha256": "34014abb796431ac1e125e8a0d59134cffea5bd7ddc2f6bfe51dffc8f51a19a7"
+      },
+      "native_binary_sha256": "c4ea37a06c828008da42279ca3fa1408130593d5bd477909c9c2a4d8e68ccfc6",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "path": "/home/emper/orbit-numerics-v3.1-engineering/covariance-validation-02/pulses-staged/validation.json",
+        "sha256": "51272302623c43ea0df32b3c3d182a43b795d0a127c9afee65d09d5cd04df08d"
+      },
+      "native_binary_sha256": "c2f3fd63fff3d6d29ed54420772770700a78c1570665653ee9800efb41c7e815",
+      "passed": true,
+      "source_hash": "bd11d52331d4a164a9d8183e358ead805387f3662dfd2a268553ca09ddee5a7e"
+    }
+  ],
+  "rank": {
+    "columns": 91,
+    "condition_number": 2172.787898376266,
+    "effective_rows": 7830,
+    "maximum_singular_value": 3.0774617449258117,
+    "minimum_singular_value": 0.0014163654663327295,
+    "rank": 91,
+    "status": "full_rank",
+    "threshold": 5.3505034764465235e-12
+  },
+  "relative_covariance_tolerance": 1e-08,
+  "schema_version": 1,
+  "scope": "Fixed blind engineering orbit: export and marginalized covariance agreement only",
+  "source_files": {
+    "scripts/validate_numerics_covariance.py": "fe8664366b32dd89845cad095d9908348c1a7916b725a019dca19e26b43b1a5c",
+    "src/orbit_poc/numerics/backend.py": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648",
+    "src/orbit_poc/numerics/optimizer.py": "da8dfb12ff0f83b9d8893061d9cb4f880310dc01f790867fc486c108ba8e09fc",
+    "src/orbit_poc/numerics/retention.py": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2"
+  },
+  "source_hash": "adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8",
+  "state_inputs": [
+    {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/objective-validation-near-02/pulses-staged/point-001-nonzero-full-prior/physical_initial.txt",
+      "role": "physical_initial",
+      "sha256": "61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea"
+    },
+    {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/objective-validation-near-02/pulses-staged/point-001-nonzero-full-prior/fixed_force.txt",
+      "role": "full_force_parameters",
+      "sha256": "81f75c4e288547aff1f87e26c6beb0830bf9b22c2a2d531afddf6798c19c9880"
+    }
+  ]
+}

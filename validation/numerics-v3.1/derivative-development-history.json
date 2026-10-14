@@ -1,0 +1,169 @@
+{
+  "receipt_snapshots": [
+    {
+      "directory": "/home/emper/orbit-numerics-v3.1-engineering/receipts-before-51a9",
+      "files": {
+        "derivative-development-history.json": "d2e02677ec19e7b5455a2d66991c2c5c515844f6882501f9ef625a50ea64c9cd",
+        "derivative-gate-applicability.json": "ad651ef49f1a3885274ac7d31ceaa75ed637020243e2cfc65ac14ff55407319b",
+        "flight-staged-refinement.json": "97c6285656bd960e27e59dfe458ebedc16321d8e4af31768afa7b976c8002c19",
+        "native-derivative-tests.json": "a5961fb405fa95491dfe719252e62a5a47a0aa92af98817f647c7f753b6b0638",
+        "native-targeted-acceptance.json": "507eeb7d22c4edf54447fb6e07bbb5206b4d1ab7d89f870f694f17553a6b0f32",
+        "synthetic-staged-refinement-density-24h.json": "01833264b53859696bf722f731acf629872d188851c904277886afedfceb163e",
+        "synthetic-staged-refinement-density.json": "f02720af16bb5b532e982145fedbf3eded6a257a832cd942f53d4051eadad4b3",
+        "synthetic-staged-refinement-pulses.json": "478e95ca9f2082db7f464a84374b004deb8d9943db42e5fe4bcbe08d2d280403"
+      },
+      "reason": "Preserve all prior tracked receipts before successful candidate 51a9 derivative, replay, acceptance and signal checks. Original execution binary hashes remain in every historical receipt."
+    },
+    {
+      "directory": "/home/emper/orbit-numerics-v3.1-engineering/receipts-before-9fbf",
+      "files": {
+        "derivative-development-history.json": "1db518d264639410bbb18369a1a01b72ea77179e3078fc7e35406b5040d79cff",
+        "derivative-gate-applicability.json": "fc6b1f264e8e0e4f401ce92a16281aad4130ccd71dabe137750d4fb6f30698e7",
+        "native-derivative-tests.json": "9275e19081a078864e652bb1be3a86c9224374cfd6f6faee8f1d48bab1df425f",
+        "native-targeted-acceptance.json": "42cc1bd5683caedfc0ecd1c9e3d6407d05699a78632888feb72ae7a4a74d45da"
+      },
+      "reason": "Preserve candidate 51a9 receipt state before final 9fbf correctness receipts and explicit applicability chain."
+    },
+    {
+      "directory": "/mnt/d/orbit-numerics-v3.1-artifacts/receipts-before-3aad",
+      "files": {
+        "derivative-development-history.json": "64adf061e502a8b7167c7d9cd81d89ef36b5e2e928fe8d774560799264af49b7",
+        "derivative-final-component-identity.json": "d1c103bde665bd37d8a0da95cc8b7f3aac5d9e8b7c74eb90e3421a4c496d19a1",
+        "derivative-gate-applicability.json": "de5cbb00ea39be97bb21031a24917760642bc3fb5256e02ac29ccb9c6abdadce",
+        "native-derivative-tests.json": "43d7cf4bf122e6736d348c3e0e5f8fb72df0c098486de0cf473fd024f20d3c96",
+        "native-targeted-acceptance.json": "ced740a94974aafbc3501ffd0ca52286631f3b517d1ef2647fd1bd65d8119651"
+      },
+      "reason": "Preserve candidate 9fbf receipt state before the final 3aad derivative/acceptance tests and explicit source-identity applicability chain."
+    }
+  ],
+  "records": [
+    {
+      "binary_sha256": "bbf7d793c86acce165b59ed74208aa21680a7e285673b3695553f3ef3f72e1f9",
+      "development_run": "flight-derivatives-01",
+      "native_error_log_sha256": {
+        "baseline/closure-01/propagate.log": "f04e3607d271d4f6d1b91ada18e7b19482a7dd2893567892aa5da65051cb0532"
+      },
+      "reason": "Development script XML used a leading-dot thermal step literal rejected by native parser.",
+      "reported_error": "Native propagate exited 1; see /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v31/flight-derivatives-01/baseline/closure-01/propagate.log",
+      "result_exists": true,
+      "result_sha256": "5e133fd7209bf89468eba70234397065075c4a361587841fe39f68ae313cd55e",
+      "status": "failed"
+    },
+    {
+      "binary_sha256": "cfeded8a98860d4196ea2d9a85d8e26ad4ce66bc5519dc02ddf373417d6403e4",
+      "development_run": "flight-derivatives-02",
+      "native_error_log_sha256": {
+        "baseline/closure-01/propagate.log": "91effb411abb6bca8fd990879876c7a6e10c6b1b297d470f44e9da6ab3370cf9"
+      },
+      "reason": "One-metre spatial finite differences failed native atmospheric refinement.",
+      "reported_error": "Native propagate exited 1; see /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v31/flight-derivatives-02/baseline/closure-01/propagate.log",
+      "result_exists": true,
+      "result_sha256": "d485acff1a251c50d05a13fea52a4f109f684ba549a4c2a2f581cee34ea1f46b",
+      "status": "failed"
+    },
+    {
+      "binary_sha256": "2dd8b09b40c97442072c037fe4912b38aa9c28fb34f4d308b38367812e9a9130",
+      "development_run": "flight-derivatives-03",
+      "native_error_log_sha256": {
+        "baseline/closure-01/propagate.log": "2ef16e79ac7bc31178338e46a3721aa49abfaaf8203b8004f6a65101dea5ed83"
+      },
+      "reason": "100-metre spatial finite differences failed at a missed near-equator auxiliary epoch.",
+      "reported_error": "Native propagate exited 1; see /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v31/flight-derivatives-03/baseline/closure-01/propagate.log",
+      "result_exists": true,
+      "result_sha256": "ebab7aa26ef56fa5650360db83d6ab26fa55c0727eaee0480824cfca3a393bc4",
+      "status": "failed"
+    },
+    {
+      "binary_sha256": "ef2b81a8385a3f58c9244d1f83dd4c855dfab060b54fcf747d23bd4c92f4553f",
+      "development_run": "flight-derivatives-04",
+      "native_error_log_sha256": {
+        "baseline/closure-01/propagate.log": "1fd28bfdf0250ff3944097896016024618279fe28b9de1ce1f1c0c7a4a5e5784"
+      },
+      "reason": "One-kilometre spatial finite differences failed purely relative agreement for a near-zero column; absolute discrepancy was subsequently measured.",
+      "reported_error": "Native propagate exited 1; see /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v31/flight-derivatives-04/baseline/closure-01/propagate.log",
+      "result_exists": true,
+      "result_sha256": "7cad0c2c5d313d4cad76c970a799b5d959e15e87bbb4e0cc1942cd5002601146",
+      "status": "failed"
+    },
+    {
+      "binary_sha256": "cfeded8a98860d4196ea2d9a85d8e26ad4ce66bc5519dc02ddf373417d6403e4",
+      "development_run": "flight-refinement-legacy-development-01",
+      "native_error_log_sha256": {
+        "coarse/predictions/predict.log": "c5482499a2bc95e0c7dd5de73349e7b078970ea181dd90e35eee716113df240d"
+      },
+      "reason": "Legacy-Jacobian wiring check closed both trajectories; stale protected transmitter links blocked predictions.",
+      "reported_error": "Native predict exited 1; see /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v31/flight-refinement-legacy-development-01/coarse/predictions/predict.log",
+      "result_exists": true,
+      "result_sha256": "136c5132ace6981fad1855d230f207170faf3919fca6426d14db0e0bbaaada64",
+      "status": "failed"
+    },
+    {
+      "binary_sha256": "ef2b81a8385a3f58c9244d1f83dd4c855dfab060b54fcf747d23bd4c92f4553f",
+      "development_run": "flight-refinement-01",
+      "native_error_log_sha256": {
+        "coarse/closure-01/propagate.log": "ee3a627a2a98773ddc570cb689df4e3e27e428f879970846e3fe575379980263"
+      },
+      "reason": "Staged flight refinement stopped on the same near-zero-column failure as flight-derivatives-04.",
+      "reported_error": "Native propagate exited 1; see /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v31/flight-refinement-01/coarse/closure-01/propagate.log",
+      "result_exists": true,
+      "result_sha256": "fab4ce3b61bc7e5f96c75a5123e339777aaba50962ef41f17e11f9a62375a237",
+      "status": "failed"
+    },
+    {
+      "development_run": "resource-preflight-24h-staged-first-propagation",
+      "log_path": "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/closure-01/propagate.log",
+      "native_error_log_sha256": "1a3ec2eb2da5e30bfe0a2bd2152ccd2e468b2bd491c0d53c07a646ce3139a59f",
+      "reason": "Global double-precision moment subtraction caused full-day tangent cancellation; preserved original2e-12 residual target. Local long-double moments subsequently passed the exact configuration.",
+      "status": "failed"
+    },
+    {
+      "development_run": "tangent-long-arc-native-01",
+      "log_path": "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-01/propagate.log",
+      "native_error_log_sha256": "4fc383b6acdc25436132369acb9b2b894666bee3637c865065cfdb7ac132c780",
+      "reason": "Direct engineering launch omitted readonly historical-path namespace and failed opening auxiliary data before propagation. The corrected launch uses the verified readonly mirror wrapper.",
+      "result_path": "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-01/result.json",
+      "result_sha256": "28286c82e32b60e7be95b940126e4fe3559de6e1e4de7e7f4f9cc28766e12203",
+      "status": "failed"
+    },
+    {
+      "binary_sha256": "848ded07c240ee60d1e201a735c8a6bf0bcf35f8243a3a3edc4dbcdd1aa3ab83",
+      "development_run": "final-signals-pulses-848-01",
+      "native_error_log_sha256": "8db14162272ed74edb2f8954682c1ecfddfe7e893697c7e8d0729f32abca2792",
+      "reason": "Diagnostic helper copied pulse loopTime expressions into standalone XML; corrected to equivalent timeStart/timeEnd globals. Forward coarse/fine trajectories had closed; prediction did not run. No native estimator or physics change.",
+      "result_path": "/home/emper/orbit-numerics-v3.1-engineering/final-signals-pulses-848-01/result.json",
+      "result_sha256": "5f4cac4046ec23c415ecfae43aa9f01ca446676f9686c2d27fedfe02e29837d9",
+      "status": "failed"
+    },
+    {
+      "correction": "Compare the archived 43-column physical state+STM export directly. Original failed receipt and recovered comparison are preserved.",
+      "development_run": "final-derivative-replay-c2f3-01",
+      "kind": "diagnostic_postprocessing_failure",
+      "reason": "The replay validator requested an archived redundant ASCII orbit removed by lossless closure retention; all five native executions had completed successfully. The retained physical state+STM is exactly identical in a separate recovered comparison.",
+      "recovered_comparison": "/home/emper/orbit-numerics-v3.1-engineering/final-derivative-replay-c2f3-01/recovered-comparison.json",
+      "recovered_comparison_sha256": "997a68a96d2adb8b9cb2a901be3c2b15d457c757c79927a11cd915ac11893b30",
+      "result_path": "/home/emper/orbit-numerics-v3.1-engineering/final-derivative-replay-c2f3-01/result.json",
+      "result_sha256": "10f2710f301620f2fcc2c7b160316d949aac3647dd3e618d9183dfaa4d7b1816",
+      "status": "failed_postprocessing"
+    },
+    {
+      "binary_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+      "development_run": "final-derivative-queue-51a9-01",
+      "jobs": 7,
+      "queue_receipt_path": "/home/emper/orbit-numerics-v3.1-engineering/final-derivative-queue-51a9-01.json",
+      "queue_receipt_sha256": "f2dcea7ac85007e92309cab4ff2603c916cd27de939e7c523e4e50cd77927c76",
+      "scope": "Engineering correctness and numerical refinement; overlaps with development work preclude benchmark timing inference.",
+      "status": "passed"
+    },
+    {
+      "binary_sha256": "9fbfb8c717b66fd76fd704d1fd04b8c06ae7ad7f2c6c6ccc4bf601fabde0ce82",
+      "development_run": "final-derivative-queue-9fbf-01",
+      "jobs": 2,
+      "queue_receipt_path": "/home/emper/orbit-numerics-v3.1-engineering/final-derivative-queue-9fbf-01.json",
+      "queue_receipt_sha256": "515259ddbd8437959576eeee5bbc9af9f11c4c0ee5fd034744760e21a9721772",
+      "scope": "Nine derivative and four targeted native/GTSAM correctness tests on CPU28; no benchmark timing inference.",
+      "status": "passed"
+    }
+  ],
+  "schema": "derivative-development-history-3.1",
+  "scope": "Preserved implementation diagnostics, separate from the frozen numerical benchmark. Failed development checks are not benchmark fit attempts."
+}

@@ -1,0 +1,69 @@
+{
+  "binary_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+  "junit_path": "/home/emper/orbit-numerics-v3.1-engineering/final-derivatives-3aad-01.xml",
+  "junit_sha256": "9151b519ad895244605d1104daaa9df38f3b41881ec6e8d3ceb2a587642d6181",
+  "junit_summary": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "pfaff",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "9",
+    "time": "18.522",
+    "timestamp": "2026-10-14T14:38:47.027915+02:00"
+  },
+  "limitations": "Small native correctness problems and standalone kernels; actual flight and numerical refinement checks have separate receipts.",
+  "previous_receipt_path": "/mnt/d/orbit-numerics-v3.1-artifacts/receipts-before-3aad/native-derivative-tests.json",
+  "previous_receipt_sha256": "43d7cf4bf122e6736d348c3e0e5f8fb72df0c098486de0cf473fd024f20d3c96",
+  "schema": "native-derivative-tests-3.1",
+  "source_sha256": {
+    "groops/extension/finiteDifferenceForceJacobian.h": "1a5975e5ccc3e93d26d9683e70bdc2fadcb6aa72fab3a593d286a1423350f3ee",
+    "groops/extension/native_derivatives.py": "761de3e85cfed6c0412e46a19216faea0bf950e402e15584da4929b22edcebcb",
+    "groops/extension/orbitPocStateDerivatives.cpp": "fbfbb503b6c8e97d52c7d2dee5c7e891d042785d8a1c7fede6149b7a246be276",
+    "groops/extension/sixStateTangent.h": "6768cfc6a85be50722b7737f728615e62888f78ea3efceb2380016d1fa946cb9",
+    "groops/extension/stagedVariationalBody.h": "f3af07285e99fa3945565c31c37b8e25aa4872dafe5ca52af2d3c82ca345f6fc",
+    "groops/extension/syntheticForceDerivatives.h": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310",
+    "tests/fixtures/six_state_tangent.cpp": "18de73dcf36a10f371058d35ebe38590485953d7eb609b0a9bd8e24489ccb0c5",
+    "tests/test_numerics_derivatives.py": "a5795f11a40cd3e50c6607f5bba0e48ee0a7fde4f2053386658da732db6e7e01"
+  },
+  "status": "passed",
+  "tests": [
+    {
+      "name": "test_native_derivative_kernel[forces]",
+      "seconds": 2.731
+    },
+    {
+      "name": "test_native_derivative_kernel[finite_difference]",
+      "seconds": 0.002
+    },
+    {
+      "name": "test_native_derivative_kernel[oscillator]",
+      "seconds": 0.017
+    },
+    {
+      "name": "test_native_derivative_kernel[day_oscillator]",
+      "seconds": 0.642
+    },
+    {
+      "name": "test_native_derivative_kernel[day_kepler]",
+      "seconds": 0.707
+    },
+    {
+      "name": "test_actual_native_synthetic_force_instances",
+      "seconds": 1.422
+    },
+    {
+      "name": "test_actual_native_complete_synthetic_transition[synthetic_complete_v1-False]",
+      "seconds": 1.231
+    },
+    {
+      "name": "test_actual_native_complete_synthetic_transition[synthetic_complete_v1-True]",
+      "seconds": 1.49
+    },
+    {
+      "name": "test_actual_native_complete_synthetic_transition[flight_gravity_drag_v1-False]",
+      "seconds": 1.121
+    }
+  ]
+}

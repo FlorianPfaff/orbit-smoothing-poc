@@ -1,0 +1,813 @@
+{
+  "acceleration_sha256": "ae2efac47937aef767a839083128d3e8e206244459bbe8ef903b504d51100459",
+  "actual_config_sha256": "5705c40ddc8603acf15b1cbab69b7ed0a61595fbbcc8dccccc7fc240baab46fc",
+  "additional_failed_epoch": {
+    "attitude_interpolation": "Normalized degree7 quaternion polynomial on eight nearest actual epochs",
+    "failure_log_sha256": "1fd28bfdf0250ff3944097896016024618279fe28b9de1ce1f1c0c7a4a5e5784",
+    "fixed_attitude": [
+      0.32987329970728413,
+      0.6383189184449354,
+      -0.3069389426690217,
+      0.6241162151144123
+    ],
+    "state": [
+      60424.49981409143,
+      -4052358.967944532,
+      5536875.401452369,
+      11303.575747399213,
+      -129.92080768781912,
+      -78.87226319408843,
+      -7621.743982809987,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "binary_sha256": "ef2b81a8385a3f58c9244d1f83dd4c855dfab060b54fcf747d23bd4c92f4553f",
+  "cropped_geometry": {
+    "attitude": {
+      "epochs": 361,
+      "sampling_seconds": 4.99999999992724,
+      "sha256": "41b5c41f351eaacb1ac0471c379361731f65aa444b9f064eb23ad220cf0c7419"
+    },
+    "orbit": {
+      "epochs": 361,
+      "sampling_seconds": 4.99999999992724,
+      "sha256": "1bd5df945ba991c7af64a077c02d4595af9902eb450a4d536a80e781dba0561d"
+    }
+  },
+  "date": "2024-04-24",
+  "diagnostic_source_sha256": "0b0216fc66d472609a34035a4da9a83084b564f3649b6ce8f8b9da6c844bf5a4",
+  "duration_seconds": 1800.0,
+  "fixed_attitude_sha256": "2466f843e6faecacdc52c0c3516689f44eae54e3c05282d42aa29649da083be2",
+  "force_configuration": "Native atmosphericDrag using actual JB2008, HWM and spacecraft geometry",
+  "force_history_policy": "Fresh native force state initialized at window start for every propagation; this is a standalone 30-minute arc, not a slice of a warmed 24-hour trajectory",
+  "gnss_fit_performed": false,
+  "numpy_version": "1.26.4",
+  "original_geometry_sha256": {
+    "attitude": "cdf685dd281310097f55d9d9db5cf2ecc68faa1b2f4a10d59576d37626a1a241",
+    "orbit": "f3113a3a37c82b885940b004ec210878d5aa47a102fb035502c02187df0f1e98"
+  },
+  "perturbed_orbit_sha256": "d56ea6087597305554f5a70fdb149f6b2e353bbf7477e1435ccf8dfd1431dc62",
+  "physical_input_hashes": {
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/earthRadiationPressure/CERES_SYN1deg_albedo_climatology.dat": "980bfd52dfe607393dc6bc21d7ab581a8fc301893a1c4b15095f425aa3419f80",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/earthRadiationPressure/CERES_SYN1deg_longwaveFlux_climatology.dat": "9412d0ed9c4d5fbda63bbd7e38809dd1223ba2e1f9ec59837edac7b50d4b29da",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/potential/goco06s/GOCO06s_static_2010-01-01.gfc": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/satelliteModel/gracefo1_satelliteModel.xml": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/thermosphere/hwm14/apActivity.txt": "d097e395dbd949a656cd04b0a4f2e63b2d64ca28e8b97f43af030e19aa8f910c",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/thermosphere/jb2008/DTCFILE.TXT": "f6485450c363e9be8e71c37e143ac768462deca77565b727ec2e96c025ab8d91",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/thermosphere/jb2008/SOLFSMY.TXT": "9bc734e66da7b5919ce6fd2b3475db82c28e500988dbb2f8d994d5ff3c074e35",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/tides/earthAnelastic2003.xml": "b1138de9ef8766d3a3b6fc41bf208bc4c87c545f1712c848f96bb412b757ecc1",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/tides/ephemerides_JPL_DE432.dat": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/tides/oceanTide_fes2014b_admittance_linear_linear.txt": "98f5db50ad22522e418d735a256f8db81a6a35bc568e16dd7e03511c5ff84c00",
+    "/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/tides/oceanTide_fes2014b_n180_version20170520.dat": "bc34fa4b2aeb796a9e27710493c9ec1a2afcc180ca539cbb087a52c39645d554",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/drag-step-diagnostic-04/inputs/attitude.txt": "41b5c41f351eaacb1ac0471c379361731f65aa444b9f064eb23ad220cf0c7419",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/drag-step-diagnostic-04/inputs/orbit.txt": "1bd5df945ba991c7af64a077c02d4595af9902eb450a4d536a80e781dba0561d"
+  },
+  "profile": "native_atmospheric_component_step_study",
+  "python_executable": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+  "python_version": "3.11.17",
+  "reference_orbit_used": false,
+  "results": [
+    {
+      "comparisons": [
+        {
+          "derivative_norm": 3.021236396038877e-12,
+          "maximum_relative_disagreement": 9.966984857425228e-06,
+          "steps": [
+            1000.0,
+            500.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 2.7586417793829654e-12,
+          "maximum_relative_disagreement": 2.986569171602747e-06,
+          "steps": [
+            500.0,
+            250.0
+          ],
+          "worst_epoch_mjd": 60424.50252314815
+        },
+        {
+          "derivative_norm": 1.8088418205909064e-12,
+          "maximum_relative_disagreement": 4.130201780261561e-06,
+          "steps": [
+            250.0,
+            100.0
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 1.4103451378150118e-12,
+          "maximum_relative_disagreement": 9.48849586176255e-06,
+          "steps": [
+            100.0,
+            50.0
+          ],
+          "worst_epoch_mjd": 60424.508888888886
+        },
+        {
+          "derivative_norm": 1.5421693429830482e-12,
+          "maximum_relative_disagreement": 1.3655359737329039e-05,
+          "steps": [
+            50.0,
+            25.0
+          ],
+          "worst_epoch_mjd": 60424.508310185185
+        },
+        {
+          "derivative_norm": 1.8088882291721596e-12,
+          "maximum_relative_disagreement": 3.6370026691546914e-05,
+          "steps": [
+            25.0,
+            10.0
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 2.358264897879691e-12,
+          "maximum_relative_disagreement": 6.41778080734308e-05,
+          "steps": [
+            10.0,
+            5.0
+          ],
+          "worst_epoch_mjd": 60424.493842592594
+        },
+        {
+          "derivative_norm": 1.1536692627382497e-12,
+          "maximum_relative_disagreement": 0.0001647160570407659,
+          "steps": [
+            5.0,
+            2.0
+          ],
+          "worst_epoch_mjd": 60424.510046296295
+        },
+        {
+          "derivative_norm": 1.5063152263354252e-12,
+          "maximum_relative_disagreement": 0.00028662060992457934,
+          "steps": [
+            2.0,
+            1.0
+          ],
+          "worst_epoch_mjd": 60424.49037037037
+        },
+        {
+          "derivative_norm": 1.8082360618116552e-12,
+          "maximum_relative_disagreement": 0.0006270803166798443,
+          "steps": [
+            1.0,
+            0.5
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 1.811597797199741e-12,
+          "maximum_relative_disagreement": 0.002356455655032936,
+          "steps": [
+            0.5,
+            0.25
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 1.6777858353943365e-12,
+          "maximum_relative_disagreement": 0.002479222707528374,
+          "steps": [
+            0.25,
+            0.125
+          ],
+          "worst_epoch_mjd": 60424.507731481484
+        },
+        {
+          "derivative_norm": 1.5369253791890108e-12,
+          "maximum_relative_disagreement": 0.0034664372176815383,
+          "steps": [
+            0.125,
+            0.0625
+          ],
+          "worst_epoch_mjd": 60424.508310185185
+        }
+      ],
+      "initial_component": "x"
+    },
+    {
+      "comparisons": [
+        {
+          "derivative_norm": 4.079897058151864e-12,
+          "maximum_relative_disagreement": 1.9097513637660118e-05,
+          "steps": [
+            1000.0,
+            500.0
+          ],
+          "worst_epoch_mjd": 60424.49962962963
+        },
+        {
+          "derivative_norm": 3.671381732904327e-12,
+          "maximum_relative_disagreement": 5.011319421381589e-06,
+          "steps": [
+            500.0,
+            250.0
+          ],
+          "worst_epoch_mjd": 60424.50252314815
+        },
+        {
+          "derivative_norm": 3.671372749168194e-12,
+          "maximum_relative_disagreement": 2.788494458662472e-06,
+          "steps": [
+            250.0,
+            100.0
+          ],
+          "worst_epoch_mjd": 60424.50252314815
+        },
+        {
+          "derivative_norm": 2.3332417628697898e-12,
+          "maximum_relative_disagreement": 7.37573573357771e-06,
+          "steps": [
+            100.0,
+            50.0
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 2.333274758879593e-12,
+          "maximum_relative_disagreement": 1.8087771495024073e-05,
+          "steps": [
+            50.0,
+            25.0
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 1.2631097765999241e-12,
+          "maximum_relative_disagreement": 2.028388090545895e-05,
+          "steps": [
+            25.0,
+            10.0
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 2.3331568247255714e-12,
+          "maximum_relative_disagreement": 7.584472034921637e-05,
+          "steps": [
+            10.0,
+            5.0
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 2.3335280453129985e-12,
+          "maximum_relative_disagreement": 0.0002034814860058978,
+          "steps": [
+            5.0,
+            2.0
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 3.671903631094497e-12,
+          "maximum_relative_disagreement": 0.0002512627748718241,
+          "steps": [
+            2.0,
+            1.0
+          ],
+          "worst_epoch_mjd": 60424.50252314815
+        },
+        {
+          "derivative_norm": 1.2626186757102658e-12,
+          "maximum_relative_disagreement": 0.00050904709603939,
+          "steps": [
+            1.0,
+            0.5
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 1.2645229038814113e-12,
+          "maximum_relative_disagreement": 0.001741254727177996,
+          "steps": [
+            0.5,
+            0.25
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 3.2277238936981295e-12,
+          "maximum_relative_disagreement": 0.0017205656411978653,
+          "steps": [
+            0.25,
+            0.125
+          ],
+          "worst_epoch_mjd": 60424.50425925926
+        },
+        {
+          "derivative_norm": 2.880797920962185e-12,
+          "maximum_relative_disagreement": 0.002221073922326909,
+          "steps": [
+            0.125,
+            0.0625
+          ],
+          "worst_epoch_mjd": 60424.50541666667
+        }
+      ],
+      "initial_component": "y"
+    },
+    {
+      "comparisons": [
+        {
+          "derivative_norm": 5.035984890904356e-16,
+          "maximum_relative_disagreement": 0.0023387835289656374,
+          "steps": [
+            1000.0,
+            500.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 5.052081461977811e-16,
+          "maximum_relative_disagreement": 0.004734206671043775,
+          "steps": [
+            500.0,
+            250.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 5.027164976832116e-16,
+          "maximum_relative_disagreement": 0.009121902220945248,
+          "steps": [
+            250.0,
+            100.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 5.012875517410225e-16,
+          "maximum_relative_disagreement": 0.009046944137929459,
+          "steps": [
+            100.0,
+            50.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 4.949633146182854e-16,
+          "maximum_relative_disagreement": 0.0275382941398234,
+          "steps": [
+            50.0,
+            25.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 5.116384755929987e-16,
+          "maximum_relative_disagreement": 0.06256351087583363,
+          "steps": [
+            25.0,
+            10.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 4.897167580384406e-16,
+          "maximum_relative_disagreement": 0.054544974847550054,
+          "steps": [
+            10.0,
+            5.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 6.31649687687177e-16,
+          "maximum_relative_disagreement": 0.25860958337277673,
+          "steps": [
+            5.0,
+            2.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 6.236359707283611e-16,
+          "maximum_relative_disagreement": 0.015133062601123777,
+          "steps": [
+            2.0,
+            1.0
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 4.403951504478339e-16,
+          "maximum_relative_disagreement": 0.5654851317904585,
+          "steps": [
+            1.0,
+            0.5
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 9.12343451002286e-14,
+          "maximum_relative_disagreement": 0.006354330877899863,
+          "steps": [
+            0.5,
+            0.25
+          ],
+          "worst_epoch_mjd": 60424.49962962963
+        },
+        {
+          "derivative_norm": 6.611514964660259e-16,
+          "maximum_relative_disagreement": 0.3425238642206071,
+          "steps": [
+            0.25,
+            0.125
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 3.6838892641257117e-16,
+          "maximum_relative_disagreement": 0.819511365463609,
+          "steps": [
+            0.125,
+            0.0625
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        }
+      ],
+      "initial_component": "z"
+    },
+    {
+      "comparisons": [
+        {
+          "derivative_norm": 6.346136312912506e-11,
+          "maximum_relative_disagreement": 8.032180056830529e-08,
+          "steps": [
+            1.0,
+            0.5
+          ],
+          "worst_epoch_mjd": 60424.4955787037
+        },
+        {
+          "derivative_norm": 6.346136247947062e-11,
+          "maximum_relative_disagreement": 2.2487408408056824e-08,
+          "steps": [
+            0.5,
+            0.2
+          ],
+          "worst_epoch_mjd": 60424.4955787037
+        },
+        {
+          "derivative_norm": 6.521122099596636e-11,
+          "maximum_relative_disagreement": 3.209038830922448e-09,
+          "steps": [
+            0.2,
+            0.1
+          ],
+          "worst_epoch_mjd": 60424.496157407404
+        },
+        {
+          "derivative_norm": 6.162615039723261e-11,
+          "maximum_relative_disagreement": 8.225708354466085e-10,
+          "steps": [
+            0.1,
+            0.05
+          ],
+          "worst_epoch_mjd": 60424.495
+        },
+        {
+          "derivative_norm": 4.7400797941447485e-11,
+          "maximum_relative_disagreement": 3.148738665911553e-10,
+          "steps": [
+            0.05,
+            0.02
+          ],
+          "worst_epoch_mjd": 60424.49037037037
+        },
+        {
+          "derivative_norm": 5.402933765644701e-11,
+          "maximum_relative_disagreement": 2.3111269862355313e-10,
+          "steps": [
+            0.02,
+            0.01
+          ],
+          "worst_epoch_mjd": 60424.492685185185
+        },
+        {
+          "derivative_norm": 4.6091771799210244e-11,
+          "maximum_relative_disagreement": 5.325693244237514e-10,
+          "steps": [
+            0.01,
+            0.005
+          ],
+          "worst_epoch_mjd": 60424.48979166667
+        },
+        {
+          "derivative_norm": 4.7400797943469134e-11,
+          "maximum_relative_disagreement": 8.603921800217111e-10,
+          "steps": [
+            0.005,
+            0.002
+          ],
+          "worst_epoch_mjd": 60424.49037037037
+        },
+        {
+          "derivative_norm": 4.887064578680502e-11,
+          "maximum_relative_disagreement": 3.2638509838155723e-09,
+          "steps": [
+            0.002,
+            0.001
+          ],
+          "worst_epoch_mjd": 60424.490949074076
+        },
+        {
+          "derivative_norm": 5.221614400645851e-11,
+          "maximum_relative_disagreement": 4.218950271714219e-09,
+          "steps": [
+            0.001,
+            0.0005
+          ],
+          "worst_epoch_mjd": 60424.492106481484
+        },
+        {
+          "derivative_norm": 4.8870645722876264e-11,
+          "maximum_relative_disagreement": 8.17954579420159e-09,
+          "steps": [
+            0.0005,
+            0.00025
+          ],
+          "worst_epoch_mjd": 60424.490949074076
+        },
+        {
+          "derivative_norm": 7.244589397347874e-11,
+          "maximum_relative_disagreement": 1.9024327167263474e-08,
+          "steps": [
+            0.00025,
+            0.000125
+          ],
+          "worst_epoch_mjd": 60424.49981409143
+        },
+        {
+          "derivative_norm": 5.221614382848664e-11,
+          "maximum_relative_disagreement": 3.8593104698571246e-08,
+          "steps": [
+            0.000125,
+            6.25e-05
+          ],
+          "worst_epoch_mjd": 60424.492106481484
+        }
+      ],
+      "initial_component": "vx"
+    },
+    {
+      "comparisons": [
+        {
+          "derivative_norm": 6.495115049770909e-11,
+          "maximum_relative_disagreement": 6.70389013990881e-08,
+          "steps": [
+            1.0,
+            0.5
+          ],
+          "worst_epoch_mjd": 60424.50425925926
+        },
+        {
+          "derivative_norm": 6.495114973057145e-11,
+          "maximum_relative_disagreement": 1.8772987659105302e-08,
+          "steps": [
+            0.5,
+            0.2
+          ],
+          "worst_epoch_mjd": 60424.50425925926
+        },
+        {
+          "derivative_norm": 6.495114962072736e-11,
+          "maximum_relative_disagreement": 2.696199486284796e-09,
+          "steps": [
+            0.2,
+            0.1
+          ],
+          "worst_epoch_mjd": 60424.50425925926
+        },
+        {
+          "derivative_norm": 6.752732429655639e-11,
+          "maximum_relative_disagreement": 6.906476855222674e-10,
+          "steps": [
+            0.1,
+            0.05
+          ],
+          "worst_epoch_mjd": 60424.50368055556
+        },
+        {
+          "derivative_norm": 5.961490478651984e-11,
+          "maximum_relative_disagreement": 2.307645364615627e-10,
+          "steps": [
+            0.05,
+            0.02
+          ],
+          "worst_epoch_mjd": 60424.50541666667
+        },
+        {
+          "derivative_norm": 6.4951149588038e-11,
+          "maximum_relative_disagreement": 2.5163347155323487e-10,
+          "steps": [
+            0.02,
+            0.01
+          ],
+          "worst_epoch_mjd": 60424.50425925926
+        },
+        {
+          "derivative_norm": 4.4211204290228595e-11,
+          "maximum_relative_disagreement": 5.573904490907332e-10,
+          "steps": [
+            0.01,
+            0.005
+          ],
+          "worst_epoch_mjd": 60424.509467592594
+        },
+        {
+          "derivative_norm": 6.223300315267846e-11,
+          "maximum_relative_disagreement": 1.252794828380009e-09,
+          "steps": [
+            0.005,
+            0.002
+          ],
+          "worst_epoch_mjd": 60424.504837962966
+        },
+        {
+          "derivative_norm": 5.7024697404454114e-11,
+          "maximum_relative_disagreement": 2.098663070752558e-09,
+          "steps": [
+            0.002,
+            0.001
+          ],
+          "worst_epoch_mjd": 60424.50599537037
+        },
+        {
+          "derivative_norm": 5.214227152986603e-11,
+          "maximum_relative_disagreement": 3.45236135732014e-09,
+          "steps": [
+            0.001,
+            0.0005
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        },
+        {
+          "derivative_norm": 4.1391409273855304e-11,
+          "maximum_relative_disagreement": 9.300350334407128e-09,
+          "steps": [
+            0.0005,
+            0.00025
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 7.581694852189906e-11,
+          "maximum_relative_disagreement": 2.1248071213213508e-08,
+          "steps": [
+            0.00025,
+            0.000125
+          ],
+          "worst_epoch_mjd": 60424.49037037037
+        },
+        {
+          "derivative_norm": 5.2142271659123936e-11,
+          "maximum_relative_disagreement": 2.581015727611347e-08,
+          "steps": [
+            0.000125,
+            6.25e-05
+          ],
+          "worst_epoch_mjd": 60424.507152777776
+        }
+      ],
+      "initial_component": "vy"
+    },
+    {
+      "comparisons": [
+        {
+          "derivative_norm": 5.206512728765829e-11,
+          "maximum_relative_disagreement": 4.7774116318098113e-08,
+          "steps": [
+            1.0,
+            0.5
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 5.2065126598361806e-11,
+          "maximum_relative_disagreement": 1.3380916917872345e-08,
+          "steps": [
+            0.5,
+            0.2
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 5.2065126499694624e-11,
+          "maximum_relative_disagreement": 1.916672152313644e-09,
+          "steps": [
+            0.2,
+            0.1
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 5.206512647604478e-11,
+          "maximum_relative_disagreement": 4.562310933878532e-10,
+          "steps": [
+            0.1,
+            0.05
+          ],
+          "worst_epoch_mjd": 60424.510625
+        },
+        {
+          "derivative_norm": 5.657081776853565e-11,
+          "maximum_relative_disagreement": 1.8144929188353347e-10,
+          "steps": [
+            0.05,
+            0.02
+          ],
+          "worst_epoch_mjd": 60424.508888888886
+        },
+        {
+          "derivative_norm": 5.6570817777976056e-11,
+          "maximum_relative_disagreement": 2.5943714095513627e-10,
+          "steps": [
+            0.02,
+            0.01
+          ],
+          "worst_epoch_mjd": 60424.508888888886
+        },
+        {
+          "derivative_norm": 6.975061066467305e-11,
+          "maximum_relative_disagreement": 3.856091593894543e-10,
+          "steps": [
+            0.01,
+            0.005
+          ],
+          "worst_epoch_mjd": 60424.50425925926
+        },
+        {
+          "derivative_norm": 8.08278620037642e-11,
+          "maximum_relative_disagreement": 1.28163824069855e-09,
+          "steps": [
+            0.005,
+            0.002
+          ],
+          "worst_epoch_mjd": 60424.49789351852
+        },
+        {
+          "derivative_norm": 5.816287041587491e-11,
+          "maximum_relative_disagreement": 2.3258184782739524e-09,
+          "steps": [
+            0.002,
+            0.001
+          ],
+          "worst_epoch_mjd": 60424.508310185185
+        },
+        {
+          "derivative_norm": 6.309086844193957e-11,
+          "maximum_relative_disagreement": 3.5074644814358614e-09,
+          "steps": [
+            0.001,
+            0.0005
+          ],
+          "worst_epoch_mjd": 60424.506574074076
+        },
+        {
+          "derivative_norm": 7.948512925496828e-11,
+          "maximum_relative_disagreement": 7.335795439699599e-09,
+          "steps": [
+            0.0005,
+            0.00025
+          ],
+          "worst_epoch_mjd": 60424.49962962963
+        },
+        {
+          "derivative_norm": 7.539863069721175e-11,
+          "maximum_relative_disagreement": 1.9321307085796596e-08,
+          "steps": [
+            0.00025,
+            0.000125
+          ],
+          "worst_epoch_mjd": 60424.492685185185
+        },
+        {
+          "derivative_norm": 7.55455226502533e-11,
+          "maximum_relative_disagreement": 4.7744588958949785e-08,
+          "steps": [
+            0.000125,
+            6.25e-05
+          ],
+          "worst_epoch_mjd": 60424.50194444445
+        }
+      ],
+      "initial_component": "vz"
+    }
+  ],
+  "sampled_epochs": 38,
+  "schema": "native-drag-step-diagnostic-3.1",
+  "scope": "37 Apr24 development epochs, optionally augmented by a recorded failed auxiliary state; native atmospheric component only; fixed attitude; no full trajectory propagation or inference",
+  "source_preparation_sha256": "07ca66ce4c82179f98bbba18a28d47ad49f84b7eaa351f24beecc0c691daa554",
+  "source_variational_sha256": "561fbe748819bde31508cbeac17c9c5cd45380f74ae4ba8a7a9300aa1960ee66",
+  "start_utc_seconds": 42300.0,
+  "status": "complete"
+}

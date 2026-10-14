@@ -1,0 +1,185 @@
+{
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/dev/shm/orbit-numerics-protocol-17/src TMPDIR=/dev/shm OPENBLAS_NUM_THREADS=1 <pinned-python> -m pytest /dev/shm/orbit-numerics-protocol-17/tests/test_numerics_protocol.py -q -p no:cacheprovider --basetemp=/dev/shm/orbit-numerics-protocol-17/tmp-final",
+  "d_storage_namespace": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/d-namespace-smoke.json",
+    "sha256": "0fe637dd7df0a6353e5ef7cddee9324188ac55391f9330302d1c06f4e8cbccd8"
+  },
+  "d_unlinked_spool_semantics": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/d-unlinked-spool-smoke.json",
+    "sha256": "03a79af276d15a124160d348aa8c24236b61d26e3518770cb74f8f9272baf80a"
+  },
+  "earlier_deployment_checks": [
+    {
+      "log": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-tests-d-storage-01.log",
+        "sha256": "bb6a75e022cfbe27ee9b5c369e9bb1b725b06f8e6d04ce38b04409601633ab5f"
+      },
+      "scope": "First launch lacked basetemp parent; no relevant test execution"
+    },
+    {
+      "log": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-tests-d-storage-02.log",
+        "sha256": "a0e605a49b9c98c9a2bb4d51e13c4847d8d241eaef3c6be2aa6a169966f78551"
+      },
+      "scope": "Pytest FD capture cannot ftruncate an unlinked DrvFs temporary file; no tests executed"
+    },
+    {
+      "interruption": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-tests-d-storage-03-interruption.json",
+        "sha256": "6deb05a852e541424398f312efd53f1496e4ea6f6101480ad6e44b4a535b671b"
+      },
+      "log": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-tests-d-storage-03.log",
+        "sha256": "4d3ff5932ed6160cdc7a71acf4079d01488b072cb4b4b3bac4ae38ed6c292166"
+      },
+      "scope": "Intentionally stopped full unit fixture suite on metadata-heavyDrvFs after11passed; not a benchmark"
+    },
+    {
+      "log": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-tests-d-storage-04-ram.log",
+        "sha256": "40b64994d575bc88d241fc81a1ad2872cb3b3ba04f86f6298add535e320a01a6"
+      },
+      "scope": "New tampered-context test caught missing RuntimeError handling;69passed1failed; corrected before final suite"
+    }
+  ],
+  "elapsed_seconds": 8.32,
+  "failed": 0,
+  "filesystem_archive_smoke": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/archive-filesystem-smoke.json",
+    "sha256": "5b0487c6bebbdb02a28fcdedfc866e20a6a78ee6ed1aa664a0dadfb51b165177"
+  },
+  "historical_69_test_identity": {
+    "scope": "Prior69-test run; superseded by current70-test receipt",
+    "source_files": {
+      "scripts/run_numerics_campaign.py": "72df6e1cb0e8b7fb69afe2661997fd37f88eb3045ca73b66387c3bc37837b293",
+      "src/orbit_poc/numerics/campaign.py": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae",
+      "src/orbit_poc/numerics/cli.py": "eebe1b35c75d1b29b2729034b4cf8f661e2ba30d4a77e3cd5b238bc26e94491b",
+      "src/orbit_poc/numerics/config.py": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9",
+      "src/orbit_poc/numerics/protocol.py": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769",
+      "src/orbit_poc/numerics/report.py": "0aa257593170fb281bf1142a7b02d672434a896bad7f46f73ada548478071e3c",
+      "src/orbit_poc/numerics/retention.py": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2",
+      "src/orbit_poc/numerics/storage.py": "4051138d5ecd0e0b71f1a322df0a3f1e7d54c7f5410e80badf06a78ff0187d0b",
+      "tests/test_numerics_protocol.py": "c9e11f56a35b12043bb863581b405e070d49f0ddc75505fd7c981bc6e7a3842e"
+    },
+    "test_execution": {
+      "earlier_setup_failures": "An earlier copied test snapshot omitted repository evidence/configuration files. Original logs are retained; rerun with complete fixtures passed.",
+      "log_sha256": "36aa0a872abf9c6d870c87c632e14a0b4150ef81943b3e63c7aa5d06fa31e078",
+      "owned_sources_match_snapshot": true,
+      "reason": "Native filesystem avoids unrelated 9p metadata latency in unit tests",
+      "source_snapshot": "/home/emper/orbit-numerics-v3.1-engineering/protocol-test-snapshot-16"
+    }
+  },
+  "log": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-tests-d-storage-05-ram.log",
+    "sha256": "edc47f51ed38b0e35a89f0fb96d3ac63e1dbc7cb5e901856b0308c6cf59730c9"
+  },
+  "native_benchmark_executed_by_tests": false,
+  "packages": {
+    "numpy": "1.26.4",
+    "psutil": "7.2.2",
+    "pytest": "8.4.2",
+    "scipy": "1.15.3"
+  },
+  "passed": 70,
+  "python": "3.11.17 (main, Oct  7 2026, 00:02:24) [GCC 15.3.0]",
+  "scope": "Full protocol/report/storage unit suite on an identical RAM source snapshot; D-only runtime namespace and native spool operations validated separately. No native fit or benchmark attempt executed.",
+  "source_files": {
+    "scripts/run_numerics_campaign.py": "72df6e1cb0e8b7fb69afe2661997fd37f88eb3045ca73b66387c3bc37837b293",
+    "src/orbit_poc/numerics/campaign.py": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae",
+    "src/orbit_poc/numerics/cli.py": "eebe1b35c75d1b29b2729034b4cf8f661e2ba30d4a77e3cd5b238bc26e94491b",
+    "src/orbit_poc/numerics/config.py": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9",
+    "src/orbit_poc/numerics/protocol.py": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769",
+    "src/orbit_poc/numerics/report.py": "d1624a3c208effc10935c8c68ac8079f2d1a575c670f5cbdc567b4cc91c1a9de",
+    "src/orbit_poc/numerics/retention.py": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2",
+    "src/orbit_poc/numerics/storage.py": "4051138d5ecd0e0b71f1a322df0a3f1e7d54c7f5410e80badf06a78ff0187d0b",
+    "tests/test_numerics_protocol.py": "ba598ae8cfffbac2809c6ca716249af5a97987be93a65b63783687fc023713ff"
+  },
+  "source_snapshot_receipt": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-test-source-snapshot-17.json",
+    "sha256": "bd11e08fc4f1c5e445e44d75a762e123bbdd025dc947314882e57b369894c251"
+  },
+  "sources": {
+    "scripts/run_numerics_campaign.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/scripts/run_numerics_campaign.py",
+      "sha256": "72df6e1cb0e8b7fb69afe2661997fd37f88eb3045ca73b66387c3bc37837b293"
+    },
+    "src/orbit_poc/numerics/campaign.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/campaign.py",
+      "sha256": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae"
+    },
+    "src/orbit_poc/numerics/cli.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/cli.py",
+      "sha256": "eebe1b35c75d1b29b2729034b4cf8f661e2ba30d4a77e3cd5b238bc26e94491b"
+    },
+    "src/orbit_poc/numerics/config.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/config.py",
+      "sha256": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9"
+    },
+    "src/orbit_poc/numerics/protocol.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/protocol.py",
+      "sha256": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769"
+    },
+    "src/orbit_poc/numerics/report.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/report.py",
+      "sha256": "d1624a3c208effc10935c8c68ac8079f2d1a575c670f5cbdc567b4cc91c1a9de"
+    },
+    "src/orbit_poc/numerics/retention.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/retention.py",
+      "sha256": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2"
+    },
+    "src/orbit_poc/numerics/storage.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/src/orbit_poc/numerics/storage.py",
+      "sha256": "4051138d5ecd0e0b71f1a322df0a3f1e7d54c7f5410e80badf06a78ff0187d0b"
+    },
+    "tests/test_numerics_protocol.py": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/tests/test_numerics_protocol.py",
+      "sha256": "ba598ae8cfffbac2809c6ca716249af5a97987be93a65b63783687fc023713ff"
+    }
+  },
+  "status": "passed",
+  "test_execution": {
+    "log_sha256": "edc47f51ed38b0e35a89f0fb96d3ac63e1dbc7cb5e901856b0308c6cf59730c9",
+    "owned_sources_match_snapshot": true,
+    "reason": "RAM unit fixture execution avoids DrvFs metadata cost; live D namespace and unlinked-spool operations checked separately. Native benchmark untouched.",
+    "source_snapshot": "/dev/shm/orbit-numerics-protocol-17",
+    "source_snapshot_identity_receipt": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/protocol-test-source-snapshot-17.json",
+      "sha256": "bd11e08fc4f1c5e445e44d75a762e123bbdd025dc947314882e57b369894c251"
+    }
+  },
+  "tests": "tests/test_numerics_protocol.py",
+  "tests_include": [
+    "fixed 50-case/150-attempt enumeration",
+    "strict configuration",
+    "exact source/input/runtime identity and terminal-failure resume",
+    "all planned attempts in partial/corrupt reports",
+    "archived runtime import isolation and environmental override removal",
+    "whole-process-group timeout cleanup",
+    "process identity/affinity/memory protection",
+    "exact-grid Cartesian and carrier-phase differences",
+    "independent finite symmetric positive-definite Cartesian covariance receipt validation",
+    "generated-intermediate retention preserves final artifacts and failed-fit diagnostic factors",
+    "disk reserve process termination and strict storage-budget configuration",
+    "frozen execution-context integrity",
+    "Supplemental Fortran source identity without altering legacy hash algorithm",
+    "Verified terminal archival, corruption rejection and interrupted publication recovery for all profiles",
+    "Physical backing filesystem reserve enforcement",
+    "Pinned correctness-gate table independent of terminal fit counts",
+    "Objective changes below the measured numerical floor remain explicit, including accepted trials and unavailable legacy flags",
+    "Lossless online row and closed-trajectory compression, round-trip SHA verification and interrupted-release recovery",
+    "Online factor retention protects accepted/current and latest failed factors; deletion proof precedes unlink",
+    "Completed closure compaction preserves the current binary pair, every text byte and unmarked partial closures",
+    "Explicit dependent-seed timing scope and nuisance-coordinate bookkeeping limitations in JSON/HTML reports",
+    "Failed terminal cleanup preserves completed current closure pairs and unmarked partial closures as diagnostic-only artifacts",
+    "Native-generated gzip verification with absent raw source, full payload hashes and compressed byte-count integrity",
+    "Staged profile contrast discloses both tangent derivatives and mean-force quadrature arithmetic",
+    "Terminal deletion proofs survive interruption before or after unlink and retain prior failure history on retry",
+    "Completed linearized proposals preserve full trajectory text and correction metrics, releasing only audited unused binaries; partial proposals remain untouched",
+    "Common new-profile GNSS interpolation/time/range arithmetic changes are attributed separately from the staged derivative/mean-integration contrast",
+    "Archive recovery validates partial source cleanup and interrupted staging containing symlinks without changing complete originals",
+    "Launch-to-report controller preserves all150 report slots on completion, errors, SIGINT/SIGTERM and explicit resumes, with immutable per-invocation receipts",
+    "Interrupted fits remain blocked without checkpoint repair or automatic retry; terminal failures resume unchanged; startup/config identities are checked",
+    "Empirically floor-limited nuisance progress has separate attempt/profile counts and evidence; strict confirmation remains distinct and missing legacy diagnostics are not invented",
+    "HTML/JSON storage policy is read only from hash-verified execution context; changed context is explicitly invalid and filesystem I/O remains inside measured wall time"
+  ]
+}

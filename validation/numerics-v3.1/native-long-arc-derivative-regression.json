@@ -1,0 +1,110 @@
+{
+  "actual_config_sha256": "8f66882fb179e4ebfbdf6abf1fa5dddd3633b9e306c766ee3e7acff03486f509",
+  "binary_sha256": "c4ea37a06c828008da42279ca3fa1408130593d5bd477909c9c2a4d8e68ccfc6",
+  "build_manifest_sha256": "e1e988316ba0da2b45d9327856d79c4803f5856c8ab48ac8906339ce092abb8a",
+  "case": "retained eccentric density seed300000 24h 30minute mask",
+  "diagnostics": {
+    "coordinates": "CRF SI",
+    "drag_fd_evaluations": 0,
+    "drag_fd_initial_position_step_m": 0,
+    "drag_fd_initial_velocity_step_m_s": 0,
+    "drag_fd_maximum_position_absolute_difference_s_minus2": 0,
+    "drag_fd_maximum_position_unfloored_relative_difference": 0,
+    "drag_fd_maximum_refinements": 0,
+    "drag_fd_maximum_relative_difference": 0,
+    "drag_fd_maximum_velocity_absolute_difference_s_minus1": 0,
+    "drag_fd_maximum_velocity_unfloored_relative_difference": 0,
+    "drag_fd_position_absolute_tolerance_s_minus2": 0,
+    "drag_fd_position_derivative_floor_s_minus2": 0,
+    "drag_fd_position_floor_applied_columns": 0,
+    "drag_fd_position_step_range_m": [
+      0,
+      0
+    ],
+    "drag_fd_velocity_absolute_tolerance_s_minus1": 0,
+    "drag_fd_velocity_derivative_floor_s_minus1": 0,
+    "drag_fd_velocity_floor_applied_columns": 0,
+    "drag_fd_velocity_step_range_m_s": [
+      0,
+      0
+    ],
+    "gravity_source": "actual_forward_force",
+    "initial_velocity_parameter_scale": 1.1574743908791018e-05,
+    "maximum_tangent_iterations": 4,
+    "maximum_tangent_relative_residual": 1.1761020695235334e-12,
+    "omitted_terms": [],
+    "profile": "synthetic_complete_v1",
+    "pulse_units": "micrometres_per_second",
+    "schema": "orbit-poc-derivatives-3.1",
+    "tangent_accumulator_binary_digits": 64,
+    "tangent_integral_accumulation": "long_double_local_moments"
+  },
+  "execution": {
+    "blas_openmp_threads": 1,
+    "command": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-binaries/groops-c4ea37a06c828008",
+      "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-02/propagate.xml"
+    ],
+    "config_sha256": "8f66882fb179e4ebfbdf6abf1fa5dddd3633b9e306c766ee3e7acff03486f509",
+    "elapsed_seconds": 6.584313700999701,
+    "log": "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-02/propagate.log",
+    "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+    "native_binary_sha256": "c4ea37a06c828008da42279ca3fa1408130593d5bd477909c9c2a4d8e68ccfc6",
+    "peak_rss_bytes": 1250562048,
+    "pid": 18648,
+    "returncode": 0,
+    "timed_out": false
+  },
+  "input_files": {
+    "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/fixed_force.txt": {
+      "bytes": 34778,
+      "sha256": "e9ac8c02bc987361465e815ebba41e635d476a93b3c71c157d49ca7aaa45763a"
+    },
+    "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/native/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat": {
+      "bytes": 829502,
+      "sha256": "e325fd19698d6534914052a350f96aa3daf003aa0aa8edfa0cd70032f2cc260b"
+    },
+    "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/native/log_density.txt": {
+      "bytes": 70609,
+      "sha256": "aae199375f20e73c08d02bb33978cf3dc186a185ca41a8110d1e062ce22bbe80"
+    },
+    "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/physical_initial.txt": {
+      "bytes": 193,
+      "sha256": "610beaa7c9c87d3cc6953bb604b30bd20f32a520e5f49ba9c694ec8ceb38c339"
+    },
+    "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat": {
+      "bytes": 46014862,
+      "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d"
+    },
+    "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/potential/goco06s/GOCO06s_static_2010-01-01.gfc": {
+      "bytes": 4318316,
+      "sha256": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24"
+    },
+    "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/satelliteModel/gracefo1_satelliteModel.xml": {
+      "bytes": 24642,
+      "sha256": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13"
+    },
+    "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat": {
+      "bytes": 102256504,
+      "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+    },
+    "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-bc6a43dd96afd74453e5/native-prepared/data/2024-05-10/gracefo/gracefo1_orbit_2024-05-10.dat": {
+      "bytes": 1520702,
+      "sha256": "39fe3a2a66c3ca1c7db30c92fcc6d3231c34f372a5507ab36ff68492a6c7dc4d"
+    }
+  },
+  "log_sha256": "08d724a1d8395e953ac014d5c427ef0ef73f4bcbb92c32afa5992eee5e853d01",
+  "passed": true,
+  "readonly_mirror_wrapper_sha256": "1ba3aa77e8c34f2416751b283b0cdb58968937815ddcc8b9cd95a22a0968dedf",
+  "request_sha256": "8c1af6352f555f3b25d619d81899c28459321cea8204ae97a418e614f072c666",
+  "same_inputs_verified_under_readonly_mirror": true,
+  "schema": "orbit-poc-native-long-arc-derivative-regression-v1",
+  "scope": "Exact former first-closure failure; propagation, variational evaluation and conversion only, not a fit or full trajectory closure",
+  "source_config": "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/closure-01/propagate.xml",
+  "source_config_sha256": "1c614762fa8c10bd6eef929b9fa2b896125b92f48f72952fd1797261e9e9351d",
+  "source_substitution": {
+    "from": "/home/emper/orbit-numerics-v3.1-engineering/resource-preflight-24h-01/point-001-resource-preflight/closure-01",
+    "to": "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-02"
+  },
+  "status": "complete"
+}

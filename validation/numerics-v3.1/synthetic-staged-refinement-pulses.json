@@ -1,0 +1,116 @@
+{
+  "binary_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+  "build_manifest_sha256": "454a7d17b8cbfac1a125b6f5059f90c9af46e5f0032ada48718d226b6c6b557b",
+  "case": {
+    "atmosphere": "quiet",
+    "cadence": 30.0,
+    "coverage": "normal",
+    "duration_hours": 1.0,
+    "epoch": "2024-04-24T00:00:00",
+    "mask": {
+      "cadence_seconds": 30,
+      "intervals_seconds": [],
+      "time_scale": "elapsed"
+    },
+    "orbit": "leo500",
+    "seed": 300000,
+    "truth_model": "retained_tudat_engineering_truth_instruments"
+  },
+  "coarse_variational_config_sha256": "7c5c33c5d4bd62d9647d87720c9187e03931a8e6f1859e2dd3b3322d3be17e3a",
+  "diagnostic_source_sha256": "1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0",
+  "elapsed_seconds": 13.497598891999587,
+  "engineering_receipt_path": "/home/emper/orbit-numerics-v3.1-engineering/final-signals-pulses-51a9-01/result.json",
+  "engineering_receipt_sha256": "7b49a68baf22556d203bfc0d05fcc21c67a360e32e4ec316d8f553890dcd4b02",
+  "fine_variational_config_sha256": "51496a4f8d91be468ac4363d49351ab62009fcbc988e415f916188a3b1762084",
+  "fixed_force": [
+    40.0,
+    -30.0,
+    20.0,
+    40.0,
+    -30.0,
+    20.0
+  ],
+  "fixed_force_units": "micrometres per second",
+  "initial_state_sha256": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+  "method": "groops_pulses",
+  "metrics": {
+    "aligned_position_maximum_m": 1.2856384452691788e-08,
+    "offgrid_position_maximum_m": 5.580284614383796e-06
+  },
+  "native_signals": {
+    "comparison_weight_source": "coarse native sigma shared by both predictions",
+    "comparison_weights_frozen": true,
+    "fixed_nuisance_values_identical": true,
+    "limitation": "Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.",
+    "passed": true,
+    "raw_native_sigma_maximum_relative_change": 4.336808689942017e-16,
+    "raw_native_sigmas_identical": false,
+    "receiver_clock_values_seconds": [
+      -2e-05,
+      -5e-06,
+      -5e-08,
+      5e-08,
+      5e-06,
+      2e-05
+    ],
+    "signals": [
+      {
+        "assumed_sigma_m": 0.3,
+        "frequency_hz": 1575420000.0,
+        "maximum_difference_m": 1.1285010259598494e-08,
+        "maximum_fraction_of_sigma": 3.761670086532831e-08,
+        "minimum_native_sigma_m": 0.29999999999999993,
+        "observable": "code",
+        "passed": true,
+        "rows": 2702
+      },
+      {
+        "assumed_sigma_m": 0.3,
+        "frequency_hz": 1227600000.0,
+        "maximum_difference_m": 1.1285010259598494e-08,
+        "maximum_fraction_of_sigma": 3.761670086532831e-08,
+        "minimum_native_sigma_m": 0.29999999999999993,
+        "observable": "code",
+        "passed": true,
+        "rows": 1351
+      },
+      {
+        "assumed_sigma_m": 0.003,
+        "frequency_hz": 1575420000.0,
+        "maximum_difference_m": 1.1285010259598494e-08,
+        "maximum_fraction_of_sigma": 3.761670086532831e-06,
+        "minimum_native_sigma_m": 0.002999999999999999,
+        "observable": "carrier",
+        "passed": true,
+        "rows": 2702
+      },
+      {
+        "assumed_sigma_m": 0.003,
+        "frequency_hz": 1227600000.0,
+        "maximum_difference_m": 1.1285010259598494e-08,
+        "maximum_fraction_of_sigma": 3.761670086532831e-06,
+        "minimum_native_sigma_m": 0.002999999999999999,
+        "observable": "carrier",
+        "passed": true,
+        "rows": 1351
+      }
+    ]
+  },
+  "observation_sha256": "f8684cba376c7c78e9964deb209f8fd71db115de631b05cdbfa289be9ea5dead",
+  "offgrid_epochs": 899,
+  "passed": true,
+  "previous_receipt_path": "/home/emper/orbit-numerics-v3.1-engineering/receipts-before-51a9/synthetic-staged-refinement-pulses.json",
+  "previous_receipt_sha256": "478e95ca9f2082db7f464a84374b004deb8d9943db42e5fe4bcbe08d2d280403",
+  "profile": "synthetic_complete_v1",
+  "propagations": 4,
+  "request_sha256": "7d1acc24e0044c2cb979170d0865ea22aabdf498adbdde191383a70a7e6ea4a6",
+  "schema": "synthetic-staged-refinement-3.1",
+  "scope": "Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim",
+  "signal_diagnostic_source_sha256": "a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9",
+  "signal_prediction_mode": "QR-enabled native Polynomial query evaluation; fixed nuisance values",
+  "state_grid_seconds": [
+    5.0,
+    2.5
+  ],
+  "status": "complete"
+}

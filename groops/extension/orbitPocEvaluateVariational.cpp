@@ -23,7 +23,7 @@ void OrbitPocEvaluateVariational::run(Config &config, Parallel::CommunicatorPtr)
 {
   try
   {
-    FileName input, output, parametersFile, initialFile, outputParameters, epochReference, epochDifferences, boundaryDifferences;
+    FileName input, output, parametersFile, initialFile, outputParameters, epochReference, epochDifferences, boundaryDifferences, initialDesign;
     ParametrizationAccelerationPtr acceleration;
     EphemeridesPtr ephemerides;
     TimeSeriesPtr pulseSeries, querySeries, boundarySeries;
@@ -34,6 +34,7 @@ void OrbitPocEvaluateVariational::run(Config &config, Parallel::CommunicatorPtr)
     readConfig(config,"inputfileParameters",parametersFile,Config::OPTIONAL,"","full native parameter vector; default zero");
     readConfig(config,"inputfileInitialState",initialFile,Config::OPTIONAL,"","six SI Cartesian components at first arc epoch");
     readConfig(config,"outputfileParameters",outputParameters,Config::OPTIONAL,"","parameters after state reanchoring");
+    readConfig(config,"outputfileInitialStateDesign",initialDesign,Config::OPTIONAL,"","v3.1 six physical initial-state rows versus all native dynamic columns");
     readConfig(config,"parametrizationAcceleration",acceleration,Config::DEFAULT,"","same acceleration design as fitted model");
     readConfig(config,"stochasticPulse",pulseSeries,Config::OPTIONAL,"","same impulse times as fitted model");
     readConfig(config,"ephemerides",ephemerides,Config::DEFAULT,"jpl","same native ephemerides");
@@ -56,6 +57,13 @@ void OrbitPocEvaluateVariational::run(Config &config, Parallel::CommunicatorPtr)
     auto equation=model.integrateArc(arc.times.front(),arc.times.back(),TRUE,TRUE);
     const UInt count=model.parameterCount();
     if(count<6) throw(Exception("native model lacks six state columns"));
+    if(!initialDesign.empty())
+    {
+      Matrix design(6,count);
+      copy(equation.PosDesign.row(0,3),design.row(0,3));
+      copy(equation.VelDesign.row(0,3),design.row(3,3));
+      writeFileMatrix(initialDesign,design);
+    }
     Vector x(count);
     if(!parametersFile.empty())
     {
