@@ -1,0 +1,139 @@
+{
+  "schema_version": 3,
+  "scope": "Read-only campaign launch/resume audit; no calibration or evaluation fitting invoked",
+  "source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+  "protocol_hash": "5c818bbe0defd317714f33b10fb79e193da61e6a307aca308fa2f0a58869b60a",
+  "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+  "driver_sha256": "8149750dc0b91af317b3afc124563773c7b153838da7991152e690a2564d34d0",
+  "source_config_native_identity_verified": true,
+  "synthetic_calibration_inputs": {
+    "status": "verified_prepared",
+    "cases": 48,
+    "hashed_transitive_native_artifacts": 6768,
+    "nominal_initialization_iterations": [
+      6,
+      5,
+      7,
+      5,
+      9,
+      5,
+      5,
+      8,
+      4,
+      6,
+      7,
+      5,
+      4,
+      4,
+      4,
+      5,
+      4,
+      4,
+      4,
+      4,
+      4,
+      3,
+      4,
+      5,
+      3,
+      4,
+      4,
+      3,
+      4,
+      3,
+      5,
+      4,
+      3,
+      6,
+      4,
+      8,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      4,
+      5,
+      4,
+      7
+    ],
+    "resume_request_hashes_match": true,
+    "all_result_indexes_and_artifacts_verified": true
+  },
+  "workloads": {
+    "synthetic": {
+      "calibration_preparation_cases": 48,
+      "initial_calibration_fits": 1536,
+      "evaluation_preparation_cases": {
+        "primary": 800,
+        "stress": 10
+      },
+      "evaluation_fits": {
+        "primary": 1600,
+        "stress": 20
+      }
+    },
+    "flight": {
+      "calibration_preparation_cases": 12,
+      "initial_calibration_fits": 384,
+      "evaluation_preparation_cases": {
+        "primary": 12,
+        "flight_ar_reference": 6
+      },
+      "evaluation_fits": {
+        "primary": 24,
+        "flight_ar_reference": 6
+      }
+    }
+  },
+  "current_jobs": [
+    {
+      "stage": "flight",
+      "split": "calibration",
+      "kind": "prepare",
+      "count": 1
+    },
+    {
+      "stage": "synthetic",
+      "split": "calibration",
+      "kind": "prepare",
+      "count": 48
+    }
+  ],
+  "acceptance_gates": {
+    "ready": false,
+    "reason": "Acceptance gates 1\u20134 must pass before calibration or evaluation; save their hashed evidence in acceptance-gates.json"
+  },
+  "launch_resources_now": {
+    "observed_at": "2026-10-14T00:02:11.607386+00:00",
+    "available_bytes": 59528630272,
+    "total_bytes": 134508224512,
+    "reserve_bytes": 8589934592,
+    "planning_budget_per_worker_bytes": 3758096384,
+    "requested_workers": 24,
+    "chosen_workers": 13,
+    "estimated_worker_budget_bytes": 48855252992,
+    "available_after_estimated_worker_budget_bytes": 10673377280,
+    "policy": "Cap each launch by available memory, reserving 8 GiB and budgeting 3.5 GiB per worker; this estimate is not a hard RSS limit"
+  },
+  "storage": {
+    "total_bytes": 9920822677504,
+    "used_bytes": 6431944425472,
+    "free_bytes": 2988819910656
+  },
+  "operational_notes": [
+    "Launch main driver only after acceptance gates1-4 validate; it proceeds directly from preparation to calibration.",
+    "Resume is automatic for verified terminal results; failed fits are preserved rather than silently rerun.",
+    "The driver lacks a cross-process campaign lock; run one campaign driver at a time.",
+    "Driver command logs append on resume, while per-stage driver summary JSON describes the latest invocation.",
+    "Worker caps are launch-time memory estimates rather than hard memory limits; concurrent unrelated workloads can alter available memory."
+  ],
+  "scientific_comparison_complete": false,
+  "recorded_at_utc": "2026-10-14T00:02:11.607386+00:00",
+  "raw_audit_sha256": "14bc87d0447511cb9f93751612296d43248987b9d91a97e7a6dba77598a4b268",
+  "raw_artifact_host": "gpuserver6000",
+  "raw_artifact_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/campaign-launch-audit-f2b41a4b.json"
+}

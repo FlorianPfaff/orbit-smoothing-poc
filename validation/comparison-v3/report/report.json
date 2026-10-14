@@ -90,42 +90,400 @@
       "status": "invalid_implementation_preserved"
     },
     "automated-tests": {
-      "command": "PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 ORBIT_POC_GROOPS=<immutable-74863-binary> <native-env>/bin/python -m pytest -q --junitxml=work/v3/tests-74863-final/junit.xml",
-      "elapsed_seconds": 44.39,
+      "artifacts": {
+        "junit.xml": {
+          "file": "automated-tests-f2b41a4b-junit.xml",
+          "sha256": "b539f50c43aece3b5828b324fc737242bc7f8914a5765d74c94c377765eb2376"
+        },
+        "pytest.log": {
+          "file": "automated-tests-f2b41a4b-log.txt",
+          "sha256": "6b86af5e5bc75d1c9d0355b590f39ffcf37ed7f49bc2ce2c44c7ba47752cc23f"
+        },
+        "source-after.json": {
+          "file": "automated-tests-f2b41a4b-source-after.json",
+          "sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9"
+        },
+        "source-before.json": {
+          "file": "automated-tests-f2b41a4b-source-before.json",
+          "sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9"
+        },
+        "test-sources-after.json": {
+          "file": "automated-tests-f2b41a4b-tests-after.json",
+          "sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8"
+        },
+        "test-sources-before.json": {
+          "file": "automated-tests-f2b41a4b-tests-before.json",
+          "sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8"
+        }
+      },
+      "canonical_promotion_checks": {
+        "runtime_source_matches": true,
+        "status": "passed",
+        "test_source_matches": true
+      },
+      "command": [
+        "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/tests-f2b41a4b/junit.xml"
+      ],
+      "completed_at_utc": "2026-10-13T23:42:58.887121+00:00",
+      "cwd": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-final-f2b41a4b",
+      "elapsed_seconds": 16.10431322909426,
+      "environment": {
+        "JAX_PLATFORMS": "cpu",
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "ORBIT_POC_GROOPS": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
       "errors": 0,
+      "expected_native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
       "failures": 0,
       "files_changed_during_run": [],
-      "junit_sha256": "52e619f8b30ce470d4b1d2c7b3dfee5bf8d758c67d2475b79bdaaa68cf0b9891",
-      "log_sha256": "d9658919304e72ecee51d03b115e2629502441d69ca0929b652a1365f02bc13e",
+      "gtsam_import_succeeded": true,
+      "junit_sha256": "b539f50c43aece3b5828b324fc737242bc7f8914a5765d74c94c377765eb2376",
+      "log_sha256": "6b86af5e5bc75d1c9d0355b590f39ffcf37ed7f49bc2ce2c44c7ba47752cc23f",
       "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
       "native_tests_enabled": true,
-      "passed": 179,
-      "preserved_earlier_evidence": "automated-tests-74863.json",
+      "passed": 235,
+      "platform": {
+        "executable": "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+        "machine": "x86_64",
+        "packages": {
+          "gtsam": "4.2",
+          "jax": "0.6.2",
+          "numpy": "1.26.4",
+          "numpyro": "0.19.0",
+          "psutil": "7.2.2",
+          "pytest": "9.1.1",
+          "scipy": "1.15.3",
+          "threadpoolctl": "3.7.0"
+        },
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.11.15 (main, Jun 23 2026, 15:19:43) [Clang 22.1.3 ]"
+      },
+      "preserved_earlier_evidence": "automated-tests-before-f2b41a4b.json",
+      "previous_canonical_evidence": "automated-tests.json",
       "production_accuracy_acceptance": false,
-      "raw_artifact_locator": "work/v3/tests-74863-final",
-      "recorded_at_utc": "2026-10-13T20:54:55.636265+00:00",
+      "raw_artifact_directory": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/tests-f2b41a4b",
+      "raw_artifact_host": "gpuserver6000",
+      "returncode": 0,
+      "schema_version": 3,
       "scientific_comparison_complete": false,
-      "scope": "Final stable-runtime-source automated component suite after the shared campaign thermal maximum step was set to0.1s. This is not the scientific calibration/evaluation campaign or an uncertainty-coverage result.",
+      "scope": "Complete v2 and v3 automated suite on an immutable complete source/test staging copy; component verification only, not scientific calibration or frozen evaluation.",
       "skip_reasons": [
         "Optional archived real v1 pilot fixture is not present"
       ],
       "skipped": 1,
+      "snapshot_policy": "Complete source/tests/scripts/config/native-extension/locks copy; bulky runs, work and validation evidence excluded. Snapshot files made read-only before execution. No selective module overlay was used.",
+      "source_manifest_sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9",
       "source_snapshot": {
-        "manifest": "automated-tests-74863-final-source.json",
-        "manifest_sha256": "8d987d66e2b64e2ae02774e12560cf73695566a8101396b74daefe2ec2f18d71",
-        "scope": "runtime Python/native sources, scripts, templates, configurations and dependency locks",
-        "sha256": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e"
+        "manifest": "automated-tests-f2b41a4b-source-before.json",
+        "manifest_sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9",
+        "scope": "Complete runtime source, scripts, templates, configuration and native dependency locks",
+        "sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd"
       },
-      "source_snapshot_after_sha256": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e",
-      "source_snapshot_before_sha256": "4aad3ac1117420812c0922c80b7a1d1b51046cad08dd6b0fcd06e3e8c077a92e",
+      "source_snapshot_after_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "source_snapshot_before_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
       "source_stable_during_run": true,
+      "started_at_utc": "2026-10-13T23:42:42.759942+00:00",
       "status": "passed",
+      "test_source_manifest_sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8",
       "test_source_snapshot_at_completion": {
-        "manifest": "automated-tests-74863-final-test-sources.json",
-        "manifest_sha256": "b6737b81fa6d01c70512f46d22f75001b22a7f9da4ecf21839b7e12018fa817a",
-        "sha256": "9739514af50ada536488343a48f53133bba0ff1332b8a2f488bd83285ba6e56b"
+        "manifest": "automated-tests-f2b41a4b-tests-after.json",
+        "manifest_sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8",
+        "sha256": "4fdc5ad839c98e80f067ad407e94e6a2a1c8c28d8de88a1d223b25979b3c52fb"
       },
-      "tests": 180
+      "test_source_snapshot_sha256": "4fdc5ad839c98e80f067ad407e94e6a2a1c8c28d8de88a1d223b25979b3c52fb",
+      "test_source_stable_during_run": true,
+      "tests": 236
+    },
+    "automated-tests-f2b41a4b": {
+      "artifacts": {
+        "junit.xml": {
+          "file": "automated-tests-f2b41a4b-junit.xml",
+          "sha256": "b539f50c43aece3b5828b324fc737242bc7f8914a5765d74c94c377765eb2376"
+        },
+        "pytest.log": {
+          "file": "automated-tests-f2b41a4b-log.txt",
+          "sha256": "6b86af5e5bc75d1c9d0355b590f39ffcf37ed7f49bc2ce2c44c7ba47752cc23f"
+        },
+        "source-after.json": {
+          "file": "automated-tests-f2b41a4b-source-after.json",
+          "sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9"
+        },
+        "source-before.json": {
+          "file": "automated-tests-f2b41a4b-source-before.json",
+          "sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9"
+        },
+        "test-sources-after.json": {
+          "file": "automated-tests-f2b41a4b-tests-after.json",
+          "sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8"
+        },
+        "test-sources-before.json": {
+          "file": "automated-tests-f2b41a4b-tests-before.json",
+          "sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8"
+        }
+      },
+      "canonical_promotion_checks": {
+        "runtime_source_matches": true,
+        "status": "passed",
+        "test_source_matches": true
+      },
+      "command": [
+        "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/tests-f2b41a4b/junit.xml"
+      ],
+      "completed_at_utc": "2026-10-13T23:42:58.887121+00:00",
+      "cwd": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-final-f2b41a4b",
+      "elapsed_seconds": 16.10431322909426,
+      "environment": {
+        "JAX_PLATFORMS": "cpu",
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "ORBIT_POC_GROOPS": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin/groops-74863d5a16dbcb1f",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "errors": 0,
+      "expected_native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "failures": 0,
+      "files_changed_during_run": [],
+      "gtsam_import_succeeded": true,
+      "junit_sha256": "b539f50c43aece3b5828b324fc737242bc7f8914a5765d74c94c377765eb2376",
+      "log_sha256": "6b86af5e5bc75d1c9d0355b590f39ffcf37ed7f49bc2ce2c44c7ba47752cc23f",
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "native_tests_enabled": true,
+      "passed": 235,
+      "platform": {
+        "executable": "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+        "machine": "x86_64",
+        "packages": {
+          "gtsam": "4.2",
+          "jax": "0.6.2",
+          "numpy": "1.26.4",
+          "numpyro": "0.19.0",
+          "psutil": "7.2.2",
+          "pytest": "9.1.1",
+          "scipy": "1.15.3",
+          "threadpoolctl": "3.7.0"
+        },
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.11.15 (main, Jun 23 2026, 15:19:43) [Clang 22.1.3 ]"
+      },
+      "preserved_earlier_evidence": "automated-tests-before-f2b41a4b.json",
+      "previous_canonical_evidence": "automated-tests.json",
+      "production_accuracy_acceptance": false,
+      "raw_artifact_directory": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/tests-f2b41a4b",
+      "raw_artifact_host": "gpuserver6000",
+      "returncode": 0,
+      "schema_version": 3,
+      "scientific_comparison_complete": false,
+      "scope": "Complete v2 and v3 automated suite on an immutable complete source/test staging copy; component verification only, not scientific calibration or frozen evaluation.",
+      "skip_reasons": [
+        "Optional archived real v1 pilot fixture is not present"
+      ],
+      "skipped": 1,
+      "snapshot_policy": "Complete source/tests/scripts/config/native-extension/locks copy; bulky runs, work and validation evidence excluded. Snapshot files made read-only before execution. No selective module overlay was used.",
+      "source_manifest_sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9",
+      "source_snapshot": {
+        "manifest": "automated-tests-f2b41a4b-source-before.json",
+        "manifest_sha256": "c2d65d9bd7e97eb34f9bae28b5fd3059c045b237e85a9bbb95c2ba982543d9f9",
+        "scope": "Complete runtime source, scripts, templates, configuration and native dependency locks",
+        "sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd"
+      },
+      "source_snapshot_after_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "source_snapshot_before_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "source_stable_during_run": true,
+      "started_at_utc": "2026-10-13T23:42:42.759942+00:00",
+      "status": "passed",
+      "test_source_manifest_sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8",
+      "test_source_snapshot_at_completion": {
+        "manifest": "automated-tests-f2b41a4b-tests-after.json",
+        "manifest_sha256": "56398c64bd6ce3e403e9b25429e9ea2fe462f21160ff83d4de0c1d410bd186e8",
+        "sha256": "4fdc5ad839c98e80f067ad407e94e6a2a1c8c28d8de88a1d223b25979b3c52fb"
+      },
+      "test_source_snapshot_sha256": "4fdc5ad839c98e80f067ad407e94e6a2a1c8c28d8de88a1d223b25979b3c52fb",
+      "test_source_stable_during_run": true,
+      "tests": 236
+    },
+    "campaign-launch-audit-f2b41a4b": {
+      "acceptance_gates": {
+        "ready": false,
+        "reason": "Acceptance gates 1\u20134 must pass before calibration or evaluation; save their hashed evidence in acceptance-gates.json"
+      },
+      "current_jobs": [
+        {
+          "count": 1,
+          "kind": "prepare",
+          "split": "calibration",
+          "stage": "flight"
+        },
+        {
+          "count": 48,
+          "kind": "prepare",
+          "split": "calibration",
+          "stage": "synthetic"
+        }
+      ],
+      "driver_sha256": "8149750dc0b91af317b3afc124563773c7b153838da7991152e690a2564d34d0",
+      "launch_resources_now": {
+        "available_after_estimated_worker_budget_bytes": 10673377280,
+        "available_bytes": 59528630272,
+        "chosen_workers": 13,
+        "estimated_worker_budget_bytes": 48855252992,
+        "observed_at": "2026-10-14T00:02:11.607386+00:00",
+        "planning_budget_per_worker_bytes": 3758096384,
+        "policy": "Cap each launch by available memory, reserving 8 GiB and budgeting 3.5 GiB per worker; this estimate is not a hard RSS limit",
+        "requested_workers": 24,
+        "reserve_bytes": 8589934592,
+        "total_bytes": 134508224512
+      },
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "operational_notes": [
+        "Launch main driver only after acceptance gates1-4 validate; it proceeds directly from preparation to calibration.",
+        "Resume is automatic for verified terminal results; failed fits are preserved rather than silently rerun.",
+        "The driver lacks a cross-process campaign lock; run one campaign driver at a time.",
+        "Driver command logs append on resume, while per-stage driver summary JSON describes the latest invocation.",
+        "Worker caps are launch-time memory estimates rather than hard memory limits; concurrent unrelated workloads can alter available memory."
+      ],
+      "protocol_hash": "5c818bbe0defd317714f33b10fb79e193da61e6a307aca308fa2f0a58869b60a",
+      "raw_artifact_host": "gpuserver6000",
+      "raw_artifact_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/validation-current/campaign-launch-audit-f2b41a4b.json",
+      "raw_audit_sha256": "14bc87d0447511cb9f93751612296d43248987b9d91a97e7a6dba77598a4b268",
+      "recorded_at_utc": "2026-10-14T00:02:11.607386+00:00",
+      "schema_version": 3,
+      "scientific_comparison_complete": false,
+      "scope": "Read-only campaign launch/resume audit; no calibration or evaluation fitting invoked",
+      "source_config_native_identity_verified": true,
+      "source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "storage": {
+        "free_bytes": 2988819910656,
+        "total_bytes": 9920822677504,
+        "used_bytes": 6431944425472
+      },
+      "synthetic_calibration_inputs": {
+        "all_result_indexes_and_artifacts_verified": true,
+        "cases": 48,
+        "hashed_transitive_native_artifacts": 6768,
+        "nominal_initialization_iterations": [
+          6,
+          5,
+          7,
+          5,
+          9,
+          5,
+          5,
+          8,
+          4,
+          6,
+          7,
+          5,
+          4,
+          4,
+          4,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          4,
+          5,
+          3,
+          4,
+          4,
+          3,
+          4,
+          3,
+          5,
+          4,
+          3,
+          6,
+          4,
+          8,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          4,
+          5,
+          4,
+          7
+        ],
+        "resume_request_hashes_match": true,
+        "status": "verified_prepared"
+      },
+      "workloads": {
+        "flight": {
+          "calibration_preparation_cases": 12,
+          "evaluation_fits": {
+            "flight_ar_reference": 6,
+            "primary": 24
+          },
+          "evaluation_preparation_cases": {
+            "flight_ar_reference": 6,
+            "primary": 12
+          },
+          "initial_calibration_fits": 384
+        },
+        "synthetic": {
+          "calibration_preparation_cases": 48,
+          "evaluation_fits": {
+            "primary": 1600,
+            "stress": 20
+          },
+          "evaluation_preparation_cases": {
+            "primary": 800,
+            "stress": 10
+          },
+          "initial_calibration_fits": 1536
+        }
+      }
+    },
+    "candidate-checkpoint-02": {
+      "artifacts": [
+        {
+          "file": "protocol-candidate-02.json",
+          "sha256": "809808812492af0a42ed803cccea43f487e8fd67e0377d71418553b37db3d6cb"
+        },
+        {
+          "file": "calibration-input-launch-synthetic-02.json",
+          "sha256": "91be1f9ef8466fa4efbba60c2fcab480af03fe078f8d835c9a3210a83c3f7e69"
+        },
+        {
+          "file": "calibration-input-preparation-synthetic-02.json",
+          "sha256": "a2f7b35d90e865b30205e1e0001bcf4591e0b86307035960004123cd74b5682d"
+        },
+        {
+          "file": "campaign-launch-audit-f2b41a4b.json",
+          "sha256": "38c763161990bcd8ab6e05230e26d28efba62bc7e459d05b3f13221a0ac1b550"
+        }
+      ],
+      "calibration_fits_started": false,
+      "evaluation_fits_started": false,
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "protocol_existed_before_utc": "2026-10-13T23:50:40.715572+00:00",
+      "protocol_hash": "5c818bbe0defd317714f33b10fb79e193da61e6a307aca308fa2f0a58869b60a",
+      "recorded_at_utc": "2026-10-14T00:09:43.108073+00:00",
+      "scope": "Public pre-calibration candidate checkpoint. This is not a selected-hyperparameter freeze or a scientific result.",
+      "source_hash": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "synthetic_calibration_inputs_prepared": 48
     },
     "canonical_attitude_inputs": {
       "canonical_attitude_sha256": [
@@ -1139,6 +1497,411 @@
         "manifest_sha256": "a2403180e710a27198859e337fd12f268423b6525700de52164582543c18285f",
         "sha256": "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481"
       }
+    },
+    "density-damping-normal-74863": {
+      "controls": {
+        "maximum_accepted_log_density_increment": 0.5,
+        "maximum_log_density_update": 0.0001,
+        "maximum_orbit_change_m": 3e-05,
+        "maximum_outer_iterations": 32,
+        "opposing_density_direction_cosine": -0.25,
+        "opposing_density_step_scale": 0.5
+      },
+      "converged": true,
+      "covariance_valid": true,
+      "diagnostic_source_snapshot": {
+        "files": {
+          "configs/comparison-v3.json": "f999b2e8cd08481d57fb1e4bf3c80216a8c8a11ebc04b81f506f4707d5b836a5",
+          "configs/scenarios.json": "0475b2155d1762fc45d1cca6de59a25303077a8ccd0e98c8a7cc5b25c2b26407",
+          "configs/smoke.json": "f5049e1d39a460f903a9a0be594106f7f27e2096bf1890b78eced74b7f838127",
+          "configs/stress.json": "7030bc71c8d4b22ea7d5c3968e87a123671f39ffda7a0def147c57dbd78b3675",
+          "groops/extension/apply_extension.py": "b85cace2c092a52980e80f746ef06310ee825b996acd173e656d143fa9ab75cc",
+          "groops/extension/atmosphereEvents.h": "8a033d4431702ff81cc25056466f3676c8a61c730503ff096e534e2eb808caec",
+          "groops/extension/atmosphereExtraSamples.h": "eb30fb1086f6b2e98347303875ea0f0bc41564138d5e488e9173447279ff7718",
+          "groops/extension/atmosphereLocalEvents.h": "22cea5f25f5a2ba6912a7aaf29708d5254b1f6eced0098fd4f8c6b4ec98de973",
+          "groops/extension/eventQuadrature.h": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5",
+          "groops/extension/gnssParametrizationLogDensityOu.h": "9efaa686086deac106e9ab985f6f1d6d225fbe999e68eaf9b3cdc8a5d6ef15d3",
+          "groops/extension/integrationWindows.h": "a7215fdaa3f3d3f16a13dbf2afa9301ff88c2979f616af65864474d6bbdaa40f",
+          "groops/extension/linearTrace.h": "aeb7f39140c5f8149daf953140d6c892ded942a2513e9e098aff52eeb4194c65",
+          "groops/extension/logDensitySeries.h": "9176b172e4c5259bfa18daefa436bb869b870e4680548fba82af6974d184838b",
+          "groops/extension/miscAccelerationsLogDensity.h": "526684d8d26e9b65c2050c98bc0fbd9b3c425a959d623c149b9aa0b31fbf0f80",
+          "groops/extension/miscAccelerationsSyntheticDrag.h": "7793642b422df8b1a41539949526dcce4143dab571116613dfe35ba082a13d98",
+          "groops/extension/miscAccelerationsSyntheticGravity.h": "4afa4f0e9eadabe362d0feebc13f031a79297b85a0123ad0945dc04de0efe142",
+          "groops/extension/native_atmosphere.py": "336f9da6c938238029abddbade27ab694828dca1fd2780e38881af1abd657233",
+          "groops/extension/native_covariance.py": "a6c73bec930d928abf465ebde98a885155ac51d98ccb97b298319cab225daf0b",
+          "groops/extension/native_epoch_grid.py": "1151a121dc1b636bcd1e2f91fc1faa9e6c191f3ea8be98cd49f3ad8e810219bf",
+          "groops/extension/native_integration.py": "b6da765b809ec2e5c46e3aa1cda97712aa525cb14f3259f2004c12a22114dd4d",
+          "groops/extension/native_interpolation.py": "38577d79a1f71dd9616d11f7dfaa132c674ccd94dadf1e7be776d64ed906295f",
+          "groops/extension/native_linear_trace.py": "7104efc1057f6e8d7088fcd785637cb49c7937a69c146f291195c9faeedb405c",
+          "groops/extension/native_nuisance_export.py": "d82f845cef98cde038011e2979513f3a614220c15f214c3467df394dab6f613e",
+          "groops/extension/native_preprocessing.py": "a69ad543b37bc5fa9737400086e9ce98acbcaf490cc105697796d0faff068f3b",
+          "groops/extension/native_simulation.py": "3b14fbfb301d1dab04cf77fb7aed077890b5d739cd4ca1255cba90a82b73fa80",
+          "groops/extension/native_thermal.py": "752d45d81bf326536804ff20648f83c390f509f8b52d7872d6cb5b5e8288df23",
+          "groops/extension/orbitPocEvaluateVariational.cpp": "e7500e63909d6e5b3773ee10b835f7dc852cbe5ffdee14329e35a8dbf20e0e30",
+          "groops/extension/orbitPocForceDesign.cpp": "39d74b8c2b629c92883e1fdcee74a5ba3fc2c45bb125ce8b4e788028ad4f7fcc",
+          "groops/extension/orbitPocPredictCode.cpp": "6c725cd721efcc6d4599e285072e7fbff750c2e938666c3122ded951a939ad72",
+          "groops/extension/orbitPocPredictSlr.cpp": "e4479f0107de3b0ac6ab92281496f481077e8cc8fc7c37d6b99179289027fb02",
+          "groops/extension/orbitPocResampleOrbit.cpp": "3408c17a776dfa826403d19ff5f1bf5daeb6b8ed8ec914b81d6efc5d3827c92f",
+          "groops/extension/parametrizationAccelerationLogDensity.h": "4d7f9e1b099aeeca0b44320e3a0c93d13ff83ff960070e91c970592b74978fe5",
+          "groops/extension/piecewisePolynomial.h": "f159a5a0909661f3406993a7bf74a9ff23e96b46db6b32bad85b7b45ccc512cc",
+          "groops/extension/thermalIntegrationStep.h": "15a2a736eb212aee22a936e78389cdbca816d8a308b356017a0a0ca9aa19cd59",
+          "groops/linux-64.lock.txt": "e37c8c1d61e7f1d7bbcc2b219339358966af3de76c9cdbbd9170a40417ce49c8",
+          "groops/python-requirements.lock.txt": "4cd3f0d79599d714ba0928688e775ace8f044346670b57cf3b461d5f8215aa68",
+          "groops/templates/01groopsConvert.xml": "53d3b83ecca58479ad18e1d148842fa5e2355454b46c5857505b7cdd199f9e62",
+          "groops/templates/03groopsVariational.xml": "7cfb0708d1d1905247b412a9c7db4658b1bc0cb26b8cc3ba1d53bbdeb4158484",
+          "groops/templates/04groopsGnssProcessing.xml": "a7c0f27bb5b6385ac9dc8f105505fd4405f95682ef7a8b6b97f6a4bfec1dc404",
+          "pyproject.toml": "c2768980c8d33445c6f3e37a35508f4c3071a1c586b44f6d2d43ed5a075dcc54",
+          "scripts/build_groops.py": "7c48a2510fd1d73b25a78293f3d9c7fe332eda2ebfdb0d6b07656e1bbe9e8ea3",
+          "scripts/capture_environment.py": "cf63f87ebbd6437590dce885e13fd3ef4b3f638107bbad4690c1b5b5437149a7",
+          "scripts/check_combined_refinement.py": "f43506af2c7da9b9b1f45ebf1bfe595827face7b7f4e8904991bbfb139ec93fe",
+          "scripts/check_deferred_covariance.py": "f9759ac0856c4ea47c444b3d6666416d20d8701cb55ef39a4044b96a7f1253f2",
+          "scripts/check_density_damping.py": "678c26c420dbc39e5e0dd8ab9e12f04f312cd92ef7bb3d0473fc3eee416e6ff0",
+          "scripts/check_density_trajectory_derivative.py": "96b82da985cdaad3e166fe9f84be55d528f97e7bd1dddc7baa6fa1f483c69588",
+          "scripts/check_flight_refinement.py": "863479e09bd8d4793d3783b4b87dcfb44327f1687c16c2819967c38d2af8279d",
+          "scripts/check_native_epoch_precision.py": "704127d85b2cef8c0ae45df256225f46b691c3a20d2b6dce7bf428e3e27848ad",
+          "scripts/check_native_linear.py": "1378a5ac7e26d19df7bc2d5f313f0cc948b4f4bde01737ff515e80f9bc2b468f",
+          "scripts/check_observation_covariance.py": "d840c26b1235fbffd3247b6024522f626e84f15898ffa9e6587517daa9bc6c44",
+          "scripts/check_thermal_refinement.py": "53b02b7e17b6a3bfcecf4b54303404b6d0b571afa6c4481d855d275747473ccf",
+          "scripts/prepare_groops_data.py": "6a5a03ea4cfc7e3c5529cd22dc4a02a8a8b815d374b97289df5fcd1a7dbc759b",
+          "scripts/reproduce_groops_example.py": "6b46a3e51b161b5b7645760321e83f0799111d98b9d4c8d09032c73d7fbec5bb",
+          "scripts/run_comparison_campaign.py": "8149750dc0b91af317b3afc124563773c7b153838da7991152e690a2564d34d0",
+          "scripts/runtime.sh": "a1069b7a8382957439d1f5077c49fe76b0daf90ceddcf4794bcac0cb1132b2e9",
+          "scripts/tudat_truth.py": "b0756a86e667cc5598425ed81ae1dade7023d72cea63251a6ec881541e84d0df",
+          "scripts/validate_comparison_native.py": "88e1a2a51852aef22a1a1ed336bd0d73c7c61da9c77d179f8582992c989c6f52",
+          "scripts/validate_propagation.py": "45232e1af38759695e481e348ddc15b8a950cccfd8c89b53ef1c18622b25550d",
+          "src/orbit_poc.egg-info/SOURCES.txt": "b25c2b97df0268e3518fee834369010edc5525f11b4bb9412847bde5b059025a",
+          "src/orbit_poc.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "src/orbit_poc.egg-info/entry_points.txt": "dab762369e2592ba9b10a0b1733a264622d24efffa1a4a7c982037b3fcc5783e",
+          "src/orbit_poc.egg-info/requires.txt": "388fc0de9146404959d00593b284af0580cb549aa82bf40d18854c249a9a6803",
+          "src/orbit_poc.egg-info/top_level.txt": "bed51e9ec14e80e3564876b7d1f57abda95530ae5cca417c138b8a52c8d18ee2",
+          "src/orbit_poc/__init__.py": "2a71f94402bd80a470e3bd369b68d2cb7e2c826f890312077bf287c93e79f813",
+          "src/orbit_poc/benchmark.py": "3c5731ac6bbee71f3ac72d6a56243f5bb9fff1d9ce6e7d65d118b6e35a47c309",
+          "src/orbit_poc/cli.py": "67ec3210c8dd34ec1aa22e867f483d5a04409cfb03b99b76d447ddfa0fe0a230",
+          "src/orbit_poc/comparison/__init__.py": "ec32def0222df29c5ff021bc5ee87b7a94afd1326d1e03a5f8fd7c0534ab33f7",
+          "src/orbit_poc/comparison/backend.py": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51",
+          "src/orbit_poc/comparison/cli.py": "741357205d100568186caed6f1acdf2d1f053973f1bacc708ca72a3081a9d0f5",
+          "src/orbit_poc/comparison/config.py": "283f241bc5e7793492db8959c7ae728dcb0082f92ad28203e15a15992466142b",
+          "src/orbit_poc/comparison/data.py": "566dc07200df3e26d24ab1baef9c7b6b925710435299b67d40836ed4b74d3449",
+          "src/orbit_poc/comparison/density.py": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e",
+          "src/orbit_poc/comparison/density_step.py": "9afa2c8993e63398d32de9f36be6cc190150ad76314745c65b91b6c5ce8bfe24",
+          "src/orbit_poc/comparison/gates.py": "da962bbd12fea560f7a93f6c8a992b3adb96080e4e8da79154f5e2356473ce73",
+          "src/orbit_poc/comparison/groops_config.py": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63",
+          "src/orbit_poc/comparison/initialization.py": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655",
+          "src/orbit_poc/comparison/metrics.py": "dddc4380191ba3226326529945d263be4071993c749f79a9d4480b8705a1612e",
+          "src/orbit_poc/comparison/protocol.py": "9417f81184032df7a2a1cc34090e4a80cb9f825c9349040982ff2b6cc3c81e96",
+          "src/orbit_poc/comparison/report.py": "a6e4124b2949533c3de40181f918c2452648cdc953fc552e9b0deef689bf2cbe",
+          "src/orbit_poc/comparison/slr.py": "f6fab7c06bed4deab3d0773da6052e4102968bfdafb8989f7adef9880da736a4",
+          "src/orbit_poc/comparison/synthetic.py": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9",
+          "src/orbit_poc/config.py": "8fce436eda03f2185d6a616e618eae55d24e534a4c74876eebbdcaf14ecbcb3f",
+          "src/orbit_poc/data.py": "bc0bfa7dff49b326996c81c30cabcf3cc2502e52de79ebf959efa8447ad8df8a",
+          "src/orbit_poc/dynamics.py": "b584b0ddb1e9232eac906e1f529d645f4f7ce9bb382dd56c01ccc93ea78d6502",
+          "src/orbit_poc/numpyro_backend.py": "914a7723d00acb0f6eec76be9ffa40ec8d7b7237b82347a1e04f3fae3d00e871",
+          "src/orbit_poc/report.py": "1fb166c269067fc0c3fae83b11397e1488f1ae4d13c88cc28f6ffb5af9104efe",
+          "src/orbit_poc/simulator.py": "a8e74b3a30ba1c0386de34bd5894f848d36d7538dc6a79abd33d117dc95ca75e",
+          "src/orbit_poc/solvers.py": "a2cd18324b65a42a3ef73d2025615fd3d6c251acb397ca9c48d67ac1ae61f841",
+          "tudat-linux-64.lock.txt": "ed87e639c5a75158e1ab38bc5b3ae7f872021ae3c8876638e407adcbcea7ba7c"
+        },
+        "sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd"
+      },
+      "elapsed_seconds": 1204.4379738270072,
+      "error": null,
+      "initialization": {
+        "converged": true,
+        "iterations": 3,
+        "record_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/normal/preparation/inputs/nominal-initialization/initialization.json",
+        "reproducibility_inputs": [
+          {
+            "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/normal/preparation/inputs/nominal-initialization/input_bootstrap.dat",
+            "role": "initial_bootstrap",
+            "sha256": "69f4e3d8c80fd8fb6ca0db858169ece79758f3ec617290879086bda1b1665a70"
+          },
+          {
+            "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/normal/preparation/inputs/nominal-initialization/initial_state.txt",
+            "role": "fixed_initial_state",
+            "sha256": "07c41dc73f33011c59246589714ab08c1a680f98428ad0921d8595d203306ba4"
+          },
+          {
+            "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/normal/preparation/inputs/nominal-initialization/iteration-03/nominal.dat",
+            "role": "closed_nominal_orbit",
+            "sha256": "25639d75129f89261f6cbe5754fb727f7f8098678df187b0eee5cf9377cd88ab"
+          }
+        ],
+        "scope": "Shared fixed-initial-state nominal-force initialization; no stochastic parameters, observations or prior added"
+      },
+      "iterations": [
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": false,
+          "covariance_valid": null,
+          "criteria_met": false,
+          "density_step": {
+            "direction_cosine": null,
+            "maximum_accepted_log_density_increment": 0.5,
+            "opposition_detected": false,
+            "scale": 0.5375352870272367,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": false,
+          "invalid_covariance_epochs": null,
+          "invalid_prediction_covariance_epochs": null,
+          "iteration": 1,
+          "maximum_log_density_update": 0.9301714921176238,
+          "maximum_orbit_change_m": null,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        },
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": false,
+          "covariance_valid": null,
+          "criteria_met": false,
+          "density_step": {
+            "direction_cosine": 0.9482032589747058,
+            "maximum_accepted_log_density_increment": 0.36351593351081346,
+            "opposition_detected": false,
+            "scale": 1.0,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": false,
+          "invalid_covariance_epochs": null,
+          "invalid_prediction_covariance_epochs": null,
+          "iteration": 2,
+          "maximum_log_density_update": 0.36351593351081346,
+          "maximum_orbit_change_m": 19.647784628675254,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        },
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": false,
+          "covariance_valid": null,
+          "criteria_met": false,
+          "density_step": {
+            "direction_cosine": 0.07754004242997369,
+            "maximum_accepted_log_density_increment": 0.041020425652045694,
+            "opposition_detected": false,
+            "scale": 1.0,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": false,
+          "invalid_covariance_epochs": null,
+          "invalid_prediction_covariance_epochs": null,
+          "iteration": 3,
+          "maximum_log_density_update": 0.041020425652045694,
+          "maximum_orbit_change_m": 0.0016775555096320968,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        },
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": false,
+          "covariance_valid": null,
+          "criteria_met": false,
+          "density_step": {
+            "direction_cosine": -0.043717585950034894,
+            "maximum_accepted_log_density_increment": 0.0030181794814455134,
+            "opposition_detected": false,
+            "scale": 1.0,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": false,
+          "invalid_covariance_epochs": null,
+          "invalid_prediction_covariance_epochs": null,
+          "iteration": 4,
+          "maximum_log_density_update": 0.0030181794814455134,
+          "maximum_orbit_change_m": 7.809730690801171e-05,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        },
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": false,
+          "covariance_valid": null,
+          "criteria_met": false,
+          "density_step": {
+            "direction_cosine": -0.04620686201275506,
+            "maximum_accepted_log_density_increment": 0.0002792792329714584,
+            "opposition_detected": false,
+            "scale": 1.0,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": false,
+          "invalid_covariance_epochs": null,
+          "invalid_prediction_covariance_epochs": null,
+          "iteration": 5,
+          "maximum_log_density_update": 0.0002792792329714584,
+          "maximum_orbit_change_m": 7.906558424412389e-06,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        },
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": false,
+          "covariance_valid": null,
+          "criteria_met": true,
+          "density_step": {
+            "direction_cosine": -0.6080587465874719,
+            "maximum_accepted_log_density_increment": 2.2190810965608786e-05,
+            "opposition_detected": true,
+            "scale": 0.5,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": false,
+          "invalid_covariance_epochs": null,
+          "invalid_prediction_covariance_epochs": null,
+          "iteration": 6,
+          "maximum_log_density_update": 4.438162193121757e-05,
+          "maximum_orbit_change_m": 1.4196305071699986e-06,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        },
+        {
+          "convergence_update_scope": "Full undamped native proposal",
+          "covariance_computed": true,
+          "covariance_valid": true,
+          "criteria_met": true,
+          "density_step": {
+            "direction_cosine": 0.994372757242196,
+            "maximum_accepted_log_density_increment": 1.7148781177440404e-05,
+            "opposition_detected": true,
+            "scale": 1.0,
+            "scope": "Numerical adaptive relaxation; unchanged OU objective; no monotonicity guarantee"
+          },
+          "final_confirmation": true,
+          "invalid_covariance_epochs": [],
+          "invalid_prediction_covariance_epochs": [],
+          "iteration": 7,
+          "maximum_log_density_update": 1.7148781177440404e-05,
+          "maximum_orbit_change_m": 1.7995724302489454e-06,
+          "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f"
+        }
+      ],
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.3,
+        "tau_seconds": 7200.0
+      },
+      "passed": true,
+      "peak_rss_bytes": 2746994688,
+      "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f",
+      "result_sha256": "77a0162ea7be726799b78a783439ca5693e39924cd0064ac3097711b0a49451c",
+      "scope": "Engineering optimizer diagnostic; no calibration or scientific evaluation",
+      "shared_input_hashes_unchanged": true,
+      "source_fit_request_sha256": "ce53ebc6b045b585d1ff899962bc883a11dc2a8eda0c686ead56fe06ff3ef811",
+      "source_fit_source_hash": "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481",
+      "status": "complete"
+    },
+    "density-damping-normal-agreement-74863": {
+      "fit_artifact_hashes": [
+        {
+          "native_runtime": "616592c882eefa6cb6241a0b6e2c09002e9f2855b522487a98d13239dda5b385",
+          "posterior_log_density": "b49b76def5173e60535603582d299835d4506099b74d94f0ce93c9f76d0af2a0",
+          "state_estimate": "a68bd613a7d6b63c2dc75759fd39a8ffdb6fa06bc6e1d534e29a911da6f60218"
+        },
+        {
+          "native_runtime": "30794c47957a19641a1ea0f48c172b57ae47708bba73a23b02615afd3fb0e9ea",
+          "posterior_log_density": "9a5fc82178756f57cbc2b67df7f261416dae3b71a382d0a182aa8e0f50633f72",
+          "state_estimate": "e969c46b9250ddb935df457e9dd93bc497c594b427ee7793a9be1816f0f83be1"
+        }
+      ],
+      "input_result_records": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/normal/groops_log_drag_ou/result.json",
+          "sha256": "4c5b3b275daf73b745710adf949c14d025e2a10beedf5f1ecfa3d1c4589e874c"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/normal-damping-f2-74863/result.json",
+          "sha256": "77a0162ea7be726799b78a783439ca5693e39924cd0064ac3097711b0a49451c"
+        }
+      ],
+      "limitations": [
+        "Both solvers use the same native Jacobian approximation and conditional hyperparameters.",
+        "Small covariance differences arise from different final linearization points within the unchanged convergence thresholds."
+      ],
+      "metrics": {
+        "covariance_maximum_relative_frobenius_block_difference": 1.1540443217279215e-06,
+        "covariance_relative_frobenius_difference": 2.1104442338204073e-07,
+        "maximum_position_difference_m": 5.887992084316933e-08,
+        "maximum_posterior_log_density_difference": 2.5991137274639087e-06,
+        "maximum_velocity_difference_m_s": 1.8200861508916767e-10,
+        "prediction_covariance_maximum_relative_frobenius_block_difference": 1.1216303332475634e-06,
+        "prediction_covariance_relative_frobenius_difference": 2.1096246753791204e-07
+      },
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "preprocessing_audit_sha256": "d3f0a843538a65df47a0850addb5dc7bfa9f573e5f54591c17e743c40b69197f",
+      "same_state_epochs": true,
+      "scope": "Converged engineering normal-fit agreement after numerical relaxation; no scientific orbit-accuracy or speedup claim",
+      "source_hashes": [
+        "c8d7d8dc876e7cecfea3ce520ef4b8b49c266857e92c8394728bb8ecdf467481",
+        "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd"
+      ],
+      "status": "complete"
+    },
+    "density-damping-source-equivalence": {
+      "backend_changed_symbols": [
+        "_close_prepared_nominal_reference",
+        "prepare_job"
+      ],
+      "controlled_source_sha256": "c766500ab9d3f151c9657508ec19744707b0d662a5ad95b6735aed21ce6fb533",
+      "density_step_identical": true,
+      "final_source_sha256": "f2b41a4b7650e26a450e2934801e3be44b680e4ccf16be14ff5c81d80ee611cd",
+      "fit_job_exact_source_sha256": [
+        "c11845f7dbe4e96147950ae33469caac90ddbdc8194a9dee673447bf841849cf",
+        "c11845f7dbe4e96147950ae33469caac90ddbdc8194a9dee673447bf841849cf"
+      ],
+      "fit_job_identical": true,
+      "limitations": [
+        "The controlled replay does not execute final-source prepare_job; the shared prepared artifact hashes are checked before and after fitting.",
+        "The normal-coverage replay executes the final f2 source directly."
+      ],
+      "scope": "Controlled blackout replay uses the identical final fitting algorithm with previously verified immutable preparation; not whole-project equivalence",
+      "source_file_differences": {
+        "scripts/validate_comparison_native.py": {
+          "controlled_sha256": "be06c0d32a3f6831b0a62663ede7ba8e5bef4f26ca7e4bbe51471eedd6956bfb",
+          "final_sha256": "88e1a2a51852aef22a1a1ed336bd0d73c7c61da9c77d179f8582992c989c6f52"
+        },
+        "src/orbit_poc/comparison/backend.py": {
+          "controlled_sha256": "c363b53cf1e2dda07c9d276356a7434855aa832f5114d864744b7a1f117f198a",
+          "final_sha256": "3aa2797359e22520b67296de59f67056b106f6f05c2a7203fdc778f42a0c0e51"
+        }
+      },
+      "unchanged_runtime_dependencies": [
+        "src/orbit_poc/comparison/__init__.py",
+        "src/orbit_poc/comparison/cli.py",
+        "src/orbit_poc/comparison/config.py",
+        "src/orbit_poc/comparison/data.py",
+        "src/orbit_poc/comparison/density.py",
+        "src/orbit_poc/comparison/density_step.py",
+        "src/orbit_poc/comparison/gates.py",
+        "src/orbit_poc/comparison/groops_config.py",
+        "src/orbit_poc/comparison/initialization.py",
+        "src/orbit_poc/comparison/metrics.py",
+        "src/orbit_poc/comparison/protocol.py",
+        "src/orbit_poc/comparison/report.py",
+        "src/orbit_poc/comparison/slr.py",
+        "src/orbit_poc/comparison/synthetic.py"
+      ]
+    },
+    "density-fit-closure-74863": {
+      "computation": "For each exact matching epoch, subtract retained MAP Cartesian states from independently closed nominal states; take maximum Euclidean position/velocity norms.",
+      "inputs": [
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/normal/groops_log_drag_ou/fit.npz",
+          "role": "fitted_states",
+          "sha256": "95a56c999ef7c57b54d9e5d4391f1e7844c2011d0167f51ed85c6e1fd8427e01"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/density-fd-utc-74863/nominal/states.npz",
+          "role": "independently_closed_states",
+          "sha256": "e0a2ce91df177558f43aa81b5c440bed187bac893db6d72397af41c5e3e213c3"
+        }
+      ],
+      "maximum_position_difference_m": 1.0232794213425044e-07,
+      "maximum_velocity_difference_m_s": 1.0837999442791282e-10,
+      "native_binary_sha256": "74863d5a16dbcb1f762e9a4bbe7eebc064e1d11f641691a7d3f87e3669288453",
+      "passed": true,
+      "same_epochs": true,
+      "scope": "Converged normal UTC density fit versus independently closed full-force trajectory at its fitted physical initial state and posterior density; engineering consistency only",
+      "state_epochs": 17281,
+      "status": "complete"
     },
     "density-trajectory-derivative-274b": {
       "approximation": "Native transition uses low-degree gravity-only state gradient; full drag, other force position/velocity gradients are omitted. The FD repropagates all nonlinear forces.",
@@ -14120,6 +14883,11 @@
         "utc_end": "2024-04-24T01:00:00Z",
         "utc_start": "2024-04-24T00:00:00Z"
       },
+      "bundled_covariance_witness": {
+        "file": "utc_small_fit_observation_covariance_arrays.npz",
+        "scope": "Compact matrices and native Cartesian covariance arrays for independently recomputing J P J^T; no raw GNSS observations included.",
+        "sha256": "9349d713ba12c9e47dee00b8a819ce19246aa015078dbd719f3fdf5ac8cf0b73"
+      },
       "checker_source_sha256_at_recording": "d840c26b1235fbffd3247b6024522f626e84f15898ffa9e6587517daa9bc6c44",
       "epochs": {
         "all_gnss_epochs_off_state_grid": true,
@@ -14465,13 +15233,13 @@
   },
   "interpretation": "Comparative statistics describe valid paired seeds; failure counts remain explicit. A completed job or report is not scientific acceptance. Flight reference agreement is not known truth.",
   "limitations": [
-    "Calibration and frozen evaluation have not started; no comparative scientific result is available.",
+    "All 48 synthetic calibration input preparations and 6,768 converted input hashes are verified. Calibration fits and frozen evaluation have not started; no comparative scientific result is available.",
     "Both primary methods pass fresh normal/masked one-hour independent synthetic fits. Four native scheduling replays give exactly equal final estimates and covariance when uncertainty is deferred to final confirmation.",
-    "The full-day blackout density engineering fit failed before shared nominal closure and then oscillated after closure. Adaptive numerical damping is undergoing validation; these failures remain recorded and do not count as scientific results.",
-    "All sixteen current-binary full-day synthetic force/interpolation refinements pass. Current full-flight force, thermal, state-grid and combined refinements pass with an explicit0.1-second thermal maximum step.",
-    "Current-runtime fully nonlinear finite differences for one development density knot show about0.027percent relative discrepancy from the shared low-degree gravity-gradient transition approximation. This is not an exact-derivative or global covariance-calibration claim.",
-    "An April24 pulse engineering fit exercises independent correctedSLR with correlated predictive covariance and trueCRD session summaries; GNV agreement is reported separately. May spacecraft measurements and references remain unopened.",
-    "One April24 developmentGNV orbit was inspected earlier for an initialization diagnostic; its post-fit engineering use is also disclosed. Neither use enters an estimator or calibration score.",
+    "The full-day blackout density engineering fit failed before common nominal closure and then oscillated after closure. The damped normal fit passed convergence and its final covariance confirmation in seven iterations; the damped blackout fit is still iterating. All earlier failures remain recorded.",
+    "All sixteen current-binary full-day synthetic force/interpolation refinements pass. Current full-flight force, thermal, state-grid and combined refinements pass with an explicit 0.1-second thermal maximum step.",
+    "Current-runtime fully nonlinear finite differences for one development density knot show about 0.027 percent relative discrepancy from the shared low-degree gravity-gradient transition approximation. This is not an exact-derivative or global covariance-calibration claim.",
+    "An April 24 pulse engineering fit exercises independent corrected SLR with correlated predictive covariance and true CRD session summaries; GNV agreement is reported separately. May spacecraft measurements and references remain unopened.",
+    "One April 24 development GNV orbit was inspected earlier for an initialization diagnostic; its post-fit engineering use is also disclosed. Neither use enters an estimator or calibration score.",
     "Evaluation SLR correction sources are now metadata-preflighted, hashed before production fits and verified offline during evaluation; reference orbits and SLR numerical observations remain unavailable to fitting.",
     "The environment restart cleared temporary local runtimes. Persistent inputs and evidence were preserved, missing synthetic/refinement experiments were regenerated, and prior interrupted attempts remain identified."
   ],

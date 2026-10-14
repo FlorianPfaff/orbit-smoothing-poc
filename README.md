@@ -19,6 +19,10 @@ reduced-dynamic pulse and log-density OU models, blind GNSS data preparation,
 native covariance export and independent validation. Its acceptance gates and
 production runs are distinct from the published v2 campaign below; preparation
 or unit-test success is not a completed accuracy comparison.
+The [frozen candidate protocol](validation/comparison-v3/protocol-candidate-02.json)
+records the source, native executable, seeds and complete case matrix before
+calibration. The [engineering report](validation/comparison-v3/report/index.html)
+records validation progress and preserved failures.
 
 ## Completed v2 campaign
 
@@ -56,11 +60,13 @@ those artifacts locally. Saved manifests may refer to raw artifacts that are
 not bundled; the included HTML reports are static snapshots and can be opened
 locally after cloning. Regenerating them requires the corresponding raw runs.
 
-Published result metadata generalizes absolute paths and machine names. The
+Published v2 result metadata generalizes absolute paths and machine names. The
 scientific source files and recorded numerical results are unchanged. See
 [PUBLICATION.json](PUBLICATION.json) for the export scope. The reported 49-test
 campaign included an optional historical regression dataset; a fresh checkout
 skips that one test unless `ORBIT_POC_REGRESSION_DATA_ROOT` is supplied.
+V3 validation records retain exact artifact locators and hashes; the bulky raw
+artifacts are excluded from Git and must be regenerated to inspect them.
 
 ![Coverage at the disturbance peak](runs/v2/combined/analysis/coverage_at_peak.png)
 

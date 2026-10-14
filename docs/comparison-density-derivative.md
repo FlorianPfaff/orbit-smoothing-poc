@@ -33,7 +33,31 @@ knot's support. These quantify observed numerical limitations; the closure proxy
 is not a certified error bound. Output includes raw derivative arrays, per-branch
 closure records, native configurations, command records, and executable hashes.
 
-The [recorded April diagnostic](../validation/comparison-v3/density-trajectory-derivative-274b.json)
+The [current UTC-day diagnostic](../validation/comparison-v3/density-trajectory-derivative-74863.json)
+uses the campaign binary `74863d5a…`, the complete April 24 UTC day, and a single
+six-hour knot. Its full force model includes the selected 1-second atmospheric
+quadrature and 0.1-second thermal maximum step. The native position derivative
+differs from the extrapolated finite difference by **0.648 mm per unit
+log-density**, or **0.0267%** in maximum norm. The response is 2.432 m per unit
+log-density. Step halving changes the derivative by 0.357 mm; the Richardson
+correction is 0.119 mm, the closure-change proxy is 21.1 µm, and the observed
+pre-support floor is 6.31 µm. The velocity discrepancy is 0.0276%. All five
+nonlinear branches close: two iterations for the nominal trajectory and three
+for each perturbation.
+
+A separate [mean-trajectory closure check](../validation/comparison-v3/density-fit-closure-74863.json)
+compares the converged fitted orbit with this independently propagated nominal
+trajectory at all 17,281 exact native epochs. The maximum difference is
+0.1023 µm in position and 0.1084 nm/s in velocity. This checks the fitted mean
+under the same force model; it does not establish covariance calibration.
+
+The source fit and the diagnostic have distinct, recorded Python revisions;
+their native executable is identical. These checks quantify one development
+knot and one fitted mean, with no global trajectory-Jacobian error bound or
+claim about scientific orbit accuracy. Raw artifacts are retained under the
+locators in the compact records, outside Git.
+
+The [earlier April diagnostic](../validation/comparison-v3/density-trajectory-derivative-274b.json)
 used binary `274bd986…`, a GPS-midnight engineering arc, and a single six-hour
 knot. The native position derivative differed from the extrapolated finite
 difference by **0.710 mm per unit log-density**, or **0.0267%** in maximum norm.
