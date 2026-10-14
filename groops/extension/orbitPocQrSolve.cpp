@@ -16,7 +16,7 @@ class OrbitPocQrSolve {public:void run(Config &,Parallel::CommunicatorPtr);};
 GROOPS_REGISTER_PROGRAM(OrbitPocQrSolve,SINGLEPROCESS,"Native weighted-row QR validation",Simulation)
 void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
 {
-  FileName input,output,covariance,prefix,coordinateUpdates;UInt locals,dynamics,datumReceivers,datumTransmitters,generations,failBeforeFactorGeneration;Double lambda;Bool nuisanceOnly,ionosphereColumn,datumSelection,costOnlyCheck,jointEpochLocals,interpolationFixture,rangeResidualFixture,clockTimeFixture,relativePulseFixture,precisePositionFixture;std::string nuisanceFixture;
+  FileName input,output,covariance,prefix,coordinateUpdates;UInt locals,dynamics,datumReceivers,datumTransmitters,generations,failBeforeFactorGeneration;Double lambda;Bool nuisanceOnly,ionosphereColumn,datumSelection,costOnlyCheck,jointEpochLocals,interpolationFixture,rangeResidualFixture,clockTimeFixture,relativePulseFixture,precisePositionFixture,objectiveLedgerFixture;std::string nuisanceFixture,objectiveLedgerFailure;
   readConfig(config,"inputfileRows",input,Config::MUSTSET,"","weighted A followed by b");
   readConfig(config,"outputfileSolution",output,Config::MUSTSET,"","native-unit update");
   readConfig(config,"outputfileCovariance",covariance,Config::OPTIONAL,"","retained covariance, always undamped");
@@ -40,9 +40,61 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
   readConfig(config,"clockTimeFixture",clockTimeFixture,Config::DEFAULT,"0","receiver clock day-fraction precision and rollover regression");
   readConfig(config,"relativePulseFixture",relativePulseFixture,Config::DEFAULT,"0","exact pulse side with sub-Time clock offsets");
   readConfig(config,"precisePositionFixture",precisePositionFixture,Config::DEFAULT,"0","sub-double coordinate remainders in corrected range");
+  readConfig(config,"objectiveLedgerFixture",objectiveLedgerFixture,Config::DEFAULT,"0","original observation/prior objective independent of group QR basis");
+  readConfig(config,"objectiveLedgerFailure",objectiveLedgerFailure,Config::OPTIONAL,"","inject missing capture or misclassified prior in objective fixture");
   if(isCreateSchema(config))return;
   Matrix rows;readFileMatrix(input,rows);
   if(rows.columns()<2||locals+dynamics>rows.columns()-1)throw(Exception("Invalid native QR fixture dimensions"));
+  if(objectiveLedgerFixture)
+  {
+    if(!objectiveLedgerFailure.empty()&&objectiveLedgerFailure!="missing_capture"&&objectiveLedgerFailure!="misclassified_prior"&&objectiveLedgerFailure!="missing_capture_cost_only"&&objectiveLedgerFailure!="misclassified_prior_cost_only")
+      throw(Exception("Unknown original-objective fixture failure"));
+    // Columns: group B before/after, original residual before/after, row role.
+    // Roles: 0 group observation (including its local prior), 1 B-empty
+    // observation, 2 epoch prior, 3 global prior. No parameter solve occurs.
+    if(rows.columns()!=5)throw(Exception("Original-objective fixture requires five columns"));
+    std::vector<UInt> grouped,ungrouped,epochPriors,globalPriors;
+    for(UInt i=0;i<rows.rows();i++)
+    {
+      const Double role=rows(i,4);
+      if(role==0)grouped.push_back(i);else if(role==1)ungrouped.push_back(i);
+      else if(role==2)epochPriors.push_back(i);else if(role==3)globalPriors.push_back(i);
+      else throw(Exception("Unknown original-objective fixture row role"));
+    }
+    if(grouped.size()<2||ungrouped.empty()||epochPriors.empty()||globalPriors.empty())
+      throw(Exception("Original-objective fixture needs grouped/plain observations and both prior types"));
+    setenv("ORBIT_POC_NUMERICS_QR_PREFIX",prefix.str().c_str(),1);
+    GnssNormalEquationInfo info(0,0,0,comm);info.parameterNamesOther({ParameterName("fixture","testBias")});info.calculateIndex(Vector());
+    OrbitPocRowQr qr;std::vector<Double> transformedBefore,transformedAfter;
+    auto build=[&](UInt trial,std::vector<Double> &transformed)
+    {
+      const Bool inject=!objectiveLedgerFailure.empty()&&((objectiveLedgerFailure.find("_cost_only")!=std::string::npos)==(trial==1));
+      qr.begin(info);qr.beginEpoch(0,0,0);qr.context("fixture_epoch_prior");
+      for(UInt i:epochPriors){qr.addRow(rows(i,2+trial),{0},{1.});transformed.push_back(rows(i,2+trial));}
+      Matrix original(grouped.size(),1);Vector residual(grouped.size());
+      for(UInt j=0;j<grouped.size();j++){original(j,0)=rows(grouped[j],trial);residual(j)=rows(grouped[j],2+trial);}
+      qr.context("weighted_observation");
+      if(!(inject&&objectiveLedgerFailure.find("missing_capture")==0))qr.retainObservationResiduals(0,0,0,residual);
+      Matrix factor(original);const Vector tau=QR_decomposition(factor);
+      qr.retainGroup(0,0,0,original,factor,tau,residual);Vector rotated(residual);QTransMult(factor,tau,rotated);
+      for(UInt j=0;j<rotated.rows();j++)transformed.push_back(rotated(j));
+      for(UInt j=1;j<rotated.rows();j++)qr.addRow(rotated(j),{0},{1.});
+      Vector plain(ungrouped.size());for(UInt j=0;j<ungrouped.size();j++)plain(j)=rows(ungrouped[j],2+trial);
+      qr.retainObservationResiduals(0,1,0,plain);
+      for(UInt j=0;j<plain.rows();j++){qr.addRow(plain(j),{0},{1.});transformed.push_back(plain(j));}
+      qr.finishEpoch();qr.context(inject&&objectiveLedgerFailure.find("misclassified_prior")==0?"weighted_observation":"fixture_global_prior");
+      for(UInt i:globalPriors){qr.addRow(rows(i,2+trial),{0},{1.});transformed.push_back(rows(i,2+trial));}
+      qr.finish();
+    };
+    build(0,transformedBefore);const Double before=qr.rawCost();const UInt originalCount=qr.originalObjectiveRowCount();
+    qr.prepareCostOnly();build(1,transformedAfter);
+    orbitPocQr::ObjectiveSum oldReduction;
+    for(UInt i=0;i<transformedBefore.size();i++)oldReduction.add(.5L*(static_cast<long double>(transformedBefore[i])-transformedAfter[i])*(static_cast<long double>(transformedBefore[i])+transformedAfter[i]));
+    std::ofstream receipt(output.str());receipt<<std::setprecision(17)<<"{\"before\":"<<before<<",\"after\":"<<qr.rawCost()
+      <<",\"actual_reduction\":"<<qr.actualObjectiveReduction()<<",\"transformed_basis_reduction\":"<<static_cast<Double>(oldReduction.value())
+      <<",\"original_rows_before\":"<<originalCount<<",\"original_rows_after\":"<<qr.originalObjectiveRowCount()<<"}\n";
+    if(!receipt)throw(Exception("Cannot record original-objective fixture"));return;
+  }
   if(precisePositionFixture)
   {
     const Vector3d receiver(6900000.,0.,0.),transmitter(26000000.,0.,0.);const Double c=LIGHT_VELOCITY;
@@ -259,7 +311,7 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
   for(UInt generation=0;generation<generations;generation++)
   {
   qr.begin(info);
-  if(ionosphereColumn)qr.retainGroup(0,0,0,originalGroup,groupFactor,groupTau,originalRows.column(originalRows.columns()-1));
+  if(ionosphereColumn){qr.retainObservationResiduals(0,0,0,originalRows.column(originalRows.columns()-1));qr.retainGroup(0,0,0,originalGroup,groupFactor,groupTau,originalRows.column(originalRows.columns()-1));}
   auto append=[&](UInt i){std::vector<UInt> ids;std::vector<Double> values;for(UInt j=0;j<n;j++)if(rows(i,j)!=0){ids.push_back(j);values.push_back(rows(i,j));}qr.addRow(rows(i,n),ids,values);};
   auto appendEpochs=[&]()
   {
@@ -286,7 +338,7 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
     if(costOnlyCheck)
     {
       const Double before=qr.rawCost();const auto signature=qr.supportSignature();qr.prepareCostOnly();qr.begin(info);
-      if(ionosphereColumn)qr.retainGroup(0,0,0,originalGroup,groupFactor,groupTau,originalRows.column(originalRows.columns()-1));
+      if(ionosphereColumn){qr.retainObservationResiduals(0,0,0,originalRows.column(originalRows.columns()-1));qr.retainGroup(0,0,0,originalGroup,groupFactor,groupTau,originalRows.column(originalRows.columns()-1));}
       appendEpochs();
       qr.finish();std::ofstream receipt(prefix.str()+".cost_only.json");
       receipt<<std::setprecision(17)<<"{\"before\":"<<before<<",\"after\":"<<qr.rawCost()<<",\"actual_reduction\":"<<qr.actualObjectiveReduction()

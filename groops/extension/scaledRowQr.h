@@ -22,6 +22,22 @@ extern "C" void FORTRANCALL(orbitpoctriangularqr,ORBITPOCTRIANGULARQR)(
 // Original weighted rows only: no A'A, ridge or normal-equation fallback.
 namespace orbitPocQr
 {
+// Objective arithmetic uses original weighted residuals, never residuals
+// reconstructed from an observation-dependent orthogonal elimination basis.
+// Neumaier compensation retains small contributions in both positive costs and
+// signed paired reductions; each product is formed in extended precision.
+class ObjectiveSum
+{
+  long double sum=0,correction=0;
+public:
+  void add(long double value)
+  {
+    const long double next=sum+value;
+    correction+=(std::fabs(sum)>=std::fabs(value))?(sum-next)+value:(value-next)+sum;
+    sum=next;
+  }
+  long double value()const{return sum+correction;}
+};
 inline std::string env(const char *name,const std::string &fallback="")
 {const char *p=std::getenv(name); return p ? p : fallback;}
 inline Bool enabled() {return !env("ORBIT_POC_NUMERICS_QR_PREFIX").empty();}
@@ -199,7 +215,7 @@ class OrbitPocRowQr
   std::map<std::tuple<UInt,UInt,UInt>,GroupConditional> groupConditionals;
   std::vector<Row> epochRows;
   std::vector<Double> objectiveResiduals,referenceResiduals;
-  std::map<std::tuple<UInt,UInt,UInt>,Vector> referenceGroups,referenceRawGroups;
+  std::map<std::tuple<UInt,UInt,UInt>,Vector> observationResiduals,referenceObservationResiduals;
   std::vector<Conditional> conditionals;
   std::vector<ParameterName> names;
   std::vector<Double> norms;
@@ -232,33 +248,44 @@ public:
   const std::string &artifactStem() const{return stem;}
   void prepareCostOnly()
   {
-    costOnly=TRUE;provenance.close();spool.reset();referenceResiduals=objectiveResiduals;referenceGroups.clear();referenceRawGroups.clear();
-    for(const auto &entry:groupConditionals){referenceGroups.emplace(entry.first,entry.second.z);referenceRawGroups.emplace(entry.first,entry.second.raw);}
+    costOnly=TRUE;provenance.close();spool.reset();referenceResiduals=objectiveResiduals;
+    referenceObservationResiduals=observationResiduals;
+  }
+  // Capture all original observation rows, including a group STEC prior, even
+  // if no group nuisance is active. Called before any observation QR rotation.
+  void retainObservationResiduals(UInt receiver,UInt transmitter,UInt epoch,const_MatrixSliceRef target)
+  {
+    if((stem.empty()&&!costOnly)||finished)return;
+    if(target.columns()!=1)throw(Exception("Original objective requires a residual vector"));
+    const auto key=std::make_tuple(receiver,transmitter,epoch);
+    if(observationResiduals.count(key))throw(Exception("Duplicate original observation objective block"));
+    for(UInt i=0;i<target.rows();i++)if(!std::isfinite(target(i,0)))throw(Exception("Nonfinite original observation residual"));
+    observationResiduals.emplace(key,Vector(target));
   }
   Double actualObjectiveReduction()const
   {
-    if(!costOnly||referenceResiduals.size()!=objectiveResiduals.size()||referenceGroups.size()!=groupConditionals.size())
-      throw(Exception("Cost-only objective support changed"));
-    long double reduction=0;
-    auto add=[&](Double before,Double after){reduction+=.5L*(static_cast<long double>(before)-after)*(static_cast<long double>(before)+after);};
+    if(!costOnly||referenceResiduals.size()!=objectiveResiduals.size()||referenceObservationResiduals.size()!=observationResiduals.size())
+      throw(Exception("Cost-only original objective support changed"));
+    orbitPocQr::ObjectiveSum reduction;
+    auto add=[&](Double before,Double after){reduction.add(.5L*(static_cast<long double>(before)-after)*(static_cast<long double>(before)+after));};
     for(UInt i=0;i<referenceResiduals.size();i++)add(referenceResiduals[i],objectiveResiduals[i]);
-    for(const auto &entry:groupConditionals)
+    for(const auto &entry:observationResiduals)
     {
-      const auto reference=referenceGroups.find(entry.first);
-      if(reference==referenceGroups.end()||reference->second.rows()!=entry.second.z.rows())throw(Exception("Cost-only group support changed"));
-      for(UInt i=0;i<entry.second.z.rows();i++)add(reference->second(i),entry.second.z(i));
+      const auto reference=referenceObservationResiduals.find(entry.first);
+      if(reference==referenceObservationResiduals.end()||reference->second.rows()!=entry.second.rows())throw(Exception("Cost-only original observation support changed"));
+      for(UInt i=0;i<entry.second.rows();i++)add(reference->second(i),entry.second(i));
     }
-    return static_cast<Double>(reduction);
+    return static_cast<Double>(reduction.value());
   }
   std::array<Double,7> largestRawResidualChange()const
   {
     std::array<Double,7> result{};Double maximum=0;
-    for(const auto &entry:groupConditionals)
+    for(const auto &entry:observationResiduals)
     {
-      const auto &before=referenceRawGroups.at(entry.first),&after=entry.second.raw;
+      const auto &before=referenceObservationResiduals.at(entry.first),&after=entry.second;
       for(UInt i=0;i<before.rows();i++)
       {
-        const Double contribution=.5*(before(i)-after(i))*(before(i)+after(i));
+        const Double contribution=static_cast<Double>(.5L*(static_cast<long double>(before(i))-after(i))*(static_cast<long double>(before(i))+after(i)));
         if(std::fabs(contribution)>maximum)
         {maximum=std::fabs(contribution);result={Double(std::get<0>(entry.first)),Double(std::get<1>(entry.first)),Double(std::get<2>(entry.first)),Double(i),before(i),after(i),contribution};}
       }
@@ -290,7 +317,19 @@ public:
     Vector v=residual;QTransMult(c.householder,c.tau,v);Vector x(v.row(0,c.tau.rows()));
     const Matrix r=orbitPocQr::upper(c.householder,c.tau.rows());triangularSolve(1.,r,x);return x;
   }
-  Double rawCost()const{return .5*(sourceRhs2+groupRemovedEnergy);}
+  UInt originalObjectiveRowCount()const
+  {
+    UInt count=objectiveResiduals.size();
+    for(const auto &entry:observationResiduals)count+=entry.second.rows();
+    return count;
+  }
+  Double rawCost()const
+  {
+    orbitPocQr::ObjectiveSum cost;
+    for(Double residual:objectiveResiduals)cost.add(.5L*residual*residual);
+    for(const auto &entry:observationResiduals)for(UInt i=0;i<entry.second.rows();i++)cost.add(.5L*entry.second(i)*entry.second(i));
+    return static_cast<Double>(cost.value());
+  }
   Double lastNuisanceGradient()const{return nuisanceGradient;}
   Double lastNuisanceReduction()const{return nuisanceReduction;}
   void recordBiasCoordinates(const Vector &full)const
@@ -357,7 +396,7 @@ public:
     // Close the previous spool before creating its replacement. Named spools
     // are unlinked immediately, so failure or process death leaves no large file.
     spool.reset();if(!costOnly){spool.reset(orbitPocQr::temporarySpool(spoolDirectory));if(!spool)throw(Exception("Cannot create QR row spool"));}
-    norms.assign(total,0.);objectiveResiduals.clear();groupConditionals.clear();epochRows.clear();conditionals.clear();epochIds.clear();sourceRows=reducedRows=0;constant=sourceRhs2=groupRemovedEnergy=0;finished=FALSE;
+    norms.assign(total,0.);objectiveResiduals.clear();observationResiduals.clear();groupConditionals.clear();epochRows.clear();conditionals.clear();epochIds.clear();sourceRows=reducedRows=0;constant=sourceRhs2=groupRemovedEnergy=0;finished=FALSE;
     nuisanceGradient=nuisanceReduction=std::numeric_limits<Double>::quiet_NaN();
     support=14695981039346656037ULL;
     if(costOnly)return;
@@ -376,7 +415,11 @@ public:
     {if(ids[j]>=total||!std::isfinite(values[j]))throw(Exception("Invalid QR column"));
       if(ids[j]<localCount&&values[j]!=0){hasLocal=TRUE;if(std::find(epochIds.begin(),epochIds.end(),ids[j])==epochIds.end())throw(Exception("Time-coupled clocks or VTEC unsupported by v3.1 QR"));}}
     supportValue(currentEpoch);supportValue(sourceRows);for(unsigned char value:contextName)supportValue(value);
-    objectiveResiduals.push_back(rhs);
+    // Group-eliminated observation rows already have their complete original
+    // residual vector above. Epoch/global Gaussian constraints are separate
+    // rows and are included exactly once. Unhooked standalone row fixtures
+    // retain their direct-row semantics when there are no observation blocks.
+    if(contextName!="weighted_observation"||observationResiduals.empty())objectiveResiduals.push_back(rhs);
     if(costOnly){sourceRows++;sourceRhs2+=rhs*rhs;return;}
     provenance<<sourceRows<<'\t'<<(currentEpoch==NULLINDEX?"global":std::to_string(currentEpoch))<<'\t'<<contextName<<'\t'<<rhs<<'\t';
     for(UInt j=0;j<ids.size();j++){if(j)provenance<<',';provenance<<ids[j];}provenance<<'\n';
@@ -408,6 +451,18 @@ public:
   {
     if(finished)return;finished=TRUE;
     if(currentEpoch!=NULLINDEX)throw(Exception("Unclosed QR epoch"));
+    if(!observationResiduals.empty())
+    {
+      UInt eliminatedRows=0;
+      for(const auto &entry:groupConditionals)
+      {
+        if(!observationResiduals.count(entry.first))throw(Exception("Group QR lacks its original objective block"));
+        eliminatedRows+=entry.second.tau.rows();
+      }
+      if(originalObjectiveRowCount()!=sourceRows+eliminatedRows)
+        throw(Exception("Original objective row accounting differs from the weighted QR rows"));
+    }
+    else if(!groupConditionals.empty())throw(Exception("Original observation objective hook is missing"));
     if(costOnly)return;
     if(expectedCostPending){expectedCostPending=FALSE;if(rawCost()!=expectedCost)throw(Exception("Accepted nuisance trial did not reproduce its isolated native objective"));}
     scales=Vector(retained);for(UInt j=0;j<retained;j++)scales(j)=norms[j+localCount]>0?1./norms[j+localCount]:1.;
@@ -448,6 +503,7 @@ public:
         <<",\"spool_policy\":\""<<(spoolDirectory.empty()?"system_tmpfile":"unlinked_mkstemp")
         <<"\",\"spool_directory\":"<<std::quoted(spoolDirectory)
         <<",\"row_provenance_policy\":\""<<(compressRows?"verified_row_compression_v1":"raw_tsv")<<"\""
+        <<",\"objective_residual_basis\":\"original_weighted_rows_v1\",\"objective_accumulation\":\"compensated_long_double\",\"original_objective_rows\":"<<originalObjectiveRowCount()
         <<",\"gnss_measurement_arithmetic\":\"relative_query_clock_range_v1\",\"native_time_metadata_precision\":\"double_day_fraction\",\"cartesian_coordinate_precision\":\"float64\",\"corrected_range_coordinates\":\"long_double_polynomial_high_low\",\"receiver_frame\":\"inertial_leo_only\",\"light_time_position_tolerance_m\":1e-10,\"row_compression_level\":"<<(compressRows?6:0)
         <<",\"row_spool_bytes\":"<<static_cast<std::uint64_t>(reducedRows)*(retained+1)*sizeof(Double)<<"}\n";
     meta.close();parameters.close();singular.close();
