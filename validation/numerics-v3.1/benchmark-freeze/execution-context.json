@@ -1,0 +1,275 @@
+{
+  "acceptance_gate_index": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance-gates.json",
+    "sha256": "4e951a7e667d8a73f2ccfa90ad4a7e7538b8dffd3803352a70ae982714affdc9"
+  },
+  "acceptance_gates": [
+    {
+      "gate": "qr_independent_agreement",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/qr_independent_agreement.json",
+        "sha256": "507f4fd451e32389d24af18058fab1aef53a2623ce8967f859a8f02d30c0abab"
+      },
+      "scope": "Actual final-native weighted-row MAP, marginal covariance and selected dynamic/global-nuisance cross-covariance agree with independent QR/GTSAM on small problems. This does not establish nonlinear fit convergence.",
+      "status": "passed"
+    },
+    {
+      "gate": "rank_and_invariance",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/rank_and_invariance.json",
+        "sha256": "6215cacd93920b7e82c01ad59032c20302e6c2561d1f9bc3e4027a0ddd8f7119"
+      },
+      "scope": "Actual final-native exact/near-rank rejection, gauges, missing constraints, unused directions, units, row/block ordering and equivalent nuisance elimination. No accepted covariance for deficient or unresolved systems.",
+      "status": "passed"
+    },
+    {
+      "gate": "objective_and_priors",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/objective_and_priors.json",
+        "sha256": "0e5471f24051b5fe3f61714de72c02cfe340a1d5626625e24926fff3b4b9c8c6"
+      },
+      "scope": "The pulse local objective/prior check passed on actual 7fa execution. Density full OU rows passed, but all six completed derivative scales failed the unchanged 1e-4 criterion and the next repeated endpoint terminated on nuisance nonconvergence. The objective gate is not accepted for release.",
+      "status": "failed"
+    },
+    {
+      "gate": "rollback_and_convergence",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/rollback_and_convergence.json",
+        "sha256": "d0224abf6442933cad41970f7e99fdb3359fc45131dcdb2c2add6f1e9d63337f"
+      },
+      "scope": "Current controller/native transactional and fresh-undamped acceptance safeguards, plus actual final-native fixed-point nuisance-marginalized covariance export. No engineering optimizer convergence is asserted or required by this gate.",
+      "status": "passed"
+    },
+    {
+      "gate": "synthetic_derivatives",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/synthetic_derivatives.json",
+        "sha256": "4664a9dabe7ae7055f56349f67274a23b4dd2681404b5a336bd3301ad7e4bf45"
+      },
+      "scope": "Final-native force/tangent kernels and actual propagated synthetic derivatives, including velocity coupling, pulse jumps, density knots and a full-day cancellation regression. Reused full-day evidence is explicitly component-bound.",
+      "status": "passed"
+    },
+    {
+      "gate": "flight_derivative_approximation",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/flight_derivative_approximation.json",
+        "sha256": "7a965904d732f6520a0d9641280b62ac7569d66157d9e4081dd7cb5b60308119"
+      },
+      "scope": "Quantification of combined omitted flight sensitivities on one 30-minute April 24 window with fresh thermal history with degree 120 gravity and actual atmospheric drag. Passed means quantified approximation, not complete flight Jacobian.",
+      "status": "passed"
+    },
+    {
+      "gate": "propagation_refinement",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/propagation_refinement.json",
+        "sha256": "293052b5ae4788d8d46e1e64366c4b2609421c4cc2548adbe0605381887dd2ea"
+      },
+      "scope": "Actual native code/carrier predictions satisfy the 1%-of-noise refinement threshold on two one-hour synthetic fixtures, selected 24-hour eccentric density, and one 30-minute flight window, with exact source/replay applicability to the final candidate.",
+      "status": "passed"
+    },
+    {
+      "gate": "pipeline_and_provenance",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/pipeline_and_provenance.json",
+        "sha256": "eafcd18874cb0b7f9319239b6bafe48179d9458c5fef36e6915fec4ac9005504"
+      },
+      "scope": "Current 70 protocol and 8 startup unit checks, blind retained/fresh input verification and phase-coordinate comparison, plus independently verified final-candidate D-backed namespace, resource and row-retention readiness. Final launch proofs are separate; no benchmark execution or fit convergence is inferred.",
+      "status": "passed"
+    }
+  ],
+  "archive_policy": "No extra terminal archive copy; output_dir is already on permanent D storage. Generated-intermediate retention policy remains unchanged.",
+  "backing_free_bytes": {
+    "/mnt/c": 39937200128,
+    "/mnt/d": 919148638208
+  },
+  "benchmark_started": false,
+  "bubblewrap": {
+    "path": "/usr/bin/bwrap",
+    "sha256": "523da3e7399044be5163aee6f57a77a6bef7454376e28f0a0627920bae1b76b6"
+  },
+  "bytecode_policy": "Each common namespace uses a fresh empty read-only PYTHONPYCACHEPREFIX with PYTHONDONTWRITEBYTECODE=1; runtime caches outside it are not loaded",
+  "c_floor_change": "The unchanged 40 GiB backing reserve now applies to D, the only writable scientific filesystem. This is an explicit backing-volume change, not a reduced threshold.",
+  "c_write_policy": "C and /home/emper are mounted read-only inside the common namespace; no intentional fit/runtime/source writes are allowed. Host applications, WSL VHD metadata, and host-managed swap remain outside this job policy.",
+  "cache_receipt": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/local-cache-receipt.json",
+    "sha256": "8c4bf9043bcb8ad73aaec205aa43446debcf5562cd7be9bfc65b0c8a4884faf3"
+  },
+  "committed_source_alignment": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f.commit-alignment.json",
+    "sha256": "a7916f00efcd1166ce479582c9b2b739351543e03595bb95a881073db0c1f949"
+  },
+  "d_namespace_smoke": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/d-namespace-smoke.json",
+    "sha256": "0fe637dd7df0a6353e5ef7cddee9324188ac55391f9330302d1c06f4e8cbccd8"
+  },
+  "engineering_storage_forecast": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/storage-forecast.json",
+    "sha256": "e9835244a054d8a53809dee5bd249c17389da93d09b37854484f2a671d67fc5e"
+  },
+  "final_resource_readiness": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/resource-readiness-validation.json",
+    "sha256": "274f3ab11c770230676f3d10e27be59ce90456812fb5ad0e01d4ae8a798f3d69"
+  },
+  "fresh_input_validation": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/fresh-catalog-verification.json",
+    "sha256": "0afb3d7042fa84972fc39a03bf34cf042c5e3777bc232a89702a84f128f5aa59"
+  },
+  "fresh_legacy_compatibility": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/fresh-legacy-compatibility.json",
+    "sha256": "df242def69f9cc0bf58396b8b79dc197d6c2b86a5a69a556f05a30abeb6c7d0c"
+  },
+  "fresh_preparation_bindings": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/fresh-preparation-bindings.json",
+    "sha256": "aabe6a1b3b1652b521e8030f92d2ff1059d60922f0b92abc89e2f79679baa11a"
+  },
+  "fresh_preparation_recipe": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/fresh-preparation-recipe.json",
+    "sha256": "5fbfd41e0e0e910e748e258695abc7771f80797e428aa45d5f37f2122d845624"
+  },
+  "fresh_seed_audit": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/fresh-seed-audit.json",
+    "sha256": "ba7fa8c0894cbd9a1f5e3cf6a60132987c16de463c4491f634df46e95a688bdf"
+  },
+  "local_libc": [
+    "glibc",
+    "2.43"
+  ],
+  "local_machine": "x86_64",
+  "local_platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "local_protection_scope": "Original remote PID/boot identity plus campaign output token; archived source mount arguments are not executing production jobs",
+  "mirror_verification": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/local-mirror-verification.json",
+    "sha256": "5dac2b6c65599c8a15bfe2417a438fd9df0a3a87b841a258ee938b2beea9505b"
+  },
+  "native_build": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-binaries/groops-3aad854b51102dce.build-manifest.json",
+    "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+  },
+  "native_dynamic_libraries": [
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libopenblasp-r0.3.34.so",
+      "sha256": "f1424288e9ac125331102c0150b66fbd244560987779552e0e97d5cfd9de572b"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libexpat.so.1.12.5",
+      "sha256": "8b61b41a8f5bee8d8d336e8bc5318233d6b435d482a7510f4e01788b618a6598"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/liberfa.so.1.8.1",
+      "sha256": "0b565cccc453d93882a8a84a8639badc71f22f370aeba2040e96c58361fc7857"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libz.so.1.3.2",
+      "sha256": "3c6fd78e248a60e45081bcc77031204a7cb64a88ff2e27fc786ef12ae7e91fca"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgfortran.so.5.0.0",
+      "sha256": "8b93406aef97f0f39ebac58aed3b63c58c9c26eb246595d8141dde5baeee5b33"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libquadmath.so.0.0.0",
+      "sha256": "9fa4807097fa47da1815765f0a43177c45e7ec7cc94e44cfa95a4c3a1a341ee6"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6.0.36",
+      "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "sha256": "1c488db6f4fe8cecb72456bc018de000b7a9b539c2994864b0416b5e8371b3d8"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libmvec.so.1",
+      "sha256": "2f2e7f4ad88e1b13f2f8345c826b25f85ba61c93527d91e59dd0d2943eac6e80"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+      "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "85e64f97e348786a8fb4d9f3d52fec289e2fb86bba20f0731dfe61990525e0f7"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "sha256": "1327fc40710691dbd94e88b6cf4efce27fefe8fbb93f7d1164a75b4dccaea696"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "sha256": "59d725ca30596a9863f4fa2552a7125f834842abc86b40890231c129358965d2"
+    }
+  ],
+  "native_extension_inventory": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f.native-supplemental.json",
+    "sha256": "570f6af341741d46442336a5bab82acd355040f4d934f5357ea5ec6324bd8a76"
+  },
+  "native_library_policy": "Complete native-env runtime inventory plus per-attempt selected native library hashes; host system dependency hashes recorded as execution provenance",
+  "new_python_runtime_manifest": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/new-python-runtime-manifest.json",
+    "sha256": "d6a0a6b3ccb09eb77673c8b7b25ed175a17c272fd4a5455db7f3f9e1673b8e18"
+  },
+  "nonpassing_gate_execution_policy": {
+    "explicitly_allowed": true,
+    "nonpassing_gates": [
+      {
+        "gate": "objective_and_priors",
+        "status": "failed"
+      }
+    ],
+    "scope": "A bounded numerical experiment may preserve recorded failed/unresolved correctness gates; completion does not establish release acceptance or reliability/accuracy claims. Legacy compatibility default remains unchanged."
+  },
+  "physical_backing_path": "/mnt/d",
+  "prepared_input_catalog": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/fresh-prepared-catalog.json",
+    "sha256": "f504f1d9c210ca654f509fa4c4eec0bf8cbd262237761af7d7faa523a39073ad"
+  },
+  "process_namespace": "Host process IDs and CPU affinity are retained",
+  "remote_process_receipt": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/protected-remote-v3-process.json",
+    "sha256": "040c7fd236b90a48d5f0834e38ff92d0636ff19a2be8a76dea2c14690cf74699"
+  },
+  "remote_production": "Read-only source host; no process or configuration changes",
+  "reserved_cpu_ids": [
+    30
+  ],
+  "reserved_physical_backing_bytes": 42949672960,
+  "run_to_report_controller": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/src/orbit_poc/numerics/campaign.py",
+    "sha256": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae"
+  },
+  "run_to_report_entrypoint": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/run_numerics_campaign.py",
+    "sha256": "72df6e1cb0e8b7fb69afe2661997fd37f88eb3045ca73b66387c3bc37837b293"
+  },
+  "runtime_manifest": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/local-mirror-runtime-manifest.json",
+    "sha256": "ed8cb7a51bfa1a7a244ddc73e3d8f42c583489700c4581ec69347caa564347e6"
+  },
+  "runtime_source_receipt": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f.json",
+    "sha256": "36321796146fe65e37c120189dfc3df3144a72f93bc3055a8735ff9da4b37fcd"
+  },
+  "runtime_startup_verifier": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+    "sha256": "5e444c25ada1e8d51f0d5f74584feb905cbe8d06b3a8f936c8dbdb9bb6323b5e"
+  },
+  "schema_version": 1,
+  "scope": "Shared local execution namespace for all three numerical profiles",
+  "source_and_build_frozen": true,
+  "storage_policy": "All three profiles write outputs, temporary files, logs, and row spools to the same D/DrvFs volume. Runtime/source/data namespaces are read-only. Terminal artifacts stay in their original D directories.",
+  "syscall_translation": false,
+  "temporary_directory": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/temporary",
+  "timing_policy": "Measured worker wall time includes all DrvFs I/O and online retention. Ratios describe this deployment and do not measure intrinsic solver CPU speed.",
+  "wrapper": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+    "sha256": "9c39280813adcc0080f92aab5f0b91d0f60b9ce38b2c0e51f9d8bf6eea7f3578"
+  },
+  "writable_roots": [
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume",
+    "/tmp (bound to D temporary directory)"
+  ]
+}
