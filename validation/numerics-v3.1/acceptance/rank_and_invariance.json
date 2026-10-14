@@ -1,0 +1,77 @@
+{
+  "benchmark_attempts_executed_by_this_gate": 0,
+  "candidate": {
+    "native_build_manifest": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-build-manifest.json",
+      "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+    },
+    "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "source_snapshot_scope": "Existing source_snapshot algorithm; validation and docs are excluded. Native Fortran is additionally pinned by build manifest/supplemental runtime inventory.",
+    "source_snapshot_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae"
+  },
+  "checks": {
+    "covariance_permitted_for_deficient_or_unresolved_rank": false,
+    "native_fixture_tests_passed": 65,
+    "rank_rule": "t=epsilon*max(m,n)*sigma_max; sigma<=t deficient; t<sigma<=10*t unresolved"
+  },
+  "evidence": [
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+        "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+        "patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+        "source_hashes": {
+          "groops/extension/artifactReceipt.h": "908660f0ceb25e6282a423ae562ead8b2fb43bb3f395ea9c0a4e45251c5a84d2",
+          "groops/extension/gnssRangeResidual.h": "0895d6eb363e99eb8495a84d0b4a1843ed0b17329bbd16f8878e09eb204fd718",
+          "groops/extension/native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+          "groops/extension/nuisanceLineSearch.h": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c",
+          "groops/extension/orbitPocQrSolve.cpp": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+          "groops/extension/positionRemainder.py": "bf3db4972e60e549e8a9e70ad943202f18cc224f81948aa4f4a35e7b731d8cbf",
+          "groops/extension/relativeQueryInterpolation.py": "fb9e709dec67b23b3b4831cf77c6264727116fce11e811338d650bbc2f70fe64",
+          "groops/extension/scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+          "groops/extension/triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14",
+          "tests/test_numerics_native_qr.py": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+        }
+      },
+      "evidence_mode": "direct_candidate_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-qr-validation.json",
+        "sha256": "6749121f2aabbedbbb4ee5a959af78d947013a0c7202feb88eb0767a339cc4b7"
+      },
+      "role": "rank_gauge_and_invariance",
+      "scope": "Includes exact/near local and retained rank failures, disconnected/ambiguous datum cases, 80-column LAPACK block-size fixtures, unit/row/order/local-global elimination invariance."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+        "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+        "patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+        "source_hashes": {
+          "groops/extension/native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+          "groops/extension/orbitPocQrSolve.cpp": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+          "groops/extension/scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+          "groops/extension/triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14",
+          "scripts/validate_numerics_acceptance.py": "f5659cce6ada8cbef3f43c183653814d35214fedf83b649a9912a7d7fd287e80",
+          "src/orbit_poc/comparison/density.py": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e",
+          "src/orbit_poc/numerics/report.py": "0aa257593170fb281bf1142a7b02d672434a896bad7f46f73ada548478071e3c",
+          "tests/test_numerics_acceptance.py": "04b9951e7bf51d268c590c17bf98bc79ceedaa2a3da5e3d97a8aa34abe0a8208"
+        }
+      },
+      "evidence_mode": "direct_candidate_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-targeted-acceptance.json",
+        "sha256": "0664bcd2567b7dda54558b8dc410a663bf789786970b4813486feca45d51b88f"
+      },
+      "role": "missing_stationary_ou_constraint",
+      "scope": "Missing stationary initial OU row is rejected; analytic stationary OU covariance is independently checked."
+    }
+  ],
+  "gate": "rank_and_invariance",
+  "limitations": [
+    "Expected gauge preferences are checked on finite fixtures; no claim that all future observation supports have full rank."
+  ],
+  "pending_requirements": [],
+  "schema": "orbit-poc-numerics-acceptance-gate-v1",
+  "scope": "Actual final-native exact/near-rank rejection, gauges, missing constraints, unused directions, units, row/block ordering and equivalent nuisance elimination. No accepted covariance for deficient or unresolved systems.",
+  "status": "passed"
+}

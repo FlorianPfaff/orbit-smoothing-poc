@@ -1,0 +1,216 @@
+{
+  "acceptance_decision": {
+    "additional_rescue_in_this_benchmark": false,
+    "benchmark_execution_is_separate": true,
+    "candidate_gate_pass_inferred_from_source_proof": false,
+    "legacy_default_retained": true,
+    "numerical_candidate_or_criteria_changed": false,
+    "reliability_or_accuracy_improvement_claim_permitted": false,
+    "status": "nonpassing_gate_retained_for_bounded_benchmark"
+  },
+  "benchmark_attempts_executed_by_this_gate": 0,
+  "candidate": {
+    "native_build_manifest": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-build-manifest.json",
+      "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+    },
+    "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "source_snapshot_scope": "Existing source_snapshot algorithm; validation and docs are excluded. Native Fortran is additionally pinned by build manifest/supplemental runtime inventory.",
+    "source_snapshot_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae"
+  },
+  "checks": {
+    "density_best_complete_scale": 0.0625,
+    "density_completed_derivative_scales": [
+      {
+        "empirical_resolution_fraction": 2.94236511326854e-06,
+        "finite_difference": -399.4825810357286,
+        "native_derivative": -397.01275351488505,
+        "passes_unchanged_tolerance": false,
+        "relative_difference": 0.006182566244665945,
+        "relative_difference_plus_resolution": 0.006185508609779213,
+        "scale": 1.0
+      },
+      {
+        "empirical_resolution_fraction": 6.687535261532285e-06,
+        "finite_difference": -397.63050058527233,
+        "native_derivative": -397.01275351488505,
+        "passes_unchanged_tolerance": false,
+        "relative_difference": 0.0015535706377604824,
+        "relative_difference_plus_resolution": 0.0015602581730220148,
+        "scale": 0.5
+      },
+      {
+        "empirical_resolution_fraction": 2.5751645268978845e-05,
+        "finite_difference": -397.1665175378921,
+        "native_derivative": -397.01275351488505,
+        "passes_unchanged_tolerance": false,
+        "relative_difference": 0.00038715253229367825,
+        "relative_difference_plus_resolution": 0.0004129041775626571,
+        "scale": 0.25
+      },
+      {
+        "empirical_resolution_fraction": 1.4795048695892423e-05,
+        "finite_difference": -397.0514534371705,
+        "native_derivative": -397.01275351488505,
+        "passes_unchanged_tolerance": false,
+        "relative_difference": 9.746828011944173e-05,
+        "relative_difference_plus_resolution": 0.00011226332881533415,
+        "scale": 0.125
+      },
+      {
+        "empirical_resolution_fraction": 7.977955719477012e-05,
+        "finite_difference": -397.0223630892724,
+        "native_derivative": -397.01275351488505,
+        "passes_unchanged_tolerance": false,
+        "relative_difference": 2.4204113623680208e-05,
+        "relative_difference_plus_resolution": 0.00010398367081845033,
+        "scale": 0.0625
+      },
+      {
+        "empirical_resolution_fraction": 0.00010528831752831306,
+        "finite_difference": -397.02147103579773,
+        "native_derivative": -397.01275351488505,
+        "passes_unchanged_tolerance": false,
+        "relative_difference": 2.1957303442404023e-05,
+        "relative_difference_plus_resolution": 0.00012724562097071707,
+        "scale": 0.03125
+      }
+    ],
+    "density_full_prior_rows": {
+      "absolute_tolerance": 2e-08,
+      "maximum_residual_difference": 2.054824088659757e-09,
+      "rows": 61,
+      "status": "passed"
+    },
+    "density_minimum_discrepancy_plus_resolution": 0.00010398367081845033,
+    "density_physical_floor_diagnosis": {
+      "analytic_directional_derivative": -397.01275351488505,
+      "base_per_endpoint_empirical_allowance": 0.00073427769166301,
+      "base_repeat_cost_difference": 7.3427769166301e-05,
+      "first_remaining_scale": 0.015625,
+      "formula": "For fixed analytic derivative a and any finite-difference value b, abs(b-a)/max(abs(a),abs(b)) + E0/(h*max(abs(a),abs(b))) is at least min(1,E0/(h*abs(a))). Here E0 is the base per-endpoint empirical allowance.",
+      "minimum_possible_discrepancy_plus_base_allowance": 0.00011836841978092958,
+      "physical_repeat_allowance_multiplier": 10,
+      "relative_tolerance": 0.0001,
+      "scope": "Algebraic lower bound on the declared acceptance expression, not a rigorous error bound on the physical objective. Smaller remaining scales cannot pass this expression; those incomplete scales are not reported as executed successful derivatives."
+    },
+    "density_status": "failed_on_actual_7fa_execution",
+    "density_terminal_evaluation": {
+      "error": "NumericalFailure: Native profile exited 1; see /mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/profile.log",
+      "floor_audit_rejection": "amplitude_dependent_symmetric_curvature",
+      "full_step_prediction": 3.905600954215871e-11,
+      "native_line_search": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/qr.8.nuisance_line_search.json",
+        "sha256": "adbbff6f7d32dcef29f5ea4bc87bf5be78047f55347368978832b5c94da069cb"
+      },
+      "native_log": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/profile.log",
+        "sha256": "e27775ec0a96a5ac3d83863f54baa243ef2dff296f7ddd34d042fa77950b941f"
+      },
+      "native_reason": "Nuisance line search rejected every trial without undamped stationarity",
+      "nuisance_objective_resolution": 4.713935487204472e-09,
+      "ordinary_backtracking_trials": 17,
+      "point": "point-030-direction-0.015625-1-repeat",
+      "repeat": true,
+      "scale": 0.015625,
+      "sign": 1,
+      "strict_inner_threshold_m": 1e-08,
+      "undamped_maximum_update_m": 5.205257896857587e-06
+    },
+    "empirical_resolution_policy": "Endpoint nuisance arithmetic resolution plus ten times repeated physical-closure cost difference, propagated through division by2h. Empirical, not a rigorous error bound.",
+    "maximum_halving_scales": 9,
+    "pulse_accepted_scales": [
+      1.0,
+      0.5
+    ],
+    "pulse_full_prior_maximum_residual_difference": 0.0,
+    "pulse_prior_absolute_tolerance": 1e-12,
+    "pulse_status": "passed_on_actual_7fa_execution",
+    "relative_derivative_tolerance": 0.0001,
+    "required_consecutive_passing_scales": 2
+  },
+  "evidence": [
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": "7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c",
+        "source_hash": "adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-objective-component-applicability.json",
+        "sha256": "2453e9bc0b9d61ffa808e4e5ef8e4f09ea2191220db44463c0d34b9415d86984"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/validation.json",
+        "sha256": "44133151719a742c922fd3254f28170769553a032f6f74bf76ac92f96d36aa17"
+      },
+      "role": "pulse_objective",
+      "scope": "Passed local pulse objective check from a preserved blind engineering initial state, with injected nonzero full pulse values. Original bootstrap failures remain separate."
+    },
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": "7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c",
+        "source_hash": "adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-objective-component-applicability.json",
+        "sha256": "2453e9bc0b9d61ffa808e4e5ef8e4f09ea2191220db44463c0d34b9415d86984"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/validation.json",
+        "sha256": "84aa40b03b76a5a071e182c71306b3de2f085189d536503ecf9f5aacaf09832d"
+      },
+      "role": "density_objective_failed",
+      "scope": "Actual 7fa local objective gate from the preserved blind engineering initial state. Both terminal nuisance nonconvergence and the completed physical-resolution-limited derivative checks are retained. The source proof does not turn this failed gate into a pass or claim that 3aad executed it."
+    },
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": null,
+        "native_execution_in_this_receipt": false
+      },
+      "evidence_mode": "source_applicability_proof",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-objective-component-applicability.json",
+        "sha256": "2453e9bc0b9d61ffa808e4e5ef8e4f09ea2191220db44463c0d34b9415d86984"
+      },
+      "role": "source_component_proof",
+      "scope": "7fa-to 3aad source proof only: unchanged valid finite-case arithmetic; this proof does not establish that an individual gate completed or met its conditions."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+        "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+        "patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+        "source_hashes": {
+          "groops/extension/native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+          "groops/extension/orbitPocQrSolve.cpp": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+          "groops/extension/scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+          "groops/extension/triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14",
+          "scripts/validate_numerics_acceptance.py": "f5659cce6ada8cbef3f43c183653814d35214fedf83b649a9912a7d7fd287e80",
+          "src/orbit_poc/comparison/density.py": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e",
+          "src/orbit_poc/numerics/report.py": "0aa257593170fb281bf1142a7b02d672434a896bad7f46f73ada548478071e3c",
+          "tests/test_numerics_acceptance.py": "04b9951e7bf51d268c590c17bf98bc79ceedaa2a3da5e3d97a8aa34abe0a8208"
+        }
+      },
+      "evidence_mode": "direct_candidate_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-targeted-acceptance.json",
+        "sha256": "0664bcd2567b7dda54558b8dc410a663bf789786970b4813486feca45d51b88f"
+      },
+      "role": "independent_full_prior_rows",
+      "scope": "Independent GTSAM pulse/OU full-reference MAP/covariance checks, not a replacement for native nonlinear prior generation."
+    }
+  ],
+  "gate": "objective_and_priors",
+  "limitations": [
+    "Local derivative agreement is not global nuisance optimality or original-bootstrap robustness.",
+    "No final-candidate execution is inferred from7fa results.",
+    "The physical objective repeat variations dominate the empirical nuisance arithmetic resolutions at the failing complete scales. This does not by itself establish an incorrect synthetic force/tangent derivative.",
+    "More physical closure passes or a different diagnostic would be a separate numerical investigation; no favorable iterate, tolerance, multiplier or extrapolated derivative replaces this result."
+  ],
+  "pending_requirements": [],
+  "schema": "orbit-poc-numerics-acceptance-gate-v1",
+  "scope": "The pulse local objective/prior check passed on actual 7fa execution. Density full OU rows passed, but all six completed derivative scales failed the unchanged 1e-4 criterion and the next repeated endpoint terminated on nuisance nonconvergence. The objective gate is not accepted for release.",
+  "status": "failed"
+}

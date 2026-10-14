@@ -2,9 +2,14 @@
   "all_profiles_share_namespace": true,
   "bytecode_policy": "Empty read-only Python cache prefix; cached bytecode outside the prefix is not loaded and cache writes are disabled",
   "final_namespace_wrapper": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+    "sha256": "9c39280813adcc0080f92aab5f0b91d0f60b9ce38b2c0e51f9d8bf6eea7f3578"
+  },
+  "historical_namespace_wrapper": {
     "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_final.py",
     "sha256": "1ba3aa77e8c34f2416751b283b0cdb58968937815ddcc8b9cd95a22a0968dedf"
   },
+  "objective_gate_passed": false,
   "production_benchmark_started": false,
   "receipts": {
     "all-generation-resource-preflight.json": {
@@ -18,6 +23,22 @@
     "compression-policy-comparison.json": {
       "path": "/home/emper/orbit-numerics-v3.1-engineering/compression-policy-comparison-c2f3-01/comparison.json",
       "sha256": "8225ca5bf633f4a9c5e5c238a089014455b077c361cde0b5fe47d398e062b12e"
+    },
+    "final_d_namespace_smoke": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/d-namespace-smoke.json",
+      "sha256": "0fe637dd7df0a6353e5ef7cddee9324188ac55391f9330302d1c06f4e8cbccd8"
+    },
+    "final_d_resource_readiness": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/resource-readiness-validation.json",
+      "sha256": "274f3ab11c770230676f3d10e27be59ce90456812fb5ad0e01d4ae8a798f3d69"
+    },
+    "final_d_unlinked_spool_smoke": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/d-unlinked-spool-smoke.json",
+      "sha256": "03a79af276d15a124160d348aa8c24236b61d26e3518770cb74f8f9272baf80a"
+    },
+    "final_storage_forecast": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/storage-forecast.json",
+      "sha256": "e9835244a054d8a53809dee5bd249c17389da93d09b37854484f2a671d67fc5e"
     },
     "local-mirror-verification.json": {
       "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/local-mirror-verification.json",
@@ -53,18 +74,20 @@
     }
   },
   "remaining": [
-    "Final source/build/gate freeze",
-    "Reserved CPU isolation verification before execution"
+    "Final context/config and input-manifest freeze downstream of gate index",
+    "Fresh full-runtime startup verification and reservedCPU/isolation launch record"
   ],
+  "resource_native_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "resource_source_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae",
   "retained_blind_requests_checked": 18,
   "retained_input_hashes_checked": 835,
   "runtime_tree_entries_checked": 106775,
   "runtime_trees_read_only": true,
   "runtime_verifier": {
-    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/scripts/verify_numerics_runtime.py",
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
     "sha256": "5e444c25ada1e8d51f0d5f74584feb905cbe8d06b3a8f936c8dbdb9bb6323b5e"
   },
-  "scope": "Local archived-runtime relocation, full Python runtime identity, blind input availability and verified terminal archival; no claim about estimator convergence or completed numerical benchmark",
+  "scope": "Local archived-runtime relocation, full Python runtime identity, blind inputs, read-only D execution namespace and final native full24h resource/retention readiness. Objective gate is independently failed; no estimator convergence, release acceptance, or completed numerical benchmark claim.",
   "source_host_modified": false,
   "status": "passed",
   "syscall_translation": false

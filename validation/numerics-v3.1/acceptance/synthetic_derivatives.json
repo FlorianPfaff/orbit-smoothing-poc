@@ -1,0 +1,74 @@
+{
+  "benchmark_attempts_executed_by_this_gate": 0,
+  "candidate": {
+    "native_build_manifest": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-build-manifest.json",
+      "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+    },
+    "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "source_snapshot_scope": "Existing source_snapshot algorithm; validation and docs are excluded. Native Fortran is additionally pinned by build manifest/supplemental runtime inventory.",
+    "source_snapshot_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae"
+  },
+  "checks": {
+    "density_knots_continuous": true,
+    "direct_derivative_tests_passed": 9,
+    "full_day_true_residual_tolerance": 2e-12,
+    "post_pulse_velocity": true,
+    "pulse_sensitivity_native_to_si": 1e-06,
+    "state_tangent": "coupled_position_velocity"
+  },
+  "evidence": [
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+        "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9"
+      },
+      "evidence_mode": "direct_candidate_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-derivative-tests.json",
+        "sha256": "bcb001c7f9a00b4a85fe23099c5e15c9aa1c144bf4c10533709e4293324d0f77"
+      },
+      "role": "final_native_derivative_tests",
+      "scope": "Nine direct final-native/standalone derivative cases. This includes the finite synthetic model and boundary/coupling fixtures."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "e1e988316ba0da2b45d9327856d79c4803f5856c8ab48ac8906339ce092abb8a",
+        "native_executable_sha256": "c4ea37a06c828008da42279ca3fa1408130593d5bd477909c9c2a4d8e68ccfc6"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-gate-applicability.json",
+        "sha256": "506e85cbb90d897e7cf8cecfec35f400e516c7dd444dc96c41f04b879d6e42ec"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-long-arc-derivative-regression.json",
+        "sha256": "4fef37ae7472324def31ebfe9d94b6af7d2f5d9a35542be72544e83830be9c9d"
+      },
+      "role": "full_day_cancellation_regression",
+      "scope": "Actual c4 replay of the previously failing full-day eccentric tangent; preserved true residual below2e-12."
+    },
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": null,
+        "native_execution_in_this_receipt": false
+      },
+      "evidence_mode": "source_and_output_applicability",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-gate-applicability.json",
+        "sha256": "506e85cbb90d897e7cf8cecfec35f400e516c7dd444dc96c41f04b879d6e42ec"
+      },
+      "role": "bounded_derivative_reuse",
+      "scope": "Preserves actual pins for c4/51a9/d781 tests and explicit component/replay chain to 3aad."
+    }
+  ],
+  "gate": "synthetic_derivatives",
+  "limitations": [
+    "Staged propagation changes both tangent derivatives and mean-force quadrature accumulation arithmetic.",
+    "Complete synthetic physics means the declared central/J2/corotating exponential-drag model, not arbitrary force models."
+  ],
+  "pending_requirements": [],
+  "schema": "orbit-poc-numerics-acceptance-gate-v1",
+  "scope": "Final-native force/tangent kernels and actual propagated synthetic derivatives, including velocity coupling, pulse jumps, density knots and a full-day cancellation regression. Reused full-day evidence is explicitly component-bound.",
+  "status": "passed"
+}

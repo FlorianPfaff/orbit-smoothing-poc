@@ -1,0 +1,103 @@
+{
+  "benchmark_attempts_executed_by_this_gate": 0,
+  "candidate": {
+    "native_build_manifest": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-build-manifest.json",
+      "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+    },
+    "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "source_snapshot_scope": "Existing source_snapshot algorithm; validation and docs are excluded. Native Fortran is additionally pinned by build manifest/supplemental runtime inventory.",
+    "source_snapshot_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae"
+  },
+  "checks": {
+    "accepted_fit_covariance": false,
+    "controller_tests_passed": 31,
+    "fixed_point_covariance_passed": true,
+    "initial_cartesian_covariance_relative_error": 1.2070271728642012e-16,
+    "native_fixture_tests_passed": 65,
+    "outer_thresholds": {
+      "density": 0.0001,
+      "normalized_scaled_gradient": 1e-08,
+      "position_m": 3e-05,
+      "pulse_m_s": 1e-08
+    },
+    "parameter_covariance_relative_error": 9.135831499736833e-17,
+    "relative_covariance_tolerance": 1e-08,
+    "strict_final_nuisance_convergence_required": true
+  },
+  "evidence": [
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": null,
+        "native_execution_in_this_receipt": false,
+        "source_files": {
+          "src/orbit_poc/numerics/backend.py": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648",
+          "src/orbit_poc/numerics/optimizer.py": "da8dfb12ff0f83b9d8893061d9cb4f880310dc01f790867fc486c108ba8e09fc",
+          "tests/test_numerics_backend.py": "734b808ee2eb7982bda6d066e3bd58f81c889ab06b6f7015c915c24d32009588",
+          "tests/test_numerics_optimizer.py": "9569921f72596c971f05fe27b60e317b9daf71c2765e8a47c2980613d77f2e33"
+        }
+      },
+      "evidence_mode": "current_python_tests",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/optimizer-validation.json",
+        "sha256": "a28030f2d637869b799d14d3ce27a032183f0c535c210bb13f2a7e52d29bf5a1"
+      },
+      "role": "current_python_controller",
+      "scope": "31 current-source controller/backend tests, including rollback, raw undamped stationarity, inexact-profile restrictions and final covariance freshness."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+        "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+        "patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+        "source_hashes": {
+          "groops/extension/artifactReceipt.h": "908660f0ceb25e6282a423ae562ead8b2fb43bb3f395ea9c0a4e45251c5a84d2",
+          "groops/extension/gnssRangeResidual.h": "0895d6eb363e99eb8495a84d0b4a1843ed0b17329bbd16f8878e09eb204fd718",
+          "groops/extension/native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+          "groops/extension/nuisanceLineSearch.h": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c",
+          "groops/extension/orbitPocQrSolve.cpp": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+          "groops/extension/positionRemainder.py": "bf3db4972e60e549e8a9e70ad943202f18cc224f81948aa4f4a35e7b731d8cbf",
+          "groops/extension/relativeQueryInterpolation.py": "fb9e709dec67b23b3b4831cf77c6264727116fce11e811338d650bbc2f70fe64",
+          "groops/extension/scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+          "groops/extension/triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14",
+          "tests/test_numerics_native_qr.py": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+        }
+      },
+      "evidence_mode": "direct_candidate_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-qr-validation.json",
+        "sha256": "6749121f2aabbedbbb4ee5a959af78d947013a0c7202feb88eb0767a339cc4b7"
+      },
+      "role": "native_transactional_guards",
+      "scope": "Actual final-native fork rollback, support/weight invariance, cost-only output suppression, strict stationarity and limited-profile covariance rejection."
+    },
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+        "source_files": {
+          "scripts/validate_numerics_covariance.py": "fe8664366b32dd89845cad095d9908348c1a7916b725a019dca19e26b43b1a5c",
+          "src/orbit_poc/numerics/backend.py": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648",
+          "src/orbit_poc/numerics/optimizer.py": "da8dfb12ff0f83b9d8893061d9cb4f880310dc01f790867fc486c108ba8e09fc",
+          "src/orbit_poc/numerics/retention.py": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2"
+        },
+        "source_hash": "adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8"
+      },
+      "evidence_mode": "direct_candidate_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-covariance-export-validation.json",
+        "sha256": "c62c2aeeb03533d2e98c7587585b069f788cabce5cdaa1dbbced914fe1fb49ef"
+      },
+      "role": "actual_native_covariance_export",
+      "scope": "Fresh final-native fixed blind pulse point: native dynamic and initial Cartesian covariance agree with selected undamped triangular solves. accepted_fit_covariance=false remains explicit."
+    }
+  ],
+  "gate": "rollback_and_convergence",
+  "limitations": [
+    "The covariance check validates export/marginalization at a fixed point, not a converged optimizer result.",
+    "Preserved engineering failures are legitimate benchmark risks, not omitted evidence."
+  ],
+  "pending_requirements": [],
+  "schema": "orbit-poc-numerics-acceptance-gate-v1",
+  "scope": "Current controller/native transactional and fresh-undamped acceptance safeguards, plus actual final-native fixed-point nuisance-marginalized covariance export. No engineering optimizer convergence is asserted or required by this gate.",
+  "status": "passed"
+}

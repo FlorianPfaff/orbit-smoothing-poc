@@ -45,9 +45,15 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-The implementation and engineering gates are still being validated. The
-150-attempt numerical benchmark has not completed; no v3.1 reliability or
-speed improvement is claimed. See the [objective/controller](docs/numerics-objective-v3.1.md),
+The native QR, derivative and covariance checks pass, but the density objective
+check remains unaccepted: propagation repeatability limits its derivative check,
+and a subsequent nuisance fit failed stationarity. These failures are preserved
+in the [acceptance evidence](validation/numerics-v3.1/acceptance-gates.json).
+At the implementation freeze, the 150-attempt numerical benchmark had not
+completed. Its finished report will be published under `runs/numerics-v3.1/`;
+execution completion does not resolve a failed correctness gate. No v3.1
+reliability or speed improvement is claimed. The legacy solver remains the
+default. See the [objective/controller](docs/numerics-objective-v3.1.md),
 [QR](docs/numerics-qr-v3.1.md) and [derivative](docs/numerics-derivatives-v3.1.md)
 documentation for the implementation and remaining flight approximations.
 
