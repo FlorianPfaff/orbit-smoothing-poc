@@ -6,10 +6,13 @@ numerical or uncertainty-validation gates.
 
 **The scientific comparison is incomplete.** Candidate 03 has a
 [frozen acceptance review of gates 1–4](../validation/comparison-v3/acceptance-gates-candidate-03.json).
-Its fresh calibration inputs are being prepared after correcting a protocol
-record lookup; the prior campaign and all its fits remain preserved.
-Calibration selection, frozen evaluation and uncertainty assessment remain
-separate work. The shared campaign force model selects a 0.1-second thermal
+[Calibration started](../validation/comparison-v3/campaign-launch-03.json) on
+October 14, 2026 at 02:07:54 UTC after independent verification of all
+[48 synthetic](../validation/comparison-v3/campaign-launch-audit-3b434b8c.json)
+and [12 flight](../validation/comparison-v3/flight-preparation-audit-3b434b8c.json)
+input preparations. The prior campaign and all its fits remain preserved.
+Selected settings, frozen evaluation and uncertainty assessment are not yet
+available. The shared campaign force model selects a 0.1-second thermal
 maximum step; the native default and official upstream reproduction template
 are unchanged.
 

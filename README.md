@@ -25,11 +25,16 @@ calibration. The [engineering report](validation/comparison-v3/report/index.html
 records validation progress and preserved failures. The
 [ordered engineering acceptance review](validation/comparison-v3/acceptance-gates-candidate-03.json)
 passed, including normal and blackout full-day fits for both methods.
-[Production calibration started](validation/comparison-v3/campaign-launch-02.json)
-on October 14, 2026, then [stopped at an orchestration audit check](validation/comparison-v3/campaign-driver-02.json)
-after 22 converged native fits. Candidate 03 corrects the audit-record lookup;
-the numerical implementation and scientific configuration are unchanged.
-The scientific comparison remains incomplete.
+[Candidate 03 calibration started](validation/comparison-v3/campaign-launch-03.json)
+on October 14, 2026 at 02:07:54 UTC, after independent verification of all
+[48 synthetic](validation/comparison-v3/campaign-launch-audit-3b434b8c.json) and
+[12 flight](validation/comparison-v3/flight-preparation-audit-3b434b8c.json)
+input preparations. The previous campaign
+[stopped at an orchestration audit check](validation/comparison-v3/campaign-driver-02.json)
+after 22 converged native fits and remains preserved. Candidate 03 corrects that
+audit-record lookup; the numerical implementation and scientific configuration
+are unchanged. No selected settings or scientific comparison results are
+available yet.
 
 ## Completed v2 campaign
 
