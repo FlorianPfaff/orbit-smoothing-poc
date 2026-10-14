@@ -1,0 +1,384 @@
+{
+  "candidate": {
+    "build_manifest_sha256": "6402408d9190c9de9f50d98ad58ff12df6f350e7d69e08594e5e60c92db1696c",
+    "compiled_mean_include_count": 1,
+    "compiled_preprocessing_source_sha256": "0789934a9d4121b80164a5570ff5c7b64daaa95cb7ea27b7f4aa58274bbca5ee",
+    "mean_header_sha256": "609d51e595d41a9a817d494f6c3f1372faa125605c1f196172a491d0fc5b9246",
+    "mean_path": "residual_then_single_absolute_restore_v1",
+    "native_sha256": "fcfbc385917227084d11e3330c1e6da4d0d6df82f0e683ead2276ce70e16d2b8",
+    "source_files_reverified": 582,
+    "source_inventory_sha256": "88dd09357de8b525f3267d400065091e49671f17a336c59abcf26e35455bc560"
+  },
+  "cases": [
+    {
+      "case": {
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 1.0,
+        "epoch": "2024-04-24T00:00:00",
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [],
+          "time_scale": "elapsed"
+        },
+        "orbit": "leo500",
+        "seed": 300000,
+        "truth_model": "retained_tudat_engineering_truth_instruments"
+      },
+      "fixed_initial_state_and_nuisance_support_verified": true,
+      "input_artifacts": {
+        "coarse/closure-01/derivatives.json": "161566b477f1a6ecf2f86f60360118817f9968fc294fcee9bd9dc965e88e8460",
+        "coarse/closure-02/derivatives.json": "5beb60e342a2c2ea4df3b3ffe62a2309faf3b1106ef9e23afb1f7436ccda8c27",
+        "coarse/closure-02/orbit.txt.gz": "cbc2df65aa8170a491ff84119314e1ada554d3324c60cd182438fcb5dfb065f3",
+        "coarse/closure.json": "5353388bf8e645aac0b04200b30354e611c7b2420e2dc8b2fdf140f292df7a73",
+        "coarse/offgrid_orbit.txt": "f48b6218a241998f7e93cc258790311625b54a3fdeb342c916774963fddd40ec",
+        "coarse/physical_initial.txt": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+        "coarse/predictions/prediction_mode.json": "11858fadfd88db65031932667a25169b5c093990b838e8c053b836d59802f0a1",
+        "coarse/predictions/signal_support.txt": "808b170e11d9c1f5d0b4a8d282727b952958b4e431e3fda91672b711f3d9be2d",
+        "coarse/predictions/signals.txt": "b1890a82a920954f2d1bba32fee1259922ba96cbeb04dc1cce97c70272cb56dc",
+        "fine/closure-01/derivatives.json": "4e95e7c373ae3736893c17d92bceec602fb5626ff58fe6a75b3258ee9e2f8569",
+        "fine/closure-02/derivatives.json": "e567790f6840856a809bd5a64aae7bdf67f3fedc81fdf642ca48e04cfd9611f3",
+        "fine/closure-02/orbit.txt.gz": "e9c44a942596ccbc502037f156006975fd235f548f49cfda1ba496b1f669dd7c",
+        "fine/closure.json": "d7f4f6bbfa521e0a68e5e586fc7b023c4535fd15adc14be338d1dc93a7cb96fb",
+        "fine/offgrid_orbit.txt": "3d9564f868b02f711d667ed7a25d75d1112f583c2c1ce4e88a6a3ecb01cd3c8b",
+        "fine/physical_initial.txt": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+        "fine/predictions/prediction_mode.json": "b3c43a504748ea44d0c3b01ab816becada5f0fd31d2cada673ad141456ae90fa",
+        "fine/predictions/signal_support.txt": "808b170e11d9c1f5d0b4a8d282727b952958b4e431e3fda91672b711f3d9be2d",
+        "fine/predictions/signals.txt": "b2b91b391d1c67eab254922bb009a3d5baf5a032b04c551cdf3b0849d3e6ef0c",
+        "result.json": "c270e98e87f3fc4bc6ec171c6099e6eb6c5e7a0678594c84cc87cec2d5c5d518"
+      },
+      "input_pin": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd",
+      "mean_coordinate_diagnostics_verified": 4,
+      "metrics": {
+        "aligned_position_maximum_m": 9.289913504971193e-09,
+        "offgrid_position_maximum_m": 5.605910341623053e-06,
+        "signals": [
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 7.501512300223112e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 2.500504100074371e-08,
+            "observable": "code",
+            "rows": 2702
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 7.501512300223112e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 2.500504100074371e-08,
+            "observable": "code",
+            "rows": 1351
+          },
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 7.501512300223112e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 2.500504100074371e-06,
+            "observable": "carrier",
+            "rows": 2702
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 7.501512300223112e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 2.500504100074371e-06,
+            "observable": "carrier",
+            "rows": 1351
+          }
+        ]
+      },
+      "name": "synthetic-refinement-log_drag_ou",
+      "native_execution_count": 12,
+      "native_execution_receipt_inventory_sha256": "ee9080c640cc244d8ba2228ed6e95419b2a6401028a56142160cf49d2ee76d2c",
+      "omitted_derivative_terms": [],
+      "scope": "Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim",
+      "status": "passed_independent_saved_output_review",
+      "terminal_at": "2026-10-14T18:57:34.696199+00:00",
+      "weights": "coarse native sigma shared; each row compared against one percent of minimum(native sigma, assumed noise)"
+    },
+    {
+      "case": {
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 1.0,
+        "epoch": "2024-04-24T00:00:00",
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [],
+          "time_scale": "elapsed"
+        },
+        "orbit": "leo500",
+        "seed": 300000,
+        "truth_model": "retained_tudat_engineering_truth_instruments"
+      },
+      "fixed_initial_state_and_nuisance_support_verified": true,
+      "input_artifacts": {
+        "coarse/closure-01/derivatives.json": "e6fb062a41ccf63c69b9d5db14157fd3f529df060b7ed4720775f3458adde89d",
+        "coarse/closure-02/derivatives.json": "b44178a279c3850135bfd06e925eac98b74d10ec7a7031f49ceba776a12e7759",
+        "coarse/closure-02/orbit.txt.gz": "6a072d27f4d6424b8baffb0e9411ca3581735b415e979b424f01c88795101328",
+        "coarse/closure.json": "260e6adb0a3576ef7d548cc32fdbf7da37909d8bc3d3233cae6bde9c2db8c5f8",
+        "coarse/offgrid_orbit.txt": "6aa46a9818028575d5dfbf09f610ca77d4b7fdfcfdc4dc57bb0087a06a213d21",
+        "coarse/physical_initial.txt": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+        "coarse/predictions/prediction_mode.json": "62614997de4552bd477b877411ede8c1e6812f01d44e12a28d47bdf18eea9826",
+        "coarse/predictions/signal_support.txt": "808b170e11d9c1f5d0b4a8d282727b952958b4e431e3fda91672b711f3d9be2d",
+        "coarse/predictions/signals.txt": "ddbde2a83aaadf9e2d73dfaebc8f3f3f4e3b97602db054bbd81943d508fd249f",
+        "fine/closure-01/derivatives.json": "52f14760d6d53d53f1ab16e4084288ed17f31697e8b82f29ca0878c4274d065f",
+        "fine/closure-02/derivatives.json": "7b59c4aa7b6796c0b06b1afce2a701868e7d79132ab854ccd6ae8f74a4b78e88",
+        "fine/closure-02/orbit.txt.gz": "2f5ad364ee689a5988259b2d704bd1b4965d6233e9815ee1d3a8e7194c9f5bb8",
+        "fine/closure.json": "21a442d5e905f24fec6038e7ca24d29773343fd354fe56e66a0bbfca15dd04d8",
+        "fine/offgrid_orbit.txt": "24b2a26c9514b222c9ed6c00585ccda8e025d33b7202deb9dd8bd137bef111d0",
+        "fine/physical_initial.txt": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+        "fine/predictions/prediction_mode.json": "939e21fad6900f956e40961e35d36881c8b52ac0c72921ada937b3e7fe60bd28",
+        "fine/predictions/signal_support.txt": "808b170e11d9c1f5d0b4a8d282727b952958b4e431e3fda91672b711f3d9be2d",
+        "fine/predictions/signals.txt": "0cb3efcb9e9ba5b2753ad1173103bf0b7c5d52ab8351dcf8db68cd59939be8e3",
+        "result.json": "e51673e597386d36ca4be34eea1c379235690b00db08a5e83f409dd4542cbece"
+      },
+      "input_pin": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5",
+      "mean_coordinate_diagnostics_verified": 4,
+      "metrics": {
+        "aligned_position_maximum_m": 4.586231802495245e-09,
+        "offgrid_position_maximum_m": 5.573662162380988e-06,
+        "signals": [
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 3.4178810892626643e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.1392936964208882e-08,
+            "observable": "code",
+            "rows": 2702
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 3.4178810892626643e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.1392936964208882e-08,
+            "observable": "code",
+            "rows": 1351
+          },
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 3.4178810892626643e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.1392936964208882e-06,
+            "observable": "carrier",
+            "rows": 2702
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 3.4178810892626643e-09,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.1392936964208882e-06,
+            "observable": "carrier",
+            "rows": 1351
+          }
+        ]
+      },
+      "name": "synthetic-refinement-pulses",
+      "native_execution_count": 12,
+      "native_execution_receipt_inventory_sha256": "df4edd56b70e876435a4c80f4b49f8076e09b4374e1eed2e4573337c30a3e3c4",
+      "omitted_derivative_terms": [],
+      "scope": "Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim",
+      "status": "passed_independent_saved_output_review",
+      "terminal_at": "2026-10-14T18:58:27.363199+00:00",
+      "weights": "coarse native sigma shared; each row compared against one percent of minimum(native sigma, assumed noise)"
+    },
+    {
+      "case": {
+        "date": "2024-04-24",
+        "duration_seconds": 1800.0,
+        "start_utc_seconds": 42300.0
+      },
+      "fixed_initial_state_and_nuisance_support_verified": true,
+      "input_artifacts": {
+        "coarse/closure-01/derivatives.json": "64cd4a639c51f369553cf0097fab2fcc8584913b257207ecd1f0f98a2b3d1f7e",
+        "coarse/closure-02/derivatives.json": "e78e34b15d1227c4f6a370a5013c648ec938a549ee640270d95ad8d1d9b3a343",
+        "coarse/closure-03/derivatives.json": "55096cf73d25fbdfc2c79a082b457feaf45bcbae829bdc1484f976a89c5ec71c",
+        "coarse/closure-03/orbit.txt.gz": "1e24a1a8b9fdf9e4d96dcf9a4442eb2e0d8b542f27b78c4d673dfa2c57cc9304",
+        "coarse/closure.json": "861f28a1dd64684706a0354820746f291529e05fe7ad35243982c3474dac642c",
+        "coarse/offgrid_orbit.txt": "79ce5e26501384153fa06b967e5c4033f4448897b44da1be9dbe9d700b3c9230",
+        "coarse/physical_initial.txt": "37f0a69eda502827a587866d13aa1019d88823003f91e26d925cdcf26d2dd8cc",
+        "coarse/predictions/prediction_mode.json": "f4dbb625acfb42b2e4df4d89b681d865f1af579f4f9a6fcb7f2dc3ddf74a007d",
+        "coarse/predictions/signal_support.txt": "d6824a6631932bab8fa4509c5d0852cc4ec8f388e67977e6c17491873e0d25ac",
+        "coarse/predictions/signals.txt": "aa07753c081df350692f0cb35be3d8b56a9ad0fdc1391ff942c7952ff96841fd",
+        "fine/closure-01/derivatives.json": "ad776f8762b6bff6422c6e5f859959f7eadcf7216171cc1a6da8e6179d02fabe",
+        "fine/closure-02/derivatives.json": "ee1565505b872cc870f54048494c27f73b4bccaa1c6f67c4b1378370f28caae2",
+        "fine/closure-02/orbit.txt.gz": "08887098781a0d61d30326cb084c4debaa4f355d4fe00fe75a2e2b6a317073d3",
+        "fine/closure.json": "c9258f88f305eb55cf1f5ec0b99829dab524897d326a41e53431d97cc05b5233",
+        "fine/offgrid_orbit.txt": "ac6ec737bcbefad280649585a8f68ce1010f4d114328f79e5cb98af2ded245d5",
+        "fine/physical_initial.txt": "37f0a69eda502827a587866d13aa1019d88823003f91e26d925cdcf26d2dd8cc",
+        "fine/predictions/prediction_mode.json": "20f39c68becb28798c67d6a2b2ef8f5e430a96568aac9398e80cd44165d4e798",
+        "fine/predictions/signal_support.txt": "d6824a6631932bab8fa4509c5d0852cc4ec8f388e67977e6c17491873e0d25ac",
+        "fine/predictions/signals.txt": "34811ea23832f424b040d288b23ce5512c99e7a50c7e7cbabb2fbe6c5400893e",
+        "result.json": "0fd17928bf6c396345af7be8ca9b6d4a4de12c7f244fb7d86d2dbaba14fdefa3"
+      },
+      "input_pin": "07ca66ce4c82179f98bbba18a28d47ad49f84b7eaa351f24beecc0c691daa554",
+      "mean_coordinate_diagnostics_verified": 5,
+      "metrics": {
+        "aligned_position_maximum_m": 2.0958471515340153e-06,
+        "offgrid_position_maximum_m": 1.1756472870225025e-05,
+        "signals": [
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 9.348786988994107e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.38422544075888e-05,
+            "observable": "code",
+            "rows": 960
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 9.348786988994107e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.851451349863314e-05,
+            "observable": "code",
+            "rows": 480
+          },
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 9.348786988994107e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 0.0021892583492692645,
+            "observable": "carrier",
+            "rows": 960
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 9.348786988994107e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 0.000708588779528997,
+            "observable": "carrier",
+            "rows": 480
+          }
+        ]
+      },
+      "name": "flight-refinement",
+      "native_execution_count": 15,
+      "native_execution_receipt_inventory_sha256": "acc706bea5edfb8190d8456d07fdbbe600275ca418ecc81ac4c6e645091dc3cc",
+      "omitted_derivative_terms": [
+        "atmospheric_event_time_derivatives",
+        "non_gravity_non_drag_force_gradients",
+        "thermal_history_sensitivities"
+      ],
+      "scope": "Apr24 30-minute development window at fixed initial state and zero pulses; joint grid, thermal and atmospheric refinement; no accuracy claim",
+      "status": "passed_independent_saved_output_review",
+      "terminal_at": "2026-10-14T19:00:36.527403+00:00",
+      "weights": "coarse native sigma shared; each row compared against one percent of minimum(native sigma, assumed noise)"
+    },
+    {
+      "case": {
+        "arc_id": "eccentric-300000",
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 24.0,
+        "epoch": "2024-05-10T00:00:00",
+        "holdout_minutes": 30,
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [
+            [
+              42300,
+              44100
+            ]
+          ],
+          "time_scale": "elapsed"
+        },
+        "orbit": "eccentric",
+        "seed": 300000,
+        "truth_model": "tudat_independent_central_j2_exponential_gnss"
+      },
+      "fixed_initial_state_and_nuisance_support_verified": true,
+      "input_artifacts": {
+        "coarse/closure-01/derivatives.json": "38650c941ed5cb99e056bf2a631f0b1ad5fb3b6919aeb0f657e9c7e1801abef2",
+        "coarse/closure-02/derivatives.json": "44e951e16502fe0c2030605cdeda8e04a373d460568087566b2d110efc21f1b7",
+        "coarse/closure-03/derivatives.json": "52e1c3bb492e8fa7185c0c4a241aeba55f888f523ac36df45f330e36a891c725",
+        "coarse/closure-04/derivatives.json": "73f3d26c10991b5f5ab9d1e5561ccdd37b612474ac1a593a7060d520f32978c2",
+        "coarse/closure-05/derivatives.json": "c72e27dafb582c253bcbd1a6f1d12fb98edd9ad2322d2ffb0f561852c06e4a18",
+        "coarse/closure-06/derivatives.json": "dd8c8d40e023b68f14060f4bc60a8ec3fe7aae8a9d4a325d724b615f767ad749",
+        "coarse/closure-07/derivatives.json": "7d39bdc97b3e38110d89373d28286e3739825d5ee6715e0a9d7fcfa68392a9ad",
+        "coarse/closure-08/derivatives.json": "10a2b8ca45b18cc43b9c00ffb68ab02abc7c569dbfbec266224611173f09891a",
+        "coarse/closure-09/derivatives.json": "375145549ad0e9f0bc9216b3b6e47ff1719d5050520d452fa8a3948e33d8243b",
+        "coarse/closure-10/derivatives.json": "8bbd680e14dbdd88cf16f505db0a7ae569e41746f8fb3a883e6cc6187de11b54",
+        "coarse/closure-11/derivatives.json": "5dafeb1a2ffc5448bacbe1d0a3e9d15947187b8c09b3361083481506fa58ed48",
+        "coarse/closure-11/orbit.txt.gz": "6a0ba9ef6275631df49a7c2298acff5eff6a22e1d0c44fdb57d395cb938ffab2",
+        "coarse/closure.json": "792bbcf6e83c8d0672fa4faa2b0505b052d50e93a698127b7344bc4782e267bc",
+        "coarse/offgrid_orbit.txt": "47af6e1fad9e980088634734f71faf90d1cfa20e0a08cb2d6a051d15c6928ef2",
+        "coarse/physical_initial.txt": "610beaa7c9c87d3cc6953bb604b30bd20f32a520e5f49ba9c694ec8ceb38c339",
+        "coarse/predictions/prediction_mode.json": "5159243797340fc322a4efa08fb145f5192c70d2354fd94996f5303b307a05fe",
+        "coarse/predictions/signal_support.txt": "fd5b3c0c9adb69e9219977e194fae83323c5be28dcea2eaa4d44d1654a659496",
+        "coarse/predictions/signals.txt": "e3fe8879dc8a608aee396868fbe2241acfe70c66c4edf8f4e6029aacaef7c73d",
+        "fine/closure-01/derivatives.json": "70cc1c765c15b8cedc194224a2a858021f40575ecf8036de5be99fe2682acc0f",
+        "fine/closure-02/derivatives.json": "530fed9e1e695cf3a8fee9e907e04d1b282e4ed7f73ef6e4b8ac599e7cb3821e",
+        "fine/closure-02/orbit.txt.gz": "c2389cc52276c43dec7229206d1aabb31899b59342e76b4a6fdf69acf54cd41f",
+        "fine/closure.json": "3c91283088dbb7fe85c6de51c3b30544aff0d942ced926833bc63a158764867f",
+        "fine/offgrid_orbit.txt": "6bb6482fa0fc210756fbde684b81d3854c5dfbf4b15eb83d0049265602328779",
+        "fine/physical_initial.txt": "610beaa7c9c87d3cc6953bb604b30bd20f32a520e5f49ba9c694ec8ceb38c339",
+        "fine/predictions/prediction_mode.json": "3fa380f7565ab0234fe01aba2f9e023eab940a4e9227b12fc394752b97ca7f4f",
+        "fine/predictions/signal_support.txt": "fd5b3c0c9adb69e9219977e194fae83323c5be28dcea2eaa4d44d1654a659496",
+        "fine/predictions/signals.txt": "1e9af6afc89b196e7544c62c3db0619bd70e12faec0a2b42a9a55f4032573ddc",
+        "result.json": "7a7bf6f5418394ff51eca007213d6f594313db4bf5ba7f7b915355b316f25868"
+      },
+      "input_pin": "8c1af6352f555f3b25d619d81899c28459321cea8204ae97a418e614f072c666",
+      "mean_coordinate_diagnostics_verified": 13,
+      "metrics": {
+        "aligned_position_maximum_m": 4.1419301261399385e-07,
+        "offgrid_position_maximum_m": 6.257223237454823e-06,
+        "signals": [
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 4.0886152419261634e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.3628717473087213e-06,
+            "observable": "code",
+            "rows": 65018
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 4.0886152419261634e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 1.3628717473087213e-06,
+            "observable": "code",
+            "rows": 32509
+          },
+          {
+            "frequency_hz": 1575420000.0,
+            "maximum_difference_m": 4.0886152419261634e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 0.00013628717473087212,
+            "observable": "carrier",
+            "rows": 65018
+          },
+          {
+            "frequency_hz": 1227600000.0,
+            "maximum_difference_m": 4.0886152419261634e-07,
+            "maximum_fraction_of_minimum_assumed_or_native_sigma": 0.00013628717473087212,
+            "observable": "carrier",
+            "rows": 32509
+          }
+        ]
+      },
+      "name": "eccentric-24h-refinement",
+      "native_execution_count": 21,
+      "native_execution_receipt_inventory_sha256": "3e92e5f9bd904abbc2183e4c31e6ed6308a12feb2758a2d1a353abfce590bbf3",
+      "omitted_derivative_terms": [],
+      "scope": "Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim",
+      "status": "passed_independent_saved_output_review",
+      "terminal_at": "2026-10-14T19:09:04.058245+00:00",
+      "weights": "coarse native sigma shared; each row compared against one percent of minimum(native sigma, assumed noise)"
+    }
+  ],
+  "created_at": "2026-10-14T19:11:56.060166+00:00",
+  "criteria": {
+    "aligned_and_offgrid_maximum_position_m_strictly_less_than": 3e-05,
+    "assumed_carrier_sigma_m": 0.003,
+    "assumed_code_sigma_m": 0.3,
+    "maximum_signal_fraction_of_minimum_assumed_or_native_sigma_strictly_less_than": 0.01,
+    "tighter_closure_position_m": 2e-07,
+    "tighter_closure_velocity_m_s": 3e-10
+  },
+  "findings": [],
+  "harnesses_byte_identical_to_frozen_v31": {
+    "numerics_refinement_helpers.py": "a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9",
+    "validate_numerics_flight_derivatives.py": "198f819a189dec4e0282d03944adaf044f2f52c50ca4a278a8b8a390bdab0bcb",
+    "validate_numerics_flight_refinement.py": "77ca65a0359ceead4c24082493501e7f6e4c61a4b8de926906531d4023e843d9",
+    "validate_numerics_synthetic_refinement.py": "1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0"
+  },
+  "limitations": [
+    "Paired numerical differences use fixed nuisance values; absolute carrier residuals and unknown ambiguities are not scored.",
+    "Flight is one standalone30-minute Apr24 development window with fresh force history; it does not certify24-hour flight behavior or a complete flight Jacobian.",
+    "Staged comparison includes residual mean arithmetic and tangent behavior, not a pure derivative-only effect.",
+    "This receipt does not close the separately running objective/nuisance checks, change the frozen benchmark or imply release readiness.",
+    "Driver owns cleanup/resume; this review performed no native work or source/build mutation."
+  ],
+  "reviewer": "derivatives_persistent",
+  "schema": "orbit-poc-correctness-refinement-independent-review-v1",
+  "scope": "Independent read-only recomputation from four completed saved refinement outputs; no new native execution, fit, accuracy, objective, covariance or full benchmark acceptance claim.",
+  "status": "four_saved_refinements_verified_passed"
+}
