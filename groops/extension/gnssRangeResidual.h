@@ -23,7 +23,7 @@ inline long double timeRemainder(const Time &nominal,long double clockSeconds,co
 // The native corrected-range equation, evaluated before rounding the small
 // clock correction onto a 20,000-km geometric range. The statistical model,
 // time/position inputs, relativistic terms and transmitter scale are unchanged.
-inline Double stableRangeResidual(Double measured,const Vector3d &receiverPosition,
+inline TwofoldGeometry stableRangeResidualExpansion(Double measured,const Vector3d &receiverPosition,
                                   const Vector3d &transmitterPosition,const Vector3d &transmitterVelocity,
                                   Double receiverClock,Double transmitterClock,Double scale,
                                   const Vector3d &receiverRemainder=Vector3d(),const Vector3d &transmitterRemainder=Vector3d())
@@ -43,7 +43,16 @@ inline Double stableRangeResidual(Double measured,const Vector3d &receiverPositi
   const auto geometric=range+TwofoldGeometry(shapiro)+TwofoldGeometry(2.L)*dot/TwofoldGeometry(c);
   const auto clock=TwofoldGeometry(c)*(TwofoldGeometry(receiverClock)-TwofoldGeometry(transmitterClock));
   const auto residual=TwofoldGeometry(measured)-geometric*TwofoldGeometry(scale)-clock*TwofoldGeometry(scale);
-  return static_cast<Double>(residual.rounded());
+  return residual;
+}
+// Preserve the established Double API for legacy callers and native fixtures.
+inline Double stableRangeResidual(Double measured,const Vector3d &receiverPosition,
+                                  const Vector3d &transmitterPosition,const Vector3d &transmitterVelocity,
+                                  Double receiverClock,Double transmitterClock,Double scale,
+                                  const Vector3d &receiverRemainder=Vector3d(),const Vector3d &transmitterRemainder=Vector3d())
+{
+  return static_cast<Double>(stableRangeResidualExpansion(measured,receiverPosition,transmitterPosition,transmitterVelocity,
+      receiverClock,transmitterClock,scale,receiverRemainder,transmitterRemainder).rounded());
 }
 inline long double preciseDistance(const Vector3d &a,const Vector3d &aLow,const Vector3d &b,const Vector3d &bLow)
 {

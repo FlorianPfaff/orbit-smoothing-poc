@@ -77,7 +77,7 @@ def apply(source, *, numerics=False):
     if revised != original:
         sources.write_text(revised)
     if numerics:
-        for name in ("native_row_qr.py", "native_objective.py", "native_derivatives.py"):
+        for name in ("native_row_qr.py", "native_objective.py", "native_derivatives.py", "native_precise_residual.py"):
             subprocess.run([__import__('sys').executable, str(here / name), str(source)], check=True)
     manifest = {"upstream_commit": COMMIT, "extension_profile": "numerics_v31" if numerics else "legacy_v3", "files": {
         p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(here.iterdir()) if p.is_file()},

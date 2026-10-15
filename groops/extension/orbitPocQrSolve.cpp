@@ -16,7 +16,7 @@ class OrbitPocQrSolve {public:void run(Config &,Parallel::CommunicatorPtr);};
 GROOPS_REGISTER_PROGRAM(OrbitPocQrSolve,SINGLEPROCESS,"Native weighted-row QR validation",Simulation)
 void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
 {
-  FileName input,output,covariance,prefix,coordinateUpdates;UInt locals,dynamics,datumReceivers,datumTransmitters,generations,failBeforeFactorGeneration;Double lambda;Bool nuisanceOnly,ionosphereColumn,datumSelection,costOnlyCheck,jointEpochLocals,interpolationFixture,rangeResidualFixture,clockTimeFixture,relativePulseFixture,precisePositionFixture,objectiveLedgerFixture;std::string nuisanceFixture,objectiveLedgerFailure;
+  FileName input,output,covariance,prefix,coordinateUpdates,objectiveExpansions;UInt locals,dynamics,datumReceivers,datumTransmitters,generations,failBeforeFactorGeneration;Double lambda;Bool nuisanceOnly,ionosphereColumn,datumSelection,costOnlyCheck,jointEpochLocals,interpolationFixture,rangeResidualFixture,clockTimeFixture,relativePulseFixture,precisePositionFixture,objectiveLedgerFixture;std::string nuisanceFixture,objectiveLedgerFailure;
   readConfig(config,"inputfileRows",input,Config::MUSTSET,"","weighted A followed by b");
   readConfig(config,"outputfileSolution",output,Config::MUSTSET,"","native-unit update");
   readConfig(config,"outputfileCovariance",covariance,Config::OPTIONAL,"","retained covariance, always undamped");
@@ -42,9 +42,11 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
   readConfig(config,"precisePositionFixture",precisePositionFixture,Config::DEFAULT,"0","sub-double coordinate remainders in corrected range");
   readConfig(config,"objectiveLedgerFixture",objectiveLedgerFixture,Config::DEFAULT,"0","original observation/prior objective independent of group QR basis");
   readConfig(config,"objectiveLedgerFailure",objectiveLedgerFailure,Config::OPTIONAL,"","inject missing capture or misclassified prior in objective fixture");
+  readConfig(config,"inputfileObjectiveExpansions",objectiveExpansions,Config::OPTIONAL,"","fixture-only before high/low and after high/low original observation residuals");
   if(isCreateSchema(config))return;
   Matrix rows;readFileMatrix(input,rows);
   if(rows.columns()<2||locals+dynamics>rows.columns()-1)throw(Exception("Invalid native QR fixture dimensions"));
+  if(!objectiveExpansions.empty()&&!objectiveLedgerFixture)throw(Exception("Objective expansions require the original-objective fixture"));
   if(objectiveLedgerFixture)
   {
     if(!objectiveLedgerFailure.empty()&&objectiveLedgerFailure!="missing_capture"&&objectiveLedgerFailure!="misclassified_prior"&&objectiveLedgerFailure!="missing_capture_cost_only"&&objectiveLedgerFailure!="misclassified_prior_cost_only")
@@ -53,6 +55,21 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
     // Roles: 0 group observation (including its local prior), 1 B-empty
     // observation, 2 epoch prior, 3 global prior. No parameter solve occurs.
     if(rows.columns()!=5)throw(Exception("Original-objective fixture requires five columns"));
+    Matrix expansions;
+    if(!objectiveExpansions.empty())
+    {
+      readFileMatrix(objectiveExpansions,expansions);
+      if(expansions.rows()!=rows.rows()||expansions.columns()!=4)throw(Exception("Objective expansion fixture dimensions differ"));
+      for(UInt i=0;i<rows.rows();i++)
+        if(rows(i,4)>=2 && (expansions(i,1)!=0. || expansions(i,3)!=0. || expansions(i,0)!=rows(i,2) || expansions(i,2)!=rows(i,3)))
+          throw(Exception("Objective expansion fixture keeps native binary64 constraint targets"));
+    }
+    auto preciseRows=[&](const std::vector<UInt> &indices,UInt trial)
+    {
+      std::vector<orbitPocQr::TwofoldGeometry> result;
+      for(UInt i:indices)result.emplace_back(expansions(i,2*trial),expansions(i,2*trial+1));
+      return result;
+    };
     std::vector<UInt> grouped,ungrouped,epochPriors,globalPriors;
     for(UInt i=0;i<rows.rows();i++)
     {
@@ -74,13 +91,18 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
       Matrix original(grouped.size(),1);Vector residual(grouped.size());
       for(UInt j=0;j<grouped.size();j++){original(j,0)=rows(grouped[j],trial);residual(j)=rows(grouped[j],2+trial);}
       qr.context("weighted_observation");
-      if(!(inject&&objectiveLedgerFailure.find("missing_capture")==0))qr.retainObservationResiduals(0,0,0,residual);
+      if(!(inject&&objectiveLedgerFailure.find("missing_capture")==0))
+      {
+        if(objectiveExpansions.empty())qr.retainObservationResiduals(0,0,0,residual);
+        else qr.retainObservationResiduals(0,0,0,residual,preciseRows(grouped,trial));
+      }
       Matrix factor(original);const Vector tau=QR_decomposition(factor);
       qr.retainGroup(0,0,0,original,factor,tau,residual);Vector rotated(residual);QTransMult(factor,tau,rotated);
       for(UInt j=0;j<rotated.rows();j++)transformed.push_back(rotated(j));
       for(UInt j=1;j<rotated.rows();j++)qr.addRow(rotated(j),{0},{1.});
       Vector plain(ungrouped.size());for(UInt j=0;j<ungrouped.size();j++)plain(j)=rows(ungrouped[j],2+trial);
-      qr.retainObservationResiduals(0,1,0,plain);
+      if(objectiveExpansions.empty())qr.retainObservationResiduals(0,1,0,plain);
+      else qr.retainObservationResiduals(0,1,0,plain,preciseRows(ungrouped,trial));
       for(UInt j=0;j<plain.rows();j++){qr.addRow(plain(j),{0},{1.});transformed.push_back(plain(j));}
       qr.finishEpoch();qr.context(inject&&objectiveLedgerFailure.find("misclassified_prior")==0?"weighted_observation":"fixture_global_prior");
       for(UInt i:globalPriors){qr.addRow(rows(i,2+trial),{0},{1.});transformed.push_back(rows(i,2+trial));}
