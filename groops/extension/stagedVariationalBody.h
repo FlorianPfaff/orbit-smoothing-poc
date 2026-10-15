@@ -185,8 +185,18 @@ if(orbitPocDerivativeProfile!="legacy_v3")
   Matrix residualPosition(offset,1),residualVelocity(offset,1);
   for(UInt i=0;i<offset;i++)
   {
-    residualPosition(i,0)=meanResidual(posRef(i),posApprox(i),integratedForce[i]);
-    residualVelocity(i,0)=meanResidual(velRef(i),approximateVelocity(i,0),integratedForce[offset+i]);
+    if(synthetic)
+    {
+      // Preserve the precise reference's low part until the residual has a
+      // small magnitude. The coupled solve and archive remain native doubles.
+      residualPosition(i,0)=OrbitPoc::preciseReferenceMeanResidual(posRef(i),orbitPocReferencePositionLow[i],posApprox(i),integratedForce[i]);
+      residualVelocity(i,0)=OrbitPoc::preciseReferenceMeanResidual(velRef(i),orbitPocReferenceVelocityLow[i],approximateVelocity(i,0),integratedForce[offset+i]);
+    }
+    else
+    {
+      residualPosition(i,0)=meanResidual(posRef(i),posApprox(i),integratedForce[i]);
+      residualVelocity(i,0)=meanResidual(velRef(i),approximateVelocity(i,0),integratedForce[offset+i]);
+    }
   }
   const Vector initial=leastSquares(Matrix(pBasis),-1.*residualPosition);
   matMult(1,pBasis,initial,residualPosition);matMult(1,vBasis,initial,residualVelocity);
@@ -215,6 +225,10 @@ if(orbitPocDerivativeProfile!="legacy_v3")
        <<"\",\"coordinates\":\"CRF SI\",\"gravity_source\":\"actual_forward_force\",\"maximum_tangent_relative_residual\":"<<maximumTangentResidual
        <<",\"tangent_integral_accumulation\":\"long_double_local_moments\",\"tangent_accumulator_binary_digits\":"<<std::numeric_limits<long double>::digits
        <<",\"mean_solve_coordinates\":\"residual_then_single_absolute_restore_v1\""
+       <<",\"reference_kinematics\":\""<<(synthetic ? "fitted_equinoctial_long_double_low_parts_v1" : "unchanged_flight_reference")<<"\""
+       <<",\"maximum_reference_position_precision_difference_m\":"<<orbitPocReferencePositionDifference
+       <<",\"maximum_reference_velocity_precision_difference_m_s\":"<<orbitPocReferenceVelocityDifference
+       <<",\"remaining_mean_precision_limit\":\"native_double_coupled_solve_absolute_archive_and_initial_reanchoring\""
        <<",\"synthetic_force_arithmetic\":\""<<(synthetic ? "configured_crf_parts_stable_reference_v1" : "unchanged_flight_forward")<<"\""
        <<",\"reference_GM_m3_s2\":"<<GM
        <<",\"maximum_tangent_iterations\":"<<maximumTangentIterations<<",\"drag_fd_evaluations\":"<<fdEvaluations

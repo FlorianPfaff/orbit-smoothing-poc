@@ -135,6 +135,8 @@ def apply(root):
     relative_query_interpolation(source)
     from positionRemainder import apply as position_remainder
     position_remainder(source)
+    from queryPrecision import apply as query_precision
+    query_precision(source)
     shutil.copyfile(Path(__file__).with_name("scaledRowQr.h"), source / "misc/orbitPoc/scaledRowQr.h")
     shutil.copyfile(Path(__file__).with_name("artifactReceipt.h"), source / "misc/orbitPoc/artifactReceipt.h")
     wrapper = source / "external/lapack/lapackWrapper.f"
