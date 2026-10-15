@@ -10,6 +10,14 @@ Tudat simulation, whose dynamics frame deliberately differs from real EOP.)";
 class MiscAccelerationsSyntheticGravity : public MiscAccelerationsBase
 {
   Double GM,J2,R;
+  // Share the actual configured J2 expression with the opt-in residual path.
+  // The ordinary entry retains the original scalar order and vector grouping.
+  void orbitPocGravityParts(const Vector3d &p,Double &r,Vector3d &j2) const
+  {
+    r=p.r();
+    const Double z2=p.z()*p.z()/(r*r), a=1.5*J2*GM*R*R/std::pow(r,5);
+    j2=Vector3d(a*p.x()*(5*z2-1),a*p.y()*(5*z2-1),a*p.z()*(5*z2-3));
+  }
 public:
   explicit MiscAccelerationsSyntheticGravity(Config &config)
   {
@@ -20,8 +28,8 @@ public:
   Vector3d acceleration(SatelliteModelPtr,const Time &,const Vector3d &p,const Vector3d &,
       const Rotary3d &,const Rotary3d &rotEarth,EphemeridesPtr) override
   {
-    const Double r=p.r(), z2=p.z()*p.z()/(r*r), a=1.5*J2*GM*R*R/std::pow(r,5);
-    return rotEarth.rotate((-GM/std::pow(r,3))*p+Vector3d(a*p.x()*(5*z2-1),a*p.y()*(5*z2-1),a*p.z()*(5*z2-3)));
+    Double r;Vector3d j2;orbitPocGravityParts(p,r,j2);
+    return rotEarth.rotate((-GM/std::pow(r,3))*p+j2);
   }
 };
 #endif

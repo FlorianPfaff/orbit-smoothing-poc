@@ -1,0 +1,152 @@
+{
+  "boot_id": "6354c5ff-52cd-454d-b9a1-baf1174521ee",
+  "cause": "Not determined. No sleep, NTP, clock adjustment, namespace or virtualization cause is inferred.",
+  "first_clock_sample": {
+    "boottime_ns": 33311866304736,
+    "clock_getres_boottime_seconds": 1e-09,
+    "clock_getres_monotonic_seconds": 1e-09,
+    "monotonic_ns": 33311866304026,
+    "sample_bracket_monotonic_ns": [
+      33311866300508,
+      33311866304932
+    ],
+    "utc": "2026-10-14T18:22:00.970231+00:00",
+    "utc_ns": 1792002120970231151
+  },
+  "interpretation": "Observed UTC/calendar timestamp ages and monotonic/process-start differences disagree substantially. Calendar ETA based on prior file timestamps is unreliable. These process-age values are diagnostic proxies, not a readout of the private fit-timer start.",
+  "last_clock_sample": {
+    "boottime_ns": 33311876724421,
+    "clock_getres_boottime_seconds": 1e-09,
+    "clock_getres_monotonic_seconds": 1e-09,
+    "monotonic_ns": 33311876723689,
+    "sample_bracket_monotonic_ns": [
+      33311876722503,
+      33311876724619
+    ],
+    "utc": "2026-10-14T18:22:00.980651+00:00",
+    "utc_ns": 1792002120980650866
+  },
+  "pause2": {
+    "artifact": {
+      "bytes": 835,
+      "path": "private-path-sha256:46a6363fdcad991b33c24dacada44945cef79737f0d94412d57ada60a46d1727",
+      "sha256": "ef75359bb801be2c6ceac7300802977104947bb7bfc18e5176ea72d1b6603368"
+    },
+    "outer_deadline_at_start": {
+      "elapsed_wall_seconds": 9742.339253664017,
+      "outer_step_started_at": "2026-10-14T13:36:54.373068+00:00",
+      "remaining_wall_seconds": 1199857.660746336,
+      "sampled_at": "2026-10-14T16:19:16.712324+00:00",
+      "scope": "Wall-clock estimate from the immutable step start; the live outer monotonic timeout is unchanged and continues during pause.",
+      "timeout_seconds": 1209600
+    },
+    "started_at": "2026-10-14T16:19:16.710232+00:00",
+    "status": "waiting",
+    "wait_seconds": 10800.0
+  },
+  "policy": "All frozen fit, campaign and control timer limits remain unchanged. No processes were signalled and no source, input, output or control file was modified. Resume passive monitoring using actual recorded phase/result status.",
+  "proc_uptime_text": "33311.87 1037432.01",
+  "processes": [
+    {
+      "argv": [
+        "private-path-sha256:8b6ccc54212195763a01ed2fcc41bbd29bfb3213d85aa9ab1c2e13dbdfc2914d",
+        "-s",
+        "-c",
+        "\nimport importlib,json,os,sys,traceback\nfrom pathlib import Path\nsource,request_path,output_path,module,operation,cpu_json=sys.argv[1:]\nsys.path.insert(0,str(Path(source)/\"src\"))\ncpus=json.loads(cpu_json)\nif cpus: os.sched_setaffinity(0,cpus)\nrequest=json.loads(Path(request_path).read_text())\ntry:\n    result=getattr(importlib.import_module(module),operation)(request,Path(output_path).parent)\nexcept Exception as error:\n    result={\"status\":\"failed\",\"converged\":False,\"covariance_valid\":False,\n            \"error\":type(error).__name__+\": \"+str(error),\"traceback\":traceback.format_exc()}\ntemporary=Path(output_path).with_suffix(\".tmp\")\ntemporary.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+\"\\n\")\ntemporary.replace(output_path)\n",
+        "private-path-sha256:518a3a0c033bd9d22ca0187bd3bbd1b237cdff546eaeeaa0c0f71e371115db8c",
+        "private-path-sha256:93dd7658e33a6a344a184d9319c21e9dbf7c6ffffd4f40caf5da630827ab9797",
+        "private-path-sha256:e250ecd44cb722416a214f23f8aadb49f0a4cccd25502aa1e481252b3ad47cf4",
+        "orbit_poc.numerics.backend",
+        "fit_job",
+        "[30]"
+      ],
+      "attempt_id": null,
+      "boottime_minus_start_ticks_seconds": 5197.056304736001,
+      "clock_ticks_per_second": 100,
+      "command_sha256": "0907c43b6b75e9f617987d6958df14032dd6e51b024eff219e28e72fb5f001cb",
+      "existing_file_timestamps": [
+        {
+          "bytes": 75959,
+          "calendar_age_seconds": 7402.185497522354,
+          "mtime_ns": 1791994718784733400,
+          "mtime_utc": "2026-10-14T16:18:38.784733+00:00",
+          "path": "private-path-sha256:93dd7658e33a6a344a184d9319c21e9dbf7c6ffffd4f40caf5da630827ab9797"
+        },
+        {
+          "bytes": 75959,
+          "calendar_age_seconds": 7402.211206674576,
+          "mtime_ns": 1791994718759024400,
+          "mtime_utc": "2026-10-14T16:18:38.759024+00:00",
+          "path": "private-path-sha256:2a20c5da4daadbd28f7c5be77819fac09700b5f480357f7232a994931d3f8810"
+        },
+        {
+          "bytes": 0,
+          "calendar_age_seconds": 7402.181482791901,
+          "mtime_ns": 1791994718788748200,
+          "mtime_utc": "2026-10-14T16:18:38.788748+00:00",
+          "path": "private-path-sha256:711e9bbc1e88ca4741efd1ccb4ad0d23b56fff112cfc5f9b39bc50148ba96d19"
+        }
+      ],
+      "monotonic_minus_start_ticks_seconds": 5197.0563040259985,
+      "parent": 50925,
+      "pid": 60189,
+      "process_start_ticks_seconds": 28114.81,
+      "profile": "qr_lm_staged_jacobian",
+      "start_ticks": 2811481,
+      "stat_sha256": "3857aa432423f2eeeec6edc38d95694700844e26e1ab25f61cb23ab8b7db8c17",
+      "state": "S",
+      "worker_request": {
+        "bytes": 75959,
+        "path": "private-path-sha256:93dd7658e33a6a344a184d9319c21e9dbf7c6ffffd4f40caf5da630827ab9797",
+        "sha256": "3a5ac8e6ba2e77cd7f1a89730d745e376306a8de26e893f5c74921c5309866a2"
+      }
+    },
+    {
+      "argv": [
+        "private-path-sha256:8b6ccc54212195763a01ed2fcc41bbd29bfb3213d85aa9ab1c2e13dbdfc2914d",
+        "-m",
+        "orbit_poc.numerics.campaign",
+        "--config",
+        "private-path-sha256:0af0e5cbd5f24873c1974848ab865a4ed247034620f6e7501cddbdf6c0a21765",
+        "--startup-receipt",
+        "private-path-sha256:88c943037e732ba9e806d2dbc77c9d9407d8ffc0e7c71070a0220cc17b5a3b4c"
+      ],
+      "boottime_minus_start_ticks_seconds": 14900.926304736004,
+      "clock_ticks_per_second": 100,
+      "command_sha256": "c604fb46e818b8d343f0b86d93d2df7b037601c9a175c77df98bce557323c891",
+      "monotonic_minus_start_ticks_seconds": 14900.926304026001,
+      "parent": 50924,
+      "pid": 50925,
+      "process_start_ticks_seconds": 18410.94,
+      "start_ticks": 1841094,
+      "stat_sha256": "0784778ee0e6ea6a8c18947116b80fa467dab65f9d34895e3f31e38773f543f6",
+      "state": "S"
+    },
+    {
+      "argv": [
+        "private-path-sha256:31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6",
+        "private-path-sha256:8d75dd6afbf576d78fb6a5565623fcf8b71967e12d1466a893b21876799a51ce"
+      ],
+      "boottime_minus_start_ticks_seconds": 4127.556304736001,
+      "clock_ticks_per_second": 100,
+      "command_sha256": "627bd0ca09028dee5b1552a09185efda4fddc591998bb7438a3eca734bc2bae1",
+      "monotonic_minus_start_ticks_seconds": 4127.5563040259985,
+      "parent": 61863,
+      "pid": 61864,
+      "process_start_ticks_seconds": 29184.31,
+      "start_ticks": 2918431,
+      "stat_sha256": "3674c4f6cf1642d404ade5dd4cd0d11e34dce5a9250539b45ebc6fb87a4d6428",
+      "state": "S"
+    }
+  ],
+  "root_prior_observation": {
+    "monotonic_seconds": 33217.62764,
+    "note": "Prior observation supplied by root, retained separately from fresh samples.",
+    "source": "root message",
+    "utc": "2026-10-14T18:20:26.731550+00:00",
+    "worker_log_mtime_utc": "2026-10-14T16:18:38.789000+00:00",
+    "worker_pid": 60189,
+    "worker_start_ticks": 2811481
+  },
+  "schema": "orbit-numerics-read-only-clock-discrepancy-v1"
+}

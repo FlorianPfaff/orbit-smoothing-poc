@@ -20,6 +20,21 @@ def patch(path, changes):
     path.write_text('// ' + MARKER + '\n' + INCLUDE + text)
 
 
+def _original_objective_hook(path):
+    """One original residual capture before either the B-empty return or QR."""
+    text = path.read_text()
+    hook = "    if(orbitPocQr::enabled()) orbitPocRowQr().retainObservationResiduals(receiver->idRecv(),transmitter->idTrans(),idEpoch,l);\n"
+    if hook in text:
+        if text.count(hook) != 1:
+            raise ValueError("Duplicate original-objective observation hook")
+        return
+    signature = "void GnssObservationEquation::eliminateGroupParameters(Bool removeRows)"
+    anchor = "    if(!B.size())\n      return;"
+    if text.count(signature) != 1 or text.count(anchor) != 1 or text.index(anchor) < text.index(signature):
+        raise ValueError("Pinned original-objective observation hook changed")
+    path.write_text(text.replace(anchor, hook + anchor, 1))
+
+
 def _continuous_interpolation(source):
     """Evaluate the same interpolation polynomial continuously and stably."""
     path = source / "base/polynomial.cpp"
@@ -86,6 +101,7 @@ def _continuous_interpolation(source):
 def _stable_measurement_arithmetic(source):
     """Preserve native equations while removing avoidable clock cancellation."""
     shutil.copyfile(Path(__file__).with_name("gnssRangeResidual.h"),source/"misc/orbitPoc/gnssRangeResidual.h")
+    shutil.copyfile(Path(__file__).with_name("twofoldGeometry.h"),source/"misc/orbitPoc/twofoldGeometry.h")
     marker="ORBIT_POC_STABLE_GNSS_CLOCK_RANGE_V31"
     path=source/"gnss/gnssObservation.cpp"
     text=path.read_text()
@@ -111,6 +127,8 @@ def _stable_measurement_arithmetic(source):
 
 def apply(root):
     source = Path(root) / "source"
+    from positionRemainder import require_install_state
+    require_install_state(source)  # reject an old representation before any write
     _continuous_interpolation(source)
     _stable_measurement_arithmetic(source)
     from relativeQueryInterpolation import apply as relative_query_interpolation
@@ -202,6 +220,7 @@ def apply(root):
     ])
     patch(source / "gnss/gnssObservation.cpp", [
         ("    const Vector tau = QR_decomposition(B);", "    Matrix orbitPocOriginalB;\n    if(orbitPocQr::enabled()) {orbitPocQr::requireRank(B,\"per-observation ionosphere\");orbitPocOriginalB=B;}\n    const Vector tau = QR_decomposition(B);\n    if(orbitPocQr::enabled()) orbitPocRowQr().retainGroup(receiver->idRecv(),transmitter->idTrans(),idEpoch,orbitPocOriginalB,B,tau,l);")])
+    _original_objective_hook(source / "gnss/gnssObservation.cpp")
     patch(source / "gnss/gnssParametrization/gnssParametrizationConstraints.h", [
         ("    const Double weight = 1./std::pow(sigma, 2);", "    if(orbitPocQr::enabled())\n    {\n      if(relativeToApriori) throw(Exception(\"v3.1 Gaussian constraints must penalize full parameters\"));\n      orbitPocRowQr().addPulseReference(normalEquationInfo.parameterNames(),x0);\n    }\n    const Double weight = 1./std::pow(sigma, 2);"),
         ("        orbitPocLinearTrace().addRow((bias-x0.at(index))/sigma,{index},{1./sigma});", "        if(orbitPocRowQr().enabled())\n        {orbitPocRowQr().context(name);orbitPocRowQr().addRow((bias-x0.at(index))/sigma,{index},{1./sigma});lPl+=std::pow((bias-x0.at(index))/sigma,2);obsCount++;count++;continue;}\n        orbitPocLinearTrace().addRow((bias-x0.at(index))/sigma,{index},{1./sigma});")])

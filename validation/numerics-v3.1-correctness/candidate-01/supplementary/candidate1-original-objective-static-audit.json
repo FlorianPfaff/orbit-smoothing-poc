@@ -1,0 +1,165 @@
+{
+  "conclusions": [
+    "Original measurement rows and normalized per-observation ionosphere priors are captured before group elimination, including observations with no group parameter.",
+    "Independent epoch clock constraints and global pulse/OU/bias constraints enter separate prior rows exactly once.",
+    "Both native observation accumulation modes collect the same original objective before reduced QR rows are assembled.",
+    "Forked trials retain reference ledgers, reset only current ledgers, and require unchanged observation keys, row counts, support and accepted parent objective replay.",
+    "When QR is disabled the new capture hook is inactive; calls outside active collection are guarded by empty stem or finished state."
+  ],
+  "created_at": "2026-10-14T17:48:21.779578+00:00",
+  "limitations": [
+    "Read-only static source/caller audit only; no native numerical validation or new fit was run.",
+    "Conclusion is limited to the supported serial, fixed-weight, independent-epoch nuisance pipeline. Correlated observation noise and unsupported normal-matrix constraints are rejected rather than audited as supported.",
+    "Raw prior vectors rely on deterministic native parameter/constraint traversal and fixed configuration; this review does not establish correctness for arbitrary custom extensions.",
+    "The full source inventory identity is inherited from the immutable successful-build receipt; the listed installed callers and selected candidate extension files were rehashed, not all source files.",
+    "This audit does not certify numerical stationarity, the objective directional gate, or a successful scientific benchmark."
+  ],
+  "native": {
+    "binary_and_manifest_rehashed_for_this_receipt": true,
+    "build_manifest_sha256": "6402408d9190c9de9f50d98ad58ff12df6f350e7d69e08594e5e60c92db1696c",
+    "path": "private-path-sha256:7bc4d07b52688b8d23865d4ae0907d3c833527d9c2f379635c70f3a7d3d10a7e",
+    "sha256": "fcfbc385917227084d11e3330c1e6da4d0d6df82f0e683ead2276ce70e16d2b8"
+  },
+  "result": "no_concrete_logical_blocker_in_supported_path",
+  "reviewer": "qr_persistent",
+  "schema": "orbit-poc-original-objective-static-audit-v1",
+  "source": {
+    "audited_extension_files": {
+      "groops/extension/native_row_qr.py": "aedeb017c9f8fda1586b6566b0f28e9c5b0ddd8e7ed8cec602a0eca81834acea",
+      "groops/extension/nuisanceLineSearch.h": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c",
+      "groops/extension/scaledRowQr.h": "8b625abfa9efff485992b6872aa84f97e4d19c22c4715c0b42de20f3afa02011"
+    },
+    "inventory_receipt": {
+      "path": "private-path-sha256:63c053efe3562845c88649a4b3e219995d6f8331edf58eb15aff61bbbaeb7c3e",
+      "sha256": "4e7ea95cf5fc7bd23a6947f8c7ad17423fb839461f02c658741f3aceaae37ddf"
+    },
+    "inventory_sha256": "88dd09357de8b525f3267d400065091e49671f17a336c59abcf26e35455bc560",
+    "path": "private-path-sha256:b4e2de37762a553f3586d5cc6c0d7437e7943f13f90e30dc95d6a0562429c036"
+  },
+  "traces": [
+    {
+      "finding": "Observation model and measurement weighting precede original residual capture; capture precedes B-empty return and group QR.",
+      "lines": [
+        399,
+        404,
+        424,
+        430
+      ],
+      "path": "private-path-sha256:5a924bfe0b4b904507b422ba06bbad3fe13b44a959f1df368a8c83d678416bbc",
+      "sha256": "47b7203ef23e95a9796825e9549e935784446c3bcd31934a5dd240e91aba6504"
+    },
+    {
+      "finding": "The normalized STEC prior is appended to the observation vector exactly once before capture.",
+      "lines": [
+        205,
+        216
+      ],
+      "path": "private-path-sha256:82f8a6b06848a7d914238c581a59a25fbe8119559178108444f79a2f0b95fe2c",
+      "sha256": "d04eeb9f41d6ca118bbaaceb492fa75a73982a845ce5f06cb1e61edc82684d25"
+    },
+    {
+      "finding": "Collector reset, separate epoch context, both accumulation paths, closure, unsupported normal-write rejection, isolated child evaluation and accepted parent replay.",
+      "lines": [
+        363,
+        395,
+        399,
+        409,
+        424,
+        441,
+        482,
+        485,
+        624,
+        642
+      ],
+      "path": "private-path-sha256:422da5788424d1aa965f6d0d4285cf8fd4ff30b5b6b37a28a40e9fd1e8765e8b",
+      "sha256": "68356005501d3f98f7164e63ab302406bc3810d5dda53d2ff41904bdfdc110e2"
+    },
+    {
+      "finding": "Weighted rows enter the QR collector before normal-equation formation.",
+      "lines": [
+        210,
+        223
+      ],
+      "path": "private-path-sha256:5e0a19b2c8c94724e5f49b32821137155d144299fa65031936826186990037b2",
+      "sha256": "8f0d4d3fb81467cbaac2ed9863344da48af6f073556949e446e3dd41b6274310"
+    },
+    {
+      "finding": "Native epoch clock constraint enters the separate epoch prior context.",
+      "lines": [
+        262,
+        276
+      ],
+      "path": "private-path-sha256:0f9d6363f323a6c0caa7f96aea5000e3499a869e0c167692a3eb600e860259c4",
+      "sha256": "9d451afc08d770b32915558c1a0ed44d763bc9bb6a1ac2b57ad6106c945a720a"
+    },
+    {
+      "finding": "Full pulse/reference coordinates and active generic Gaussian rows are included as priors.",
+      "lines": [
+        99,
+        100,
+        109
+      ],
+      "path": "private-path-sha256:1f02c39fc5c5f2a8f8bc824e0cb8ae07b27de916d636f4727b50f7045253b75d",
+      "sha256": "b6db1500d4abfbb5e56fd6a8bdf511981a9ba22ccef5f7aa52ce59c31fbe2f74"
+    },
+    {
+      "finding": "Stationary and transition OU residuals are explicit full-coordinate prior rows.",
+      "lines": [
+        64,
+        67,
+        85,
+        89
+      ],
+      "path": "private-path-sha256:a9a96fe226f8573c9ef5feebdee4c608d082f5b45c353fde011ed9c0c7340701",
+      "sha256": "6038771afda74bebaaea3d36a03d1118b45497f1fdd1bca4ec210e131365a2fb"
+    },
+    {
+      "finding": "Code bias full-coordinate constraint has a distinct context.",
+      "lines": [
+        521,
+        522
+      ],
+      "path": "private-path-sha256:d3d7ae818667190faabfe1bd89b781f1013bc3f7e379d28d0f6805cfb230586a",
+      "sha256": "e68e5f1965aaf06009d3fa6d5746c7df6fc592ef1f9c0d111c605436d2df14ea"
+    },
+    {
+      "finding": "TEC bias full-coordinate constraint has a distinct context.",
+      "lines": [
+        429,
+        430
+      ],
+      "path": "private-path-sha256:7dbe88eb8ae4e5810f12cf0020b88abc24ef847a6eaf8df0116acffc51ddfe4d",
+      "sha256": "14de4ef831c884aae694c3c66cdc24f636f46415c4faa688cd3c505b4f8bb53f"
+    },
+    {
+      "finding": "Compensated original-row costs and paired reductions; reference/current ledger separation; count/key/shape checks and expected accepted cost.",
+      "lines": [
+        29,
+        248,
+        256,
+        265,
+        320,
+        326,
+        399,
+        420,
+        450,
+        467
+      ],
+      "path": "private-path-sha256:863cb32dcfa2ff0862b16bcbbf84fa7910925f182dcb6ab48cb98f7e092b62a7",
+      "sha256": "8b625abfa9efff485992b6872aa84f97e4d19c22c4715c0b42de20f3afa02011"
+    },
+    {
+      "finding": "Read/write descriptor isolation and fork snapshots; support and exact zero-update replay requirements.",
+      "lines": [
+        48,
+        80,
+        90,
+        95,
+        135,
+        143
+      ],
+      "path": "private-path-sha256:74b74fc2b2ad67a910c82026fcee389a8d98b80f9b4fac5c073a65ee389e1667",
+      "sha256": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c"
+    }
+  ]
+}

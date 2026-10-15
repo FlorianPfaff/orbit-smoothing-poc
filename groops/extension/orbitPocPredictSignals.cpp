@@ -81,10 +81,10 @@ void OrbitPocPredictSignals::run(Config &config,Parallel::CommunicatorPtr comm)
           queries.push_back(recv->timeCorrected(epoch));
           queryRemainders.push_back(recv->timeRemainder(epoch));
         }
-      std::vector<long double> precisePositions;
-      const Matrix interpolatedPosition=polynomial.interpolateOffset(queries,position,queryRemainders,3,FALSE,&precisePositions);
+      std::vector<long double> coordinateLow;
+      const Matrix interpolatedPosition=polynomial.interpolateOffset(queries,position,queryRemainders,3,FALSE,nullptr,&coordinateLow);
       const Matrix interpolatedVelocity=polynomial.interpolateOffset(queries,velocity,queryRemainders,3,TRUE);
-      if(precisePositions.size()!=3*queries.size())throw(Exception("signal refinement precise receiver state shape mismatch"));
+      if(coordinateLow.size()!=3*queries.size())throw(Exception("signal refinement precise receiver state shape mismatch"));
       recv->orbitPocPositionRemainder.resize(recv->times.size());
       UInt index=0;Double maximumChange=0;
       for(UInt epoch=0;epoch<gnss.times.size();epoch++)if(recv->useable(epoch))
@@ -92,9 +92,9 @@ void OrbitPocPredictSignals::run(Config &config,Parallel::CommunicatorPtr comm)
         const Vector3d p(interpolatedPosition.row(3*index,3));
         maximumChange=std::max(maximumChange,(p-recv->pos.at(epoch)).r());
         recv->orbitPocPositionRemainder.at(epoch)=Vector3d(
-            static_cast<Double>(precisePositions.at(3*index)-p.x()),
-            static_cast<Double>(precisePositions.at(3*index+1)-p.y()),
-            static_cast<Double>(precisePositions.at(3*index+2)-p.z()));
+            static_cast<Double>(coordinateLow.at(3*index)),
+            static_cast<Double>(coordinateLow.at(3*index+1)),
+            static_cast<Double>(coordinateLow.at(3*index+2)));
         recv->pos.at(epoch)=p;recv->vel.at(epoch)=Vector3d(interpolatedVelocity.row(3*index,3));index++;
       }
       logInfo<<"Fixed-clock receiver cache refreshed with native piecewise interpolation; maximum change "<<maximumChange<<" m"<<Log::endl;
