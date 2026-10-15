@@ -45,11 +45,22 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-**V3.1 correctness remains unresolved. Execution10 has launched; its outcome is pending.**
-The [immutable execution10 snapshot](validation/numerics-v3.1-correctness/recovery10-launch/index.html)
-records an installer compatibility correction, the exact same 106 original tests
-and 51 correction regressions, and unchanged control version09. Its immediate
-predecessor is failed execution09; all earlier results remain preserved.
+**The prescribed v3.1 correctness recovery passed independent audit. Full v3.1 remains incomplete.**
+The [closed execution10 report](validation/numerics-v3.1-correctness/recovery10/index.html)
+records 106 original native tests and 51 correction regressions passing without
+failures or skips, all four refinements, both full-prior/objective checks, and
+both distinct original failure replays. All 32 objective nuisance profiles and
+both replays reached strict convergence; none required a floor-limited
+classification. The objective checks retained their measured physical repeat
+spread and unchanged numerical-resolution allowance.
+
+This resolves the identified correctness issue for the tested candidate and
+prescribed suite. It does not authorize covariance or establish full release
+readiness. The original 150-attempt benchmark remains separate and unfinished,
+and the legacy solver remains the default. The
+[immutable execution10 launch snapshot](validation/numerics-v3.1-correctness/recovery10-launch/index.html)
+retains its historical pending status. Failed execution09 and every earlier
+attempt remain preserved.
 
 **Execution09 failed its original native test gate.**
 The [closed execution09 report](validation/numerics-v3.1-correctness/recovery09/index.html)
@@ -94,8 +105,8 @@ propagation/measurement refinements passed. Both exact nuisance-failure replays
 now reached strict convergence. Both objective gates failed: density failed its
 first nonzero-prior profile; pulses passed one derivative scale, then failed the
 negative `h=0.5` repeat before a second consecutive passing scale. The independent
-audit agrees with this failed result. The correctness issue remains open; these
-results cannot authorize covariance or establish release readiness.
+audit agrees with this failed result. The correctness issue remained open after attempt06; those
+results could not authorize covariance or establish release readiness.
 The earlier [attempt04/05 history](validation/numerics-v3.1-correctness/recovery04-05/index.html)
 remains unchanged, including attempt05's floor-limited second replay.
 See the [reproduction notes](docs/numerics-correctness-recovery.md) and the earlier

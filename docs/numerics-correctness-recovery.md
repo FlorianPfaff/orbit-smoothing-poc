@@ -1,5 +1,20 @@
 # Reproducing the v3.1 correctness recovery
 
+**Latest result, October 15, 2026: the prescribed correctness suite passed
+independent audit in execution10.** The
+[terminal report](../validation/numerics-v3.1-correctness/recovery10/index.html)
+records 106 original native tests, 51 correction regressions, four refinements,
+both objective/prior checks and both distinct original nuisance-failure replays
+passing. All 32 objective nuisance profiles and both replays are strict; no
+floor-limited progress was used. This resolves the identified correctness issue
+within the prescribed validation scope. It does not authorize covariance or
+complete the separate 150-attempt benchmark or full v3.1 release. The legacy
+solver remains the compatibility default.
+
+The following earlier-attempt sections are historical records. Their failed or
+unverified status is preserved; the execution10 terminal section below gives
+the current scoped outcome.
+
 This recovery records separately frozen correction candidates after the work in
 [PR #3](https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/3).
 Attempts04/05 validate candidate
@@ -16,7 +31,7 @@ and independent audits are preserved below. The subsequent bounded D03 diagnosis
 supports a separately frozen light-time arithmetic correction. Candidate09
 validation launched on October 15, 2026 at 12:36:08.791 UTC and stopped at the
 original native test gate with 104 passes and two installer failures. Later
-scientific checks were not reached. V3.1 correctness remains open.
+scientific checks were not reached. Correctness remained open at that closure.
 
 ## Runtime and preserved evidence
 
@@ -574,10 +589,10 @@ exact terminal journals and absence of live owned processes. Its consistency
 audit passes while the scientific gate remains failed. The independent audit
 SHA256 is `8d13cbb8f1e1232f535a74d26edce04b79083dd978f67eda39704632680b245e`.
 
-A fresh candidate must correct the installer without changing the original tests
-or scientific limits, then repeat the full required suite. Execution09 remains
-closed and failed. V3.1 correctness, accepted covariance and release readiness
-are not established.
+A fresh candidate needed to correct the installer without changing the original
+tests or scientific limits, then repeat the full required suite. Execution09
+remains closed and failed; its results established neither correctness nor
+accepted covariance or release readiness.
 
 The [publication integrity review](../validation/numerics-v3.1-correctness/recovery09-publication-review.json)
 independently verifies all declared report, launch and provenance files, gzip
@@ -635,12 +650,77 @@ PYTHONDONTWRITEBYTECODE=1 python -m pytest \
 
 These fixtures do not execute the scientific suite or establish release readiness.
 
-The launch snapshot remains outcome-pending regardless of later progress.
-Terminal results and independent audit will be published separately, preserving
-any failures or missing checks. Correctness and covariance remain unestablished
-until the prescribed full suite passes; the frozen 150-attempt benchmark is
-still a separate deliverable.
+The launch snapshot remains outcome-pending as a historical record. The terminal
+results below separately establish the prescribed correctness outcome. They do
+not establish accepted covariance or complete the frozen 150-attempt benchmark.
 
 [Independent launch-publication review](../validation/numerics-v3.1-correctness/recovery10-launch-publication-review.json)
 verifies all43 launch files and35 helper/dependency files, including the exact
 raw fixture manifest, fixed test command and immediate-predecessor attribution.
+
+
+## Execution10 terminal result: prescribed correctness suite passed
+
+Execution10 completed on October 15, 2026 at 13:34:58.413 UTC with all 13 planned
+stages passing and owned-process cleanup verified. Postprocessing completed at
+13:35:14.384 UTC: audit, report and collection all returned zero. The independent
+terminal audit agrees with the complete scoped result and verifies source,
+original inputs, both distinct replay identities and absence of live owned
+processes. The [terminal index](../validation/numerics-v3.1-correctness/recovery10/index.html)
+links the full machine-readable evidence and copies the original collector
+bundle byte-for-byte under `raw-report/`.
+
+| Required check | Actual result |
+| --- | --- |
+| Original native inventory | 106 passed; zero failures, errors or skips |
+| Separate correction regressions | 51 passed; zero failures, errors or skips |
+| Synthetic density and pulse refinements | Both passed |
+| Flight and eccentric 24-hour refinements | Both passed |
+| Full nonzero OU prior | 61 rows passed; cost 4.848917841373497 |
+| Full nonzero pulse prior | 6 rows passed; cost 0.053929305673915545 |
+| Density objective directional check | Consecutive scales 0.125 and 0.0625 passed |
+| Pulse objective directional check | Consecutive scales 1 and 0.5 passed |
+| Original near03 point030 replay | Strict convergence; 50 ambiguity crossings tested |
+| Original validation02 point012 replay | Strict convergence; 47 ambiguity crossings tested |
+
+All 22 density and 10 pulse objective nuisance profiles were strict, as were
+both original replays. Zero profiles used an audited-floor-only classification.
+This does not mean a noiseless physical objective: the measured density and
+pulse repeat differences were approximately `2.887074e-6` and `6.811436e-5`.
+The unchanged checks included ten times those measured differences as their
+numerical-resolution allowances. Density's relative derivative error plus
+allowance was `9.831601463140619e-5` and `2.4692294003313773e-5` at the accepted
+scales; pulse's was `1.3209124184306416e-6` and `2.8583679462778272e-6`.
+All are below the unchanged `1e-4` limit. Coarser density scales that failed the
+directional criterion and subsequent scales not attempted remain visible.
+
+| Frozen/terminal item | SHA256 |
+| --- | --- |
+| Executed native binary | `f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625` |
+| Build manifest | `1030f8930e40d0f899529bd39cf5db6dc00bcd675e3c423f845cdbeec6e3c455` |
+| Native terminal journal | `bec0854484ab1c32822575280d9db24066b44286a57ee8a207d2fda54951319f` |
+| Postprocessing terminal journal | `9a94eea57ff1811627976c862b63b2c4f3bb620ce834906a22e13cfac74e7c8e` |
+| Independent terminal audit | `2c3561ec5f26f594c4962245623caf33f3d7a8e364291813089176b8659c9533` |
+
+The actual predecessor is failed execution09/source05, followed by the single
+installer-path correction in source06. The original control09 renderer retains
+its older cumulative candidate07/execution08 comparison labels; the separate
+terminal index makes the immediate chronology explicit without altering those
+raw records. All earlier failed reports and the immutable pending launch
+snapshot remain unchanged.
+
+The first presentation adapter rejected two actual manifest conventions before
+creating output: identity HTML omitted redundant expanded-byte metadata, and
+the collector used `README.txt`. A separately reviewed presentation-only
+revision handles those exact formats, preserves mandatory stored hashes and
+strict gzip expansion checks, and changes no scientific classification. The
+failed preflight and reporting reviews remain separate provenance.
+
+The [reporting helper sources](../scripts/correctness_execution10_reporting/)
+and their fabricated tests reproduce the bounded transfer and publication
+checks. Native binaries, observations, row spools and build trees remain
+external. A successful correctness recovery is not a completed 150-attempt
+performance benchmark, accepted covariance result, speedup or full release.
+The legacy numerical path remains the default.
+
+The [separate preservation provenance](../validation/numerics-v3.1-correctness/recovery10-provenance/index.html) retains bounded-transfer and presentation reviews, both failed presentation preflights, and independent postprocessor cleanup evidence. Its published receipt transformations retain the original hashes.

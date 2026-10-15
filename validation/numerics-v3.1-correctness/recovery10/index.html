@@ -1,0 +1,384 @@
+<!doctype html><meta charset="utf-8"><title>Execution10 terminal evidence</title><style>body{font:16px system-ui;max-width:1100px;margin:40px auto;padding:0 20px}td,th{padding:6px 15px;text-align:left;border-bottom:1px solid #ccc}pre{white-space:pre-wrap;overflow-wrap:anywhere}code{overflow-wrap:anywhere}</style><h1>Execution10: passed</h1><p>Source <code>c24eccbcfc541250af958fd7c84101c3d039ced3</code>; unchanged control version09. The actual immediate predecessor is failed execution09/source05. Cumulative execution08/source04 fields and any “immediate previous07” wording in the archived control09 report describe its compatibility basis, not this execution’s immediate predecessor.</p><p><a href="raw-report/index.html">Original control09 report</a> · <a href="summary.json">Derived summary</a> · <a href="evidence/terminal-independent-audit.json.gz">Independent terminal audit</a> · <a href="manifest.json">Publication hashes</a></p><p>Scientific gate classifications are copied from the original report and independent audit. Presentation does not authorize covariance or establish v3.1 release readiness. The original 150-fit benchmark remains separate.</p><h2>All planned stages</h2><table><tr><th>Stage</th><th>Status</th><th>Exit</th></tr><tr><td>clone</td><td>passed</td><td>0</td></tr><tr><td>checkout</td><td>passed</td><td>0</td></tr><tr><td>build</td><td>passed</td><td>0</td></tr><tr><td>native-tests</td><td>passed</td><td>0</td></tr><tr><td>correction-regression-tests</td><td>passed</td><td>0</td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>passed</td><td>0</td></tr><tr><td>synthetic-refinement-pulses</td><td>passed</td><td>0</td></tr><tr><td>flight-refinement</td><td>passed</td><td>0</td></tr><tr><td>eccentric-24h-refinement</td><td>passed</td><td>0</td></tr><tr><td>objective-log_drag_ou</td><td>passed</td><td>0</td></tr><tr><td>objective-pulses</td><td>passed</td><td>0</td></tr><tr><td>nuisance-replay</td><td>passed</td><td>0</td></tr><tr><td>nuisance-replay-candidate1-point012</td><td>passed</td><td>0</td></tr></table><h2>native_tests</h2><pre>{
+  &quot;counts&quot;: {
+    &quot;errors&quot;: 0,
+    &quot;failed&quot;: 0,
+    &quot;passed&quot;: 106,
+    &quot;skipped&quot;: 0,
+    &quot;total&quot;: 106
+  },
+  &quot;status&quot;: &quot;passed&quot;
+}</pre><h2>correction_regression_tests</h2><pre>{
+  &quot;counts&quot;: {
+    &quot;errors&quot;: 0,
+    &quot;failed&quot;: 0,
+    &quot;passed&quot;: 51,
+    &quot;skipped&quot;: 0,
+    &quot;total&quot;: 51
+  },
+  &quot;status&quot;: &quot;passed&quot;
+}</pre><h2>objectives</h2><pre>{
+  &quot;log_drag_ou&quot;: {
+    &quot;accepted_derivative_scales&quot;: [
+      0.125,
+      0.0625
+    ],
+    &quot;directional_scales&quot;: [
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-1.0--1&quot;,
+          &quot;direction-1.0--1-repeat&quot;,
+          &quot;direction-1.0-1&quot;,
+          &quot;direction-1.0-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 7.227033554227024e-08,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4549.608250713954,
+            &quot;repeat_difference&quot;: 7.000762707320973e-07,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 3750.6430756878267,
+            &quot;repeat_difference&quot;: 1.6900703485589474e-06,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -399.4825870180664,
+        &quot;native_derivative&quot;: -397.01276707076,
+        &quot;negative_cost&quot;: 4549.60825141403,
+        &quot;passes_unchanged_tolerance&quot;: false,
+        &quot;positive_cost&quot;: 3750.643077377897,
+        &quot;relative_difference&quot;: 0.006182547193714625,
+        &quot;relative_difference_plus_resolution&quot;: 0.0061826194640501675,
+        &quot;scale&quot;: 1.0,
+        &quot;status&quot;: &quot;failed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-0.5--1&quot;,
+          &quot;direction-0.5--1-repeat&quot;,
+          &quot;direction-0.5-1&quot;,
+          &quot;direction-0.5-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 1.4521414278256437e-07,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4306.831538577536,
+            &quot;repeat_difference&quot;: 7.61955561756622e-07,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 3909.2016640646966,
+            &quot;repeat_difference&quot;: 3.256859599787276e-07,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -397.62987342519773,
+        &quot;native_derivative&quot;: -397.01276707076,
+        &quot;negative_cost&quot;: 4306.83153781558,
+        &quot;passes_unchanged_tolerance&quot;: false,
+        &quot;positive_cost&quot;: 3909.2016643903826,
+        &quot;relative_difference&quot;: 0.001551961750564568,
+        &quot;relative_difference_plus_resolution&quot;: 0.0015521069647073506,
+        &quot;scale&quot;: 0.5,
+        &quot;status&quot;: &quot;failed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-0.25--1&quot;,
+          &quot;direction-0.25--1-repeat&quot;,
+          &quot;direction-0.25-1&quot;,
+          &quot;direction-0.25-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 2.9076684485873274e-07,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4196.792380384447,
+            &quot;repeat_difference&quot;: 5.258116289041936e-07,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 3998.20893621939,
+            &quot;repeat_difference&quot;: 4.6080094762146473e-07,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -397.1668863568884,
+        &quot;native_derivative&quot;: -397.01276707076,
+        &quot;negative_cost&quot;: 4196.792379858635,
+        &quot;passes_unchanged_tolerance&quot;: false,
+        &quot;positive_cost&quot;: 3998.208936680191,
+        &quot;relative_difference&quot;: 0.0003880466660806788,
+        &quot;relative_difference_plus_resolution&quot;: 0.00038833743292553753,
+        &quot;scale&quot;: 0.25,
+        &quot;status&quot;: &quot;failed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-0.125--1&quot;,
+          &quot;direction-0.125--1-repeat&quot;,
+          &quot;direction-0.125-1&quot;,
+          &quot;direction-0.125-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 5.817025816698347e-07,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4144.503786930362,
+            &quot;repeat_difference&quot;: 8.019405868253671e-07,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4045.2408951722073,
+            &quot;repeat_difference&quot;: 2.2020503820385784e-06,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -397.05157263305955,
+        &quot;native_derivative&quot;: -397.01276707076,
+        &quot;negative_cost&quot;: 4144.503786128422,
+        &quot;passes_unchanged_tolerance&quot;: true,
+        &quot;positive_cost&quot;: 4045.240892970157,
+        &quot;relative_difference&quot;: 9.773431204973636e-05,
+        &quot;relative_difference_plus_resolution&quot;: 9.831601463140619e-05,
+        &quot;scale&quot;: 0.125,
+        &quot;status&quot;: &quot;passed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-0.0625--1&quot;,
+          &quot;direction-0.0625--1-repeat&quot;,
+          &quot;direction-0.0625-1&quot;,
+          &quot;direction-0.0625-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 1.16349150285096e-06,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4119.029271969815,
+            &quot;repeat_difference&quot;: 7.378985174000263e-07,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+            &quot;repeat_cost&quot;: 4069.4015084546704,
+            &quot;repeat_difference&quot;: 7.884459591878112e-07,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -397.0221085255398,
+        &quot;native_derivative&quot;: -397.01276707076,
+        &quot;negative_cost&quot;: 4119.029271231917,
+        &quot;passes_unchanged_tolerance&quot;: true,
+        &quot;positive_cost&quot;: 4069.4015076662245,
+        &quot;relative_difference&quot;: 2.3528802500462813e-05,
+        &quot;relative_difference_plus_resolution&quot;: 2.4692294003313773e-05,
+        &quot;scale&quot;: 0.0625,
+        &quot;status&quot;: &quot;passed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.03125,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.015625,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.0078125,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.00390625,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      }
+    ],
+    &quot;error&quot;: null,
+    &quot;prior_status&quot;: &quot;passed&quot;,
+    &quot;profile_resolution_counts&quot;: {
+      &quot;audited_floor_only&quot;: 0,
+      &quot;strict&quot;: 22,
+      &quot;unresolved&quot;: 0
+    },
+    &quot;reported_passed&quot;: true,
+    &quot;status&quot;: &quot;passed&quot;
+  },
+  &quot;pulses&quot;: {
+    &quot;accepted_derivative_scales&quot;: [
+      1.0,
+      0.5
+    ],
+    &quot;directional_scales&quot;: [
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-1.0--1&quot;,
+          &quot;direction-1.0--1-repeat&quot;,
+          &quot;direction-1.0-1&quot;,
+          &quot;direction-1.0-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 1.2962412340534707e-06,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 0.0006811436469433829,
+            &quot;repeat_cost&quot;: 5017.981202748843,
+            &quot;repeat_difference&quot;: 4.765187804878224e-05,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 0.0006811436469433829,
+            &quot;repeat_cost&quot;: 3967.029218924243,
+            &quot;repeat_difference&quot;: 1.975103896256769e-05,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -525.4759779618805,
+        &quot;native_derivative&quot;: -525.4759909259956,
+        &quot;negative_cost&quot;: 5017.981155096965,
+        &quot;passes_unchanged_tolerance&quot;: true,
+        &quot;positive_cost&quot;: 3967.0291991732042,
+        &quot;relative_difference&quot;: 2.467118437717094e-08,
+        &quot;relative_difference_plus_resolution&quot;: 1.3209124184306416e-06,
+        &quot;scale&quot;: 1.0,
+        &quot;status&quot;: &quot;passed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [
+          &quot;direction-0.5--1&quot;,
+          &quot;direction-0.5--1-repeat&quot;,
+          &quot;direction-0.5-1&quot;,
+          &quot;direction-0.5-1-repeat&quot;
+        ],
+        &quot;empirical_resolution_fraction&quot;: 2.5924824681069414e-06,
+        &quot;endpoint_resolution_checks&quot;: [
+          {
+            &quot;empirical_resolution&quot;: 0.0006811436469433829,
+            &quot;repeat_cost&quot;: 4712.081688183777,
+            &quot;repeat_difference&quot;: 1.9639065612864215e-05,
+            &quot;sign&quot;: -1
+          },
+          {
+            &quot;empirical_resolution&quot;: 0.0006811436469433829,
+            &quot;repeat_cost&quot;: 4186.6058458474945,
+            &quot;repeat_difference&quot;: 2.8512343305919785e-05,
+            &quot;sign&quot;: 1
+          }
+        ],
+        &quot;finite_difference&quot;: -525.4758512095605,
+        &quot;native_derivative&quot;: -525.4759909259956,
+        &quot;negative_cost&quot;: 4712.081668544712,
+        &quot;passes_unchanged_tolerance&quot;: true,
+        &quot;positive_cost&quot;: 4186.605817335151,
+        &quot;relative_difference&quot;: 2.6588547817088595e-07,
+        &quot;relative_difference_plus_resolution&quot;: 2.8583679462778272e-06,
+        &quot;scale&quot;: 0.5,
+        &quot;status&quot;: &quot;passed&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.25,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.125,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.0625,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.03125,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.015625,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.0078125,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      },
+      {
+        &quot;completed_profile_labels&quot;: [],
+        &quot;scale&quot;: 0.00390625,
+        &quot;status&quot;: &quot;not_attempted&quot;
+      }
+    ],
+    &quot;error&quot;: null,
+    &quot;prior_status&quot;: &quot;passed&quot;,
+    &quot;profile_resolution_counts&quot;: {
+      &quot;audited_floor_only&quot;: 0,
+      &quot;strict&quot;: 10,
+      &quot;unresolved&quot;: 0
+    },
+    &quot;reported_passed&quot;: true,
+    &quot;status&quot;: &quot;passed&quot;
+  }
+}</pre><h2>nuisance_replays</h2><pre>{
+  &quot;nuisance-replay&quot;: {
+    &quot;error&quot;: null,
+    &quot;passed&quot;: true,
+    &quot;progress_only_floor_validated&quot;: false,
+    &quot;resolution_status&quot;: &quot;strict_convergence&quot;,
+    &quot;status&quot;: &quot;passed&quot;,
+    &quot;strict_nuisance_converged&quot;: true
+  },
+  &quot;nuisance-replay-candidate1-point012&quot;: {
+    &quot;error&quot;: null,
+    &quot;passed&quot;: true,
+    &quot;progress_only_floor_validated&quot;: false,
+    &quot;resolution_status&quot;: &quot;strict_convergence&quot;,
+    &quot;status&quot;: &quot;passed&quot;,
+    &quot;strict_nuisance_converged&quot;: true
+  }
+}</pre><h2>synthetic_refinement</h2><pre>{
+  &quot;log_drag_ou&quot;: {
+    &quot;error&quot;: null,
+    &quot;metrics&quot;: {
+      &quot;aligned_position_maximum_m&quot;: 7.303611906877776e-09,
+      &quot;offgrid_position_maximum_m&quot;: 5.54304497667047e-06
+    },
+    &quot;status&quot;: &quot;passed&quot;
+  },
+  &quot;pulses&quot;: {
+    &quot;error&quot;: null,
+    &quot;metrics&quot;: {
+      &quot;aligned_position_maximum_m&quot;: 1.742967150380174e-08,
+      &quot;offgrid_position_maximum_m&quot;: 5.543041475485635e-06
+    },
+    &quot;status&quot;: &quot;passed&quot;
+  }
+}</pre><h2>additional_refinement</h2><pre>{
+  &quot;density_24h&quot;: {
+    &quot;error&quot;: null,
+    &quot;metrics&quot;: {
+      &quot;aligned_position_maximum_m&quot;: 1.7423449953896652e-09,
+      &quot;offgrid_position_maximum_m&quot;: 5.584682031119349e-06
+    },
+    &quot;status&quot;: &quot;passed&quot;
+  },
+  &quot;flight_april24&quot;: {
+    &quot;error&quot;: null,
+    &quot;metrics&quot;: {
+      &quot;aligned_position_maximum_m&quot;: 2.094944070391797e-06,
+      &quot;offgrid_position_maximum_m&quot;: 1.1789941775955e-05
+    },
+    &quot;status&quot;: &quot;passed&quot;
+  }
+}</pre><h2>Preserved full evidence</h2><p><a href="evidence/report-summary.json.gz">Full original report summary (paths tokenized)</a>. Missing report artifacts remain explicit in the manifest. Floor-limited progress is distinct from strict nuisance convergence.</p>
