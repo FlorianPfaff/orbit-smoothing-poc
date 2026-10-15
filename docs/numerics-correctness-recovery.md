@@ -446,3 +446,45 @@ or establish full release readiness. Further arithmetic diagnosis is separate
 from this closed attempt. The original v3 campaign and frozen 150-attempt
 benchmark retain their own executables, inputs and results; benchmark completion
 remains an additional deliverable.
+
+
+## D03: bounded diagnosis of the failed density profile
+
+The [D03 report](../validation/numerics-v3.1-correctness/recovery08-diagnostic-d03/index.html)
+preserves the first four generations of execution08 density point006. Trace-off
+and trace-on runs deliberately stop before generation5; neither is an accepted
+fit. The original run remains failed at generation52. All 52 exact equivalence
+checks passed, and the independent lifecycle audit verified owned cleanup.
+The native diagnostic executable is
+`3a113ae1a88954a33f81f6e251ecffb98a757058821568965aae11658be8e251`.
+
+The completed Decimal reconstruction and a separate implementation account for
+all 9,469 objective rows: 8,064 GNSS measurements, 1,344 local STEC priors and
+61 separate constraints. The full step predicts a decrease of approximately
+`5.55507e-16`, while native re-evaluation increases the objective by
+`2.63094e-14`. The independent all-row actual reduction agrees with the reported
+Decimal result within `8.9e-109`; that diagnostic agreement tolerance does not
+change an estimator acceptance threshold.
+
+The [separate analysis04 appendix](../validation/numerics-v3.1-correctness/recovery08-diagnostic-d03-analysis04/index.html)
+then decomposes the distance-clock discrepancy over all 8,064 measurement rows.
+Clock-plus-travel duration addition contributes `-2.68673436e-14` of the
+`-2.68691010e-14` discrepancy, or 99.9934596%. Each component contribution sums
+its normalized residual change times the mean baseline/trial row residual.
+All smaller components, motion residuals and closure residuals remain explicit.
+This is an algebraic attribution around captured kinematics, not a measured
+result from a corrected forward-model run. A new candidate must still pass every
+unchanged scientific gate before correctness can be declared resolved.
+
+The diagnostic packages retain preparation01's alias failure and versioned02
+fix, analyzer01's interpreter failure, analyzer02's rounding-consistency failure,
+completed analyses03/04, their exact controls and independent reviews. The
+analyses01–03 snapshot retains the attribution uncertainty known at its seal;
+analysis04 is a separate appendix. No failed record was overwritten. Source,
+native, trace and input hashes are retained, but native binaries, source trees,
+row spools and the three raw traces totaling 4,445,392,754 bytes remain outside
+Git. Published paths are tokenized, with both original and transformed hashes.
+The independent arithmetic review's 12.2 MB clock cache also remains external;
+its compact summary preserves the original artifact pin and all-row results.
+
+[Independent publication reviews and presentation provenance](../validation/numerics-v3.1-correctness/recovery08-diagnostic-d03-publication/README.md) bind both final packages.

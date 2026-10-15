@@ -56,6 +56,15 @@ preserved. These results cannot authorize covariance or establish release
 readiness. Attempt07 remains a separate infrastructure failure before any
 native build or tests.
 
+The later [D03 diagnostic](validation/numerics-v3.1-correctness/recovery08-diagnostic-d03/index.html)
+reproduces four generations of the failed density profile, verifies 52 exact
+equivalence checks and independently accounts for all 9,469 objective rows. A
+[separate algebraic analysis](validation/numerics-v3.1-correctness/recovery08-diagnostic-d03-analysis04/index.html)
+attributes 99.9935% of the measured distance-clock discrepancy in that captured
+full trial to clock-plus-travel duration addition. This supports testing a
+narrow correction; no corrected native fit or scientific acceptance follows
+from that attribution. The two diagnostic replays deliberately stop incomplete.
+
 The [arithmetic diagnostic](validation/numerics-v3.1-correctness/recovery06-diagnostics/report.html)
 preserves a failed diagnostic build and two failed trace replays, 104 exact
 equivalence checks, and a five-row Decimal analysis. That bounded diagnostic
