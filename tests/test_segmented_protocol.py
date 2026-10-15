@@ -19,6 +19,76 @@ def test_exact_matrix_and_shared_families():
         if c['case']['coverage']=='blackout':assert len(c['case']['mask']['intervals_seconds'])==c['case']['duration_hours']//24
 
 
+def test_profile_positions_are_balanced_within_each_profile_arity():
+    from collections import Counter
+    cases=p.planned_cases();attempts=p.attempts(cases)
+    positions={2:[Counter() for _ in range(2)],3:[Counter() for _ in range(3)]}
+    visited=[]
+    for case in cases:
+        rows=[row for row in attempts if row['case_id']==case['case_id']]
+        expected=p.PROFILES if case['case']['duration_hours']==24 else p.PROFILES[:2]
+        assert {row['profile'] for row in rows}==set(expected)
+        visited.extend(rows)
+        for index,row in enumerate(rows):positions[len(rows)][index][row['profile']]+=1
+    assert visited==attempts  # Original case order remains unchanged.
+    assert [row['order'] for row in attempts]==list(range(68))
+    assert positions[3]==[Counter({profile:4 for profile in p.PROFILES}) for _ in range(3)]
+    assert positions[2]==[Counter({profile:8 for profile in p.PROFILES[:2]}) for _ in range(2)]
+
+
+def test_profile_positions_are_balanced_within_each_duration():
+    from collections import Counter
+    cases=p.planned_cases();attempts=p.attempts(cases)
+    for hours in (24,48,72):
+        profiles=p.PROFILES if hours==24 else p.PROFILES[:2]
+        counts=[Counter() for _ in profiles]
+        selected=[case for case in cases if case['case']['duration_hours']==hours]
+        assert len(selected)==(12 if hours==24 else 8)
+        for case in selected:
+            rows=[row for row in attempts if row['case_id']==case['case_id']]
+            for index,row in enumerate(rows):counts[index][row['profile']]+=1
+        assert counts==[Counter({profile:4 for profile in profiles}) for _ in profiles]
+
+
+def test_profile_order_balances_duration_method_coverage_and_regime_margins():
+    from collections import Counter
+    cases=p.planned_cases();attempts=p.attempts(cases)
+    for hours in (24,48,72):
+        profiles=p.PROFILES if hours==24 else p.PROFILES[:2]
+        selected=[case for case in cases if case['case']['duration_hours']==hours]
+        categories={'method':lambda c:c['method'],'coverage':lambda c:c['case']['coverage'],
+                    'regime':lambda c:'flight' if c['stage']=='flight' else c['case']['orbit']}
+        for category,key in categories.items():
+            for value in {key(case) for case in selected}:
+                group=[case for case in selected if key(case)==value]
+                positions=[Counter() for _ in profiles]
+                for case in group:
+                    rows=[row for row in attempts if row['case_id']==case['case_id']]
+                    for index,row in enumerate(rows):positions[index][row['profile']]+=1
+                for position in positions:
+                    counts=[position[profile] for profile in profiles]
+                    if len(group)%len(profiles)==0:
+                        assert counts==[len(group)//len(profiles)]*len(profiles)
+                    else:
+                        assert category=='regime' and hours==24
+                        assert max(counts)-min(counts)<=1
+
+
+def test_same_family_reverses_paired_order_between48_and72_hours():
+    cases=p.planned_cases();attempts=p.attempts(cases)
+    for family in {case['family_id'] for case in cases if case['stage']=='synthetic'}:
+        rows={case['case']['duration_hours']:[x['profile'] for x in attempts if x['case_id']==case['case_id']]
+              for case in cases if case['family_id']==family}
+        assert rows[48]==list(reversed(rows[72]))
+
+
+def test_profile_order_is_repeatable_and_does_not_mutate_cases():
+    cases=p.planned_cases();before=json.loads(json.dumps(cases))
+    first=p.attempts(cases)
+    assert first==p.attempts(cases)==p.attempts()==p.attempts(json.loads(json.dumps(cases)))
+    assert cases==before
+
+
 @pytest.mark.parametrize('change',[{'unknown':1},{'controls':{'maximum_accepted_iterations':33}},{'resources':{'threads':2}},{'resources':{'maximum_process_tree_rss_bytes':1}},{'profiles':['dense_corrected']},{'schema_version':True},{'preparation':{'generate_missing':'yes'}},{'dense_runtime':{'native':{'path':'/x','sha256':''}}}])
 def test_configuration_rejects_unfrozen_options(change):
     with pytest.raises(ValueError):config_from_dict(change)

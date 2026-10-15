@@ -53,9 +53,14 @@ def planned_cases():
 
 def attempts(cases=None):
     result=[]
-    for i,c in enumerate(cases or planned_cases()):
-        choices=PROFILES if c['case']['duration_hours']==24 else PROFILES[:2]
-        choices=choices[i%len(choices):]+choices[:i%len(choices)]
+    for c in cases or planned_cases():
+        duration=c['case']['duration_hours']
+        choices=PROFILES if duration==24 else PROFILES[:2]
+        orbit=2 if c['stage']=='flight' else {'leo500':0,'eccentric':1}[c['case']['orbit']]
+        coverage={'normal':0,'blackout':1}[c['case']['coverage']]
+        method=METHODS.index(c['method'])
+        rotation=(orbit+coverage+method+(1 if duration==72 else 0))%len(choices)
+        choices=choices[rotation:]+choices[:rotation]
         for profile in choices:result.append({'attempt_id':c['case_id']+'--'+profile,'case_id':c['case_id'],'profile':profile,'order':len(result)})
     assert len(result)==68
     return result
