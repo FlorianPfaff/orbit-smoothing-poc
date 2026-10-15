@@ -6,6 +6,7 @@ reference. Damping rows restrict a step and never enter posterior covariance.
 """
 from dataclasses import dataclass, field
 import time
+from typing import Protocol
 
 import numpy as np
 from scipy.linalg import qr, solve_triangular, svdvals
@@ -22,6 +23,21 @@ class NumericalFailure(RuntimeError):
         self.reason = reason
 
 
+class LinearSystem(Protocol):
+    """Optional numerical representation of the same native linearization.
+
+    The original-chart factor remains the statistical rank certificate.  An
+    implementation may use different auxiliary coordinates to solve, but must
+    return corrections/covariance in the original native coordinates.  It does
+    not own the nonlinear objective, accepted physical state or convergence.
+    """
+
+    def validate(self, point): ...
+    def certify_rank(self, point): ...
+    def proposal(self, point, damping=0.): ...
+    def selected_covariance(self, point, design): ...
+
+
 @dataclass(frozen=True)
 class Linearization:
     factor: np.ndarray
@@ -35,6 +51,7 @@ class Linearization:
     state: object
     objective_floor: float = 0.
     metadata: dict = field(default_factory=dict)
+    linear_system: LinearSystem | None = None
 
     def validate(self):
         r, b, s, d = self.factor, self.rhs, self.scales, self.dynamic
@@ -49,10 +66,18 @@ class Linearization:
         if not np.isfinite([self.objective, self.residual_energy, self.objective_floor]).all() or min(
                 self.objective, self.residual_energy, self.objective_floor) < 0:
             raise NumericalFailure("invalid_objective", "Native objective and residual energy must be finite and nonnegative")
+        if self.linear_system is not None:
+            self.linear_system.validate(self)
         return self
 
 
 def certify_rank(point):
+    if point.linear_system is not None:
+        return point.linear_system.certify_rank(point)
+    return _dense_certify_rank(point)
+
+
+def _dense_certify_rank(point):
     singular = svdvals(point.factor, check_finite=False)
     threshold = np.finfo(float).eps * max(point.effective_rows, len(singular)) * singular[0]
     rank = int(np.sum(singular > threshold))
@@ -69,6 +94,12 @@ def certify_rank(point):
 
 def proposal(point, damping=0.):
     """Return a step in native coordinates and its undamped predicted reduction."""
+    if point.linear_system is not None:
+        return point.linear_system.proposal(point, damping)
+    return _dense_proposal(point, damping)
+
+
+def _dense_proposal(point, damping=0.):
     if not np.isfinite(damping) or damping < 0:
         raise ValueError("Damping must be finite and nonnegative")
     r, b = point.factor, point.rhs
@@ -86,12 +117,34 @@ def proposal(point, damping=0.):
 
 def selected_covariance(point, design):
     """G P G.T from the full retained QR, with global nuisances marginalized."""
-    certify_rank(point)
+    if point.linear_system is not None:
+        return point.linear_system.selected_covariance(point, design)
+    return _dense_selected_covariance(point, design)
+
+
+def _dense_selected_covariance(point, design):
+    _dense_certify_rank(point)
     design = np.asarray(design, dtype=float)
     if design.ndim != 2 or design.shape[1] != len(point.scales) or not np.isfinite(design).all():
         raise ValueError("Finite requested design with one column per retained parameter required")
     y = solve_triangular(point.factor.T, point.scales[:, None] * design.T, lower=True)
     return y.T @ y
+
+
+class DenseLinearSystem:
+    """Explicit adapter for the unchanged corrected v3.1 QR operations."""
+
+    def validate(self, point):
+        return None  # Linearization.validate already checks the native factor.
+
+    def certify_rank(self, point):
+        return _dense_certify_rank(point)
+
+    def proposal(self, point, damping=0.):
+        return _dense_proposal(point, damping)
+
+    def selected_covariance(self, point, design):
+        return _dense_selected_covariance(point, design)
 
 
 def minimize(model, initial, *, controls=None, clock=time.monotonic, emit=None, started_at=None):

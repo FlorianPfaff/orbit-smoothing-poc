@@ -228,10 +228,11 @@ class OrbitPocRowQr
   std::vector<UInt> epochIds;
   Double constant=0,sourceRhs2=0,groupRemovedEnergy=0;
   std::string stem,previousStem,spoolDirectory,contextName="weighted_observation";
-  std::ofstream provenance;
+  std::ofstream provenance,segmentedRows;
   orbitPocQr::Rank diagnosis;
   Bool finished=FALSE,keepIntermediateFactors=TRUE,compressRows=FALSE;
   Bool costOnly=FALSE,expectedCostPending=FALSE;
+  Bool segmentedCapture=FALSE;
   Double expectedCost=0;
   std::uint64_t support=14695981039346656037ULL;
   mutable Double nuisanceGradient=std::numeric_limits<Double>::quiet_NaN();
@@ -249,9 +250,10 @@ class OrbitPocRowQr
 public:
   Bool enabled() const {return orbitPocQr::enabled();}
   const std::string &artifactStem() const{return stem;}
+  Bool capturingSegmentedRows()const{return segmentedCapture&&!costOnly&&!finished&&!stem.empty();}
   void prepareCostOnly()
   {
-    costOnly=TRUE;provenance.close();spool.reset();referenceResiduals=objectiveResiduals;
+    costOnly=TRUE;provenance.close();segmentedRows.close();spool.reset();referenceResiduals=objectiveResiduals;
     referenceObservationResiduals=observationResiduals;
     referencePreciseObservationResiduals=preciseObservationResiduals;
   }
@@ -441,9 +443,25 @@ public:
     provenance.close();provenance.clear();provenance.open(stem+".rows.tsv");
     if(!provenance)throw(Exception("Cannot open original-row provenance"));
     provenance<<std::setprecision(17)<<"row\tepoch\tsource\trhs\tcolumns\n";
+    // Opt-in v4 transport of the actual weighted rows after group STEC QR and
+    // before epoch clock/VTEC QR. The dense factor above remains untouched.
+    const auto segmented=orbitPocQr::env("ORBIT_POC_SEGMENTED_ROWS","0");
+    if(segmented!="0"&&segmented!="1")throw(Exception("Segmented row capture must be 0 or 1"));
+    segmentedCapture=(segmented=="1");segmentedRows.close();segmentedRows.clear();
+    if(segmentedCapture)
+    {
+      segmentedRows.open(stem+".segmented_rows.jsonl");
+      if(!segmentedRows)throw(Exception("Cannot open segmented weighted-row export"));
+      segmentedRows<<std::setprecision(17)<<"{\"kind\":\"metadata\",\"schema\":\"orbit-poc-segmented-weighted-rows-v1\",\"total_columns\":"<<total
+                   <<",\"local_columns\":"<<localCount<<",\"stec_eliminated\":true,\"epoch_nuisances_eliminated\":false,\"dynamic_observation_terms\":\"native_local_stencil\"}\n";
+    }
   }
   void beginEpoch(UInt idEpoch,UInt first,UInt count)
-  {currentEpoch=idEpoch;epochIds.resize(count);std::iota(epochIds.begin(),epochIds.end(),first);}
+  {
+    currentEpoch=idEpoch;epochIds.resize(count);std::iota(epochIds.begin(),epochIds.end(),first);
+    if(capturingSegmentedRows())
+      segmentedRows<<"{\"kind\":\"epoch\",\"index\":"<<idEpoch<<",\"first\":"<<first<<",\"count\":"<<count<<"}\n";
+  }
   void addRow(Double rhs,const std::vector<UInt>&ids,const std::vector<Double>&values)
   {
     if(ids.size()!=values.size()||!std::isfinite(rhs)||finished)throw(Exception("Invalid native weighted QR row"));
@@ -458,6 +476,27 @@ public:
     // retain their direct-row semantics when there are no observation blocks.
     if(contextName!="weighted_observation"||observationResiduals.empty())objectiveResiduals.push_back(rhs);
     if(costOnly){sourceRows++;sourceRhs2+=rhs*rhs;return;}
+    if(segmentedCapture)
+    {
+      segmentedRows<<"{\"kind\":\"row\",\"index\":"<<sourceRows<<",\"epoch\":";
+      if(currentEpoch==NULLINDEX)segmentedRows<<"null";else segmentedRows<<currentEpoch;
+      segmentedRows<<",\"source\":\""<<contextName<<"\",\"rhs\":"<<rhs<<",\"terms\":[";
+      UInt omitted=0;Bool first=TRUE;
+      for(UInt j=0;j<ids.size();j++)
+      {
+        // The local LEO stencil export owns these exact physical columns.
+        // Do not duplicate billions of globally propagated coefficients in
+        // the row transport. Full prior rows and the original dense QR above
+        // are unchanged; a missing local observation map is a fatal reader error.
+        if(contextName=="weighted_observation"&&orbitPocQr::dynamic(names[ids[j]])){omitted++;continue;}
+        if(values[j]==0)continue;
+        if(!first)segmentedRows<<',';
+        first=FALSE;
+        segmentedRows<<'['<<ids[j]<<','<<values[j]<<']';
+      }
+      segmentedRows<<"],\"omitted_dynamic_columns\":"<<omitted<<"}\n";
+      if(!segmentedRows)throw(Exception("Segmented weighted-row export failed"));
+    }
     provenance<<sourceRows<<'\t'<<(currentEpoch==NULLINDEX?"global":std::to_string(currentEpoch))<<'\t'<<contextName<<'\t'<<rhs<<'\t';
     for(UInt j=0;j<ids.size();j++){if(j)provenance<<',';provenance<<ids[j];}provenance<<'\n';
     sourceRows++;sourceRhs2+=rhs*rhs;
@@ -501,6 +540,12 @@ public:
     }
     else if(!groupConditionals.empty())throw(Exception("Original observation objective hook is missing"));
     if(costOnly)return;
+    if(segmentedCapture)
+    {
+      segmentedRows<<"{\"kind\":\"complete\",\"source_rows\":"<<sourceRows<<",\"reduced_rows\":"<<reducedRows
+                   <<",\"group_removed_energy\":"<<groupRemovedEnergy<<"}\n";
+      segmentedRows.flush();if(!segmentedRows)throw(Exception("Cannot finish segmented weighted rows"));segmentedRows.close();
+    }
     if(expectedCostPending){expectedCostPending=FALSE;if(rawCost()!=expectedCost)throw(Exception("Accepted nuisance trial did not reproduce its isolated native objective"));}
     scales=Vector(retained);for(UInt j=0;j<retained;j++)scales(j)=norms[j+localCount]>0?1./norms[j+localCount]:1.;
     R=Matrix(retained,retained);z=Vector(retained);constant=0.;std::rewind(spool.get());

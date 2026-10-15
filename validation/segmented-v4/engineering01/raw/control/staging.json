@@ -1,0 +1,40 @@
+{
+  "schema": "orbit-poc-segmented-engineering-staging-v1",
+  "archive": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/staging/engineering-01-packet.tar.gz",
+    "sha256": "ec4acb1716b9652cbeb776df021daa4815af602bd458a4fbf337a93600321718"
+  },
+  "source_sha256": "fee07c67bb59fc31c60bc1190984dbb0a1f1580747bc843f5dd8d8d9bf0e09ea",
+  "source_files": 365,
+  "admission": {
+    "status": "admitted",
+    "hostname": "workstation1",
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "observed_at": "2026-10-15T15:17:15.480254+00:00",
+    "driver_identity": {
+      "pid": 1993546,
+      "start_ticks": 106105669,
+      "parent": 1993545,
+      "state": "R",
+      "pid_namespace": "pid:[4026531836]",
+      "argv": [
+        "/usr/bin/python3",
+        "-"
+      ],
+      "command_sha256": "a06f73fe34c728dbb2ac6653689a3e0306406d711c5333f9cad9bce72fe2dbb2"
+    },
+    "conflicting_processes": [],
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "fit_cpu": 24,
+    "reserved_cpu_note": "Engineering-only fresh v4 snapshot; build CPUs24-27 and serial test CPU24. Affinity plus shared host validation lock, no administrative exclusive allocation. Workstation2 production is untouched. Runtime/isolated glibc2.39 inherited unchanged from correctness execution10.",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1"
+  },
+  "production_outputs_absent": true,
+  "runtime_artifacts_verified": 62,
+  "engineering_only": true
+}

@@ -34,6 +34,7 @@ def main():
     p.add_argument("--configure-only", action="store_true")
     p.add_argument("--upstream-only", action="store_true", help="Build the clean pinned upstream engine for external-example reproduction")
     p.add_argument("--numerics", action="store_true", help="Enable the separately versioned v3.1 QR/objective/derivative extension")
+    p.add_argument("--segmented", action="store_true", help="Enable v4 local-operator exports on top of --numerics; does not split force propagation")
     p.add_argument("--cmake-executable", type=Path, help="Use an independent CMake installation with the compiler prefix")
     args = p.parse_args()
     source, build = args.source_dir.resolve(), args.build_dir.resolve()
@@ -41,6 +42,8 @@ def main():
         p.error("--jobs must be positive")
     if args.numerics and args.upstream_only:
         p.error("--numerics and --upstream-only are mutually exclusive")
+    if args.segmented and not args.numerics:
+        p.error("--segmented requires --numerics")
     if not source.exists():
         source.parent.mkdir(parents=True, exist_ok=True)
         run(["git", "clone", "--filter=blob:none", REPOSITORY, source])
@@ -55,6 +58,8 @@ def main():
             raise ValueError("An upstream-only build requires a separate clean checkout of the pinned revision")
     else:
         run([sys.executable, extension, source, *(["--numerics"] if args.numerics else [])])
+        if args.segmented:
+            run([sys.executable, extension.with_name("native_segmented.py"), source])
     env = dict(os.environ)
     cmake = str(args.cmake_executable.resolve()) if args.cmake_executable else "cmake"
     command = [cmake, "-S", source / "source", "-B", build, "-G", "Ninja",
@@ -87,6 +92,7 @@ def main():
         manifest = {
             "schema_version": 1, "upstream_commit": COMMIT,
             "extension": None if args.upstream_only else json.loads((source / "orbit-poc-extension.json").read_text()),
+            "segmented_extension": json.loads((source / "orbit-poc-segmented-extension.json").read_text()) if args.segmented else None,
             "executable_sha256": hashlib.sha256(executable.read_bytes()).hexdigest(),
             "cmake_cache_sha256": hashlib.sha256((build / "CMakeCache.txt").read_bytes()).hexdigest(),
             "compiler": subprocess.check_output([env.get("CXX", "c++"), "--version"], env=env, text=True).splitlines()[0],

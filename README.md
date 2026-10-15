@@ -119,6 +119,26 @@ default. See the [objective/controller](docs/numerics-objective-v3.1.md),
 [QR](docs/numerics-qr-v3.1.md) and [derivative](docs/numerics-derivatives-v3.1.md)
 documentation for the implementation and remaining flight approximations.
 
+## Segmented batch estimation v4 — in development
+
+The opt-in [v4 implementation](docs/segmented-v4.md) lifts the existing native
+discrete trajectory operator into exact deterministic equations and solves the
+weighted rows with constrained Householder QR. It preserves whole-arc physical
+propagation, the corrected objective/LM controller and the original dense rank
+certificate. One-hour and four-hour cuts are computational layouts; they do not
+add independent initial states, process noise or ambiguity resets.
+
+Use `orbit-poc segmented prepare|validate|run|report --config …` with separately
+pinned runtimes and inputs. The fixed benchmark contains 68 attempts, including
+24-, 48- and 72-hour synthetic arcs and preserved April 24 flight inputs.
+The [second native engineering report](validation/segmented-v4/engineering02/index.html)
+records 207 checks passing and dense/segmented agreement on two actual one-hour
+GNSS linearizations. The [first report](validation/segmented-v4/engineering01/index.html)
+remains preserved. These are engineering snapshots; the full v4 correctness
+suite and 68-attempt benchmark remain outstanding. V4 remains incomplete and
+explicitly selected; release also requires the separate original v3.1 benchmark
+to finish.
+
 ## Completed v2 campaign
 
 Open [results.html](results.html) for the scientific summary and
