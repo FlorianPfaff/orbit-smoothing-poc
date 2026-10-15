@@ -1,0 +1,40 @@
+{
+  "artifacts": [
+    {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/closure-floor-01/diagnostic.py",
+      "sha256": "75049f13936077db214281d0a768800543cbd2982fb9c3c5622df79125bda98e"
+    },
+    {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/closure-floor-01/tested_close.py",
+      "sha256": "21fcf565966c6a29ef8e6913cd40617fdac6a6b7f0a7b0efda27ebd3c51e5c4e"
+    },
+    {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/closure-floor-01/result.json",
+      "sha256": "f1724a2cad7772b5729029e04f8395943650a23b0ee45733cbba2c72d9a3ac22"
+    }
+  ],
+  "closure": {
+    "converged": true,
+    "force_state_reset": "fresh native process at every iteration",
+    "iterations": [
+      {
+        "iteration": 2,
+        "position_change_m": 1.1715801083863829e-08,
+        "velocity_change_m_s": 1.185836009463428e-11
+      }
+    ],
+    "tighter": true
+  },
+  "gradient": 6.330338419996806e-09,
+  "interpretation": "Same physical parameters passed the gradient threshold after fresh closure. Production tolerance was not changed: this diagnostic stopped after two iterations and the same evaluated trajectory is obtained with the existing tighter closure tolerance. Controller now uses the fresh factor rather than retaining the older one.",
+  "modified_method_sha256": "21fcf565966c6a29ef8e6913cd40617fdac6a6b7f0a7b0efda27ebd3c51e5c4e",
+  "objective": 3233.7359906368215,
+  "passed": true,
+  "predicted_reduction": 1.6450147679936352e-09,
+  "raw_correction": {
+    "density_update": 0.0,
+    "position_change_m": 4.1858059553008753e-07,
+    "pulse_update_m_s": 2.100708685512346e-10
+  },
+  "scope": "engineering only; fixed accepted physical parameters;10x tighter closure than current tighter mode"
+}

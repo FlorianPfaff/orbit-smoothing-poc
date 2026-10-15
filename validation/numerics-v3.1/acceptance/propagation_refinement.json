@@ -1,0 +1,157 @@
+{
+  "benchmark_attempts_executed_by_this_gate": 0,
+  "candidate": {
+    "native_build_manifest": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-build-manifest.json",
+      "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+    },
+    "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "source_snapshot_scope": "Existing source_snapshot algorithm; validation and docs are excluded. Native Fortran is additionally pinned by build manifest/supplemental runtime inventory.",
+    "source_snapshot_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae"
+  },
+  "checks": {
+    "absolute_residuals_scored": false,
+    "comparison_weights": "Coarse native sigma frozen for both predictions",
+    "fixtures": [
+      {
+        "actual_execution_native_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+        "maximum_difference_m": 1.1285010259598494e-08,
+        "maximum_fraction_of_sigma": 3.761670086532831e-06,
+        "receipt_name": "synthetic-staged-refinement-pulses.json",
+        "rows": 8106
+      },
+      {
+        "actual_execution_native_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+        "maximum_difference_m": 5.8626028476282954e-09,
+        "maximum_fraction_of_sigma": 1.9542009492094317e-06,
+        "receipt_name": "synthetic-staged-refinement-density.json",
+        "rows": 8106
+      },
+      {
+        "actual_execution_native_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+        "maximum_difference_m": 3.5012635635212064e-07,
+        "maximum_fraction_of_sigma": 0.00011670878545070687,
+        "receipt_name": "synthetic-staged-refinement-density-24h.json",
+        "rows": 195054
+      },
+      {
+        "actual_execution_native_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+        "maximum_difference_m": 9.32890543481335e-07,
+        "maximum_fraction_of_sigma": 0.0021905348396182157,
+        "receipt_name": "flight-staged-refinement.json",
+        "rows": 2880
+      }
+    ],
+    "maximum_allowed_fraction_of_sigma": 0.01
+  },
+  "evidence": [
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "454a7d17b8cbfac1a125b6f5059f90c9af46e5f0032ada48718d226b6c6b557b",
+        "diagnostic_source_sha256": "1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0",
+        "native_executable_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-gate-applicability.json",
+        "sha256": "506e85cbb90d897e7cf8cecfec35f400e516c7dd444dc96c41f04b879d6e42ec"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/synthetic-staged-refinement-pulses.json",
+        "sha256": "136c2b81d134439f7382f81cf73807d728fc6fc47bf2550759349b7f24aa0b7f"
+      },
+      "role": "actual_signal_refinement",
+      "scope": "Actual coarse/fine native code and carrier predictions at matched support and fixed nuisance values; nonzero receiver clocks exercise numerical query paths."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "454a7d17b8cbfac1a125b6f5059f90c9af46e5f0032ada48718d226b6c6b557b",
+        "diagnostic_source_sha256": "1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0",
+        "native_executable_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-gate-applicability.json",
+        "sha256": "506e85cbb90d897e7cf8cecfec35f400e516c7dd444dc96c41f04b879d6e42ec"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/synthetic-staged-refinement-density.json",
+        "sha256": "5ea37a83c33a61e1f27860672e580513ca0f8ec1c008033e5dab4e79770eb71c"
+      },
+      "role": "actual_signal_refinement",
+      "scope": "Actual coarse/fine native code and carrier predictions at matched support and fixed nuisance values; nonzero receiver clocks exercise numerical query paths."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "454a7d17b8cbfac1a125b6f5059f90c9af46e5f0032ada48718d226b6c6b557b",
+        "diagnostic_source_sha256": "1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0",
+        "native_executable_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-gate-applicability.json",
+        "sha256": "506e85cbb90d897e7cf8cecfec35f400e516c7dd444dc96c41f04b879d6e42ec"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/synthetic-staged-refinement-density-24h.json",
+        "sha256": "74438e28587092c256443c3b6ae375fe97645ed8d22ba33a9d6853196081c33c"
+      },
+      "role": "actual_signal_refinement",
+      "scope": "Actual coarse/fine native code and carrier predictions at matched support and fixed nuisance values; nonzero receiver clocks exercise numerical query paths."
+    },
+    {
+      "actual_execution_identity": {
+        "build_manifest_sha256": "454a7d17b8cbfac1a125b6f5059f90c9af46e5f0032ada48718d226b6c6b557b",
+        "diagnostic_source_sha256": "77ca65a0359ceead4c24082493501e7f6e4c61a4b8de926906531d4023e843d9",
+        "native_executable_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2"
+      },
+      "applicability": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-gate-applicability.json",
+        "sha256": "506e85cbb90d897e7cf8cecfec35f400e516c7dd444dc96c41f04b879d6e42ec"
+      },
+      "evidence_mode": "prior_binary_execution",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/flight-staged-refinement.json",
+        "sha256": "8dcc550adbe6ea14c9b8ca84aae3b80baa08aec71dbfade2b39fa4257860ad92"
+      },
+      "role": "actual_signal_refinement",
+      "scope": "Actual coarse/fine native code and carrier predictions at matched support and fixed nuisance values; nonzero receiver clocks exercise numerical query paths."
+    },
+    {
+      "actual_execution_identity": {
+        "diagnostic_source_sha256": "e1d36dd16a89856e2b208a85d61b65defdc82b4337d24110a2f59beabb6ce314",
+        "native_executable_sha256": "d781cef73c433490ad722c29865481f59174ef0828ff725c197ee769e2dbbf04"
+      },
+      "evidence_mode": "prior_binary_replay",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-default-signal-replay.json",
+        "sha256": "1e5a5d730c4ef9bfbd69add14b3b5a47a5bd6bbb139744f7ec6ac1b5b1826bd5"
+      },
+      "role": "default_arithmetic_byte_replay",
+      "scope": "All eight saved coarse/fine prediction and support files byte-identical between 51a9 and d781 with audit mode absent."
+    },
+    {
+      "actual_execution_identity": {
+        "native_executable_sha256": null,
+        "native_execution_in_this_receipt": false
+      },
+      "evidence_mode": "source_applicability_proof",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/derivative-final-component-identity.json",
+        "sha256": "c890d9ae45ef85baabef3cbc754c00588826d67f1f6a3bc4f067392310b9e138"
+      },
+      "role": "final_component_identity",
+      "scope": "All active forward/tangent/default GNSS/exporter sources unchanged fromd781 to 3aad; only profiling control/fixture differs."
+    }
+  ],
+  "gate": "propagation_refinement",
+  "limitations": [
+    "Selected numerical refinement fixtures, not every orbit/epoch in the production benchmark.",
+    "Flight assumed observation weights vary; each row is compared using its retained coarse native sigma.",
+    "No scientific accuracy-superiority claim."
+  ],
+  "pending_requirements": [],
+  "schema": "orbit-poc-numerics-acceptance-gate-v1",
+  "scope": "Actual native code/carrier predictions satisfy the 1%-of-noise refinement threshold on two one-hour synthetic fixtures, selected 24-hour eccentric density, and one 30-minute flight window, with exact source/replay applicability to the final candidate.",
+  "status": "passed"
+}

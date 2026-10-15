@@ -1,0 +1,151 @@
+{
+  "acceptance_gate_status_counts": {
+    "failed": 1,
+    "passed": 7
+  },
+  "artifacts": {
+    "configuration": {
+      "bytes": 4173,
+      "path": "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+      "sha256": "6ba79d36b15cb574169eae4364ec11a87fe82a2deef9d707e6d0e4a369f364e7"
+    },
+    "execution_context": {
+      "bytes": 15974,
+      "path": "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/execution-context.json",
+      "sha256": "c07ad47386f377c4d1e2524e09e496308eb99ed108091711dea2d868ff9456e5"
+    },
+    "launch": {
+      "bytes": 4470,
+      "path": "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/launch.json",
+      "sha256": "0acfdc83e819d7427089adfba8feea5a772e47f1070ab751233b3b7eb6d2e377"
+    },
+    "manifest": {
+      "bytes": 10713663,
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/manifest.json",
+      "sha256": "d2b030e6cd65efa3f726d2a694b1e91510d00d67fe1e2f76e98dee3a08b3a5bd"
+    },
+    "plan": {
+      "bytes": 103725,
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/plan.json",
+      "sha256": "322acf0ddb17ceb80e30fca2868bb92d403e65063df484491ba7d585ab45de8d"
+    },
+    "preparation_execution": {
+      "bytes": 1565,
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/prepare-benchmark-01.execution.json",
+      "sha256": "777b25a885d5020f670f40d0b534ce7427269ce31669171d49aa650debdd193f"
+    },
+    "preparation_status": {
+      "bytes": 166,
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/preparation-status.json",
+      "sha256": "09c04a116aca7359f8fc9f098e6e39fed65c9f8cf289730d8ef317cb4826ab3f"
+    },
+    "source_commit_alignment": {
+      "bytes": 10876,
+      "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f.commit-alignment.json",
+      "sha256": "a7916f00efcd1166ce479582c9b2b739351543e03595bb95a881073db0c1f949"
+    },
+    "startup": {
+      "bytes": 3601,
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/startup-prepare.json",
+      "sha256": "21a2ebb990ec99fbf69f1de02d5176973329f69300383e68eb2eb67b571ef2c0"
+    }
+  },
+  "benchmark_attempts": 0,
+  "case_origins": {
+    "fresh": 32,
+    "retained_flight_control": 4,
+    "retained_pulse_failure": 6,
+    "retained_pulse_neighbor": 6,
+    "retained_slow_density": 2
+  },
+  "created_at": "2026-10-14T13:33:37.351245+00:00",
+  "expected_attempts": 150,
+  "expected_cases": 50,
+  "fresh_seeds": [
+    510000,
+    510001
+  ],
+  "instantaneous_resource_observation": {
+    "active_native_or_numerics_engineering_jobs": [],
+    "allowed_cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "available_memory_bytes": 30482890752,
+    "free_D_bytes": 919137767424,
+    "paused_archives": [
+      {
+        "pid": 22166,
+        "start_ticks": 911639,
+        "state": "T"
+      },
+      {
+        "pid": 39332,
+        "start_ticks": 1421947,
+        "state": "T"
+      }
+    ],
+    "reserved_cpu_ids": [
+      30
+    ],
+    "scope": "Read-only observation after prepare; actual run rechecks frozen guards. Host-wide exclusivity is not inferred."
+  },
+  "manifest_hash": "6a398dab021de2e778ddacd1dd61f48458f85e3a1c5e9aeb57a417911fe730b9",
+  "nonpassing_gate_execution_policy": {
+    "explicitly_allowed": true,
+    "nonpassing_gates": [
+      {
+        "gate": "objective_and_priors",
+        "status": "failed"
+      }
+    ],
+    "scope": "A bounded numerical experiment may preserve recorded failed/unresolved correctness gates; completion does not establish release acceptance or reliability/accuracy claims. Legacy compatibility default remains unchanged."
+  },
+  "notes": [
+    "All150 attempts remain planned; no fit or truth evaluation was performed by preparation.",
+    "Full startup verification checked9 read-only runtime trees and5 launch artifacts.",
+    "Preparation finished in922.7856011390686s including155.28515384599814s startup verification.",
+    "D/DrvFs metadata latency is included in this deployment; both archives remain paused."
+  ],
+  "plan_hash": "2aa04b898f7ca22e184caa2b66da4a9a1e6628aff4385dd9936dae097955807d",
+  "profiles": {
+    "legacy_v3": 50,
+    "qr_lm_legacy_jacobian": 50,
+    "qr_lm_staged_jacobian": 50
+  },
+  "release_status": "pending",
+  "schema_version": 1,
+  "scope": "Downstream preparation proof; sealed correctness gates are unchanged. Timed launch belongs to the parent task after publication binding.",
+  "status": "prepared_not_launched",
+  "truth_arrays_opened": false
+}

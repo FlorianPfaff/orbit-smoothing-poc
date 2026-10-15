@@ -1,0 +1,46 @@
+{
+  "checks": [
+    "full affine MAP/covariance",
+    "actual nonlinear objective decrease and rejected state rollback",
+    "fixed support/weights",
+    "no convergence from strong damping",
+    "exact/near rank refusal",
+    "dynamic-only damping excluded from covariance",
+    "selected cross-covariance and unit invariance",
+    "failed trial rollback and retry",
+    "unresolved candidate rank rejection",
+    "remeasure objective floor near the current accepted solution",
+    "wall budget enforced during confirmation and final covariance verification",
+    "refresh undamped stationarity factor after fixed-parameter closure refinement",
+    "specified positive-reduction/gain acceptance with unresolved objective differences explicitly flagged",
+    "parameter metadata support excludes only the named scaling field and preserves coordinate conventions",
+    "native failed nuisance line search remains a rejectable numerical trial; system failures stay fatal",
+    "failed fresh stationarity continues bounded LM at unchanged physical parameters without accepting covariance",
+    "online storage hook protects accepted factors and never installs rejected trial states",
+    "every fresh confirmation check is preserved on success or failure",
+    "validated empirical nuisance-profile resolution cannot supply covariance",
+    "inexact profiles permit only resolved physical progress within the fixed 0.001 forcing ratio",
+    "resolution-limited current and freshly confirmed points cannot establish convergence",
+    "inexact native profile requires all three equivalent-arithmetic modes and the two-amplitude probe receipt",
+    "initialization and final covariance verification share the same absolute wall deadline",
+    "native empirical remaining-improvement estimates including recorded allowances must fit within the measured resolution",
+    "numerically invalid physical propagation is a rejectable LM trial; structural configuration failures remain fatal"
+  ],
+  "command": "PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 <pinned-python> -m pytest -q tests/test_numerics_backend.py tests/test_numerics_optimizer.py",
+  "elapsed_seconds": 3.38,
+  "failed": 0,
+  "packages": {
+    "numpy": "1.26.4",
+    "pytest": "8.4.2",
+    "scipy": "1.15.3"
+  },
+  "passed": 31,
+  "python": "3.11.17",
+  "scope": "Controller and selected covariance unit checks; does not establish native GNSS fit or benchmark completion",
+  "source_files": {
+    "src/orbit_poc/numerics/backend.py": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648",
+    "src/orbit_poc/numerics/optimizer.py": "da8dfb12ff0f83b9d8893061d9cb4f880310dc01f790867fc486c108ba8e09fc",
+    "tests/test_numerics_backend.py": "734b808ee2eb7982bda6d066e3bd58f81c889ab06b6f7015c915c24d32009588",
+    "tests/test_numerics_optimizer.py": "9569921f72596c971f05fe27b60e317b9daf71c2765e8a47c2980613d77f2e33"
+  }
+}

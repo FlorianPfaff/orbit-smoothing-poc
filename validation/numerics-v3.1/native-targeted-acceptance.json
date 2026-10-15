@@ -1,0 +1,93 @@
+{
+  "artifacts": {
+    "junit": {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/final-acceptance-3aad-01/pytest.xml",
+      "sha256": "0417e1c00634cc515c16b64cd9c91880d793d69c5b883abb5be860e92ce27665"
+    },
+    "log": {
+      "path": "/home/emper/orbit-numerics-v3.1-engineering/final-acceptance-3aad-01/pytest.log",
+      "sha256": "c69540a7d64764d0ef5ef7866911dab6c0fc9e7346e8d4b4c61cbbbd732d62f5"
+    }
+  },
+  "binary_unchanged": true,
+  "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+  "engineering_receipt_path": "/home/emper/orbit-numerics-v3.1-engineering/final-acceptance-3aad-01/receipt.json",
+  "engineering_receipt_sha256": "70e0a7d09e0baf1fa59a497a7991185368ecff90ace6643348037a5a34a28cf9",
+  "executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "limitations": [
+    "These rows are supplied explicitly; native pulse/OU constraint generation and full nonlinear nuisance profiling require the separate actual-objective gate.",
+    "Does not certify flight Jacobian completeness or frozen benchmark completion."
+  ],
+  "limits": {
+    "map_discrepancy_posterior_standard_deviations": 1e-07,
+    "relative_covariance_error": 1e-08,
+    "relative_dynamic_nuisance_cross_covariance_error": 1e-08
+  },
+  "packages": {
+    "gtsam": "4.2",
+    "numpy": "1.26.4",
+    "pytest": "8.4.2",
+    "scipy": "1.15.3"
+  },
+  "passed": true,
+  "patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+  "previous_receipt_path": "/mnt/d/orbit-numerics-v3.1-artifacts/receipts-before-3aad/native-targeted-acceptance.json",
+  "previous_receipt_sha256": "ced740a94974aafbc3501ffd0ca52286631f3b517d1ef2647fd1bd65d8119651",
+  "returncode": 0,
+  "schema": "orbit-poc-native-targeted-acceptance-v1",
+  "scope": "Structured small weighted-row systems through the actual native QR kernel. Direct GTSAM MAP/covariance at nonzero pulse and OU reference parameters, analytic stationary OU covariance, missing initial OU constraint rejection, and original-observation phase-report invariance under ambiguity recentering.",
+  "source_hashes": {
+    "groops/extension/native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+    "groops/extension/orbitPocQrSolve.cpp": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+    "groops/extension/scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+    "groops/extension/triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14",
+    "scripts/validate_numerics_acceptance.py": "f5659cce6ada8cbef3f43c183653814d35214fedf83b649a9912a7d7fd287e80",
+    "src/orbit_poc/comparison/density.py": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e",
+    "src/orbit_poc/numerics/report.py": "0aa257593170fb281bf1142a7b02d672434a896bad7f46f73ada548478071e3c",
+    "tests/test_numerics_acceptance.py": "04b9951e7bf51d268c590c17bf98bc79ceedaa2a3da5e3d97a8aa34abe0a8208"
+  },
+  "subsequent_report_validation": {
+    "receipt": "phase-report-coordinate-validation.json",
+    "scope": "Only report.py changed after this actual native execution; the original source hash above remains its execution identity. The current report coordinate fixture passed separately.",
+    "sha256": "09900be17ccc8bdb5b3c497d01082742785b3fad5d12b7768ec65460b8688ae0"
+  },
+  "tests": [
+    {
+      "metrics": {
+        "native_gtsam_map_error_posterior_standard_deviations": 1.0717306363022034e-14,
+        "native_gtsam_relative_covariance_error": 3.4449119624628687e-16,
+        "native_gtsam_relative_dynamic_nuisance_cross_covariance_error": 7.179068965260682e-16,
+        "update_only_prior_counterexample_error_posterior_standard_deviations": 0.21349945758385525
+      },
+      "name": "test_native_full_reference_map_and_cross_covariance_match_gtsam[pulses]",
+      "seconds": 0.149,
+      "status": "passed"
+    },
+    {
+      "metrics": {
+        "native_gtsam_map_error_posterior_standard_deviations": 2.0901767080831824e-14,
+        "native_gtsam_relative_covariance_error": 4.509125196724428e-16,
+        "native_gtsam_relative_dynamic_nuisance_cross_covariance_error": 8.806231018004716e-16,
+        "update_only_prior_counterexample_error_posterior_standard_deviations": 2.596525423744399
+      },
+      "name": "test_native_full_reference_map_and_cross_covariance_match_gtsam[density]",
+      "seconds": 0.081,
+      "status": "passed"
+    },
+    {
+      "metrics": {
+        "native_ou_closed_form_relative_covariance_error": 1.260342871539494e-15
+      },
+      "name": "test_native_coupled_ou_covariance_and_missing_stationary_constraint",
+      "seconds": 0.327,
+      "status": "passed"
+    },
+    {
+      "metrics": {},
+      "name": "test_phase_report_preserves_original_observation_scale_after_integer_recentering",
+      "seconds": 0.57,
+      "status": "passed"
+    }
+  ],
+  "validation_seconds": 13.566288305999478
+}

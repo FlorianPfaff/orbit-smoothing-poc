@@ -1,0 +1,87 @@
+{
+  "benchmark_attempts": 0,
+  "commands": {
+    "prepare": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+      "--config",
+      "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+      "--receipt",
+      "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/startup-prepare.json",
+      "--",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-m",
+      "orbit_poc.cli",
+      "numerics",
+      "prepare",
+      "--config",
+      "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json"
+    ],
+    "report": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+      "--config",
+      "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+      "--receipt",
+      "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/startup-report.json",
+      "--",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-m",
+      "orbit_poc.cli",
+      "numerics",
+      "report",
+      "--config",
+      "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json"
+    ],
+    "run": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+      "--config",
+      "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+      "--receipt",
+      "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/startup-run.json",
+      "--",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-m",
+      "orbit_poc.numerics.campaign",
+      "--config",
+      "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+      "--startup-receipt",
+      "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/startup-run.json"
+    ]
+  },
+  "configuration": {
+    "path": "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+    "sha256": "6ba79d36b15cb574169eae4364ec11a87fe82a2deef9d707e6d0e4a369f364e7"
+  },
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/src"
+  },
+  "execution_context": {
+    "path": "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/execution-context.json",
+    "sha256": "c07ad47386f377c4d1e2524e09e496308eb99ed108091711dea2d868ff9456e5"
+  },
+  "expected_machine_report": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/report/report.json",
+  "expected_manifest": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/manifest.json",
+  "expected_report": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/report/index.html",
+  "expected_run_status": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/run-status.json",
+  "notes": [
+    "Run preparation only after current engineering jobs and archives are stopped; run one timed fit at a time on reservedCPU",
+    "No automatic source edits, retries, replacement cases or publication",
+    "The campaign driver writes the inclusive report on completion/interruption; every planned attempt remains visible"
+  ],
+  "source": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f.json",
+    "sha256": "36321796146fe65e37c120189dfc3df3144a72f93bc3055a8735ff9da4b37fcd"
+  },
+  "status": "configured_not_prepared_or_launched"
+}

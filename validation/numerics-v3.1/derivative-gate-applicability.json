@@ -1,0 +1,52 @@
+{
+  "base_signal_refinement_receipts": {
+    "flight-staged-refinement.json": "8dcc550adbe6ea14c9b8ca84aae3b80baa08aec71dbfade2b39fa4257860ad92",
+    "synthetic-staged-refinement-density-24h.json": "74438e28587092c256443c3b6ae375fe97645ed8d22ba33a9d6853196081c33c",
+    "synthetic-staged-refinement-density.json": "5ea37a83c33a61e1f27860672e580513ca0f8ec1c008033e5dab4e79770eb71c",
+    "synthetic-staged-refinement-pulses.json": "136c2b81d134439f7382f81cf73807d728fc6fc47bf2550759349b7f24aa0b7f"
+  },
+  "candidate_build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+  "candidate_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "current_python_report_gate": {
+    "receipt": "phase-report-coordinate-validation.json",
+    "receipt_sha256": "09900be17ccc8bdb5b3c497d01082742785b3fad5d12b7768ec65460b8688ae0",
+    "scope": "Current report coordinate fixture; does not invoke or revalidate the candidate native executable."
+  },
+  "direct_candidate_gates": {
+    "native-derivative-tests.json": "bcb001c7f9a00b4a85fe23099c5e15c9aa1c144bf4c10533709e4293324d0f77",
+    "native-targeted-acceptance.json": "0664bcd2567b7dda54558b8dc410a663bf789786970b4813486feca45d51b88f"
+  },
+  "evidence_chain": [
+    {
+      "receipt": "native-derivative-replay.json",
+      "receipt_sha256": "b29325bbc20ec3de1ef9d0dc2e0a505d1a5d15a47fde9a2ff87e1b13f0ef303a",
+      "scope": "c4 to 51a9: 18 identical force/tangent components and identical replayed full-day orbit/design and flight physical state/STM; archived no-GNSS branch reviewed unchanged."
+    },
+    {
+      "receipt": "native-default-signal-replay.json",
+      "receipt_sha256": "1e5a5d730c4ef9bfbd69add14b3b5a47a5bd6bbb139744f7ec6ac1b5b1826bd5",
+      "scope": "51a9 to d781: 19 identical force/tangent/exporter components; all eight saved coarse/fine prediction and support files byte-identical with audit mode absent, including synthetic pulse/density, flight and full-day eccentric density."
+    },
+    {
+      "receipt": "derivative-final-component-identity.json",
+      "receipt_sha256": "c890d9ae45ef85baabef3cbc754c00588826d67f1f6a3bc4f067392310b9e138",
+      "scope": "d781 to 3aad: only nuisance audit control/diagnostics and their fixtures changed; all active force/tangent/default GNSS arithmetic and signal exporter source files and build settings remain unchanged. The bounded reuse does not validate nuisance profiling or final covariance."
+    }
+  ],
+  "not_revalidated_by_this_attestation": [
+    "Changed nuisance-profile stopping policy or outer optimizer convergence",
+    "Fresh final-fit covariance",
+    "Frozen 150-attempt numerical benchmark outcomes",
+    "Any subsequent source/build change"
+  ],
+  "previous_receipt_path": "/mnt/d/orbit-numerics-v3.1-artifacts/receipts-before-3aad/derivative-gate-applicability.json",
+  "previous_receipt_sha256": "de5cbb00ea39be97bb21031a24917760642bc3fb5256e02ac29ccb9c6abdadce",
+  "reuse_limit": "Original receipts retain the executable that actually ran them. Source review, component hashes and exact saved-output replay establish the stated bounded applicability; they do not certify all flight arcs or a complete flight Jacobian.",
+  "reused_flight_omission_study": {
+    "receipt": "flight-derivative-diagnostic.json",
+    "receipt_sha256": "b5f8cbd92210ba5b9e4b37c5c367277470ba62910dfaf089cfbd7d9ca2e27134",
+    "scope": "25 full nonlinear trajectories on the standalone April 24 11:45\u201312:15 UTC window with fresh thermal history and two amplitudes for each initial-state axis; quantifies combined omitted sensitivities, not a complete flight Jacobian or a warmed 24-hour flight arc"
+  },
+  "schema": "orbit-poc-derivative-gate-applicability-v3",
+  "status": "passed"
+}

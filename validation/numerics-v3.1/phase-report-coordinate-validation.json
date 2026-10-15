@@ -1,0 +1,34 @@
+{
+  "junit": {
+    "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/phase-coordinate-final-02/pytest.xml",
+    "sha256": "f7957d78e4186289fa0d6e727468f080e30aa6f48b2d26f15d4c5555cd6f6229",
+    "summary": {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "pfaff",
+      "name": "pytest",
+      "skipped": "0",
+      "tests": "1",
+      "time": "3.249",
+      "timestamp": "2026-10-14T14:48:18.545993+02:00"
+    }
+  },
+  "log": {
+    "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/phase-coordinate-final-02/pytest.log",
+    "sha256": "4708da3fd401b6f09ccf13b592362bc6c68b90bf89feee03740e208fa296385b"
+  },
+  "native_executable_invoked": false,
+  "passed": true,
+  "previous_validation": {
+    "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/phase-coordinate-final-02/previous-validation.json",
+    "sha256": "2e536a8e0f6aa37d2e355625b7383df507d332d98f0f741421e5b1b679517100"
+  },
+  "reason": "Report storage-context disclosure changed after the final3aad targeted native tests; this scoped repeat verifies the current Python report without relabeling the original native test execution.",
+  "schema": "orbit-poc-phase-report-coordinate-validation-v1",
+  "scope": "Current Python phase-report coordinate recovery only. Equal shifts of processed observation and fitted ambiguity leave the canonical original-input-minus-residual prediction invariant; changed original inputs remain rejected. This adds no native solver or physical refinement evidence.",
+  "source_files": {
+    "src/orbit_poc/numerics/report.py": "d1624a3c208effc10935c8c68ac8079f2d1a575c670f5cbdc567b4cc91c1a9de",
+    "tests/test_numerics_acceptance.py": "04b9951e7bf51d268c590c17bf98bc79ceedaa2a3da5e3d97a8aa34abe0a8208"
+  },
+  "source_files_unchanged_during_test": true
+}

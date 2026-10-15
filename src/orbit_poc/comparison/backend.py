@@ -44,7 +44,7 @@ def _binary(job):
     return binary
 
 
-def run_native(binary, config, output_dir, label, *, timeout=3600.0, threads=1):
+def run_native(binary, config, output_dir, label, *, timeout=3600.0, threads=1, environment_overrides=None):
     """Execute a genuine native command with bounded lifetime and measured RSS."""
     output_dir = Path(output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -56,6 +56,8 @@ def run_native(binary, config, output_dir, label, *, timeout=3600.0, threads=1):
         raise ValueError("Native BLAS/OpenMP thread count must be a positive integer")
     environment = os.environ.copy()
     environment.update(OPENBLAS_NUM_THREADS=str(threads), OMP_NUM_THREADS=str(threads))
+    if environment_overrides:
+        environment.update({str(key): str(value) for key, value in environment_overrides.items()})
     binary_sha = file_hash(binary)
     start = time.monotonic()
     peak_rss = 0

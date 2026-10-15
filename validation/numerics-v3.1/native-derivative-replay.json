@@ -1,0 +1,132 @@
+{
+  "candidate_build_manifest_sha256": "454a7d17b8cbfac1a125b6f5059f90c9af46e5f0032ada48718d226b6c6b557b",
+  "candidate_executable_sha256": "51a9a4ac003aa51cf9421de3f682e3d828e7f72aed7d424a45dec48972fe67d2",
+  "cases": [
+    {
+      "case": "long-arc",
+      "comparisons": [
+        {
+          "candidate_sha256": "517e465844b2bb04409a26441adb8458078adc28ad3bc926db36416bde13e530",
+          "columns": 10,
+          "file": "orbit.txt",
+          "maximum_absolute_difference": 0.0,
+          "numerically_identical": true,
+          "reference_sha256": "517e465844b2bb04409a26441adb8458078adc28ad3bc926db36416bde13e530",
+          "rows": 17280
+        },
+        {
+          "candidate_sha256": "974a8f1240b34c2629c4d91bd17ea3a9992b5d90be021bc6d49cc87f9c59a3a5",
+          "columns": 1447,
+          "file": "initial_design.txt",
+          "maximum_absolute_difference": 0.0,
+          "numerically_identical": true,
+          "reference_sha256": "974a8f1240b34c2629c4d91bd17ea3a9992b5d90be021bc6d49cc87f9c59a3a5",
+          "rows": 6
+        }
+      ],
+      "configurations": [
+        {
+          "actual_sha256": "e25cbd5f9be095fc661ede035e188f779646e6f7b05c7647a626302455bf7154",
+          "source": "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-02/propagate.xml",
+          "source_sha256": "8f66882fb179e4ebfbdf6abf1fa5dddd3633b9e306c766ee3e7acff03486f509"
+        }
+      ],
+      "passed": true,
+      "reference_directory": "/home/emper/orbit-numerics-v3.1-engineering/tangent-long-arc-native-02"
+    },
+    {
+      "case": "flight-baseline",
+      "comparisons": [
+        {
+          "candidate_sha256": "7cda30e092bd9a14c1845fdb9aac6b0a870e651cdff7043a90fcd34982473e4d",
+          "columns": 43,
+          "file": "physical-stm.txt",
+          "maximum_absolute_difference": 0.0,
+          "numerically_identical": true,
+          "reference_sha256": "7cda30e092bd9a14c1845fdb9aac6b0a870e651cdff7043a90fcd34982473e4d",
+          "rows": 361
+        }
+      ],
+      "configurations": [
+        {
+          "actual_sha256": "d48e59d90fea0a28a33a2500b67d052cd36fc7bcb425f54991e48cc75472c9ed",
+          "source": "/home/emper/orbit-numerics-v3.1-engineering/flight-derivatives-c4ea37-01/baseline/closure-01/propagate.xml",
+          "source_sha256": "b9304857257f90abf157f69f55bc414b59961f07b469dc99dbb439567ec7f7e4"
+        },
+        {
+          "actual_sha256": "aa768aa8ddb3f4506409726b42a873a456f4c43e3e7f3662c755f9f45d34fe10",
+          "source": "/home/emper/orbit-numerics-v3.1-engineering/flight-derivatives-c4ea37-01/baseline/closure-02/propagate.xml",
+          "source_sha256": "277a02877c4fcca88f23723bf38a4abd3f3a6ca25d6e8a2d122e0c24a05979d9"
+        },
+        {
+          "actual_sha256": "3dc784f9c09826f5cd8adf983542fde9c844ced4dcb7e9236befb50637c0a38d",
+          "source": "/home/emper/orbit-numerics-v3.1-engineering/flight-derivatives-c4ea37-01/baseline/closure-03/propagate.xml",
+          "source_sha256": "24f473b487435872c9fe8a8b09dc759f12afae03d128654862fd3794f4c6ecbe"
+        },
+        {
+          "actual_sha256": "b16d804321bb06e8973acb6d08831364129d7e7b2ef1ba6c9d3d3401875e10f1",
+          "source": "/home/emper/orbit-numerics-v3.1-engineering/flight-derivatives-c4ea37-01/baseline/export-stm.xml",
+          "source_sha256": "50e8495409a3a5216a8d91954cecfaa77738e5453fe79bcf1486f8ecd94eb8e4"
+        }
+      ],
+      "passed": true,
+      "reference_directory": "/home/emper/orbit-numerics-v3.1-engineering/flight-derivatives-c4ea37-01/baseline"
+    }
+  ],
+  "changed_patched_source_files": [
+    "source/base/polynomial.cpp",
+    "source/base/polynomial.h",
+    "source/gnss/gnssObservation.cpp",
+    "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp",
+    "source/gnss/gnssProcessingStep/gnssProcessingStep.cpp",
+    "source/gnss/gnssProcessingStep/gnssProcessingStepOrbitPocNumerics.h",
+    "source/gnss/gnssReceiver.h",
+    "source/gnss/gnssTransmitter.h",
+    "source/misc/orbitPoc/artifactReceipt.h",
+    "source/misc/orbitPoc/gnssRangeResidual.h",
+    "source/misc/orbitPoc/nuisanceLineSearch.h",
+    "source/misc/orbitPoc/piecewisePolynomial.h",
+    "source/misc/orbitPoc/scaledRowQr.h",
+    "source/programs/gnss/orbitPocPredictSignals.cpp",
+    "source/programs/simulation/orbitPocQrSolve.cpp"
+  ],
+  "diagnostic_source_sha256": "9a63ae62e2e1ac18fc310b052a0c783fa71594a39dfafe08f982dbd0b02c08cb",
+  "engineering_receipt_path": "/home/emper/orbit-numerics-v3.1-engineering/final-derivative-replay-51a9-01/result.json",
+  "engineering_receipt_sha256": "cf91bbd72173511fe2d2206da415075b6a564650452ea905fcab6159a7b72ad1",
+  "environment": {
+    "ORBIT_POC_NUMERICS_QR_PREFIX": null
+  },
+  "native_executions": 5,
+  "passed": true,
+  "reference_build_manifest_sha256": "e1e988316ba0da2b45d9327856d79c4803f5856c8ab48ac8906339ce092abb8a",
+  "reference_executable_sha256": "c4ea37a06c828008da42279ca3fa1408130593d5bd477909c9c2a4d8e68ccfc6",
+  "schema": "orbit-poc-derivative-replay-v1",
+  "scope": "Archived no-GNSS forward/derivative propagation branch; excludes QR-enabled GNSS arithmetic and final-fit covariance",
+  "status": "complete",
+  "unchanged_build_fields": [
+    "upstream_commit",
+    "compiler",
+    "cmake_cache_sha256",
+    "mpi"
+  ],
+  "unchanged_extension_component_hashes": {
+    "atmosphereEvents.h": "8a033d4431702ff81cc25056466f3676c8a61c730503ff096e534e2eb808caec",
+    "atmosphereExtraSamples.h": "eb30fb1086f6b2e98347303875ea0f0bc41564138d5e488e9173447279ff7718",
+    "atmosphereLocalEvents.h": "22cea5f25f5a2ba6912a7aaf29708d5254b1f6eced0098fd4f8c6b4ec98de973",
+    "eventQuadrature.h": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5",
+    "finiteDifferenceForceJacobian.h": "1a5975e5ccc3e93d26d9683e70bdc2fadcb6aa72fab3a593d286a1423350f3ee",
+    "integrationWindows.h": "a7215fdaa3f3d3f16a13dbf2afa9301ff88c2979f616af65864474d6bbdaa40f",
+    "logDensitySeries.h": "9176b172e4c5259bfa18daefa436bb869b870e4680548fba82af6974d184838b",
+    "miscAccelerationsLogDensity.h": "526684d8d26e9b65c2050c98bc0fbd9b3c425a959d623c149b9aa0b31fbf0f80",
+    "miscAccelerationsSyntheticDrag.h": "7793642b422df8b1a41539949526dcce4143dab571116613dfe35ba082a13d98",
+    "miscAccelerationsSyntheticGravity.h": "4afa4f0e9eadabe362d0feebc13f031a79297b85a0123ad0945dc04de0efe142",
+    "native_derivatives.py": "761de3e85cfed6c0412e46a19216faea0bf950e402e15584da4929b22edcebcb",
+    "orbitPocEvaluateVariational.cpp": "040be371c6219f303252cc1d69eac3020ed9fdae930b3c27e55b9fe1e29ff9f5",
+    "orbitPocStateDerivatives.cpp": "fbfbb503b6c8e97d52c7d2dee5c7e891d042785d8a1c7fede6149b7a246be276",
+    "piecewisePolynomial.h": "f159a5a0909661f3406993a7bf74a9ff23e96b46db6b32bad85b7b45ccc512cc",
+    "sixStateTangent.h": "6768cfc6a85be50722b7737f728615e62888f78ea3efceb2380016d1fa946cb9",
+    "stagedVariationalBody.h": "f3af07285e99fa3945565c31c37b8e25aa4872dafe5ca52af2d3c82ca345f6fc",
+    "syntheticForceDerivatives.h": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310",
+    "thermalIntegrationStep.h": "15a2a736eb212aee22a936e78389cdbca816d8a308b356017a0a0ca9aa19cd59"
+  }
+}

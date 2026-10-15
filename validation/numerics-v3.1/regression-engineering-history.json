@@ -1,0 +1,50 @@
+{
+  "attempts": [
+    {
+      "directory": "/home/emper/orbit-numerics-v3.1-engineering/full-tests-01",
+      "reason": "Missing jax dependency needed by retained v1/v2 regression tests; numerical runtime left unchanged",
+      "runtime": "new isolated numerical Python environment",
+      "status": "collection_failed"
+    },
+    {
+      "directory": "/home/emper/orbit-numerics-v3.1-engineering/full-tests-02",
+      "elapsed_seconds": 388.52,
+      "failed": 3,
+      "failures": [
+        "New zero_update_replay transactional accept fixture requires a later executable",
+        "New zero_update_replay stationary fixture requires a later executable",
+        "New interpolationFixture requires a later executable"
+      ],
+      "limitations": [
+        "Source was still being developed during this engineering run",
+        "ORBIT_POC_GROOPS was unset, so legacy native and selected derivative gates skipped",
+        "Final regression must pin coherent source and executable and enable both native test variables"
+      ],
+      "native_binary_sha256": "c4ea37a06c828008da42279ca3fa1408130593d5bd477909c9c2a4d8e68ccfc6",
+      "passed": 345,
+      "runtime": "read-only archived v3 full Python environment via common mirror namespace",
+      "skipped": 17
+    },
+    {
+      "directory": "/home/emper/orbit-numerics-v3.1-engineering/full-tests-9fbfb8c7-01",
+      "elapsed_seconds": 263.56,
+      "failed": 0,
+      "limitations": [
+        "Engineering run with concurrent engineering jobs, excluded from benchmark timing",
+        "Subsequent control-only and failure-classification changes require their own targeted checks and explicit component attribution"
+      ],
+      "native_binary_sha256": "9fbfb8c717b66fd76fd704d1fd04b8c06ae7ad7f2c6c6ccc4bf601fabde0ce82",
+      "passed": 409,
+      "provenance": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/full-regression-9fbfb8c7-provenance.json",
+        "sha256": "8c09c87f4054ba7350bba8adb6c072113df1cc2643cbd81fc1e76d67c29bd688"
+      },
+      "runtime": "read-only archived full Python via with_local_mirror.py",
+      "skip_reason": "Optional archived real v1 pilot fixture absent",
+      "skipped": 1,
+      "source_hash": "5e4d3818c8230acefb4d3a7b161cff928c8f5b3ec7b726009b189b6cb7ca929c"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Development regression runs; not final acceptance on a frozen source/binary pair"
+}

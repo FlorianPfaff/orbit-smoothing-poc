@@ -12,6 +12,8 @@ def parser() -> argparse.ArgumentParser:
     commands = cli.add_subparsers(dest="command", required=True)
     from .comparison.cli import register
     register(commands)
+    from .numerics.cli import register as register_numerics
+    register_numerics(commands)
     for name in ("generate", "calibrate", "benchmark", "scaling", "posterior"):
         command = commands.add_parser(name)
         command.add_argument("--config", type=Path, help="JSON or YAML scenario/benchmark configuration")
@@ -69,11 +71,14 @@ def parser() -> argparse.ArgumentParser:
 
 def main(argv=None) -> int:
     args = parser().parse_args(argv)
-    from . import benchmark as experiments
     try:
         if args.command == "comparison":
             from .comparison.cli import dispatch
             return dispatch(args)
+        if args.command == "numerics":
+            from .numerics.cli import dispatch
+            return dispatch(args)
+        from . import benchmark as experiments
         if args.command in ("generate", "calibrate", "benchmark", "scaling", "posterior"):
             from .config import load_config
             config = load_config(args.config) if args.config else {

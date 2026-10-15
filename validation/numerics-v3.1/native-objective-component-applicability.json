@@ -1,0 +1,138 @@
+{
+  "binaries": [
+    {
+      "build_manifest_sha256": "6f70c79e189889962f1b5d2133c0f3bdd85bc06971b2e4d35d3133b2720dd5e1",
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-binaries/groops-7fa70502fb091199",
+      "sha256": "7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c"
+    },
+    {
+      "build_manifest_sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f",
+      "path": "/mnt/d/orbit-numerics-v3.1/capacity-archive-01/binaries/groops-3aad854b51102dce",
+      "sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9"
+    }
+  ],
+  "changed_components": [
+    {
+      "compiled_path": "source/misc/orbitPoc/nuisanceLineSearch.h",
+      "current_sha256": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c",
+      "diff": {
+        "path": "/mnt/d/orbit-numerics-v3.1/final-validation-3aad/component-applicability/nuisanceLineSearch.h.diff",
+        "sha256": "05e060036ac8685afb2ad1dd5502fe2dacf39dde700f027bddda6527cdd262e6",
+        "unified_diff": "--- 7fa/nuisanceLineSearch.h\n+++ 3aad/nuisanceLineSearch.h\n@@ -182,6 +182,9 @@\n   result.probeHalfCurvature=-(result.probes[2].reduction+result.probes[3].reduction);\n   result.probeSlope=(result.probes[1].reduction-result.probes[0].reduction)/(2*a);\n   result.probeHalfSlope=(result.probes[3].reduction-result.probes[2].reduction)/a;\n+  if(!std::isfinite(result.probeCurvature)||!std::isfinite(result.probeHalfCurvature)||\n+     !std::isfinite(result.probeSlope)||!std::isfinite(result.probeHalfSlope))\n+  {reject(\"nonfinite_symmetric_probe_diagnostics\");return;}\n   // The allowances below are explicitly empirical multiples of the measured\n   // arithmetic spread: 2e per paired sum, propagated through differences.\n   if(!(result.probeCurvature>16*e&&result.probeHalfCurvature>16*e))\n@@ -262,17 +265,17 @@\n   if(!result.probes.empty())\n   {\n     if(!result.arithmeticAudits.empty())out<<',';\n-    out<<\"{\\\"kind\\\":\\\"two_amplitude_symmetric_nuisance_probe\\\",\\\"success\\\":\"<<(result.floorLimited?\"true\":\"false\")<<\",\\\"support_unchanged\\\":\"<<(result.probes.size()==4&&std::all_of(result.probes.begin(),result.probes.end(),[&](const NuisanceTrial &t){return !t.status&&t.support==result.zeroUpdateReplay.support&&t.rows==result.zeroUpdateReplay.rows&&t.observationSignature==result.zeroUpdateReplay.observationSignature;})?\"true\":\"false\")<<\",\\\"amplitude\\\":\"<<result.probeAmplitude<<\",\\\"slope\\\":\"<<result.probeSlope<<\",\\\"half_slope\\\":\"<<result.probeHalfSlope<<\",\\\"curvature\\\":\"<<result.probeCurvature<<\",\\\"half_curvature\\\":\"<<result.probeHalfCurvature<<\",\\\"empirical_quadratic_potential\\\":\"<<result.probePotential<<\",\\\"half_empirical_quadratic_potential\\\":\"<<result.probeHalfPotential<<\",\\\"empirical_quadratic_potential_with_allowance\\\":\"<<result.probePotentialAllowance<<\",\\\"half_empirical_quadratic_potential_with_allowance\\\":\"<<result.probeHalfPotentialAllowance<<\",\\\"curvature_resolution_multiple\\\":16,\\\"curvature_scaling_error_multiple\\\":12,\\\"slope_error_multiple\\\":4,\\\"amplitude_slope_error_multiple\\\":8,\\\"probes\\\":[\";\n-    for(UInt i=0;i<result.probes.size();i++){if(i)out<<',';const auto &t=result.probes[i];out<<\"{\\\"alpha\\\":\"<<t.alpha<<\",\\\"actual_reduction\\\":\"<<nuisanceJsonNumber(t.reduction)<<\",\\\"cost\\\":\"<<nuisanceJsonNumber(t.cost)<<\",\\\"status\\\":\"<<t.status<<\",\\\"error\\\":\"<<std::quoted(nuisanceJsonError(t))<<'}';}\n+    out<<\"{\\\"kind\\\":\\\"two_amplitude_symmetric_nuisance_probe\\\",\\\"success\\\":\"<<(result.floorLimited?\"true\":\"false\")<<\",\\\"support_unchanged\\\":\"<<(result.probes.size()==4&&std::all_of(result.probes.begin(),result.probes.end(),[&](const NuisanceTrial &t){return !t.status&&t.support==result.zeroUpdateReplay.support&&t.rows==result.zeroUpdateReplay.rows&&t.observationSignature==result.zeroUpdateReplay.observationSignature;})?\"true\":\"false\")<<\",\\\"amplitude\\\":\"<<nuisanceJsonNumber(result.probeAmplitude)<<\",\\\"slope\\\":\"<<nuisanceJsonNumber(result.probeSlope)<<\",\\\"half_slope\\\":\"<<nuisanceJsonNumber(result.probeHalfSlope)<<\",\\\"curvature\\\":\"<<nuisanceJsonNumber(result.probeCurvature)<<\",\\\"half_curvature\\\":\"<<nuisanceJsonNumber(result.probeHalfCurvature)<<\",\\\"empirical_quadratic_potential\\\":\"<<nuisanceJsonNumber(result.probePotential)<<\",\\\"half_empirical_quadratic_potential\\\":\"<<nuisanceJsonNumber(result.probeHalfPotential)<<\",\\\"empirical_quadratic_potential_with_allowance\\\":\"<<nuisanceJsonNumber(result.probePotentialAllowance)<<\",\\\"half_empirical_quadratic_potential_with_allowance\\\":\"<<nuisanceJsonNumber(result.probeHalfPotentialAllowance)<<\",\\\"curvature_resolution_multiple\\\":16,\\\"curvature_scaling_error_multiple\\\":12,\\\"slope_error_multiple\\\":4,\\\"amplitude_slope_error_multiple\\\":8,\\\"probes\\\":[\";\n+    for(UInt i=0;i<result.probes.size();i++){if(i)out<<',';const auto &t=result.probes[i];out<<\"{\\\"alpha\\\":\"<<t.alpha<<\",\\\"actual_reduction\\\":\"<<nuisanceJsonNumber(t.reduction)<<\",\\\"cost\\\":\"<<nuisanceJsonNumber(t.cost)<<\",\\\"maximum_update_m\\\":\"<<nuisanceJsonNumber(t.change)<<\",\\\"status\\\":\"<<t.status<<\",\\\"error\\\":\"<<std::quoted(nuisanceJsonError(t))<<'}';}\n     out<<\"],\\\"probe_amplitude_policy\\\":\\\"bounded_precision_refinement_v1\\\",\\\"maximum_probe_amplitude\\\":1000000000,\\\"maximum_probe_influence_m\\\":1,\\\"maximum_probe_rounds\\\":5,\\\"probe_history\\\":[\";\n     for(UInt i=0;i<result.probeHistory.size();i++)\n     {\n       if(i)out<<',';const auto &r=result.probeHistory[i];\n-      out<<\"{\\\"amplitude\\\":\"<<r.amplitude<<\",\\\"success\\\":\"<<(r.success?\"true\":\"false\")<<\",\\\"rejection\\\":\"<<std::quoted(r.rejection)\n-        <<\",\\\"slope\\\":\"<<r.slope<<\",\\\"half_slope\\\":\"<<r.halfSlope<<\",\\\"curvature\\\":\"<<r.curvature<<\",\\\"half_curvature\\\":\"<<r.halfCurvature\n-        <<\",\\\"empirical_quadratic_potential\\\":\"<<r.potential<<\",\\\"half_empirical_quadratic_potential\\\":\"<<r.halfPotential\n-        <<\",\\\"empirical_quadratic_potential_with_allowance\\\":\"<<r.potentialAllowance<<\",\\\"half_empirical_quadratic_potential_with_allowance\\\":\"<<r.halfPotentialAllowance<<\",\\\"probes\\\":[\";\n-      for(UInt j=0;j<r.probes.size();j++){if(j)out<<',';const auto &t=r.probes[j];out<<\"{\\\"alpha\\\":\"<<t.alpha<<\",\\\"actual_reduction\\\":\"<<nuisanceJsonNumber(t.reduction)<<\",\\\"cost\\\":\"<<nuisanceJsonNumber(t.cost)<<\",\\\"status\\\":\"<<t.status<<\",\\\"error\\\":\"<<std::quoted(nuisanceJsonError(t))<<'}';}out<<\"]}\";\n+      out<<\"{\\\"amplitude\\\":\"<<nuisanceJsonNumber(r.amplitude)<<\",\\\"success\\\":\"<<(r.success?\"true\":\"false\")<<\",\\\"rejection\\\":\"<<std::quoted(r.rejection)\n+        <<\",\\\"slope\\\":\"<<nuisanceJsonNumber(r.slope)<<\",\\\"half_slope\\\":\"<<nuisanceJsonNumber(r.halfSlope)<<\",\\\"curvature\\\":\"<<nuisanceJsonNumber(r.curvature)<<\",\\\"half_curvature\\\":\"<<nuisanceJsonNumber(r.halfCurvature)\n+        <<\",\\\"empirical_quadratic_potential\\\":\"<<nuisanceJsonNumber(r.potential)<<\",\\\"half_empirical_quadratic_potential\\\":\"<<nuisanceJsonNumber(r.halfPotential)\n+        <<\",\\\"empirical_quadratic_potential_with_allowance\\\":\"<<nuisanceJsonNumber(r.potentialAllowance)<<\",\\\"half_empirical_quadratic_potential_with_allowance\\\":\"<<nuisanceJsonNumber(r.halfPotentialAllowance)<<\",\\\"probes\\\":[\";\n+      for(UInt j=0;j<r.probes.size();j++){if(j)out<<',';const auto &t=r.probes[j];out<<\"{\\\"alpha\\\":\"<<t.alpha<<\",\\\"actual_reduction\\\":\"<<nuisanceJsonNumber(t.reduction)<<\",\\\"cost\\\":\"<<nuisanceJsonNumber(t.cost)<<\",\\\"maximum_update_m\\\":\"<<nuisanceJsonNumber(t.change)<<\",\\\"status\\\":\"<<t.status<<\",\\\"error\\\":\"<<std::quoted(nuisanceJsonError(t))<<'}';}out<<\"]}\";\n     }\n     out<<\"]}\";\n   }\n"
+      },
+      "name": "nuisanceLineSearch.h",
+      "previous_bytes_reconstructed_and_hash_verified": true,
+      "previous_sha256": "57af874a4465b4cc1bc64fb0e16b20070e144c0369b4a6b9d6df8e89f5a397e6"
+    },
+    {
+      "compiled_path": "source/programs/simulation/orbitPocQrSolve.cpp",
+      "current_sha256": "ec946c0a04e0a77b9a112b541b7aa0694e4a4e773b945c583fab597aa4beb0ff",
+      "diff": {
+        "path": "/mnt/d/orbit-numerics-v3.1/final-validation-3aad/component-applicability/orbitPocQrSolve.cpp.diff",
+        "sha256": "0446d89fbec1489b983fa9e669fd5703386af6bc74856227510a4bc9c7a8198b",
+        "unified_diff": "--- 7fa/orbitPocQrSolve.cpp\n+++ 3aad/orbitPocQrSolve.cpp\n@@ -178,6 +178,8 @@\n         trial.cost=before-trial.reduction;\n         if(nuisanceFixture==\"floor_probe_nonfinite\"&&std::fabs(alpha)>1)trial.cost=std::numeric_limits<Double>::quiet_NaN();\n         if(nuisanceFixture==\"floor_actual_influence\"&&std::fabs(alpha)>1)trial.change=1.1;\n+        if(nuisanceFixture==\"floor_derived_nonfinite\"&&std::fabs(alpha)>1)\n+        {trial.reduction=-.75*std::numeric_limits<Double>::max();trial.cost=-trial.reduction;}\n         return trial;\n       };\n       auto audit=[&](UInt mode)\n"
+      },
+      "name": "orbitPocQrSolve.cpp",
+      "previous_bytes_reconstructed_and_hash_verified": true,
+      "previous_sha256": "18e7efada0e58d57dae2251257387f6cb474a8e8563bb974fa87685ab26f1fdb"
+    }
+  ],
+  "current_binary_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+  "current_patched_source_sha256": "3826c842d51ae7f671d6129af1d29e558fc5fe2c984219064e71145c5e9c64a3",
+  "exact_change_inventory": [
+    "Guard derived symmetric-probe slope/curvature against nonfinite values before existing acceptance checks; the new branch is inactive for finite values.",
+    "Serialize derived probe/history values with finite-number JSON guards, and add per-probe maximum_update_m to the diagnostics.",
+    "Add only the floor_derived_nonfinite test mode in the standalone OrbitPocQrSolve fixture program."
+  ],
+  "gate_result": "not_evaluated_by_this_proof",
+  "identical_build_fields": {
+    "build_command": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/lib/python3.11/site-packages/cmake/data/bin/cmake",
+      "-S",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/groops-source/source",
+      "-B",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_DISABLE_FIND_PACKAGE_MPI=ON",
+      "-DCMAKE_PREFIX_PATH=/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env",
+      "-DCMAKE_BUILD_RPATH=/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib",
+      "-DBLAS_LIBRARIES=/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libblas.so",
+      "-DLAPACK_LIBRARIES=/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/liblapack.so"
+    ],
+    "build_script_sha256": "ec769cddd2b6ef5691b9a4d9883a0621f3e2d8fca9bc2770653de84ae33a0f91",
+    "cmake_cache_sha256": "592b868de9283597f76a9d3ee4142ee5124372b46302a20716fdbfc29b3285c9",
+    "cmake_version": "cmake version 3.31.10",
+    "compiler": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0",
+    "mpi": false,
+    "upstream_commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee"
+  },
+  "normal_case_equivalence_conditions": [
+    "Every evaluated symmetric-probe slope and curvature is finite.",
+    "The actual gate retains its original input, initialization, weights, priors, masks, gauges and execution receipts.",
+    "The original gate finishes and passes its own unchanged acceptance criteria; this proof does not supply that result."
+  ],
+  "previous_binary_sha256": "7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c",
+  "previous_patched_source_sha256": "f8437c3166ef40c1130e809b7e1bef5643d0e7e3f5f5303c871704fa64a465fe",
+  "schema": "orbit-poc-native-component-applicability-v1",
+  "scope": "Source-level component applicability for finite normal-case nonlinear objective evidence executed with 7fa70502. No new estimator execution, output equivalence experiment, timing transfer or blanket whole-binary identity claim.",
+  "source_comparison_verified": true,
+  "unchanged_compiled_source_file_count": 1122,
+  "unchanged_extension_components": {
+    "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "NOTICE": "a7f2ed1c73a1dc48f56f1c2c15f9654b27aa64c23ac2403a3d1dcc4a543ea436",
+    "apply_extension.py": "a6a06bc56db5d42dce3766633cc57acd287064205faf3ec7bbb1455af87d4426",
+    "artifactReceipt.h": "908660f0ceb25e6282a423ae562ead8b2fb43bb3f395ea9c0a4e45251c5a84d2",
+    "atmosphereEvents.h": "8a033d4431702ff81cc25056466f3676c8a61c730503ff096e534e2eb808caec",
+    "atmosphereExtraSamples.h": "eb30fb1086f6b2e98347303875ea0f0bc41564138d5e488e9173447279ff7718",
+    "atmosphereLocalEvents.h": "22cea5f25f5a2ba6912a7aaf29708d5254b1f6eced0098fd4f8c6b4ec98de973",
+    "eventQuadrature.h": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5",
+    "finiteDifferenceForceJacobian.h": "1a5975e5ccc3e93d26d9683e70bdc2fadcb6aa72fab3a593d286a1423350f3ee",
+    "gnssParametrizationLogDensityOu.h": "9efaa686086deac106e9ab985f6f1d6d225fbe999e68eaf9b3cdc8a5d6ef15d3",
+    "gnssProcessingStepOrbitPocNumerics.h": "638f81dc6a9ad1942acdbbfa4353a688317083f889df945e27bc45ec48130463",
+    "gnssRangeResidual.h": "0895d6eb363e99eb8495a84d0b4a1843ed0b17329bbd16f8878e09eb204fd718",
+    "integrationWindows.h": "a7215fdaa3f3d3f16a13dbf2afa9301ff88c2979f616af65864474d6bbdaa40f",
+    "linearTrace.h": "aeb7f39140c5f8149daf953140d6c892ded942a2513e9e098aff52eeb4194c65",
+    "logDensitySeries.h": "9176b172e4c5259bfa18daefa436bb869b870e4680548fba82af6974d184838b",
+    "miscAccelerationsLogDensity.h": "526684d8d26e9b65c2050c98bc0fbd9b3c425a959d623c149b9aa0b31fbf0f80",
+    "miscAccelerationsSyntheticDrag.h": "7793642b422df8b1a41539949526dcce4143dab571116613dfe35ba082a13d98",
+    "miscAccelerationsSyntheticGravity.h": "4afa4f0e9eadabe362d0feebc13f031a79297b85a0123ad0945dc04de0efe142",
+    "native_atmosphere.py": "336f9da6c938238029abddbade27ab694828dca1fd2780e38881af1abd657233",
+    "native_covariance.py": "a6c73bec930d928abf465ebde98a885155ac51d98ccb97b298319cab225daf0b",
+    "native_derivatives.py": "761de3e85cfed6c0412e46a19216faea0bf950e402e15584da4929b22edcebcb",
+    "native_epoch_grid.py": "1151a121dc1b636bcd1e2f91fc1faa9e6c191f3ea8be98cd49f3ad8e810219bf",
+    "native_integration.py": "b6da765b809ec2e5c46e3aa1cda97712aa525cb14f3259f2004c12a22114dd4d",
+    "native_interpolation.py": "38577d79a1f71dd9616d11f7dfaa132c674ccd94dadf1e7be776d64ed906295f",
+    "native_linear_trace.py": "7104efc1057f6e8d7088fcd785637cb49c7937a69c146f291195c9faeedb405c",
+    "native_nuisance_export.py": "d82f845cef98cde038011e2979513f3a614220c15f214c3467df394dab6f613e",
+    "native_objective.py": "93dc41ae4ec086a1249f92201b6b01e2bd0d38d261a52377907cadf4a0922c87",
+    "native_preprocessing.py": "a69ad543b37bc5fa9737400086e9ce98acbcaf490cc105697796d0faff068f3b",
+    "native_row_qr.py": "6eec4032dae853effabb8ebb09f331db61e32717bc25489659ea27652a732d2a",
+    "native_simulation.py": "3b14fbfb301d1dab04cf77fb7aed077890b5d739cd4ca1255cba90a82b73fa80",
+    "native_thermal.py": "752d45d81bf326536804ff20648f83c390f509f8b52d7872d6cb5b5e8288df23",
+    "orbitPocEvaluateVariational.cpp": "040be371c6219f303252cc1d69eac3020ed9fdae930b3c27e55b9fe1e29ff9f5",
+    "orbitPocForceDesign.cpp": "39d74b8c2b629c92883e1fdcee74a5ba3fc2c45bb125ce8b4e788028ad4f7fcc",
+    "orbitPocPredictCode.cpp": "6c725cd721efcc6d4599e285072e7fbff750c2e938666c3122ded951a939ad72",
+    "orbitPocPredictSignals.cpp": "fb2040f247f51cda767027dace6b821085d3c50d68d7101254cafafbec933d97",
+    "orbitPocPredictSlr.cpp": "e4479f0107de3b0ac6ab92281496f481077e8cc8fc7c37d6b99179289027fb02",
+    "orbitPocResampleOrbit.cpp": "3408c17a776dfa826403d19ff5f1bf5daeb6b8ed8ec914b81d6efc5d3827c92f",
+    "orbitPocStateDerivatives.cpp": "fbfbb503b6c8e97d52c7d2dee5c7e891d042785d8a1c7fede6149b7a246be276",
+    "parametrizationAccelerationLogDensity.h": "4d7f9e1b099aeeca0b44320e3a0c93d13ff83ff960070e91c970592b74978fe5",
+    "piecewisePolynomial.h": "f159a5a0909661f3406993a7bf74a9ff23e96b46db6b32bad85b7b45ccc512cc",
+    "positionRemainder.py": "bf3db4972e60e549e8a9e70ad943202f18cc224f81948aa4f4a35e7b731d8cbf",
+    "relativeQueryInterpolation.py": "fb9e709dec67b23b3b4831cf77c6264727116fce11e811338d650bbc2f70fe64",
+    "scaledRowQr.h": "bed1d6910cd2e181fc4254316834c6e6b99b0e0c31edf6d248a348c785466e56",
+    "sixStateTangent.h": "6768cfc6a85be50722b7737f728615e62888f78ea3efceb2380016d1fa946cb9",
+    "stagedVariationalBody.h": "f3af07285e99fa3945565c31c37b8e25aa4872dafe5ca52af2d3c82ca345f6fc",
+    "syntheticForceDerivatives.h": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310",
+    "thermalIntegrationStep.h": "15a2a736eb212aee22a936e78389cdbca816d8a308b356017a0a0ca9aa19cd59",
+    "triangularQrWrapper.f": "024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14"
+  },
+  "unchanged_normal_case_operations": [
+    "Physical propagation, forces, derivatives, GNSS forward model and original weighted rows.",
+    "Nuisance correction, nonlinear trial objective, profiling thresholds, backtracking and empirical resolution/probe acceptance arithmetic.",
+    "Probe amplitude, dimensional and scalar caps, adaptive refinement rules, full parameter penalties and nuisance covariance marginalization."
+  ],
+  "verifier_sha256": "c05691a6a66dcd9601531573f8ad4b50f2c5d78ca62d6853487ec076f414c2d2"
+}

@@ -1,0 +1,136 @@
+{
+  "acceptance_gates": [
+    {
+      "gate": "qr_independent_agreement",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/qr_independent_agreement.json",
+        "sha256": "507f4fd451e32389d24af18058fab1aef53a2623ce8967f859a8f02d30c0abab"
+      },
+      "scope": "Actual final-native weighted-row MAP, marginal covariance and selected dynamic/global-nuisance cross-covariance agree with independent QR/GTSAM on small problems. This does not establish nonlinear fit convergence.",
+      "status": "passed"
+    },
+    {
+      "gate": "rank_and_invariance",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/rank_and_invariance.json",
+        "sha256": "6215cacd93920b7e82c01ad59032c20302e6c2561d1f9bc3e4027a0ddd8f7119"
+      },
+      "scope": "Actual final-native exact/near-rank rejection, gauges, missing constraints, unused directions, units, row/block ordering and equivalent nuisance elimination. No accepted covariance for deficient or unresolved systems.",
+      "status": "passed"
+    },
+    {
+      "gate": "objective_and_priors",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/objective_and_priors.json",
+        "sha256": "0e5471f24051b5fe3f61714de72c02cfe340a1d5626625e24926fff3b4b9c8c6"
+      },
+      "scope": "The pulse local objective/prior check passed on actual 7fa execution. Density full OU rows passed, but all six completed derivative scales failed the unchanged 1e-4 criterion and the next repeated endpoint terminated on nuisance nonconvergence. The objective gate is not accepted for release.",
+      "status": "failed"
+    },
+    {
+      "gate": "rollback_and_convergence",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/rollback_and_convergence.json",
+        "sha256": "d0224abf6442933cad41970f7e99fdb3359fc45131dcdb2c2add6f1e9d63337f"
+      },
+      "scope": "Current controller/native transactional and fresh-undamped acceptance safeguards, plus actual final-native fixed-point nuisance-marginalized covariance export. No engineering optimizer convergence is asserted or required by this gate.",
+      "status": "passed"
+    },
+    {
+      "gate": "synthetic_derivatives",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/synthetic_derivatives.json",
+        "sha256": "4664a9dabe7ae7055f56349f67274a23b4dd2681404b5a336bd3301ad7e4bf45"
+      },
+      "scope": "Final-native force/tangent kernels and actual propagated synthetic derivatives, including velocity coupling, pulse jumps, density knots and a full-day cancellation regression. Reused full-day evidence is explicitly component-bound.",
+      "status": "passed"
+    },
+    {
+      "gate": "flight_derivative_approximation",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/flight_derivative_approximation.json",
+        "sha256": "7a965904d732f6520a0d9641280b62ac7569d66157d9e4081dd7cb5b60308119"
+      },
+      "scope": "Quantification of combined omitted flight sensitivities on one 30-minute April 24 window with fresh thermal history with degree 120 gravity and actual atmospheric drag. Passed means quantified approximation, not complete flight Jacobian.",
+      "status": "passed"
+    },
+    {
+      "gate": "propagation_refinement",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/propagation_refinement.json",
+        "sha256": "293052b5ae4788d8d46e1e64366c4b2609421c4cc2548adbe0605381887dd2ea"
+      },
+      "scope": "Actual native code/carrier predictions satisfy the 1%-of-noise refinement threshold on two one-hour synthetic fixtures, selected 24-hour eccentric density, and one 30-minute flight window, with exact source/replay applicability to the final candidate.",
+      "status": "passed"
+    },
+    {
+      "gate": "pipeline_and_provenance",
+      "receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/acceptance/pipeline_and_provenance.json",
+        "sha256": "eafcd18874cb0b7f9319239b6bafe48179d9458c5fef36e6915fec4ac9005504"
+      },
+      "scope": "Current 70 protocol and 8 startup unit checks, blind retained/fresh input verification and phase-coordinate comparison, plus independently verified final-candidate D-backed namespace, resource and row-retention readiness. Final launch proofs are separate; no benchmark execution or fit convergence is inferred.",
+      "status": "passed"
+    }
+  ],
+  "all_correctness_gates_passed": false,
+  "benchmark": {
+    "completed_at_freeze": false,
+    "execution_completion_established": false,
+    "outcome_or_improvement_claim": false,
+    "planned_attempts": 150,
+    "planned_problem_settings": 50,
+    "planned_profiles": 3,
+    "status_scope": "Facts at this pre-benchmark acceptance snapshot; downstream attempt records and the inclusive report determine later execution completion."
+  },
+  "benchmark_policy": {
+    "candidate_and_numerical_criteria_unchanged": true,
+    "final_launch_readiness_is_separate": true,
+    "launch_classification": "experimental_bounded_benchmark_with_explicit_nonpassing_gate",
+    "legacy_default_retained": true,
+    "proceed_with_nonpassing_gate": true,
+    "release_acceptance_requires_failed_gate_resolution_in_a_separate_versioned_run": true,
+    "reliability_or_accuracy_improvement_claims": false
+  },
+  "candidate": {
+    "native_build_manifest": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/outputs/orbit-numerics-v3.1/validation/numerics-v3.1/native-build-manifest.json",
+      "sha256": "a7a2fe38dc3aa51fa99a8c80aee65fa67031e1612a725c7d0874e4c6b1436d6f"
+    },
+    "native_executable_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "source_snapshot_scope": "Existing source_snapshot algorithm; validation and docs are excluded. Native Fortran is additionally pinned by build manifest/supplemental runtime inventory.",
+    "source_snapshot_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae"
+  },
+  "evidence_identity_policy": "Actual execution identities are preserved in every evidence item. Component/output applicability is separately labeled and is never a substitute for a successful underlying gate. Tests and fixed-point checks do not imply optimizer convergence.",
+  "freeze_requirements": [
+    "Pin this sealed index and every bundled gate hash in the execution context without editing them.",
+    "Retain the closed failed objective gate, unchanged source/build and unchanged numerical criteria throughout the experimental benchmark.",
+    "After preparation, write a separate launch record pinning final config, frozen inputs, startup verification and reserved CPU/protected-process proof; never add those downstream hashes back to these gate bundles.",
+    "Use a new immutable run if a pinned gate, source, binary, input or configuration changes."
+  ],
+  "freeze_scope": "The acceptance evidence and gate statuses are sealed. This does not assert that downstream configuration, input-manifest, startup or CPU launch verification has completed.",
+  "frozen_for_benchmark": true,
+  "gate_counts_at_freeze": {
+    "failed": 1,
+    "passed": 7,
+    "pending": 0
+  },
+  "launch_proof_references_embedded_in_gate_bundles": false,
+  "provenance_dependency_order": [
+    "source/build and independent test/readiness receipts",
+    "gate bundles and this index",
+    "execution context",
+    "final configuration",
+    "prepared input manifest",
+    "startup and CPU launch record",
+    "benchmark attempts and inclusive report"
+  ],
+  "release_acceptance": "not_accepted",
+  "schema": "orbit-poc-numerics-acceptance-index-v1",
+  "scope": "Immutable pre-benchmark acceptance snapshot: seven bounded gates passed and the objective/prior gate failed. The unchanged candidate is admitted only to the experimental 150-attempt benchmark with this nonpassing gate preserved. This is not an accepted numerical release and makes no reliability or accuracy-improvement claim.",
+  "snapshot_sealed_at_utc": "2026-10-14T13:13:05.079890+00:00",
+  "snapshot_stage": "pre_benchmark_acceptance",
+  "source_snapshot_excludes_validation": true,
+  "source_snapshot_file_count": 133,
+  "status": "immutable_prebenchmark_snapshot_with_failed_objective_gate"
+}

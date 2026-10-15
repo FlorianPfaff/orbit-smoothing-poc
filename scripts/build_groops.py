@@ -17,6 +17,14 @@ def run(args, **kwargs):
     subprocess.run([str(a) for a in args], check=True, **kwargs)
 
 
+def source_receipt(source):
+    """Hash the actual patched compilation inputs, not just the patch scripts."""
+    files = {str(path.relative_to(source)): hashlib.sha256(path.read_bytes()).hexdigest()
+             for path in sorted((source / "source").rglob("*")) if path.is_file()}
+    digest = hashlib.sha256(json.dumps(files, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    return {"sha256": digest, "files": files}
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--source-dir", type=Path, required=True)
@@ -25,10 +33,14 @@ def main():
     p.add_argument("--jobs", type=int, default=8)
     p.add_argument("--configure-only", action="store_true")
     p.add_argument("--upstream-only", action="store_true", help="Build the clean pinned upstream engine for external-example reproduction")
+    p.add_argument("--numerics", action="store_true", help="Enable the separately versioned v3.1 QR/objective/derivative extension")
+    p.add_argument("--cmake-executable", type=Path, help="Use an independent CMake installation with the compiler prefix")
     args = p.parse_args()
     source, build = args.source_dir.resolve(), args.build_dir.resolve()
     if args.jobs < 1:
         p.error("--jobs must be positive")
+    if args.numerics and args.upstream_only:
+        p.error("--numerics and --upstream-only are mutually exclusive")
     if not source.exists():
         source.parent.mkdir(parents=True, exist_ok=True)
         run(["git", "clone", "--filter=blob:none", REPOSITORY, source])
@@ -42,9 +54,10 @@ def main():
         if changed.strip():
             raise ValueError("An upstream-only build requires a separate clean checkout of the pinned revision")
     else:
-        run([sys.executable, extension, source])
+        run([sys.executable, extension, source, *(["--numerics"] if args.numerics else [])])
     env = dict(os.environ)
-    command = ["cmake", "-S", source / "source", "-B", build, "-G", "Ninja",
+    cmake = str(args.cmake_executable.resolve()) if args.cmake_executable else "cmake"
+    command = [cmake, "-S", source / "source", "-B", build, "-G", "Ninja",
                "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_DISABLE_FIND_PACKAGE_MPI=ON"]
     if args.prefix:
         prefix = args.prefix.resolve()
@@ -57,9 +70,18 @@ def main():
                 raise FileNotFoundError(compiler)
             env[variable] = str(compiler)
         command += [f"-DCMAKE_PREFIX_PATH={prefix}", f"-DCMAKE_BUILD_RPATH={prefix / 'lib'}"]
+        # The pinned dependency environment provides these exact libraries.
+        # Avoid vendor probing through unrelated system/Windows installations.
+        for package, name in (("BLAS", "libblas.so"), ("LAPACK", "liblapack.so")):
+            library = prefix / "lib" / name
+            if library.is_file():
+                command.append(f"-D{package}_LIBRARIES={library}")
     run(command, env=env)
     if not args.configure_only:
-        run(["cmake", "--build", build, "--parallel", str(args.jobs)], env=env)
+        inputs = source_receipt(source)
+        run([cmake, "--build", build, "--parallel", str(args.jobs)], env=env)
+        if source_receipt(source) != inputs:
+            raise RuntimeError("Patched compilation inputs changed during the build; rebuild before freezing")
         executable = build / "groops"
         run([executable, "--help"], env=env)
         manifest = {
@@ -69,6 +91,10 @@ def main():
             "cmake_cache_sha256": hashlib.sha256((build / "CMakeCache.txt").read_bytes()).hexdigest(),
             "compiler": subprocess.check_output([env.get("CXX", "c++"), "--version"], env=env, text=True).splitlines()[0],
             "mpi": False,
+            "patched_source": inputs,
+            "build_command": [str(value) for value in command],
+            "build_script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            "cmake_version": subprocess.check_output([cmake, "--version"], env=env, text=True).splitlines()[0],
         }
         (build / "build-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
