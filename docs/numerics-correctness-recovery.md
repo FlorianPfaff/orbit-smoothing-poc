@@ -264,3 +264,34 @@ Use a Python environment with pytest and NumPy. As with the earlier controls,
 a few tests create automatically removed fixtures beside their test source;
 the recorded test runs used independent `/tmp` source snapshots. Control-test
 success verifies orchestration and reporting behavior, not scientific success.
+
+## Separate exact attempt05 point017 diagnostic
+
+After the required attempt06 suite and its postprocessor closed, a separately
+sealed diagnostic replayed the exact attempt05 density failure at
+`point-017-direction-0.125-1`. It used the corrected attempt06 executable and
+the four original profile/variational/reference/density pins. It did not rerun,
+replace or reclassify either prescribed objective gate.
+
+The [supplemental evidence](../validation/numerics-v3.1-correctness/recovery06-supplemental-point017/manifest.json)
+records strict nuisance convergence: two fresh corrections of
+`2.5480153014779906e-10 m`, below `1e-8 m`; 56 ambiguity half-integer crossings
+were exercised. The owned run completed in 45.52 seconds, with verified
+cleanup. The separate independent audit verified the six search receipts,
+unchanged observation support, exact input/native identities and fresh final
+factor. A preceding launcher preflight rejected an incorrect expected runner
+digest before creating a plan or starting a native job. That rejection is
+preserved separately from the subsequently successful diagnostic.
+
+The runner and its 45 fabricated lifecycle tests are published separately in
+[`scripts/correctness_supplemental06`](../scripts/correctness_supplemental06/).
+Both author and independent test runs passed all 45 tests. Use the same pytest
+command above with that directory substituted to verify orchestration. Running
+the native diagnostic additionally requires its exact terminal plan, input
+pins and the pinned `/usr/bin/python3` control interpreter; it cannot be
+launched against an unfinished required suite.
+
+This supplemental success isolates progress on the old failure. The required
+attempt06 density first-profile and pulse repeat failures remain unresolved.
+Their diagnosis is the next correctness work; covariance and release readiness
+remain unestablished.
