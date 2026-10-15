@@ -1,0 +1,54 @@
+{
+  "artifacts": {
+    "launch_postprocess10.py": {
+      "bytes": 3093,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/launch_postprocess10.py",
+      "sha256": "101db206becdd8470368bbf1dbecd22ea67ff6a73f9d49146d321a1015e43864"
+    },
+    "stage10-independent-tests-01.xml": {
+      "bytes": 8806,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage10-independent-tests-01.xml",
+      "sha256": "f4cf599e19c269af30fdae43bae6ab447a64cc3b236d4cbb68cef7edb2fbd028"
+    },
+    "stage_recovery10.py": {
+      "bytes": 11832,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage_recovery10.py",
+      "sha256": "50bd157c606ec9fd1246f0cd7bf08d9eefb7c3f213d5ff9c892583878d64dd46"
+    },
+    "test_stage_recovery10_independent.py": {
+      "bytes": 14058,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_stage_recovery10_independent.py",
+      "sha256": "7e937636fccf86a84f77080a5df0b7ee70df917ad6edfd939dcea9ecaffe7184"
+    }
+  },
+  "covariance_authorized": false,
+  "created_at": "2026-10-15T12:54:04.695334+00:00",
+  "findings": [
+    "Previous09 exact pins, failed native journal, completed postprocessing and three-field execution artifact are validated before admission; previous wrapper is exactly namespace09.",
+    "Source extraction, safe archive validation, source identity and independent upstream clone checks preserve the reviewed09 implementation.",
+    "All mutable/source/upstream destinations remain fresh; read-only aliases and prior runtime pins remain unchanged.",
+    "Supplementary verifier bytes are checked before import, and its successful receipt and exact helper bytes are pinned in execution runtime_artifacts. A verifier exception or interruption preserves a failure receipt and creates no execution/success receipt.",
+    "The postprocessor launcher is exactly two literal identity substitutions from reviewed09: execution root and launch receipt schema. Its logical09 filenames, owned-process handoff and cleanup are unchanged.",
+    "Initial receipt freshness rejects regular existing files and dangling symlinks."
+  ],
+  "issues": [],
+  "passed": true,
+  "resolved_findings": [
+    {
+      "issue": "Initial stage10 guard omitted dangling-symlink rejection present in reviewed09.",
+      "resolution": "Parent restored exists-or-is_symlink guard before reads/writes; both receipt paths and both existence kinds independently tested."
+    }
+  ],
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-execution10-stager-launcher-independent-review-v1",
+  "scientific_acceptance_claim": false,
+  "scientific_controls_unchanged": true,
+  "scope": "Fabricated local tests and static review only; no actual remote staging, launch, build or fit executed by reviewer. Supplementary verifier/freezer/source packager are independently reviewed by controls agent.",
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider control/test_stage_recovery10_independent.py --basetemp=@TEMP_ROOT@/stage10-independent-01",
+    "errors": 0,
+    "failed": 0,
+    "passed": 49,
+    "skipped": 0
+  }
+}

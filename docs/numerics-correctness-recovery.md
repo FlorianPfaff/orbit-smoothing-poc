@@ -582,3 +582,65 @@ are not established.
 The [publication integrity review](../validation/numerics-v3.1-correctness/recovery09-publication-review.json)
 independently verifies all declared report, launch and provenance files, gzip
 expansions, the 13 planned statuses and the 21 exact runnable controls.
+
+
+## Execution10: installer compatibility retry with controls09
+
+The [immutable execution10 launch snapshot](../validation/numerics-v3.1-correctness/recovery10-launch/index.html)
+records launch at October 15, 2026, 13:00:35.384 UTC on `gpuserver4090`.
+Its source is `c24eccbcfc541250af958fd7c84101c3d039ced3`, with 772-file
+inventory `365313010e30a086729f21c6a4d7721431395155db590ed92a2bcb37b6d15fe1`.
+Publication cherry-pick `4a16df18a54975f1704a5dcf153920e74a822ebf` matches the
+single changed file exactly. The original source is fetchable on
+`numerics-v3.1-correctness-06`.
+
+The actual immediate predecessor is failed execution09/source05. Only
+`groops/extension/positionRemainder.py` changes to preserve compatibility with
+the unchanged installer scaffolds. Independent preparation compares all 1,129
+native source files byte-for-byte before and after the installer change. This
+does not claim a successful native fit. All original test and gate sources,
+772 tracked file paths, original 14 inputs, the 106 native tests and the 51
+separate regressions remain unchanged; scientific limits are fixed.
+
+All 21 scientific controls reuse version09 byte-for-byte. Their filenames and
+report schemas retain09, while the actual execution root and launch identity
+identify attempt10. The cumulative source comparison in those controls remains
+candidate07/source04 from execution08. A separately verified and pinned
+installer supplement records the immediate failed09/source05 →10/source06
+transition; it prevents that historical cumulative basis from being mistaken
+for the immediate predecessor. Any archived renderer wording naming candidate07
+as immediate predecessor is superseded by this explicit execution10 lineage.
+Raw reports are preserved unchanged, with this clarification in the publication
+wrapper; no scientific status is changed by presentation.
+
+The [ten supplementary helper/test sources](../scripts/correctness_execution10/)
+match the independent staging49, source-freeze27, lineage30 and execution-freeze10
+fixture reviews. The original controls remain in
+[`scripts/correctness_recovery09`](../scripts/correctness_recovery09/).
+The published layout includes25 exact fixture dependencies, including the raw
+byte-pinned candidate09 control-validation JSON. The first draft omitted those
+dependencies; the corrected published layout passes all116 fixtures. To avoid
+rediscovering dependency tests, select the four execution10 files explicitly:
+
+```sh
+TEST_OUTPUT=$(mktemp -d /tmp/orbit-execution10-tests.XXXXXX)
+PYTHONDONTWRITEBYTECODE=1 python -m pytest \
+  scripts/correctness_execution10/test_stage_recovery10_independent.py \
+  scripts/correctness_execution10/test_freeze_source10.py \
+  scripts/correctness_execution10/test_verify_installer_correction10.py \
+  scripts/correctness_execution10/test_freeze_recovery10.py \
+  -q -p no:cacheprovider --basetemp "$TEST_OUTPUT/fixtures" \
+  --junitxml "$TEST_OUTPUT/junit.xml"
+```
+
+These fixtures do not execute the scientific suite or establish release readiness.
+
+The launch snapshot remains outcome-pending regardless of later progress.
+Terminal results and independent audit will be published separately, preserving
+any failures or missing checks. Correctness and covariance remain unestablished
+until the prescribed full suite passes; the frozen 150-attempt benchmark is
+still a separate deliverable.
+
+[Independent launch-publication review](../validation/numerics-v3.1-correctness/recovery10-launch-publication-review.json)
+verifies all43 launch files and35 helper/dependency files, including the exact
+raw fixture manifest, fixed test command and immediate-predecessor attribution.

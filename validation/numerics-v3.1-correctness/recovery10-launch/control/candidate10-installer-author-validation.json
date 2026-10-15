@@ -1,0 +1,94 @@
+{
+  "schema": "orbit-poc-candidate10-installer-author-validation-v1",
+  "created_at": "2026-10-15T12:46:02.349651+00:00",
+  "passed": true,
+  "source": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-06",
+  "source_base_commit": "7e232423566a9d608ada0bcc88af8a86dd914db3",
+  "source_sha256": "365313010e30a086729f21c6a4d7721431395155db590ed92a2bcb37b6d15fe1",
+  "source_file_count": 772,
+  "changed_files": {
+    "groops/extension/positionRemainder.py": {
+      "before": "4f10db7dbd9f6b1d273ece846405cf2414d6ba80772ea14883b6a0a1dae2373f",
+      "after": "7a5da03557facc3a73ff031d0a57a8ba9292ae1afb931730db3419f5652e6926"
+    }
+  },
+  "previous_source_freeze": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-source-freeze.json",
+    "sha256": "149f55da9ae92ee0d6c6c529125b1268c327f6ba0904b09898ddcc0cd57a4f1b",
+    "bytes": 110630
+  },
+  "original106_and_previous51_tests_unchanged": true,
+  "regression_suite": {
+    "expected_count": 51,
+    "files": [
+      "tests/test_numerics_query_precision.py",
+      "tests/test_numerics_reference_precision.py",
+      "tests/test_numerics_precise_residual.py",
+      "tests/test_numerics_precise_objective.py",
+      "tests/test_numerics_light_time_precision.py"
+    ]
+  },
+  "measured_defect": "The two unchanged original geometry installer tests intentionally provide an outer query scaffold with auto query=0. Source05 introduced an exact inner-lambda anchor not guaranteed by that scaffold interface, while actual generated GROOPS builds succeeded.",
+  "correction": "Replace the complete structurally bounded query region with the canonical corrected lambda and unchanged iteration body, without depending on the previous lambda body. No fixture-specific branch. Existing old-version preflight and idempotence markers remain.",
+  "before": {
+    "counts": {
+      "tests": 2,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    "junit": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-installer-before-tests.xml",
+      "sha256": "ca75bc1a28cbfd40d525183f16b17760ee98b93c4f9ce19329c28af7bc398aba",
+      "bytes": 4579
+    },
+    "log": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-installer-before-tests.log",
+      "sha256": "3adcbdf3ebddcfa2ff960d5f40b37fb9db4bf9226ce7357173fcbf7623352e11",
+      "bytes": 4460
+    }
+  },
+  "after": {
+    "counts": {
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "junit": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-installer-after-tests.xml",
+      "sha256": "a475c701f1144dbf728e74d2eec837f601747d41efb41faebea801544cab1a41",
+      "bytes": 3343
+    },
+    "log": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-installer-after-tests.log",
+      "sha256": "e0676760fe84390c7bae8af0bf3e608c50562ad22b6dcdf9386816e2b08f5bb4",
+      "bytes": 208
+    },
+    "scope": "All10 original geometry tests and existing11 light-time tests. Nine light-time native fixture cases use the exact previously extracted09 fixture executable, valid because every numerical source and fixture program byte is unchanged; this is not a full new GROOPS build or fit.",
+    "fixture_adapter": {
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-wrapper.py",
+      "sha256": "e356d49b79d97b054207b0e67c384930bcb6b9dde405f4aed2ffb3c1b88cab25",
+      "bytes": 278
+    },
+    "fixture_executable": {
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted",
+      "sha256": "635e1eb8e795dd2eda85c480b80c24c0ef1349533d36355b5f9459c56f2e0e34",
+      "bytes": 42888
+    }
+  },
+  "generated_native_equivalence": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-generated-native-equivalence-summary.json",
+    "sha256": "1fdf6bb067538cf08c466433c14f769d4bb31446e4609745fd8771854459aa8b",
+    "bytes": 891
+  },
+  "full_generated_receipt": {
+    "path": "@TEMP_ROOT@/candidate10-generated-equivalence-01/receipt.json",
+    "sha256": "677709894a017c37a63ac305ab48bbdd2d03fed08f067d9e4eaa432fc16d5d5d",
+    "bytes": 281190
+  },
+  "scientific_models_or_thresholds_changed": false,
+  "full_native_validation_complete": false,
+  "correctness_resolved": false,
+  "covariance_authorized": false
+}

@@ -45,7 +45,13 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-**V3.1 correctness remains unresolved. Execution09 failed its original native test gate.**
+**V3.1 correctness remains unresolved. Execution10 has launched; its outcome is pending.**
+The [immutable execution10 snapshot](validation/numerics-v3.1-correctness/recovery10-launch/index.html)
+records an installer compatibility correction, the exact same 106 original tests
+and 51 correction regressions, and unchanged control version09. Its immediate
+predecessor is failed execution09; all earlier results remain preserved.
+
+**Execution09 failed its original native test gate.**
 The [closed execution09 report](validation/numerics-v3.1-correctness/recovery09/index.html)
 records 104 tests passing and two installer tests failing. The 51 separate
 regressions, four refinements, both objective checks and both original replays
