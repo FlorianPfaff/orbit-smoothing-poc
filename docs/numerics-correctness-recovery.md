@@ -1,14 +1,19 @@
 # Reproducing the v3.1 correctness recovery
 
-This recovery validates candidate
-`e7c93a97603cddcbef2f163257a34f48577c5516` after the work in
+This recovery records separately frozen correction candidates after the work in
 [PR #3](https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/3).
-Attempt05 uses the same 758 frozen source files, 14 prescribed input pins,
+Attempts04/05 validate candidate
+`e7c93a97603cddcbef2f163257a34f48577c5516` using the same 758 frozen source files,
+14 prescribed input pins,
 physical models, priors, weights, hyperparameters and acceptance limits. Its
 fresh GROOPS checkout starts at
 `7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee`.
 The original 150-attempt benchmark retains its own executable and results;
 correctness-recovery results cannot replace its attempts.
+
+The latest attempt06 validates a separately frozen query/reference precision
+correction. It also failed the prescribed objective gates. Its exact source,
+results and independent audit are recorded below; v3.1 correctness remains open.
 
 ## Runtime and preserved evidence
 
@@ -144,7 +149,9 @@ original report bytes; the new index and manifest distinguish execution
 identities from protocol filenames. Assembly cannot promote numerical gates,
 authorize covariance or reclassify the frozen benchmark.
 
-**Actual result status: failed; the correctness issue remains open.**
+## Preserved attempt05 result
+
+**Attempt05 status: failed; the correctness issue remains open.**
 The [preserved HTML history](../validation/numerics-v3.1-correctness/recovery04-05/index.html)
 contains both the attempt04 startup failure and the completed attempt05 results.
 Attempt05 used source `e7c93a97603cddcbef2f163257a34f48577c5516` and native binary
@@ -178,3 +185,82 @@ Additional [review and runtime provenance](../validation/numerics-v3.1-correctne
 records control tests, independent reviews, the retained failed ABI probe and
 successful isolated-runtime probes. Absolute private paths in those additional
 receipts are tokenized; their original and published hashes are recorded.
+
+## Attempt06 correction and failed validation
+
+Attempt06 changes numerical evaluation of query interpolation and the synthetic
+equinoctial reference. It preserves the physical model, original 14 input pins,
+original 106 native tests, objective/refinement/replay scripts and acceptance
+limits. The correction has eleven changed or added files, including two new
+regression-test files; these add a separate 18-test stage without replacing any
+original test. The runtime overlay and namespace wrapper remain unchanged from
+attempt05. Source, native source, build, binary and output directories are new.
+
+The validated source commit is
+`163cc929f9e02a5c18da63c17a04724461ebcfb0`, with 764 files and inventory SHA256
+`194b460ab90ed2eb3818af16324086f8cd0fe9aecd77308cd9ff45de23da660a`.
+The publication branch applies the same eleven-file correction as commit
+`3541f25101400178872ce514aafe3f82c9416b69`. These are distinct commit identities:
+the [equivalence receipt](../validation/numerics-v3.1-correctness/recovery06-provenance/candidate06-publication-source-equivalence.json)
+verifies the exact before/after file hashes, rather than asserting equality of
+the entire publication and validation trees.
+
+The execution root is
+`/mnt/seagate10tb/orbit-v31-correctness-06-florianpfaff`. The frozen pins SHA256 is
+`61b42ed6b71a2696e89782d59ae30eaf0e6c8355d3bbf24ed01cd24e3bb03776`.
+The driver uses `validate_candidate_06.py` and `validation-06`; the unchanged
+wrapper retains its `_04.py` filename. A detached finite postprocessor uses
+the separate reporting Python and produces its audit, HTML report and compact
+bundle after the exact driver process and owned workloads terminate.
+
+The required suite closed on 2026-10-15 at 07:27:15 UTC, with verified cleanup.
+The postprocessor completed at 07:27:24 UTC and reported scientific status
+`failed`. The fresh native executable SHA256 is
+`37c0d22c843d2a160e7537086a8440c5c79d550d71fc7c9172ca5994d6f30e2f`.
+The [attempt06 HTML report](../validation/numerics-v3.1-correctness/recovery06/index.html)
+retains every failed and missing check.
+
+| Prescribed check | Attempt06 result |
+| --- | --- |
+| Original native tests | 106 passed; zero failures, errors or skips |
+| Separate correction regressions | 18 passed; zero failures, errors or skips |
+| Four propagation/measurement refinements | Both synthetic methods, flight window and eccentric 24-hour case passed |
+| Density objective/full-prior check | Failed at `point-001-nonzero-full-prior`; no completed prior check or directional scale |
+| Pulse objective/full-prior check | Full-pulse prior and scale 1 passed; failed at `point-008-direction-0.5--1-repeat`, leaving scale 0.5 incomplete |
+| Original near03 nuisance-failure replay | Strict convergence; maximum fresh update `2.99e-10 m` |
+| Candidate1 point012 nuisance-failure replay | Strict convergence; maximum fresh update `3.54e-10 m` |
+
+The pulse scale-1 directional discrepancy plus numerical-resolution allowance
+was `1.32e-6`, below the unchanged `1e-4` limit. One passing scale does not meet
+the required consecutive-scale criterion. Neither objective gate passed, and
+the [independent terminal audit](../validation/numerics-v3.1-correctness/recovery06-provenance/terminal06-independent-audit-01.json)
+agrees with that failed outcome. The two original replays now both meet the
+strict threshold; the earlier attempt05 floor-only classification remains in
+its original report. This does not authorize covariance, certify v3.1 release
+readiness or complete the separate 150-attempt numerical benchmark.
+
+The compact attempt06 bundle was copied byte for byte: 99 files, 34,776,823
+bytes, manifest SHA256
+`84f7945d4101b87c1033be4cdb90b966b869ecf0eb418e67b583786cc2cb9b63`.
+The [additional provenance manifest](../validation/numerics-v3.1-correctness/recovery06-provenance/manifest.json)
+records transfer/copy integrity, launch identities, control reviews, numerical
+source reviews and the independent terminal audit. The unchanged attempt04/05
+history remains in its separate directory. Bulky source data, binaries and row
+spools remain outside Git.
+
+The byte-identical attempt06 controls and fabricated tests are in
+[`scripts/correctness_recovery06`](../scripts/correctness_recovery06/), with their
+own source manifest. All 262 fabricated control tests passed in both the author
+and independent review snapshots. To run them from the repository root:
+
+```sh
+TEST_OUTPUT=$(mktemp -d /tmp/orbit-recovery06-tests.XXXXXX)
+PYTHONDONTWRITEBYTECODE=1 python -m pytest scripts/correctness_recovery06 \
+  -q -p no:cacheprovider --basetemp "$TEST_OUTPUT/fixtures" \
+  --junitxml "$TEST_OUTPUT/junit.xml"
+```
+
+Use a Python environment with pytest and NumPy. As with the earlier controls,
+a few tests create automatically removed fixtures beside their test source;
+the recorded test runs used independent `/tmp` source snapshots. Control-test
+success verifies orchestration and reporting behavior, not scientific success.

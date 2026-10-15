@@ -45,14 +45,17 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-The [recovery report](validation/numerics-v3.1-correctness/recovery04-05/index.html)
-preserves the failed attempt05: all 106 native tests, four propagation/measurement
-refinements and the pulse objective check passed, but the density objective
-failed at point017 (`h=+0.125`) before a passing pair of consecutive scales.
-Both exact nuisance-failure replays passed their prescribed checks: the original
-near03 replay reached strict convergence; the candidate1 point012 replay achieved
-only audited numerical-floor-limited progress. That progress cannot authorize
-covariance or establish release readiness. The correctness issue remains open.
+The latest [recovery report](validation/numerics-v3.1-correctness/recovery06/index.html)
+preserves the failed attempt06 after query/reference precision corrections.
+All 106 original native tests, 18 added regression tests and four
+propagation/measurement refinements passed. Both exact nuisance-failure replays
+now reached strict convergence. Both objective gates failed: density failed its
+first nonzero-prior profile; pulses passed one derivative scale, then failed the
+negative `h=0.5` repeat before a second consecutive passing scale. The independent
+audit agrees with this failed result. The correctness issue remains open; these
+results cannot authorize covariance or establish release readiness.
+The earlier [attempt04/05 history](validation/numerics-v3.1-correctness/recovery04-05/index.html)
+remains unchanged, including attempt05's floor-limited second replay.
 See the [reproduction notes](docs/numerics-correctness-recovery.md) and the earlier
 [acceptance evidence](validation/numerics-v3.1/acceptance-gates.json).
 At the implementation freeze, the 150-attempt numerical benchmark had not
