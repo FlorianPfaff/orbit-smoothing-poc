@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60424</time>
+    <time label="timeEnd">timeStart+3600.0/86400</time>
+    <filename label="groopsDataDir">/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data</filename>
+    <loopType label="loopPrn">
+      <fileStringList>
+        <inputfile>/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterList.gps.txt</inputfile>
+        <variableLoopString>prn</variableLoopString>
+      </fileStringList>
+    </loopType>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program comment="daily - satellite data">
+    <LoopPrograms>
+      <loop>
+        <timeIntervals>
+          <timeIntervals>
+            <uniformSampling>
+              <timeStart link="timeStart" />
+              <timeEnd link="timeEnd" />
+              <sampling>3600.0/86400</sampling>
+            </uniformSampling>
+          </timeIntervals>
+          <variableLoopTimeStart>loopTime</variableLoopTimeStart>
+          <variableLoopTimeEnd>loopTimeEnd</variableLoopTimeEnd>
+        </timeIntervals>
+      </loop>
+      <continueAfterError>0</continueAfterError>
+      <processCountPerIteration>0</processCountPerIteration>
+      <parallelLog>1</parallelLog>
+      <program comment="data/{loopTime:%D}/orbit">
+        <FileCreateDirectories>
+          <directory>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/orbit</directory>
+          <directory>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/attitude</directory>
+          <directory>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/clock</directory>
+          <directory>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/signalBias</directory>
+        </FileCreateDirectories>
+      </program>
+      <program comment="orbits">
+        <LoopPrograms>
+          <loop link="loopPrn" />
+          <continueAfterError>1</continueAfterError>
+          <processCountPerIteration>1</processCountPerIteration>
+          <parallelLog>1</parallelLog>
+          <program comment="data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat">
+            <Sp3Format2Orbit>
+              <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</outputfileOrbit>
+              <satelliteIdentifier>{prn}</satelliteIdentifier>
+              <earthRotation>
+                <file>
+                  <inputfileEOP>/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+                  <interpolationDegree>3</interpolationDegree>
+                </file>
+              </earthRotation>
+              <inputfile>/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/prepared/2024-04-24/estimation/gnss/COD0OPSFIN_20241150000_01D_05M_ORB.SP3.gz</inputfile>
+            </Sp3Format2Orbit>
+          </program>
+          <program comment="data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat">
+            <OrbitAddVelocityAndAcceleration>
+              <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</outputfileOrbit>
+              <inputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</inputfileOrbit>
+              <polynomialDegree>2</polynomialDegree>
+            </OrbitAddVelocityAndAcceleration>
+          </program>
+        </LoopPrograms>
+      </program>
+      <program comment="data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.dat">
+        <GnssOrbex2StarCamera>
+          <outputfileStarCamera>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.dat</outputfileStarCamera>
+          <inputfileOrbex>/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/prepared/2024-04-24/estimation/gnss/COD0OPSFIN_20241150000_01D_30S_ATT.OBX.gz</inputfileOrbex>
+          <identifier loop="loopPrn">{prn}</identifier>
+          <earthRotation>
+            <file>
+              <inputfileEOP>/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+              <interpolationDegree>3</interpolationDegree>
+            </file>
+          </earthRotation>
+        </GnssOrbex2StarCamera>
+      </program>
+      <program comment="data/{loopTime:%D}/clock/clock_{loopTime:%D}.dat">
+        <GnssClockRinex2InstrumentClock>
+          <outputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/clock/clock_{loopTime:%D}.dat</outputfileInstrument>
+          <inputfileClockRinex>/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/prepared/2024-04-24/estimation/gnss/COD0OPSFIN_20241150000_01D_30S_CLK.CLK.gz</inputfileClockRinex>
+          <identifier loop="loopPrn">{prn}</identifier>
+          <intervals>
+            <uniformSampling>
+              <timeStart>timeStart</timeStart>
+              <timeEnd>timeStart+2</timeEnd>
+              <sampling>2</sampling>
+            </uniformSampling>
+          </intervals>
+          <minEpochsPerInterval>2</minEpochsPerInterval>
+        </GnssClockRinex2InstrumentClock>
+      </program>
+      <program comment="data/{loopTime:%D}/signalBias/signalBias_{loopTime:%D}.txt">
+        <GnssSinexBias2SignalBias>
+          <outputfileSignalBias>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/objective-log_drag_ou/result/point-002-repeat/native/data/{loopTime:%D}/signalBias/signalBias_{loopTime:%D}.txt</outputfileSignalBias>
+          <inputfileSinexBias>/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/prepared/2024-04-24/estimation/gnss/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz</inputfileSinexBias>
+          <identifier loop="loopPrn">{prn}</identifier>
+        </GnssSinexBias2SignalBias>
+      </program>
+    </LoopPrograms>
+  </program>
+</groops>

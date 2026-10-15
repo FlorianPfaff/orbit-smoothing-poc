@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60424</time>
+    <time label="timeEnd">timeStart+86400.0/86400</time>
+    <filename label="tmpDir">/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/native-products/tmp</filename>
+    <filename label="groopsDataDir">/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data</filename>
+    <filename label="orbitPocCanonicalAttitude">/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/inputs/attitude.txt</filename>
+    <double label="arcStartOffsetSeconds">18.0</double>
+  </global>
+  <program>
+    <GraceL1b2GnssReceiver>
+      <outputfileGnssReceiver>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/fine/predictions/heldout_receiver.dat</outputfileGnssReceiver>
+      <inputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/observations/GPS1B_2024-04-24_C_04.retained.txt</inputfile>
+    </GraceL1b2GnssReceiver>
+  </program>
+  <program>
+    <OrbitPocResampleOrbit>
+      <inputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/fine/closure-02/orbit.dat</inputfileOrbit>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/fine/predictions/heldout_orbit.dat</outputfileOrbit>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/fine/predictions/heldout_receiver.dat</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+      <interpolationDegree>7</interpolationDegree>
+    </OrbitPocResampleOrbit>
+  </program>
+  <program>
+    <InstrumentResample>
+      <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/inputs/attitude.txt</inputfileInstrument>
+      <outputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/fine/predictions/heldout_attitude.dat</outputfileInstrument>
+      <method>
+        <polynomial>
+          <polynomialDegree>7</polynomialDegree>
+          <maxDataPointRange>-8.1</maxDataPointRange>
+          <maxExtrapolationDistance>-1.1</maxExtrapolationDistance>
+        </polynomial>
+      </method>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/flight-refinement/result/fine/predictions/heldout_receiver.dat</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+    </InstrumentResample>
+  </program>
+</groops>
