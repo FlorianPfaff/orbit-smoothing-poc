@@ -45,8 +45,22 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-The latest [recovery report](validation/numerics-v3.1-correctness/recovery06/index.html)
-preserves the failed attempt06 after query/reference precision corrections.
+**Intermediate snapshot, October 15, 2026 at 10:51 UTC: v3.1 correctness remains
+unresolved.** The latest closed [attempt07 report](validation/numerics-v3.1-correctness/recovery07-08/attempt-07/index.html)
+records an infrastructure failure before any native build or test: its staged
+upstream repository was missing. The separately frozen residual-precision
+candidate is being validated in attempt08. Both objective checks have
+failed. One original replay passed and the second is still running; terminal
+cleanup and independent audit remain pending. This snapshot does not publish
+or imply a completed attempt08 result.
+
+The [arithmetic diagnostic](validation/numerics-v3.1-correctness/recovery06-diagnostics/report.html)
+preserves a failed diagnostic build and two failed trace replays, 104 exact
+equivalence checks, and a five-row Decimal analysis. That bounded diagnostic
+motivated the new source change; it does not replace an acceptance gate.
+
+The earlier [attempt06 report](validation/numerics-v3.1-correctness/recovery06/index.html)
+preserves the failed query/reference precision validation.
 All 106 original native tests, 18 added regression tests and four
 propagation/measurement refinements passed. Both exact nuisance-failure replays
 now reached strict convergence. Both objective gates failed: density failed its

@@ -11,9 +11,14 @@ fresh GROOPS checkout starts at
 The original 150-attempt benchmark retains its own executable and results;
 correctness-recovery results cannot replace its attempts.
 
-The latest attempt06 validates a separately frozen query/reference precision
-correction. It also failed the prescribed objective gates. Its exact source,
-results and independent audit are recorded below; v3.1 correctness remains open.
+Attempt06 validates a separately frozen query/reference precision correction.
+It failed the prescribed objective gates. The newer residual-precision
+candidate is undergoing attempt08. This is an intermediate publication snapshot
+as of October 15, 2026 at 10:51 UTC: both objective checks have failed. One original
+replay passed and the second is still running; terminal cleanup and independent
+audit remain pending. Attempt08's
+terminal results and independent audit are not part of this snapshot.
+V3.1 correctness remains open.
 
 ## Runtime and preserved evidence
 
@@ -293,5 +298,101 @@ launched against an unfinished required suite.
 
 This supplemental success isolates progress on the old failure. The required
 attempt06 density first-profile and pulse repeat failures remain unresolved.
-Their diagnosis is the next correctness work; covariance and release readiness
-remain unestablished.
+Their failed statuses remain preserved through the subsequent diagnostic and
+correction work; covariance and release readiness remain unestablished.
+
+## Bounded arithmetic diagnosis after attempt06
+
+The separate [diagnostic report](../validation/numerics-v3.1-correctness/recovery06-diagnostics/report.html)
+preserves D01's compiler failure before an accepted diagnostic executable,
+followed by D02's completed trace build. D02's trace-disabled and trace-enabled
+fixed-orbit replays both failed as before. Their 104 exact numerical-equivalence
+checks across eight generations passed. These checks establish that the
+instrumentation preserved the measured calculations; they do not establish
+nuisance convergence.
+
+The independent Decimal analysis examined five selected observation rows. It
+reproduced the native arithmetic and identified two individual-row reduction
+sign reversals. This selected-row evidence does not establish a full-objective
+descent direction, stationarity, covariance validity or orbit accuracy. The
+complete bounded analysis, failed runs, input hashes, trace inventory and
+independent reviews are preserved. The raw 12 MB trace and native row spools
+remain outside Git.
+
+The diagnostic package contains 183 files plus its manifest, with 7,023,811
+bytes of published content. Its manifest SHA256 is
+`fb6114260ad344b1600c67930750191325b120e232b47342cba10623ce60d5b7`.
+Both independent publication reviews verified its attribution and limitations.
+
+## Residual-precision candidate and closed attempt07
+
+The [complete-residual precision correction](numerics-complete-residual-precision.md)
+is frozen at commit
+[`8e4d36f7c47d57acdb9fa30d15a6005189bbf221`](https://github.com/FlorianPfaff/orbit-smoothing-poc/commit/8e4d36f7c47d57acdb9fa30d15a6005189bbf221),
+on branch `numerics-v3.1-correctness-04`. Its 771-file inventory SHA256 is
+`774d6d777e1f5caf09b5599a8b469e421327f2e1f962eb75a5af17b0bc8bf8c2`.
+The publication branch applies the exact eleven-file change as
+`e37022bdd87913779319692246de6bcb34a002d8`; the two commits have distinct
+identities. The attempt07 provenance includes the exact before/after file
+equivalence receipt. The original 106-test suite, prescribed inputs, physical
+models, priors, weights and numerical acceptance limits remain unchanged. A
+separate correction stage now contains 40 regression tests, including the
+earlier 18.
+
+Attempt07 failed its first clone step with exit128 on October 15, 2026 at
+09:21 UTC because its fresh execution root lacked `upstream.git`. No native
+binary, native-test pass or scientific validation result was produced.
+Owned cleanup was verified. Its independent terminal review confirms this
+infrastructure classification.
+
+The finite postprocessor preserved a failed audit and generated the original
+summary and HTML. Its collector then failed because the 20,604,509-byte HTML
+exceeded the unchanged 16 MiB receipt limit. That failed collector journal is
+retained. The separate [bounded attempt07 report](../validation/numerics-v3.1-correctness/recovery07-08/attempt-07/index.html)
+lists clone failure and all twelve unrun steps. It stores the complete original
+audit, summary and HTML as compressed, path-tokenized copies, with original and
+published hashes and sizes. This changes presentation only: it does not modify
+the frozen collector, its limit, any original journal or any scientific gate.
+
+The bounded attempt07 package contains 34 files plus its manifest, totaling
+3,276,140 bytes. Its manifest SHA256 is
+`88273c4015092238bbb7584b3505f322befb606584e86a04cf8439624b14c42f`.
+The unchanged controls are in
+[`scripts/correctness_recovery07`](../scripts/correctness_recovery07/), with a
+source manifest binding all twenty files to 285 passing author and independent
+fabricated tests. The separate
+[`scripts/correctness_publication`](../scripts/correctness_publication/)
+adapter passed 53 author and independent tests. Its initial attribution gaps,
+review requesting changes and subsequent corrected review remain in provenance.
+
+From the repository root, use a Python environment with pytest and NumPy:
+
+```sh
+TEST_OUTPUT=$(mktemp -d /tmp/orbit-recovery07-tests.XXXXXX)
+PYTHONDONTWRITEBYTECODE=1 python -m pytest scripts/correctness_recovery07 \
+  -q -p no:cacheprovider --basetemp "$TEST_OUTPUT/fixtures" \
+  --junitxml "$TEST_OUTPUT/junit.xml"
+```
+
+Run the presentation tests separately with `scripts/correctness_publication`
+substituted. Those tests need pytest but no numerical runtime. The tests check
+control or publication behavior and do not establish scientific acceptance.
+
+## Attempt08 is a separate unfinished execution
+
+Attempt08 uses the same frozen candidate source and all twenty byte-identical
+candidate07 controls in a fresh execution root. Its `candidate07-*`,
+`validation-07` and `postprocess-07-01` names identify the control version;
+the execution root and launch identities distinguish attempt08 from attempt07.
+An independently staged complete upstream mirror was checked inside the native
+namespace before launch. This retry does not reuse a failed build or replace
+the closed attempt07 record.
+
+At this publication snapshot, both attempt08 objective checks have failed.
+One original replay passed and the second is still running. Terminal cleanup
+and independent audit remain pending, so no terminal suite, report or
+independent scientific verdict is represented here.
+The new candidate is not verified correct. Its eventual results, including all
+failed points, will be published separately after cleanup and independent audit.
+The original v3 campaign and 150-attempt benchmark retain their own executables,
+inputs and results throughout this recovery.

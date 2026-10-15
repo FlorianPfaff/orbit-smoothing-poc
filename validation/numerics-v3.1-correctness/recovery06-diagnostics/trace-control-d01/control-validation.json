@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-10-15T08:12:32.750114+00:00",
+  "generated_source_smoke": {
+    "receipt": {
+      "bytes": 2651,
+      "path": "@TEMP_ROOT@/row-trace07-install-smoke-dcndvj9t/install.json",
+      "sha256": "bef17a8411034b14cd4ce0d28da1fa1ccf4465273266f568da3ca1f6ec80bc38"
+    },
+    "scope": "Preserved generated02 read-only source inputs, exact installer anchors, 9 output files plus new header; original STEC/VTEC arithmetic statement preservation and repeat refusal. Not a numerical equivalence claim."
+  },
+  "helpers": {
+    "README.md": {
+      "bytes": 3589,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07/README.md",
+      "sha256": "570fe9d9bf200bc35d763728d90d9a470c0c80ffafdbb18d679a3beb027889e6"
+    },
+    "install_row_trace.py": {
+      "bytes": 13921,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07/install_row_trace.py",
+      "sha256": "e6aefda04b5fcea1e87952a29a96e7e17841592be2518723e14201e1ac1566d2"
+    },
+    "rowArithmeticTrace.h": {
+      "bytes": 6705,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07/rowArithmeticTrace.h",
+      "sha256": "5a273bb31a703408b78da1a19dc51855767df34cc65a3b82ca2e62973a661e4a"
+    },
+    "test_row_trace.py": {
+      "bytes": 11915,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07/test_row_trace.py",
+      "sha256": "bb9d99182181ede98ffd727d70a399eb44c51f361c363f9ec7c61cc909ad2c6b"
+    },
+    "verify_trace_equivalence.py": {
+      "bytes": 6497,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07/verify_trace_equivalence.py",
+      "sha256": "3ba6b6e22be16bbc96138052ee84b3e1d294191aef933a31506d698b5d43171d"
+    }
+  },
+  "initial_test_invocation": {
+    "command": "python3 -m pytest ...",
+    "error": "/usr/bin/python3: No module named pytest",
+    "status": "unavailable"
+  },
+  "limitations": [
+    "Only five predeclared rows are traced.",
+    "Clock, shared-bias and ambiguity update rounding uses actual baseline/trial snapshots; individual update statements are not traced.",
+    "Every production attribution requires exact archived06/diagnostic-off/diagnostic-on factor, row and correction equivalence.",
+    "No original correctness gate or statistical/numerical threshold is changed."
+  ],
+  "passed": true,
+  "prior_test_runs": [
+    {
+      "bytes": 2452,
+      "path": "@TEMP_ROOT@/row-trace07-fixtures-02.xml",
+      "sha256": "a9e63e3b996a796adbc77a1ac8907ad595a61614af5eba69f030c1f192ff93a4"
+    },
+    {
+      "bytes": 4332,
+      "path": "@TEMP_ROOT@/row-trace07-fixtures-03.xml",
+      "sha256": "d9e1e56f3e2428215695a8d6825cc92d60454f957751b27d41f973c807a842dc"
+    },
+    {
+      "bytes": 4669,
+      "path": "@TEMP_ROOT@/row-trace07-fixtures-04.xml",
+      "sha256": "b77429244f1aadf05f4888238a75e48808bd702a47f04a42960791ee1b58f9dc"
+    }
+  ],
+  "schema": "orbit-poc-row-trace-diagnostic-controls-review-v1",
+  "scope": "Fabricated trace and comparator fixtures plus installer anchor/preservation smoke only. No native GROOPS build or orbit replay performed; numerical equivalence remains required.",
+  "source_snapshot_unchanged": "163cc929f9e02a5c18da63c17a04724461ebcfb0",
+  "successful_interpreter": "@WORKSPACE_ROOT@/work/numerics-v3.1/python/bin/python",
+  "tests": {
+    "count": 27,
+    "errors": 0,
+    "failed": 0,
+    "junit": {
+      "bytes": 4669,
+      "path": "@TEMP_ROOT@/row-trace07-fixtures-05.xml",
+      "sha256": "a8bdd0327760380812c29eeb00218d7b89382afffe5df3b1f1aa694855da6dc4"
+    },
+    "skipped": 0
+  }
+}
