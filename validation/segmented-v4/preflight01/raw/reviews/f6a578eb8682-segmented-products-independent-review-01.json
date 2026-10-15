@@ -1,0 +1,43 @@
+{
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 6
+  },
+  "cpu_affinity": [
+    31
+  ],
+  "created_utc": "2026-10-15T16:23:21.177453+00:00",
+  "files": {
+    "src/orbit_poc/segmented/products.py": {
+      "bytes": 10075,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/products.py",
+      "sha256": "1a7934ebfb8268b9e127ab7887e2fa981db2fe82882f1a3ed400ff14e1c1f8db"
+    },
+    "tests/test_segmented_products.py": {
+      "bytes": 5441,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_products.py",
+      "sha256": "e85e8a4bd27e5026afe8462dae5a01124b0a6f017fa9c19f56653203aa97e66c"
+    }
+  },
+  "findings": [
+    "All daily source hashes verified before audit; input bytes are not edited.",
+    "Identical-epoch overlap differences are distinct from different-epoch boundary sample changes. GPS positions are metres and clocks seconds; quaternion rotations normalize and account for sign equivalence.",
+    "Every common-satellite boundary has a sample-pair record or explicit unavailable-side coverage event; satellite membership changes are separate.",
+    "Daily bias changes are explicitly scoped to native-selected GPS OSB datums, preserving code attributes and first phase bias per frequency.",
+    "No observations, ambiguity arcs, bias datum or physical force is modified. Existing audit output is preserved; malformed inputs fail without a completed summary."
+  ],
+  "limitations": [
+    "Product audit measures differences; it does not infer physical discontinuities from ordinary between-epoch motion.",
+    "Actual multi-day product audit and preparation remain to execute."
+  ],
+  "native_workloads_run": false,
+  "passed": true,
+  "schema": "orbit-poc-segmented-product-audit-independent-review-v1",
+  "tests": {
+    "bytes": 1069,
+    "path": "/tmp/segmented-products-independent-01.xml",
+    "sha256": "4fbc1bfd86c31c01614e7feb1ab4e778fc83846a72c2c69b491a92cd3671c691"
+  }
+}

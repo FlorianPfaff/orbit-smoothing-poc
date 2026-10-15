@@ -1,0 +1,72 @@
+{
+  "attempts": 68,
+  "balanced_attempts": {
+    "bytes": 47899,
+    "path": "/mnt/d/orbit-segmented-v4/control/profile-order-correction-03/balanced-attempts.json",
+    "sha256": "44f2f79d3916cb547328ce31266d9a02d487b10395d23d2fcf2ebf940ca9fae5"
+  },
+  "cases": 28,
+  "changed_protocol_functions": [
+    "attempts"
+  ],
+  "counterexample": {
+    "bytes": 1078,
+    "path": "/mnt/d/orbit-segmented-v4/control/profile-order-counterexample-01.json",
+    "sha256": "d40801d2ed6884f65dfb0a00ea706b072be0614a184db4b7b55ea7dea6ec64e7"
+  },
+  "errors": 0,
+  "external_deployment_packet": {
+    "bytes": 6516,
+    "path": "/mnt/d/orbit-segmented-v4/control/deployment-config-03/packet.json",
+    "sha256": "10689cfef4afc916614275baad7f7daab16e4e2d5e6693f003b549156800dbb3"
+  },
+  "failures": 0,
+  "files": {
+    "src/orbit_poc/segmented/protocol.py": {
+      "bytes": 35092,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/protocol.py",
+      "sha256": "43254fe92571a7febe9eec19f9133bfb8f2be9ececec17bcb81e71808dca18ea"
+    },
+    "tests/test_segmented_protocol.py": {
+      "bytes": 41626,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_protocol.py",
+      "sha256": "eba36d59797fb821556876add6b1790cdb25d084b3052caaac1ef50aa9064785"
+    }
+  },
+  "junit": {
+    "bytes": 6753,
+    "path": "/tmp/v4-profile-order-03.xml",
+    "sha256": "0393b7670487b4a2e2bcb5058e0ed149bc0e40727d0115d25285750444f5443f"
+  },
+  "log": {
+    "bytes": 181,
+    "path": "/tmp/v4-profile-order-03.log",
+    "sha256": "3332f8b7d2ae67d2f97941c93993202f4ec7be667704528f6fb3f9a95c87f354"
+  },
+  "original_order": {
+    "bytes": 15179,
+    "path": "/mnt/d/orbit-segmented-v4/control/profile-order-correction-01/prior-order.json",
+    "sha256": "aff65aa93b480c15aeedc46d87b6deb0a13ae68519770f5b7da05b90ce5faa45"
+  },
+  "policy": "o=0leo500,1eccentric,2flight;c=0normal/quiet,1blackout/disturbed;m=METHODS.index(method).24h:(o+c+m)%3;48h:(o+c+m)%2;72h:(o+c+m+1)%2.",
+  "prior_candidates": [
+    {
+      "bytes": 2314,
+      "path": "/mnt/d/orbit-segmented-v4/control/profile-order-correction-01/validation.json",
+      "sha256": "162ea2392c3dfcffa5fe64a19cb55dd2578c04bc73cf2d8169c605e9a5e2bcb1"
+    },
+    {
+      "bytes": 1772,
+      "path": "/mnt/d/orbit-segmented-v4/control/profile-order-correction-02/validation.json",
+      "sha256": "8b96358ed075ff468aff460377331dc6d864912ee3ef0e842ca46f7a67ebc6a3"
+    }
+  ],
+  "same_attempt_id_case_profile_set": true,
+  "same_case_order": true,
+  "same_cases_and_physics_function_ast": true,
+  "schema": "orbit-poc-segmented-profile-order-correction-v1",
+  "scope": "Balanced frozen profile order only. All original cases, inputs, numerical limits and native build inputs unchanged. Final structural unique inventory301. No native workload, source freeze, or launch performed.",
+  "skips": 0,
+  "status": "passed_control_tests",
+  "tests": 50
+}

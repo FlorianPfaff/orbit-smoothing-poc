@@ -1,0 +1,53 @@
+{
+  "checks": [
+    "Every native solve enters _run; finite numeric0<=equality_max_backward_error<2e-12 required before proposals or selected/block covariance payload use.",
+    "Missing/null, bool, negative, NaN, infinity, exact threshold and above-threshold values rejected as NumericalFailure constraint_residual_inconsistent.",
+    "Raw solve output and diagnostic failure marker retained; no ridge, native arithmetic, statistical prior or rank-threshold change."
+  ],
+  "delta_log": {
+    "bytes": 179,
+    "path": "/tmp/segmented-final-deltas-independent-01.log",
+    "sha256": "9de4f69e07e074dfcba7ab88ec84abc7eb37c5d1663a76fb71c4354441ed2798"
+  },
+  "delta_run": {
+    "bytes": 1434,
+    "errors": 0,
+    "failures": 0,
+    "passed": 9,
+    "path": "/tmp/segmented-final-deltas-independent-01.xml",
+    "sha256": "6ebd0f6de6bde56432cf64c2fce687e9d18bc8531d6080903eeae3f0ebb81d12",
+    "skipped": 0,
+    "tests": 9
+  },
+  "files": {
+    "src/orbit_poc/segmented/solver.py": {
+      "bytes": 16136,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/solver.py",
+      "sha256": "7a7e708faee646ee67c1480afc60c2245ac15f73d83f19676055fdd5b70a0ae2"
+    },
+    "tests/test_segmented_solver.py": {
+      "bytes": 7627,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_solver.py",
+      "sha256": "cfd2aa7fcd7162d9f982a45c2e372e07066cc6dc4eea92eebbc85d4e90703491"
+    }
+  },
+  "limitations": [
+    "Existing native64eps*frontwidth is a distinct internal safety guard. This Python acceptance check enforces the fixed approved residual threshold; it is not a new successful-fit result."
+  ],
+  "native_workload_run": false,
+  "new_adversarial_fixtures_passed": 7,
+  "passed": true,
+  "prior_solver_review": {
+    "bytes": 4378,
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-backend-independent-review-01.json",
+    "sha256": "54504005327df33f14121c4f0a5f1901aab1e4f27cd2850118bd970bae90b26f"
+  },
+  "remote_workload_run": false,
+  "reviewer": "v31_recovery_review",
+  "runtime": {
+    "bytes": 25912192,
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+  },
+  "schema": "orbit-poc-segmented-production-residual-independent-review-v1"
+}

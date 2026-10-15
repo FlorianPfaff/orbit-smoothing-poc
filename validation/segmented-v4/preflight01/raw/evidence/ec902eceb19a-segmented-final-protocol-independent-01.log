@@ -1,0 +1,42 @@
+.........F.............................................................. [ 72%]
+............................                                             [100%]
+=================================== FAILURES ===================================
+___________ test_parent_sigterm_requests_owned_cleanup_before_return ___________
+
+tmp_path = PosixPath('/tmp/segmented-final-protocol-independent-01/test_parent_sigterm_requests_o0')
+
+    def test_parent_sigterm_requests_owned_cleanup_before_return(tmp_path):
+        source=Path(__file__).resolve().parents[1]/"src"
+        code="""import json,os,sys
+    from pathlib import Path
+    from orbit_poc.segmented.supervisor import run_owned
+    p=Path(sys.argv[1])
+    v=run_owned([sys.executable,'-c','import time;time.sleep(30)'],python_executable=sys.executable,cwd=p,
+     env=os.environ.copy(),log_path=p/'worker.log',receipt_path=p/'supervision.json',
+     timeout_seconds=20.,max_process_tree_rss_bytes=536870912,min_free_disk_bytes=0,working_directory=p)
+    (p/'returned.json').write_text(json.dumps(v))
+    """
+        caller=subprocess.Popen([sys.executable,"-c",code,str(tmp_path)],env=dict(os.environ,PYTHONPATH=str(source)),start_new_session=True)
+        handle=s.Pidfd(caller.pid)
+        try:
+            deadline=time.monotonic()+8
+            while time.monotonic()<deadline:
+                path=tmp_path/"supervision.json"
+                if path.exists() and "worker" in json.loads(path.read_text()):break
+                if caller.poll() is not None:pytest.fail("Caller exited before interruption fixture")
+                time.sleep(.02)
+>           else:pytest.fail("Owned worker did not launch")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: Owned worker did not launch
+
+tests/test_segmented_supervisor.py:141: Failed
+----------------------------- Captured stderr call -----------------------------
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+  File "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/supervisor.py", line 281, in run_owned
+    raise RuntimeError("Supervisor produced no ownership receipt; cleanup is unverified")
+RuntimeError: Supervisor produced no ownership receipt; cleanup is unverified
+----- generated xml file: /tmp/segmented-final-protocol-independent-01.xml -----
+=========================== short test summary info ============================
+FAILED tests/test_segmented_supervisor.py::test_parent_sigterm_requests_owned_cleanup_before_return
+1 failed, 99 passed in 130.77s (0:02:10)

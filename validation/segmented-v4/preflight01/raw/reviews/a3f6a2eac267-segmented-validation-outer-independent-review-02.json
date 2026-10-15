@@ -1,0 +1,62 @@
+{
+  "command": "taskset -c31 env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src <pinned scientific Python> -m pytest -q -p no:cacheprovider --basetemp=/tmp/segmented-outer-independent-03 --junitxml=/tmp/segmented-outer-independent-03.xml control/test_run_segmented_validation01.py",
+  "corrected_entrypoint": "python -m orbit_poc.cli segmented validate --config ...",
+  "entrypoint_validation": "A test extracts the actual module emitted by cli_command and executes segmented validate --help in a fresh directory; exit0 and expected argparse usage verified. This does not execute native validation.",
+  "errors": 0,
+  "failures": 0,
+  "junit": {
+    "bytes": 4031,
+    "path": "/tmp/segmented-outer-independent-03.xml",
+    "sha256": "983ce04fc132fe6706c37f13b6cbd804bc5ad18e40e66233ee0488306706dd24"
+  },
+  "limits": [
+    "Actual final external config/plan/pins/current-host admission and namespace remain launch-time checks.",
+    "This is local control validation only; it does not satisfy Gate1, v4 native/paired benchmark or release readiness."
+  ],
+  "log": {
+    "bytes": 180,
+    "path": "/tmp/segmented-outer-independent-03.log",
+    "sha256": "ff5ad7b39b718ef9d16547b687ebc9854d96d8119f181de61a781a7035152b14"
+  },
+  "native_workload_run": false,
+  "passed": true,
+  "preserved_prelaunch_failure": {
+    "bytes": 267,
+    "path": "/mnt/d/orbit-segmented-v4/control/validation-controller-draft01/failure.json",
+    "sha256": "c3e9e8c93b190091a6eca4438552ee59ac7745a4767b0491bfdfb7cb406a9c10"
+  },
+  "remote_workload_run": false,
+  "review_correction": "Independent review01 verified the emitted argv against fixtures but did not execute the module, missing the lack of orbit_poc.__main__. Root actual CLI smoke caught this before native launch. This review supersedes01 and covers corrected actual entrypoint plus unchanged attribution/ownership controls.",
+  "reviewer": "v31_recovery_review",
+  "schema": "orbit-poc-segmented-outer-controller-independent-review-v2",
+  "skipped": 0,
+  "source_files": {
+    "launch_segmented_validation01.py": {
+      "bytes": 4843,
+      "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_validation01.py",
+      "sha256": "38ac281ffd03e7ecc44c19354d41bcc464a8b112a2bd9a10189d9d6501dbdfc8"
+    },
+    "run_segmented_validation01.py": {
+      "bytes": 8396,
+      "path": "/mnt/d/orbit-segmented-v4/control/run_segmented_validation01.py",
+      "sha256": "4b6db2dd4c157a387d415c83e2cfcfb39407460320c07be13e071b34401a2839"
+    },
+    "test_run_segmented_validation01.py": {
+      "bytes": 7414,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_run_segmented_validation01.py",
+      "sha256": "18f80c2b0cfc1a39177d1db7746e191dddf1d9e62debadcd3ebdad852a7d3435"
+    }
+  },
+  "supersedes": {
+    "bytes": 3977,
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-validation-outer-independent-review-01.json",
+    "sha256": "6c906174269b333c89de1fb1b9f05dc11b2c9505bf98b103db35c48cf3ac3429"
+  },
+  "tests": 30,
+  "unchanged_checks": [
+    "Exact ordered14 stage inventory and complete/zero/clean passing executions.",
+    "Passed summary requires every planned stage passed; latest pipeline confined to this validation output.",
+    "Pinned source/config/native-equivalence/runtime guard and previously audited namespace-owned supervisor.",
+    "Detached launcher metadata-only adaptation, durable receipt, no scientific threshold reinterpretation."
+  ]
+}

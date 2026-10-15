@@ -1,0 +1,45 @@
+{
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 41
+  },
+  "created_utc": "2026-10-15T16:08:32.133998+00:00",
+  "files": {
+    "scripts/validate_segmented_linearization.py": {
+      "bytes": 17987,
+      "path": "/mnt/d/orbit-segmented-v4/source/scripts/validate_segmented_linearization.py",
+      "sha256": "2bbaeb48ba23e21d3c8a960f83ff980fb1fdd43cc229989fea66e3135747603a"
+    },
+    "tests/test_segmented_linearization_gate.py": {
+      "bytes": 7850,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_linearization_gate.py",
+      "sha256": "15da22ec389611536eafe7f7586c17ecc9a263542e7070f3c19551772f7679f5"
+    }
+  },
+  "oracle": "Causal equality substitution in extended precision; explicit JacobianFactor.eliminate(Ordering) invokes GTSAM4.2 EliminateQR; original weighted observation/prior rows after recorded epoch nuisance QR; no input factor from native R or segmented conditionals.",
+  "passed": true,
+  "preserved_failure_notes": [
+    "Test02 exposed GTSAM null unit-noise model handling; explicit QR API selected before test03.",
+    "Test02 also observed a concurrent root test fixture missing variable_ids; the root-owned fixture was corrected by its owner before test03."
+  ],
+  "previous_failed_test_result": {
+    "bytes": 13058,
+    "path": "/tmp/segmented-linearization-gate-02.xml",
+    "sha256": "3d1a34bf75e3e77c39df50e74f4638459372d6c49510e0b09307a03374a0ba40"
+  },
+  "schema": "orbit-poc-segmented-linearization-author-validation-v2",
+  "scope": "Post-engineering02 additive actual-original-row GTSAM4.2 QR oracle. No new physical evaluation, no native run. Actual engineering02 remains pinned to the prior script.",
+  "source_api_reference": "https://github.com/borglab/gtsam/blob/4.2/gtsam/linear/JacobianFactor.cpp#L706-L712",
+  "test_result": {
+    "bytes": 6173,
+    "path": "/tmp/segmented-linearization-gate-03.xml",
+    "sha256": "ea39daba953af4cf9fe123930342021b3b9e29f49bfc534814679e9e1ad6c003"
+  },
+  "thresholds": {
+    "map_posterior_sd": 1e-07,
+    "normalized_full_energy": 2e-12,
+    "relative_covariance": 1e-08
+  }
+}

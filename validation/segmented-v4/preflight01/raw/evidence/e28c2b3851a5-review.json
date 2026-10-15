@@ -1,0 +1,65 @@
+{
+  "all_formula_values_exact_binary64_match": true,
+  "all_remaining_fields_equal": true,
+  "audit_source": {
+    "bytes": 4112,
+    "path": "/mnt/d/orbit-segmented-v4/control/flight-normalization-independent-01/audit.py",
+    "sha256": "f04b3ef42235511accd0795dd69951244b153026cabf35afe333327295cffdee"
+  },
+  "correction_records_per_receipt": 16,
+  "download": {
+    "bytes": 378,
+    "path": "/mnt/d/orbit-segmented-v4/control/flight-normalization-independent-01/download-01.json",
+    "sha256": "76023f8b65b9f9134fb964437a928ee8affdcc03e00b5d94641eb7b22cb44eab"
+  },
+  "initial_attempt": "Full formula verification initially failed closed because April25 bytes were absent in local historical mirror; recovered identical pinned bytes from official CODE public URL into new audit directory. No original input modified.",
+  "limitation": "This verifies two recorded normalization ledgers and underlying native-selected bias arithmetic; it does not re-run the full mission observation assembly or certify general daily-product fidelity.",
+  "nested_bias_artifacts": [
+    {
+      "bytes": 126116,
+      "original_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/preparation/inputs/observations/raw_gps_days/2024-04-24/gnss/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+      "path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/preparation/inputs/observations/raw_gps_days/2024-04-24/gnss/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+      "sha256": "0a58a9004d31f0f92a055251720d6df33da085e6bcc672ca3c3cbfef14609510"
+    },
+    {
+      "bytes": 125584,
+      "original_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/preparation/inputs/observations/raw_gps_days/2024-04-25/gnss/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+      "path": "/mnt/d/orbit-segmented-v4/control/flight-normalization-independent-01/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+      "sha256": "027f0f0568634f44e7b8ce414dc506b0a9becc338f4e832d45ce25f8065de54b"
+    },
+    {
+      "bytes": 126116,
+      "original_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/blackout/preparation/inputs/observations/raw_gps_days/2024-04-24/gnss/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+      "path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/blackout/preparation/inputs/observations/raw_gps_days/2024-04-24/gnss/COD0OPSFIN_20241150000_01D_01D_OSB.BIA.gz",
+      "sha256": "0a58a9004d31f0f92a055251720d6df33da085e6bcc672ca3c3cbfef14609510"
+    },
+    {
+      "bytes": 125584,
+      "original_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/blackout/preparation/inputs/observations/raw_gps_days/2024-04-25/gnss/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+      "path": "/mnt/d/orbit-segmented-v4/control/flight-normalization-independent-01/COD0OPSFIN_20241160000_01D_01D_OSB.BIA.gz",
+      "sha256": "027f0f0568634f44e7b8ce414dc506b0a9becc338f4e832d45ce25f8065de54b"
+    }
+  ],
+  "passed": true,
+  "receipt_artifacts": [
+    {
+      "bytes": 21962,
+      "path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-74863d5a/blackout/preparation/inputs/observations/estimation/boundary_osb_normalization.json",
+      "sha256": "c67183f50ba421830643d3b2e89c899a443afdd3648cd1391f19217cf997d27f"
+    },
+    {
+      "bytes": 21978,
+      "path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/engineering-utc/april24-closure-c8d7d8dc/blackout/preparation/inputs/observations/estimation/boundary_osb_normalization.json",
+      "sha256": "06507bd2547a4b17b2531f69014aa6fbe0b6e279af63613cc04bbc8fd5be6232"
+    }
+  ],
+  "removed_fields": [
+    "bias_inputs[0].path",
+    "bias_inputs[1].path"
+  ],
+  "reviewer": "v31_recovery_review",
+  "schema": "orbit-poc-flight-normalization-independent-review-v1",
+  "semantic_sha256": "cdcb44f2de026e9a8ed361efc042184cb8499ab5e2bd7292e5d396c91a9550eb",
+  "signal_corrections_per_receipt": 96,
+  "source_scope": "GPS code attributes retained; first phase entry per frequency, matching native recorded policy. No reference or estimated bias used."
+}

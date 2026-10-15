@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "real zero and nonzero exit",
+    "immediate double-fork setsid adoption",
+    "unrelated process survival",
+    "whole descendant memory limit",
+    "deadline cleanup",
+    "PID reuse before and during pidfd open",
+    "no numeric PID or process-group signal fallback",
+    "SIGTERM to calling controller",
+    "empty proc enumeration with live adopted child requires kernel ECHILD",
+    "stale intermediate ancestry never authorizes a signal"
+  ],
+  "independent_review": "pending",
+  "junit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/local-owned-supervisor-03.xml",
+    "sha256": "ac7b59d84c2f7e82cac97b3eab9d937ce042c9307def92ba57c74811d13e2845"
+  },
+  "passed": true,
+  "schema": "orbit-poc-segmented-owned-supervisor-author-validation-v1",
+  "scientific_validation_or_fit": false,
+  "sources": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/supervisor.py",
+      "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_supervisor.py",
+      "sha256": "14c2452158525665f66614523d77651ee6c078a134b3ac6730304a571c3da8b0"
+    }
+  ],
+  "tests": 11
+}
