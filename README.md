@@ -45,14 +45,16 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-**Intermediate snapshot, October 15, 2026 at 10:51 UTC: v3.1 correctness remains
-unresolved.** The latest closed [attempt07 report](validation/numerics-v3.1-correctness/recovery07-08/attempt-07/index.html)
-records an infrastructure failure before any native build or test: its staged
-upstream repository was missing. The separately frozen residual-precision
-candidate is being validated in attempt08. Both objective checks have
-failed. One original replay passed and the second is still running; terminal
-cleanup and independent audit remain pending. This snapshot does not publish
-or imply a completed attempt08 result.
+**The independently audited attempt08 failed; v3.1 correctness remains unresolved.**
+The [closed recovery report](validation/numerics-v3.1-correctness/recovery07-08/index.html)
+records all 106 original native tests, 40 separate correction regressions and
+four propagation/measurement refinements passing. Both objective checks failed
+before completing a directional-derivative scale. The first original nuisance
+replay reached strict convergence; the second failed at generation14. Complete
+failed iteration histories and the original failed report-collector record are
+preserved. These results cannot authorize covariance or establish release
+readiness. Attempt07 remains a separate infrastructure failure before any
+native build or tests.
 
 The [arithmetic diagnostic](validation/numerics-v3.1-correctness/recovery06-diagnostics/report.html)
 preserves a failed diagnostic build and two failed trace replays, 104 exact

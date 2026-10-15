@@ -378,21 +378,71 @@ Run the presentation tests separately with `scripts/correctness_publication`
 substituted. Those tests need pytest but no numerical runtime. The tests check
 control or publication behavior and do not establish scientific acceptance.
 
-## Attempt08 is a separate unfinished execution
+## Closed attempt08: required suite failed
 
-Attempt08 uses the same frozen candidate source and all twenty byte-identical
+Attempt08 used the same frozen candidate source and all twenty byte-identical
 candidate07 controls in a fresh execution root. Its `candidate07-*`,
 `validation-07` and `postprocess-07-01` names identify the control version;
 the execution root and launch identities distinguish attempt08 from attempt07.
 An independently staged complete upstream mirror was checked inside the native
-namespace before launch. This retry does not reuse a failed build or replace
+namespace before launch. This retry did not reuse a failed build or replace
 the closed attempt07 record.
 
-At this publication snapshot, both attempt08 objective checks have failed.
-One original replay passed and the second is still running. Terminal cleanup
-and independent audit remain pending, so no terminal suite, report or
-independent scientific verdict is represented here.
-The new candidate is not verified correct. Its eventual results, including all
-failed points, will be published separately after cleanup and independent audit.
-The original v3 campaign and 150-attempt benchmark retain their own executables,
-inputs and results throughout this recovery.
+The suite ended on October 15, 2026 at 10:56 UTC with verified owned-process
+cleanup. Independent terminal audit confirmed the failed scientific result:
+
+| Required check | Actual result |
+| --- | --- |
+| Original native tests | 106 passed; zero failures, errors or skips |
+| Separate correction regressions | 40 passed; zero failures, errors or skips |
+| Four propagation/measurement refinements | All passed |
+| Density full OU prior | Passed, 61 rows, nonzero cost 4.848917841373497 |
+| Full pulse prior | Passed, 6 rows, cost 0.053929305673915545; exact residual agreement |
+| Density objective | Failed point006, generation52, fresh update 19.460792563 nm |
+| Pulse objective | Failed point003, generation80, fresh update 17.741946472 nm |
+| First original nuisance replay | Strict convergence, fresh update 0.299056172 nm |
+| Second original nuisance replay | Failed generation14, fresh update 32.511868781 nm |
+
+Neither objective completed a directional-derivative scale. Both failed final
+objective profiles rejected all seventeen trials, with no accepted numerical
+floor qualification. The second original replay also failed; it has no accepted
+final nuisance profile. These updates exceed the unchanged 10 nm nuisance
+threshold. Passing prior checks, earlier accepted steps or small damped steps
+do not establish convergence.
+
+The native executable SHA256 is
+`dba44217a63c655cafebee130ffb6f81ab23e3e72ad82d9ba68dd09784d60f6c`;
+its build manifest SHA256 is
+`8218ea268e5dd5f5adf11c26ff6d63c82505bc76bfe43d0fae9ff870be242bf7`.
+The exact source remains commit `8e4d36f7c47d57acdb9fa30d15a6005189bbf221`.
+
+The [attempt08 report](../validation/numerics-v3.1-correctness/recovery07-08/attempt-08/index.html)
+contains every planned step, exact inputs, source/build/launch identities,
+refinement and prior measurements, original replay attribution and the
+independent terminal audit. Its 75-file manifest SHA256 is
+`64ebdc5f7dbecf18990a879240827986f92868be828b79a357f8611b892dbef1`.
+The original collector again rejected the oversized generated HTML. Its failed
+journal is preserved; the separately reviewed presentation stores the full
+original audit, summary and HTML as compressed copies with original and
+transformed hashes. No frozen control or reporting limit was changed.
+
+The [objective failure appendix](../validation/numerics-v3.1-correctness/recovery07-08/attempt-08-failure-details/index.html)
+retains all 52 density and 80 pulse generations, including complete compact
+profile, factor, search and available retirement receipts. Its 802-file
+manifest is `f5afa0cdd56b96be232ee041044d20eb896d19350c6fef5b2e7c29cc0715b596`.
+The last generation has no superseding-factor retirement receipt; that absence
+is explicit. Raw row spools and binary factors remain external, with hashes.
+The [second replay appendix](../validation/numerics-v3.1-correctness/recovery07-08/attempt-08-replay-failure/index.html)
+separately preserves all fourteen generations of the failed original replay.
+
+A [static density-point diagnostic](../validation/numerics-v3.1-correctness/recovery07-08/attempt-08-density-point006-plot/late-iterations.svg)
+shows only late generations4–52, with the unchanged strict threshold and
+recorded accepted step sizes. The accompanying CSV and input manifest bind all
+49 plotted JSON records. The full history remains the primary evidence; this
+plot makes no new numerical acceptance or trajectory-accuracy claim.
+
+Correctness remains unresolved. These failed gates cannot authorize covariance
+or establish full release readiness. Further arithmetic diagnosis is separate
+from this closed attempt. The original v3 campaign and frozen 150-attempt
+benchmark retain their own executables, inputs and results; benchmark completion
+remains an additional deliverable.
