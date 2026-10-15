@@ -114,11 +114,18 @@ def apply(source):
         text=replace_one(text,anchor,"Vector3d &k, Vector3d &kRecv, Vector3d &kTrans, Vector3d *receiverRemainder=nullptr, Vector3d *transmitterRemainder=nullptr)","geometry remainder output")
         anchor="    if(orbitPocQr::enabled())\n    {\n      auto query="
         text=replace_one(text,anchor,"    if(orbitPocQr::enabled())\n    {\n      if(receiver.isEarthFixed())throw(Exception(\"v3.1 precise range geometry supports inertial LEO receivers only\"));\n      const Vector3d recvLow=receiver.positionRemainder(idEpoch);Vector3d transLow;\n      if(receiverRemainder)*receiverRemainder=recvLow;\n      auto query=","geometry restriction")
-        text=replace_one(text,"auto query=[&](long double travel)\n      {\n        const long double duration=static_cast<long double>(receiver.clockError(idEpoch))+travel;",
-                        "// ORBIT_POC_TWOFOLD_LIGHT_TIME_V31\n      auto query=[&](const orbitPocQr::TwofoldGeometry &travel)\n      {\n        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;",
-                        "twofold light-time duration")
-        start=text.index("      long double remainder=query(20200e3L/LIGHT_VELOCITY);");end=text.index("\n    }\n    else",start)
-        text=text[:start]+r'''      long double remainder=query(orbitPocQr::TwofoldGeometry(20200e3L)/orbitPocQr::TwofoldGeometry(LIGHT_VELOCITY));
+        # Replace the complete query region at the existing outer scaffold.
+        # Its previous lambda body is not an installer interface; retaining it
+        # would make scaffold-only callers depend on an internal expression.
+        start=text.index("      auto query=");end=text.index("\n    }\n    else",start)
+        text=text[:start]+r'''      // ORBIT_POC_TWOFOLD_LIGHT_TIME_V31
+      auto query=[&](const orbitPocQr::TwofoldGeometry &travel)
+      {
+        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;
+        timeTrans=orbitPocQr::stableReceiverTime(receiver.times.at(idEpoch),duration);
+        return orbitPocQr::timeRemainder(receiver.times.at(idEpoch),duration,timeTrans);
+      };
+      long double remainder=query(orbitPocQr::TwofoldGeometry(20200e3L)/orbitPocQr::TwofoldGeometry(LIGHT_VELOCITY));
       posTrans=transmitter.positionOffset(idEpoch,timeTrans,remainder,&transLow);
       for(UInt i=0;i<10;i++)
       {
