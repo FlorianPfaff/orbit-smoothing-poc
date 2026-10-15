@@ -1,0 +1,32 @@
+{
+  "actual_remote_staging_verified": false,
+  "artifacts": {
+    "freeze_source09.py": {
+      "bytes": 7484,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze_source09.py",
+      "sha256": "e18a76a84ff8524eade0e749a2b6ae372d075ebb5045c052d481d81344859a62"
+    },
+    "test_freeze_source09.py": {
+      "bytes": 2101,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_freeze_source09.py",
+      "sha256": "d749b7eaadaa26affde057bab35cc69517dcc939b7c959307ee1134db93a63df"
+    }
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:14:58.116063+00:00",
+  "delta_review": [
+    "Sourcefreeze.independent_review now references remote09/control/<review filename>, while preserving the exact SHA256 of the already verified local review.",
+    "The packaging receipt still pins the local review for creation provenance; root must stage exact bytes at the referenced remote path.",
+    "No source inventory, review pass/digest/count checks, test protection, prior source/lineage, scientific settings or packaging overwrite guard changed."
+  ],
+  "native_launched": false,
+  "passed": true,
+  "previous_fixture_result": "56 passed:42 freeze/smoke and14 source packaging; this one metadata-path change was reviewed statically.",
+  "previous_review": {
+    "bytes": 2176,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-source09-independent-review-01.json",
+    "sha256": "fac2afbeaabf68b1831b2965b2b6c7570ac66a9e9bfeb95f6243a64949de377c"
+  },
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-source-packager09-independent-review-v2"
+}

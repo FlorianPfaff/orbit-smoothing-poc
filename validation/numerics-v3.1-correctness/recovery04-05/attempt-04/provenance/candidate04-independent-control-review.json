@@ -1,0 +1,61 @@
+{
+  "created_at": "2026-10-15T05:50:15.384766+00:00",
+  "evidence": {
+    "candidate04-control-validation.json": {
+      "path": "private-path-sha256:28bca799e76360ee2480e91cbd5ca8db3d0ddead31c560c9428cf5c78db5b5dc",
+      "sha256": "a5c1bea6138563e6aecd2c97f861e0b6a570b5e62bdd1b5df145ae38c7a4389a"
+    },
+    "candidate04-evidence-independent-review.json": {
+      "path": "private-path-sha256:81a551b2b0efab07323fb1cabd5b0402f6758942e78f01dc5e315070ce510a1c",
+      "sha256": "056e14967c6f8a88c9d5810cb979107ae25e1c9277965d53c0bd6c0b5d7de1b1"
+    },
+    "candidate04-launch-independent-review.json": {
+      "path": "private-path-sha256:9e3b68f512d2f83a35d5b478439c8a03c0e087e7fc199d528d049b2174a5d162",
+      "sha256": "040cd2471ddaedabbfddc6d0ac67de5a3a28d79b6bee8c7362f51374d1307cfc"
+    },
+    "candidate04-remote-namespace-smoke.json": {
+      "path": "private-path-sha256:f71892701f93beb6c880596e623d9917e6dc4f7702c4e7fdc4e89daf794909fe",
+      "sha256": "ba218c5ac34fbc770c732d36109f710b9db978ddd2a4314b6105b337d0d5634a"
+    },
+    "candidate04-remote-owned-cleanup-smoke.json": {
+      "path": "private-path-sha256:841782cf0947545fbabb562abfa5e9edae116e4e82ed3c8b7987e1fe94d45072",
+      "sha256": "03a4309503c8eb7896d74c0fc75e49aa591afaee271b9b89631567b48b4da0c7"
+    },
+    "evidence04-helper-validation-03.json": {
+      "path": "private-path-sha256:a76c401c65575e450872e70d9d4f5a62f25d4b86073cc224350d821a8339594a",
+      "sha256": "8ef1a4236c0b3be9af4ab1f2c91cd8c84465ed59df9bb960af094d4452527469"
+    },
+    "input-binding-review-04.json": {
+      "path": "private-path-sha256:938a528a49366e998ff4283faba173c45c122db84153b4bc5202b7dbd370678e",
+      "sha256": "34b44e2eb760dac20ae0063d2af455dc3b14427d9dad1ce8924902ca0ef7722a"
+    },
+    "root-control04-review.json": {
+      "path": "private-path-sha256:85af8608745ac9156ae23b4f37f5edc13128865ecd296097ada4782b90e39102",
+      "sha256": "e32c974372b68fa814d3bed84991999213e4bcb89499833f0ec580c7b1815b4f"
+    },
+    "staging04-input-transfer-verification.json": {
+      "path": "private-path-sha256:a8fd3eaf61e29c3dd858325ce66cd92a2504ed233d32fcc93dabe55145e26d62",
+      "sha256": "8a5231e2a2f9f7416ca0dd2bc19b5c0385d8585c8e7c2ce8741ce98e7c55e408"
+    }
+  },
+  "helper_sha256": {
+    "collect_correctness_publication_04.py": "5f2031232a701e25fad4058e1836b0b5502abb6d007bbbd9b560c0daafaafa24",
+    "launch_recovery04.py": "f213dadc53212480ad714ce3e89fcf7eb79acab1aaf2a65545ebeedffbfd9145",
+    "postprocess_candidate04.py": "fca3af79825d32a457ba3de557e6f3adde1a149ad25ec211d46a0294d7ae5e8e",
+    "recovery_evidence_04.py": "137d33ee21008e48199d29dc8c50be31498c8b3a92a78c3748f27973a38047ac",
+    "render_correctness_report_04.py": "9c7d8e0077d98a1f4bfd4b831afa8122bb1fc0677526ca55f013d7f023f6ce73",
+    "validate_candidate_04.py": "8db719ce6ae487ed9cfefb57eb1397bbe7c6b19ba516caab5e0c19802fe6ad57",
+    "verify_correctness_results_04.py": "8ae5e44dfb4d8621f99e810f2c21b294d1b954102cf1cbfe3039549eae10c6f6",
+    "with_correctness_namespace_04.py": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+  },
+  "retained_failures": "Prior launcher transient empty cmdline identity failures are preserved in the independent launcher review; the bounded exact-identity handoff passed both retests.",
+  "schema": "orbit-poc-correctness-recovery04-independent-controls-v1",
+  "scope": "Independent control tests, path binding review, remote process isolation and launch fault tests only; no scientific correctness or covariance authorization. Native validation and independent numerical audit remain required.",
+  "status": "passed",
+  "tests": {
+    "driver_and_namespace": 52,
+    "evidence_and_postprocess": 177,
+    "launcher_local_pinned_cpu": 8,
+    "launcher_remote_pinned_cpu": 8
+  }
+}

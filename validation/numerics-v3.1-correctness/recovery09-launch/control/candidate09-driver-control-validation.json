@@ -1,0 +1,89 @@
+{
+  "schema": "orbit-poc-candidate09-driver-control-validation-v1",
+  "status": "passed",
+  "files": {
+    "validate_candidate_09.py": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09/validate_candidate_09.py",
+      "sha256": "72ac591a4c0b1d18b67b2739d694be40e271ec09d7b0f9b3dcad4287cb88fdcd",
+      "bytes": 38942
+    },
+    "with_correctness_namespace_09.py": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09/with_correctness_namespace_09.py",
+      "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472",
+      "bytes": 3175
+    },
+    "launch_candidate_09.py": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09/launch_candidate_09.py",
+      "sha256": "48872a74e2577e5eec4a93859c521c64d3246e8e3a17106e06c547b4b428f9c3",
+      "bytes": 4706
+    },
+    "test_validate_candidate_09.py": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09/test_validate_candidate_09.py",
+      "sha256": "f86f00687f6c5ad620f078e19797bffc3d4cf491767875aa7af1ea3e0825d361",
+      "bytes": 32065
+    },
+    "test_launch_candidate_09.py": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09/test_launch_candidate_09.py",
+      "sha256": "f129ee4e809322a816ece30f06371218ce18b45ff521342aa8fd7ab62cbcc18a",
+      "bytes": 8576
+    }
+  },
+  "full_fixture_suite": {
+    "junit": {
+      "path": "@TEMP_ROOT@/candidate09-driver-tests-01.xml",
+      "sha256": "89feb9217d11ff13ddfdcb3b949a397c7993a6e9c66980c283e69f60e10084a0",
+      "bytes": 9265
+    },
+    "passed": 65,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "qualification": "This full run preceded the journal07\u219209 schema-label-only change and addition of its explicit assertion."
+  },
+  "final_schema_targeted_suite": {
+    "junit": {
+      "path": "@TEMP_ROOT@/candidate09-driver-schema-tests.xml",
+      "sha256": "287f86d5ff84dc4d65131e9c9117ca03898f9e6844871d8abbb24ad67dd8bf0d",
+      "bytes": 679
+    },
+    "passed": 3,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "unchanged_normalized_driver_definitions": [
+    "stamp",
+    "sha",
+    "save",
+    "interrupted",
+    "cleanup_signals",
+    "proc",
+    "table",
+    "OwnedCommand",
+    "supervise",
+    "artifact",
+    "digest",
+    "require_digest",
+    "load_execution",
+    "host_path",
+    "resolved_host_path",
+    "source_receipt",
+    "verify_pins",
+    "boot",
+    "command_processes",
+    "workload",
+    "admission",
+    "prepare_writable_directories",
+    "verify_native_junit",
+    "main"
+  ],
+  "changed_driver_definition": "load_required_pins: previous771/candidate07 inventory, candidate09 freeze and required previous_correction_lineage pin; strict unknown-key rejection retained.",
+  "wrapper_byte_identical_to": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery07/with_correctness_namespace_04.py",
+    "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472",
+    "bytes": 3175
+  },
+  "launcher_changes": "Candidate09 filenames and schema labels only; detached handoff, durable receipt, ownership and failure cleanup handling byte-identical after renaming.",
+  "native_executed": false,
+  "scientific_acceptance": false
+}

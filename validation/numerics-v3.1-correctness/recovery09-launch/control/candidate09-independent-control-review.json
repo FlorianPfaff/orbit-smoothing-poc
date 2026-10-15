@@ -1,0 +1,226 @@
+{
+  "accepted_covariance_authorized": false,
+  "actual_artifacts": {
+    "execution": {
+      "path": "@EXECUTION_09_ROOT@/control/candidate09-execution.json",
+      "sha256": "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c"
+    },
+    "freeze": {
+      "path": "@EXECUTION_09_ROOT@/control/recovery09-freeze.json",
+      "sha256": "401b48d5182d8fe20e7552659964ccd70f45d0cea9efd459630d04b4ba78bb90"
+    },
+    "pins": {
+      "path": "@EXECUTION_09_ROOT@/control/candidate09-pins.json",
+      "sha256": "bef26212c810f13ac9a1050034c61e99d5a4d944a4b4edd768a31f7de5a7fb81"
+    },
+    "smoke": {
+      "path": "@EXECUTION_09_ROOT@/staging/namespace-smoke-01/receipt.json",
+      "sha256": "c8082d9230720f4b36a13e1ad9d6e22e4170d7c7848e647ea983b7f8c27de71c"
+    },
+    "stage": {
+      "path": "@EXECUTION_09_ROOT@/control/recovery09-staging02.json",
+      "sha256": "db56b8dd1659ab6343ed485f30f42d02aafdaa0bba498b255769f5c4b8d3e41a"
+    }
+  },
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "@EXECUTION_09_ROOT@/control/audit_recovery09_staging.py",
+        "--execution",
+        "@EXECUTION_09_ROOT@/control/candidate09-execution.json",
+        "--execution-sha256",
+        "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c",
+        "--pins",
+        "@EXECUTION_09_ROOT@/control/candidate09-pins.json",
+        "--pins-sha256",
+        "bef26212c810f13ac9a1050034c61e99d5a4d944a4b4edd768a31f7de5a7fb81",
+        "--author-controls",
+        "@EXECUTION_09_ROOT@/control/candidate09-control-validation.json",
+        "--smoke-receipt",
+        "@EXECUTION_09_ROOT@/staging/namespace-smoke-01/receipt.json"
+      ],
+      "command_sha256": "6ec653978dd3e48d534f4fb950e6559ef18e30f2f8d182f54c9dfd8ee0fb41f2",
+      "parent": 1915025,
+      "pid": 1915026,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 105134559,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T12:35:23.317764+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Attempt09: fresh source/build/binary/output directories; build CPUs24-27, serial scientific fits on CPU24 with verified current-host admission and owned-process cleanup. No administrative exclusive allocation is claimed. Original v3 campaign on workstation2 remains untouched. Scientific runtime and isolated glibc2.39 are unchanged from08.",
+    "status": "admitted"
+  },
+  "attestation": "Content-addressed independent review; not a cryptographic identity signature.",
+  "blocking_issues": [],
+  "candidate_source_and_control_version": "09",
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:37:00.002210+00:00",
+  "exact_distinct_replays_verified": true,
+  "execution": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-execution.json",
+    "sha256": "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c"
+  },
+  "execution_attempt": "09",
+  "limitations": [
+    "Current driver must repeat live host admission and identity checks before native launch.",
+    "Task CPU affinity is not an administrative exclusive CPU reservation; host background load is not excluded.",
+    "Complete historical canonical input-tree inventory is inherited from prior reviewed manifests; original14 scientific inputs and configured runtime pins were rehashed now."
+  ],
+  "namespace_cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 1914653,
+        "pid": 1914654,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 105130030,
+        "state": "S"
+      },
+      {
+        "parent": 1914655,
+        "pid": 1914657,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 105130033,
+        "state": "R"
+      },
+      {
+        "parent": 1914654,
+        "pid": 1914655,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 105130032,
+        "state": "S"
+      },
+      {
+        "parent": 1914657,
+        "pid": 1914725,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 105130067,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-15T12:34:38.490733+00:00",
+    "pid_namespaces": [
+      "pid:[4026534144]"
+    ],
+    "returncode": 0,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "native_launched_by_reviewer": false,
+  "original_input_count": 14,
+  "original_native_test_count": 106,
+  "passed": true,
+  "pins": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-pins.json",
+    "sha256": "bef26212c810f13ac9a1050034c61e99d5a4d944a4b4edd768a31f7de5a7fb81"
+  },
+  "production_mutable_directories_absent": true,
+  "reviewed_controls_count": 21,
+  "reviewer": "@AGENT_ROOT@/recovery04_controls",
+  "reviews": {
+    "actual_host_audit": {
+      "bytes": 28710,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-independent-staging-audit-01.json",
+      "sha256": "d5c01527c620e29e6aafd132a074d2d993934466f9e12f3537fe81c3c2ee4a54"
+    },
+    "audit_transfer": {
+      "bytes": 1629,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-independent-audit-transfer.json",
+      "sha256": "f92ee9641753e918590acaba18f88143300cc694b041b0b7a9ba9fdf0ea83af5"
+    },
+    "author_integrated316": {
+      "bytes": 8275,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-control-validation.json",
+      "sha256": "a7381fa6d4195e3fb9d835b419563b50f6338a08e4eebbde0fc83cc875e0487f"
+    },
+    "author_source": {
+      "bytes": 9249,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-lighttime-author-validation.json",
+      "sha256": "6cf274d93335ed42223795ba1b0e8cb122c6e890acc185f3500b751c30ceb3d0"
+    },
+    "freeze_and_smoke": {
+      "bytes": 2363,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-smoke09-independent-review-02.json",
+      "sha256": "cedbd42c760a0f5c89e528ec3540783c734389c48a8a8c21798d35de758c2485"
+    },
+    "independent_driver_lifecycle": {
+      "bytes": 1359,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/driver09-root-ast-review-01.json",
+      "sha256": "ee32d8ee95ee6bf7d8e269837db3ed31f6a346da1a440810d0553f3a7a331d6f"
+    },
+    "independent_reporting71": {
+      "bytes": 9325,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-reporting-independent-review-01.json",
+      "sha256": "bf65844436f11de7fad927207f35573b9a29ff058d83b788289dcf7f56178d20"
+    },
+    "independent_source": {
+      "bytes": 7644,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-source-independent-review-01.json",
+      "sha256": "87df41de5a35e0ae0aa2da9a3ff1af42fe4b9ce803e4c88c0b1771012462deb2"
+    },
+    "postprocess_launcher": {
+      "bytes": 2151,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-postprocess-launcher-independent-review.json",
+      "sha256": "a6e12c1593d5225c0665daf0466f2577e0e520414c3e56d69c803999bea5b6d8"
+    },
+    "source_commit": {
+      "bytes": 767,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-source-commit.json",
+      "sha256": "c84bc0e30ddddb639fdf7ca6410d543b81e3ae7f2c6764fa3e6678f9cde25924"
+    },
+    "source_freezer": {
+      "bytes": 1615,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-source09-independent-review-02.json",
+      "sha256": "08be806eaf80dac672b2412d85e21c1baed567a291ceeee2fe8baf467449992b"
+    },
+    "stage02": {
+      "bytes": 5810,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-independent-review-01.json",
+      "sha256": "f85ab9896e753b389ec97e3c88d5b8a4322725beba5f56ed34f4baf2d78f1b79"
+    },
+    "stage02_author": {
+      "bytes": 2365,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-author-validation.json",
+      "sha256": "ef76d21866a114a761e5232da33ef8735ab495469b3988dd2de054c350163888"
+    }
+  },
+  "schema": "orbit-poc-candidate09-independent-control-review-v1",
+  "scientific_validation_complete": false,
+  "scope": [
+    "The exact reviewed source772 commit, all21 controls, original14 input pins, distinct original replay XML/three-dependency sets and every configured runtime artifact were reverified on the actual host.",
+    "The namespace smoke imported the pinned scientific runtime with isolated glibc2.39, checked all772 source files, mounted source/upstream read-only and only five staging outputs writable, and verified the complete pinned upstream commit/tree/archive.",
+    "All controls passed316 author fixtures; independent source, driver, reporting/lineage/presentation and stage/freeze/smoke reviews are separately pinned rather than claimed as one repeated integrated run.",
+    "First staging failure is preserved and pinned. Version02 accepts the exact actual08 execution artifact including byte count, retains all checks, and writes separate staging02 receipts.",
+    "No scientific gates were run by this review. Strict nuisance convergence, objective correctness, accepted covariance and v3.1 release readiness remain unestablished until the prescribed native suite and independent audit complete."
+  ],
+  "separate_regression_test_count": 51,
+  "source_commit": "7e232423566a9d608ada0bcc88af8a86dd914db3",
+  "source_files": 772,
+  "source_sha256": "029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498",
+  "upstream": {
+    "archive_bytes": 57722880,
+    "archive_sha256": "8f9489d786332cb2d7af95f7e05c1447b8a1ca857457c130a67d39316f714363",
+    "commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+    "external_alternates": false,
+    "passed": true,
+    "regular_files": 1779,
+    "repository": "@EXECUTION_09_ROOT@/upstream.git",
+    "scope": "Read-only Git object verification in the actual execution namespace; no native build, fit or clone is performed.",
+    "shallow_history": true,
+    "tree": "097cb2de82c483262e82a1ef2ea8acde850a7ec2"
+  }
+}

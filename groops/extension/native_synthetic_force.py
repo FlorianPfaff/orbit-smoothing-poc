@@ -136,3 +136,56 @@ OrbitPoc::SyntheticForceParts Forces::orbitPocSyntheticForceParts(SatelliteModel
         {
 """ + old + "\n        }")
         path.write_text(text)
+
+def apply_reference_precision(source):
+    """Synthetic reference evaluation only; preserve the original installer API.
+
+    Installed after apply(), including on fresh upstream checkouts. Keeping this
+    separate also lets the earlier force-decomposition fixtures retain their
+    deliberately small source skeletons without weakening anchor validation.
+    """
+    root = Path(source) / "source"
+    header = Path(__file__).with_name("preciseEquinoctialReference.h")
+    shutil.copyfile(header, root / "misc/orbitPoc" / header.name)
+    path = root / "programs/preprocessing/preprocessingVariationalEquation.cpp"
+    text = path.read_text()
+    marker = "ORBIT_POC_PRECISE_EQUINOCTIAL_REFERENCE_V1"
+    if marker in text:
+        return
+    text = replace(text, '#include "base/equinoctial.h"',
+                   '#include "base/equinoctial.h"\n#include "misc/orbitPoc/preciseEquinoctialReference.h"')
+    text = replace(text, '    Vector velRef(3*epochCount);', '''    Vector velRef(3*epochCount);
+    // ORBIT_POC_PRECISE_EQUINOCTIAL_REFERENCE_V1
+    std::vector<long double> orbitPocReferencePositionLow(3*epochCount),orbitPocReferenceVelocityLow(3*epochCount);
+    Double orbitPocReferencePositionDifference=0,orbitPocReferenceVelocityDifference=0;''')
+    anchor = '        referenceOrbit.orbit(times.at(i), epoch.position, epoch.velocity, epoch.acceleration);'
+    text = replace(text, anchor, anchor + '''
+        OrbitPoc::PreciseReferenceState orbitPocPreciseReference;
+        if(orbitPocDerivativeProfile=="synthetic_complete_v1")
+        {
+          const long double elapsed=(static_cast<long double>(times.at(i).mjdInt())-referenceOrbit.tau.mjdInt())*86400.L
+              +(static_cast<long double>(times.at(i).mjdMod())-referenceOrbit.tau.mjdMod())*86400.L;
+          orbitPocPreciseReference=OrbitPoc::preciseEquinoctialReference(
+              {referenceOrbit.GM,referenceOrbit.a,referenceOrbit.h,referenceOrbit.k,referenceOrbit.p,referenceOrbit.q,referenceOrbit.l0},elapsed);
+          long double dp2=0,dv2=0;
+          for(UInt axis=0;axis<3;axis++)
+          {
+            const long double dp=orbitPocPreciseReference.position[axis]-epoch.position.vector()(axis);
+            const long double dv=orbitPocPreciseReference.velocity[axis]-epoch.velocity.vector()(axis);
+            dp2+=dp*dp;dv2+=dv*dv;
+            const Double roundedPosition=orbitPocPreciseReference.position[axis];
+            const Double roundedVelocity=orbitPocPreciseReference.velocity[axis];
+            orbitPocReferencePositionLow[3*i+axis]=orbitPocPreciseReference.position[axis]-roundedPosition;
+            orbitPocReferenceVelocityLow[3*i+axis]=orbitPocPreciseReference.velocity[axis]-roundedVelocity;
+          }
+          orbitPocReferencePositionDifference=std::max(orbitPocReferencePositionDifference,static_cast<Double>(std::sqrt(dp2)));
+          orbitPocReferenceVelocityDifference=std::max(orbitPocReferenceVelocityDifference,static_cast<Double>(std::sqrt(dv2)));
+          epoch.position=Vector3d(orbitPocPreciseReference.position[0],orbitPocPreciseReference.position[1],orbitPocPreciseReference.position[2]);
+          epoch.velocity=Vector3d(orbitPocPreciseReference.velocity[0],orbitPocPreciseReference.velocity[1],orbitPocPreciseReference.velocity[2]);
+        }''')
+    text = replace(text, '''          const auto reduced=OrbitPoc::syntheticReferenceResidual(parts,
+              {orbit.at(i).position.x(),orbit.at(i).position.y(),orbit.at(i).position.z()},
+              {epoch.position.x(),epoch.position.y(),epoch.position.z()},GM);''', '''          const auto reduced=OrbitPoc::preciseSyntheticReferenceResidual(parts,
+              {orbit.at(i).position.x(),orbit.at(i).position.y(),orbit.at(i).position.z()},
+              orbitPocPreciseReference.position,GM);''')
+    path.write_text(text)

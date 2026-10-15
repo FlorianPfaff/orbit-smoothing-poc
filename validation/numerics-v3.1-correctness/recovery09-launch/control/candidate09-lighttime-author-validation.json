@@ -1,0 +1,208 @@
+{
+  "all_other_previous_source_files_unchanged": true,
+  "changed_files": {
+    "groops/extension/gnssRangeResidual.h": {
+      "after": "3da250d643d491bca9580641574555db29ecb7de4d88d883d44c6975f07efe85",
+      "before": "a55a03fdd3dea9df400ac5b8a0077732702c2a908dadbe34a1fcd48775fe56ea"
+    },
+    "groops/extension/orbitPocQrSolve.cpp": {
+      "after": "009ce7940b696df8ec8ad435269fcf7e4876ee8aa2d5c919faa7cf647970eeec",
+      "before": "dd8ac2fdecd344dea12a3be4a40e219be7c66d3946db46e09b0ad424b77029b3"
+    },
+    "groops/extension/positionRemainder.py": {
+      "after": "4f10db7dbd9f6b1d273ece846405cf2414d6ba80772ea14883b6a0a1dae2373f",
+      "before": "39109f60752b17fdadb59bb90aa63423ba32e74b13608330ca6c14c22608f77c"
+    },
+    "groops/extension/scaledRowQr.h": {
+      "after": "fcdf202c98ea3ecdc9bb71311a86b53335294863191d9a0553f9dbfc4d921083",
+      "before": "ba44b334d9c2a7c120303106d9d97fed8c4f12973dc611bbc222a85201599df1"
+    },
+    "tests/test_numerics_light_time_precision.py": {
+      "after": "045181e2b43d38bdd83f0bf5560c6046dddee4febacda4298baa192eac00db4a",
+      "before": null
+    }
+  },
+  "compatibility": "Only opt-in QR light-time duration retains the expansion through split-Time cancellation; existing long-double APIs, 10 iterations and 1e-10 metre closure limit retained. No physical/statistical model, derivative, weight or acceptance threshold changes.",
+  "covariance_authorized": false,
+  "created_at": "2026-10-15T12:14:55.241785+00:00",
+  "extracted_fixture_tests": {
+    "adapter": {
+      "bytes": 278,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-wrapper.py",
+      "sha256": "e356d49b79d97b054207b0e67c384930bcb6b9dde405f4aed2ffb3c1b88cab25"
+    },
+    "compiler_receipt": {
+      "bytes": 309,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted.compile.json",
+      "sha256": "aed514429443bbb317ef8da57a14990e8ed6ae7e701922abcdc4bd3d3fac3482"
+    },
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 11
+    },
+    "executable": {
+      "bytes": 42888,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted",
+      "sha256": "635e1eb8e795dd2eda85c480b80c24c0ef1349533d36355b5f9459c56f2e0e34"
+    },
+    "extraction_and_scoped_installer_receipt": {
+      "bytes": 942,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extraction-and-installer.json",
+      "sha256": "4e1063b6fa048d8516e9338cb15c17d8e8bf32db4e712451a13f5a3b106cebe6"
+    },
+    "junit": {
+      "bytes": 1875,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/extracted-fixture-tests.xml",
+      "sha256": "16bd6693b00972c1a9f60b1850a7f17fca489f226ec260fea0453f1678206dcd"
+    },
+    "scope": "Exact native fixture block extracted from the generated program, real GROOPS Time/Vector3d and numerical helper headers, standalone local executable. This is not the full native GROOPS suite or a fit.",
+    "source": {
+      "bytes": 6412,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted.cpp",
+      "sha256": "ef75eaa1c6ff753acf971fe39e388c2c6988025a1a5706bce86055e85c047f6e"
+    }
+  },
+  "fresh_installation": {
+    "bytes": 663,
+    "path": "@TEMP_ROOT@/candidate09-generated-02/installation.json",
+    "sha256": "704867baa785768ce7be7017a330eb2a46eaf20f564b6b4fb7c4e0d24fc3a0cd"
+  },
+  "full_native_validation_complete": false,
+  "generated_native_syntax": {
+    "checks": [
+      {
+        "argv": [
+          "g++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "-I",
+          "@TEMP_ROOT@/candidate09-generated-02/groops/source",
+          "-I",
+          "@WORKSPACE_ROOT@/work/v3/native-env/include",
+          "@TEMP_ROOT@/candidate09-generated-02/groops/source/programs/simulation/orbitPocQrSolve.cpp"
+        ],
+        "log": "@TEMP_ROOT@/candidate09-generated-02/orbitPocQrSolve.syntax.log",
+        "returncode": 0,
+        "wall_seconds": 2.0073288660023536
+      },
+      {
+        "argv": [
+          "g++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "-I",
+          "@TEMP_ROOT@/candidate09-generated-02/groops/source",
+          "-I",
+          "@WORKSPACE_ROOT@/work/v3/native-env/include",
+          "@TEMP_ROOT@/candidate09-generated-02/groops/source/gnss/gnssObservation.cpp"
+        ],
+        "log": "@TEMP_ROOT@/candidate09-generated-02/gnssObservation.syntax.log",
+        "returncode": 0,
+        "wall_seconds": 0.9432250790014223
+      }
+    ],
+    "receipt": {
+      "bytes": 936,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/syntax.json",
+      "sha256": "c6e0df3e43801ec86d231b316a561875c8028a4333fea73b74955f84962e74f2"
+    }
+  },
+  "measured_defect": {
+    "bytes": 3089,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/d03-exact-geometry-independent-result-review-01.json",
+    "sha256": "2c89d6a9976f93f4bea2d5a9923829719611fc8a8e1c5c2d2df5f2619ce780c3"
+  },
+  "measured_results": {
+    "exact_measured_distance_reconstruction": true,
+    "measured_query_delta_seconds": "7.2528150748039826089211149039635719499834758092494342712835948597261717747524915705210344217531983410E-21",
+    "new_query_delta_error_seconds": "2.388629191270724579540500165241907505657287164051402738282252475084294789655782468016590E-34",
+    "nonlinear_cases": [
+      {
+        "fraction": 0.0,
+        "new_max_error_metres": "1.371227046283953699824520689738295259147348695361353123918354499106494595409486753599393E-25",
+        "old_max_error_metres": "9.1179982697145085082267295914340308318534061935674489128857983045049769733577560376767848480729E-18"
+      },
+      {
+        "fraction": 0.002777777777778212,
+        "new_max_error_metres": "1.371227046283953699824520689738295259147348695361353123918354499106494595409486753599393E-25",
+        "old_max_error_metres": "9.1179982697145085082267295914340308318534061935674489128857983045049769733577560376767848480729E-18"
+      },
+      {
+        "fraction": 0.5,
+        "new_max_error_metres": "1.371227046283953699824520689738295259147348695361353123918354499106494595409486753599393E-25",
+        "old_max_error_metres": "9.1179982697145085082267295914340308318534061935674489128857983045049769733577560376767848480729E-18"
+      }
+    ],
+    "old_query_delta_error_seconds": "4.765514967695798963745348985264359499834758092494342712835948597261717747524915705210344217531983410E-22"
+  },
+  "measurements_receipt": {
+    "bytes": 1405,
+    "path": "@TEMP_ROOT@/candidate09-generated-02/focused-measurements.json",
+    "sha256": "cdcf9c54af94b6bbbed43003c0e1beff3e791a5c94bd9fc8a696efe9adf769d8"
+  },
+  "original_106_and_previous_40_native_test_sources_unchanged": true,
+  "owned_source_artifacts": [
+    {
+      "bytes": 5753,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/gnssRangeResidual.h",
+      "sha256": "3da250d643d491bca9580641574555db29ecb7de4d88d883d44c6975f07efe85"
+    },
+    {
+      "bytes": 14612,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/positionRemainder.py",
+      "sha256": "4f10db7dbd9f6b1d273ece846405cf2414d6ba80772ea14883b6a0a1dae2373f"
+    },
+    {
+      "bytes": 42691,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/scaledRowQr.h",
+      "sha256": "fcdf202c98ea3ecdc9bb71311a86b53335294863191d9a0553f9dbfc4d921083"
+    },
+    {
+      "bytes": 32769,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/orbitPocQrSolve.cpp",
+      "sha256": "009ce7940b696df8ec8ad435269fcf7e4876ee8aa2d5c919faa7cf647970eeec"
+    },
+    {
+      "bytes": 8748,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/tests/test_numerics_light_time_precision.py",
+      "sha256": "045181e2b43d38bdd83f0bf5560c6046dddee4febacda4298baa192eac00db4a"
+    }
+  ],
+  "preserved_pre_final_fixture": {
+    "junit": {
+      "bytes": 1875,
+      "path": "@TEMP_ROOT@/candidate09-generated-01/extracted-fixture-tests.xml",
+      "sha256": "6daf605d7ee7b3ca0de80912109dcb81492564f75500c76edf7670116a4deb72"
+    },
+    "note": "Before fixture-only third distance component; production query helpers unchanged. Final fixture proves exact reconstruction of all recorded distance bits."
+  },
+  "previous_source_freeze": {
+    "bytes": 110170,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate07-source-freeze.json",
+    "sha256": "18722c1cdd54b545dfe4e48a45b0c05aa49c39f3738edb39e3bd12a839145676"
+  },
+  "regression_suite": {
+    "collection_log": {
+      "bytes": 5725,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/regression-collection.log",
+      "sha256": "9a92f05e47437ff940b97e36f2755f964158dda28815d3edc027b603be4efdf9"
+    },
+    "expected_count": 51,
+    "files": [
+      "tests/test_numerics_query_precision.py",
+      "tests/test_numerics_reference_precision.py",
+      "tests/test_numerics_precise_residual.py",
+      "tests/test_numerics_precise_objective.py",
+      "tests/test_numerics_light_time_precision.py"
+    ]
+  },
+  "schema": "orbit-poc-candidate09-lighttime-author-validation-v1",
+  "scientific_gates_passed": false,
+  "source": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05",
+  "source_base_commit": "8e4d36f7c47d57acdb9fa30d15a6005189bbf221",
+  "source_committed": false,
+  "source_file_count": 772,
+  "status": "passed_focused_source_checks"
+}

@@ -1,0 +1,114 @@
+{
+  "accepted_covariance_authorized": false,
+  "actual09_shape_checked": {
+    "actual_execution_artifact_includes_exact_byte_count": 17167,
+    "cleanup_verified": true,
+    "failed_tests": 2,
+    "original_tests": 106,
+    "passed_tests": 104,
+    "phase": "native-tests",
+    "pipeline": {
+      "bytes": 829390,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/remote-recovery-09-terminal-01/validation-09/pipeline.json",
+      "sha256": "c66d830ce7c8ca98e916706e6d30a0724b54efeb7d65f678702193fbeb30731e"
+    },
+    "postprocess": {
+      "bytes": 6326,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/remote-recovery-09-terminal-01/postprocess-09-01/pipeline.json",
+      "sha256": "726e3d744d921dfe7ababd849cc78b824c4b1e0f53e789bdb578dad6867e01e2"
+    },
+    "postprocess_status": "completed",
+    "raw_junit": {
+      "bytes": 21430,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/remote-recovery-09-terminal-01/validation-09/native-tests.xml",
+      "sha256": "ccfa291a3024393543b212f2dd2e46dbbec3960422bc7012a58a16738dbb9cb0"
+    },
+    "status": "failed",
+    "two_original_failure_names_match": true
+  },
+  "blocking_findings": [],
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:56:34.801214+00:00",
+  "findings": [
+    "Strict supplementary verification binds the exact executed09 source, pins, native/pipeline, postprocessor and raw106-test JUnit; it cannot relabel the104/2 failure or bypass terminal cleanup.",
+    "Immediate source05-to-source06 inventory permits exactly the installer-path change, with772 unchanged file paths and the same51-regression suite; independent generated native equivalence is required.",
+    "All21 scientific control/test files must equal the immutable original09 validation manifest, while execution/input/runtime aliases retain their actual09 identity.",
+    "Supplementary validation rejects changed or reused output paths, including dangling symlinks, and never authorizes scientific gates or covariance.",
+    "Freeze10 rehashes the supplementary verifier/receipt, checks exact current execution attribution, reruns verification and compares all returned fields except the fresh timestamp before delegating to byte-pinned original freezer09.",
+    "Tests use fabricated inputs and stubs for final original-freezer delegation; no actual staging, source packaging, compiler or native fit ran in this review."
+  ],
+  "helpers": {
+    "freeze_recovery09.py": {
+      "bytes": 4598,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze_recovery09.py",
+      "sha256": "d6ed1b35019b250270c988cfefb7c8b4cfe831274faaecab83fe8d4c6b046f98"
+    },
+    "freeze_recovery10.py": {
+      "bytes": 2061,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze_recovery10.py",
+      "sha256": "842c9cb0ca1a9345380fde702b50be19270f83df2469f7e8748269fecc39fae2"
+    },
+    "verify_installer_correction10.py": {
+      "bytes": 9075,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/verify_installer_correction10.py",
+      "sha256": "6d12c697291f52ba0fe60d4c3212c3619d59c041c275d954fd1a8d6d9a0c2819"
+    }
+  },
+  "passed": true,
+  "reviewer": "@AGENT_ROOT@/recovery04_controls",
+  "schema": "orbit-poc-execution10-supplementary-freezer-independent-review-v1",
+  "scientific_validation_complete": false,
+  "source_packager_review": {
+    "bytes": 2162,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-source10-independent-review-01.json",
+    "sha256": "f756f90b6166585f36a7c6f9acd822f41a641865e3612a25866a73b93a26f5e5"
+  },
+  "tests": {
+    "freezer": {
+      "counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 10
+      },
+      "junit": {
+        "bytes": 1610,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze10-independent-tests-01.xml",
+        "sha256": "517d373e98d9053d0bb1ca7c68e060d0d1d984b24729dc90a843db5690b7a171"
+      },
+      "log": {
+        "bytes": 204,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze10-independent-tests-01.log",
+        "sha256": "f4f702830c4e58f118d8dcb33915e426cffb3f53a0f5fe3bbaf3641faa58e171"
+      },
+      "source": {
+        "bytes": 4292,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_freeze_recovery10.py",
+        "sha256": "26fac9121a03cb554ce1e9a48f777414a96442500d464ea12a24b2ef18d5cf3b"
+      }
+    },
+    "supplementary": {
+      "counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 30
+      },
+      "junit": {
+        "bytes": 4660,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/supp10-independent-tests-01.xml",
+        "sha256": "67f3a772710674e19cd090b2327e8df888955ba4ebe9dc94953ec2267f4c7b18"
+      },
+      "log": {
+        "bytes": 202,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/supp10-independent-tests-01.log",
+        "sha256": "fe19eac4eb158c4b526cbfd85d51c01dbde635a9ea644572af3942fb4b81ac89"
+      },
+      "source": {
+        "bytes": 10042,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_verify_installer_correction10.py",
+        "sha256": "c23fa9970ba51b53b105db1767175a81c72b5c43777d34adcaa623cfe37dad12"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "actual_host_execution_performed": false,
+  "artifacts": {
+    "freeze-smoke09-independent-tests-02.xml": {
+      "bytes": 7949,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-smoke09-independent-tests-02.xml",
+      "sha256": "e52dad3ef2dd774f5befb2525ba4f2da437eae433feed3f9f791c7a77aea9d1e"
+    },
+    "freeze_recovery09.py": {
+      "bytes": 4522,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze_recovery09.py",
+      "sha256": "fa51fdd5b2e7464b94f2f1b524d01044218cfcc2d982661af9e553309638576b"
+    },
+    "smoke_recovery09.py": {
+      "bytes": 9706,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/smoke_recovery09.py",
+      "sha256": "e046558e86fd44dffac9aed08093a51ced1220ef883521c8db812052d864770d"
+    },
+    "test_freeze_smoke09_independent.py": {
+      "bytes": 12883,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_freeze_smoke09_independent.py",
+      "sha256": "a30a8114b8b0a1f0e0c71342c0c769d788e9b4cc0b24a711182b879b05230359"
+    }
+  },
+  "covariance_authorized": false,
+  "remaining_checks": [
+    "Actual source09 freeze and approved source bytes",
+    "Actual current-host admission and namespace smoke",
+    "Final reviewed09 driver/lineage/pins integration"
+  ],
+  "reviewed_properties": [
+    "Freeze preserves the exact original14 input pins and106-test contract while binding the separate new regression inventory and incremental lineage-v3.",
+    "Changed lineage, previous pins and existing outputs fail closed. Failed or interrupted verification preserves newly written pins and an explicit failed-freeze receipt; retries cannot overwrite them.",
+    "Smoke binds execution, pins, driver and pinned control interpreter, then invokes original source/input/runtime verification.",
+    "Only five mutable paths are remapped into a fresh immediate staging child; production paths remain absent.",
+    "Owned cleanup is verified on success, failure, interruption and timeout; signal handlers are restored, and cleanup failure cannot be reported as a pass.",
+    "Smoke runs only the namespace wrapper with Python source/runtime/upstream inspection, not GROOPS or a compiler. Tests check exact requested argv and post-run execution/pin/source tampering."
+  ],
+  "schema": "orbit-poc-recovery09-freeze-smoke-independent-review-v1",
+  "scientific_validation_complete": false,
+  "status": "passed_static_and_fabricated_tests",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 42
+  },
+  "unchanged_d03_ast": {
+    "derive": true,
+    "require_fresh": true,
+    "run_owned": true
+  }
+}

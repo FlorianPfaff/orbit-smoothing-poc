@@ -1,0 +1,54 @@
+{
+  "artifacts": {
+    "candidate04-control-validation.json": {
+      "path": "private-path-sha256:28bca799e76360ee2480e91cbd5ca8db3d0ddead31c560c9428cf5c78db5b5dc",
+      "sha256": "a5c1bea6138563e6aecd2c97f861e0b6a570b5e62bdd1b5df145ae38c7a4389a"
+    },
+    "test_validate_candidate_04.py": {
+      "path": "private-path-sha256:d2fe4b0f65a84c3a4b0d9df64b13ce39e3ecb6c7785aa55012af10bc6749140d",
+      "sha256": "5a9675138b42a4f8462db879799bdd82f7eb3ddb9a181b9f85ee38eff219cfa3"
+    },
+    "validate_candidate_04.py": {
+      "path": "private-path-sha256:a9d79929e05de037285952f77e296e708e1857e4af1a85f13358296c6324ca6e",
+      "sha256": "8db719ce6ae487ed9cfefb57eb1397bbe7c6b19ba516caab5e0c19802fe6ad57"
+    },
+    "with_correctness_namespace_04.py": {
+      "path": "private-path-sha256:923e087cf81c1b85820acd1d87e31e6211e334714f8e913c45a006ad3e4e6d3b",
+      "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+    }
+  },
+  "created_at": "2026-10-15T05:34:58.483623+00:00",
+  "independent_test_repeat": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "private-path-sha256:084dfa98ff8b054bbfdc5614f8d5f55168fda2615e72fc6b8c22e70c90fb7b5c",
+      "-p",
+      "test_validate_candidate_04.py",
+      "-v"
+    ],
+    "errors": 0,
+    "failures": 0,
+    "log": {
+      "path": "private-path-sha256:4fdeaa9b1e80b74303e926190b98cf82331e32dae74a7c298d782e577227eeef",
+      "sha256": "ae5c81e4d5bb7d8e3f35bf2ecf3ef382b7dde991b515372894750cd59882820f"
+    },
+    "seconds": 7.607,
+    "skips": 0,
+    "tests": 52
+  },
+  "result": "passed",
+  "review": [
+    "Preserves original14input paths/digests and758candidatefiles againstfrozen03inventory.",
+    "Serial clone/checkout/build plus106native tests,4refinements,2objective checks,2distinctnuisancereplays withunchangedscientificargv/timeouts.",
+    "Actualcurrenthost/boot admission; noexistingcampaignpauseorresumereceipt.",
+    "Frozen scientificsource andinputaliasesread-only; freshdisjointsource/build/binary/run/tempoutputs.",
+    "Ownedprocess supervision retains reviewed03lifecycle. Remote namespace smoke measured separately.",
+    "No numericalsource change or acceptance-threshold relaxation."
+  ],
+  "schema": "orbit-poc-recovery04-root-control-review-v1",
+  "scope": "Control-code review only; no native or scientific gate claimed."
+}

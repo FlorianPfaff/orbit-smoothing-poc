@@ -1,0 +1,52 @@
+{
+  "artifacts": {
+    "candidate04-launch-independent-local-03.json": {
+      "path": "private-path-sha256:e6098ee897a39b4a442d7a1ed57dd97550adfe85ffe8c4af5cd76df9c18801b7",
+      "sha256": "f40c4d00092197f1b9cb7027a2f17a338fbcd84f8f9142696ae9a6bd619b1458"
+    },
+    "candidate04-launch-independent-remote-03.json": {
+      "path": "private-path-sha256:b8276e8e51ad747903e4e6721df839b7dd68cda87b239d39d770d144ee5a0174",
+      "sha256": "6678d101307f6c89a7fbec809fa80698da05b26eeb9c758c6f3294687379551e"
+    },
+    "candidate04-launch-independent-tests-03.log": {
+      "path": "private-path-sha256:74d658b12544e8f92939b9f6e349396f7708d6fda28f5457badadaa394a21cc1",
+      "sha256": "e4b7e60d2bdf9f7548293284168ae8a304db76de7583f9caacf9a4eb684e02a9"
+    },
+    "test_launch_recovery04_independent.py": {
+      "path": "private-path-sha256:7f4fcefe1618d3f9a258f072ab513f39e433e293db10af641a6030f64dc0c4cd",
+      "sha256": "6430a3e41a509ce34052066d4eb3688ca6929b9df0d2f4a572e4b36c0fc3fe17"
+    }
+  },
+  "cpu_affinity": [
+    24
+  ],
+  "created_at": "2026-10-15T05:47:16.295522+00:00",
+  "errors": 0,
+  "failures": 0,
+  "helper_sha256": "f213dadc53212480ad714ce3e89fcf7eb79acab1aaf2a65545ebeedffbfd9145",
+  "local_tests": 8,
+  "measured_fix": {
+    "evidence": "Local5/8failure under CPU24; remote3/8failure. Previous receipts remain unchanged.",
+    "issue": "Immediately after Popen, private-path-sha256:71ad1dfa1de556decbd6d7314196552e349d66067b49ab6bf8d4865faa663441 child cmdline was transiently empty. The launcher incorrectly killed a valid owned child before handoff.",
+    "prior_helper_sha256": "3141f1cfc13c6fe31364d67470895fa57e44bf547127e7db45b75b268d02f3d8",
+    "resolution": "Bounded5second retry for emptycmdline only; exactnonemptyargv andunchangedstartticks required beforedurablecommit; childexit/mismatch/timeout failclosed."
+  },
+  "passed": true,
+  "preserved_failure_evidence": {
+    "local": "private-path-sha256:46a3b28263c4547c63b98bdc3b381c306f719057ca8319bc0dc73b5ff9e24399",
+    "remote": "private-path-sha256:e91a0959dc830db918f71bf9a20c4ec36daecc9f73eceb91834ae5234ced10f4"
+  },
+  "remote_tests": 8,
+  "schema": "orbit-poc-candidate04-independent-launcher-review-v1",
+  "scope": "Only fabricated short Python heartbeat drivers. No validation, native build, benchmark, or existing job launched or signaled.",
+  "skipped": 0,
+  "verified_behaviors": [
+    "Detached driver usesnew session andsurvives launcherexit",
+    "Repeat launch rejected without replacingcommittedreceipt",
+    "Brokenstdout afterdurablecommit leavesdriveralive",
+    "Outputflush failure afterdurablecommit leavesdriveralive",
+    "SIGHUPignored bydetacheddriver",
+    "Wrongsealedpins andchangedsource/execution rejectbeforelaunch",
+    "Receiptwritefailure terminatesonlyownchild andexplicitlydoesnotcertifydescendantcleanup"
+  ]
+}

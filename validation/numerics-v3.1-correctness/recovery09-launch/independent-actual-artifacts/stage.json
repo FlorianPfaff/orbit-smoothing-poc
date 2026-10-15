@@ -1,0 +1,75 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "@EXECUTION_09_ROOT@/control/stage_recovery09_02.py",
+        "--source-archive",
+        "@EXECUTION_09_ROOT@/candidate09-source.tar",
+        "--source-archive-sha256",
+        "9053c8dfc07e60d87680d79c6d5f15a12823c9093ff7f9fc15a37f21091db41b",
+        "--source-freeze-sha256",
+        "149f55da9ae92ee0d6c6c529125b1268c327f6ba0904b09898ddcc0cd57a4f1b"
+      ],
+      "command_sha256": "470b2c31eac8379a0eb014392c210112f19a287a3ff40c1a7f2e4e95afdb3777",
+      "parent": 1913239,
+      "pid": 1913240,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 105113872,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T12:31:56.244796+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Execution attempt08, candidate07 controls: four CPU cores24-27 for build; CPU24 for serial validation with taskset affinity, owned-process cleanup and competing-native workload admission. No administrative exclusive CPU allocation is claimed. Original v3 remains on workstation2. Same pinned scientific runtime and isolated glibc2.39 from05, host/control glibc2.35 unchanged. No prior build objects or outputs reused.",
+    "status": "admitted"
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:31:56.180649+00:00",
+  "execution": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-execution.json",
+    "sha256": "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c"
+  },
+  "native_launched": false,
+  "original_stager": {
+    "path": "@EXECUTION_09_ROOT@/control/stage_recovery09.py",
+    "sha256": "b5a5176391905274b9f4454c19843e1a99a3a53ecbb1ebeb80eb2c9d23de752c"
+  },
+  "previous_postprocessor": {
+    "path": "@EXECUTION_08_ROOT@/postprocess-07-01/pipeline.json",
+    "sha256": "df25875eb9f04c161bbea6ed493c4996a0101ad8081d4a7f84fa93bf25020165"
+  },
+  "previous_staging_failure": {
+    "path": "@EXECUTION_09_ROOT@/control/recovery09-staging-failed.json",
+    "sha256": "422db38f75638ac8874f4f5157bd5df0e1bf785bbb07cffaa437c0e673d47c46"
+  },
+  "previous_validation": {
+    "path": "@EXECUTION_08_ROOT@/validation-07/pipeline.json",
+    "sha256": "5b6c04dd19707a93da2e8bf2d8e01a9094f7501b1b5a668d0ada640b589be20a"
+  },
+  "schema": "orbit-poc-recovery09-staging02-v1",
+  "source_archive": {
+    "path": "@EXECUTION_09_ROOT@/candidate09-source.tar",
+    "sha256": "9053c8dfc07e60d87680d79c6d5f15a12823c9093ff7f9fc15a37f21091db41b"
+  },
+  "source_files": 772,
+  "source_freeze": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-source-freeze.json",
+    "sha256": "149f55da9ae92ee0d6c6c529125b1268c327f6ba0904b09898ddcc0cd57a4f1b"
+  },
+  "source_sha256": "029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498",
+  "status": "passed",
+  "upstream": {
+    "path": "@EXECUTION_09_ROOT@/control/recovery09-upstream.json",
+    "sha256": "11fe614d02be37b1732808160497bffb8b3a2734fbe18f37a4cb95076bdc4df3"
+  }
+}

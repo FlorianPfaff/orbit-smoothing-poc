@@ -20,10 +20,24 @@ inline long double timeRemainder(const Time &nominal,long double clockSeconds,co
   return -clockSeconds-((static_cast<long double>(rounded.mjdInt())-nominal.mjdInt())*86400.L+
                        (static_cast<long double>(rounded.mjdMod())-nominal.mjdMod())*86400.L);
 }
+inline constexpr const char *lightTimePrecisionVersion="twofold_duration_to_relative_query_v1";
+// The rounded Time only selects the native time grid. Preserve the entire
+// duration until that grid value is subtracted; narrowing a 0.07-s light time
+// before adding a tiny clock update creates a discontinuous query error.
+inline Time stableReceiverTime(const Time &nominal,const TwofoldGeometry &duration)
+{return stableReceiverTime(nominal,duration.rounded());}
+inline TwofoldGeometry timeRemainderExpansion(const Time &nominal,const TwofoldGeometry &duration,const Time &rounded)
+{
+  requireGeometryArithmetic();
+  return -duration-((TwofoldGeometry(rounded.mjdInt())-TwofoldGeometry(nominal.mjdInt()))*TwofoldGeometry(86400.L)
+                   +(TwofoldGeometry(rounded.mjdMod())-TwofoldGeometry(nominal.mjdMod()))*TwofoldGeometry(86400.L));
+}
+inline long double timeRemainder(const Time &nominal,const TwofoldGeometry &duration,const Time &rounded)
+{return timeRemainderExpansion(nominal,duration,rounded).rounded();}
 // The native corrected-range equation, evaluated before rounding the small
 // clock correction onto a 20,000-km geometric range. The statistical model,
 // time/position inputs, relativistic terms and transmitter scale are unchanged.
-inline Double stableRangeResidual(Double measured,const Vector3d &receiverPosition,
+inline TwofoldGeometry stableRangeResidualExpansion(Double measured,const Vector3d &receiverPosition,
                                   const Vector3d &transmitterPosition,const Vector3d &transmitterVelocity,
                                   Double receiverClock,Double transmitterClock,Double scale,
                                   const Vector3d &receiverRemainder=Vector3d(),const Vector3d &transmitterRemainder=Vector3d())
@@ -43,15 +57,27 @@ inline Double stableRangeResidual(Double measured,const Vector3d &receiverPositi
   const auto geometric=range+TwofoldGeometry(shapiro)+TwofoldGeometry(2.L)*dot/TwofoldGeometry(c);
   const auto clock=TwofoldGeometry(c)*(TwofoldGeometry(receiverClock)-TwofoldGeometry(transmitterClock));
   const auto residual=TwofoldGeometry(measured)-geometric*TwofoldGeometry(scale)-clock*TwofoldGeometry(scale);
-  return static_cast<Double>(residual.rounded());
+  return residual;
 }
-inline long double preciseDistance(const Vector3d &a,const Vector3d &aLow,const Vector3d &b,const Vector3d &bLow)
+// Preserve the established Double API for legacy callers and native fixtures.
+inline Double stableRangeResidual(Double measured,const Vector3d &receiverPosition,
+                                  const Vector3d &transmitterPosition,const Vector3d &transmitterVelocity,
+                                  Double receiverClock,Double transmitterClock,Double scale,
+                                  const Vector3d &receiverRemainder=Vector3d(),const Vector3d &transmitterRemainder=Vector3d())
+{
+  return static_cast<Double>(stableRangeResidualExpansion(measured,receiverPosition,transmitterPosition,transmitterVelocity,
+      receiverClock,transmitterClock,scale,receiverRemainder,transmitterRemainder).rounded());
+}
+inline TwofoldGeometry preciseDistanceExpansion(const Vector3d &a,const Vector3d &aLow,const Vector3d &b,const Vector3d &bLow)
 {
   requireGeometryArithmetic();
   const auto x=TwofoldGeometry(a.x(),aLow.x())-TwofoldGeometry(b.x(),bLow.x());
   const auto y=TwofoldGeometry(a.y(),aLow.y())-TwofoldGeometry(b.y(),bLow.y());
   const auto z=TwofoldGeometry(a.z(),aLow.z())-TwofoldGeometry(b.z(),bLow.z());
-  return geometrySqrt(geometrySquares(x,y,z)).rounded();
+  return geometrySqrt(geometrySquares(x,y,z));
 }
+// Compatibility API, including the existing light-time stopping comparison.
+inline long double preciseDistance(const Vector3d &a,const Vector3d &aLow,const Vector3d &b,const Vector3d &bLow)
+{return preciseDistanceExpansion(a,aLow,b,bLow).rounded();}
 }
 #endif

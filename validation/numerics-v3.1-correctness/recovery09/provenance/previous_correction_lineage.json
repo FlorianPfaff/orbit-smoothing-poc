@@ -1,0 +1,81 @@
+{
+  "changes": {
+    "docs/numerics-complete-residual-precision.md": {
+      "after": "aad391b52f2cec45344e5e8d090aaa21a91b7628c818ac4abb5e81c1ea402f45",
+      "before": null
+    },
+    "groops/extension/apply_extension.py": {
+      "after": "87820bd34506022c28de167c0f146fcf683aab7a6c9890a7d02eef6b97aa5d45",
+      "before": "f06950adaeeeea5e29facec02f6256125e3d1a610b250f1bc1fa37eefddc0899"
+    },
+    "groops/extension/gnssRangeResidual.h": {
+      "after": "a55a03fdd3dea9df400ac5b8a0077732702c2a908dadbe34a1fcd48775fe56ea",
+      "before": "840f6404f0d3dc60def19b5460a1ae61c4deb7f7f3dd46b22f4a8f1dc9999c6d"
+    },
+    "groops/extension/native_precise_residual.py": {
+      "after": "b4a70f9d7ded4c495d763e25834b6c49fe71bde78c5fff58e6791c1c9af0b7de",
+      "before": null
+    },
+    "groops/extension/orbitPocQrSolve.cpp": {
+      "after": "dd8ac2fdecd344dea12a3be4a40e219be7c66d3946db46e09b0ad424b77029b3",
+      "before": "67219d652d61ab5fe46609c201d3b865abaf2ca6d30d455804b5e4e32ede6002"
+    },
+    "groops/extension/preciseObservationResidual.h": {
+      "after": "9f749fd120161815bcf7494a1ccaccfeef86bf264747af47d40d60121fa694b4",
+      "before": null
+    },
+    "groops/extension/scaledRowQr.h": {
+      "after": "ba44b334d9c2a7c120303106d9d97fed8c4f12973dc611bbc222a85201599df1",
+      "before": "765ae951318f8edc847343b8a94adb22039a5ba7479e4a06124f2131d0aa92c1"
+    },
+    "tests/fixtures/precise_residual_ambiguity.json": {
+      "after": "74c6d073a66594ca6385d934a3ceefbaef85778564fe524db5a14a8f58709b64",
+      "before": null
+    },
+    "tests/fixtures/precise_residual_probe.cpp": {
+      "after": "2c6e71e1e54c09f2c924d1fffe397aea5e63d1e705fd6a29723fdb2beb2acc37",
+      "before": null
+    },
+    "tests/test_numerics_precise_objective.py": {
+      "after": "8a0ad3264fd0913db0e7c1176cee3afc1936f728ea1ca71c83848c8dec1fbde6",
+      "before": null
+    },
+    "tests/test_numerics_precise_residual.py": {
+      "after": "03bb9191273e9bf75accab37ce6037748de3d33188c28cf272f9d5d974e4427a",
+      "before": null
+    }
+  },
+  "failed_pipeline04": {
+    "path": "private-path-sha256:571d13e78129602d553329f12db95c74eb0d77b842f1e7c29507812291859b5b",
+    "sha256": "a7e428c7ab5c0efcc372fb7db00af423dcf74421943027716946987e502aaadd"
+  },
+  "failed_pipeline05": {
+    "path": "private-path-sha256:51b320e8b59634052a739582ce695bcd266ab3b1c5288e086d84419c76c047b8",
+    "sha256": "1e99ca9d6bb61e8503092facf542e7f668d6354809e12790d313a37893a182bd"
+  },
+  "failed_pipeline06": {
+    "path": "private-path-sha256:50d06b50fff72e8d6c2195025f5d3071ef65573f1b6cdbc621b46717daf244b6",
+    "sha256": "520bec0ee8502eb01a5917e7bb9245c0a2150a8544c9e6bc4613e8008b94a434"
+  },
+  "measured_defect": {
+    "path": "private-path-sha256:30c9bb7264e1eee02960b0dcfb87dacfa760d28f406bfcff69876e318668159a",
+    "sha256": "67955fff5ade8ad8ebb142b877529da6ca9b3904a83c5d74ca0d81bcc1043838"
+  },
+  "new_source_freeze": {
+    "path": "private-path-sha256:e48b61820cbacc975fe63941e5398f231358d24b78054e0f04f37211dc8aa6f4",
+    "sha256": "18722c1cdd54b545dfe4e48a45b0c05aa49c39f3738edb39e3bd12a839145676"
+  },
+  "new_source_sha256": "774d6d777e1f5caf09b5599a8b469e421327f2e1f962eb75a5af17b0bc8bf8c2",
+  "original_source_freeze": {
+    "path": "private-path-sha256:6240114987577500ec33379864533722a00c25ff21906185970904629269d748",
+    "sha256": "1b707694f8a01b3dd528de1e3f8a56cfd33fc4cb0714b91965e03d04da98c47e"
+  },
+  "original_source_sha256": "fb9560e7ea98e8f561034f856e9a977e324da7852325ff73b14bc0ae1125fbb9",
+  "previous_source_freeze": {
+    "path": "private-path-sha256:646ee22f1d117d04e7a7d2839d5a71dee0330f3632b35ce4761627be9ba164f0",
+    "sha256": "f76df95fcac03a5428954b1b448faa62fd2feee2c0290361e416d145ff092e40"
+  },
+  "previous_source_sha256": "194b460ab90ed2eb3818af16324086f8cd0fe9aecd77308cd9ff45de23da660a",
+  "purpose": "Correct measured full-observation residual composition rounding; no changed convergence or numerical-floor allowances, no replacements for prescribed tests or exact replays.",
+  "schema": "orbit-poc-correctness-correction-lineage-v2"
+}
