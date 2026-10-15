@@ -15,6 +15,11 @@ def require_install_state(source):
             text = path.read_text()
             if old in text and new not in text:
                 raise ValueError("high_low_geometry_v2 requires a fresh pinned upstream install; preserve the old generated tree")
+    observation = source / "gnss/gnssObservation.cpp"
+    if observation.is_file():
+        text = observation.read_text()
+        if new in text and "ORBIT_POC_TWOFOLD_LIGHT_TIME_V31" not in text:
+            raise ValueError("twofold light time requires a fresh pinned upstream install; preserve the old generated tree")
 
 
 def apply(source):
@@ -109,12 +114,15 @@ def apply(source):
         text=replace_one(text,anchor,"Vector3d &k, Vector3d &kRecv, Vector3d &kTrans, Vector3d *receiverRemainder=nullptr, Vector3d *transmitterRemainder=nullptr)","geometry remainder output")
         anchor="    if(orbitPocQr::enabled())\n    {\n      auto query="
         text=replace_one(text,anchor,"    if(orbitPocQr::enabled())\n    {\n      if(receiver.isEarthFixed())throw(Exception(\"v3.1 precise range geometry supports inertial LEO receivers only\"));\n      const Vector3d recvLow=receiver.positionRemainder(idEpoch);Vector3d transLow;\n      if(receiverRemainder)*receiverRemainder=recvLow;\n      auto query=","geometry restriction")
+        text=replace_one(text,"auto query=[&](long double travel)\n      {\n        const long double duration=static_cast<long double>(receiver.clockError(idEpoch))+travel;",
+                        "// ORBIT_POC_TWOFOLD_LIGHT_TIME_V31\n      auto query=[&](const orbitPocQr::TwofoldGeometry &travel)\n      {\n        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;",
+                        "twofold light-time duration")
         start=text.index("      long double remainder=query(20200e3L/LIGHT_VELOCITY);");end=text.index("\n    }\n    else",start)
-        text=text[:start]+r'''      long double remainder=query(20200e3L/LIGHT_VELOCITY);
+        text=text[:start]+r'''      long double remainder=query(orbitPocQr::TwofoldGeometry(20200e3L)/orbitPocQr::TwofoldGeometry(LIGHT_VELOCITY));
       posTrans=transmitter.positionOffset(idEpoch,timeTrans,remainder,&transLow);
       for(UInt i=0;i<10;i++)
       {
-        remainder=query(orbitPocQr::preciseDistance(posTrans,transLow,posRecv,recvLow)/LIGHT_VELOCITY);
+        remainder=query(orbitPocQr::preciseDistanceExpansion(posTrans,transLow,posRecv,recvLow)/orbitPocQr::TwofoldGeometry(LIGHT_VELOCITY));
         const Vector3d old=posTrans,oldLow=transLow;
         posTrans=transmitter.positionOffset(idEpoch,timeTrans,remainder,&transLow);
         if(orbitPocQr::preciseDistance(posTrans,transLow,old,oldLow)<1e-10L)break;
