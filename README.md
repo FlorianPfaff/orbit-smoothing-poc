@@ -45,10 +45,16 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-The native QR, derivative and covariance checks pass, but the density objective
-check remains unaccepted: propagation repeatability limits its derivative check,
-and a subsequent nuisance fit failed stationarity. These failures are preserved
-in the [acceptance evidence](validation/numerics-v3.1/acceptance-gates.json).
+The [recovery report](validation/numerics-v3.1-correctness/recovery04-05/index.html)
+preserves the failed attempt05: all 106 native tests, four propagation/measurement
+refinements and the pulse objective check passed, but the density objective
+failed at point017 (`h=+0.125`) before a passing pair of consecutive scales.
+Both exact nuisance-failure replays passed their prescribed checks: the original
+near03 replay reached strict convergence; the candidate1 point012 replay achieved
+only audited numerical-floor-limited progress. That progress cannot authorize
+covariance or establish release readiness. The correctness issue remains open.
+See the [reproduction notes](docs/numerics-correctness-recovery.md) and the earlier
+[acceptance evidence](validation/numerics-v3.1/acceptance-gates.json).
 At the implementation freeze, the 150-attempt numerical benchmark had not
 completed. Its finished report will be published under `runs/numerics-v3.1/`;
 execution completion does not resolve a failed correctness gate. No v3.1
