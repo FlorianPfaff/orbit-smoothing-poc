@@ -1,0 +1,39 @@
+{
+  "existing_control_readback": {
+    "smoke_recovery09.py": "e046558e86fd44dffac9aed08093a51ced1220ef883521c8db812052d864770d",
+    "candidate09-control-validation.json": "a7381fa6d4195e3fb9d835b419563b50f6338a08e4eebbde0fc83cc875e0487f"
+  },
+  "uploaded": {
+    "audit_recovery09_staging.py": {
+      "path": "@EXECUTION_09_ROOT@/control/audit_recovery09_staging.py",
+      "sha256": "d101eeed11823f502cf8dbc55dc51b02c7475af66f49ea29d999a301e2d4b459",
+      "bytes": 7313,
+      "status": "created"
+    },
+    "verify_upstream_namespace_02.py": {
+      "path": "@EXECUTION_09_ROOT@/control/verify_upstream_namespace_02.py",
+      "sha256": "cbdcd6e19abee3ec3df8beb62147138ea6a9237a8cf0617b1c78140efbf1261c",
+      "bytes": 3380,
+      "status": "created"
+    },
+    "upstream-pinned-tree-archive-reference.json": {
+      "path": "@EXECUTION_09_ROOT@/control/upstream-pinned-tree-archive-reference.json",
+      "sha256": "3f5477e2482f108ff567ccde6e57d50bd050e7dc71eba5688e4839680cf61cdf",
+      "bytes": 438,
+      "status": "created"
+    }
+  },
+  "schema": "orbit-poc-candidate09-independent-audit-transfer-v1",
+  "created_at": "2026-10-15T12:34:12.118605+00:00",
+  "prior_readback_failures": [
+    {
+      "returncode": 1,
+      "stage": "read-only control identity check before transfer"
+    },
+    {
+      "returncode": 1,
+      "stage": "read-only control identity check before transfer",
+      "measured_error": "Missing R09/control/verify_upstream_namespace_02.py; no namespace smoke or native launch."
+    }
+  ]
+}

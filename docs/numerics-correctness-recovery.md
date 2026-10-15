@@ -11,14 +11,12 @@ fresh GROOPS checkout starts at
 The original 150-attempt benchmark retains its own executable and results;
 correctness-recovery results cannot replace its attempts.
 
-Attempt06 validates a separately frozen query/reference precision correction.
-It failed the prescribed objective gates. The newer residual-precision
-candidate is undergoing attempt08. This is an intermediate publication snapshot
-as of October 15, 2026 at 10:51 UTC: both objective checks have failed. One original
-replay passed and the second is still running; terminal cleanup and independent
-audit remain pending. Attempt08's
-terminal results and independent audit are not part of this snapshot.
-V3.1 correctness remains open.
+Attempts06 and08 failed their prescribed objective gates; their closed results
+and independent audits are preserved below. The subsequent bounded D03 diagnosis
+supports a separately frozen light-time arithmetic correction. Candidate09
+validation launched on October 15, 2026 at 12:36:08.791 UTC and stopped at the
+original native test gate with 104 passes and two installer failures. Later
+scientific checks were not reached. V3.1 correctness remains open.
 
 ## Runtime and preserved evidence
 
@@ -488,3 +486,99 @@ The independent arithmetic review's 12.2 MB clock cache also remains external;
 its compact summary preserves the original artifact pin and all-row results.
 
 [Independent publication reviews and presentation provenance](../validation/numerics-v3.1-correctness/recovery08-diagnostic-d03-publication/README.md) bind both final packages.
+
+
+## Candidate09: light-time correction and preserved launch
+
+The [immutable launch snapshot](../validation/numerics-v3.1-correctness/recovery09-launch/index.html)
+records execution09 on `gpuserver4090`. Source commit
+`7e232423566a9d608ada0bcc88af8a86dd914db3` contains 772 frozen files with inventory
+SHA256 `029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498`.
+The publication cherry-pick `451d12af8f6b3b48d133a6a7fd67b274da2d9a41` contains
+exactly the same five changed files. The original frozen source is also available
+on branch `numerics-v3.1-correctness-05`.
+
+The change preserves twofold precision when forming the light-time duration and
+converting its relative query time. The forward physical and statistical models,
+original 14 inputs, weights, priors and all scientific acceptance limits remain
+unchanged. Validation still requires the original 106 native tests, all four
+refinements, both objective checks and both exact original nuisance replays.
+The separate regression suite now has 51 tests: the prior 40 plus eleven
+light-time arithmetic regressions. The immutable launch snapshot asserts no
+native outcome; execution09 subsequently stopped at the original native test
+gate with 104 passes and two installer failures. Terminal evidence is separate.
+
+The [21 exact control and test sources](../scripts/correctness_recovery09/)
+passed 316 fabricated tests; independent reviews also verified lineage,
+interruption handling, replay attribution and unchanged numerical audit
+functions. Compact HTML links to full machine-readable details, and oversized
+summaries can be preserved as gzip with exact original and expanded hashes.
+The stored 16 MiB and total 64 MiB limits remain; expanded reports are bounded
+at 64 MiB. Presentation changes do not change scientific classifications.
+
+The first staging attempt failed before source extraction or native work because
+it expected a two-field artifact while the actual prior receipt also records its
+byte count. Version02 validates all three fields and preserves the original
+failure. A missing upstream-checker transfer was caught before smoke and repaired
+with the exact reviewed checker. The subsequent namespace smoke and independent
+prelaunch audit passed. The launch receipt binds PID, boot, process start ticks,
+exact argv, execution hash and pins hash; it does not imply later completion.
+
+To run the published control fixtures using Python with pytest and NumPy:
+
+```sh
+TEST_OUTPUT=$(mktemp -d /tmp/orbit-recovery09-tests.XXXXXX)
+PYTHONDONTWRITEBYTECODE=1 python -m pytest scripts/correctness_recovery09 \
+  -q -p no:cacheprovider --basetemp "$TEST_OUTPUT/fixtures" \
+  --junitxml "$TEST_OUTPUT/junit.xml"
+```
+
+These are orchestration and reporting tests. The native suite is separate;
+passing these fixtures cannot establish scientific acceptance. The frozen
+150-attempt benchmark remains an additional v3.1 deliverable with its own
+executable.
+
+
+## Closed execution09: two original installer tests failed
+
+The [closed report](../validation/numerics-v3.1-correctness/recovery09/index.html)
+records the build completing in 191.586 seconds. The original native test suite
+then returned 104 passes and two failures, with zero errors or skips. Both failures
+were in `tests/test_numerics_geometry_precision.py`:
+
+- `test_installer_is_idempotent_and_preserves_compatibility_output`
+- `test_piecewise_exact_legacy_batch_and_both_receiver_caches`
+
+Both report `Relative query patch anchor mismatch: twofold light-time duration`.
+The driver stopped at this required gate on October 15, 2026 at 12:39:44.807 UTC.
+The 51 correction regressions, all four refinements, both objective checks and
+both distinct original replays were not run. They remain explicit missing checks;
+no earlier candidate result substitutes for them.
+
+The native binary is
+`beaf1afc41c5102477fdcd27b81a146aac9916b487ffb235eb4d15a37241d774`,
+and its build manifest hash is
+`30d002589d820603231948d96fd65b2b49ffcc602de381765fd674bcb1b93c3e`.
+The validation pipeline hash is
+`c66d830ce7c8ca98e916706e6d30a0724b54efeb7d65f678702193fbeb30731e`.
+Owned-process cleanup was verified. Postprocessing completed at 12:40:21.985 UTC:
+the scientific audit returned failure, while report generation and collection
+successfully preserved that failed outcome. The full machine-readable summary is
+stored as gzip; its expanded content and original raw bytes have separate hashes.
+The original collector bundle is copied byte-for-byte and has manifest
+`2644e069aa4f67da71109c0ae44d66ea0692914f29424587af72992465ef3174`.
+
+The [independent terminal audit and preservation records](../validation/numerics-v3.1-correctness/recovery09-provenance/index.html)
+verify all 772 source files, the original 14 input identities, native/build bytes,
+exact terminal journals and absence of live owned processes. Its consistency
+audit passes while the scientific gate remains failed. The independent audit
+SHA256 is `8d13cbb8f1e1232f535a74d26edce04b79083dd978f67eda39704632680b245e`.
+
+A fresh candidate must correct the installer without changing the original tests
+or scientific limits, then repeat the full required suite. Execution09 remains
+closed and failed. V3.1 correctness, accepted covariance and release readiness
+are not established.
+
+The [publication integrity review](../validation/numerics-v3.1-correctness/recovery09-publication-review.json)
+independently verifies all declared report, launch and provenance files, gzip
+expansions, the 13 planned statuses and the 21 exact runnable controls.

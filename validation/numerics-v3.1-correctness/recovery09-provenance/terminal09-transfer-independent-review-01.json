@@ -1,0 +1,48 @@
+{
+  "author_validation": {
+    "bytes": 1981,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/terminal09-transfer-author-validation-02.json",
+    "sha256": "69f2c27e0239c951b6b4a46159744da4f63bded7b813e7ad12ef6c39ccacbf72"
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:36:46.689853+00:00",
+  "findings": [
+    "Capture requires exact sealed terminal journal, execution, source and pin identities, terminal cleanup and original14 input-pin continuity.",
+    "Both original replay directories retain XML and all compact native search history regardless of outcome. Failed objective/native profiles and missing-execution closure failures are distinguished.",
+    "Collector completion follows actual returncode/result artifact rather than an invented per-step status. Failed or partially written collector output is inventoried without promoting completeness.",
+    "Source bytes, compressed bytes, expanded bytes and source-relative mapping are validated before fresh local output creation;16MiB stored/64MiB expanded and aggregate stored bounds are preserved.",
+    "Native binaries, source trees and raw row spools remain outside transfer; failed retained factors receive explicit external hashes.",
+    "Terminal plan remains unsealed until actual closed journal hashes exist. No native gate or classification code changed."
+  ],
+  "helper": {
+    "bytes": 14916,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/transfer_terminal09_compact.py",
+    "sha256": "0f93953c94c1554fd4d94386cd73ff5cacef74ad884832465fd10da77d4fce42"
+  },
+  "limitations": [
+    "Fabricated test and source review only; no09 capture, remote transfer or scientific verdict was performed.",
+    "The subsequent independent terminal audit separately verifies live source/input/binary bytes, numerical arithmetic and exact process absence."
+  ],
+  "native_launched": false,
+  "passed": true,
+  "remote_transfer_run": false,
+  "resolved_finding": "Incomplete objective points can fail in physical closure before profile.execution.json. The final selector explicitly retains their root compact evidence and closure propagation JSON/log/XML/derivatives, with a missing-execution label; bulky orbit/variational data stay external.",
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-terminal09-transfer-independent-review-v1",
+  "test_result": {
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 3612,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/terminal09-transfer-independent-tests-02.xml",
+      "sha256": "d635d9eb24d59d7623eb6016ded17b0d8917e8eb0592fd08839cb3f93baba83d"
+    },
+    "passed": 24,
+    "skipped": 0
+  },
+  "tests": {
+    "bytes": 10822,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_transfer_terminal09_compact.py",
+    "sha256": "a10c09232de3ab6131ebc39e20e71e71d17d7ca8a27e799a2f8400eba79626ff"
+  }
+}

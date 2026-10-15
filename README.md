@@ -45,7 +45,18 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-**The independently audited attempt08 failed; v3.1 correctness remains unresolved.**
+**V3.1 correctness remains unresolved. Execution09 failed its original native test gate.**
+The [closed execution09 report](validation/numerics-v3.1-correctness/recovery09/index.html)
+records 104 tests passing and two installer tests failing. The 51 separate
+regressions, four refinements, both objective checks and both original replays
+were not reached. Reporting completed and retains every unrun check. The
+[frozen launch snapshot](validation/numerics-v3.1-correctness/recovery09-launch/index.html)
+separately preserves preparation and the staging retry. The
+[independent terminal audit](validation/numerics-v3.1-correctness/recovery09-provenance/index.html)
+agrees with the failed outcome. No later scientific outcome or accepted
+covariance is inferred.
+
+**The independently audited attempt08 failed.**
 The [closed recovery report](validation/numerics-v3.1-correctness/recovery07-08/index.html)
 records all 106 original native tests, 40 separate correction regressions and
 four propagation/measurement refinements passing. Both objective checks failed

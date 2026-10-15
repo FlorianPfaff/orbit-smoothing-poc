@@ -1,0 +1,185 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "@EXECUTION_09_ROOT@/control/smoke_recovery09.py",
+        "--execution",
+        "@EXECUTION_09_ROOT@/control/candidate09-execution.json",
+        "--execution-sha256",
+        "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c",
+        "--pins",
+        "@EXECUTION_09_ROOT@/control/candidate09-pins.json",
+        "--pins-sha256",
+        "bef26212c810f13ac9a1050034c61e99d5a4d944a4b4edd768a31f7de5a7fb81",
+        "--upstream-helper",
+        "@EXECUTION_09_ROOT@/control/verify_upstream_namespace_02.py",
+        "--upstream-reference",
+        "@EXECUTION_09_ROOT@/control/upstream-pinned-tree-archive-reference.json",
+        "--output",
+        "@EXECUTION_09_ROOT@/staging/namespace-smoke-01"
+      ],
+      "command_sha256": "0dbc1b8cdb39064f6f4d0bddd4fd891d436d40a87b93066036cbe3e37e40c3ac",
+      "parent": 1914652,
+      "pid": 1914653,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 105130001,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T12:34:37.736913+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Attempt09: fresh source/build/binary/output directories; build CPUs24-27, serial scientific fits on CPU24 with verified current-host admission and owned-process cleanup. No administrative exclusive allocation is claimed. Original v3 campaign on workstation2 remains untouched. Scientific runtime and isolated glibc2.39 are unchanged from08.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "@EXECUTION_09_ROOT@/control/with_correctness_namespace_09.py",
+    "--execution",
+    "@EXECUTION_09_ROOT@/staging/namespace-smoke-01/execution.json",
+    "--execution-sha256",
+    "79801414f5bf6ce83606f15ddc090c42d4472048015ad39f68fe571bd9b7ef37",
+    "--",
+    "@WORKSPACE_ROOT@/work/numerics-v3.1/python/bin/python",
+    "@EXECUTION_09_ROOT@/staging/namespace-smoke-01/inside.py",
+    "@EXECUTION_09_ROOT@/staging/namespace-smoke-01/execution.json",
+    "@EXECUTION_09_ROOT@/control/candidate09-source-freeze.json",
+    "@EXECUTION_09_ROOT@/control/verify_upstream_namespace_02.py",
+    "@EXECUTION_09_ROOT@/control/upstream-pinned-tree-archive-reference.json",
+    "cbdcd6e19abee3ec3df8beb62147138ea6a9237a8cf0617b1c78140efbf1261c",
+    "3f5477e2482f108ff567ccde6e57d50bd050e7dc71eba5688e4839680cf61cdf"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 1914653,
+        "pid": 1914654,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 105130030,
+        "state": "S"
+      },
+      {
+        "parent": 1914655,
+        "pid": 1914657,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 105130033,
+        "state": "R"
+      },
+      {
+        "parent": 1914654,
+        "pid": 1914655,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 105130032,
+        "state": "S"
+      },
+      {
+        "parent": 1914657,
+        "pid": 1914725,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 105130067,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-15T12:34:38.490733+00:00",
+    "pid_namespaces": [
+      "pid:[4026534144]"
+    ],
+    "returncode": 0,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "created_at": "2026-10-15T12:34:38.490941+00:00",
+  "error": null,
+  "execution": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-execution.json",
+    "sha256": "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c"
+  },
+  "helper": {
+    "path": "@EXECUTION_09_ROOT@/control/smoke_recovery09.py",
+    "sha256": "e046558e86fd44dffac9aed08093a51ced1220ef883521c8db812052d864770d"
+  },
+  "passed": true,
+  "pins": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-pins.json",
+    "sha256": "bef26212c810f13ac9a1050034c61e99d5a4d944a4b4edd768a31f7de5a7fb81"
+  },
+  "production_mutable_directories_absent": true,
+  "result": {
+    "canonical_library_hashes": {
+      "glibc239_ld_linux_x86_64_so_2": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711",
+      "glibc239_libBrokenLocale_so_1": "59d18adc759bb3d74ce5feb2ee280c8a8a0a0dcbda64e723cf38c9a462b56f3d",
+      "glibc239_libanl_so_1": "ef7d0007801cc5223dfdae616a510b483f8f3fe06513cb2e8a7a0df0981193d8",
+      "glibc239_libc_so_6": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab",
+      "glibc239_libdl_so_2": "7d13eb4345b129fe7572c2eb9a3e120ca02783303c292fe270dd41d5afdb5a72",
+      "glibc239_libm_so_6": "c858d0f5308a1b6ab2fcb4388b34faca06ac6f34ac4db77357a3a91ad8598319",
+      "glibc239_libmvec_so_1": "e1085bc088290d133d45446ee9565d22b3bd1d1eca03c02cc424ded855529944",
+      "glibc239_libnss_compat_so_2": "5310872c993e148f6c95de320d63b998efdc9af93a70579d2885bc2d5c8f3559",
+      "glibc239_libnss_dns_so_2": "c0b8b6c95d764f6d226c8086c8654d2f31764b976a1e763c287187a513c9b63c",
+      "glibc239_libnss_files_so_2": "ed6956ab65aed1d1627cefa959c5fcb65b434bea1765137b5ddc09929cda62b1",
+      "glibc239_libpthread_so_0": "435030ab98d97c8a9553ef25258315f23b0da3d79066cc2e22008bc6bb940e82",
+      "glibc239_libresolv_so_2": "8b6c1d7b792b96cc3c3343cfd08921923b48c57255f4279799c879fe346846d8",
+      "glibc239_librt_so_1": "8fb1037cdcadbfba04dcc52fa3b44aa0f68f5b291b1ecfa95fb299a3c3443172",
+      "glibc239_libthread_db_so_1": "32360611a365eb8b309b9e072f7ef47fa1b44888aaaf1f98840da7f136f9c78f",
+      "glibc239_libutil_so_1": "71a691869703058342be2581f2b27b7ae4c46ece1f48f91c409890fe68dee925"
+    },
+    "glibc": "2.39",
+    "numpy": "1.26.4",
+    "pid_namespace": "pid:[4026534144]",
+    "python": "3.11.17",
+    "scientific_imports": [
+      "numpy",
+      "scipy",
+      "gtsam"
+    ],
+    "scipy": "1.15.3",
+    "source_files": 772,
+    "source_read_only": true,
+    "source_sha256": "029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498",
+    "upstream": {
+      "archive_bytes": 57722880,
+      "archive_sha256": "8f9489d786332cb2d7af95f7e05c1447b8a1ca857457c130a67d39316f714363",
+      "commit": "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee",
+      "external_alternates": false,
+      "passed": true,
+      "regular_files": 1779,
+      "repository": "@EXECUTION_09_ROOT@/upstream.git",
+      "scope": "Read-only Git object verification in the actual execution namespace; no native build, fit or clone is performed.",
+      "shallow_history": true,
+      "tree": "097cb2de82c483262e82a1ef2ea8acde850a7ec2"
+    },
+    "upstream_read_only": true,
+    "writable_outputs": "five staging-only paths"
+  },
+  "returncode": 0,
+  "schema": "orbit-poc-recovery09-namespace-smoke-v1",
+  "scientific_validation_complete": false,
+  "scope": "Read-only scientific imports, source/runtime identities and complete pinned upstream tree; no native fit or compiler.",
+  "smoke_execution": {
+    "path": "@EXECUTION_09_ROOT@/staging/namespace-smoke-01/execution.json",
+    "sha256": "79801414f5bf6ce83606f15ddc090c42d4472048015ad39f68fe571bd9b7ef37"
+  },
+  "upstream_helper": {
+    "path": "@EXECUTION_09_ROOT@/control/verify_upstream_namespace_02.py",
+    "sha256": "cbdcd6e19abee3ec3df8beb62147138ea6a9237a8cf0617b1c78140efbf1261c"
+  },
+  "upstream_reference": {
+    "path": "@EXECUTION_09_ROOT@/control/upstream-pinned-tree-archive-reference.json",
+    "sha256": "3f5477e2482f108ff567ccde6e57d50bd050e7dc71eba5688e4839680cf61cdf"
+  },
+  "wrapper": {
+    "path": "@EXECUTION_09_ROOT@/control/with_correctness_namespace_09.py",
+    "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+  }
+}

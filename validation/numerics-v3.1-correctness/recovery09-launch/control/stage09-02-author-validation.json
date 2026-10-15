@@ -1,0 +1,46 @@
+{
+  "schema": "orbit-poc-recovery09-staging02-author-validation-v1",
+  "created_at": "2026-10-15T12:29:18.623923+00:00",
+  "passed": true,
+  "tests": 46,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "helper": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage_recovery09_02.py",
+    "sha256": "37756ca324775098d89119f1ad2740460543e125a8546d21c79484fc47075a0c",
+    "bytes": 11451
+  },
+  "test_source": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_stage_recovery09_02.py",
+    "sha256": "b77e6012fdb8bd50eafe3ae277d78809925866981a36dade68028c1f1cd321be",
+    "bytes": 9377
+  },
+  "junit": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-author-tests-01.xml",
+    "sha256": "fa41b8cfb89492b056421f0dd4dc833fd29fcab38cc1a1dd64c2d39790d620e4",
+    "bytes": 7795
+  },
+  "log": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-author-tests-01.log",
+    "sha256": "28fe0786e322158fdbcc24e6fc435411d69d1fb8f847fb7d3bae8ba8f01f0cc6",
+    "bytes": 201
+  },
+  "original_helper": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage_recovery09.py",
+    "sha256": "b5a5176391905274b9f4454c19843e1a99a3a53ecbb1ebeb80eb2c9d23de752c",
+    "bytes": 10604
+  },
+  "preserved_failure": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09-staging-failed-01.json",
+    "sha256": "422db38f75638ac8874f4f5157bd5df0e1bf785bbb07cffaa437c0e673d47c46",
+    "bytes": 265
+  },
+  "actual_failure_path": "@EXECUTION_09_ROOT@/control/recovery09-staging-failed.json",
+  "measured_cause": "Actual executed08 journal stores execution artifact with exact path, sha256 and bytes=15861; the original stager incorrectly compared it to a two-field pin.",
+  "correction": "Exact three-field artifact comparison, including byte count and rejecting additional fields. Separately named staging02 receipts pin the original failed staging and original helper in both receipt and execution runtime artifacts.",
+  "unchanged": "All archive safety/content, immutable source, prior08 terminal/cleanup, source/upstream/native output freshness, upstream commit/tree/archive, runtime alias/hash and current-host admission checks are retained.",
+  "native_launched": false,
+  "scientific_source_changed": false,
+  "scientific_validation_complete": false
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "orbit-poc-postprocess09-launcher-independent-review-v1",
+  "created_at": "2026-10-15T12:27:05.338739+00:00",
+  "passed": true,
+  "reviewer": "@AGENT_ROOT@/recovery04_controls",
+  "helper": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/launch_postprocess09.py",
+    "sha256": "d16648d7495e48df6aa969b81b64d8a1c04584b13cb4daca5857d4a039d6453f",
+    "bytes": 3093
+  },
+  "tests": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_launch_postprocess09_metadata.py",
+    "sha256": "ad37a14ec865038e74e73e38af469d1e8b5a00dcbe723b9e6a254844dc21c8f2",
+    "bytes": 6195
+  },
+  "junit": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/postprocess09-launch-metadata-tests-01.xml",
+    "sha256": "3b8e0087c3cd7dcdb4f58b3013d48ff9b595bce6352b28ee50aa537603049fd2",
+    "bytes": 1518
+  },
+  "log": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/postprocess09-launch-metadata-tests-01.log",
+    "sha256": "8681d7de7f289b5c324cc8f78a089f4d0f7e857bb9f5e91d32e335316b65118c",
+    "bytes": 816
+  },
+  "tests_passed": 7,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "scope": "Read-only source review and metadata-prefix execution in fabricated temporary directories; no launcher child or native process started.",
+  "findings": [
+    "Complete launcher AST equals reviewed07 implementation after explicit version/path substitutions. Detached handoff, exact argv/start-tick proof, durable receipt and direct-child rollback are unchanged.",
+    "Seven fixtures verify new source/driver/helper/execution/pin attribution, prior reporting interpreter/previous-root/wait retention, old08 immutability, exclusive plan creation and missing-input rejection.",
+    "Receipt printing remains outside the rollback guard; broken stdout after durable handoff does not terminate the postprocessor."
+  ],
+  "warning": "Pytest cache plugin could not create /mnt/.pytest_cache; tests and JUnit completed successfully.",
+  "limitations": [
+    "This does not launch actual reporting; postprocessor must verify the generated exact plan and terminal native cleanup."
+  ],
+  "scientific_validation_complete": false
+}
