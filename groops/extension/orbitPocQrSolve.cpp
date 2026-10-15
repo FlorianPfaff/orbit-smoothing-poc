@@ -16,7 +16,7 @@ class OrbitPocQrSolve {public:void run(Config &,Parallel::CommunicatorPtr);};
 GROOPS_REGISTER_PROGRAM(OrbitPocQrSolve,SINGLEPROCESS,"Native weighted-row QR validation",Simulation)
 void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
 {
-  FileName input,output,covariance,prefix,coordinateUpdates,objectiveExpansions;UInt locals,dynamics,datumReceivers,datumTransmitters,generations,failBeforeFactorGeneration;Double lambda;Bool nuisanceOnly,ionosphereColumn,datumSelection,costOnlyCheck,jointEpochLocals,interpolationFixture,rangeResidualFixture,clockTimeFixture,relativePulseFixture,precisePositionFixture,objectiveLedgerFixture;std::string nuisanceFixture,objectiveLedgerFailure;
+  FileName input,output,covariance,prefix,coordinateUpdates,objectiveExpansions;UInt locals,dynamics,datumReceivers,datumTransmitters,generations,failBeforeFactorGeneration;Double lambda;Bool nuisanceOnly,ionosphereColumn,datumSelection,costOnlyCheck,jointEpochLocals,interpolationFixture,rangeResidualFixture,clockTimeFixture,relativePulseFixture,precisePositionFixture,objectiveLedgerFixture,lightTimePrecisionFixture;std::string nuisanceFixture,objectiveLedgerFailure;
   readConfig(config,"inputfileRows",input,Config::MUSTSET,"","weighted A followed by b");
   readConfig(config,"outputfileSolution",output,Config::MUSTSET,"","native-unit update");
   readConfig(config,"outputfileCovariance",covariance,Config::OPTIONAL,"","retained covariance, always undamped");
@@ -43,9 +43,102 @@ void OrbitPocQrSolve::run(Config &config,Parallel::CommunicatorPtr comm)
   readConfig(config,"objectiveLedgerFixture",objectiveLedgerFixture,Config::DEFAULT,"0","original observation/prior objective independent of group QR basis");
   readConfig(config,"objectiveLedgerFailure",objectiveLedgerFailure,Config::OPTIONAL,"","inject missing capture or misclassified prior in objective fixture");
   readConfig(config,"inputfileObjectiveExpansions",objectiveExpansions,Config::OPTIONAL,"","fixture-only before high/low and after high/low original observation residuals");
+  readConfig(config,"lightTimePrecisionFixture",lightTimePrecisionFixture,Config::DEFAULT,"0","twofold duration and nonlinear clock query regression");
   if(isCreateSchema(config))return;
   Matrix rows;readFileMatrix(input,rows);
   if(rows.columns()<2||locals+dynamics>rows.columns()-1)throw(Exception("Invalid native QR fixture dimensions"));
+  if(lightTimePrecisionFixture)
+  {
+    // Rows: mode, nominal day/fraction, stored clock, three distance parts.
+    // Mode0 checks the actual query helpers. Mode1 composes those helpers with
+    // an independently soluble three-dimensional moving-endpoint light time.
+    // No solver, observation weights, convergence settings or fit are changed.
+    if(rows.columns()!=7)throw(Exception("Light-time fixture requires seven columns"));
+    using orbitPocQr::TwofoldGeometry;
+    const TwofoldGeometry c(LIGHT_VELOCITY);
+    std::ofstream receipt(output.str());receipt<<std::setprecision(40)<<"{\"cases\":[";
+    auto number=[&](const char *name,long double value){receipt<<",\""<<name<<"\":\""<<value<<"\"";};
+    auto pair=[&](const char *name,const TwofoldGeometry &value){number((std::string(name)+"_high").c_str(),value.high);number((std::string(name)+"_low").c_str(),value.low);};
+    for(UInt row=0;row<rows.rows();row++)
+    {
+      if(row)receipt<<",";
+      receipt<<"{\"mode\":"<<rows(row,0);
+      const Time nominal(static_cast<UInt>(rows(row,1)),rows(row,2));
+      const Double clock=rows(row,3);
+      if(rows(row,0)==0)
+      {
+        const auto distance=TwofoldGeometry(rows(row,4),rows(row,5))+TwofoldGeometry(rows(row,6));
+        const auto duration=TwofoldGeometry(clock)+distance/c;
+        const Time rounded=orbitPocQr::stableReceiverTime(nominal,duration);
+        const auto offset=orbitPocQr::timeRemainderExpansion(nominal,duration,rounded);
+        const long double legacyDuration=static_cast<long double>(clock)+distance.rounded()/LIGHT_VELOCITY;
+        const Time legacyRounded=orbitPocQr::stableReceiverTime(nominal,legacyDuration);
+        pair("duration",duration);pair("offset",offset);
+        number("offset_rounded",orbitPocQr::timeRemainder(nominal,duration,rounded));
+        number("rounded_day",rounded.mjdInt());number("rounded_fraction",rounded.mjdMod());
+        number("legacy_duration",legacyDuration);number("legacy_offset",orbitPocQr::timeRemainder(nominal,legacyDuration,legacyRounded));
+        number("legacy_day",legacyRounded.mjdInt());number("legacy_fraction",legacyRounded.mjdMod());
+      }
+      else if(rows(row,0)==1)
+      {
+        const long double r0[]={6871000.125L,-1200300.375L,2450060.5L},vR[]={100.L,7400.L,20.L};
+        const long double t0[]={15400000.75L,21300000.125L,11600000.5L},vT[]={-700.L,2800.L,1000.L};
+        auto sample=[&](const long double *origin,const long double *velocity,const Time &time,long double remainder,Vector3d &position,Vector3d &low)
+        {
+          const auto dt=(TwofoldGeometry(time.mjdInt())-TwofoldGeometry(nominal.mjdInt()))*TwofoldGeometry(86400.L)
+                       +(TwofoldGeometry(time.mjdMod())-TwofoldGeometry(nominal.mjdMod()))*TwofoldGeometry(86400.L)+TwofoldGeometry(remainder);
+          Double high[3],tail[3];
+          for(UInt i=0;i<3;i++)
+          {
+            const auto value=TwofoldGeometry(origin[i])+TwofoldGeometry(velocity[i])*dt;
+            high[i]=static_cast<Double>(value.rounded());tail[i]=static_cast<Double>((value-TwofoldGeometry(high[i])).rounded());
+          }
+          position=Vector3d(high[0],high[1],high[2]);low=Vector3d(tail[0],tail[1],tail[2]);
+        };
+        Vector3d receiver,receiverLow;
+        const Time recvTime=orbitPocQr::stableReceiverTime(nominal,static_cast<long double>(clock));
+        sample(r0,vR,recvTime,orbitPocQr::timeRemainder(nominal,static_cast<long double>(clock),recvTime),receiver,receiverLow);
+        for(UInt precise=0;precise<2;precise++)
+        {
+          Vector3d transmitter,transmitterLow;Time queryTime;
+          auto query=[&](const TwofoldGeometry &distance)
+          {
+            if(precise)
+            {
+              const auto duration=TwofoldGeometry(clock)+distance/c;
+              queryTime=orbitPocQr::stableReceiverTime(nominal,duration);
+              return orbitPocQr::timeRemainder(nominal,duration,queryTime);
+            }
+            const long double duration=static_cast<long double>(clock)+distance.rounded()/LIGHT_VELOCITY;
+            queryTime=orbitPocQr::stableReceiverTime(nominal,duration);
+            return orbitPocQr::timeRemainder(nominal,duration,queryTime);
+          };
+          long double remainder=query(TwofoldGeometry(20200e3L));
+          sample(t0,vT,queryTime,remainder,transmitter,transmitterLow);
+          UInt iterations=0;
+          for(UInt i=0;i<10;i++)
+          {
+            remainder=query(orbitPocQr::preciseDistanceExpansion(transmitter,transmitterLow,receiver,receiverLow));
+            const Vector3d old=transmitter,oldLow=transmitterLow;
+            sample(t0,vT,queryTime,remainder,transmitter,transmitterLow);iterations=i+1;
+            if(orbitPocQr::preciseDistance(transmitter,transmitterLow,old,oldLow)<1e-10L)break;
+            if(i==9)throw(Exception("Light-time fixture did not close"));
+          }
+          const auto model=orbitPocQr::preciseDistanceExpansion(transmitter,transmitterLow,receiver,receiverLow)+c*TwofoldGeometry(clock);
+          pair(precise?"precise_model":"legacy_model",model);number(precise?"precise_iterations":"legacy_iterations",iterations);
+        }
+      }
+      else if(rows(row,0)==2)
+      {
+        std::fesetround(FE_UPWARD);
+        orbitPocQr::timeRemainderExpansion(nominal,TwofoldGeometry(clock),nominal);
+        throw(Exception("Unsupported arithmetic was not rejected"));
+      }
+      else throw(Exception("Unknown light-time fixture mode"));
+      receipt<<"}";
+    }
+    receipt<<"]}\n";if(!receipt)throw(Exception("Cannot record light-time fixture"));return;
+  }
   if(!objectiveExpansions.empty()&&!objectiveLedgerFixture)throw(Exception("Objective expansions require the original-objective fixture"));
   if(objectiveLedgerFixture)
   {
