@@ -504,7 +504,7 @@ public:
         <<"\",\"spool_directory\":"<<std::quoted(spoolDirectory)
         <<",\"row_provenance_policy\":\""<<(compressRows?"verified_row_compression_v1":"raw_tsv")<<"\""
         <<",\"objective_residual_basis\":\"original_weighted_rows_v1\",\"objective_accumulation\":\"compensated_long_double\",\"original_objective_rows\":"<<originalObjectiveRowCount()
-        <<",\"gnss_measurement_arithmetic\":\"relative_query_clock_range_v1\",\"native_time_metadata_precision\":\"double_day_fraction\",\"cartesian_coordinate_precision\":\"float64\",\"corrected_range_coordinates\":\"long_double_polynomial_high_low\",\"range_geometry_precision\":\"high_low_geometry_v2\",\"receiver_frame\":\"inertial_leo_only\",\"light_time_position_tolerance_m\":1e-10,\"row_compression_level\":"<<(compressRows?6:0)
+        <<",\"gnss_measurement_arithmetic\":\"relative_query_clock_range_v1\",\"native_time_metadata_precision\":\"double_day_fraction\",\"cartesian_coordinate_precision\":\"float64\",\"corrected_range_coordinates\":\"long_double_polynomial_high_low\",\"range_geometry_precision\":\"high_low_geometry_v2\",\"query_interpolation_precision\":\"twofold_query_weights_v1\",\"receiver_frame\":\"inertial_leo_only\",\"light_time_position_tolerance_m\":1e-10,\"row_compression_level\":"<<(compressRows?6:0)
         <<",\"row_spool_bytes\":"<<static_cast<std::uint64_t>(reducedRows)*(retained+1)*sizeof(Double)<<"}\n";
     meta.close();parameters.close();singular.close();
     if(!meta||!parameters||!singular)throw(Exception("Cannot finish QR factor metadata"));
