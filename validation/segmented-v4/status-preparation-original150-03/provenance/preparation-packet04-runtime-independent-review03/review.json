@@ -1,0 +1,73 @@
+{
+  "auxiliary_payloads_rehashed": 89,
+  "config": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/segmented-v4.json",
+    "sha256": "3f085132dc0fb62c090ebbed50dd8865360cd6fcf7d8b8a3c9703b3312ace985"
+  },
+  "current_product_records": 20,
+  "exact_original_auxiliary_records": 89,
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control/execution04.json",
+    "sha256": "87b5a898267fed3b8461241f9cad7800bbe39401898af490655dc977ed737550"
+  },
+  "helper": {
+    "bytes": 8644,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation_packet_runtime04_03.py",
+    "sha256": "9f7fada70f1c4ae0b1bb76488643168b0cb6baa2a1cea8bf78010d2290e1ca17"
+  },
+  "observed_at": "2026-10-16T03:43:03.601050+00:00",
+  "outer_review": {
+    "bytes": 45567,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-outer-packet04-independent-review01.json",
+    "sha256": "d3dcf6ef82d2c756ec95279847bd49be61efbec57a1ff6ab72dc4090f1504e4a"
+  },
+  "packet": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control/packet04.json",
+    "sha256": "b2a3250a559f6ae6fcdcdc10ca6f2e27064064218e7390f59a3641d5881e2eb9"
+  },
+  "passed": true,
+  "prior_audit_invocations": [
+    {
+      "helper": {
+        "bytes": 8520,
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation_packet_runtime04.py",
+        "sha256": "42ef30e2975754ca11ddef12d475cd76edcacd0557d48bde0d47d75d4f4cb2e7"
+      },
+      "reason": "Audit resolver attempted canonical existence check before applying separately reviewed output backing mapping; no packet mutation.",
+      "stderr": {
+        "bytes": 523,
+        "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet04-runtime-independent-review01/stderr.log",
+        "sha256": "d06c8b8239f1034d2ce3c39697d28c0d4f79177d071e28132c9f67c5b49ed9bd"
+      }
+    },
+    {
+      "helper": {
+        "bytes": 8526,
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation_packet_runtime04_02.py",
+        "sha256": "0a35058f562627e0da951004c87f1d79a190250bdb98f34673e60e41b24a3f43"
+      },
+      "reason": "Audit asserted an arbitrary single-minute product-verification timestamp; records span multiple minutes. Final audit checks timestamps occur after actual original preflight and no later than actual staged-input ledger.",
+      "stderr": {
+        "bytes": 89,
+        "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet04-runtime-independent-review02/stderr.log",
+        "sha256": "42caa4c61da5bf2e2c0cd45000e810e1f3cb48e26779b87f5900957eb2fe5b57"
+      }
+    }
+  ],
+  "prior_runtime_pins_unchanged": 241,
+  "readback": {
+    "bytes": 148673,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet04-runtime-independent-review03/readback.json",
+    "sha256": "87b7063b24caa90e1ba96262604d1bce8dc6c6402b5191840dbc8ed0b51b8a29"
+  },
+  "runtime_pins": 356,
+  "schema": "orbit-poc-preparation-packet04-independent-review-v1",
+  "scientific_files_rehashed": 304,
+  "scientific_source_sha256": "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b",
+  "scope": "Concrete packet04 runtime closure and source/config identity passed. Together with separate outer-view review, supports the owned no-propagation startup probe. Current product records represent offline caller-pin verification, not historical acquisition. Generation launch needs actual successful startup and fresh admission evidence. No namespace, native or scientific workload was launched by this review.",
+  "stderr": {
+    "bytes": 0,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet04-runtime-independent-review03/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
