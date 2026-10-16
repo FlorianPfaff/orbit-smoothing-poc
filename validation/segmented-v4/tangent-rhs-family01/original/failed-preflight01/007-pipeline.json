@@ -1,0 +1,206 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/run_tangent_rhs_family01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/plan.json",
+        "--sha256",
+        "4a3a60249b387da342533d31a4802505330d5b545a91c54d9c3010da2be8c30b"
+      ],
+      "command_sha256": "f00b140bcf8898afee2030f5dcfdca114d11b45b9e36a559314229ecb788e621",
+      "parent": 1,
+      "pid": 2723709,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 115382196,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T17:03:22.228742+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Preflight only: compile a common baseline/wide diagnostic reader, focused fixtures, and freeze27 captured RHS cases. CPU24,one thread,8GiB,2h; stop before all54 planned calls. No native GROOPS propagation or fits.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/execution.json",
+    "--execution-sha256",
+    "79c8cbd23a864a9fbcb7a7dba6e79aec8ab7d132d2031c694b9daba1a52c54ba",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/replay_tangent_rhs_family01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/plan.json",
+    "--sha256",
+    "4a3a60249b387da342533d31a4802505330d5b545a91c54d9c3010da2be8c30b"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2723709,
+        "pid": 2723718,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 115382486,
+        "state": "Z"
+      },
+      {
+        "parent": 2723719,
+        "pid": 2723721,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115382491,
+        "state": "S"
+      },
+      {
+        "parent": 2723718,
+        "pid": 2723719,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115382488,
+        "state": "S"
+      },
+      {
+        "parent": 2723721,
+        "pid": 2723722,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115382509,
+        "state": "S"
+      },
+      {
+        "parent": 2723722,
+        "pid": 2723723,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115382510,
+        "state": "R"
+      },
+      {
+        "parent": 2723721,
+        "pid": 2723744,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115382749,
+        "state": "S"
+      },
+      {
+        "parent": 2723744,
+        "pid": 2723745,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115382749,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-16T17:03:25.846908+00:00",
+    "pid_namespaces": [
+      "pid:[4026534149]"
+    ],
+    "returncode": 1,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "elapsed_seconds": 3.5471568419598043,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2723709,
+            "pid": 2723718,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 115382486,
+            "state": "Z"
+          },
+          {
+            "parent": 2723719,
+            "pid": 2723721,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115382491,
+            "state": "S"
+          },
+          {
+            "parent": 2723718,
+            "pid": 2723719,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115382488,
+            "state": "S"
+          },
+          {
+            "parent": 2723721,
+            "pid": 2723722,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115382509,
+            "state": "S"
+          },
+          {
+            "parent": 2723722,
+            "pid": 2723723,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115382510,
+            "state": "R"
+          },
+          {
+            "parent": 2723721,
+            "pid": 2723744,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115382749,
+            "state": "S"
+          },
+          {
+            "parent": 2723744,
+            "pid": 2723745,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115382749,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T17:03:28.670893+00:00",
+        "pid_namespaces": [
+          "pid:[4026534149]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T17:03:28.670919+00:00",
+  "fit_attempts": 0,
+  "interrupted_or_timeout": false,
+  "peak_owned_rss_bytes": 246562816,
+  "plan": {
+    "bytes": 2574,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/plan.json",
+    "sha256": "4a3a60249b387da342533d31a4802505330d5b545a91c54d9c3010da2be8c30b"
+  },
+  "process": {
+    "parent": 2723709,
+    "pid": 2723718,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 115382486,
+    "state": "S"
+  },
+  "release_evidence": false,
+  "returncode": 1,
+  "schema": "orbit-poc-owned-tangent-rhs-family-v1",
+  "started_at": "2026-10-16T17:03:22.228837+00:00",
+  "status": "failed_diagnostic"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "orbit-poc-rhs-run01-independent-packet-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:15:53.685460+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-run01-independent-packet-readback01.json",
+    "sha256": "45bfaaf24efbbfb5497e922f83b2ffa134401ba33e446abfe40b49f1d6d3be3a"
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/plan.json",
+    "sha256": "ca6bf9f36fad1c58d69ce84564688084c67e540c9989777f7f623595945fd85f"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/execution.json",
+    "sha256": "c53979375ab0f7405c0c00ad1dd977e6549caaf4f3346411937a5e016d5f600a"
+  },
+  "family_audit": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/family-audit.json",
+    "sha256": "46d29845c1abb68d19a6e4975fae362fd450d79ea184bf1777b3c1f1e1d89034"
+  },
+  "common_binary": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay",
+    "sha256": "8f065ef4f3bec5e4cf05063e8673edd02bdeea4a40d7fd39d48006d7ca184d0d"
+  },
+  "control_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family02-independent-control-review01.json",
+    "sha256": "3af65784277834d114041a5b12864952e3076e335aa2b432da07d790255b49d3"
+  },
+  "checks": [
+    "Exact run plan, executable/source/family/preflight audit bindings validated with approved worker.",
+    "464 runtime declarations match previous preflight except explicitly rebound control paths and new worker02.",
+    "384-file source receipt unchanged; completed preflight root added read-only only.",
+    "All five output directories empty before launch; current host admission clear.",
+    "Same original native reference is retained but will not execute."
+  ],
+  "scope": "Approved for exactly54 frozen captured-system calls, serial and under owned controls. No native propagation, orbit fitting or production promotion. Numerical failures must remain recorded."
+}

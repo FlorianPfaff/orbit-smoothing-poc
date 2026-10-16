@@ -1,0 +1,78 @@
+{
+  "schema": "orbit-poc-rhs-family-independent-preflight-and-freeze-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:13:24.482921+00:00",
+  "family_manifest": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/family/manifest.json",
+    "sha256": "1dc8e32c1a0e54c0b0b57d67a439657b795a8c1aee4966c0d53ab8c2cca8158b"
+  },
+  "preflight_result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/result.json",
+    "sha256": "3f31c1b782227aa46aa49506f72f36483f6b6666dd2a68ca19c24c380f300e0f"
+  },
+  "preflight_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/plan.json",
+    "sha256": "e6d9ddf25ab6801b9ebee8675ab9036f3595b87f5cd06facbf45e69d4ed15272"
+  },
+  "binary": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay",
+    "sha256": "8f065ef4f3bec5e4cf05063e8673edd02bdeea4a40d7fd39d48006d7ca184d0d"
+  },
+  "source_bundle": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/source-bundle.json",
+    "sha256": "ceaa4f5c20699780c8ebd6c05438209357e6ad233a3aee4db06ec82635b847b2"
+  },
+  "raw_capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-preflight02-terminal-capture01.json",
+    "sha256": "fc1f801ff08c500b82a08bd12c0baefc6c80e4160fddda6a8b32c727b33e7407"
+  },
+  "independent_byte_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-preflight02-independent-byte-readback01.json",
+    "sha256": "fe3e3fbf59922b23a4c8a198ed180265edd216c1b16ff5fd306c2c75927bdf54"
+  },
+  "independent_byte_checker": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_rhs_family_preflight02_bytes01.py",
+    "sha256": "0338978e04b4b30afcb4273946be72e97f651ba19d607f9f1d3829abdbf4a2c5"
+  },
+  "source_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate02-independent-source-review01.json",
+    "sha256": "17cc12c9fa81b3233f4a58558bf8745c938490ab732401b1f0366f56247236b0"
+  },
+  "packet_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-preflight02-independent-packet-review01.json",
+    "sha256": "4c2939606335ad7f8db1cf4d8a1dbba3f1cb2c411f350d0adfc4737ad0ea60d8"
+  },
+  "run_controls_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family02-independent-control-review01.json",
+    "sha256": "3af65784277834d114041a5b12864952e3076e335aa2b432da07d790255b49d3"
+  },
+  "checks": {
+    "raw_records": 32,
+    "source_files_verified_against_generation_and_compiled_copy": 9,
+    "compilations_passed": 2,
+    "native_fixture_interface_passed": true,
+    "reader_fixture_cases": {
+      "valid_profiles": 2,
+      "invalid_captures": 12,
+      "invalid_invocations": 3
+    },
+    "family_fixtures_passed": 4,
+    "frozen_cases": 27,
+    "planned_calls": 54,
+    "all_operator_prefixes_byte_identical_to_anchor": true,
+    "all_RHS_payloads_independently_reconstructed_byte_for_byte": true,
+    "three_original_cases_byte_identical_to_anchors": true,
+    "exact_balanced_execution_order_verified": true,
+    "all_actual_perturbation_norms_and_changed_counts_verified": true,
+    "exact_directory_membership": true,
+    "owned_identities_currently_nonlive": 10,
+    "planned_family_calls_started": 0,
+    "compiler_flags": [
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17"
+    ],
+    "common_replay_binary_equals_failed_preflight01_replay": true
+  },
+  "scope": "Eligible to execute the frozen54 captured-system calls with the reviewed run controls. Diagnostic only: no native GROOPS propagation, orbit fits, covariance, production correction or release readiness is certified. Successful baseline results still require comparison to preserved unperturbed traces; code-generation differences must be reported."
+}

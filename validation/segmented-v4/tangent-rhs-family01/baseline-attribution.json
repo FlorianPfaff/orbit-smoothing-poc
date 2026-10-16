@@ -1,0 +1,91 @@
+{
+  "frozen_mapping": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-baseline-attribution01.json",
+    "sha256": "b8d9f3358124a666008df3255f252042bfd4518382c467fe91633ec33439a796"
+  },
+  "comparisons": [
+    {
+      "normalized_kernel_events_identical": true,
+      "prior_event_count": 75,
+      "current_event_count": 75,
+      "anchor": "historical_large",
+      "prior_trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent07-trace.jsonl",
+        "sha256": "31d568dbc89b64abcdd5593e0c32e26786cb3adfd668c700a4f969ca3b8ea613"
+      },
+      "prior_terminal": {
+        "kind": "terminal",
+        "status": "passed",
+        "iterations": 46,
+        "relative_residual": 1.7745943440717721e-12
+      },
+      "current_attempt_id": "01-historical_large-original-baseline",
+      "current_status": "reader_certified",
+      "current_terminal": {
+        "kind": "terminal",
+        "status": "passed",
+        "kernel_status": "passed",
+        "iterations": 46,
+        "relative_residual": 1.7745943440717721e-12,
+        "physical_double_quad_relative_residual": 1.7719815158362476e-12
+      },
+      "changed_status_iterations_or_kernel_residual": false,
+      "interpretation": "Different reader binaries/code generation and certificate semantics are retained; source equality does not establish numerical identity. No speed claim."
+    },
+    {
+      "normalized_kernel_events_identical": true,
+      "prior_event_count": 7,
+      "current_event_count": 7,
+      "anchor": "current_small",
+      "prior_trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-trace.jsonl",
+        "sha256": "adf78fd45cdaa04fee4454cd25d793f6947c01e00e14fcd83ef1f46e63d2fcc5"
+      },
+      "prior_terminal": {
+        "kind": "terminal",
+        "status": "passed",
+        "iterations": 5,
+        "relative_residual": 1.321764983063378e-12
+      },
+      "current_attempt_id": "20-current_small-original-baseline",
+      "current_status": "reader_certified",
+      "current_terminal": {
+        "kind": "terminal",
+        "status": "passed",
+        "kernel_status": "passed",
+        "iterations": 5,
+        "relative_residual": 1.321764983063378e-12,
+        "physical_double_quad_relative_residual": 1.3190977809948792e-12
+      },
+      "changed_status_iterations_or_kernel_residual": false,
+      "interpretation": "Different reader binaries/code generation and certificate semantics are retained; source equality does not establish numerical identity. No speed claim."
+    },
+    {
+      "normalized_kernel_events_identical": true,
+      "prior_event_count": 205,
+      "current_event_count": 205,
+      "anchor": "current_large",
+      "prior_trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-capture04-standalone-trace.jsonl",
+        "sha256": "45998ee99c0b1cf843520b495b01ab68330ced3c93c0961686f23fca35de62b9"
+      },
+      "prior_terminal": {
+        "kind": "terminal",
+        "status": "failed",
+        "iterations": 120,
+        "relative_residual": 1.2851453361637898e-11
+      },
+      "current_attempt_id": "37-current_large-original-baseline",
+      "current_status": "numerical_failure",
+      "current_terminal": {
+        "kind": "terminal",
+        "status": "failed",
+        "kernel_status": "failed",
+        "iterations": 120,
+        "relative_residual": 1.2851453361637898e-11
+      },
+      "changed_status_iterations_or_kernel_residual": false,
+      "interpretation": "Different reader binaries/code generation and certificate semantics are retained; source equality does not establish numerical identity. No speed claim."
+    }
+  ]
+}
