@@ -1,0 +1,94 @@
+{
+  "audit_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_profile_diagnostic03.py",
+    "sha256": "8b9252bfe2ed86aa56536ead6184bb490b1259d7aa037a537ff5880ee1c925ce"
+  },
+  "checks": {
+    "all364_runtime_pins": true,
+    "all384_frozen_source_files": true,
+    "exact_failed48h_request_reference_and_initial_state": true,
+    "five_mutable_directories_empty": true,
+    "global_lock_owned_cleanup_and_live_admission_retained": true,
+    "native_a66949456ad67b81_unchanged": true,
+    "one_native_thread_and_two_hour_8GiB_bound": true,
+    "only_declared_profile_telemetry_and_path_changes": true,
+    "original_failure_and_inputs_read_only": true,
+    "unchanged304_comparison_source_files": true
+  },
+  "code": {
+    "controller": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/run_nominal_profile01.py",
+      "sha256": "7a4e53581364ac83951e486a9ee567fda5b5f6cd0e7abb9cb08ec5b126a474d2"
+    },
+    "driver": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/owned_driver09.py",
+      "sha256": "72ac591a4c0b1d18b67b2739d694be40e271ec09d7b0f9b3dcad4287cb88fdcd"
+    },
+    "worker": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/replay_nominal_profile01.py",
+      "sha256": "aa057230af36619766bcabb685d6b6779b214252dcc0553564f7bc80b2ba2e13"
+    }
+  },
+  "created_at": "2026-10-16T04:26:35.416515+00:00",
+  "decision": "Approved for this one diagnostic under existing root authorization, with controller live admission and shared lock required immediately before launch. No preparation rerun or benchmark fit is authorized by this review.",
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/execution.json",
+    "sha256": "98bf35fa49a37661f4fce112f1dcb20d22ff00a07eaf896a900be2fe94bc5b34"
+  },
+  "independent_tests": {
+    "failures": 0,
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-independent-tests.xml",
+      "sha256": "d02b12fd62b1f97dc52da40528cfcd0507d7bc082722ab0fdfb519fb9c6a8910"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-independent-tests.log",
+      "sha256": "9f27ed8d1db9e34317d984c31310e2b2a10b2481dff7f37b697feba548538e74"
+    },
+    "passed": 11,
+    "skips": 0
+  },
+  "launch_command": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-command.txt",
+    "sha256": "36969926700e8e518c9831e26c62591506130ae8f86d2d643bf14a0c778c0763"
+  },
+  "passed": true,
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/plan.json",
+    "sha256": "3c20f3a4c04a3df8bcb68a98ab047f24a87de72a4b2e617ea7508666bf9568dc"
+  },
+  "preserved_reviewer_errors": [
+    {
+      "helper": {
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_profile_diagnostic01.py",
+        "sha256": "c42312ce15a8707466f35d3fee2a84317f3a869ac220bc2e30ce02fa2ab921fc"
+      },
+      "log": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-independent-review/stderr.log",
+        "sha256": "f72b5dc3df5e7d755fb257bbb3d786eeccf3cc2f0bba2cbfe4423a5b58908f63"
+      },
+      "reason": "Reviewer confused full384 source hash with comparison304 hash; corrected explicit checks in next helper."
+    },
+    {
+      "helper": {
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_profile_diagnostic02.py",
+        "sha256": "8fec13bb27e4c4b986417fff7dae1b21965d7200ca61d8288bc1f94af14780b1"
+      },
+      "log": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-independent-review/stderr02.log",
+        "sha256": "14aa1bc917e90d73276fa8510305ccd5d53b265d17cb3952d9e6391f9568f96b"
+      },
+      "reason": "Reviewer initially parsed GROOPS initial-state vector as raw numbers; corrected explicit two-line header and six-value validation."
+    }
+  ],
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-independent-review/readback03.json",
+    "sha256": "e8bab525cb2ac4ad6e01140baaaead7882b9177cca03f8dd19fbc99d7ba4337c"
+  },
+  "schema": "orbit-poc-nominal-profile-diagnostic-independent-approval-v1",
+  "scope": "The diagnostic keeps the exact original fixed initial state/reference and unchanged 10-iteration, 2e-6 m, 3e-9 m/s closure criteria. Diagnostic closure and initial-state/profile telemetry require a separate terminal audit. No release or numerical-equivalence claim.",
+  "staging": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/staging.json",
+    "sha256": "5af16b671ae869c26a782ca5ea4b117839bd6afa5130487a4c78abe7f0324637"
+  }
+}
