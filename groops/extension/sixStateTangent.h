@@ -146,7 +146,16 @@ inline TangentSolveResult solveSixStateTangent(const std::vector<ForceJacobian> 
     }
     std::vector<double> y(count);
     for(int j=int(count)-1;j>=0;j--){y[j]=g[j];for(unsigned k=j+1;k<count;k++)y[j]-=h[j][k]*y[k];y[j]/=h[j][j];}
-    for(unsigned j=0;j<count;j++)tangentAxpy(y[j],z[j],x);
+    // Accumulate the complete cycle correction before rounding back to the
+    // stored double state. Sequential double AXPY updates can lose cancellation
+    // on long arcs even when the projected Krylov residual is small. Acceptance
+    // still requires the freshly evaluated true residual at this rounded state.
+    for(unsigned i=0;i<x.size();i++)
+    {
+      long double value=x[i];
+      for(unsigned j=0;j<count;j++)value+=static_cast<long double>(y[j])*z[j][i];
+      x[i]=double(value);
+    }
   }
   TangentVector residual=b;tangentAxpy(-1,op(x),residual);result.relativeResidual=tangentNorm(residual)/normB;
   if(!std::isfinite(result.relativeResidual) || result.relativeResidual>tolerance)
