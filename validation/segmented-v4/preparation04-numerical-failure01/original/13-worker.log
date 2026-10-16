@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "<string>", line 12, in <module>
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source/src/orbit_poc/segmented/preparation.py", line 19, in worker
+    value=prepare_one(job['case'],Path(job['output']),job['runtime'],options,record['record'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source/src/orbit_poc/segmented/multiday.py", line 779, in prepare_one
+    executions.extend(native._close_prepared_nominal_reference(configured,binary,root,timeout=7200))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source/src/orbit_poc/comparison/backend.py", line 204, in _close_prepared_nominal_reference
+    initialization = close_nominal_reference(configured, binary, initialization_dir,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source/src/orbit_poc/comparison/initialization.py", line 160, in close_nominal_reference
+    execute(tree, folder, "propagate")
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source/src/orbit_poc/comparison/initialization.py", line 125, in execute
+    execution = backend.run_native(binary, path, folder, label, timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source/src/orbit_poc/comparison/backend.py", line 88, in run_native
+    raise NativeExecutionError(f"Native {label} {'timed out' if timed_out else 'exited '+str(code)}; see {log}", execution=record)
+orbit_poc.comparison.backend.NativeExecutionError: Native propagate exited 1; see /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-03/propagate.log
