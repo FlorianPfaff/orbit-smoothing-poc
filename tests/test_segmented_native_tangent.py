@@ -15,6 +15,7 @@ from scipy.sparse import lil_matrix
 from scipy.sparse.linalg import spsolve
 
 from orbit_poc.comparison.backend import read_native_table
+from orbit_poc.segmented.tangent_export import lift_tangent_export
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -63,28 +64,17 @@ def verify_tangent_export(directory):
     assert meta["nominal_force_history"] == "unchanged_whole_arc"
     assert meta["new_process_priors"] is False
     n, dt = meta["epochs"], meta["dt"]
-    samples = {(row["channel"], row["index"]): row for row in exported if row["kind"] == "sample"}
+    # Decode both archived v1 flat halos and v2 actual batch modes/anchors.
+    # All dyadic high/low and anchor algebra is exact before this explicit
+    # audited binary64 sparse-solver boundary. GNSS query lifting is unchanged.
+    lifted = lift_tangent_export(exported)
+    entries, targets, rounding = lifted.binary64()
+    assert rounding["nonzero_coefficients_discarded"] == 0
+    (directory / "tangent-lift-rounding.json").write_text(json.dumps(rounding, indent=2)+"\n")
     e = lil_matrix((6*n, 6*n))
-    for i in range(n):
-        e[6*i:6*i+6, 6*i:6*i+6] = np.eye(6)
-        if i:
-            e[6*i:6*i+6, 6*(i-1):6*i] = -np.eye(6)
-            e[6*i:6*i+3, 6*(i-1)+3:6*i] = -dt*np.eye(3)
-    for row in exported:
-        if row["kind"] != "quadrature":
-            continue
-        k = row["interval"]
-        for sample, integral, moment in row["terms"]:
-            node = samples[row["channel"], sample]
-            for offset, derivative, halo in [(0, "Ar", "position_halo"), (3, "Av", "velocity_halo")]:
-                jac = np.array(node[derivative]).reshape(3, 3)
-                for epoch, weight, high, low in node[halo]:
-                    assert abs(weight-(float.fromhex(high)+float.fromhex(low))) <= abs(np.spacing(weight))
-                    e[6*(k+1):6*(k+1)+3, 6*epoch+offset:6*epoch+offset+3] -= (dt*integral-moment)*weight*jac
-                    e[6*(k+1)+3:6*(k+2), 6*epoch+offset:6*epoch+offset+3] -= integral*weight*jac
-    b = np.zeros((6*n, 6))
-    b[:3, :3] = np.eye(3)
-    b[3:6, 3:6] = meta["initial_velocity_scale"]*np.eye(3)
+    for row, column, value in entries:
+        e[row, column] = value
+    b = np.array(targets)
     local = spsolve(e.tocsc(), b)
     # The independent native diagnostic exports physical initial SI columns.
     rows = read_native_table(directory / "transition.txt", 43)

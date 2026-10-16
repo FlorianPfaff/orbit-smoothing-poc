@@ -35,6 +35,7 @@ def main():
     p.add_argument("--upstream-only", action="store_true", help="Build the clean pinned upstream engine for external-example reproduction")
     p.add_argument("--numerics", action="store_true", help="Enable the separately versioned v3.1 QR/objective/derivative extension")
     p.add_argument("--segmented", action="store_true", help="Enable v4 local-operator exports on top of --numerics; does not split force propagation")
+    p.add_argument("--wide-tangent-candidate", action="store_true", help="Opt into the separately versioned wide-tangent candidate; requires --segmented")
     p.add_argument("--cmake-executable", type=Path, help="Use an independent CMake installation with the compiler prefix")
     args = p.parse_args()
     source, build = args.source_dir.resolve(), args.build_dir.resolve()
@@ -44,6 +45,8 @@ def main():
         p.error("--numerics and --upstream-only are mutually exclusive")
     if args.segmented and not args.numerics:
         p.error("--segmented requires --numerics")
+    if args.wide_tangent_candidate and not args.segmented:
+        p.error("--wide-tangent-candidate requires --segmented")
     if not source.exists():
         source.parent.mkdir(parents=True, exist_ok=True)
         run(["git", "clone", "--filter=blob:none", REPOSITORY, source])
@@ -60,6 +63,8 @@ def main():
         run([sys.executable, extension, source, *(["--numerics"] if args.numerics else [])])
         if args.segmented:
             run([sys.executable, extension.with_name("native_segmented.py"), source])
+        if args.wide_tangent_candidate:
+            run([sys.executable, extension.with_name("native_tangent_wide.py"), source])
     env = dict(os.environ)
     cmake = str(args.cmake_executable.resolve()) if args.cmake_executable else "cmake"
     command = [cmake, "-S", source / "source", "-B", build, "-G", "Ninja",
@@ -102,6 +107,9 @@ def main():
             "build_script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "cmake_version": subprocess.check_output([cmake, "--version"], env=env, text=True).splitlines()[0],
         }
+        if args.wide_tangent_candidate:
+            manifest["wide_tangent_extension"] = json.loads(
+                (source / "orbit-poc-wide-tangent-extension.json").read_text())
         (build / "build-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
 

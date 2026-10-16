@@ -111,3 +111,51 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python -m pytest -q -p no:cacheprovider
 ```
 
 Protocol tests exercise strict configuration, immutable input identity, failed-attempt resume and complete report inclusion. Multi-day tests execute real XML construction, daily-product merging and 72-hour SPP arithmetic with controlled input fixtures. Native integration, full nonlinear equivalence, all required correctness gates and the bounded benchmark still require the pinned executables and actual input artifacts; local fixture success does not substitute for those runs.
+
+## Explicit wide-tangent candidate
+
+The 72-hour preparation failure exposed loss of accuracy in the global tangent
+solve. The separately versioned candidate keeps extended precision through the
+operator and Krylov calculation, then checks the actual returned binary64 state.
+If that check fails, refinement starts from the returned state and its residual.
+The limit remains 120 iterations, restart capacity 20 and relative residual
+`2e-12`. The frozen repeated diagnostic passed all 27 captured systems, with no
+paired regression and unchanged baseline traces. Its [complete report](../validation/segmented-v4/tangent-rhs-family02/index.html)
+retains the earlier rejected candidate. These results do not establish native
+trajectory closure or completion of the 68-fit benchmark.
+
+Build selection is explicit. Existing `--numerics` and `--segmented` invocations
+retain their previous installation paths. The additional option below requires
+`--segmented`, uses the same pinned upstream commit
+`7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee`, and installs seven reviewed source
+payloads only after checking their original or already-installed hashes:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+python scripts/build_groops.py \
+  --source-dir /absolute/fresh/groops-source \
+  --build-dir /absolute/fresh/groops-build \
+  --prefix /absolute/pinned-dependencies --jobs 1 \
+  --numerics --segmented --wide-tangent-candidate
+```
+
+Use the admitted owned-process controller for validation and timed execution.
+Keep the original binaries and campaign directories intact. The build manifest
+records the complete patched source and a separate `wide_tangent_extension`
+receipt. The source-delta build must additionally reproduce this full installer
+from pristine upstream source, reproduce the untouched baseline link, and check
+dependencies for every linked C++ and Fortran object.
+
+For flight tangents, metadata capture uses the existing batch interpolation
+traversal, including its selected anchor and high/low coefficients. Tangent
+export schema `orbit-poc-segmented-tangent-v2` records those semantics explicitly;
+the bounded diagnostic decoder also accepts archived v1 exports. Its exact
+dyadic lift records rounding when materializing binary64 rows and rejects a
+nonzero coefficient lost to underflow. This decoder is limited to 1,000 epochs
+for diagnostic checks; it does not replace the production variation-of-constants
+factor construction. GNSS query interpolation remains unchanged.
+
+The candidate still needs native interpolation/serializer checks, the original
+106/51 tests and all other unchanged correctness stages, full failed-input
+closures, shifted-cut checks and fresh preparation before benchmark execution.
+Captured-system success and source installation never authorize covariance.
