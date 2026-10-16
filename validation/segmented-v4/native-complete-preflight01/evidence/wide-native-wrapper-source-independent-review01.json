@@ -1,0 +1,97 @@
+{
+  "schema": "orbit-poc-independent-source-review-v1",
+  "created_at": "2026-10-16T20:48:53.662947+00:00",
+  "status": "changes_requested_for_failure_log_retention",
+  "passed": false,
+  "scope": "Read-only source inspection of the supplemental two-test compiled wrapper and its dependencies. No pytest, compiler, binary or native test was executed.",
+  "inputs": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_wide_tangent_native.py",
+      "sha256": "bc47a8100c48c64d7266892e81f041b66799c563ce5614e5222ed829facfe08a",
+      "bytes": 2084
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/fixtures/wide_interpolation_fixture.cpp",
+      "sha256": "017325cfeda54a6c162d1e91ea61bfe2eb69dc21f9105333cb74e667ce491bab",
+      "bytes": 3535
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/fixtures/wide_interpolation_export_fixture.cpp",
+      "sha256": "74e8b85a49385b64a112aff6c3cfbafb3d59bdc984737f31f43acbdf3155841e",
+      "bytes": 1900
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/tangent_export.py",
+      "sha256": "54941e22a74e79b316961b77ba58d18666708355b586acabcd7ecc1e0785d4ed",
+      "bytes": 12421
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/wide_tangent/proposed/misc/orbitPoc/wideInterpolationStencil.h",
+      "sha256": "de8efd1781dfd1ab07bf54ba2bd06fb088263239e84d501218b97a2e889e479e",
+      "bytes": 5635
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/wide_tangent/proposed/misc/orbitPoc/wideInterpolationExport.h",
+      "sha256": "6121e7720720fa441fce7d1e3ff9ff79b11a8a33eea7c37ade06980ab21f88ae",
+      "bytes": 2123
+    }
+  ],
+  "checks": {
+    "cpp_require_survives_NDEBUG": true,
+    "exact_node_fixture_preserves_representable_long_double_low_part": true,
+    "batch_capture_fixture_checks_index_mapping_actual_anchor_low_weights_and_missing_repeated_outputs": true,
+    "serializer_restores_stream_flags_and_precision": true,
+    "decoder_uses_exact_hexadecimal_Fraction_without_float_roundtrip": true,
+    "expected_anchored_result": "2 + (1/2 + 2^-70)*(3-2) = 5/2 + 2^-70",
+    "python_exact_node_2_pow_minus80_is_rational_decoder_check_not_claim_about_native_80bit_storage": true,
+    "CXX_selection": "shutil.which(os.environ.get(\"CXX\", \"c++\")); one executable path/name, no shell expansion or embedded compiler flags. The outer run must select and pin the intended compiler.",
+    "normal_nonzero_compile_or_run_logs_retained": true,
+    "temporary_log_retention": "Logs live under pytest tmp_path; publication/runner must retain the temporary output before cleanup."
+  },
+  "findings": [
+    {
+      "priority": 2,
+      "file": "/mnt/d/orbit-segmented-v4/source/tests/test_wide_tangent_native.py",
+      "line": 18,
+      "title": "Timed-out compile or fixture execution does not retain its partial logs",
+      "detail": "Both subprocess.run calls use capture_output and timeout, but write their logs only after normal return. TimeoutExpired therefore bypasses the write_text calls and loses its captured stdout/stderr from the intended artifact directory. An executable OSError likewise leaves no attempt record. Preserve partial stdout/stderr plus exception/status before re-raising, or direct output to opened log files and retain terminal metadata."
+    }
+  ],
+  "limits": [
+    "This wrapper exercises standalone C++ metadata/evaluation/serializer fixtures; it does not certify actual native Polynomial batch selection, full source installation, full trajectory closure or the frozen numerical gates.",
+    "No scientific source or repository file was changed by this review."
+  ],
+  "installer_author_test_runtime": {
+    "invocation": [
+      "taskset",
+      "-c",
+      "1",
+      "python3",
+      "/mnt/d/orbit-segmented-v4/control/test_verify_native_installer_equivalence02.py"
+    ],
+    "framework": "Python standard-library unittest.main(); pytest not required or invoked",
+    "reported_tests": 35,
+    "result": {
+      "path": "/mnt/d/orbit-segmented-v4/control/native-installer-equivalence02-author-tests01.log",
+      "sha256": "077892225a2882efa7d815f3c4bcc1b120a4bb4ff5f1cf590d84c5d130d94d50",
+      "bytes": 134
+    },
+    "observed_current_python": {
+      "executable": "/usr/bin/python3",
+      "resolved": "/usr/bin/python3.14",
+      "version": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "identity": {
+        "path": "/usr/bin/python3.14",
+        "sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+        "bytes": 7477160
+      }
+    },
+    "note": "The prior author invocation used python3 directly; the current runtime readback resolves to /usr/bin/python3.14. The earlier log records 35 tests and OK but did not itself pin the interpreter."
+  },
+  "execution": {
+    "compiler_invocations": 0,
+    "native_invocations": 0,
+    "test_invocations": 0,
+    "remote_launches": 0
+  }
+}

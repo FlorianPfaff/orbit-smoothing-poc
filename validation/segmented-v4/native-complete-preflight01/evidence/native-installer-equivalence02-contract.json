@@ -1,0 +1,85 @@
+{
+  "schema": "orbit-poc-source-installer-equivalence-helper-contract-v1",
+  "created_at": "2026-10-16T20:43:22.986330+00:00",
+  "status": "author_tested_pending_independent_review_not_executed_on_actual_input",
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/verify_native_installer_equivalence02.py",
+    "sha256": "ea31f14adbabd7e8aae798ca181e685725e06ef182c08ae455ed68588b2fc8d4",
+    "bytes": 16120
+  },
+  "tests": {
+    "path": "/mnt/d/orbit-segmented-v4/control/test_verify_native_installer_equivalence02.py",
+    "sha256": "86c5f6aa0d4eb2bf931bcb465921b2284c2da0e3b4d867309992c8f538f719f4",
+    "bytes": 13315
+  },
+  "author_result": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-installer-equivalence02-author-tests01.log",
+    "sha256": "077892225a2882efa7d815f3c4bcc1b120a4bb4ff5f1cf590d84c5d130d94d50",
+    "bytes": 134
+  },
+  "author_tests": 35,
+  "invocation": [
+    "PINNED_PYTHON",
+    "verify_native_installer_equivalence02.py",
+    "--request",
+    "ABSOLUTE_REQUEST_PATH",
+    "--sha256",
+    "EXACT_REQUEST_SHA256"
+  ],
+  "request": {
+    "schema": "orbit-poc-native-installer-equivalence-request-v1",
+    "archive": "pin with path+sha256+bytes; exactly equals archive_provenance.archive",
+    "archive_provenance": "pin of genuine Git archive receipt",
+    "python": "pin of canonical actual Python executable; sys.executable must resolve to it",
+    "git": "pin of actual executable named git; digest equals archive provenance",
+    "git_head": "pin of the genuine git_dir/HEAD",
+    "git_dir": "canonical absolute existing read-only metadata directory",
+    "repository_inventory": "pin of {schema:orbit-poc-native-installer-repository-inventory-v1,root:absolute committed-source extraction,files:complete relative SHA256 map for all groops/** files plus scripts/build_groops.py}",
+    "baseline_result": "pin with source_after exact1131 relative paths to SHA256",
+    "source_delta": "pin with schema orbit-poc-native-source-delta-v1,baseline_result exactpin,base_source_sha256 canonical-map hash,changes exactly7 {relative,action replace|add,old_sha256,new_file pin}; four replacements/three additions",
+    "output": "canonical fresh absolute directory with existing parent; disjoint from preserved inputs"
+  },
+  "result": {
+    "path": "output/result.json",
+    "schema": "orbit-poc-native-installer-equivalence-result-v1",
+    "success_requirements": [
+      "status=passed and passed=true",
+      "request and inputs exact pins",
+      "expected_source_sha256==source_after_sha256",
+      "source_after complete1134-file map equals independently reconstructed baseline plus delta AND actual build source_after",
+      "comparison missing/extra/different empty",
+      "pinned_inputs_preserved,repository_preserved,git_head_preserved alltrue",
+      "commands contain only read-only git probes and exactthree Python installer invocations",
+      "compiled=false,native_launches=0,git_mutations=0"
+    ],
+    "source_delta_and_baseline_result": "Both explicit on success; allinputpins retained under inputs on failures.",
+    "logs": "Exact separate stdout/stderr pins for every command; returncodes and measured elapsed seconds retained.",
+    "archive_member_inventory": "Pin of output/archive-members.json with exact member names/types/sizes/hashes.",
+    "archive_metadata": "pax_commit_present bool and pax_commit exact pinnedcommit or null; absence never invented.",
+    "failed_patcher": "status failed, exact logs and partial source_after preserved; no later patcher executes."
+  },
+  "scope": {
+    "actual_remote_preflight_executed": false,
+    "native_or_compiler_execution": false,
+    "git_mutation": false,
+    "repository_edited": false,
+    "outer_namespace_requirement": "All inputs, committed installer extraction and genuine upstream Git metadata must be read-only in the admitted worker namespace."
+  },
+  "earlier_author_evidence": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/verify_native_installer_equivalence01.py",
+      "sha256": "973b56fd8725f38260b49667d127a2d652e6ec48ce68286fd3f90584c0120678",
+      "bytes": 15842
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_verify_native_installer_equivalence01.py",
+      "sha256": "2930c0e749c818eea1b4e490753dc6221c03976c7671aafd62afb6959f76460e",
+      "bytes": 11890
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/native-installer-equivalence01-author-tests01.log",
+      "sha256": "022246790b1aef15a68d2acf8147c502454782b61f5cbef6ad7007e94cecbe4d",
+      "bytes": 129
+    }
+  ]
+}

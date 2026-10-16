@@ -1,0 +1,55 @@
+{
+  "interpolation": {
+    "binary": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-03/run/preflight/fixture-interpolation",
+      "sha256": "4d9ede4b4c499f3148a612c528a313fa5fd88a7a28f1befad2102c885593c48e"
+    },
+    "stdout": ""
+  },
+  "roundtrip": {
+    "decoder": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-inputs-01/fixtures/src/orbit_poc/segmented/tangent_export.py",
+      "sha256": "54941e22a74e79b316961b77ba58d18666708355b586acabcd7ecc1e0785d4ed"
+    },
+    "passed": true,
+    "records": [
+      {
+        "anchor": null,
+        "derivative": 0,
+        "mode": "exact",
+        "terms": [
+          [
+            3,
+            "0x8p-3",
+            "0x0p+0"
+          ]
+        ]
+      },
+      {
+        "anchor": 1,
+        "derivative": 0,
+        "mode": "anchored_twofold",
+        "terms": [
+          [
+            4,
+            "0x8p-4",
+            "0x8p-73"
+          ],
+          [
+            1,
+            "0x8p-4",
+            "0x0p+0"
+          ]
+        ]
+      }
+    ],
+    "scope": "Supplemental serializer/decoder only; not native flight batch validation"
+  },
+  "serializer": {
+    "binary": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-03/run/preflight/fixture-serializer",
+      "sha256": "0237b7ee7c8d120737974ace67f6228b46dda91a3dd52f3902ef794ae5973393"
+    },
+    "stdout": "{\"mode\":\"exact\",\"derivative\":0,\"anchor\":null,\"terms\":[[3,\"0x8p-3\",\"0x0p+0\"]]}\n{\"mode\":\"anchored_twofold\",\"derivative\":0,\"anchor\":1,\"terms\":[[4,\"0x8p-4\",\"0x8p-73\"],[1,\"0x8p-4\",\"0x0p+0\"]]}\n"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "orbit-poc-independent-source-review-v1",
+  "created_at": "2026-10-16T21:10:07.925141+00:00",
+  "status": "passed",
+  "passed": true,
+  "scope": "Source review and exactly three pure mocked subprocess failure tests; no compiler/native execution.",
+  "source": {
+    "path": "/mnt/d/orbit-segmented-v4/source/tests/test_wide_tangent_native.py",
+    "sha256": "d3e3588aec4922179750336533fd01d2f598386052b170c5bff5a3c77912f4e3",
+    "bytes": 2834
+  },
+  "review_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/review_wide_native_wrapper02.py",
+    "sha256": "9ec321088f67393a680d93f72c02e76939f7965d190c72ca9084cd12942dd072",
+    "bytes": 3427
+  },
+  "previous_finding": {
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-native-wrapper-source-independent-review01.json",
+    "sha256": "231e0727258e8890e0fd2e925aed6b986e5ca7c0b6f10cfc662274efad83f021",
+    "bytes": 4954
+  },
+  "checks": [
+    {
+      "case": "TimeoutExpired",
+      "passed": true,
+      "status": {
+        "argv": [
+          "never-executed-fixture"
+        ],
+        "timeout_seconds": 3,
+        "status": "failed",
+        "error_type": "TimeoutExpired",
+        "error": "Command '['never-executed-fixture']' timed out after 3 seconds",
+        "elapsed_seconds": 8.617600002480685e-05
+      },
+      "raw_output_preserved": true
+    },
+    {
+      "case": "FileNotFoundError",
+      "passed": true,
+      "status": {
+        "argv": [
+          "never-executed-fixture"
+        ],
+        "timeout_seconds": 3,
+        "status": "failed",
+        "error_type": "FileNotFoundError",
+        "error": "mocked missing executable",
+        "elapsed_seconds": 4.166899998381268e-05
+      },
+      "raw_output_preserved": true
+    },
+    {
+      "case": "nonzero_return",
+      "passed": true,
+      "status": {
+        "argv": [
+          "never-executed-fixture"
+        ],
+        "timeout_seconds": 3,
+        "status": "completed",
+        "returncode": 9,
+        "elapsed_seconds": 0.0001161229999979696
+      },
+      "raw_output_preserved": true
+    }
+  ],
+  "resolved_finding": "stdout/stderr are streamed as bytes to files and terminal attempt JSON is written in finally on timeout/startup errors; normal nonzero exit retains output and returncode before assertion.",
+  "unchanged_scoped_checks": [
+    "C++ fixture require checks survive -DNDEBUG.",
+    "Exact-node and actual anchored high/low Fraction decoder expectations remain correct.",
+    "CXX is one executable path/name selected by shutil.which; no shell expansion.",
+    "Log artifacts remain under pytest tmp_path and need retention by the surrounding test runner."
+  ],
+  "execution": {
+    "mock_cases": 3,
+    "compiler_invocations": 0,
+    "native_invocations": 0,
+    "remote_launches": 0
+  }
+}
