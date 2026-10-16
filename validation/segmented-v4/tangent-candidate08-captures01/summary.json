@@ -1,0 +1,250 @@
+{
+  "schema": "orbit-poc-candidate08-captured-system-publication-v1",
+  "status": "both_captured_systems_passed_scoped_checks",
+  "outcomes": [
+    {
+      "attempt": "06",
+      "label": "candidate08_new_system",
+      "terminal": {
+        "kind": "terminal",
+        "status": "passed",
+        "iterations": 5,
+        "relative_residual": 1.321764983063378e-12
+      },
+      "accepted_quad": {
+        "kind": "accepted_quad_residual",
+        "iteration": 5,
+        "binary_digits": 113,
+        "relative_residual_native_velocity_conversion": 1.3176918808001025e-12,
+        "relative_residual_exact_velocity_conversion": 1.317692071079814e-12
+      },
+      "capture": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/captured-system.bin",
+        "sha256": "f172b81438d7c5cf0c4d2ada953a2a2f42282c833293a8fbf120c75607bf4044"
+      },
+      "reader": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/binaries/tangent-reader",
+        "sha256": "4f127662f76b0da5058446dec79ce04caed174f30c8606ecf5123d85c313891f"
+      },
+      "compiler_command": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/control/reader/include",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/control/reader/replay.cpp",
+        "-o",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/binaries/tangent-reader"
+      ],
+      "compiler_version": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "runtime_libraries": [
+        {
+          "path": "/lib/x86_64-linux-gnu/libc.so.6",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "sha256": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab"
+        },
+        {
+          "path": "/lib/x86_64-linux-gnu/libdl.so.2",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+          "sha256": "7d13eb4345b129fe7572c2eb9a3e120ca02783303c292fe270dd41d5afdb5a72"
+        },
+        {
+          "path": "/lib/x86_64-linux-gnu/libm.so.6",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+          "sha256": "c858d0f5308a1b6ab2fcb4388b34faca06ac6f34ac4db77357a3a91ad8598319"
+        },
+        {
+          "path": "/lib64/ld-linux-x86-64.so.2",
+          "resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+          "sha256": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6",
+          "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6.0.36",
+          "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+        }
+      ],
+      "fixture_preflight": {
+        "status": "passed",
+        "tests": 3,
+        "nested_original_reader_checks": 8,
+        "compile_command": [
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+          "-O3",
+          "-DNDEBUG",
+          "-std=gnu++17",
+          "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tangent72-diagnostic08/include",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tangent72-diagnostic08/probe.cpp",
+          "-o",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tangent72-diagnostic08/probe"
+        ],
+        "test_command": [
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tangent72-diagnostic08/test_quad.py",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tangent72-diagnostic08/test_compensation.py",
+          "--junitxml=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tests.xml"
+        ],
+        "junit": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/fixtures/tests.xml",
+          "sha256": "1dcd73d77c246dc61a63fe3f621972a5ddb221336afb463eae8dcc1cd9432af5"
+        }
+      },
+      "result": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-result.json",
+        "sha256": "a0be87071a07e53cc6989137a9bf428d88d075bac8f802eb1402491ce5c48fca",
+        "bytes": 8863
+      },
+      "trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-trace.jsonl",
+        "sha256": "adf78fd45cdaa04fee4454cd25d793f6947c01e00e14fcd83ef1f46e63d2fcc5",
+        "bytes": 1943
+      }
+    },
+    {
+      "attempt": "07",
+      "label": "candidate08_old_system",
+      "terminal": {
+        "kind": "terminal",
+        "status": "passed",
+        "iterations": 46,
+        "relative_residual": 1.7745943440717721e-12
+      },
+      "accepted_quad": {
+        "kind": "accepted_quad_residual",
+        "iteration": 46,
+        "binary_digits": 113,
+        "relative_residual_native_velocity_conversion": 1.7706735103637685e-12,
+        "relative_residual_exact_velocity_conversion": 1.7706734134057734e-12
+      },
+      "capture": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+        "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+      },
+      "reader": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/binaries/tangent-reader",
+        "sha256": "4f127662f76b0da5058446dec79ce04caed174f30c8606ecf5123d85c313891f"
+      },
+      "compiler_command": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/control/reader/include",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/control/reader/replay.cpp",
+        "-o",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/binaries/tangent-reader"
+      ],
+      "compiler_version": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "runtime_libraries": [
+        {
+          "path": "/lib/x86_64-linux-gnu/libc.so.6",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "sha256": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab"
+        },
+        {
+          "path": "/lib/x86_64-linux-gnu/libdl.so.2",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+          "sha256": "7d13eb4345b129fe7572c2eb9a3e120ca02783303c292fe270dd41d5afdb5a72"
+        },
+        {
+          "path": "/lib/x86_64-linux-gnu/libm.so.6",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+          "sha256": "c858d0f5308a1b6ab2fcb4388b34faca06ac6f34ac4db77357a3a91ad8598319"
+        },
+        {
+          "path": "/lib64/ld-linux-x86-64.so.2",
+          "resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+          "sha256": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6",
+          "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6.0.36",
+          "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+        }
+      ],
+      "fixture_preflight": {
+        "status": "passed",
+        "tests": 3,
+        "nested_original_reader_checks": 8,
+        "compile_command": [
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+          "-O3",
+          "-DNDEBUG",
+          "-std=gnu++17",
+          "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tangent72-diagnostic08/include",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tangent72-diagnostic08/probe.cpp",
+          "-o",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tangent72-diagnostic08/probe"
+        ],
+        "test_command": [
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tangent72-diagnostic08/test_quad.py",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tangent72-diagnostic08/test_compensation.py",
+          "--junitxml=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tests.xml"
+        ],
+        "junit": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/fixtures/tests.xml",
+          "sha256": "bac641acaf8476a5724de17bd7066c1ea777612c68af960ed1d1b1597d65aac6"
+        }
+      },
+      "result": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent07-result.json",
+        "sha256": "8b70e425cfd220e80ce0d7c172bc7e0a1021e0dec400ab19965ef2a272a8cbe8",
+        "bytes": 8867
+      },
+      "trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent07-trace.jsonl",
+        "sha256": "31d568dbc89b64abcdd5593e0c32e26786cb3adfd668c700a4f969ca3b8ea613",
+        "bytes": 13809
+      }
+    }
+  ],
+  "candidate": "diagnostic08 compensated quadrature accumulation with unchanged diagnostic06 GMRES/restart",
+  "threshold": 2e-12,
+  "max_iterations": 120,
+  "restart_capacity": 20,
+  "production_modification_or_build_launch_claimed": false,
+  "native_trajectory_closure_claimed": false,
+  "benchmark_attempts": 0,
+  "covariance_authorized": false,
+  "release_ready": false,
+  "audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-07-independent-terminal-review01.json",
+    "sha256": "632e32fd831fdb00a1e566efa4751b78d27dfdc0a5453c320dd72448cfa213cd",
+    "bytes": 6635
+  },
+  "code_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08-independent-review01.json",
+    "sha256": "5493b444d846a996f1370f8ed24bf74e81bad8bbb135d7f17d1ee6ed22776f25",
+    "bytes": 3765
+  },
+  "scope": [
+    "Local and chronological sums use compensation with the same stored quadrature weights and dependencies; the velocity low part is carried into the position sum. Floating-point ordering changes, not the physical/statistical model.",
+    "Baseline06 preconditioner, GMRES, restart and stopping criteria are unchanged; rejected candidate07 basis-continuation behavior is not used.",
+    "Both observed accepted double iterates pass the original threshold under the independent 113-bit residual evaluation. This is limited to the two pinned captured systems.",
+    "Each execution passed three small fixture tests with eight nested original reader checks, including an analytic cancellation fixture; these do not establish a general robustness guarantee.",
+    "The earlier system takes46 steps here versus7 for the fresh diagnostic06 baseline. No speedup is claimed; all failures and preceding rejected07 remain preserved separately.",
+    "These are external captured-system experiments. Full native propagation/closure, a production build, the complete correctness suite and the68-fit benchmark are not results of this package."
+  ],
+  "original_compact_records": 28
+}
