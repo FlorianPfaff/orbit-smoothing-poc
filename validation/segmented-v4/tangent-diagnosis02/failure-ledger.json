@@ -1,0 +1,135 @@
+{
+  "entries": [
+    {
+      "classification": "numerical_failure_reproduced",
+      "description": "The unchanged original executable reproduces every field of the original inner true-residual failure; evidence-attribution audit passed, native evaluation failed.",
+      "evidence": [
+        "evidence/nominal-tangent-replay01-terminal.json",
+        "evidence/nominal-tangent-replay01-terminal-independent-review01.json"
+      ],
+      "id": "original-native-replay"
+    },
+    {
+      "classification": "precompile_control_failure",
+      "description": "Source inventory keys retained a source/ prefix while the comparison used paths below source/. No compilation occurred.",
+      "evidence": [
+        "evidence/tangent-capture-build01-failure.json",
+        "evidence/tangent-capture-build02-control-independent-review01.json"
+      ],
+      "id": "build01"
+    },
+    {
+      "classification": "precompile_control_failure",
+      "description": "The expected base was the repository extension; the installed native header includes the existing segmented export hook. The guard rejected the mismatch before compilation.",
+      "evidence": [
+        "evidence/tangent-capture-build02-failure.json",
+        "evidence/tangent-capture-build03-control-independent-review01.json"
+      ],
+      "id": "build02"
+    },
+    {
+      "classification": "pre_native_control_failure",
+      "description": "The read-only capture-build namespace binding was missing. No native evaluation or worker output occurred. Local capture03 names refer to remote telemetry01.",
+      "evidence": [
+        "evidence/nominal-tangent-capture03-terminal.json",
+        "evidence/nominal-tangent-capture03-worker-failure.log",
+        "evidence/nominal-tangent-capture02-terminal-independent-review01.json"
+      ],
+      "id": "telemetry01"
+    },
+    {
+      "classification": "numerical_failure_reproduced",
+      "description": "The separately compiled capture binary and reader reproduce the exact original failure. Local capture04 names refer to remote telemetry02.",
+      "evidence": [
+        "evidence/nominal-tangent-capture04-terminal.json",
+        "evidence/nominal-tangent-capture02-terminal-independent-review01.json",
+        "evidence/tangent72-diagnostic01/actual-standalone-trace01.jsonl"
+      ],
+      "id": "telemetry02"
+    },
+    {
+      "classification": "numerical_failure_confirmed",
+      "description": "A 113-bit residual evaluation of the unchanged double iterates at six and 120 iterations still fails the 2e-12 criterion; all 198 original records are preserved.",
+      "evidence": [
+        "evidence/captured-tangent01-terminal.json",
+        "evidence/captured-tangent01-terminal-independent-review01.json",
+        "evidence/tangent72-diagnostic03/actual-trace01.jsonl"
+      ],
+      "id": "quad-reader03"
+    },
+    {
+      "classification": "author_fixture_failure",
+      "description": "Unsigned loop-index subtraction wrapped in fixture data before conversion. The version02 signed-index fixture passes with writer code unchanged.",
+      "evidence": [
+        "evidence/tangent-capture-writer01-author-tests.log",
+        "evidence/test_tangent_capture_writer01.py",
+        "evidence/test_tangent_capture_writer02.py",
+        "evidence/tangent-capture-writer01-independent-review01.json"
+      ],
+      "id": "writer-fixture01"
+    },
+    {
+      "classification": "author_script_failure",
+      "description": "The initial author script used a wrong insertion literal and stopped on its assertion; the versioned script corrects that literal. The exception was observed in tool output but has no separately saved raw stderr artifact. Both scripts are retained; no invented stderr or native failure is claimed.",
+      "evidence": [
+        "evidence/author_tangent_capture_build03.py",
+        "evidence/author_tangent_capture_build03_02.py"
+      ],
+      "id": "build03-author-insertion",
+      "raw_stderr_preserved": false
+    },
+    {
+      "classification": "author_test_collection_failure",
+      "description": "The first test invocation could not find the not-yet-created test file; zero tests ran. A separately named second result and independent run preserve the completed checks.",
+      "evidence": [
+        "evidence/tangent-capture-build03-author-tests.log",
+        "evidence/tangent-capture-build03-author-tests.xml",
+        "evidence/tangent-capture-build03-author-tests02.log",
+        "evidence/tangent-capture-build03-independent-tests.log"
+      ],
+      "id": "build03-author-collection"
+    },
+    {
+      "classification": "reviewer_invocation_failure",
+      "description": "The read-only reviewer used CPU32; current-host admission rejected affinity outside the reserved controller CPUs. The same helper subsequently passed with the prescribed affinity.",
+      "evidence": [
+        "evidence/nominal-tangent-replay01-packet-independent-readback01.stderr.log",
+        "evidence/nominal-tangent-replay01-packet-independent-review01.json"
+      ],
+      "id": "replay-packet-review01"
+    },
+    {
+      "classification": "reviewer_assertion_failure",
+      "description": "The reviewer capture-magic assertion had one excess zero byte; its failed readback and helper are retained.",
+      "evidence": [
+        "evidence/audit_nominal_tangent_capture02_terminal.py",
+        "evidence/nominal-tangent-capture02-terminal-independent-readback01.stderr.log",
+        "evidence/nominal-tangent-capture02-terminal-independent-review01.json"
+      ],
+      "id": "capture-review01"
+    },
+    {
+      "classification": "reviewer_lookup_failure",
+      "description": "The reviewer expected worker.log instead of native-replay.log. The versioned final review uses the actual recorded filename.",
+      "evidence": [
+        "evidence/audit_nominal_tangent_capture02_terminal02.py",
+        "evidence/nominal-tangent-capture02-terminal-independent-readback02.stderr.log",
+        "evidence/nominal-tangent-capture02-terminal-independent-review01.json"
+      ],
+      "id": "capture-review02"
+    },
+    {
+      "classification": "reviewer_output_bound_failure",
+      "description": "The first Decimal comparison bound was smaller than documented long-double output rounding. A versioned reviewer fixture corrects that output bound; the diagnostic evaluator and 2e-12 scientific limit are unchanged.",
+      "evidence": [
+        "evidence/tangent72-quad-independent01.stderr.log",
+        "evidence/test_tangent72_quad_independent01.py",
+        "evidence/test_tangent72_quad_independent02.py",
+        "evidence/tangent72-quad-reader03-independent-review01.json"
+      ],
+      "id": "quad-fixture-review01"
+    }
+  ],
+  "schema": "orbit-poc-tangent-diagnosis-failures-v1",
+  "scope": "Scientific failures, pre-native/precompile control failures and author/reviewer mistakes are distinct. No unsuccessful record was replaced; intermediate unexecuted reader variants02/04 are retained as source, not reported as scientific runs."
+}

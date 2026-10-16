@@ -1,0 +1,65 @@
+{
+  "schema": "orbit-poc-tangent-native-capture-writer-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:02:08.493656+00:00",
+  "original": {
+    "path": "/mnt/d/orbit-segmented-v4/validation-04-packet/source/groops/extension/stagedVariationalBody.h",
+    "sha256": "39ec6589cc2b7d1b36d7712760169a030682f957ba286743248517f4c71ebb0d"
+  },
+  "candidate": {
+    "path": "/mnt/d/orbit-segmented-v4/control/stagedVariationalBody-tangent-capture01.h",
+    "sha256": "5d843097034b38716430ece2fc7f0706aa1b9a9f6cf01a5fe9e1b9a875405073"
+  },
+  "format": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-format01.json",
+    "sha256": "87f91cd5aa9b495b0a20e0cb41f86cea0ccae627d4a312f22e5356b5061bed98",
+    "bytes": 1680
+  },
+  "capture_block": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent_capture_block01.txt",
+    "sha256": "28123629be0291303a438fb31bcf983588914637896238e335eee4b60e93e070",
+    "bytes": 2437
+  },
+  "tests": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_capture_writer02.py",
+      "sha256": "114725dee53cbbf4e34823e427f5a0332f9cd69b94fa74512fc87dee630b4d2c",
+      "bytes": 3400
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-writer02-independent-tests.log",
+      "sha256": "ec3c682c94041f7ad7a063345be033349f0936020a10ce20bbcd9a64e888a730",
+      "bytes": 203
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-writer02-independent-tests.xml",
+      "sha256": "6f3abc6c1bbdd25934dc1ad1c3c15701dd5a445a0a3846ea4885e443123726ad",
+      "bytes": 1029
+    }
+  },
+  "prior_fixture_failure": {
+    "test": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_capture_writer01.py",
+      "sha256": "4d76ff7716c536d2ccbcc409a5a0826cc0bde41ac6a4e90482559ab351436094",
+      "bytes": 3410
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-writer01-author-tests.log",
+      "sha256": "0c3279d6d037db2c0baf66ead6c94261fbd7d2d948bf7522029a4aa7f83b1321",
+      "bytes": 1546
+    },
+    "reason": "Unsigned loop-index subtraction in the fixture wrapped before double conversion. The preserved version02 changes those fixture indices to signed integers; candidate writer is unchanged."
+  },
+  "checks": [
+    "Removing the single inserted capture block exactly restores the frozen stagedVariationalBody header.",
+    "Capture applies only to synthetic first physical_correction column0 when the diagnostic environment path is set.",
+    "The explicit little-endian scalar format matches the independently reviewed reader:16-byte magic, dimensions,main/precondition Jacobians,interval quadrature and unscaled RHS.",
+    "Exclusive file creation prevents overwrites; close/write errors reject the diagnostic. Fixtures verify exact scalar roundtrip, absence with no environment/flight profile, overwrite rejection and partial-write failure.",
+    "No solver expression, default, tolerance, propagation model, prior, weight or production source file changes."
+  ],
+  "authorization_scope": "Diagnostic candidate source may be staged/built separately under root authorization. The exact native build identities, original-input namespace and actual capture/replay result require separate review before numerical attribution.",
+  "native_scientific_runs_by_reviewer": 0
+}

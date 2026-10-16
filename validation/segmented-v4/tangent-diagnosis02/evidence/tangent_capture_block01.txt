@@ -1,0 +1,36 @@
+      // Diagnostic-only exact operator capture. No solver arithmetic changes.
+      if(synthetic && std::string(role)=="physical_correction" && c==0)
+      {
+        const char *capturePath=std::getenv("ORBIT_POC_TANGENT_CAPTURE");
+        if(capturePath && *capturePath)
+        {
+          static_assert(sizeof(double)==8 && std::numeric_limits<double>::is_iec559,
+                        "diagnostic capture requires IEEE754 binary64");
+          static_assert(sizeof(unsigned long long)==8,"diagnostic capture requires 64-bit unsigned scalar");
+          struct CaptureFile
+          {
+            FILE *file=nullptr;
+            ~CaptureFile(){if(file)std::fclose(file);}
+          } capture;
+          capture.file=std::fopen(capturePath,"wbx");
+          if(!capture.file)throw(Exception("diagnostic tangent capture requires a fresh writable file"));
+          auto bytes=[&](const unsigned char *value,unsigned count)
+          {if(std::fwrite(value,1,count,capture.file)!=count)throw(Exception("diagnostic tangent capture write failed"));};
+          auto u64=[&](unsigned long long value)
+          {unsigned char out[8];for(unsigned k=0;k<8;k++)out[k]=static_cast<unsigned char>((value>>(8*k))&255);bytes(out,8);};
+          const unsigned long long one=1;
+          const Bool little=*reinterpret_cast<const unsigned char *>(&one)==1;
+          auto f64=[&](double value)
+          {const auto *in=reinterpret_cast<const unsigned char *>(&value);unsigned char out[8];for(unsigned k=0;k<8;k++)out[k]=in[little?k:7-k];bytes(out,8);};
+          const unsigned char magic[16]={'O','P','C','T','A','N','G','E','N','T','0','0','1','\n',0,0};
+          bytes(magic,16);unsigned long long terms=0;for(const auto &interval:mainWeights)terms+=interval.size();
+          u64(1);u64(epochCount);u64(mainWeights.size());u64(terms);u64(rhs.size());f64(deltaT);f64(T);
+          for(const auto *jacobian:{&mainJac,&preconditionJac})for(const auto &node:*jacobian)
+          {for(double value:node.position)f64(value);for(double value:node.velocity)f64(value);}
+          for(const auto &interval:mainWeights)
+          {u64(interval.size());for(const auto &term:interval){u64(term.index);f64(term.integral);f64(term.moment);}}
+          for(double value:rhs)f64(value);
+          FILE *done=capture.file;capture.file=nullptr;
+          if(std::fclose(done)!=0)throw(Exception("diagnostic tangent capture close failed"));
+        }
+      }

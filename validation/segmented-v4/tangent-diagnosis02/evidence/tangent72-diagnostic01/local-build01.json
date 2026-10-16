@@ -1,0 +1,32 @@
+{
+  "schema": "tangent72-local-reader-build-v1",
+  "scope": "Diagnostic only; local tiny fixtures, not native failing-system replay",
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-I",
+    "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/include",
+    "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/replay.cpp",
+    "-o",
+    "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/replay"
+  ],
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "source_and_result_sha256": {
+    "prepare_header.py": "ef32696e2eb31cd8f9aa6f07d970e747b5711c01908c8d7b3b715d3d8be75c56",
+    "replay.cpp": "e5daf3535ecb2f2160b22a61ad7effdeb1ba34f3b8916c5606a88763cc48cc50",
+    "replay": "0b9a9280232fe5e5149bc65f2bcfef1eb2373ee9709e9cf89153287f1c219e26",
+    "test_replay.py": "1444850701eadcce25788f9c260839d294757442d2090a11a58255320f3adaa1",
+    "tests01.log": "a9cdc5e24392e1e154b977f2fe6dfd1e9549a92f1c7f67eda06ed6e2e39d412d",
+    "tests02.log": "b2aef10d5b33570962e4f17edc2f95aac4244f11b12fa059256cf4f01a82d011",
+    "include/manifest.json": "1790d5c5c31c15f41223b3eb6051ac1d32c161b079d3183ac5ef97ee5a089047"
+  },
+  "tests_passed": 8,
+  "production_files_modified": false
+}
