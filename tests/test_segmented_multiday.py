@@ -92,6 +92,80 @@ def test_catalog_generates_four_times_initializes_each_prefix_once(tmp_path,monk
         if entry['case_id'].startswith('flight-'):assert p.read_json(entry['request']['path'])==options['flight_requests'][entry['case_id']]
 
 
+@pytest.mark.parametrize('method',['groops_pulses','groops_log_drag_ou'])
+def test_prepare_one_selects_corrected_profile_through_shared_closure(inputs,tmp_path,monkeypatch,method):
+    import numpy as np
+    from orbit_poc.comparison import backend,synthetic
+    raw,aux,_=inputs
+    case=next(c for c in p.planned_cases() if c['stage']=='synthetic'
+              and c['case']['orbit']=='leo500' and c['case']['atmosphere']=='quiet'
+              and c['case']['duration_hours']==48 and c['method']==method)
+    raw={**raw,'duration_hours':72,'case':{**case['case'],'duration_hours':72}}
+    binary=tmp_path/'native';binary.write_bytes(b'mocked native executable')
+    monkeypatch.setattr(data,'fetch_example_auxiliary',lambda *a:None)
+    monkeypatch.setattr(legacy,'fetch_flight_auxiliary',lambda *a:None)
+    monkeypatch.setattr(backend,'_verify_transmitters',lambda *a:None)
+    configure=synthetic.configure_synthetic_forces
+    before={};calls=[]
+    def force_recipe(node):
+        # Standalone native programs are reindented when extracted from loops.
+        return ET.canonicalize(ET.tostring(node,encoding='unicode'),strip_text=True)
+    def configure_and_capture(*args):
+        configured=configure(*args)
+        tree=ET.parse(configured['configs']['variational'])
+        assert tree.find('.//orbitPocDerivativeProfile') is None
+        before['forces']=force_recipe(tree.find('.//PreprocessingVariationalEquation/forces'))
+        before['estimate']=Path(configured['configs']['estimate']).read_bytes()
+        before['hashes']={key:configured[key] for key in
+                          ('force_model_hash','measurement_model_hash','preprocessing_hash','mask_hash')}
+        return configured
+    monkeypatch.setattr(synthetic,'configure_synthetic_forces',configure_and_capture)
+    states=np.array([[1.,2.,3.,4.,5.,6.],[11.,12.,13.,14.,15.,16.]])
+    def execute(binary,config,output_dir,label,**kwargs):
+        tree=ET.parse(config)
+        if label in ('convert_gnss','convert_receiver'):
+            if label=='convert_receiver':
+                for node in tree.iter():
+                    if node.tag.startswith('outputfile') and node.text.startswith('/'):
+                        path=Path(node.text);path.parent.mkdir(parents=True,exist_ok=True)
+                        path.write_bytes(b'unchanged converted receiver or bootstrap input')
+            return {'returncode':0,'config':str(config)}
+        propagation=tree.find('.//PreprocessingVariationalEquation')
+        assert [n.text for n in propagation.findall('orbitPocDerivativeProfile')]==['synthetic_complete_v1']
+        assert force_recipe(propagation.find('forces'))==before['forces']
+        initializer=tree.find('.//PreprocessingVariationalEquationOrbitFit')
+        evaluation=tree.find('.//OrbitPocEvaluateVariational')
+        if not calls:
+            assert initializer is not None
+            assert all(initializer.find(name) is None for name in ('stochasticPulse','parametrizationAcceleration'))
+        else:
+            assert initializer is None
+            np.testing.assert_array_equal(backend.read_native_table(
+                evaluation.findtext('inputfileInitialState')).ravel(),states[0])
+        current=states.copy();current[1,0]+=[0.,.01,.0100005][len(calls)]
+        orbit=Path(evaluation.findtext('outputfileOrbit'));orbit.write_bytes(current.tobytes())
+        np.savetxt(orbit.with_suffix('.txt'),np.c_[[60440.,60440.+5/86400],current,np.zeros((2,3))])
+        calls.append(str(config))
+        return {'returncode':0,'config':str(config)}
+    monkeypatch.setattr(backend,'run_native',execute)
+    output=tmp_path/'prefix'
+    result=m.prepare_one(case,output,{'native':{'path':str(binary)}},
+                         {'example_directory':None,'auxiliary_dir':str(aux)},raw)
+    assert len(calls)==3 and result['method']==method
+    blind=p.read_json(output/'native_preparation.json')
+    assert blind['nominal_initialization']['converged']
+    assert blind['nominal_initialization']['iterations']==2
+    for key,value in before['hashes'].items():assert result[key]==blind[key]==value
+    assert Path(blind['configs']['estimate']).read_bytes()==before['estimate']
+    initialization=p.read_json(blind['nominal_initialization']['record_path'])
+    assert initialization['position_tolerance_m']==2e-6
+    assert initialization['velocity_tolerance_m_s']==3e-9
+    assert initialization['maximum_iterations']==10
+    assert initialization['immutable_inputs_unchanged']
+    assert initialization['source_configuration']['sha256']==p.file_hash(blind['configs']['variational'])
+    assert all(p.file_hash(item['path'])==item['sha256'] for item in blind['native_artifacts'])
+
+
 def test_prefix_rejects_wrong_continuous_generation(tmp_path):
     case=p.planned_cases()[0]
     with pytest.raises(ValueError,match='continuous72'):m.prefix_inputs({'duration_hours':24},case)

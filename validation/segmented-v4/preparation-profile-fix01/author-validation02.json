@@ -1,0 +1,79 @@
+{
+  "schema": "orbit-poc-v4-preparation-profile-author-validation-v1",
+  "created_at": "2026-10-16T04:33:22.993187+00:00",
+  "passed": true,
+  "candidate_files": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/candidate-files02.json",
+    "sha256": "4e966eea96c426e78dd1d1f3370f2f271f6eeade8f20865f46319127844f939b",
+    "bytes": 751
+  },
+  "patch": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/candidate02.patch",
+    "sha256": "111143c2183b73e30bde84b52783603e50f2edf264106ff35bbe225da7829b37",
+    "bytes": 8937
+  },
+  "tests": {
+    "passed": 31,
+    "failures": 0,
+    "skips": 0,
+    "deselected": 2,
+    "explicit_exclusion": "test_native_closure_loop_boundaries_use_offset_once (two environment-dependent native parametrizations)",
+    "cpu_affinity": [
+      1
+    ],
+    "numerical_threads": 1,
+    "command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src taskset -c 1 <pinned-python> -m pytest -p no:cacheprovider tests/test_segmented_multiday.py tests/test_comparison_initialization.py -k 'not test_native_closure_loop_boundaries_use_offset_once'",
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/focused-tests02.log",
+      "sha256": "9033a0e3bc956e10c2050b1cdf11fb495535bd6adb7b59b60ba4fdda5d07775d",
+      "bytes": 606
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/focused-tests02.xml",
+      "sha256": "1bf8d246c8f5ca10ca38745ee30a1324604faafcb4a14b08a739bad13e6dd8ef",
+      "bytes": 4393
+    }
+  },
+  "preserved_first_run": {
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/focused-tests01.log",
+      "sha256": "1fe9723eb7d33119375f658218f0f63a51ab049a0b4c726f8d522ca9dec120a8",
+      "bytes": 14933
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/focused-tests01.xml",
+      "sha256": "03ff60c62c2dc6bfae3a806e0a602c86e98032a9902ced7f8f53853aa410342b",
+      "bytes": 18663
+    },
+    "scope": "29passed; two new-test assertions compared XML formatting after standalone reindent. Candidate02 changes only those test comparisons to canonical XML with formatting whitespace removed."
+  },
+  "unchanged_source_checks": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/preparation.py",
+      "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/comparison/initialization.py",
+      "sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/comparison/backend.py",
+      "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/comparison/synthetic.py",
+      "sha256": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/native_derivatives.py",
+      "sha256": "1aeeb5e701529e3433afd869db141203f9d59492ad5eab9fa560116f6b712110"
+    }
+  ],
+  "native_runs": 0,
+  "committed": false,
+  "scope": "V4-only synthetic initializer profile selection; shared defaults/native implementation untouched. Focused mocked-execution regressions are not full validation04 or benchmark completion."
+}

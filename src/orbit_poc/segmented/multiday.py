@@ -747,6 +747,7 @@ def prepare_one(case,root,runtime,options,raw):
     """Convert the retained prefix and close its own GNSS-only initialization."""
     from ..comparison import backend as native
     from ..comparison import groops_config
+    from ..comparison.initialization import _field
     from ..comparison.synthetic import configure_synthetic_forces
     from ..comparison.protocol import artifact_record,validate_estimation_inputs
     root=Path(root);root.mkdir(parents=True,exist_ok=False)
@@ -758,7 +759,16 @@ def prepare_one(case,root,runtime,options,raw):
     # Both disturbance models share this exact zero-disturbance preparation.
     configured=build_arc_configs(raw,options['example_directory'],options['auxiliary_dir'],root/'native-prepared',
         method='groops_pulses',mask=model['mask'],duration_hours=model['duration_hours'])
-    if case['stage']=='synthetic':configured=configure_synthetic_forces(configured,model,options)
+    if case['stage']=='synthetic':
+        configured=configure_synthetic_forces(configured,model,options)
+        # Nominal closure precedes NativeModel's profile selection. Use the
+        # corrected synthetic path here too, without changing legacy defaults.
+        path=configured['configs']['variational']
+        tree=ET.parse(path).getroot()
+        propagation=tree.find('.//PreprocessingVariationalEquation')
+        if propagation is None:raise ValueError('Synthetic initialization needs native propagation')
+        _field(propagation,'orbitPocDerivativeProfile','synthetic_complete_v1')
+        _save(tree,path)
     executions=[]
     for label in ('convert_gnss','convert_receiver'):
         executions.append(native.run_native(binary,configured['configs'][label],configured['output_dir'],label,timeout=7200,threads=1))
