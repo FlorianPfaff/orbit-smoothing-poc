@@ -1,0 +1,78 @@
+{
+  "arc": {},
+  "atmospheric_quadrature_step_seconds": null,
+  "bootstrap_snapshot": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/input_bootstrap.dat",
+    "role": "initial_bootstrap",
+    "sha256": "41e6e3f19476cebf29e8c32fa1125b3c46237165e0e4c2770c11216977efbfb8"
+  },
+  "converged": false,
+  "error": "NativeExecutionError: Native propagate exited 1; see /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.log",
+  "executions": [
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/initialize.xml"
+      ],
+      "config_sha256": "3f690b0f1064f81a19789203d7f39e873a41073b6a565749c15e9eccfe94c311",
+      "elapsed_seconds": 2.52141664782539,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/initialize.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+      "peak_rss_bytes": 291921920,
+      "pid": 61,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.xml"
+      ],
+      "config_sha256": "0df968c048f62631ab89ebaa90fc3b2ea1cb29b8762f60c58a2ec0031ed4d904",
+      "elapsed_seconds": 3.0697333170101047,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+      "peak_rss_bytes": 291987456,
+      "pid": 62,
+      "returncode": 1,
+      "timed_out": false
+    }
+  ],
+  "fixed_initial_state_scope": "Fixed only for this numerical closure; the final GNSS fit re-estimates all six initial-state components",
+  "fixed_initial_state_si": [
+    6878126.008098143,
+    -207.02107813112366,
+    -280.69355318934697,
+    0.39154027892910004,
+    4581.389322493885,
+    6079.70443254602
+  ],
+  "helper_sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655",
+  "immutable_input_sha256": {
+    "attitude": "174d5240eeb314017c0df96a159ce866587d779a9e44abfb2b1f4228b6436df1",
+    "preprocessing_orbit": "b16ab537614bafd31c63b9f39574bc03b1054e556b0ad477cd1462588973f92a",
+    "receiver": "a9b7fae785822a9958545eba676f12883ccd8895dfa02c37182aac834c9789f0",
+    "receiver_attitude": "00acd2e2d7f30567ddff49f8674c0ababfb1a46f03e8dab82e15b4a4d39a5186",
+    "receiver_orbit": "b16ab537614bafd31c63b9f39574bc03b1054e556b0ad477cd1462588973f92a"
+  },
+  "initial_bootstrap_orbit_sha256": "41e6e3f19476cebf29e8c32fa1125b3c46237165e0e4c2770c11216977efbfb8",
+  "iterations": [],
+  "maximum_iterations": 10,
+  "native_binary_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+  "physical_force_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+  "position_tolerance_m": 2e-06,
+  "scope": "Shared fixed-initial-state nominal-force initialization; no stochastic parameters, observations or prior added",
+  "source_configuration": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/native-prepared/variational.xml",
+    "role": "nominal_configuration",
+    "sha256": "e93971ad67f2c95ffb99dd0c49f1c6f9388a12e0faaa1c93e6146c69133ebee3"
+  },
+  "state_epochs": 51840,
+  "status": "failed",
+  "thermal_maximum_step_seconds": null,
+  "velocity_tolerance_m_s": 3e-09
+}

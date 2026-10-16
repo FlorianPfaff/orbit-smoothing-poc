@@ -1,0 +1,64 @@
+"""Publish the audited preparation failure from one immutable local capture."""
+from pathlib import Path
+import datetime,hashlib,html,json
+R=Path('/mnt/d/orbit-segmented-v4');C=R/'control';F=R/'preparation-03-results/failure-capture-01';O=R/'publication-preparation03-failure01'
+def read(p):return json.loads(Path(p).read_text())
+def pin(p):
+ p=Path(p);assert p.is_file() and not p.is_symlink(),p;b=p.read_bytes();return {'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)}
+def put(rel,b):
+ p=O/rel;p.parent.mkdir(parents=True,exist_ok=True)
+ with p.open('xb') as f:f.write(b)
+def jput(rel,v):put(rel,(json.dumps(v,sort_keys=True,indent=2,allow_nan=False)+'\n').encode())
+sources=[]
+def copy(rel,p,expected=None):
+ identity=pin(p)
+ if expected:assert identity['sha256']==expected,(p,identity)
+ put(rel,Path(p).read_bytes());sources.append({'relative':rel,'source':identity})
+ return identity
+A=read(C/'preparation03-terminal-failure-independent-review01.json');T=read(C/'preparation03-failure-capture-independent-review01.json');M=read(F/'manifest.json')
+assert pin(C/'preparation03-terminal-failure-independent-review01.json')['sha256']=='b5a98d09ee6efe41e6e5e40c76197862d5201a8029784b7277cdcca41a07c9e9'
+assert pin(C/'preparation03-failure-capture-independent-review01.json')['sha256']=='5efb16cc84cd145a5f60b5179b63513bbe261c685167f5bc7115509a0067f970'
+assert pin(F/'manifest.json')['sha256']=='cc917d53ec801252bbe7412e2797f4eb785fc032987c6a898c33a7f729d5ee2b'
+assert A['passed'] and T['passed'] and A['preparation_status']=='failed_or_blocked'
+assert (A['completed_generations'],A['planned_generations'],A['completed_prefixes'],A['planned_unique_prefixes'],A['started_fit_attempts'])==(2,4,5,12,0)
+assert A['failure']['native_guard']=={'relative_residual':1.503709478355439e-11,'tolerance':2e-12,'iterations':120,'rhs_norm':3747.3316555822867,'solution_norm':6658355.621595214,'epochs':51840,'solve_role':'physical_correction','column':0,'duration_seconds':259195.0}
+assert A['source_preservation']['profiles']==['synthetic_complete_v1']*2
+assert A['owned_cleanup']['verified'] and A['owned_cleanup']['exact_recorded_identities_non_live']==63
+assert len(M['files'])==103 and len(M['external_not_copied'])==4
+members={x['relative_path']:x for x in M['files']};assert len(members)==103
+assert {str(p.relative_to(F)) for p in F.rglob('*') if p.is_file()}==set(members)|{'manifest.json'}
+assert all(not p.is_symlink() for p in F.rglob('*'))
+by_source={v['source_path']:k for k,v in members.items()}
+for key in ['pipeline','preparation_status_artifact','failed_request','failed_execution']:
+ art=A[key];m=members[by_source[art['path']]];assert m['sha256']==art['sha256'] and m['bytes']==art['bytes']
+for rel in ['failed-prefix/nominal-initialization/initial/initialize.xml','failed-prefix/nominal-initialization/iteration-01/propagate.xml']:
+ assert 'synthetic_complete_v1' in (F/rel).read_text()
+log=(F/'failed-prefix/nominal-initialization/iteration-01/propagate.log').read_text()
+assert 'relative_residual=1.503709478355439e-11, tolerance=2e-12, iterations=120' in log
+assert 'solve_role=physical_correction' in log
+assert not O.exists();O.mkdir()
+keep_large={by_source[A[x]['path']] for x in ['failed_request','failed_execution']}
+external=[];copied=[]
+for rel,item in sorted(members.items()):
+ ident=pin(F/rel);assert ident['sha256']==item['sha256'] and ident['bytes']==item['bytes']
+ if item['bytes']>512_000 and rel not in keep_large:
+  assert rel.startswith('jobs/') and Path(rel).name in {'request.json','execution.json'}
+  external.append({'kind':'captured_repeated_runtime_inventory','capture_relative':rel,'capture_local_path':str(F/rel),'original':item,'disposition':'preserved_in_full_capture_not_copied_to_git'})
+ else:
+  copy('capture/'+rel,F/rel,item['sha256']);copied.append(rel)
+assert len(copied)==89 and len(external)==14
+for item in M['external_not_copied']:external.append({'kind':'native_array_or_orbit_text','original':item,'disposition':'outside_capture_and_git_not_read_by_publication'})
+copy('capture-manifest.json',F/'manifest.json',T['manifest']['sha256'])
+local=['preparation03-terminal-failure-independent-review01.json','preparation03-failure-capture-independent-review01.json','preparation03-terminal-failure-independent-readback01.json','preparation03-terminal-failure-independent-readback01.stderr.log','preparation03-failure-numerics-independent-readback01.json','preparation03-failure-numerics-independent-readback01.stderr.log','audit_preparation03_terminal_failure01.py','audit_preparation03_failure_numerics01.py','capture_preparation03_failure01.py','preparation03-failure-capture01.stdout.json','preparation03-failure-capture01.stderr.log','package_preparation03_failure01.py']
+for name in local:copy('provenance/'+name,C/name)
+jput('external-evidence.json',{'schema':'orbit-poc-preparation-failure-external-evidence-v1','entries':external,'captured_records_copied':89,'captured_records_external':14,'native_arrays_or_text_external':4,'complete_capture_archive':T['archive'],'capture_archive_members':104,'scope':'All 103 compact capture records and their manifest are preserved in the independently audited external transfer archive. This Git package copies 89 records, including exact failed request/execution and all nominal controls, and lists 14 repeated large runtime inventories externally. The four native arrays/orbit text remain outside that archive and Git; no such array was read by this publication.'})
+summary={'schema':'orbit-poc-preparation-failure-report-v1','packaged_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'preparation_status':A['preparation_status'],'finished_at':A['finished_at'],'independent_failure_audit_passed':True,'meaning_of_audit_pass':A['audit_meaning'],'completed_generations':A['completed_generations'],'planned_generations':A['planned_generations'],'completed_unique_prefixes':A['completed_prefixes'],'planned_unique_prefixes':A['planned_unique_prefixes'],'failed_unique_prefixes':A['failed_prefixes'],'failure':A['failure'],'owned_cleanup':A['owned_cleanup'],'source_preservation':A['source_preservation'],'completed_prefixes':A['passed_prefix_closure_records'],'v4_benchmark_fits_started':0,'v4_benchmark_fits_planned':68,'prepared_manifest_complete':False,'release_ready':False,'covariance_authorized':False,'new_numerical_work_by_publication':False,'sources':sources,'earlier_reports':{'full14':'../validation04/index.html','shifted02':'../shifted02/index.html','historical_launch_and_original150':'../status-preparation-original150-05/index.html','earlier_profile_failure':'../status-preparation-original150-03/index.html','profile_diagnostic':'../nominal-profile-diagnostic01/index.html'}}
+jput('summary.json',summary)
+e=html.escape
+rows=''.join('<tr><td>'+e(x['case_id'])+'</td><td>'+str(x['iteration_count'])+'</td><td>'+format(x['last_iteration']['maximum_position_change_m'],'.6g')+'</td><td>'+format(x['last_iteration']['maximum_velocity_change_m_s'],'.6g')+'</td></tr>' for x in A['passed_prefix_closure_records'])
+page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Preparation03: preserved 72-hour failure</title><style>body{font:16px/1.6 system-ui;max-width:1100px;margin:3rem auto;padding:0 1.3rem;color:#172737}table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{padding:.6rem;border-bottom:1px solid #cbd3de;text-align:left}.status{padding:1rem;background:#fff1e4;border-left:4px solid #a45d21}a{color:#164e89}code{overflow-wrap:anywhere}</style><h1>Preparation03 stopped on the 72-hour disturbed/blackout prefix</h1><p class="status"><strong>Preparation failed; 0/68 benchmark fits started.</strong> The evidence and failure classification passed independent audit. That audit does not turn the failed preparation into a scientific success or authorize covariance.</p><p>The controller stopped at '''+e(A['finished_at'])+'''. Two of four continuous generators and five of twelve unique prefixes completed. The failed case was <code>leo500-disturbed-blackout-groops_pulses-72h</code>. This report preserves the original failed attempt and completed preparation stages without replacing them.</p><h2>Measured failure</h2><p>The first nominal-closure propagation used <code>synthetic_complete_v1</code>. Its inner right-preconditioned restarted GMRES solve, in the physical-correction role, reached a true relative residual of <strong>1.503709478355439e-11</strong> after 120 iterations, above the unchanged <strong>2e-12</strong> tolerance. The guard rejected the result before the first outer-closure trajectory export. The worker ran for 40.879 seconds with a 449,073,152-byte peak process-tree RSS. This was neither a timeout nor a memory failure, outer-closure iteration-limit result, nonlinear fit, or covariance result.</p><p>The residual's cause remains unresolved. This record cannot distinguish slow restarted-GMRES convergence, an inaccurate preconditioner or finite-precision stagnation. No numerical-floor claim, correction efficacy or acceptance-limit relaxation follows from it. The independent audit verified the unchanged 384 source files, native executable, fixed initial state and retained receiver/attitude inputs. All 63 recorded owned process identities were non-live after cleanup.</p><p>The <a href="capture/failed-prefix/nominal-initialization/iteration-01/propagate.log">exact native failure log</a>, <a href="capture/failed-prefix/nominal-initialization/iteration-01/propagate.xml">propagation configuration</a> and <a href="capture/failed-prefix/nominal-initialization/initial_state.txt">fixed initial state</a> are preserved. This is distinct from the <a href="../status-preparation-original150-03/index.html">earlier omitted-profile failure</a>; the <a href="../nominal-profile-diagnostic01/index.html">separate controlled diagnostic</a> and ensuing source correction remain valid within their scope.</p><h2>Completed preparation prefixes</h2><p>These are input-preparation closure results, not estimator fits or independent trials. Shared realizations and nested durations remain related.</p><table><thead><tr><th>Audited case</th><th>Closure iterations</th><th>Final position change (m)</th><th>Final velocity change (m/s)</th></tr></thead><tbody>'''+rows+'''</tbody></table><h2>Scope and evidence</h2><p>The <a href="../validation04/index.html">14-stage validation</a> and <a href="../shifted02/index.html">shifted-cut captured-row diagnostic</a> remain passed within their tested scope; they do not erase this multi-day preparation failure. The <a href="../status-preparation-original150-05/index.html">06:22 launch observation and separate original150 snapshot</a> are historical records, not current-running claims. The original 150-attempt benchmark remains separate.</p><ul><li><a href="summary.json">Machine-readable failure, partial progress and source identities</a></li><li><a href="provenance/preparation03-terminal-failure-independent-review01.json">Independent terminal failure and cleanup audit</a></li><li><a href="provenance/preparation03-failure-capture-independent-review01.json">Independent capture/archive audit</a></li><li><a href="capture/control/pipeline.json">Original terminal controller</a></li><li><a href="capture/run/preparation-status.json">Original public preparation status</a></li><li><a href="capture-manifest.json">Complete 103-record capture manifest</a></li><li><a href="external-evidence.json">Every omitted record and native array identity</a></li><li><a href="manifest.json">Exact publication manifest</a></li></ul><p>The independently audited external capture archive contains all 103 records plus their manifest. This Git package copies 89 records, including the exact failed request and execution; 14 repeated large runtime inventories remain external. Four native arrays or orbit text files remain outside both the capture archive and Git. This publication performed no remote capture, native run, array rescan, numerical change or new release claim.</p></html>'''
+put('index.html',page.encode())
+for s in sources:assert pin(s['source']['path'])==s['source']
+entries=[{'relative':str(p.relative_to(O)),'sha256':pin(p)['sha256'],'bytes':p.stat().st_size} for p in sorted(O.rglob('*')) if p.is_file()]
+jput('manifest.json',{'schema':'orbit-poc-preparation-failure-publication-manifest-v1','entries':entries,'files':len(entries),'bytes':sum(x['bytes'] for x in entries),'source_capture':pin(F/'manifest.json'),'independent_terminal_audit':pin(C/'preparation03-terminal-failure-independent-review01.json'),'independent_capture_audit':pin(C/'preparation03-failure-capture-independent-review01.json'),'builder':pin(Path(__file__)),'release_ready':False})
+print(json.dumps({'root':str(O),'manifest':pin(O/'manifest.json'),'files':len(entries),'bytes':sum(x['bytes'] for x in entries)}))
