@@ -1,0 +1,46 @@
+{
+  "actual_diagnostic_executed": false,
+  "commands": [
+    "PYTHONPATH=<reviewed source>/src:<reviewed source>/tests taskset -c0 <pinned scientific Python> -m pytest -q -p no:cacheprovider test_validate_shifted_cuts.py --basetemp=/tmp/shifted-cut-fixtures-02 --junitxml=/tmp/shifted-cut-fixtures-02.xml"
+  ],
+  "frozen_source_modified": false,
+  "helper": {
+    "bytes": 15453,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/validate_shifted_cuts.py",
+    "sha256": "6d63852ef80fb6073a29722c60719af3650f8d98d34bbb721b873f954056a63f"
+  },
+  "junit": {
+    "bytes": 5177,
+    "path": "/tmp/shifted-cut-fixtures-02.xml",
+    "sha256": "aa70f1b296d73fd0c37c9f07a1403b75ce4c2305f8a540b26f5ad7c1ef3a7850"
+  },
+  "log": {
+    "bytes": 180,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/fixtures-02.log",
+    "sha256": "634db87add6e72dd59e487ca7d905c5f404ddcb9309bb89f4bb7f02bc1d5373d"
+  },
+  "native_executed": false,
+  "passed": true,
+  "preserved_initial_fixture_failure": {
+    "cause": "Positive coverage fixture localized the force near3600s, after1800s; diagnostic correctly withheld4h interior coverage. Corrected only fixture to localize force before1800s and recomputed independent original weighted rows. Limits and diagnostic arithmetic unchanged.",
+    "junit": {
+      "bytes": 6618,
+      "path": "/tmp/shifted-cut-fixtures-01.xml",
+      "sha256": "0fa3909e5ecb1d724ebb8e8abfb8e82572da489a83f745a225092092469ca1c1"
+    },
+    "log": {
+      "bytes": 1698,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/fixtures-01.log",
+      "sha256": "b1589fe1dfc6bd8e8c41e8a6642a1273cb5c5c62ac64e76badd722a2b66fe240"
+    }
+  },
+  "schema": "orbit-poc-shifted-cut-diagnostic-author-validation-v1",
+  "scope": "Control fixtures mock native QR calls; full actual captured-native result remains pending root review and serial post-suite execution.",
+  "tests": {
+    "bytes": 11528,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/test_validate_shifted_cuts.py",
+    "sha256": "4f0c77a4e8e247d9b3b0f415b7aa90c00ab5d919c0a258986c814779ced3d5b5"
+  },
+  "tests_passed": 26,
+  "utc": "2026-10-15T17:18:56.675493+00:00"
+}

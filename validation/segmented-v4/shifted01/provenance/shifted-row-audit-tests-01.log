@@ -1,0 +1,97 @@
+FF....                                                                   [100%]
+=================================== FAILURES ===================================
+______________ test_independent_original_row_energy_and_equality _______________
+
+tmp_path = PosixPath('/tmp/shifted-row-audit-tests-01/test_independent_original_row_0')
+
+    def test_independent_original_row_energy_and_equality(tmp_path):
+>    g=m.read(fixture(tmp_path));e,f=m.evaluate(g,{'variable_ids':[0,1],'step':[3.5,3.5]});assert e==0 and f==.5
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_audit_shifted_rows01.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:26: in read
+    need(pin(p)==before,'row bytes mutated')
+         ^^^^^^
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:9: in pin
+    p=Path(p);b=p.read_bytes();return {'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)}
+      ^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:871: in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:509: in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'pathlib.PosixPath'>, args = (1,)
+
+    @classmethod
+    def _parse_args(cls, args):
+        # This is useful when you don't want to create an instance, just
+        # canonicalize some constructor arguments.
+        parts = []
+        for a in args:
+            if isinstance(a, PurePath):
+                parts += a._parts
+            else:
+>               a = os.fspath(a)
+                    ^^^^^^^^^^^^
+E               TypeError: expected str, bytes or os.PathLike object, not int
+
+work/v3/native-env/lib/python3.11/pathlib.py:493: TypeError
+_______ test_ledger_identity_preserves_coefficients_but_not_group_order ________
+
+tmp_path = PosixPath('/tmp/shifted-row-audit-tests-01/test_ledger_identity_preserves0')
+
+    def test_ledger_identity_preserves_coefficients_but_not_group_order(tmp_path):
+>    g=m.read(fixture(tmp_path));i=m.identities(g);g['groups'].reverse();assert m.identities(g)==i;g['stochastic_text'][0]+='0';assert m.identities(g)!=i
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_audit_shifted_rows01.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:26: in read
+    need(pin(p)==before,'row bytes mutated')
+         ^^^^^^
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:9: in pin
+    p=Path(p);b=p.read_bytes();return {'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)}
+      ^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:871: in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:509: in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'pathlib.PosixPath'>, args = (1,)
+
+    @classmethod
+    def _parse_args(cls, args):
+        # This is useful when you don't want to create an instance, just
+        # canonicalize some constructor arguments.
+        parts = []
+        for a in args:
+            if isinstance(a, PurePath):
+                parts += a._parts
+            else:
+>               a = os.fspath(a)
+                    ^^^^^^^^^^^^
+E               TypeError: expected str, bytes or os.PathLike object, not int
+
+work/v3/native-env/lib/python3.11/pathlib.py:493: TypeError
+=============================== warnings summary ===============================
+work/numerics-v3.1/python/lib/python3.11/site-packages/_pytest/cacheprovider.py:475
+  /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/lib/python3.11/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /mnt/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/mnt/pytest-cache-files-tou2yfoz'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+work/numerics-v3.1/python/lib/python3.11/site-packages/_pytest/cacheprovider.py:429
+  /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/lib/python3.11/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /mnt/.pytest_cache/v/cache/lastfailed: [Errno 13] Permission denied: '/mnt/pytest-cache-files-cxidv_f_'
+    config.cache.set("cache/lastfailed", self.lastfailed)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+----------- generated xml file: /tmp/shifted-row-audit-tests-01.xml ------------
+=========================== short test summary info ============================
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_audit_shifted_rows01.py::test_independent_original_row_energy_and_equality
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_audit_shifted_rows01.py::test_ledger_identity_preserves_coefficients_but_not_group_order
+2 failed, 4 passed, 2 warnings in 7.01s
