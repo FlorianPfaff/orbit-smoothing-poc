@@ -1,0 +1,323 @@
+{
+  "attempt11": {
+    "accepted_covariance": false,
+    "attempt_id": "retained-pulse-neighbor-300001--qr_lm_legacy_jacobian",
+    "elapsed_seconds": 7200.069287443001,
+    "native_sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9",
+    "peak_process_tree_rss_bytes": 2060500992,
+    "source_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae",
+    "status": "timeout"
+  },
+  "attempt12": {
+    "attempt_id": "retained-pulse-neighbor-300001--qr_lm_staged_jacobian",
+    "processes": [
+      {
+        "affinity": [
+          30
+        ],
+        "argv": [
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+          "-s",
+          "-c",
+          "\nimport importlib,json,os,sys,traceback\nfrom pathlib import Path\nsource,request_path,output_path,module,operation,cpu_json=sys.argv[1:]\nsys.path.insert(0,str(Path(source)/\"src\"))\ncpus=json.loads(cpu_json)\nif cpus: os.sched_setaffinity(0,cpus)\nrequest=json.loads(Path(request_path).read_text())\ntry:\n    result=getattr(importlib.import_module(module),operation)(request,Path(output_path).parent)\nexcept Exception as error:\n    result={\"status\":\"failed\",\"converged\":False,\"covariance_valid\":False,\n            \"error\":type(error).__name__+\": \"+str(error),\"traceback\":traceback.format_exc()}\ntemporary=Path(output_path).with_suffix(\".tmp\")\ntemporary.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+\"\\n\")\ntemporary.replace(output_path)\n",
+          "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f",
+          "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/worker-request.json",
+          "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/worker-result.json",
+          "orbit_poc.numerics.backend",
+          "fit_job",
+          "[30]"
+        ],
+        "parent": 9879,
+        "pid": 49553,
+        "process_group": 49553,
+        "session": 49553,
+        "start_ticks": 2191988,
+        "state": "S"
+      },
+      {
+        "affinity": [
+          30
+        ],
+        "argv": [
+          "/mnt/d/orbit-numerics-v3.1/capacity-archive-01/binaries/groops-3aad854b51102dce",
+          "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/point-001-initial/profile.xml"
+        ],
+        "parent": 49553,
+        "pid": 49801,
+        "process_group": 49553,
+        "session": 49553,
+        "start_ticks": 2204643,
+        "state": "R"
+      }
+    ],
+    "remaining_unstarted_after_this_attempt": 138,
+    "result_present_at_observation": false,
+    "status_at_observation": "running"
+  },
+  "audit": {
+    "path": "evidence/original150-eleventh-terminal-independent-review02.json",
+    "sha256": "f80f286e2543b481712bc9d1fa11a1f8915f0f5a86c4ab45e4a8d6f3bd538f72"
+  },
+  "cleanup_scope": "Known worker/native identities and every current member of the isolated worker process group are absent or zombie/non-live. This observation is not an invented controller cleanup receipt or proof of earlier intermediate process membership.",
+  "limitations": [
+    "This is a dated observation, not a current-state monitor.",
+    "The single complete legacy_v3 outcome uses the original archived criteria and does not certify corrected v3.1 or V4 strict convergence.",
+    "No attempt was rerun or replaced. The original150 campaign is incomplete.",
+    "V4 validation, preparation and its68 fit attempts remain separate; this snapshot makes no new V4 readiness claim.",
+    "Known prior worker/native identities and the old isolated process group are non-live; one native identity is a zombie, not an absent/reaped process.",
+    "The audit preserves the full239-record input identity and verifies six selected input bytes; the startup receipt independently covers its declared nine runtime/auxiliary trees. This audit does not reverify every one of the239 input payloads."
+  ],
+  "observed_at": "2026-10-16T08:29:08.324996+00:00",
+  "planned_attempts": 150,
+  "prior_author_check": {
+    "helper": {
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_original150_eleventh_terminal01.py",
+      "sha256": "47413b29269c08d32219590ccd77c8f768cda2deed456b871951552da8ed7333"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/original150-eleventh-terminal-independent-review01.log",
+      "sha256": "36c7931adb1c4db7049997234853c09a2bf56e66b1289e2f24fbdaeca929504e"
+    },
+    "reason": "Initial audit compared complete pin dictionaries; the proposal additionally records bytes. Version02 compares identical path and SHA256, retaining all prior byte checks."
+  },
+  "prior_history": "../status-preparation-original150-05/index.html",
+  "schema": "orbit-poc-original150-eleventh-status-v1",
+  "scope_clarification": {
+    "audit_field": "eleventh.input_scope",
+    "meaning": "The sealed startup receipt verifies its declared nine runtime and auxiliary trees. The current audit rechecks the frozen239-record declaration and six selected payloads; it does not rehash all239 input payloads. Earlier campaign input verification is historical evidence, not a new check performed by this audit."
+  },
+  "sources": [
+    {
+      "bytes": 41108,
+      "destination": "evidence/original150-eleventh-terminal-independent-review02.json",
+      "sha256": "f80f286e2543b481712bc9d1fa11a1f8915f0f5a86c4ab45e4a8d6f3bd538f72",
+      "source": {
+        "bytes": 41108,
+        "path": "/mnt/d/orbit-segmented-v4/control/original150-eleventh-terminal-independent-review02.json",
+        "sha256": "f80f286e2543b481712bc9d1fa11a1f8915f0f5a86c4ab45e4a8d6f3bd538f72"
+      }
+    },
+    {
+      "bytes": 13282,
+      "destination": "evidence/audit_original150_eleventh_terminal02.py",
+      "sha256": "aaf37926086931e7bb45e565698ca93d0c1d127171ddf89b53dde215a745f410",
+      "source": {
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_original150_eleventh_terminal02.py",
+        "sha256": "aaf37926086931e7bb45e565698ca93d0c1d127171ddf89b53dde215a745f410"
+      }
+    },
+    {
+      "bytes": 12901,
+      "destination": "evidence/audit_original150_eleventh_terminal01.py",
+      "sha256": "47413b29269c08d32219590ccd77c8f768cda2deed456b871951552da8ed7333",
+      "source": {
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_original150_eleventh_terminal01.py",
+        "sha256": "47413b29269c08d32219590ccd77c8f768cda2deed456b871951552da8ed7333"
+      }
+    },
+    {
+      "bytes": 282,
+      "destination": "evidence/original150-eleventh-terminal-independent-review01.log",
+      "sha256": "36c7931adb1c4db7049997234853c09a2bf56e66b1289e2f24fbdaeca929504e",
+      "source": {
+        "path": "/mnt/d/orbit-segmented-v4/control/original150-eleventh-terminal-independent-review01.log",
+        "sha256": "36c7931adb1c4db7049997234853c09a2bf56e66b1289e2f24fbdaeca929504e"
+      }
+    },
+    {
+      "bytes": 180,
+      "destination": "evidence/original150-eleventh-terminal-independent-review02.log",
+      "sha256": "21902bdfd6d9092461433195c3e6c060cdefdf07d9c64ffc7572f402a6840084",
+      "source": {
+        "bytes": 180,
+        "path": "/mnt/d/orbit-segmented-v4/control/original150-eleventh-terminal-independent-review02.log",
+        "sha256": "21902bdfd6d9092461433195c3e6c060cdefdf07d9c64ffc7572f402a6840084"
+      }
+    },
+    {
+      "bytes": 9629,
+      "destination": "evidence/package_original150_eleventh_status02.py",
+      "sha256": "256472bbea4118aa647c98b343c37e242a6483174ab14711e7a8b2328e12e30f",
+      "source": {
+        "bytes": 9629,
+        "path": "/mnt/d/orbit-segmented-v4/control/package_original150_eleventh_status02.py",
+        "sha256": "256472bbea4118aa647c98b343c37e242a6483174ab14711e7a8b2328e12e30f"
+      }
+    },
+    {
+      "bytes": 2488,
+      "destination": "evidence/validation05-continuation-live-independent-review01.json",
+      "sha256": "3fc87150f4d23aabdbe285ad0ad4426b53018f9f049f8157fdc290874b09b662",
+      "source": {
+        "bytes": 2488,
+        "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation-live-independent-review01.json",
+        "sha256": "3fc87150f4d23aabdbe285ad0ad4426b53018f9f049f8157fdc290874b09b662"
+      }
+    },
+    {
+      "bytes": 3441,
+      "destination": "evidence/validation05-continuation-live-independent-readback01.json",
+      "sha256": "510113adb49d155c4dfb99e7a8d462fd77a4253cf67dd2e73f48b4e25f897f9c",
+      "source": {
+        "bytes": 3441,
+        "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation-live-independent-readback01.json",
+        "sha256": "510113adb49d155c4dfb99e7a8d462fd77a4253cf67dd2e73f48b4e25f897f9c"
+      }
+    },
+    {
+      "bytes": 2190,
+      "destination": "evidence/validation05-continuation-packet-independent-review01.json",
+      "sha256": "83e2a19396ce89b7a12ca703a42c633dcd4903aff1d78eaaa0bb180dda5aab31",
+      "source": {
+        "bytes": 2190,
+        "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation-packet-independent-review01.json",
+        "sha256": "83e2a19396ce89b7a12ca703a42c633dcd4903aff1d78eaaa0bb180dda5aab31"
+      }
+    },
+    {
+      "bytes": 1889,
+      "destination": "evidence/validation05-continuation01-launch.stdout.json",
+      "sha256": "054dec90d6f291768040c138d88ec20ace7a1754112a0032504f31f43f62191a",
+      "source": {
+        "bytes": 1889,
+        "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation01-launch.stdout.json",
+        "sha256": "054dec90d6f291768040c138d88ec20ace7a1754112a0032504f31f43f62191a"
+      }
+    },
+    {
+      "bytes": 3860,
+      "destination": "evidence/preserved-status01-manifest.json",
+      "sha256": "dfaf0bcc115b64a992065e5baae919f000354bb061820fabe691227b832d25ef",
+      "source": {
+        "bytes": 3860,
+        "path": "/mnt/d/orbit-segmented-v4/publication-original150-eleventh-status01/manifest.json",
+        "sha256": "dfaf0bcc115b64a992065e5baae919f000354bb061820fabe691227b832d25ef"
+      }
+    },
+    {
+      "bytes": 23274,
+      "destination": "evidence/original150-tenth-terminal-independent-review01.json",
+      "sha256": "2038256650e3fbde12c40ce342e02b59c61274e89d71a0a8abea3778bbb9df71",
+      "source": {
+        "path": "/mnt/d/orbit-segmented-v4/control/original150-tenth-terminal-independent-review01.json",
+        "sha256": "2038256650e3fbde12c40ce342e02b59c61274e89d71a0a8abea3778bbb9df71"
+      }
+    },
+    {
+      "bytes": 75968,
+      "destination": "evidence/attempt11-request.json",
+      "sha256": "69ad5e2927531bf53686e8bcbfc8cb212bf2096e17e69eb3d284c2a926c57180",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/request.json",
+        "sha256": "69ad5e2927531bf53686e8bcbfc8cb212bf2096e17e69eb3d284c2a926c57180"
+      }
+    },
+    {
+      "bytes": 75968,
+      "destination": "evidence/attempt11-worker-request.json",
+      "sha256": "69ad5e2927531bf53686e8bcbfc8cb212bf2096e17e69eb3d284c2a926c57180",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/worker-request.json",
+        "sha256": "69ad5e2927531bf53686e8bcbfc8cb212bf2096e17e69eb3d284c2a926c57180"
+      }
+    },
+    {
+      "bytes": 6066,
+      "destination": "evidence/attempt11-result.json",
+      "sha256": "090ab79f6ec053b184b67193bf938a64c3875d5db2e78dbd2bd5ba6be7060156",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/result.json",
+        "sha256": "090ab79f6ec053b184b67193bf938a64c3875d5db2e78dbd2bd5ba6be7060156"
+      }
+    },
+    {
+      "bytes": 519,
+      "destination": "evidence/attempt11-result-record.json",
+      "sha256": "7643ca8a2b6b05975d9d3817f8effe786fa0030e7c7f6b5678d1d870fd783f5f",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/result-record.json",
+        "sha256": "7643ca8a2b6b05975d9d3817f8effe786fa0030e7c7f6b5678d1d870fd783f5f"
+      }
+    },
+    {
+      "bytes": 581,
+      "destination": "evidence/attempt11-retention.json",
+      "sha256": "4c4588004ad8eaa1dc7127778b79d11fdab12cae97f52d6d4241ef69f700d664",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/retention.json",
+        "sha256": "4c4588004ad8eaa1dc7127778b79d11fdab12cae97f52d6d4241ef69f700d664"
+      }
+    },
+    {
+      "bytes": 604,
+      "destination": "evidence/attempt11-resource-guard.json",
+      "sha256": "307139a80167daa0e7fa86cbc0049bcc5bb2f0ee54676f11abfc4c37f377963d",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/resource-guard.json",
+        "sha256": "307139a80167daa0e7fa86cbc0049bcc5bb2f0ee54676f11abfc4c37f377963d"
+      }
+    },
+    {
+      "bytes": 75968,
+      "destination": "evidence/attempt12-request.json",
+      "sha256": "6c961da0248d0c88a4b4c13ebf5e69c981a3bf00cfd676175e53452e302b042e",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/request.json",
+        "sha256": "6c961da0248d0c88a4b4c13ebf5e69c981a3bf00cfd676175e53452e302b042e"
+      }
+    },
+    {
+      "bytes": 75968,
+      "destination": "evidence/attempt12-worker-request.json",
+      "sha256": "6c961da0248d0c88a4b4c13ebf5e69c981a3bf00cfd676175e53452e302b042e",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/worker-request.json",
+        "sha256": "6c961da0248d0c88a4b4c13ebf5e69c981a3bf00cfd676175e53452e302b042e"
+      }
+    },
+    {
+      "bytes": 1779,
+      "destination": "evidence/campaign_adapter.json",
+      "sha256": "11a8d70bb8542f02b2fc0cf08be939506455b8fefdcbdd8b89b1073e540d9cd6",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/campaign-adapter03.json",
+        "sha256": "11a8d70bb8542f02b2fc0cf08be939506455b8fefdcbdd8b89b1073e540d9cd6"
+      }
+    },
+    {
+      "bytes": 3600,
+      "destination": "evidence/startup_receipt.json",
+      "sha256": "0b633174a3e0723c3f7377032e00d99c2e9ea335e92e5622897208fe258230fb",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json",
+        "sha256": "0b633174a3e0723c3f7377032e00d99c2e9ea335e92e5622897208fe258230fb"
+      }
+    },
+    {
+      "bytes": 0,
+      "destination": "evidence/attempt11-worker.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/worker.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "status_counts": {
+    "complete": 1,
+    "failed": 3,
+    "interrupted": 1,
+    "timeout": 6
+  },
+  "terminal_attempts": 11,
+  "validation05_continuation": {
+    "observed_at": "2026-10-16T08:30:29.344122+00:00",
+    "review": {
+      "bytes": 2488,
+      "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation-live-independent-review01.json",
+      "sha256": "3fc87150f4d23aabdbe285ad0ad4426b53018f9f049f8157fdc290874b09b662"
+    },
+    "scope": "Durable waiter only; no validation completion, capture, preparation success or fit claim.",
+    "status": "waiting_for_exact_validation"
+  }
+}
