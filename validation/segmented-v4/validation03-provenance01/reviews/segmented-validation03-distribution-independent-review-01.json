@@ -1,0 +1,45 @@
+{
+  "actual_publication_modified": false,
+  "artifacts": {
+    "distribute03-independent-01.log": {
+      "bytes": 180,
+      "path": "/mnt/d/orbit-segmented-v4/control/distribute03-independent-01.log",
+      "sha256": "cbfc7148b31058d104ecc56750083e27dd63a75eaccdfdf5e293b1a86a37fcc1"
+    },
+    "distribute_segmented_validation03.py": {
+      "bytes": 7600,
+      "path": "/mnt/d/orbit-segmented-v4/control/distribute_segmented_validation03.py",
+      "sha256": "b00154964848d67868624d0b7afbce4692e944db40436be13c53d13204da5a2e"
+    },
+    "distribution03-included-source-counterexample-01/receipt.json": {
+      "bytes": 1446,
+      "path": "/mnt/d/orbit-segmented-v4/control/distribution03-included-source-counterexample-01/receipt.json",
+      "sha256": "68d32e86353cb85ed6c83c00e6af959c635f99f533f93c130da88a586056f956"
+    },
+    "test_distribute_segmented_validation03.py": {
+      "bytes": 5436,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_distribute_segmented_validation03.py",
+      "sha256": "fbe89b2aa304c0065750df43dd2b351b174db70cb638cd97c12e8aa0e3227053"
+    }
+  },
+  "finding": {
+    "classification": "source_immutability_recheck_incomplete",
+    "detail": "After an included source member is copied byte-identically, mutation of that source member is not detected by the final recheck: only excluded numerical payloads and directory membership are revalidated. The preserved fabricated counterexample succeeds despite a changed included source.",
+    "required_correction": "In a separately versioned helper, verify every original member and the original manifest again before publishing the terminal distribution manifest."
+  },
+  "fixtures": {
+    "failed": 0,
+    "passed": 15
+  },
+  "junit": {
+    "bytes": 2877,
+    "path": "/tmp/distribute03-independent-01.xml",
+    "sha256": "d52e548d0865ccc9950b049f244306fa4ca085dbe45ffeee01fa9872d012229f"
+  },
+  "observed_utc": "2026-10-15T23:46:04.393963+00:00",
+  "passed": false,
+  "reviewer": "v31_recovery_review",
+  "schema": "orbit-poc-external-presentation-independent-review-v1",
+  "scientific_source_unchanged": true,
+  "scope": "External publication distribution helper01; no scientific/native execution."
+}
