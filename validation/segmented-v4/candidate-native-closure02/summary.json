@@ -1,0 +1,194 @@
+{
+  "audit_completed_at": "2026-10-16T07:55:45.479915+00:00",
+  "author_kernel_tests": {
+    "candidate": "Full cycle affine update accumulated in long double, stored as double; native guard and limits unchanged.",
+    "explicitly_deselected_native_integration": 4,
+    "failed": 0,
+    "header": {
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/sixStateTangent.h",
+      "sha256": "1590e13ff3f69cb6841af8341737b8d52c4d618592070b61b4ae6516f2ea4c28"
+    },
+    "observed_at": "2026-10-16T07:47:36.413051+00:00",
+    "passed": 5,
+    "prior_test_launch": {
+      "cause": "PYTHONPATH was not supplied; ModuleNotFoundError orbit_poc",
+      "status": "collection_error",
+      "tests_executed": 0
+    },
+    "result": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-production-kernel01/pytest01.log",
+      "sha256": "c8974937f0da372f1a6c3847ad496ffc73cb44ba1912368fc5eb1a297afd589e"
+    },
+    "schema": "orbit-poc-tangent-precision-author-kernel-v1",
+    "scope": "Existing native kernel checks only; no GROOPS trajectory closure or full-suite certification.",
+    "skipped": 0
+  },
+  "bounded_external_fixture": {
+    "classification": "Outcome-selected small numerical regression fixture, external to production source and validation freeze.",
+    "final_search_stronger_margin_found": false,
+    "limitations": [
+      "The new native residual has only0.7percent margin below the unchanged guard. It repeats identically for localO2/O3 and the separately recorded pinnedGCC15.3O3, but portability is not established.",
+      "The old native iterate has113-bit residual1.96211e-12 despite native guard failure, demonstrating contribution of residual-evaluation rounding as well as iterate accumulation.",
+      "Search outcomes are not uniformly improved by the new update; this selected case and the real72h capture cannot support general convergence claims.",
+      "Literal operator coefficients form a small synthetic linear system, not an orbital force model. The actual72h native closure remains the primary regression evidence."
+    ],
+    "old_passes_candidate_fails_by_search": [
+      102,
+      4,
+      1
+    ],
+    "pinned_compiler_repetition": {
+      "bytes": 1883,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-affine-pinned01/result.json",
+      "sha256": "e66276b51da34a88097638bcc49e190c321e90d445571feb84d677d15e8335a5"
+    },
+    "portable_acceptance_gate": false,
+    "preserved_reporting_correction": {
+      "fixture": {
+        "bytes": 1310,
+        "path": "/mnt/d/orbit-segmented-v4/control/tangent-affine-regression01/fixture.cpp",
+        "sha256": "a653c7e3b5a728aa3163a1659d25acfb4ecdc9bfd67d9f3ec9bb7164b05778a5"
+      },
+      "issue": "Initial fixture printed defaultzero reported_residual on thrown errors while preserving the full correct exception. Version02 parses the actual guarded residual into that field; coefficients and solver are unchanged.",
+      "outcomes": {
+        "bytes": 3423,
+        "path": "/mnt/d/orbit-segmented-v4/control/tangent-affine-regression01/fixed-outcomes01.json",
+        "sha256": "2187cea7be4bbda84320edc85bce3b38a74e670fc345204f7e901446816bb2dc"
+      }
+    },
+    "production_or_validation_freeze_changed": false,
+    "search_setting_counts": [
+      1650,
+      1650,
+      1200
+    ],
+    "selected_result": {
+      "candidate": {
+        "error": "",
+        "independent_quad_residual": 1.221177268479969e-12,
+        "iterations": 30,
+        "passed": true,
+        "reported_residual": 1.9860811696140564e-12
+      },
+      "original": {
+        "error": "six-state tangent did not meet its true residual tolerance: relative_residual=2.4710902817179282e-12, tolerance=2e-12, iterations=120, rhs_norm=1.527704775406014, solution_norm=54833.754830499704, epochs=3",
+        "independent_quad_residual": 1.962114417858921e-12,
+        "iterations": 120,
+        "passed": false,
+        "reported_residual": 2.4710902817179282e-12
+      }
+    },
+    "summary": {
+      "bytes": 6516,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-affine-regression01/summary.json",
+      "sha256": "c234906eb4fc4980f4dc32e7d184e1922a15cb74555d0b1a5752c58c77ac4b88"
+    }
+  },
+  "candidate_commit": "677c68cc851234b9ad89d45de4dd6fdc43fd2dec",
+  "candidate_header_sha256": "1590e13ff3f69cb6841af8341737b8d52c4d618592070b61b4ae6516f2ea4c28",
+  "case": "leo500-disturbed-blackout-groops_pulses-72h",
+  "complete_validation_passed_for_candidate": false,
+  "covariance_authorized": false,
+  "elapsed_controller_seconds": 9.945840873988345,
+  "finished_at": "2026-10-16T07:52:35.106816+00:00",
+  "fit_attempts": 0,
+  "fixed_initial_state_si": [
+    6878126.008098143,
+    -207.02107813112366,
+    -280.69355318934697,
+    0.39154027892910004,
+    4581.389322493885,
+    6079.70443254602
+  ],
+  "fixed_state_native_closure_passed": true,
+  "initialization_criteria": {
+    "maximum_iterations": 10,
+    "position_tolerance_m": 2e-06,
+    "velocity_tolerance_m_s": 3e-09
+  },
+  "interpretation": "The original failed fixed-state72h inputs now close under the separately versioned precision candidate. This proves that bounded native diagnostic only, not estimation convergence, a completed preparation or the full correctness/benchmark requirements. Earlier failed preparation and diagnostic attempts remain unchanged.",
+  "iteration_metrics": [
+    {
+      "closed": false,
+      "epoch_support_exact": true,
+      "fixed_initial_state_exact": true,
+      "iteration": 1,
+      "maximum_position_change_m": 1266.5932941584308,
+      "maximum_velocity_change_m_s": 1.4039046809266578
+    },
+    {
+      "closed": false,
+      "epoch_support_exact": true,
+      "fixed_initial_state_exact": true,
+      "iteration": 2,
+      "maximum_position_change_m": 0.1329528152832664,
+      "maximum_velocity_change_m_s": 0.00014708126514038726
+    },
+    {
+      "closed": false,
+      "epoch_support_exact": true,
+      "fixed_initial_state_exact": true,
+      "iteration": 3,
+      "maximum_position_change_m": 1.3628761049598042e-05,
+      "maximum_velocity_change_m_s": 1.51007121159229e-08
+    },
+    {
+      "closed": true,
+      "epoch_support_exact": true,
+      "fixed_initial_state_exact": true,
+      "iteration": 4,
+      "maximum_position_change_m": 2.4870890451505247e-07,
+      "maximum_velocity_change_m_s": 2.755874001513291e-10
+    }
+  ],
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/binaries/groops-precision-eb41fabb2117fd81",
+    "sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133"
+  },
+  "native_build": {
+    "changed_objects": 26,
+    "owned_identities_non_live": 65,
+    "pinned_link_inputs_verified": 637,
+    "recompiled_objects": 27,
+    "reused_objects": 584
+  },
+  "native_propagations": 4,
+  "original_inputs_verified": 13,
+  "original_native_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+  "original_source_files_verified": 384,
+  "owned_identities_non_live": 8,
+  "packaged_at": "2026-10-16T08:02:10.617664+00:00",
+  "peak_owned_rss_bytes": 392024064,
+  "prepared_benchmark_complete": false,
+  "primary_audits": [
+    {
+      "bytes": 3230,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-build01-terminal-independent-review01.json",
+      "sha256": "0fcbe2817d023b20fc99edd47486309b785c88ca980022316c71b00d4e86eea7"
+    },
+    {
+      "bytes": 4644,
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-precision-closure01-terminal-independent-review01.json",
+      "sha256": "00f8cfc962ba71cb9d118dbb0daac0b92322adcf10ba73d769b7e04381ae8eb5"
+    }
+  ],
+  "prior_reports": {
+    "captured_system_diagnosis": "../tangent-diagnosis02/index.html",
+    "original150_historical": "../status-preparation-original150-05/index.html",
+    "original_failed_preparation": "../preparation03-failure01/index.html"
+  },
+  "publication_native_runs": 0,
+  "publication_remote_scans": 0,
+  "publication_revision": {
+    "prior_manifest": {
+      "bytes": 9915,
+      "path": "/mnt/d/orbit-segmented-v4/publication-candidate-native-closure01/manifest.json",
+      "sha256": "160a75628d28e063c06bd8c86564ba41b580edd063ea19fc5a41b004e9756035"
+    },
+    "reason": "Append separately completed bounded fixture evidence and its limitations; native closure metrics and scope unchanged."
+  },
+  "release_ready": false,
+  "schema": "orbit-poc-native-closure-supplement-v1",
+  "v4_benchmark_fits_planned": 68,
+  "v4_benchmark_fits_started": 0
+}
