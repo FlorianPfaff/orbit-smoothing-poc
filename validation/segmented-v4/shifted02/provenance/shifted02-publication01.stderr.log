@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/mnt/d/orbit-segmented-v4/control/package_shifted02_publication01.py", line 75, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/d/orbit-segmented-v4/control/package_shifted02_publication01.py", line 74, in main
+    p=argparse.ArgumentParser();p.add_argument('--plan',type=Path,required=True);p.add_argument('--sha256',required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();pp=pin(a.plan);need(pp['sha256']==a.sha256,'Plan changed');print(json.dumps(assemble(json.loads(checked(pp)),a.output)))
+                                                                                                                                                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-segmented-v4/control/package_shifted02_publication01.py", line 53, in assemble
+    name='provenance/'+rel(row['destination']);b=checked(row['artifact']);b.decode('utf-8');value=json.loads(b) if Path(name).suffix=='.json' else None;need(not numerical(name,value),'Support would copy a numerical payload');items.append((name,row['artifact'],b))
+                                                                                                  ^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
