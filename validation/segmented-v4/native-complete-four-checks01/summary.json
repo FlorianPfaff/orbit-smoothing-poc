@@ -1,0 +1,233 @@
+{
+  "schema": "orbit-poc-complete-native-four-checks-publication-v1",
+  "status": "four_bounded_native_checks_passed",
+  "native_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+  "latest_independent_audit_at": "2026-10-16T22:37:16.439778+00:00",
+  "audits": {
+    "single01": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-single01-independent-terminal-review01.json",
+      "sha256": "d54d65200e2fb8355c47790c85185351fab6e09589f6a7712e75aa01e288a693",
+      "bytes": 6931
+    },
+    "single02": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-single02-independent-terminal-review01.json",
+      "sha256": "cbb387c6cd92a8ce9c47a51ab4e2495e4120a8b7ec66183d42cb0c0785f50c50",
+      "bytes": 6928
+    },
+    "closure01": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-closure01-independent-terminal-review01.json",
+      "sha256": "85d395b78c375fb88d2c6e05ac11d7d43244843b042bc5d43a29f8156f644b22",
+      "bytes": 16075
+    },
+    "closure02": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-closure02-independent-terminal-review01.json",
+      "sha256": "0ed221847666ef7c8871586c24de022130f03838fd80f776da2a2e9979140598",
+      "bytes": 16074
+    },
+    "supplemental": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-supplemental01-independent-terminal-review01.json",
+      "sha256": "89691f1e05c85d0b031668ca193894522004b6cc3b23374866218675480900a1",
+      "bytes": 5351
+    }
+  },
+  "checks": [
+    {
+      "check": "single01",
+      "case": "preparation03",
+      "status": "native_completed",
+      "state_epochs": 51840,
+      "native_propagations": 1,
+      "fixed_initial_state_si": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "final_closure": null,
+      "raw_result": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-01/run/replay/result.json",
+        "sha256": "3ffec02907f676e1791e33fd8ebfbf5f71482bd5540c0e0aae614b57471b46f0",
+        "bytes": 5438
+      }
+    },
+    {
+      "check": "single02",
+      "case": "preparation04",
+      "status": "native_completed",
+      "state_epochs": 51840,
+      "native_propagations": 1,
+      "fixed_initial_state_si": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "final_closure": null,
+      "raw_result": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/result.json",
+        "sha256": "95149ba995291d56f4e42554a3a6b5b111113b05b3c4c463d30414c04ab88e51",
+        "bytes": 5443
+      }
+    },
+    {
+      "check": "closure01",
+      "case": "preparation03",
+      "status": "closed",
+      "state_epochs": 51840,
+      "native_propagations": 4,
+      "fixed_initial_state_si": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "final_closure": {
+        "closed": true,
+        "execution": {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/run/replay/iteration-04/propagate.xml"
+          ],
+          "config_sha256": "f84fa2e35fc5027ba6ae6234055257af01d1a35485cd3f624aec304eb3db7f51",
+          "elapsed_seconds": 3.426777355838567,
+          "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/run/replay/iteration-04/propagate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+          "peak_rss_bytes": 291594240,
+          "pid": 6,
+          "returncode": 0,
+          "timed_out": false
+        },
+        "initial_state_error_si": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "iteration": 4,
+        "maximum_position_change_m": 3.16375638385546e-08,
+        "maximum_velocity_change_m_s": 3.428445202184005e-11
+      },
+      "raw_result": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/run/replay/result.json",
+        "sha256": "9c8d4fc0c831c0a981912177d0652f07e0eefb2b99446f9859405291d96c33c8",
+        "bytes": 9468
+      }
+    },
+    {
+      "check": "closure02",
+      "case": "preparation04",
+      "status": "closed",
+      "state_epochs": 51840,
+      "native_propagations": 4,
+      "fixed_initial_state_si": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "final_closure": {
+        "closed": true,
+        "execution": {
+          "blas_openmp_threads": 1,
+          "command": [
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.xml"
+          ],
+          "config_sha256": "3b142cd26f8ff3b0359a9d504baaa328a775c1a0fb50196791ea2cb447a6f6ad",
+          "elapsed_seconds": 3.7262680800631642,
+          "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.log",
+          "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+          "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+          "peak_rss_bytes": 292048896,
+          "pid": 6,
+          "returncode": 0,
+          "timed_out": false
+        },
+        "initial_state_error_si": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "iteration": 4,
+        "maximum_position_change_m": 3.1968249370036457e-08,
+        "maximum_velocity_change_m_s": 3.51540585872275e-11
+      },
+      "raw_result": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/result.json",
+        "sha256": "049059b2b1a26f02a5c361f5dae951db1ebce736acbd3ca2bd06dbbdfcbd8885",
+        "bytes": 9475
+      }
+    }
+  ],
+  "analytical_supplemental": {
+    "schema": "orbit-poc-compensation-supplemental-native-regression-v1",
+    "status": "passed",
+    "argv": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-I",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/native_source/candidate/source/misc/orbitPoc",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-supplemental-01/control/tangent_compensated_quadrature.cpp",
+      "-o",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-supplemental-01/run/replay/analytical-fixture/compensated-quadrature"
+    ],
+    "compiler_sha256": "e802ef021bccd09d2ae1dae3f9400e53ab2c2c7bc2b4e47dc29a81c7ec3bcd31",
+    "header": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/native_source/candidate/source/misc/orbitPoc/sixStateTangent.h",
+      "sha256": "9a46f04591de8b8956cb6af0888936ace7f35688cef778861a99a859a65cdef0"
+    },
+    "fixture": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-supplemental-01/control/tangent_compensated_quadrature.cpp",
+      "sha256": "1e11c286ceeec33bc5f75fc9a2287dbcf76e4bca565a693228eefe32b2037627"
+    },
+    "native": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+      "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+    },
+    "frozen_suite_counts_changed": false,
+    "fit_attempts": 0,
+    "binary": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-supplemental-01/run/replay/analytical-fixture/compensated-quadrature",
+      "sha256": "59302ce21a3ef5fc6c411bc1e5260c859bb48faebc9d3fc0b0ab2e2193edffd5"
+    },
+    "compile_log": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-supplemental-01/run/replay/analytical-fixture/compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "run_log": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-supplemental-01/run/replay/analytical-fixture/run.log",
+      "sha256": "ba3ac6289499c3fe12bb088de45af67cc1817e2c5014c73a311952ac9f354831"
+    }
+  },
+  "control_tests": 77,
+  "original_compact_records": 73,
+  "benchmark_attempts": 0,
+  "planned_benchmark_attempts": 68,
+  "full_scientific_suite_verified": false,
+  "covariance_authorized": false,
+  "release_ready": false,
+  "scope": [
+    "Two exact originally failed native propagations and two complete fixed-initial-state closures are independently audited. Each preparation keeps its distinct13 original physical input pins; supplemental/build receipts add three attribution pins.",
+    "Every successful native output retains all51840 epochs and the exact physical initial state. The closure caps remain10 iterations,2 micrometres position and3 nanometres/second velocity; the inner tangent residual limit remains2e-12.",
+    "The analytical fixture ran once separately against the installed header and compiler; each replay requires its passed receipt. The77 pure control tests and this fixture do not add to or replace106 native/51 correction tests.",
+    "This is bounded native replay/closure evidence. No new complete scientific suite, benchmark fit, covariance authorization, accuracy superiority, speedup or release readiness is claimed.",
+    "The package performs only local byte/provenance checks on existing captures and audits; it does not execute native work or rewrite historical outcomes."
+  ]
+}

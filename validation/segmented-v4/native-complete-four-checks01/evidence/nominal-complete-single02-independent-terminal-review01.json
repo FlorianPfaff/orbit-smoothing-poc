@@ -1,0 +1,167 @@
+{
+  "schema": "orbit-poc-complete-native-single-independent-terminal-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T22:30:39.658032+00:00",
+  "root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/control/plan.json",
+    "sha256": "3bd8b8604f880fdecd8e6e23cbb21bd56c82da0fd05f74a9269f8f7db4b40e0e",
+    "bytes": 6334
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/control/execution.json",
+    "sha256": "7efe4538fc9376d691e7726e89c203b14db692ed65d81ec569bfbf5616e66e24",
+    "bytes": 142536
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/control/pipeline.json",
+    "sha256": "d23e54679b91ac145dfbf3f1d161b950785f8a726b9f4218f5efdab0f140c503",
+    "bytes": 5218
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/result.json",
+    "sha256": "95149ba995291d56f4e42554a3a6b5b111113b05b3c4c463d30414c04ab88e51",
+    "bytes": 5443
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+    "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+  },
+  "status": "native_completed",
+  "physical_inputs_verified": 13,
+  "explicit_build_and_supplemental_inputs_verified": 3,
+  "fixed_initial_state_si": [
+    6878126.008098155,
+    -207.021077880319,
+    -280.6935528494022,
+    0.3915402784536195,
+    4581.389322493871,
+    6079.704432546018
+  ],
+  "initialization_criteria": {
+    "maximum_iterations": 10,
+    "position_tolerance_m": 2e-06,
+    "velocity_tolerance_m_s": 3e-09
+  },
+  "iterations": [
+    {
+      "iteration": 1,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/propagate.xml"
+        ],
+        "config_sha256": "2a828a64ae196bdfeaf2681435c8aaec91b999895edd941d587f2a671480b55e",
+        "elapsed_seconds": 3.675312946084887,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+        "peak_rss_bytes": 291590144,
+        "pid": 3,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "xml_output_only": true,
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/propagate.xml",
+          "sha256": "2a828a64ae196bdfeaf2681435c8aaec91b999895edd941d587f2a671480b55e",
+          "bytes": 4829
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/propagate.execution.json",
+          "sha256": "155b7f898ccbabb292c74fac0de5b291a3a8e8dec34b086448c6d1935744c1cb",
+          "bytes": 831
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/propagate.log",
+          "sha256": "6ec5104eb9eaa593df660148d0d7196712333a28c9d8d2a881f7599188e3c975",
+          "bytes": 1250
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/nominal.txt",
+          "sha256": "dc5a8726e3a033b97809e366f686bbae5e05ee82346b4644023c1484330ac2e5",
+          "bytes": 13478998
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/nominal.dat",
+          "sha256": "e9f422f322789d655f06e7e99aa77f488b3c5a8fed235a0b690ea889f2b06eb5",
+          "bytes": 4561982
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/run/replay/single-evaluation/variational.dat",
+          "sha256": "3ac8ca1c4c69f021a4b0e1ef428dcd32c70ba7021ef4accef4c6b4adf8968bfc",
+          "bytes": 21570168
+        }
+      ],
+      "fixed_initial_state_exact": true,
+      "epoch_support_exact": true,
+      "state_epochs": 51840
+    }
+  ],
+  "owned_identities": [
+    {
+      "pid": 2869298,
+      "start_ticks": 117339827,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2869304,
+      "start_ticks": 117340119,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2869305,
+      "start_ticks": 117340122,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2869307,
+      "start_ticks": 117340125,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2869308,
+      "start_ticks": 117340208,
+      "live": false,
+      "absent": true
+    }
+  ],
+  "native_propagations": 1,
+  "fit_attempts": 0,
+  "release_ready": false,
+  "scope": "Read-only independent exact XML/input attribution and saved trajectory checks. Native failure, if present, remains failed. No new propagation, covariance, full-suite or release certification.",
+  "case": "preparation04",
+  "raw_capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-single02-terminal-capture01.json",
+    "sha256": "96f0dba97538f35bda8a3d66cf69c70ed35a942fc526c8108cbd6467553b9bc4"
+  },
+  "raw_records_verified": 11,
+  "actual_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-single02-independent-actual01.json",
+    "sha256": "1fecaf470deff9c7ea7fb76990c805b1fd80cb6cb2e6157c9f5864ac1ce45818"
+  },
+  "audit_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_complete_native_terminal02.py",
+    "sha256": "691f69e8154d0dedbfcd05a6243e696f1fb8557e2910512989bc0fefb76967ce"
+  },
+  "packet_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-four-independent-packet-review01.json",
+    "sha256": "5028f79bc865c605f84d70ce0696ab6bd1e3fdd91618f1c32230839ade226b7a"
+  },
+  "build_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build02-independent-terminal-review01.json",
+    "sha256": "4fcbcd598dd41b4b53466393118d8ff626a88f8a79ff2b95c8b0c6f9eb3dfc6e"
+  },
+  "supplemental_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-supplemental01-independent-terminal-review01.json",
+    "sha256": "89691f1e05c85d0b031668ca193894522004b6cc3b23374866218675480900a1"
+  },
+  "full_fixed_state_closure_verified": false,
+  "full_scientific_suite_verified": false
+}
