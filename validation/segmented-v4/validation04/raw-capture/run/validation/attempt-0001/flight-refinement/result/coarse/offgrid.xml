@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60424</time>
+    <time label="timeEnd">timeStart+1800.0/86400</time>
+    <filename label="groopsDataDir">/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data</filename>
+    <double label="arcStartOffsetSeconds">42318.0</double>
+  </global>
+  <program>
+    <OrbitPocEvaluateVariational>
+      <inputfileVariational>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/closure-03/variational.dat</inputfileVariational>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/fixed_orbit.dat</outputfileOrbit>
+      <inputfileParameters>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/closure-03/reference.txt</inputfileParameters>
+      <integrationDegree>7</integrationDegree>
+      <interpolationDegree>7</interpolationDegree>
+      <ephemerides>
+        <jpl>
+          <inputfileEphemerides>/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+          <origin>
+            <earth />
+          </origin>
+        </jpl>
+      </ephemerides>
+    </OrbitPocEvaluateVariational>
+  </program>
+  <program>
+    <FileConvert>
+      <inputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/fixed_orbit.dat</inputfile>
+      <outputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/fixed_orbit.txt</outputfile>
+    </FileConvert>
+  </program>
+  <program>
+    <OrbitPocEvaluateVariational>
+      <inputfileVariational>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/closure-03/variational.dat</inputfileVariational>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/offgrid_orbit.txt</outputfileOrbit>
+      <inputfileParameters>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/closure-03/reference.txt</inputfileParameters>
+      <integrationDegree>7</integrationDegree>
+      <interpolationDegree>7</interpolationDegree>
+      <ephemerides>
+        <jpl>
+          <inputfileEphemerides>/mnt/c/Users/emper/Documents/Codex/2026-10-13/i-x20/work/v3/groops-data/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+          <origin>
+            <earth />
+          </origin>
+        </jpl>
+      </ephemerides>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/flight-refinement/result/coarse/offgrid_epochs.txt</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+      <interpolationBoundaries>
+        <uniformSampling>
+          <timeStart>60424</timeStart>
+          <offsetSeconds>42318</offsetSeconds>
+          <timeEnd>60424+1800.0/86400</timeEnd>
+          <sampling>60/86400</sampling>
+        </uniformSampling>
+      </interpolationBoundaries>
+    </OrbitPocEvaluateVariational>
+  </program>
+</groops>
