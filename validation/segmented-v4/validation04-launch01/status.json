@@ -1,0 +1,116 @@
+{
+  "benchmark_fits_completed": 0,
+  "benchmark_fits_started": 0,
+  "complete_validation_claimed": false,
+  "focused_source_tests": {
+    "deselected_native_parametrizations": 2,
+    "passed": 31,
+    "scope": "The two deselected tests were not run here and are not automatically members of the prescribed14 stages."
+  },
+  "independently_checked_completed_gates": [
+    {
+      "counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 106
+      },
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/native-tests/execution.json",
+        "sha256": "496a661f65a2999157e360f759d3fd3c49a99bdcbc9ea9ffcac2dbed7e964c7c"
+      },
+      "junit": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/native-tests/tests.xml",
+        "sha256": "be134661ad48e3387dbcbd07b19e902b417f7a8c1c855edca6c6cfa9516bcfc3"
+      },
+      "name": "native-tests"
+    },
+    {
+      "counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 51
+      },
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/correction-tests/execution.json",
+        "sha256": "51e93139bdf88ee00879b7600f48db467f87b39e473b914bf5cd78587e87641d"
+      },
+      "junit": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/correction-tests/tests.xml",
+        "sha256": "2b588b9698e1f82d942525edeb5c2d46d87f5e666f3a59f5ffc5d07c0af03358"
+      },
+      "name": "correction-tests"
+    }
+  ],
+  "launch": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "controller_affinity": "24-27",
+    "independent_audit": "provenance/validation04-launch-independent-review04.json",
+    "native_cpu": 24,
+    "ownership_and_both_locks_verified": true,
+    "pid": 2374220,
+    "receipt": "launch/validation-launch.json",
+    "start_ticks": 111009241
+  },
+  "launch_at": "2026-10-16T04:54:29.857761+00:00",
+  "limitations": [
+    "This package is a dated launch/progress snapshot, not a completed14-stage result.",
+    "No corrected preparation completion, benchmark fit, accepted covariance or release readiness follows from these records.",
+    "The earlier preparation failure and exact controlled diagnostic remain separately dated immutable evidence."
+  ],
+  "observed_at": "2026-10-16T04:57:56.350159+00:00",
+  "packaged_at": "2026-10-16T05:00:13.713502+00:00",
+  "planned_stage_names": [
+    "native-tests",
+    "correction-tests",
+    "synthetic-refinement-log_drag_ou",
+    "synthetic-refinement-pulses",
+    "flight-refinement",
+    "eccentric-24h-refinement",
+    "objective-log_drag_ou",
+    "objective-pulses",
+    "nuisance-replay",
+    "nuisance-replay-candidate1-point012",
+    "segmented-native-tangent",
+    "segmented-structural",
+    "linearization-log_drag_ou",
+    "linearization-pulses"
+  ],
+  "preserved_review_corrections": [
+    "Base reviewer initially assumed dense and segmented executables were identical; both distinct original binaries are now verified.",
+    "Startup expected structural collection increased301to303 for the two approved new prepare_one regressions; no numerical threshold changed.",
+    "Launch reviewer initially consulted terminal-only latest.json and inferred too early a phase; final04 reads the active attempt-0001 pipeline and supersedes draft02.",
+    "Inter-stage identity checks can leave no stage marked running; exact owned CLI and running overall pipeline establish the phase."
+  ],
+  "release_ready": false,
+  "remaining_stage_outcomes": "No acceptance claim in this dated launch snapshot; the active pipeline and later evidence may advance. Pipeline-reported intermediate statuses remain preserved in the raw audit.",
+  "schema": "orbit-poc-validation04-dated-launch-status-v1",
+  "source_change": {
+    "changed_paths": [
+      "src/orbit_poc/segmented/multiday.py",
+      "tests/test_comparison_initialization.py",
+      "tests/test_segmented_multiday.py"
+    ],
+    "comparison_source_sha256": "68e17e5b5ebe6fe22a47b9c6213c89397cfb80e25cc5e033da2621fc0aa44474",
+    "distinct_original_native_binaries": {
+      "dense_corrected": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625",
+      "segmented": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+    },
+    "native_build_inputs_unchanged": 70,
+    "scope": "Only v4 synthetic nominal initialization explicitly selects the corrected synthetic_complete_v1 profile before shared closure. Shared comparison defaults, flight reuse, physical forces, statistical models and native implementation remain unchanged.",
+    "source_scope_clarification": "provenance/preparation-profile-fix01/independent-review02-scope-clarification.json",
+    "source_sha256": "1fe0f24166a7983a7c10eaf1712e4b5545f02c61bd38406fa9d07e70cd7d6a4e"
+  },
+  "startup": {
+    "audit": "provenance/validation04-actual-startup-independent-review01.json",
+    "elapsed_seconds": 44.65001282398589,
+    "native_tangent_collection": 3,
+    "numerical_gates_executed_by_startup": false,
+    "process": "startup/process.json",
+    "result": "startup/result.json",
+    "status": "passed_and_independently_audited",
+    "structural_collection": 303
+  },
+  "state": "full14_validation_running_at_observation"
+}

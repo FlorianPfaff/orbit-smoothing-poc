@@ -1,0 +1,223 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-8.4.2, pluggy-1.6.0
+rootdir: /mnt/d/orbit-segmented-v4/source
+configfile: pyproject.toml
+collected 33 items / 2 deselected / 31 selected
+
+tests/test_segmented_multiday.py ...............FF.......                [ 77%]
+tests/test_comparison_initialization.py .......                          [100%]
+
+=================================== FAILURES ===================================
+_ test_prepare_one_selects_corrected_profile_through_shared_closure[groops_pulses] _
+
+inputs = ({'date': '2024-05-10', 'estimation_inputs': [{'bytes': 1202, 'path': '/tmp/pytest-of-emper/pytest-23/test_prepare_one...c_start_offset_seconds': 0.0, 'duration_hours': 48, 'include_endpoint': False, 'integration_step_seconds': 5.0, ...})])
+tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7dd7025ad7d0>
+method = 'groops_pulses'
+
+    @pytest.mark.parametrize('method',['groops_pulses','groops_log_drag_ou'])
+    def test_prepare_one_selects_corrected_profile_through_shared_closure(inputs,tmp_path,monkeypatch,method):
+        import numpy as np
+        from orbit_poc.comparison import backend,synthetic
+        raw,aux,_=inputs
+        case=next(c for c in p.planned_cases() if c['stage']=='synthetic'
+                  and c['case']['orbit']=='leo500' and c['case']['atmosphere']=='quiet'
+                  and c['case']['duration_hours']==48 and c['method']==method)
+        raw={**raw,'duration_hours':72,'case':{**case['case'],'duration_hours':72}}
+        binary=tmp_path/'native';binary.write_bytes(b'mocked native executable')
+        monkeypatch.setattr(data,'fetch_example_auxiliary',lambda *a:None)
+        monkeypatch.setattr(legacy,'fetch_flight_auxiliary',lambda *a:None)
+        monkeypatch.setattr(backend,'_verify_transmitters',lambda *a:None)
+        configure=synthetic.configure_synthetic_forces
+        before={};calls=[]
+        def configure_and_capture(*args):
+            configured=configure(*args)
+            tree=ET.parse(configured['configs']['variational'])
+            assert tree.find('.//orbitPocDerivativeProfile') is None
+            before['forces']=ET.tostring(tree.find('.//PreprocessingVariationalEquation/forces'))
+            before['estimate']=Path(configured['configs']['estimate']).read_bytes()
+            before['hashes']={key:configured[key] for key in
+                              ('force_model_hash','measurement_model_hash','preprocessing_hash','mask_hash')}
+            return configured
+        monkeypatch.setattr(synthetic,'configure_synthetic_forces',configure_and_capture)
+        states=np.array([[1.,2.,3.,4.,5.,6.],[11.,12.,13.,14.,15.,16.]])
+        def execute(binary,config,output_dir,label,**kwargs):
+            tree=ET.parse(config)
+            if label in ('convert_gnss','convert_receiver'):
+                if label=='convert_receiver':
+                    for node in tree.iter():
+                        if node.tag.startswith('outputfile') and node.text.startswith('/'):
+                            path=Path(node.text);path.parent.mkdir(parents=True,exist_ok=True)
+                            path.write_bytes(b'unchanged converted receiver or bootstrap input')
+                return {'returncode':0,'config':str(config)}
+            propagation=tree.find('.//PreprocessingVariationalEquation')
+            assert [n.text for n in propagation.findall('orbitPocDerivativeProfile')]==['synthetic_complete_v1']
+            assert ET.tostring(propagation.find('forces'))==before['forces']
+            initializer=tree.find('.//PreprocessingVariationalEquationOrbitFit')
+            evaluation=tree.find('.//OrbitPocEvaluateVariational')
+            if not calls:
+                assert initializer is not None
+                assert all(initializer.find(name) is None for name in ('stochasticPulse','parametrizationAcceleration'))
+            else:
+                assert initializer is None
+                np.testing.assert_array_equal(backend.read_native_table(
+                    evaluation.findtext('inputfileInitialState')).ravel(),states[0])
+            current=states.copy();current[1,0]+=[0.,.01,.0100005][len(calls)]
+            orbit=Path(evaluation.findtext('outputfileOrbit'));orbit.write_bytes(current.tobytes())
+            np.savetxt(orbit.with_suffix('.txt'),np.c_[[60440.,60440.+5/86400],current,np.zeros((2,3))])
+            calls.append(str(config))
+            return {'returncode':0,'config':str(config)}
+        monkeypatch.setattr(backend,'run_native',execute)
+        output=tmp_path/'prefix'
+>       result=m.prepare_one(case,output,{'native':{'path':str(binary)}},
+                             {'example_directory':None,'auxiliary_dir':str(aux)},raw)
+
+tests/test_segmented_multiday.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/orbit_poc/segmented/multiday.py:779: in prepare_one
+    executions.extend(native._close_prepared_nominal_reference(configured,binary,root,timeout=7200))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/orbit_poc/comparison/backend.py:204: in _close_prepared_nominal_reference
+    initialization = close_nominal_reference(configured, binary, initialization_dir,
+src/orbit_poc/comparison/initialization.py:143: in close_nominal_reference
+    execute(tree, initial_dir, "initialize")
+src/orbit_poc/comparison/initialization.py:125: in execute
+    execution = backend.run_native(binary, path, folder, label, timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+binary = '/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre0/native'
+config = PosixPath('/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre0/prefix/nominal-initialization/initial/initialize.xml')
+output_dir = PosixPath('/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre0/prefix/nominal-initialization/initial')
+label = 'initialize', kwargs = {'timeout': 7200.0}
+tree = <xml.etree.ElementTree.ElementTree object at 0x7dd702797410>
+propagation = <Element 'PreprocessingVariationalEquation' at 0x7dd7026eb740>
+@py_assert0 = None, @py_assert3 = None, @py_assert2 = None
+
+    def execute(binary,config,output_dir,label,**kwargs):
+        tree=ET.parse(config)
+        if label in ('convert_gnss','convert_receiver'):
+            if label=='convert_receiver':
+                for node in tree.iter():
+                    if node.tag.startswith('outputfile') and node.text.startswith('/'):
+                        path=Path(node.text);path.parent.mkdir(parents=True,exist_ok=True)
+                        path.write_bytes(b'unchanged converted receiver or bootstrap input')
+            return {'returncode':0,'config':str(config)}
+        propagation=tree.find('.//PreprocessingVariationalEquation')
+        assert [n.text for n in propagation.findall('orbitPocDerivativeProfile')]==['synthetic_complete_v1']
+>       assert ET.tostring(propagation.find('forces'))==before['forces']
+E       AssertionError: assert b'<forces>\n ...rces>\n      ' == b'<forces>\n ...>\n          '
+E         
+E         At index 17 diff: b'<' != b' '
+E         Use -v to get more diff
+
+tests/test_segmented_multiday.py:132: AssertionError
+_ test_prepare_one_selects_corrected_profile_through_shared_closure[groops_log_drag_ou] _
+
+inputs = ({'date': '2024-05-10', 'estimation_inputs': [{'bytes': 1202, 'path': '/tmp/pytest-of-emper/pytest-23/test_prepare_one...c_start_offset_seconds': 0.0, 'duration_hours': 48, 'include_endpoint': False, 'integration_step_seconds': 5.0, ...})])
+tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7dd7029cf9d0>
+method = 'groops_log_drag_ou'
+
+    @pytest.mark.parametrize('method',['groops_pulses','groops_log_drag_ou'])
+    def test_prepare_one_selects_corrected_profile_through_shared_closure(inputs,tmp_path,monkeypatch,method):
+        import numpy as np
+        from orbit_poc.comparison import backend,synthetic
+        raw,aux,_=inputs
+        case=next(c for c in p.planned_cases() if c['stage']=='synthetic'
+                  and c['case']['orbit']=='leo500' and c['case']['atmosphere']=='quiet'
+                  and c['case']['duration_hours']==48 and c['method']==method)
+        raw={**raw,'duration_hours':72,'case':{**case['case'],'duration_hours':72}}
+        binary=tmp_path/'native';binary.write_bytes(b'mocked native executable')
+        monkeypatch.setattr(data,'fetch_example_auxiliary',lambda *a:None)
+        monkeypatch.setattr(legacy,'fetch_flight_auxiliary',lambda *a:None)
+        monkeypatch.setattr(backend,'_verify_transmitters',lambda *a:None)
+        configure=synthetic.configure_synthetic_forces
+        before={};calls=[]
+        def configure_and_capture(*args):
+            configured=configure(*args)
+            tree=ET.parse(configured['configs']['variational'])
+            assert tree.find('.//orbitPocDerivativeProfile') is None
+            before['forces']=ET.tostring(tree.find('.//PreprocessingVariationalEquation/forces'))
+            before['estimate']=Path(configured['configs']['estimate']).read_bytes()
+            before['hashes']={key:configured[key] for key in
+                              ('force_model_hash','measurement_model_hash','preprocessing_hash','mask_hash')}
+            return configured
+        monkeypatch.setattr(synthetic,'configure_synthetic_forces',configure_and_capture)
+        states=np.array([[1.,2.,3.,4.,5.,6.],[11.,12.,13.,14.,15.,16.]])
+        def execute(binary,config,output_dir,label,**kwargs):
+            tree=ET.parse(config)
+            if label in ('convert_gnss','convert_receiver'):
+                if label=='convert_receiver':
+                    for node in tree.iter():
+                        if node.tag.startswith('outputfile') and node.text.startswith('/'):
+                            path=Path(node.text);path.parent.mkdir(parents=True,exist_ok=True)
+                            path.write_bytes(b'unchanged converted receiver or bootstrap input')
+                return {'returncode':0,'config':str(config)}
+            propagation=tree.find('.//PreprocessingVariationalEquation')
+            assert [n.text for n in propagation.findall('orbitPocDerivativeProfile')]==['synthetic_complete_v1']
+            assert ET.tostring(propagation.find('forces'))==before['forces']
+            initializer=tree.find('.//PreprocessingVariationalEquationOrbitFit')
+            evaluation=tree.find('.//OrbitPocEvaluateVariational')
+            if not calls:
+                assert initializer is not None
+                assert all(initializer.find(name) is None for name in ('stochasticPulse','parametrizationAcceleration'))
+            else:
+                assert initializer is None
+                np.testing.assert_array_equal(backend.read_native_table(
+                    evaluation.findtext('inputfileInitialState')).ravel(),states[0])
+            current=states.copy();current[1,0]+=[0.,.01,.0100005][len(calls)]
+            orbit=Path(evaluation.findtext('outputfileOrbit'));orbit.write_bytes(current.tobytes())
+            np.savetxt(orbit.with_suffix('.txt'),np.c_[[60440.,60440.+5/86400],current,np.zeros((2,3))])
+            calls.append(str(config))
+            return {'returncode':0,'config':str(config)}
+        monkeypatch.setattr(backend,'run_native',execute)
+        output=tmp_path/'prefix'
+>       result=m.prepare_one(case,output,{'native':{'path':str(binary)}},
+                             {'example_directory':None,'auxiliary_dir':str(aux)},raw)
+
+tests/test_segmented_multiday.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/orbit_poc/segmented/multiday.py:779: in prepare_one
+    executions.extend(native._close_prepared_nominal_reference(configured,binary,root,timeout=7200))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/orbit_poc/comparison/backend.py:204: in _close_prepared_nominal_reference
+    initialization = close_nominal_reference(configured, binary, initialization_dir,
+src/orbit_poc/comparison/initialization.py:143: in close_nominal_reference
+    execute(tree, initial_dir, "initialize")
+src/orbit_poc/comparison/initialization.py:125: in execute
+    execution = backend.run_native(binary, path, folder, label, timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+binary = '/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre1/native'
+config = PosixPath('/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre1/prefix/nominal-initialization/initial/initialize.xml')
+output_dir = PosixPath('/tmp/pytest-of-emper/pytest-23/test_prepare_one_selects_corre1/prefix/nominal-initialization/initial')
+label = 'initialize', kwargs = {'timeout': 7200.0}
+tree = <xml.etree.ElementTree.ElementTree object at 0x7dd702744990>
+propagation = <Element 'PreprocessingVariationalEquation' at 0x7dd70257ede0>
+@py_assert0 = None, @py_assert3 = None, @py_assert2 = None
+
+    def execute(binary,config,output_dir,label,**kwargs):
+        tree=ET.parse(config)
+        if label in ('convert_gnss','convert_receiver'):
+            if label=='convert_receiver':
+                for node in tree.iter():
+                    if node.tag.startswith('outputfile') and node.text.startswith('/'):
+                        path=Path(node.text);path.parent.mkdir(parents=True,exist_ok=True)
+                        path.write_bytes(b'unchanged converted receiver or bootstrap input')
+            return {'returncode':0,'config':str(config)}
+        propagation=tree.find('.//PreprocessingVariationalEquation')
+        assert [n.text for n in propagation.findall('orbitPocDerivativeProfile')]==['synthetic_complete_v1']
+>       assert ET.tostring(propagation.find('forces'))==before['forces']
+E       AssertionError: assert b'<forces>\n ...rces>\n      ' == b'<forces>\n ...>\n          '
+E         
+E         At index 17 diff: b'<' != b' '
+E         Use -v to get more diff
+
+tests/test_segmented_multiday.py:132: AssertionError
+- generated xml file: /mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/focused-tests01.xml -
+=========================== short test summary info ============================
+FAILED tests/test_segmented_multiday.py::test_prepare_one_selects_corrected_profile_through_shared_closure[groops_pulses]
+FAILED tests/test_segmented_multiday.py::test_prepare_one_selects_corrected_profile_through_shared_closure[groops_log_drag_ou]
+============ 2 failed, 29 passed, 2 deselected in 64.28s (0:01:04) =============

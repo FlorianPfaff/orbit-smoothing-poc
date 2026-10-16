@@ -1,0 +1,124 @@
+{
+  "schema": "orbit-poc-validation04-actual-startup-independent-readback-v1",
+  "passed": true,
+  "observed_utc": "2026-10-16T04:51:09.269663+00:00",
+  "process": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/process.json",
+    "sha256": "b10a1a891bbf712502d6837ce7574d5a0b9b258b53162951fb9c0302b91892ce",
+    "bytes": 7897
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/result.json",
+    "sha256": "aa482a356f18b1b987faa1a8c868bfa4d63c1b5c3224752a7135fe4759311b64",
+    "bytes": 16862
+  },
+  "addendum": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/validation04-startup-addendum01.json",
+    "sha256": "ff370480ea3250346a5b559c8af08b9a58231c70198807649339673693dddb46",
+    "bytes": 3506
+  },
+  "launch_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/launch-plan.json",
+    "sha256": "0a5c65a31b0e8db192a99c29018ab391eb22d81e26f9ce66c77ea164092b07c7",
+    "bytes": 1472
+  },
+  "elapsed_seconds": 44.65001282398589,
+  "current_boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "owned_process_absence": [
+    {
+      "pid": 2371752,
+      "start_ticks": 110976330,
+      "absent": true
+    },
+    {
+      "pid": 2371753,
+      "start_ticks": 110976364,
+      "absent": true
+    },
+    {
+      "pid": 2371754,
+      "start_ticks": 110976374,
+      "absent": true
+    },
+    {
+      "pid": 2371756,
+      "start_ticks": 110976379,
+      "absent": true
+    },
+    {
+      "pid": 2371995,
+      "start_ticks": 110980008,
+      "absent": true
+    },
+    {
+      "pid": 2371996,
+      "start_ticks": 110980025,
+      "absent": true
+    },
+    {
+      "pid": 2372011,
+      "start_ticks": 110980202,
+      "absent": true
+    },
+    {
+      "pid": 2372048,
+      "start_ticks": 110980473,
+      "absent": true
+    },
+    {
+      "pid": 2372051,
+      "start_ticks": 110980576,
+      "absent": true
+    }
+  ],
+  "actual_log_pins": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/nuisance-replay.log",
+      "sha256": "fc77c3febb8084657f6926a73bffd2de7f6e3491c9c1d195adb94bf096a607de",
+      "bytes": 569
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/nuisance-replay-candidate1-point012.log",
+      "sha256": "fc77c3febb8084657f6926a73bffd2de7f6e3491c9c1d195adb94bf096a607de",
+      "bytes": 569
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/segmented-native-tangent.log",
+      "sha256": "273ffdd20902b2b35e910b2bab579aa0b852e4af739c6f5be731c7b0705d25d7",
+      "bytes": 358
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/segmented-structural.log",
+      "sha256": "3ebaea69a60a9d575e3598326696ac1ea5797b9996e8332dcf72e9641f43fcf7",
+      "bytes": 28905
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/linearization-log_drag_ou.log",
+      "sha256": "5b97e751d255cdca4ab3d1eb8bbb3dc6f8a08df23ef36bd53821f53c4aa0abab",
+      "bytes": 778
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/staging/namespace-smoke-01/run/probe-result/linearization-pulses.log",
+      "sha256": "5b97e751d255cdca4ab3d1eb8bbb3dc6f8a08df23ef36bd53821f53c4aa0abab",
+      "bytes": 778
+    }
+  ],
+  "production_outputs_absent": {
+    "native_source": true,
+    "build": true,
+    "binaries": true,
+    "run": true,
+    "temporary": true
+  },
+  "checks": {
+    "exact_actual_process_result_plan_and_helper_attribution": true,
+    "only_five_mutable_scratch_directories_rebound": true,
+    "current_host_owned_successful_cleanup": true,
+    "source_readonly_and_14_inputs_589_dependencies": true,
+    "distinct_original_replays_and_dense_segmented_binaries": true,
+    "native_three_structural_303_collection_only": true,
+    "gnss_linearization_inputs_and_gtsam42": true,
+    "native_launch_plan_unchanged": true
+  },
+  "scope": "Actual read-only startup only. No native numerical gate, propagation or fit performed by this audit. Unchanged full14 validation launch requires its live admission/shared lock."
+}
