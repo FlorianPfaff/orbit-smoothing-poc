@@ -1,0 +1,65 @@
+{
+  "schema": "orbit-poc-v4-preparation04-recovery-publication-v1",
+  "status": "launched_and_running_at_observation",
+  "observed_at": "2026-10-16T15:12:31.103762+00:00",
+  "durable_launch_at": "2026-10-16T15:11:32+00:00",
+  "source_of_observation": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-launch-independent-review01.json",
+    "sha256": "b4ec8995547e3e1fb14cfbb3921bfd5963337c11adcb45b7a42a13be0c3d5e08",
+    "bytes": 2807
+  },
+  "startup_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-startup02-independent-review01.json",
+    "sha256": "72b4625849907386c9161ebfdea121b50bb210337f1b4a84be342da73a1ea7e8",
+    "bytes": 3006
+  },
+  "packet_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery03-independent-packet-review01.json",
+    "sha256": "3b7d96e4a9b8bf6060814b85cc8cd43a9a3c13ec5dcebac395f66af8389522ff",
+    "bytes": 3652
+  },
+  "process": {
+    "pid": 2675192,
+    "start_ticks": 114711538,
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "parent": 1,
+    "state": "R",
+    "argv": [
+      "/usr/bin/python3",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/run_segmented_preparation01.py",
+      "--plan",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/plan.json",
+      "--sha256",
+      "0f2ecfb1e0ddbae514b138164b6a1bedf1f56ad7439fd8f2a54870fa4ec504a6"
+    ],
+    "affinity": [
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  "actual_environment": {
+    "PATH": "/usr/bin:/bin",
+    "HOME": "/home/florianpfaff",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "before_check": "complete",
+  "public_preparation_pid": 2675490,
+  "benchmark_fits": 0,
+  "planned_benchmark_fits": 68,
+  "preparation_complete": false,
+  "release_ready": false,
+  "prior_startup_failure_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/publication-preparation04-startup01-failure01/manifest.json",
+    "sha256": "b0f2c01850ce92259ce5a7d6fde45f0966d2d78d476512377fb9d895ac952a9e",
+    "bytes": 3010
+  },
+  "scope": [
+    "The control-only recovery supplies the actual account HOME to startup and preparation; scientific source, native executables, settings and numerical thresholds are unchanged.",
+    "The final recovery helper passed 27 independent pure tests. The actual startup passed with owned cleanup and zero physical propagations or fits.",
+    "The durable driver and running public preparation were independently attributed to exact PID/start/boot and the original shared lock at the observation time. This snapshot does not imply ongoing status after that time.",
+    "Both preflight failures and the reviewer lookup failure remain separately preserved. They occurred in control or readback tooling, not scientific fitting.",
+    "The earlier wrong-HOME startup01 failure is preserved in its separate immutable package; validation05 results are separate. No preparation completion or benchmark result is inferred."
+  ]
+}

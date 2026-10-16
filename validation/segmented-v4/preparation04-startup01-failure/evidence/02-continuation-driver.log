@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/run_validation_prepare_continuation01.py", line 108, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/run_validation_prepare_continuation01.py", line 87, in main
+    smoke=load('pinned_preparation_smoke',p['helpers']['prep_smoke']);smokeplan=prep/'smoke-plan.json';need(smoke.main(['--plan',str(smokeplan),'--sha256',sha(smokeplan)])==0,'Actual preparation startup failed');smokev=read(pin(smokeplan));process=Path(smokev['output'])/'process.json';sp=read(pin(process));need(sp['status']=='passed'and sp['final_cleanup']['verified']and not sp['final_cleanup']['errors'],'Startup cleanup not verified')
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/smoke_segmented_preparation01.py", line 43, in main
+    need(code==0,'Preparation startup dependency probe failed');value=json.loads(result.read_text());need(value['status']=='passed' and value['physical_propagations']==0 and value['benchmark_fits']==0 and value['config']==q['config'] and value['source_sha256']==q['source_sha256'],'Probe scope/identity differs');journal['status']='passed'
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/smoke_segmented_preparation01.py", line 9, in need
+    if not ok:raise RuntimeError(why)
+RuntimeError: Preparation startup dependency probe failed

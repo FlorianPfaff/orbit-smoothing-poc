@@ -1,0 +1,49 @@
+{
+  "argv": [
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "-s",
+    "-c",
+    "import json,sys,os\nfrom pathlib import Path\nsource,request,result,cpus=sys.argv[1:]\nsys.path.insert(0,str(Path(source)/'src'))\nos.sched_setaffinity(0,json.loads(cpus))\njob=json.loads(Path(request).read_text())\nif job.get('operation')=='prepare_catalog':\n from orbit_poc.segmented.multiday import prepare_catalog\n v={'status':'prepared','catalog':prepare_catalog(job['cases'],job['output'],job['runtime'],job['options'])}\nelif job.get('operation')=='prepare_component':\n from orbit_poc.segmented.preparation import worker\n v=worker(job,Path(result).parent)\nelif job.get('operation')=='validate_command':\n from orbit_poc.segmented.validation import worker\n v=worker(job,Path(result).parent)\nelse:\n from orbit_poc.segmented.backend import fit_job\n v=fit_job(job,Path(result).parent)\nPath(result).write_text(json.dumps(v,allow_nan=False,sort_keys=True))\n",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/objective-log_drag_ou/request.json",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/objective-log_drag_ou/worker-result.json",
+    "[24]"
+  ],
+  "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "cleanup": {
+    "empty_tree_certificate": "kernel_ECHILD",
+    "hard_kill": false,
+    "remaining": [],
+    "signals": [],
+    "verified": true
+  },
+  "elapsed_seconds": 1069.0108767109923,
+  "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+  "owned_process_group_cleaned": true,
+  "peak_process_tree_rss_bytes": 401801216,
+  "plan_sha256": "663cf54c1feaf9d626d4b653b364ddc5de3cf2ab296eed416b536bfbc16500c4",
+  "returncode": 0,
+  "schema": "orbit-poc-segmented-supervision-v1",
+  "signals_received": [],
+  "status": "complete",
+  "supervisor": {
+    "parent": 2,
+    "pid": 896,
+    "start_ticks": 112235742,
+    "state": "R"
+  },
+  "tracked_owned_processes": [
+    {
+      "parent": 896,
+      "pid": 897,
+      "start_ticks": 112235759,
+      "state": "Z"
+    }
+  ],
+  "worker": {
+    "parent": 896,
+    "pid": 897,
+    "start_ticks": 112235759,
+    "state": "R"
+  }
+}

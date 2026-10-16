@@ -1,0 +1,196 @@
+{
+  "schema": "orbit-poc-preparation04-proper-home-recovery-staging-v1",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/plan.json",
+    "sha256": "fe84073082404a3f1a78ea9a2372b3dbec139ea143170b96a8d926ea284b2a32"
+  },
+  "plan_value": {
+    "schema": "orbit-poc-preparation04-proper-home-recovery-v1",
+    "helper": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/recover_preparation04_startup02.py",
+      "sha256": "d73d5cf7274347dc78baf468f9c80fa1fddfc3757cf80cc338a07eb1669debcf"
+    },
+    "control_python": {
+      "path": "/usr/bin/python3",
+      "sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae"
+    },
+    "control_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02",
+    "host": {
+      "hostname": "workstation1",
+      "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa"
+    },
+    "account": {
+      "uid": 1002,
+      "username": "florianpfaff",
+      "home": "/home/florianpfaff"
+    },
+    "environment": {
+      "PATH": "/usr/bin:/bin",
+      "HOME": "/home/florianpfaff",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "execution": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/execution.json",
+      "sha256": "98e9ea204c22d176e271141b993338579430df9354bcde5f74a44fb9476efe77"
+    },
+    "preparation_plan": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/plan.json",
+      "sha256": "0f2ecfb1e0ddbae514b138164b6a1bedf1f56ad7439fd8f2a54870fa4ec504a6"
+    },
+    "preparation_pins": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/pins.json",
+      "sha256": "26fb4316d280f1887d7a1e43bc1411bf7bf229afc57c27b1226068265353c204"
+    },
+    "helpers": {
+      "driver": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/owned_driver09.py",
+        "sha256": "72ac591a4c0b1d18b67b2739d694be40e271ec09d7b0f9b3dcad4287cb88fdcd"
+      },
+      "runner": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/run_segmented_preparation01.py",
+        "sha256": "cda35fe48b97debf2132a15e8b84ef10884535e461a9be33a0f9dcc39c5d2d9f"
+      },
+      "smoke": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/smoke_segmented_preparation01.py",
+        "sha256": "9f2e68ba837a8430d88a92489ca2fda9051947c88ba4570a37fa5d73ad900a53"
+      },
+      "launcher": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/launch_segmented_preparation01.py",
+        "sha256": "671e177ba7309f18c2b5a0914f75e389d6500b03b7989e85190c75410144e014"
+      }
+    },
+    "old_smoke": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/smoke-plan.json",
+      "sha256": "9e2a18df52336f1b5edabb885a8bb29f1c529ecb57beca3f0af1386df4ab8db1"
+    },
+    "old_probe": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/probe-plan.json",
+      "sha256": "9372b4088c215c4c4c11fee826cd7d3a9b09417fb3fbd098551a3f58fb3f3916"
+    },
+    "smoke": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/smoke-plan.json",
+      "sha256": "bea097a755d181bbb3bbf2be322a35d84e3b8054c7704356118ade54847a02c3"
+    },
+    "probe": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/probe-plan.json",
+      "sha256": "0722822d2369d9d95bbe6513ce0c6e97709e888735bd06095c8d0bef0d30625f"
+    },
+    "failure_records": [
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/pipeline.json",
+        "sha256": "b19769af67dd41e5a1c58cb04c41841ebcfb1768ea53dd539a1060af78bdf6a1"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/continuation-driver.log",
+        "sha256": "025850b547814fd4d47824ac26f51fc30e5215e1750e58ddaab2af003a6d21f2"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/continuation-launch.json",
+        "sha256": "9a0b7cef43ef083c4c291741efe39a91d47fa9059261b0f42cbfea3d7f05168d"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/launch_validation_prepare_continuation01.py",
+        "sha256": "f798f8b688b132c758189c4d2490fc90693f9fbe9a74d30e50235e38f150c94f"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-01/process.json",
+        "sha256": "bd2d13ba0eded2f27684e8d7f229f73780518a40aa9aec8bc0607d43b52559ce"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-01/worker.log",
+        "sha256": "690235ca793669cc89bb89cca85466fc5e02f4b05c9d9651fb80e0fdab8d1718"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-01/temporary/probe-result/result.json",
+        "sha256": "b896d153ec2cf5b79ad2f212d1a0bdaf31549b296f29dc416fc011f9ed590159"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/assembly.json",
+        "sha256": "92a3dff41ac6cc5583e9979426843722b76bcde5c42e3887908ef6b618325e77"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/cache-install.json",
+        "sha256": "2c0cc45c77226d5f8d14b2b82a35fca1381735a957cbfb0ce9d66aa77f2c8127"
+      }
+    ],
+    "resource": {
+      "path": "/home/florianpfaff/.tudat/resource",
+      "identity": {
+        "dev": 66308,
+        "ino": 105665700,
+        "uid": 1002
+      },
+      "sentinel": {
+        "path": "/home/florianpfaff/.tudat/resource/quadrature/gaussianNodes.txt",
+        "sha256": "efc979aeda2e60cc2198b4674807d6baf82350040275c7ed19a925cb8b1c2308"
+      }
+    },
+    "global_lock": {
+      "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/control/candidate09-validation.lock",
+      "identity": {
+        "dev": 2048,
+        "ino": 217252784
+      }
+    }
+  },
+  "new_smoke": {
+    "driver": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/owned_driver09.py",
+      "sha256": "72ac591a4c0b1d18b67b2739d694be40e271ec09d7b0f9b3dcad4287cb88fdcd"
+    },
+    "execution": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/execution.json",
+      "sha256": "98e9ea204c22d176e271141b993338579430df9354bcde5f74a44fb9476efe77"
+    },
+    "global_lock": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/control/candidate09-validation.lock",
+    "helper": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/smoke_segmented_preparation01.py",
+      "sha256": "9f2e68ba837a8430d88a92489ca2fda9051947c88ba4570a37fa5d73ad900a53"
+    },
+    "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-02",
+    "probe_plan": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/probe-plan.json",
+      "sha256": "0722822d2369d9d95bbe6513ce0c6e97709e888735bd06095c8d0bef0d30625f"
+    },
+    "schema": "orbit-poc-preparation-owned-startup-smoke-v1"
+  },
+  "new_probe": {
+    "cache_seed": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/cache-seed.json",
+      "sha256": "024d4dd9045b92aee237ebbffbc489d4ac0b59ed3f9cccdc9c10c3fbbb160359"
+    },
+    "config": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/segmented-v4.json",
+      "sha256": "d7d66e175353213889ce32d8606a572d219bc2138ad58f1041558e49b014486b"
+    },
+    "helper": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/probe_segmented_preparation02.py",
+      "sha256": "9c0e9a2c6964911ce7e78f4e971241aeb1d729959efc2652843227927889e04b"
+    },
+    "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-02/temporary/probe-result",
+    "products": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-product-preflight-01/receipt.json",
+      "sha256": "d5d463e4d67dd1fb689020b7177c54798698596f87be0641adce3dffcd217369"
+    },
+    "schema": "orbit-poc-preparation-startup-plan-v1",
+    "source_sha256": "c267e581d7839a39fa09cde4d6211e8b1139e6f65b0b146f5167647dea958718"
+  },
+  "original_execution_unchanged": true,
+  "startup_output_absent": true,
+  "preparation_launch_absent": true,
+  "preparation_pipeline_absent": true,
+  "no_launch": true,
+  "command": [
+    "/usr/bin/taskset",
+    "-c",
+    "24-27",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/recover_preparation04_startup02.py",
+    "startup",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/plan.json",
+    "--sha256",
+    "fe84073082404a3f1a78ea9a2372b3dbec139ea143170b96a8d926ea284b2a32"
+  ]
+}

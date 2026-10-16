@@ -1,0 +1,1714 @@
+<!doctype html><meta charset="utf-8"><title>Segmented v4: terminal validation and pending benchmark</title><style>body{font:16px system-ui;max-width:1200px;margin:3em auto;padding:0 1em}table{border-collapse:collapse;width:100%}td,th{padding:.5em;border:1px solid #ccd;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere}code{overflow-wrap:anywhere}</style><h1>Segmented v4: terminal validation</h1><p>Scientific validation status: <strong>passed_scoped_checks</strong>. Controller status: passed; CLI pipeline: passed. A controller failure after the last gate remains a failure even if every individual gate passed. This is the 14-gate correctness validation of the pinned implementation. Benchmark fits: <strong>0 of 68</strong>; preparation has not completed. Full v4 release readiness and accepted-fit covariance are not established.</p><p>The original frozen report runs before preparation and therefore records its native-correctness gate as unavailable without an input manifest. That raw output is preserved; the separate validation table below comes from exact terminal journals and their independent audit. No scientific thresholds or classifications are changed by this presentation.</p><p><a href="summary.json">Presentation summary</a> · <a href="raw-benchmark/report.json">Original pending benchmark JSON</a> · <a href="raw-benchmark/index.html">Original HTML</a> · <a href="independent-audit.json">Independent terminal audit</a> · <a href="raw-capture/manifest.json">Exact raw evidence inventory</a> · <a href="raw-linearization-arrays/manifest.json">Exact native/GTSAM array appendix</a></p><p>Earlier <a href="../preflight01/index.html">preflight fixtures</a> and <a href="../engineering02/index.html">engineering02</a> are separate records, not substitutes for this validation or the benchmark.</p><h2>Executed validation gates</h2><table><tr><th>Gate</th><th>Actual status</th><th>Independently audited measurements</th></tr><tr><td>native-tests</td><td>passed</td><td><pre>{
+  &quot;errors&quot;: 0,
+  &quot;exact_original_inventory&quot;: true,
+  &quot;failures&quot;: 0,
+  &quot;passed&quot;: 106,
+  &quot;skipped&quot;: 0
+}</pre></td></tr><tr><td>correction-tests</td><td>passed</td><td><pre>{
+  &quot;errors&quot;: 0,
+  &quot;exact_original_inventory&quot;: true,
+  &quot;failures&quot;: 0,
+  &quot;passed&quot;: 51,
+  &quot;skipped&quot;: 0
+}</pre></td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>passed</td><td><pre>{
+  &quot;maximum_fraction_of_sigma&quot;: 2.050607387597362e-06,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 7.303611906877776e-09,
+    &quot;offgrid_position_maximum_m&quot;: 5.54304497667047e-06
+  }
+}</pre></td></tr><tr><td>synthetic-refinement-pulses</td><td>passed</td><td><pre>{
+  &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-06,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 1.742967150380174e-08,
+    &quot;offgrid_position_maximum_m&quot;: 5.543041475485635e-06
+  }
+}</pre></td></tr><tr><td>flight-refinement</td><td>passed</td><td><pre>{
+  &quot;maximum_fraction_of_sigma&quot;: 0.0022019718410824394,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 2.094944070391797e-06,
+    &quot;offgrid_position_maximum_m&quot;: 1.1789941775955e-05
+  }
+}</pre></td></tr><tr><td>eccentric-24h-refinement</td><td>passed</td><td><pre>{
+  &quot;maximum_fraction_of_sigma&quot;: 4.921882161094496e-07,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 1.757832811044238e-09,
+    &quot;offgrid_position_maximum_m&quot;: 5.58694197288524e-06
+  }
+}</pre></td></tr><tr><td>objective-log_drag_ou</td><td>passed</td><td><pre>{
+  &quot;accepted_consecutive_scales&quot;: [
+    0.125,
+    0.0625
+  ],
+  &quot;directional_scales&quot;: [
+    {
+      &quot;error_plus_resolution&quot;: 0.006182619464050869,
+      &quot;passed&quot;: false,
+      &quot;scale&quot;: 1.0
+    },
+    {
+      &quot;error_plus_resolution&quot;: 0.00155210696470635,
+      &quot;passed&quot;: false,
+      &quot;scale&quot;: 0.5
+    },
+    {
+      &quot;error_plus_resolution&quot;: 0.0003883374329245357,
+      &quot;passed&quot;: false,
+      &quot;scale&quot;: 0.25
+    },
+    {
+      &quot;error_plus_resolution&quot;: 9.831601463040405e-05,
+      &quot;passed&quot;: true,
+      &quot;scale&quot;: 0.125
+    },
+    {
+      &quot;error_plus_resolution&quot;: 2.4692294002311554e-05,
+      &quot;passed&quot;: true,
+      &quot;scale&quot;: 0.0625
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 2.887074060708983e-05,
+  &quot;floor_limited_profiles&quot;: 0,
+  &quot;full_nonzero_prior&quot;: {
+    &quot;absolute_tolerance&quot;: 2e-08,
+    &quot;cost&quot;: 4.848917841373497,
+    &quot;maximum_residual_difference&quot;: 2.0548241996820593e-09,
+    &quot;objective&quot;: 4093.99640620035,
+    &quot;rows&quot;: 61,
+    &quot;source&quot;: &quot;constraint.logDensityOu&quot;
+  },
+  &quot;maximum_strict_nuisance_update_m&quot;: 8.550829319479858e-10,
+  &quot;physical_repeat_difference&quot;: 2.887074060708983e-06,
+  &quot;resolution_scope&quot;: &quot;empirical arithmetic spread, not a rigorous error bound or nuisance convergence&quot;,
+  &quot;strict_profiles&quot;: 22
+}</pre></td></tr><tr><td>objective-pulses</td><td>passed</td><td><pre>{
+  &quot;accepted_consecutive_scales&quot;: [
+    1.0,
+    0.5
+  ],
+  &quot;directional_scales&quot;: [
+    {
+      &quot;error_plus_resolution&quot;: 1.3209124158344426e-06,
+      &quot;passed&quot;: true,
+      &quot;scale&quot;: 1.0
+    },
+    {
+      &quot;error_plus_resolution&quot;: 2.8583679436816323e-06,
+      &quot;passed&quot;: true,
+      &quot;scale&quot;: 0.5
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 0.0006811436469433829,
+  &quot;floor_limited_profiles&quot;: 0,
+  &quot;full_nonzero_prior&quot;: {
+    &quot;absolute_tolerance&quot;: 1e-12,
+    &quot;cost&quot;: 0.053929305673915545,
+    &quot;maximum_residual_difference&quot;: 0.0,
+    &quot;objective&quot;: 4434.956614024171,
+    &quot;rows&quot;: 6,
+    &quot;source&quot;: &quot;constraint.pulses&quot;
+  },
+  &quot;maximum_strict_nuisance_update_m&quot;: 7.367510901334214e-09,
+  &quot;physical_repeat_difference&quot;: 6.811436469433829e-05,
+  &quot;resolution_scope&quot;: &quot;empirical arithmetic spread, not a rigorous error bound or nuisance convergence&quot;,
+  &quot;strict_profiles&quot;: 10
+}</pre></td></tr><tr><td>nuisance-replay</td><td>passed</td><td><pre>{
+  &quot;fixed_support_and_weights&quot;: true,
+  &quot;floor_limited&quot;: false,
+  &quot;input_verification_scope&quot;: &quot;Exact original14 inventory and XML identity; physical file bytes were independently verified in the pinned actual prelaunch audit and frozen public runtime/input verifier.&quot;,
+  &quot;iterations&quot;: 6,
+  &quot;last_two_undamped_updates_m&quot;: [
+    2.990560933249703e-10,
+    2.990560933249703e-10
+  ],
+  &quot;maximum_update_m&quot;: 2.990560933249703e-10,
+  &quot;original_profile&quot;: {
+    &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/profile.xml&quot;,
+    &quot;sha256&quot;: &quot;902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0&quot;
+  },
+  &quot;physical_input_pins&quot;: {
+    &quot;density&quot;: {
+      &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/native/log_density.txt&quot;,
+      &quot;sha256&quot;: &quot;04423d3a829d790f38f5d5c3befc6c28cc3d95b590ec89530653b47169806129&quot;
+    },
+    &quot;reference&quot;: {
+      &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/closure-02/reference.txt&quot;,
+      &quot;sha256&quot;: &quot;2d9e49252da986843035ed0e78df9fb217069a04426cfab1621ec571ba5744a8&quot;
+    },
+    &quot;variational&quot;: {
+      &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/closure-02/variational.dat&quot;,
+      &quot;sha256&quot;: &quot;a2f39bb67f756f013a2b47bb9e5c8e8863a2dc100243a0682eda65a71020cf5d&quot;
+    }
+  },
+  &quot;sidecar_resolved&quot;: true,
+  &quot;strict_nuisance_converged&quot;: true,
+  &quot;zero_update_replay_exact&quot;: true
+}</pre></td></tr><tr><td>nuisance-replay-candidate1-point012</td><td>passed</td><td><pre>{
+  &quot;fixed_support_and_weights&quot;: true,
+  &quot;floor_limited&quot;: false,
+  &quot;input_verification_scope&quot;: &quot;Exact original14 inventory and XML identity; physical file bytes were independently verified in the pinned actual prelaunch audit and frozen public runtime/input verifier.&quot;,
+  &quot;iterations&quot;: 6,
+  &quot;last_two_undamped_updates_m&quot;: [
+    3.79231092821175e-10,
+    3.79231092821175e-10
+  ],
+  &quot;maximum_update_m&quot;: 3.79231092821175e-10,
+  &quot;original_profile&quot;: {
+    &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/profile.xml&quot;,
+    &quot;sha256&quot;: &quot;3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8&quot;
+  },
+  &quot;physical_input_pins&quot;: {
+    &quot;density&quot;: {
+      &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/native/log_density.txt&quot;,
+      &quot;sha256&quot;: &quot;1c554b9450d5d7d3204886cdea63aead22b9965c986524ddfac44db75f665772&quot;
+    },
+    &quot;reference&quot;: {
+      &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/closure-02/reference.txt&quot;,
+      &quot;sha256&quot;: &quot;bfcbabb09dc288aa939b68191150250e887e1ca535dcdbca1f8640350b7b94b7&quot;
+    },
+    &quot;variational&quot;: {
+      &quot;path&quot;: &quot;/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/closure-02/variational.dat&quot;,
+      &quot;sha256&quot;: &quot;10a8304c8f999fa61d84939eeadb16db4ab109bf8982f85b7ab2f9de24aa07f6&quot;
+    }
+  },
+  &quot;sidecar_resolved&quot;: true,
+  &quot;strict_nuisance_converged&quot;: true,
+  &quot;zero_update_replay_exact&quot;: true
+}</pre></td></tr><tr><td>segmented-native-tangent</td><td>passed</td><td><pre>{
+  &quot;complete_inventory&quot;: [
+    [
+      &quot;tests.test_segmented_native_tangent&quot;,
+      &quot;test_actual_native_local_operator_export[synthetic_complete_v1-False]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_tangent&quot;,
+      &quot;test_actual_native_local_operator_export[synthetic_complete_v1-True]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_tangent&quot;,
+      &quot;test_actual_native_local_operator_export[flight_gravity_drag_v1-False]&quot;
+    ]
+  ],
+  &quot;errors&quot;: 0,
+  &quot;failures&quot;: 0,
+  &quot;passed&quot;: 3,
+  &quot;skipped&quot;: 0
+}</pre></td></tr><tr><td>segmented-structural</td><td>passed</td><td><pre>{
+  &quot;complete_inventory&quot;: [
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_nonzero_equality_rhs_map_covariance_and_energy&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_sparse_chain_mixed_pivot_roles[7301]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_sparse_chain_mixed_pivot_roles[7302]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_sparse_chain_mixed_pivot_roles[7303]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_sparse_chain_mixed_pivot_roles[7304]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_selected_cross_covariance_and_zero_noise_query&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_no_queries_does_not_form_full_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_unit_changes_row_order_and_grouping&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_local_global_nuisance_elimination_equivalent&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_deterministic_only_system_has_zero_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_stochastic_rank_classification_no_covariance[0.0-deficient]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_stochastic_rank_classification_no_covariance[1e-16-deficient]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_stochastic_rank_classification_no_covariance[2e-15-unresolved]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_constraint_pivot_rank_never_drops_direction[0.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_constraint_pivot_rank_never_drops_direction[1e-16]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_constraint_pivot_rank_never_drops_direction[2e-15]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_full_rank_above_uncertainty_band&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-constraint_rank_inconsistent]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-invalid_schedule0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-invalid_schedule1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-invalid_scale0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-invalid_scale1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-chronology_violation0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-chronology_violation1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_fail_closed_metadata[&lt;lambda&gt;-chronology_violation2]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_unused_stochastic_parameter_rejected&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_constraint_touches_stochastic_pivot_rejected&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_row_provenance_and_chronology&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_malformed_protocol_fails_without_covariance[]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_malformed_protocol_fails_without_covariance[BAD\\n]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_malformed_protocol_fails_without_covariance[SEGMENTED_QR_V1\\n-1 0 0 0 0\\n]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_duplicate_row_ids_rejected&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_nonzero_coefficient_underflow_fails_closed&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_front_provenance_is_a_linear_size_dag&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_trailing_exact_constraints_are_forwarded_without_noise&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_multivariate_deterministic_and_stochastic_fronts&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_grouped_six_state_and_joint_cross_block_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_covariance_blocks_preserve_zero_noise_and_unit_scaling&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_covariance_blocks_do_not_cache_damped_factor&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_invalid_covariance_block_coverage_fails_closed[blocks0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_invalid_covariance_block_coverage_fails_closed[blocks1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_invalid_covariance_block_coverage_fails_closed[blocks2]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_invalid_covariance_block_coverage_fails_closed[blocks3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_invalid_covariance_block_coverage_fails_closed[blocks4]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_empty_covariance_block_request&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_many_blocks_never_allocate_joint_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_native_qr&quot;,
+      &quot;test_small_gtsam42_constrained_qr_map_and_covariance_oracle&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_lifted_native_exports_preserve_clocks_priors_and_interpolation[0.0-3600]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_lifted_native_exports_preserve_clocks_priors_and_interpolation[0.0-14400]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_lifted_native_exports_preserve_clocks_priors_and_interpolation[0.001-3600]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_lifted_native_exports_preserve_clocks_priors_and_interpolation[0.001-14400]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_lifted_native_exports_preserve_clocks_priors_and_interpolation[1000.0-3600]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_lifted_native_exports_preserve_clocks_priors_and_interpolation[1000.0-14400]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_duplicate_or_stale_rows_cannot_enter_the_graph&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_hex_interpolation_preserves_low_part&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_force_ownership_waits_for_deterministic_stencils_crossing_a_cut&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_local_stencil_transport_does_not_need_dense_physical_columns&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_shifted_cuts_preserve_identical_physical_rows_and_posterior[0.0-300.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_shifted_cuts_preserve_identical_physical_rows_and_posterior[0.0-1800.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_shifted_cuts_preserve_identical_physical_rows_and_posterior[0.001-300.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_shifted_cuts_preserve_identical_physical_rows_and_posterior[0.001-1800.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_shifted_cuts_preserve_identical_physical_rows_and_posterior[1000.0-300.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_shifted_cuts_preserve_identical_physical_rows_and_posterior[1000.0-1800.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_invalid_cut_offsets_are_rejected_before_reading_exports[True]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_invalid_cut_offsets_are_rejected_before_reading_exports[-1.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_invalid_cut_offsets_are_rejected_before_reading_exports[3600.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_invalid_cut_offsets_are_rejected_before_reading_exports[nan]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_invalid_cut_offsets_are_rejected_before_reading_exports[inf]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_invalid_cut_offsets_are_rejected_before_reading_exports[300]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_clock_conditional_recovery_matches_joint_original_row_qr&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_missing_or_reused_nuisance_conditionals_fail_explicitly&quot;
+    ],
+    [
+      &quot;tests.test_segmented_graph&quot;,
+      &quot;test_native_coordinate_identity_and_units_are_retained_and_checked&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_explicit_dense_adapter_is_bitwise_compatibility_path[0.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_explicit_dense_adapter_is_bitwise_compatibility_path[0.001]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_explicit_dense_adapter_is_bitwise_compatibility_path[1.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_explicit_dense_adapter_is_bitwise_compatibility_path[1000000000000.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_adapter_preserves_rejected_rank_and_covariance[0.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_adapter_preserves_rejected_rank_and_covariance[2.7533531010703882e-14]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linear_system&quot;,
+      &quot;test_alternate_system_owns_linear_operations_only&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_segmented_step_preserves_original_coordinate_lm[0.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_segmented_step_preserves_original_coordinate_lm[0.001]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_segmented_step_preserves_original_coordinate_lm[1.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_segmented_step_preserves_original_coordinate_lm[1000000.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_zero_noise_conditional_covariance_and_native_unit_invariance[1.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_zero_noise_conditional_covariance_and_native_unit_invariance[1e-06]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_zero_noise_conditional_covariance_and_native_unit_invariance[1000000.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_graph_identity_prevents_stale_factor_reuse&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_future_prior_dependency_cannot_be_eliminated&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_no_fallback_when_native_solver_is_unavailable&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_grouped_cartesian_and_cross_queries_match_full_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_ledger_ids_cannot_overlap_and_damping_ids_are_new&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[None]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[True]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[-1.0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[nan]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[inf]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[2e-12]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_solver&quot;,
+      &quot;test_native_success_cannot_bypass_fixed_exact_equation_residual[3e-12]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_local_rows_match_global_native_integral_operator[operator]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_local_rows_match_global_native_integral_operator[flight]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_force_design_keeps_actual_variation_of_constants_discretization&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_local_measurement_keeps_halo_and_native_initial_scaling&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_invalid_operator_and_forcing_fail_closed&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_native_export_is_valid_json_and_preserves_expansion_components&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_cartesian_query_transport_separates_position_and_postpulse_velocity&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_export_installer_keeps_distinct_operators_and_native_halowork&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_covariance_query_hook_never_requires_dense_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_tangent&quot;,
+      &quot;test_segmented_build_flag_requires_numerics&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_covariance_map_preserves_distinct_native_position_velocity_stencils&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[0-schema-wrong]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[0-factor_stem-old/factor]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[0-coordinates-RTN]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[0-row_order-velocity_first]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[0-post_pulse_velocity-False]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[0-covariance_produced-True]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[1-native_first-4]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[1-native_count-7]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[2-receiver-3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[2-arc-1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[2-index-0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[2-time-value11]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[3-index-1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[3-time-value13]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[-1-trajectory_count-3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_identity_or_support_changes_fail_closed[-1-nominal_observation_count-2]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[missing_grid]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[empty_halo]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[repeated_node]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[wrong_grid_node]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[grid_interpolation]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[changed_weight]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[wrong_parameter_order]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[missing_local_map]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_diagnostics&quot;,
+      &quot;test_query_missing_or_inconsistent_native_dependencies_are_rejected[wrong_design_count]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_derived_request_preserves_frozen_statistical_inputs&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[stage-flight]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[split-evaluation]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[kind-prediction]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[numerics_profile-legacy_v3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[method-other]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[truth-hidden]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[reference_orbit-GNV]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gate_rejects_nonblind_or_wrong_profile_request[evaluation_inputs-value7]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_identical_rows_all_chart_covariance_full_energy_and_dynamic_damping&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_wrong_dense_certificate_is_detected_and_progress_preserved&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_dense_gate_bound_precedes_any_solver_run&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_native_failure_retains_request_source_and_failed_validation&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_original_weighted_row_substitution_matches_dense_before_gtsam&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_oracle_fails_closed_on_missing_causal_dependency&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_gtsam_receipt_preserves_actual_row_failure&quot;
+    ],
+    [
+      &quot;tests.test_segmented_linearization_gate&quot;,
+      &quot;test_exact_constraint_error_is_a_separate_gate_from_energy&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_affine_map_and_covariance_match_full_rows&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_nonlinear_trial_rejection_preserves_the_accepted_reference&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_changed_weights_or_support_fails_without_covariance&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_inexact_profile_allows_only_resolved_progress_to_a_strict_final_fit&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_inexact_profile_rejects_unresolved_progress_and_never_declares_convergence&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_only_accepted_state_factors_receive_storage_protection&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_failed_fresh_stationarity_continues_bounded_trials_without_covariance&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_failed_trial_is_rolled_back_before_retrying[closure_failed]&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_failed_trial_is_rolled_back_before_retrying[nuisance_failure]&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_failed_trial_is_rolled_back_before_retrying[unresolved_rank]&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_unresolved_candidate_rank_cannot_be_accepted&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_tiny_damped_step_does_not_pass_raw_convergence&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_final_verification_cannot_exceed_the_wall_budget[confirmation]&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_final_verification_cannot_exceed_the_wall_budget[finish]&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_initialization_and_finalization_share_one_wall_budget&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_initial_objective_floor_is_remeasured_near_the_solution&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_floor_refinement_refreshes_the_undamped_stationarity_factor&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_unresolved_objective_improvement_is_flagged_without_replacing_acceptance_rule&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_rank_classification_and_no_pseudoinverse_covariance&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_dynamic_only_damping_and_undamped_covariance&quot;
+    ],
+    [
+      &quot;tests.test_numerics_optimizer&quot;,
+      &quot;test_selected_cross_covariance_matches_global_elimination&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_exact_matrix_and_shared_families&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_profile_positions_are_balanced_within_each_profile_arity&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_profile_positions_are_balanced_within_each_duration&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_profile_order_balances_duration_method_coverage_and_regime_margins&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_same_family_reverses_paired_order_between48_and72_hours&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_profile_order_is_repeatable_and_does_not_mutate_cases&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change2]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change4]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change5]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change6]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_configuration_rejects_unfrozen_options[change7]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_duplicate_json_keys&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_seed_scan_and_repin_collision&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_missing_runtime_still_freezes_all68_and_reports&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_plan_rejects_source_and_config_changes&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_checkpoint_preserves_failure_and_rejects_wrong_job&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_request_rejects_truth_before_native_import&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_strict_check_does_not_accept_small_damped_step&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_equivalence_uses_noise_and_covariance_not_fit_status&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_external_gates_require_runtime_and_manifest_identity&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_original150_rejects_an_incomplete_report&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_cli_dispatch_is_separate&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_prepare_freezes_real_input_bytes_and_run_resumes_only_matching_terminal&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_frozen_input_mutation_blocks_resume&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_nested_daily_product_mutation_is_detected&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_actual_build_manifest_schema&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_real_worker_failure_is_preserved_and_group_cleanup_verified&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_release_allows_long_dense_timeout_without_substitution&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_release_blocks_dense_success_segmented_failure_and_missing_flight&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_added_native_glob_file_invalidates_frozen_preparation&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_gate_evidence_does_not_accept_failed_junit_or_unrelated_receipt&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_measured_gate_values_are_read_from_bound_result&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_post_execution_reporting_attachments_do_not_change_manifest&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_original150_each_result_must_match_its_actual_attempt&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_actual_shaped_objective_artifact_requires_original_inequalities&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_native_directory_inventory_includes_link_targets&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_equivalence_requires_physical_and_cross_covariance_agreement&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_nominal_observation_covariance_must_agree&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_same_count_substituted_test_inventory_is_rejected&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_passing_replay_wrapper_cannot_override_failed_native_receipt&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_actual_replay_receipt_is_bound_to_source_and_physical_xml&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_native_preprocessing_identity_must_match_across_profiles&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_original_april24_requests_are_wrapped_without_repreparation&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_fresh_flight_substitution_is_rejected_even_when_new_hashes_are_valid&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_original_flight_wrapper_cannot_replace_prepared_trajectory&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_original_flight_directory_addition_invalidates_wrapped_request&quot;
+    ],
+    [
+      &quot;tests.test_segmented_protocol&quot;,
+      &quot;test_flight_normalization_compares_full_ledger_after_exact_bias_verification&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_daily_blackouts_and_prefix_selection&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_multiday_mask_is_strict[value0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_multiday_mask_is_strict[value1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_multiday_mask_is_strict[value2]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_multiday_mask_is_strict[value3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_multiday_mask_is_strict[value4]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_all_daily_products_and_interpolation_margin&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_arc_xml_covers_whole_interval_and_prior_boundaries[groops_pulses-24]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_arc_xml_covers_whole_interval_and_prior_boundaries[groops_pulses-48]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_arc_xml_covers_whole_interval_and_prior_boundaries[groops_pulses-72]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_arc_xml_covers_whole_interval_and_prior_boundaries[groops_log_drag_ou-24]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_arc_xml_covers_whole_interval_and_prior_boundaries[groops_log_drag_ou-48]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_arc_xml_covers_whole_interval_and_prior_boundaries[groops_log_drag_ou-72]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_simulation_is_one_continuous_72h_arc&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_catalog_generates_four_times_initializes_each_prefix_once&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_prepare_one_selects_corrected_profile_through_shared_closure[groops_pulses]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_prepare_one_selects_corrected_profile_through_shared_closure[groops_log_drag_ou]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_prefix_rejects_wrong_continuous_generation&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_bootstrap_actual_least_squares_over72h&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_acquire_products_merges_full_daily_coverage&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_real_generation_entry_uses_tudat_and_native_pipeline&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_preparation_components_resume_only_sealed_complete_outputs&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_failed_preparation_component_is_preserved_and_never_overwritten&quot;
+    ],
+    [
+      &quot;tests.test_segmented_multiday&quot;,
+      &quot;test_real_component_worker_calls_continuous_generator&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_fixed_gate1_order_precedes_all_v4_checks&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_input_identity_and_protected_source_are_checked&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_repin_cannot_replace_an_original_input&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_original_gate_source_cannot_change&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_validation_native_directory_membership_is_frozen&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_command_registry_rejects_arbitrary_commands_and_distinguishes_replays&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_failed_gate1_keeps_all_failures_and_blocks_gate2_without_overwrite&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_verified_success_can_be_consumed_but_changed_command_cannot&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_interruption_preserves_current_step_and_remaining_planned_inventory&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_run_refuses_missing_actual_prebenchmark_validation&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_actual_refinement_schema_and_threshold_are_parsed&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_validate_cli_is_a_real_separate_command&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_runtime_requires_complete_library_inventory&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_runtime_wheel_dlopen_inventory_is_mandatory&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_runtime_actual_dependency_closure_cannot_add_a_host_library&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_loader_ignores_only_vdso_and_clears_inherited_injection&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_supervisor_cleans_tracked_detached_native_descendant&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_actual_linearization_gate_requires_independent_original_row_qr&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_validation_context_precedes_catalog_and_binds_later_manifest&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_constraint_residual_is_separate_from_passing_energy&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_uncertain_supervisor_cleanup_stops_and_blocks_next_validation&quot;
+    ],
+    [
+      &quot;tests.test_segmented_validation&quot;,
+      &quot;test_supervisor_exception_is_not_reported_as_verified_cleanup&quot;
+    ],
+    [
+      &quot;tests.test_segmented_products&quot;,
+      &quot;test_all_actual_overlaps_bias_changes_and_boundary_gaps_are_retained[False]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_products&quot;,
+      &quot;test_all_actual_overlaps_bias_changes_and_boundary_gaps_are_retained[True]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_products&quot;,
+      &quot;test_audit_rejects_changed_product_bytes_and_mismatched_day_lists&quot;
+    ],
+    [
+      &quot;tests.test_segmented_products&quot;,
+      &quot;test_invalid_or_repeated_product_epochs_are_not_hidden&quot;
+    ],
+    [
+      &quot;tests.test_segmented_products&quot;,
+      &quot;test_orbex_gps_quaternions_require_an_epoch_and_four_components&quot;
+    ],
+    [
+      &quot;tests.test_segmented_products&quot;,
+      &quot;test_missing_midnight_side_is_explicit_in_audit&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_exit_code_and_verified_cleanup_are_preserved[0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_exit_code_and_verified_cleanup_are_preserved[7]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_immediate_double_fork_setsid_orphan_is_adopted_and_unrelated_process_survives&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_timeout_cleans_the_owned_tree&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_memory_limit_is_on_the_whole_descendant_tree&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_reused_pid_is_never_signalled&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_stale_intermediate_parent_never_authorizes_an_unrelated_signal&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_reuse_during_pidfd_open_closes_descriptor_without_sending&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_missing_pidfd_capability_blocks_launch_without_numeric_fallback&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_parent_sigterm_requests_owned_cleanup_before_return&quot;
+    ],
+    [
+      &quot;tests.test_segmented_supervisor&quot;,
+      &quot;test_empty_proc_snapshot_cannot_certify_a_live_adopted_child&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_backend_requires_an_explicit_supported_profile[None]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_backend_requires_an_explicit_supported_profile[unknown]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_backend_requires_an_explicit_supported_profile[legacy_v3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_backend_requires_an_explicit_supported_profile[segmented_2h]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_segmented_profile_uses_native_queries_without_dense_covariance&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_dense_execution_tree_and_environment_are_unchanged&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_postfit_dense_map_uses_same_export_without_whole_arc_dense_storage&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_cross_covariance_pairs_do_not_depend_on_segment_layout&quot;
+    ],
+    [
+      &quot;tests.test_segmented_backend&quot;,
+      &quot;test_dense_adapter_preserves_exact_arithmetic_and_counts_cost&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_native_scope_and_resource_limits&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_exact_plan_pins&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_plan_fail_closed[&lt;lambda&gt;0]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_plan_fail_closed[&lt;lambda&gt;1]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_plan_fail_closed[&lt;lambda&gt;2]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_plan_fail_closed[&lt;lambda&gt;3]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_plan_fail_closed[&lt;lambda&gt;4]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_plan_fail_closed[&lt;lambda&gt;5]&quot;
+    ],
+    [
+      &quot;tests.test_segmented_engineering&quot;,
+      &quot;test_changed_artifact_and_plan_rejected&quot;
+    ]
+  ],
+  &quot;errors&quot;: 0,
+  &quot;failures&quot;: 0,
+  &quot;passed&quot;: 303,
+  &quot;skipped&quot;: 0
+}</pre></td></tr><tr><td>linearization-log_drag_ou</td><td>passed</td><td><pre>{
+  &quot;covariance_scope&quot;: &quot;Undamped linearization covariance only; no accepted fit covariance.&quot;,
+  &quot;cut_scope&quot;: &quot;One-hour preserved fixtures may have no interior computational cut; differing-cut long arcs remain required benchmark evidence.&quot;,
+  &quot;effective_rows&quot;: 7885,
+  &quot;equality_audit_scope&quot;: &quot;Pinned native solve payloads enforce the fixed backward-error threshold; solver equality arithmetic has separate structural tests. This audit independently recomputes MAP, covariance, rank and full energy from captured arrays.&quot;,
+  &quot;gtsam&quot;: {
+    &quot;covariance_relative_error&quot;: 1.8036077996151243e-14,
+    &quot;independent_scipy_original_row_qr_covariance_relative_error&quot;: 5.835753620281065e-15,
+    &quot;independent_scipy_original_row_qr_map_discrepancy_posterior_sd&quot;: 2.1817782035868488e-13,
+    &quot;map_discrepancy_posterior_sd&quot;: 1.7781819803231533e-12,
+    &quot;maximum_equality_substitution_residual&quot;: 0.0,
+    &quot;normalized_full_energy_difference&quot;: 8.436957492278451e-16,
+    &quot;original_rows&quot;: 7885,
+    &quot;version&quot;: &quot;4.2&quot;
+  },
+  &quot;original_columns&quot;: 146,
+  &quot;physical_evaluations&quot;: 1,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 2e-08,
+    &quot;cost&quot;: 4.848917841373497,
+    &quot;maximum_residual_difference&quot;: 2.0548241996820593e-09,
+    &quot;objective&quot;: 4093.99640620035,
+    &quot;rows&quot;: 61,
+    &quot;source&quot;: &quot;constraint.logDensityOu&quot;
+  },
+  &quot;profiles&quot;: [
+    {
+      &quot;covariance_relative_error&quot;: 5.562185145961361e-14,
+      &quot;segment_seconds&quot;: 3600,
+      &quot;trials&quot;: [
+        {
+          &quot;damping&quot;: 0.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.701746011121226e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 1.8562129400542028e-12,
+          &quot;normalized_energy_difference&quot;: 9.843117074324858e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 2.812319164092817e-15
+        },
+        {
+          &quot;damping&quot;: 0.001,
+          &quot;kernel_equality_max_backward_error&quot;: 1.5449385496333916e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 1.320337991083282e-12,
+          &quot;normalized_energy_difference&quot;: 1.1220568563269515e-15,
+          &quot;normalized_orthogonal_energy_difference&quot;: 2.103856605613034e-15
+        },
+        {
+          &quot;damping&quot;: 1000.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.5657922636088861e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 6.951232967495197e-13,
+          &quot;normalized_energy_difference&quot;: 0.0,
+          &quot;normalized_orthogonal_energy_difference&quot;: 1.1111206563573405e-16
+        }
+      ]
+    },
+    {
+      &quot;covariance_relative_error&quot;: 5.562185145961361e-14,
+      &quot;segment_seconds&quot;: 14400,
+      &quot;trials&quot;: [
+        {
+          &quot;damping&quot;: 0.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.701746011121226e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 1.8562129400542028e-12,
+          &quot;normalized_energy_difference&quot;: 9.843117074324858e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 2.812319164092817e-15
+        },
+        {
+          &quot;damping&quot;: 0.001,
+          &quot;kernel_equality_max_backward_error&quot;: 1.5449385496333916e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 1.320337991083282e-12,
+          &quot;normalized_energy_difference&quot;: 1.1220568563269515e-15,
+          &quot;normalized_orthogonal_energy_difference&quot;: 2.103856605613034e-15
+        },
+        {
+          &quot;damping&quot;: 1000.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.5657922636088861e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 6.951232967495197e-13,
+          &quot;normalized_energy_difference&quot;: 0.0,
+          &quot;normalized_orthogonal_energy_difference&quot;: 1.1111206563573405e-16
+        }
+      ]
+    }
+  ],
+  &quot;undamped_rank&quot;: {
+    &quot;deficiency_threshold&quot;: 9.64076219749394e-12,
+    &quot;resolved&quot;: true,
+    &quot;smallest_singular_value&quot;: 0.0014339721738251257,
+    &quot;unresolved_threshold&quot;: 9.64076219749394e-11
+  }
+}</pre></td></tr><tr><td>linearization-pulses</td><td>passed</td><td><pre>{
+  &quot;covariance_scope&quot;: &quot;Undamped linearization covariance only; no accepted fit covariance.&quot;,
+  &quot;cut_scope&quot;: &quot;One-hour preserved fixtures may have no interior computational cut; differing-cut long arcs remain required benchmark evidence.&quot;,
+  &quot;effective_rows&quot;: 7830,
+  &quot;equality_audit_scope&quot;: &quot;Pinned native solve payloads enforce the fixed backward-error threshold; solver equality arithmetic has separate structural tests. This audit independently recomputes MAP, covariance, rank and full energy from captured arrays.&quot;,
+  &quot;gtsam&quot;: {
+    &quot;covariance_relative_error&quot;: 1.6767856852092798e-14,
+    &quot;independent_scipy_original_row_qr_covariance_relative_error&quot;: 1.4998701039121653e-14,
+    &quot;independent_scipy_original_row_qr_map_discrepancy_posterior_sd&quot;: 4.613052483700207e-13,
+    &quot;map_discrepancy_posterior_sd&quot;: 1.9229663260738094e-12,
+    &quot;maximum_equality_substitution_residual&quot;: 0.0,
+    &quot;normalized_full_energy_difference&quot;: 8.433149586018333e-16,
+    &quot;original_rows&quot;: 7830,
+    &quot;version&quot;: &quot;4.2&quot;
+  },
+  &quot;original_columns&quot;: 91,
+  &quot;physical_evaluations&quot;: 1,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 1e-12,
+    &quot;cost&quot;: 0.053929305673915545,
+    &quot;maximum_residual_difference&quot;: 0.0,
+    &quot;objective&quot;: 4434.956614024171,
+    &quot;rows&quot;: 6,
+    &quot;source&quot;: &quot;constraint.pulses&quot;
+  },
+  &quot;profiles&quot;: [
+    {
+      &quot;covariance_relative_error&quot;: 7.802197406143111e-14,
+      &quot;segment_seconds&quot;: 3600,
+      &quot;trials&quot;: [
+        {
+          &quot;damping&quot;: 0.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.5094387853981835e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 8.68701591934343e-13,
+          &quot;normalized_energy_difference&quot;: 4.2165747930091664e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 5.622099724012221e-16
+        },
+        {
+          &quot;damping&quot;: 0.001,
+          &quot;kernel_equality_max_backward_error&quot;: 1.0752498242332264e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 3.105595906248573e-13,
+          &quot;normalized_energy_difference&quot;: 5.598623284910432e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 1.81955256759589e-15
+        },
+        {
+          &quot;damping&quot;: 1000.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.4417131470593688e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 2.1156828312788483e-12,
+          &quot;normalized_energy_difference&quot;: 2.0508682727743463e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 4.1017365455486926e-16
+        }
+      ]
+    },
+    {
+      &quot;covariance_relative_error&quot;: 7.802197406143111e-14,
+      &quot;segment_seconds&quot;: 14400,
+      &quot;trials&quot;: [
+        {
+          &quot;damping&quot;: 0.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.5094387853981835e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 8.68701591934343e-13,
+          &quot;normalized_energy_difference&quot;: 4.2165747930091664e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 5.622099724012221e-16
+        },
+        {
+          &quot;damping&quot;: 0.001,
+          &quot;kernel_equality_max_backward_error&quot;: 1.0752498242332264e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 3.105595906248573e-13,
+          &quot;normalized_energy_difference&quot;: 5.598623284910432e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 1.81955256759589e-15
+        },
+        {
+          &quot;damping&quot;: 1000.0,
+          &quot;kernel_equality_max_backward_error&quot;: 1.4417131470593688e-16,
+          &quot;map_discrepancy_posterior_sd&quot;: 2.1156828312788483e-12,
+          &quot;normalized_energy_difference&quot;: 2.0508682727743463e-16,
+          &quot;normalized_orthogonal_energy_difference&quot;: 4.1017365455486926e-16
+        }
+      ]
+    }
+  ],
+  &quot;undamped_rank&quot;: {
+    &quot;deficiency_threshold&quot;: 5.350503476450506e-12,
+    &quot;resolved&quot;: true,
+    &quot;smallest_singular_value&quot;: 0.0014163654663327879,
+    &quot;unresolved_threshold&quot;: 5.350503476450506e-11
+  }
+}</pre></td></tr></table><h2>Native candidate and preserved dense reference</h2><p>The pinned native rebuild is distinct from the preserved dense reference. The captured receipt records current native source inputs and exact build/runtime attribution; it does not claim all native inputs are unchanged.</p><pre>{
+  &quot;candidate_header_sha256&quot;: &quot;1590e13ff3f69cb6841af8341737b8d52c4d618592070b61b4ae6516f2ea4c28&quot;,
+  &quot;candidate_native&quot;: {
+    &quot;path&quot;: &quot;/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-precision-01/groops-precision-eb41fabb2117fd81&quot;,
+    &quot;sha256&quot;: &quot;eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133&quot;
+  },
+  &quot;dense_reference_native&quot;: {
+    &quot;path&quot;: &quot;/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f&quot;,
+    &quot;sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;
+  },
+  &quot;receipt&quot;: {
+    &quot;actual_build_result&quot;: {
+      &quot;path&quot;: &quot;/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/run/build-result/result.json&quot;,
+      &quot;sha256&quot;: &quot;21ff994f1b1e0efb8670e3cb088df01a948cd3f49b5c81fc15c26326ade3a918&quot;
+    },
+    &quot;fixed_stage_names&quot;: [
+      &quot;native-tests&quot;,
+      &quot;correction-tests&quot;,
+      &quot;synthetic-refinement-log_drag_ou&quot;,
+      &quot;synthetic-refinement-pulses&quot;,
+      &quot;flight-refinement&quot;,
+      &quot;eccentric-24h-refinement&quot;,
+      &quot;objective-log_drag_ou&quot;,
+      &quot;objective-pulses&quot;,
+      &quot;nuisance-replay&quot;,
+      &quot;nuisance-replay-candidate1-point012&quot;,
+      &quot;segmented-native-tangent&quot;,
+      &quot;segmented-structural&quot;,
+      &quot;linearization-log_drag_ou&quot;,
+      &quot;linearization-pulses&quot;
+    ],
+    &quot;native_inputs&quot;: {
+      &quot;groops/README.md&quot;: &quot;263f068899f6dbccaefd2358d4448b2845414bc7fe5844b099d8a238b8607b77&quot;,
+      &quot;groops/extension/LICENSE&quot;: &quot;3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986&quot;,
+      &quot;groops/extension/NOTICE&quot;: &quot;a7f2ed1c73a1dc48f56f1c2c15f9654b27aa64c23ac2403a3d1dcc4a543ea436&quot;,
+      &quot;groops/extension/apply_extension.py&quot;: &quot;87820bd34506022c28de167c0f146fcf683aab7a6c9890a7d02eef6b97aa5d45&quot;,
+      &quot;groops/extension/artifactReceipt.h&quot;: &quot;908660f0ceb25e6282a423ae562ead8b2fb43bb3f395ea9c0a4e45251c5a84d2&quot;,
+      &quot;groops/extension/atmosphereEvents.h&quot;: &quot;8a033d4431702ff81cc25056466f3676c8a61c730503ff096e534e2eb808caec&quot;,
+      &quot;groops/extension/atmosphereExtraSamples.h&quot;: &quot;eb30fb1086f6b2e98347303875ea0f0bc41564138d5e488e9173447279ff7718&quot;,
+      &quot;groops/extension/atmosphereLocalEvents.h&quot;: &quot;22cea5f25f5a2ba6912a7aaf29708d5254b1f6eced0098fd4f8c6b4ec98de973&quot;,
+      &quot;groops/extension/eventQuadrature.h&quot;: &quot;c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5&quot;,
+      &quot;groops/extension/finiteDifferenceForceJacobian.h&quot;: &quot;1a5975e5ccc3e93d26d9683e70bdc2fadcb6aa72fab3a593d286a1423350f3ee&quot;,
+      &quot;groops/extension/gnssParametrizationLogDensityOu.h&quot;: &quot;9efaa686086deac106e9ab985f6f1d6d225fbe999e68eaf9b3cdc8a5d6ef15d3&quot;,
+      &quot;groops/extension/gnssProcessingStepOrbitPocNumerics.h&quot;: &quot;638f81dc6a9ad1942acdbbfa4353a688317083f889df945e27bc45ec48130463&quot;,
+      &quot;groops/extension/gnssRangeResidual.h&quot;: &quot;3da250d643d491bca9580641574555db29ecb7de4d88d883d44c6975f07efe85&quot;,
+      &quot;groops/extension/integrationWindows.h&quot;: &quot;a7215fdaa3f3d3f16a13dbf2afa9301ff88c2979f616af65864474d6bbdaa40f&quot;,
+      &quot;groops/extension/linearTrace.h&quot;: &quot;aeb7f39140c5f8149daf953140d6c892ded942a2513e9e098aff52eeb4194c65&quot;,
+      &quot;groops/extension/logDensitySeries.h&quot;: &quot;9176b172e4c5259bfa18daefa436bb869b870e4680548fba82af6974d184838b&quot;,
+      &quot;groops/extension/miscAccelerationsLogDensity.h&quot;: &quot;526684d8d26e9b65c2050c98bc0fbd9b3c425a959d623c149b9aa0b31fbf0f80&quot;,
+      &quot;groops/extension/miscAccelerationsSyntheticDrag.h&quot;: &quot;7793642b422df8b1a41539949526dcce4143dab571116613dfe35ba082a13d98&quot;,
+      &quot;groops/extension/miscAccelerationsSyntheticGravity.h&quot;: &quot;cfa4ee253cfa68f8023376bda5106ee9170271af2db3f088fe20e633f4da1621&quot;,
+      &quot;groops/extension/native_atmosphere.py&quot;: &quot;336f9da6c938238029abddbade27ab694828dca1fd2780e38881af1abd657233&quot;,
+      &quot;groops/extension/native_covariance.py&quot;: &quot;a6c73bec930d928abf465ebde98a885155ac51d98ccb97b298319cab225daf0b&quot;,
+      &quot;groops/extension/native_derivatives.py&quot;: &quot;1aeeb5e701529e3433afd869db141203f9d59492ad5eab9fa560116f6b712110&quot;,
+      &quot;groops/extension/native_epoch_grid.py&quot;: &quot;1151a121dc1b636bcd1e2f91fc1faa9e6c191f3ea8be98cd49f3ad8e810219bf&quot;,
+      &quot;groops/extension/native_integration.py&quot;: &quot;b6da765b809ec2e5c46e3aa1cda97712aa525cb14f3259f2004c12a22114dd4d&quot;,
+      &quot;groops/extension/native_interpolation.py&quot;: &quot;38577d79a1f71dd9616d11f7dfaa132c674ccd94dadf1e7be776d64ed906295f&quot;,
+      &quot;groops/extension/native_linear_trace.py&quot;: &quot;7104efc1057f6e8d7088fcd785637cb49c7937a69c146f291195c9faeedb405c&quot;,
+      &quot;groops/extension/native_nuisance_export.py&quot;: &quot;d82f845cef98cde038011e2979513f3a614220c15f214c3467df394dab6f613e&quot;,
+      &quot;groops/extension/native_objective.py&quot;: &quot;93dc41ae4ec086a1249f92201b6b01e2bd0d38d261a52377907cadf4a0922c87&quot;,
+      &quot;groops/extension/native_precise_residual.py&quot;: &quot;b4a70f9d7ded4c495d763e25834b6c49fe71bde78c5fff58e6791c1c9af0b7de&quot;,
+      &quot;groops/extension/native_preprocessing.py&quot;: &quot;a69ad543b37bc5fa9737400086e9ce98acbcaf490cc105697796d0faff068f3b&quot;,
+      &quot;groops/extension/native_row_qr.py&quot;: &quot;4af1c77bb44cb4108f3645d49fd6a89245dc96cad7f4c51c4be59e2eb5a08446&quot;,
+      &quot;groops/extension/native_segmented.py&quot;: &quot;b2e8ee5f83f119755e75f68ded89335bcfde83795acdf68147d5cb7f71d382b4&quot;,
+      &quot;groops/extension/native_simulation.py&quot;: &quot;3b14fbfb301d1dab04cf77fb7aed077890b5d739cd4ca1255cba90a82b73fa80&quot;,
+      &quot;groops/extension/native_synthetic_force.py&quot;: &quot;0acf200182df85042829869d6ff3a4db892b82af5cb860cefb63fece5eedd467&quot;,
+      &quot;groops/extension/native_thermal.py&quot;: &quot;752d45d81bf326536804ff20648f83c390f509f8b52d7872d6cb5b5e8288df23&quot;,
+      &quot;groops/extension/nuisanceLineSearch.h&quot;: &quot;e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c&quot;,
+      &quot;groops/extension/orbitPocEvaluateVariational.cpp&quot;: &quot;040be371c6219f303252cc1d69eac3020ed9fdae930b3c27e55b9fe1e29ff9f5&quot;,
+      &quot;groops/extension/orbitPocForceDesign.cpp&quot;: &quot;39d74b8c2b629c92883e1fdcee74a5ba3fc2c45bb125ce8b4e788028ad4f7fcc&quot;,
+      &quot;groops/extension/orbitPocPredictCode.cpp&quot;: &quot;6c725cd721efcc6d4599e285072e7fbff750c2e938666c3122ded951a939ad72&quot;,
+      &quot;groops/extension/orbitPocPredictSignals.cpp&quot;: &quot;3cab38df32f4adfd50ebcab01272ad1d049677ae5ae80fb302d67bd8de1dec6c&quot;,
+      &quot;groops/extension/orbitPocPredictSlr.cpp&quot;: &quot;e4479f0107de3b0ac6ab92281496f481077e8cc8fc7c37d6b99179289027fb02&quot;,
+      &quot;groops/extension/orbitPocQrSolve.cpp&quot;: &quot;009ce7940b696df8ec8ad435269fcf7e4876ee8aa2d5c919faa7cf647970eeec&quot;,
+      &quot;groops/extension/orbitPocResampleOrbit.cpp&quot;: &quot;3408c17a776dfa826403d19ff5f1bf5daeb6b8ed8ec914b81d6efc5d3827c92f&quot;,
+      &quot;groops/extension/orbitPocStateDerivatives.cpp&quot;: &quot;fbfbb503b6c8e97d52c7d2dee5c7e891d042785d8a1c7fede6149b7a246be276&quot;,
+      &quot;groops/extension/parametrizationAccelerationLogDensity.h&quot;: &quot;4d7f9e1b099aeeca0b44320e3a0c93d13ff83ff960070e91c970592b74978fe5&quot;,
+      &quot;groops/extension/piecewisePolynomial.h&quot;: &quot;f159a5a0909661f3406993a7bf74a9ff23e96b46db6b32bad85b7b45ccc512cc&quot;,
+      &quot;groops/extension/positionRemainder.py&quot;: &quot;7a5da03557facc3a73ff031d0a57a8ba9292ae1afb931730db3419f5652e6926&quot;,
+      &quot;groops/extension/preciseEquinoctialReference.h&quot;: &quot;c1bbcb507eca1b08bb4958ae49e45b48c5f91bf6fc7297ce2cd6da693b0ad964&quot;,
+      &quot;groops/extension/preciseObservationResidual.h&quot;: &quot;9f749fd120161815bcf7494a1ccaccfeef86bf264747af47d40d60121fa694b4&quot;,
+      &quot;groops/extension/queryPrecision.py&quot;: &quot;1827020d732f52443f86dd3f8c73a2f71caa06cc78322f584383a9c526633780&quot;,
+      &quot;groops/extension/relativeQueryInterpolation.py&quot;: &quot;fb9e709dec67b23b3b4831cf77c6264727116fce11e811338d650bbc2f70fe64&quot;,
+      &quot;groops/extension/scaledRowQr.h&quot;: &quot;3fc93f4dbd510beb5fb215e693023c0d6a4961452b7e0ba5d3af588c98ddc6d2&quot;,
+      &quot;groops/extension/segmentedNativeExport.h&quot;: &quot;450f5fd961fe5de7dbbc4ce53b5a5eec762e489ad01c49cf885200ea43e696ba&quot;,
+      &quot;groops/extension/segmentedQr.h&quot;: &quot;06b042c9936eea726850f3642efe280c534b681d5c35b6c9161f2d61fe84bf35&quot;,
+      &quot;groops/extension/segmentedQrMain.cpp&quot;: &quot;f475f3c39cf5e9a77dfc12f3f5a9749d44f7c9eafe1908410c044ea14b2d03ef&quot;,
+      &quot;groops/extension/segmentedTangent.h&quot;: &quot;11042a032ea75acf346b295b48a54a06376f77153c19899170b029563e248c80&quot;,
+      &quot;groops/extension/sixStateTangent.h&quot;: &quot;1590e13ff3f69cb6841af8341737b8d52c4d618592070b61b4ae6516f2ea4c28&quot;,
+      &quot;groops/extension/stagedVariationalBody.h&quot;: &quot;39ec6589cc2b7d1b36d7712760169a030682f957ba286743248517f4c71ebb0d&quot;,
+      &quot;groops/extension/syntheticForceArithmetic.h&quot;: &quot;6cea412d4e0a438abb5c469ba2228c849f1be714daea56b67fae97aefeaaacd4&quot;,
+      &quot;groops/extension/syntheticForceDerivatives.h&quot;: &quot;c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310&quot;,
+      &quot;groops/extension/thermalIntegrationStep.h&quot;: &quot;15a2a736eb212aee22a936e78389cdbca816d8a308b356017a0a0ca9aa19cd59&quot;,
+      &quot;groops/extension/triangularQrWrapper.f&quot;: &quot;024495badd48d570c4792ba1786a4082af83de72fcee34ffa8ce938bdb036f14&quot;,
+      &quot;groops/extension/twofoldGeometry.h&quot;: &quot;41fe31d5aded9584c6cf51098f3460ccec49a14567bd65c321c07e0d4e5ab70e&quot;,
+      &quot;groops/extension/twofoldInterpolation.h&quot;: &quot;eef54386cf09807e25d8c3446f285bae9e119b4d71c54fb09ff90c0ead618b82&quot;,
+      &quot;groops/linux-64.lock.txt&quot;: &quot;e37c8c1d61e7f1d7bbcc2b219339358966af3de76c9cdbbd9170a40417ce49c8&quot;,
+      &quot;groops/python-requirements.lock.txt&quot;: &quot;4cd3f0d79599d714ba0928688e775ace8f044346670b57cf3b461d5f8215aa68&quot;,
+      &quot;groops/templates/01groopsConvert.xml&quot;: &quot;53d3b83ecca58479ad18e1d148842fa5e2355454b46c5857505b7cdd199f9e62&quot;,
+      &quot;groops/templates/03groopsVariational.xml&quot;: &quot;7cfb0708d1d1905247b412a9c7db4658b1bc0cb26b8cc3ba1d53bbdeb4158484&quot;,
+      &quot;groops/templates/04groopsGnssProcessing.xml&quot;: &quot;a7c0f27bb5b6385ac9dc8f105505fd4405f95682ef7a8b6b97f6a4bfec1dc404&quot;,
+      &quot;scripts/build_groops.py&quot;: &quot;af1a3bb0f36cb31bd00f4c3adc2f5e83053f665a305ffcf20131cd82c766cf92&quot;
+    },
+    &quot;previous_config&quot;: {
+      &quot;path&quot;: &quot;/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/segmented-v4.json&quot;,
+      &quot;sha256&quot;: &quot;e23eb3a1b4eafc6c1c279183292513b87e64a366061ac6ef645987700c193fac&quot;
+    },
+    &quot;previous_source&quot;: {
+      &quot;path&quot;: &quot;/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/source-freeze.json&quot;,
+      &quot;sha256&quot;: &quot;87ad55dcd0c4329cb4e37a37adfe3871cb85d3fb88e8a46b3cff388aa17e9f29&quot;
+    },
+    &quot;runtime_provenance&quot;: {
+      &quot;path&quot;: &quot;/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-precision-01/provenance.json&quot;,
+      &quot;sha256&quot;: &quot;1757b7b944c8bde22842505aca5cec4157ee3b9a7bb370db330a1cdb71e46fe1&quot;
+    },
+    &quot;schema&quot;: &quot;orbit-poc-v4-native-rebuild-provenance-v1&quot;,
+    &quot;scope&quot;: &quot;Only one native header differs; exact baseline relink and all27 dependent translation units verified from actual build. Complete runtime remains independently checked by startup and public validation. No claim of all70 unchanged.&quot;,
+    &quot;status&quot;: &quot;verified_actual_rebuild&quot;
+  },
+  &quot;scope&quot;: &quot;Verified actual native rebuild receipt; dense reference identity is recorded separately. No claim that every native input stayed unchanged.&quot;
+}</pre><h2>Frozen identity</h2><pre>{
+  &quot;comparison_source_sha256&quot;: &quot;c267e581d7839a39fa09cde4d6211e8b1139e6f65b0b146f5167647dea958718&quot;,
+  &quot;full_source_sha256&quot;: &quot;87a3a10ab538d606837e1ebcfa579c1b5cc6bfe57f2b3220b47bfe340cab1130&quot;,
+  &quot;native_sha256&quot;: &quot;eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133&quot;,
+  &quot;solver_sha256&quot;: &quot;2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223&quot;,
+  &quot;source_file_count&quot;: 384
+}</pre><h2>Every planned benchmark attempt</h2><p>Missing attempts remain visible. Shared seeds, methods and prefixes are not independent trials. The original150 v3.1 campaign remains a separate required deliverable; this report does not certify its completion.</p><table><tr><th>Order</th><th>Attempt</th><th>Status</th></tr><tr><td>1</td><td>leo500-quiet-normal-groops_pulses-24h--dense_corrected</td><td>not_run</td></tr><tr><td>2</td><td>leo500-quiet-normal-groops_pulses-24h--segmented_1h</td><td>not_run</td></tr><tr><td>3</td><td>leo500-quiet-normal-groops_pulses-24h--segmented_4h</td><td>not_run</td></tr><tr><td>4</td><td>leo500-quiet-normal-groops_pulses-48h--dense_corrected</td><td>not_run</td></tr><tr><td>5</td><td>leo500-quiet-normal-groops_pulses-48h--segmented_1h</td><td>not_run</td></tr><tr><td>6</td><td>leo500-quiet-normal-groops_pulses-72h--segmented_1h</td><td>not_run</td></tr><tr><td>7</td><td>leo500-quiet-normal-groops_pulses-72h--dense_corrected</td><td>not_run</td></tr><tr><td>8</td><td>leo500-quiet-normal-groops_log_drag_ou-24h--segmented_1h</td><td>not_run</td></tr><tr><td>9</td><td>leo500-quiet-normal-groops_log_drag_ou-24h--segmented_4h</td><td>not_run</td></tr><tr><td>10</td><td>leo500-quiet-normal-groops_log_drag_ou-24h--dense_corrected</td><td>not_run</td></tr><tr><td>11</td><td>leo500-quiet-normal-groops_log_drag_ou-48h--segmented_1h</td><td>not_run</td></tr><tr><td>12</td><td>leo500-quiet-normal-groops_log_drag_ou-48h--dense_corrected</td><td>not_run</td></tr><tr><td>13</td><td>leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected</td><td>not_run</td></tr><tr><td>14</td><td>leo500-quiet-normal-groops_log_drag_ou-72h--segmented_1h</td><td>not_run</td></tr><tr><td>15</td><td>leo500-disturbed-blackout-groops_pulses-24h--segmented_1h</td><td>not_run</td></tr><tr><td>16</td><td>leo500-disturbed-blackout-groops_pulses-24h--segmented_4h</td><td>not_run</td></tr><tr><td>17</td><td>leo500-disturbed-blackout-groops_pulses-24h--dense_corrected</td><td>not_run</td></tr><tr><td>18</td><td>leo500-disturbed-blackout-groops_pulses-48h--segmented_1h</td><td>not_run</td></tr><tr><td>19</td><td>leo500-disturbed-blackout-groops_pulses-48h--dense_corrected</td><td>not_run</td></tr><tr><td>20</td><td>leo500-disturbed-blackout-groops_pulses-72h--dense_corrected</td><td>not_run</td></tr><tr><td>21</td><td>leo500-disturbed-blackout-groops_pulses-72h--segmented_1h</td><td>not_run</td></tr><tr><td>22</td><td>leo500-disturbed-blackout-groops_log_drag_ou-24h--segmented_4h</td><td>not_run</td></tr><tr><td>23</td><td>leo500-disturbed-blackout-groops_log_drag_ou-24h--dense_corrected</td><td>not_run</td></tr><tr><td>24</td><td>leo500-disturbed-blackout-groops_log_drag_ou-24h--segmented_1h</td><td>not_run</td></tr><tr><td>25</td><td>leo500-disturbed-blackout-groops_log_drag_ou-48h--dense_corrected</td><td>not_run</td></tr><tr><td>26</td><td>leo500-disturbed-blackout-groops_log_drag_ou-48h--segmented_1h</td><td>not_run</td></tr><tr><td>27</td><td>leo500-disturbed-blackout-groops_log_drag_ou-72h--segmented_1h</td><td>not_run</td></tr><tr><td>28</td><td>leo500-disturbed-blackout-groops_log_drag_ou-72h--dense_corrected</td><td>not_run</td></tr><tr><td>29</td><td>eccentric-quiet-normal-groops_pulses-24h--segmented_1h</td><td>not_run</td></tr><tr><td>30</td><td>eccentric-quiet-normal-groops_pulses-24h--segmented_4h</td><td>not_run</td></tr><tr><td>31</td><td>eccentric-quiet-normal-groops_pulses-24h--dense_corrected</td><td>not_run</td></tr><tr><td>32</td><td>eccentric-quiet-normal-groops_pulses-48h--segmented_1h</td><td>not_run</td></tr><tr><td>33</td><td>eccentric-quiet-normal-groops_pulses-48h--dense_corrected</td><td>not_run</td></tr><tr><td>34</td><td>eccentric-quiet-normal-groops_pulses-72h--dense_corrected</td><td>not_run</td></tr><tr><td>35</td><td>eccentric-quiet-normal-groops_pulses-72h--segmented_1h</td><td>not_run</td></tr><tr><td>36</td><td>eccentric-quiet-normal-groops_log_drag_ou-24h--segmented_4h</td><td>not_run</td></tr><tr><td>37</td><td>eccentric-quiet-normal-groops_log_drag_ou-24h--dense_corrected</td><td>not_run</td></tr><tr><td>38</td><td>eccentric-quiet-normal-groops_log_drag_ou-24h--segmented_1h</td><td>not_run</td></tr><tr><td>39</td><td>eccentric-quiet-normal-groops_log_drag_ou-48h--dense_corrected</td><td>not_run</td></tr><tr><td>40</td><td>eccentric-quiet-normal-groops_log_drag_ou-48h--segmented_1h</td><td>not_run</td></tr><tr><td>41</td><td>eccentric-quiet-normal-groops_log_drag_ou-72h--segmented_1h</td><td>not_run</td></tr><tr><td>42</td><td>eccentric-quiet-normal-groops_log_drag_ou-72h--dense_corrected</td><td>not_run</td></tr><tr><td>43</td><td>eccentric-disturbed-blackout-groops_pulses-24h--segmented_4h</td><td>not_run</td></tr><tr><td>44</td><td>eccentric-disturbed-blackout-groops_pulses-24h--dense_corrected</td><td>not_run</td></tr><tr><td>45</td><td>eccentric-disturbed-blackout-groops_pulses-24h--segmented_1h</td><td>not_run</td></tr><tr><td>46</td><td>eccentric-disturbed-blackout-groops_pulses-48h--dense_corrected</td><td>not_run</td></tr><tr><td>47</td><td>eccentric-disturbed-blackout-groops_pulses-48h--segmented_1h</td><td>not_run</td></tr><tr><td>48</td><td>eccentric-disturbed-blackout-groops_pulses-72h--segmented_1h</td><td>not_run</td></tr><tr><td>49</td><td>eccentric-disturbed-blackout-groops_pulses-72h--dense_corrected</td><td>not_run</td></tr><tr><td>50</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-24h--dense_corrected</td><td>not_run</td></tr><tr><td>51</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-24h--segmented_1h</td><td>not_run</td></tr><tr><td>52</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-24h--segmented_4h</td><td>not_run</td></tr><tr><td>53</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-48h--segmented_1h</td><td>not_run</td></tr><tr><td>54</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-48h--dense_corrected</td><td>not_run</td></tr><tr><td>55</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-72h--dense_corrected</td><td>not_run</td></tr><tr><td>56</td><td>eccentric-disturbed-blackout-groops_log_drag_ou-72h--segmented_1h</td><td>not_run</td></tr><tr><td>57</td><td>flight-2024-04-24-normal-groops_pulses--segmented_4h</td><td>not_run</td></tr><tr><td>58</td><td>flight-2024-04-24-normal-groops_pulses--dense_corrected</td><td>not_run</td></tr><tr><td>59</td><td>flight-2024-04-24-normal-groops_pulses--segmented_1h</td><td>not_run</td></tr><tr><td>60</td><td>flight-2024-04-24-normal-groops_log_drag_ou--dense_corrected</td><td>not_run</td></tr><tr><td>61</td><td>flight-2024-04-24-normal-groops_log_drag_ou--segmented_1h</td><td>not_run</td></tr><tr><td>62</td><td>flight-2024-04-24-normal-groops_log_drag_ou--segmented_4h</td><td>not_run</td></tr><tr><td>63</td><td>flight-2024-04-24-blackout-groops_pulses--dense_corrected</td><td>not_run</td></tr><tr><td>64</td><td>flight-2024-04-24-blackout-groops_pulses--segmented_1h</td><td>not_run</td></tr><tr><td>65</td><td>flight-2024-04-24-blackout-groops_pulses--segmented_4h</td><td>not_run</td></tr><tr><td>66</td><td>flight-2024-04-24-blackout-groops_log_drag_ou--segmented_1h</td><td>not_run</td></tr><tr><td>67</td><td>flight-2024-04-24-blackout-groops_log_drag_ou--segmented_4h</td><td>not_run</td></tr><tr><td>68</td><td>flight-2024-04-24-blackout-groops_log_drag_ou--dense_corrected</td><td>not_run</td></tr></table>

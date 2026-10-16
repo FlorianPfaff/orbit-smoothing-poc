@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60440</time>
+    <time label="timeEnd">timeStart+86400.0/86400</time>
+    <filename label="tmpDir">/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/native/tmp</filename>
+    <filename label="groopsDataDir">/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary</filename>
+    <filename label="orbitPocCanonicalAttitude">/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat</filename>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program>
+    <GraceL1b2GnssReceiver>
+      <outputfileGnssReceiver>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/predictions/heldout_receiver.dat</outputfileGnssReceiver>
+      <inputfile>/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-bc6a43dd96afd74453e5/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt</inputfile>
+    </GraceL1b2GnssReceiver>
+  </program>
+  <program>
+    <OrbitPocResampleOrbit>
+      <inputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/closure-02/orbit.dat</inputfileOrbit>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/predictions/heldout_orbit.dat</outputfileOrbit>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/predictions/heldout_receiver.dat</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+      <parametrizationAcceleration>
+        <logDensity>
+          <nominalDrag>
+            <syntheticDrag>
+              <ballisticCoefficient>0.022</ballisticCoefficient>
+              <referenceDensity>5e-13</referenceDensity>
+              <referenceAltitude>500000.0</referenceAltitude>
+              <scaleHeight>60000.0</scaleHeight>
+              <earthRadius>6378137.0</earthRadius>
+              <earthRotationRate>7.292115e-05</earthRotationRate>
+            </syntheticDrag>
+          </nominalDrag>
+          <inputfileLogDensity>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/native/log_density.txt</inputfileLogDensity>
+        </logDensity>
+      </parametrizationAcceleration>
+      <interpolationDegree>7</interpolationDegree>
+    </OrbitPocResampleOrbit>
+  </program>
+  <program>
+    <InstrumentResample>
+      <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat</inputfileInstrument>
+      <outputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/predictions/heldout_attitude.dat</outputfileInstrument>
+      <method>
+        <polynomial>
+          <polynomialDegree>7</polynomialDegree>
+          <maxDataPointRange>-8.1</maxDataPointRange>
+          <maxExtrapolationDistance>-1.1</maxExtrapolationDistance>
+        </polynomial>
+      </method>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/predictions/heldout_receiver.dat</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+    </InstrumentResample>
+  </program>
+</groops>
