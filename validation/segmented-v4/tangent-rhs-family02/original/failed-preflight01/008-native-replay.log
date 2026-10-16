@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/replay_tangent_rhs_family01.py", line 168, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/replay_tangent_rhs_family01.py", line 163, in main
+    if p['phase']=='prepare':prepare(p,e,bundle,root,result)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/replay_tangent_rhs_family01.py", line 123, in prepare
+    result['steps'].append(logged([str(compiler),'-O3','-DNDEBUG','-std=gnu++17','-I'+str(work/'include'),str(work/source),'-o',str(work/name)],root,'compile-'+name));save(root/'result.json',result)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-01/control/replay_tangent_rhs_family01.py", line 114, in logged
+    if r.returncode!=0 or(expected_stdout is not None and(root/(name+'.stdout')).read_text()!=expected_stdout):raise RuntimeError('Fixture/compilation failed: '+name)
+                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Fixture/compilation failed: compile-test_wide

@@ -1,0 +1,29 @@
+{
+  "schema": "orbit-poc-rhs-preflight02-independent-packet-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:09:50.762058+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-preflight02-independent-packet-readback01.json",
+    "sha256": "6dc362d19224ded3cb62938da322d56fdaca25dd66ffa0e6cb5e8cb518ae9a71"
+  },
+  "source_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate02-independent-source-review01.json",
+    "sha256": "17cc12c9fa81b3233f4a58558bf8745c938490ab732401b1f0366f56247236b0"
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/plan.json",
+    "sha256": "e6d9ddf25ab6801b9ebee8675ab9036f3595b87f5cd06facbf45e69d4ed15272"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/execution.json",
+    "sha256": "f10f9507ebc9630dc604ebb8373003a1312e89fdc71f2ee287950871b084ae9f"
+  },
+  "checks": [
+    "Actual remote plan/execution/source bundle/generation pins verified.",
+    "Exact 384-file source receipt preserved; 448 baseline runtime declarations unchanged, 15 new control/source pins verified.",
+    "All three original captured anchors match prescribed hashes; read-only bindings unchanged in scope.",
+    "Existing controller/worker/launcher and scientific criteria unchanged; five output directories empty before launch.",
+    "Current admission clear."
+  ],
+  "scope": "Approve fresh owned preflight only: compile fixtures and freeze family; no 54 planned calls until actual preflight/family audit."
+}

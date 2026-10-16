@@ -1,0 +1,1233 @@
+{
+  "schema": "orbit-poc-rhs-family-independent-terminal-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:21:21.292104+00:00",
+  "run_capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-run01-terminal-capture01.json",
+    "sha256": "3f5ec8b19ce4674858716006f0284891227b1ed38811bf63621f6c17c1e503c6"
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/run/replay/result.json",
+    "sha256": "c68527d6e00e4620b41d245307fdf527efe9f32bfe1052a6864e98029a9fa205"
+  },
+  "family_manifest": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/family/manifest.json",
+    "sha256": "1dc8e32c1a0e54c0b0b57d67a439657b795a8c1aee4966c0d53ab8c2cca8158b"
+  },
+  "binary": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay",
+    "sha256": "8f065ef4f3bec5e4cf05063e8673edd02bdeea4a40d7fd39d48006d7ca184d0d"
+  },
+  "source_bundle": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/source-bundle.json",
+    "sha256": "ceaa4f5c20699780c8ebd6c05438209357e6ad233a3aee4db06ec82635b847b2"
+  },
+  "preflight_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/plan.json",
+    "sha256": "e6d9ddf25ab6801b9ebee8675ab9036f3595b87f5cd06facbf45e69d4ed15272"
+  },
+  "preflight_result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/result.json",
+    "sha256": "3f31c1b782227aa46aa49506f72f36483f6b6666dd2a68ca19c24c380f300e0f"
+  },
+  "family_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-preflight02-independent-family-review01.json",
+    "sha256": "46d29845c1abb68d19a6e4975fae362fd450d79ea184bf1777b3c1f1e1d89034"
+  },
+  "actual_cleanup_and_membership": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-run01-independent-terminal-readback01.json",
+    "sha256": "05133c6fa16c714dbd8a4463b7d5cc03617594c0f724d47304aa58dc37ea2543"
+  },
+  "audit_script": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_rhs_family_run01_terminal01.py",
+    "sha256": "bf14395ac252f3b43b1986549cb3fb6f2682561889e96a8e9095ab17cb8202cd"
+  },
+  "planned_calls": 54,
+  "recorded_calls": 54,
+  "raw_records_verified": 172,
+  "owned_identities_currently_nonlive": 56,
+  "status_counts": {
+    "baseline": {
+      "reader_certified": 22,
+      "numerical_failure": 5
+    },
+    "wide": {
+      "reader_certified": 25,
+      "numerical_failure": 2
+    }
+  },
+  "attempts": [
+    {
+      "attempt_id": "01-historical_large-original-baseline",
+      "case_id": "historical_large-original",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 46,
+      "kernel_residual": "1.77459434407177214522E-12",
+      "returned_quad_residual": "1.77198151583624755674E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 46,
+          "binary_digits": 113,
+          "relative_residual": "1.77198151583624755674E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "02-historical_large-original-wide",
+      "case_id": "historical_large-original",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 8,
+      "kernel_residual": "1.61155936714434336572E-12",
+      "returned_quad_residual": "1.61544275880581831017E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 8,
+          "binary_digits": 113,
+          "relative_residual": "1.61544275880581831017E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "03-historical_large-smooth-1e-12--1-wide",
+      "case_id": "historical_large-smooth-1e-12--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.53604758808521909925E-12",
+      "returned_quad_residual": "1.53729506209619957191E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.53729506209619957191E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "04-historical_large-smooth-1e-12--1-baseline",
+      "case_id": "historical_large-smooth-1e-12--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 67,
+      "kernel_residual": "1.68954511912246575252E-12",
+      "returned_quad_residual": "1.68866336746199533378E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 67,
+          "binary_digits": 113,
+          "relative_residual": "1.68866336746199533378E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "05-historical_large-smooth-1e-12-+1-baseline",
+      "case_id": "historical_large-smooth-1e-12-+1",
+      "profile": "baseline",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "7.45481689920342442691E-12",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "2.04435329329321616909E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "7.45430426161315869436E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "06-historical_large-smooth-1e-12-+1-wide",
+      "case_id": "historical_large-smooth-1e-12-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.9337418010910322719E-12",
+      "returned_quad_residual": "1.93339768943102507287E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.93339768943102507287E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "07-historical_large-smooth-1e-09--1-wide",
+      "case_id": "historical_large-smooth-1e-09--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.72696641869162178274E-12",
+      "returned_quad_residual": "1.72927984415657695525E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.72927984415657695525E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "08-historical_large-smooth-1e-09--1-baseline",
+      "case_id": "historical_large-smooth-1e-09--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 58,
+      "kernel_residual": "1.90086550772858311182E-12",
+      "returned_quad_residual": "1.89828023652395830661E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 58,
+          "binary_digits": 113,
+          "relative_residual": "1.89828023652395830661E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "09-historical_large-smooth-1e-09-+1-baseline",
+      "case_id": "historical_large-smooth-1e-09-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.6217829247972002488E-12",
+      "returned_quad_residual": "1.61921699349587163958E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.61921699349587163958E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "10-historical_large-smooth-1e-09-+1-wide",
+      "case_id": "historical_large-smooth-1e-09-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 28,
+      "kernel_residual": "1.9645197588761823796E-12",
+      "returned_quad_residual": "1.96718219174901372586E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 28,
+          "binary_digits": 113,
+          "relative_residual": "1.96718219174901372586E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "11-historical_large-alternating-1e-12--1-wide",
+      "case_id": "historical_large-alternating-1e-12--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 25,
+      "kernel_residual": "1.27506346665077898605E-12",
+      "returned_quad_residual": "1.27358689918194810176E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 25,
+          "binary_digits": 113,
+          "relative_residual": "1.27358689918194810176E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "12-historical_large-alternating-1e-12--1-baseline",
+      "case_id": "historical_large-alternating-1e-12--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 53,
+      "kernel_residual": "1.3227387966263713267E-12",
+      "returned_quad_residual": "1.3210523514377571715E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 53,
+          "binary_digits": 113,
+          "relative_residual": "1.3210523514377571715E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "13-historical_large-alternating-1e-12-+1-baseline",
+      "case_id": "historical_large-alternating-1e-12-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 114,
+      "kernel_residual": "1.39792276698585371991E-12",
+      "returned_quad_residual": "1.39560719577676333357E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 114,
+          "binary_digits": 113,
+          "relative_residual": "1.39560719577676333357E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "14-historical_large-alternating-1e-12-+1-wide",
+      "case_id": "historical_large-alternating-1e-12-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.83707852537745572136E-12",
+      "returned_quad_residual": "1.83835503634000018129E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.83835503634000018129E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "15-historical_large-alternating-1e-09--1-wide",
+      "case_id": "historical_large-alternating-1e-09--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.50852625711609050885E-12",
+      "returned_quad_residual": "1.50903208655108027464E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.50903208655108027464E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "16-historical_large-alternating-1e-09--1-baseline",
+      "case_id": "historical_large-alternating-1e-09--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 11,
+      "kernel_residual": "1.17396784140171770848E-12",
+      "returned_quad_residual": "1.16983489397867345105E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 11,
+          "binary_digits": 113,
+          "relative_residual": "1.16983489397867345105E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "17-historical_large-alternating-1e-09-+1-baseline",
+      "case_id": "historical_large-alternating-1e-09-+1",
+      "profile": "baseline",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "1.81794456944772337154E-11",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "2.06253074821662693925E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "1.81788262809537580702E-11"
+        }
+      ]
+    },
+    {
+      "attempt_id": "18-historical_large-alternating-1e-09-+1-wide",
+      "case_id": "historical_large-alternating-1e-09-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 28,
+      "kernel_residual": "1.17835131373995350526E-12",
+      "returned_quad_residual": "1.17945519883063685471E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 28,
+          "binary_digits": 113,
+          "relative_residual": "1.17945519883063685471E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "19-current_small-original-wide",
+      "case_id": "current_small-original",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 7,
+      "kernel_residual": "1.06641553469084361004E-12",
+      "returned_quad_residual": "1.06806532023345629443E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 7,
+          "binary_digits": 113,
+          "relative_residual": "1.06806532023345629443E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "20-current_small-original-baseline",
+      "case_id": "current_small-original",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.32176498306337807673E-12",
+      "returned_quad_residual": "1.31909778099487926951E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.31909778099487926951E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "21-current_small-smooth-1e-12--1-baseline",
+      "case_id": "current_small-smooth-1e-12--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 7,
+      "kernel_residual": "1.98912300568555164878E-12",
+      "returned_quad_residual": "1.99031466785804184534E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 7,
+          "binary_digits": 113,
+          "relative_residual": "1.99031466785804184534E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "22-current_small-smooth-1e-12--1-wide",
+      "case_id": "current_small-smooth-1e-12--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.79540774229381076263E-12",
+      "returned_quad_residual": "1.79758864772079690732E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.79758864772079690732E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "23-current_small-smooth-1e-12-+1-wide",
+      "case_id": "current_small-smooth-1e-12-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.43132169642392430996E-12",
+      "returned_quad_residual": "1.43122002516427117111E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.43122002516427117111E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "24-current_small-smooth-1e-12-+1-baseline",
+      "case_id": "current_small-smooth-1e-12-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 17,
+      "kernel_residual": "9.53070014828638535675E-13",
+      "returned_quad_residual": "9.49419645523993778655E-13",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 17,
+          "binary_digits": 113,
+          "relative_residual": "9.49419645523993778655E-13"
+        }
+      ]
+    },
+    {
+      "attempt_id": "25-current_small-smooth-1e-09--1-baseline",
+      "case_id": "current_small-smooth-1e-09--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.15941246075305797039E-12",
+      "returned_quad_residual": "1.15946279005255415727E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.15946279005255415727E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "26-current_small-smooth-1e-09--1-wide",
+      "case_id": "current_small-smooth-1e-09--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 7,
+      "kernel_residual": "1.8528191298317466145E-12",
+      "returned_quad_residual": "1.85565045554901736282E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 7,
+          "binary_digits": 113,
+          "relative_residual": "1.85565045554901736282E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "27-current_small-smooth-1e-09-+1-wide",
+      "case_id": "current_small-smooth-1e-09-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 13,
+      "kernel_residual": "1.97386177115039437313E-12",
+      "returned_quad_residual": "1.97469239483695940947E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 13,
+          "binary_digits": 113,
+          "relative_residual": "1.97469239483695940947E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "28-current_small-smooth-1e-09-+1-baseline",
+      "case_id": "current_small-smooth-1e-09-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.54712705251208673965E-12",
+      "returned_quad_residual": "1.54431846671167351536E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.54431846671167351536E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "29-current_small-alternating-1e-12--1-baseline",
+      "case_id": "current_small-alternating-1e-12--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 8,
+      "kernel_residual": "1.95697547157617284398E-12",
+      "returned_quad_residual": "1.9570716332109291093E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 8,
+          "binary_digits": 113,
+          "relative_residual": "1.9570716332109291093E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "30-current_small-alternating-1e-12--1-wide",
+      "case_id": "current_small-alternating-1e-12--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.43922549435973302644E-12",
+      "returned_quad_residual": "1.43540608104214170211E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.43540608104214170211E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "31-current_small-alternating-1e-12-+1-wide",
+      "case_id": "current_small-alternating-1e-12-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.94954073623663127093E-12",
+      "returned_quad_residual": "1.95050203593781801939E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.95050203593781801939E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "32-current_small-alternating-1e-12-+1-baseline",
+      "case_id": "current_small-alternating-1e-12-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 13,
+      "kernel_residual": "1.79089878271120735846E-12",
+      "returned_quad_residual": "1.79095270801960507313E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 13,
+          "binary_digits": 113,
+          "relative_residual": "1.79095270801960507313E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "33-current_small-alternating-1e-09--1-baseline",
+      "case_id": "current_small-alternating-1e-09--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 36,
+      "kernel_residual": "1.69860496750102380963E-12",
+      "returned_quad_residual": "1.69306846687805314433E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 36,
+          "binary_digits": 113,
+          "relative_residual": "1.69306846687805314433E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "34-current_small-alternating-1e-09--1-wide",
+      "case_id": "current_small-alternating-1e-09--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 7,
+      "kernel_residual": "1.27622894413882103468E-12",
+      "returned_quad_residual": "1.27659846102278240228E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 7,
+          "binary_digits": 113,
+          "relative_residual": "1.27659846102278240228E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "35-current_small-alternating-1e-09-+1-wide",
+      "case_id": "current_small-alternating-1e-09-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.15791480178381539977E-12",
+      "returned_quad_residual": "1.15721412204549314024E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.15721412204549314024E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "36-current_small-alternating-1e-09-+1-baseline",
+      "case_id": "current_small-alternating-1e-09-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 30,
+      "kernel_residual": "1.5074190083041324904E-12",
+      "returned_quad_residual": "1.5070798717835116075E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 30,
+          "binary_digits": 113,
+          "relative_residual": "1.5070798717835116075E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "37-current_large-original-baseline",
+      "case_id": "current_large-original",
+      "profile": "baseline",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "1.28514533616378981234E-11",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "2.06558012870927356322E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "1.2849718290751344963E-11"
+        }
+      ]
+    },
+    {
+      "attempt_id": "38-current_large-original-wide",
+      "case_id": "current_large-original",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 9,
+      "kernel_residual": "1.30184552501399865151E-12",
+      "returned_quad_residual": "1.3033602431326695567E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 9,
+          "binary_digits": 113,
+          "relative_residual": "1.3033602431326695567E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "39-current_large-smooth-1e-12--1-wide",
+      "case_id": "current_large-smooth-1e-12--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 16,
+      "kernel_residual": "1.65930997971971396253E-12",
+      "returned_quad_residual": "1.65656069282403154833E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 16,
+          "binary_digits": 113,
+          "relative_residual": "1.65656069282403154833E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "40-current_large-smooth-1e-12--1-baseline",
+      "case_id": "current_large-smooth-1e-12--1",
+      "profile": "baseline",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "1.1058548049357791648E-11",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 73,
+          "binary_digits": 113,
+          "relative_residual": "2.60979412817853584327E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "1.10581202592245053444E-11"
+        }
+      ]
+    },
+    {
+      "attempt_id": "41-current_large-smooth-1e-12-+1-baseline",
+      "case_id": "current_large-smooth-1e-12-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 5,
+      "kernel_residual": "1.46216655802037032726E-12",
+      "returned_quad_residual": "1.45890313621935517997E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 5,
+          "binary_digits": 113,
+          "relative_residual": "1.45890313621935517997E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "42-current_large-smooth-1e-12-+1-wide",
+      "case_id": "current_large-smooth-1e-12-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 7,
+      "kernel_residual": "1.91583876191696139773E-12",
+      "returned_quad_residual": "1.91422908249733625963E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 7,
+          "binary_digits": 113,
+          "relative_residual": "1.91422908249733625963E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "43-current_large-smooth-1e-09--1-wide",
+      "case_id": "current_large-smooth-1e-09--1",
+      "profile": "wide",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "4.14916474897072573912E-12",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 8,
+          "binary_digits": 113,
+          "relative_residual": "2.52620769537689956868E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "4.14691609670203082118E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "44-current_large-smooth-1e-09--1-baseline",
+      "case_id": "current_large-smooth-1e-09--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 18,
+      "kernel_residual": "1.61533455881700250875E-12",
+      "returned_quad_residual": "1.61451119196757363224E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 18,
+          "binary_digits": 113,
+          "relative_residual": "1.61451119196757363224E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "45-current_large-smooth-1e-09-+1-baseline",
+      "case_id": "current_large-smooth-1e-09-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 50,
+      "kernel_residual": "1.62146875788193550797E-12",
+      "returned_quad_residual": "1.61755037891171583884E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 50,
+          "binary_digits": 113,
+          "relative_residual": "1.61755037891171583884E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "46-current_large-smooth-1e-09-+1-wide",
+      "case_id": "current_large-smooth-1e-09-+1",
+      "profile": "wide",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "5.29048841374083248902E-12",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 27,
+          "binary_digits": 113,
+          "relative_residual": "2.65182196493134365263E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "5.29054070825002513276E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "47-current_large-alternating-1e-12--1-wide",
+      "case_id": "current_large-alternating-1e-12--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 11,
+      "kernel_residual": "1.47354566291557085152E-12",
+      "returned_quad_residual": "1.47304806181549888075E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 11,
+          "binary_digits": 113,
+          "relative_residual": "1.47304806181549888075E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "48-current_large-alternating-1e-12--1-baseline",
+      "case_id": "current_large-alternating-1e-12--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 73,
+      "kernel_residual": "1.66749903316259925698E-12",
+      "returned_quad_residual": "1.66770328284113731803E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 73,
+          "binary_digits": 113,
+          "relative_residual": "1.66770328284113731803E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "49-current_large-alternating-1e-12-+1-baseline",
+      "case_id": "current_large-alternating-1e-12-+1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 44,
+      "kernel_residual": "1.86480109390388216629E-12",
+      "returned_quad_residual": "1.86505876705087777684E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 44,
+          "binary_digits": 113,
+          "relative_residual": "1.86505876705087777684E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "50-current_large-alternating-1e-12-+1-wide",
+      "case_id": "current_large-alternating-1e-12-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 8,
+      "kernel_residual": "1.3317790796922933762E-12",
+      "returned_quad_residual": "1.33079846349166114655E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 8,
+          "binary_digits": 113,
+          "relative_residual": "1.33079846349166114655E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "51-current_large-alternating-1e-09--1-wide",
+      "case_id": "current_large-alternating-1e-09--1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 10,
+      "kernel_residual": "1.46188350091506333017E-12",
+      "returned_quad_residual": "1.45875263940861053446E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 10,
+          "binary_digits": 113,
+          "relative_residual": "1.45875263940861053446E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "52-current_large-alternating-1e-09--1-baseline",
+      "case_id": "current_large-alternating-1e-09--1",
+      "profile": "baseline",
+      "status": "reader_certified",
+      "iterations": 11,
+      "kernel_residual": "1.36717441833269187011E-12",
+      "returned_quad_residual": "1.36575392480570733471E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 11,
+          "binary_digits": 113,
+          "relative_residual": "1.36575392480570733471E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "53-current_large-alternating-1e-09-+1-baseline",
+      "case_id": "current_large-alternating-1e-09-+1",
+      "profile": "baseline",
+      "status": "numerical_failure",
+      "iterations": 120,
+      "kernel_residual": "3.44804178233372972622E-12",
+      "returned_quad_residual": null,
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "best_kernel_checked",
+          "iteration": 21,
+          "binary_digits": 113,
+          "relative_residual": "2.10349292667570662179E-12"
+        },
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "last_checked",
+          "iteration": 120,
+          "binary_digits": 113,
+          "relative_residual": "3.44962236280984033849E-12"
+        }
+      ]
+    },
+    {
+      "attempt_id": "54-current_large-alternating-1e-09-+1-wide",
+      "case_id": "current_large-alternating-1e-09-+1",
+      "profile": "wide",
+      "status": "reader_certified",
+      "iterations": 6,
+      "kernel_residual": "1.92382072347373887071E-12",
+      "returned_quad_residual": "1.92306774681299476299E-12",
+      "oracle_checks": [
+        {
+          "kind": "physical_double_quad_residual",
+          "selection": "returned",
+          "iteration": 6,
+          "binary_digits": 113,
+          "relative_residual": "1.92306774681299476299E-12"
+        }
+      ]
+    }
+  ],
+  "original_baseline_comparisons": [
+    {
+      "anchor": "historical_large",
+      "prior_trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent07-trace.jsonl",
+        "sha256": "31d568dbc89b64abcdd5593e0c32e26786cb3adfd668c700a4f969ca3b8ea613"
+      },
+      "current_trace": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/run/replay/attempts/01-historical_large-original-baseline/trace.jsonl",
+        "sha256": "6c202be66aecdc929b5650d79d88859d3c508ac3325cdcaa6b854e84b3791aca"
+      },
+      "normalized_kernel_events_identical": true,
+      "kernel_event_count": 75,
+      "status_iterations_and_kernel_residual_identical": true,
+      "certificate_scope": "Earlier113-bit diagnostic checks and current physical-returned-state certificates have distinct state/conversion semantics; their numeric values are not asserted identical."
+    },
+    {
+      "anchor": "current_small",
+      "prior_trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-trace.jsonl",
+        "sha256": "adf78fd45cdaa04fee4454cd25d793f6947c01e00e14fcd83ef1f46e63d2fcc5"
+      },
+      "current_trace": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/run/replay/attempts/20-current_small-original-baseline/trace.jsonl",
+        "sha256": "89fc8b8cf9bf05d034cb1eb03523d11a09a2c59919300ea685345a3ecf5a9efc"
+      },
+      "normalized_kernel_events_identical": true,
+      "kernel_event_count": 7,
+      "status_iterations_and_kernel_residual_identical": true,
+      "certificate_scope": "Earlier113-bit diagnostic checks and current physical-returned-state certificates have distinct state/conversion semantics; their numeric values are not asserted identical."
+    },
+    {
+      "anchor": "current_large",
+      "prior_trace": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-capture04-standalone-trace.jsonl",
+        "sha256": "45998ee99c0b1cf843520b495b01ab68330ced3c93c0961686f23fca35de62b9"
+      },
+      "current_trace": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/run/replay/attempts/37-current_large-original-baseline/trace.jsonl",
+        "sha256": "93bbc2ddcfe59ae1cdd2a45bc1b1554d4f6baea12fa90a138c179f3d4731d6a1"
+      },
+      "normalized_kernel_events_identical": true,
+      "kernel_event_count": 205,
+      "status_iterations_and_kernel_residual_identical": true,
+      "certificate_scope": "Earlier113-bit diagnostic checks and current physical-returned-state certificates have distinct state/conversion semantics; their numeric values are not asserted identical."
+    }
+  ],
+  "regressions": [
+    {
+      "case_id": "current_large-smooth-1e-09--1",
+      "baseline": {
+        "attempt_id": "44-current_large-smooth-1e-09--1-baseline",
+        "case_id": "current_large-smooth-1e-09--1",
+        "profile": "baseline",
+        "status": "reader_certified",
+        "iterations": 18,
+        "kernel_residual": "1.61533455881700250875E-12",
+        "returned_quad_residual": "1.61451119196757363224E-12",
+        "oracle_checks": [
+          {
+            "kind": "physical_double_quad_residual",
+            "selection": "returned",
+            "iteration": 18,
+            "binary_digits": 113,
+            "relative_residual": "1.61451119196757363224E-12"
+          }
+        ]
+      },
+      "wide": {
+        "attempt_id": "43-current_large-smooth-1e-09--1-wide",
+        "case_id": "current_large-smooth-1e-09--1",
+        "profile": "wide",
+        "status": "numerical_failure",
+        "iterations": 120,
+        "kernel_residual": "4.14916474897072573912E-12",
+        "returned_quad_residual": null,
+        "oracle_checks": [
+          {
+            "kind": "physical_double_quad_residual",
+            "selection": "best_kernel_checked",
+            "iteration": 8,
+            "binary_digits": 113,
+            "relative_residual": "2.52620769537689956868E-12"
+          },
+          {
+            "kind": "physical_double_quad_residual",
+            "selection": "last_checked",
+            "iteration": 120,
+            "binary_digits": 113,
+            "relative_residual": "4.14691609670203082118E-12"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "current_large-smooth-1e-09-+1",
+      "baseline": {
+        "attempt_id": "45-current_large-smooth-1e-09-+1-baseline",
+        "case_id": "current_large-smooth-1e-09-+1",
+        "profile": "baseline",
+        "status": "reader_certified",
+        "iterations": 50,
+        "kernel_residual": "1.62146875788193550797E-12",
+        "returned_quad_residual": "1.61755037891171583884E-12",
+        "oracle_checks": [
+          {
+            "kind": "physical_double_quad_residual",
+            "selection": "returned",
+            "iteration": 50,
+            "binary_digits": 113,
+            "relative_residual": "1.61755037891171583884E-12"
+          }
+        ]
+      },
+      "wide": {
+        "attempt_id": "46-current_large-smooth-1e-09-+1-wide",
+        "case_id": "current_large-smooth-1e-09-+1",
+        "profile": "wide",
+        "status": "numerical_failure",
+        "iterations": 120,
+        "kernel_residual": "5.29048841374083248902E-12",
+        "returned_quad_residual": null,
+        "oracle_checks": [
+          {
+            "kind": "physical_double_quad_residual",
+            "selection": "best_kernel_checked",
+            "iteration": 27,
+            "binary_digits": 113,
+            "relative_residual": "2.65182196493134365263E-12"
+          },
+          {
+            "kind": "physical_double_quad_residual",
+            "selection": "last_checked",
+            "iteration": 120,
+            "binary_digits": 113,
+            "relative_residual": "5.29054070825002513276E-12"
+          }
+        ]
+      }
+    }
+  ],
+  "conclusion": "Wide candidate is not eligible for native integration: two prescribed cases fail the returned-binary64 residual guard while their unchanged baseline counterparts pass. All54 calls and all failures are retained.",
+  "scope": {
+    "frozen_diagnostic_only": true,
+    "independent_scientific_trials": false,
+    "native_propagations": 0,
+    "orbit_benchmark_attempts": 0,
+    "native_correction_verified": false,
+    "release_ready": false,
+    "speedup_claim": false
+  }
+}
