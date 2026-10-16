@@ -1,0 +1,43 @@
+{
+  "schema": "orbit-poc-original150-host-namespace-readonly-v1",
+  "observed_at": "2026-10-16T21:15:48.967110+00:00",
+  "host": "pfaff",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "boot_id": "e0523d0a-e0c2-404b-88d2-57ba4367a15b",
+  "uid": 1000,
+  "self_pid": 5456,
+  "observations": {
+    "/proc/self/ns/pid": "pid:[4026532226]",
+    "/proc/self/status": [
+      "Name:\tpython3",
+      "Pid:\t5456",
+      "PPid:\t5455",
+      "Uid:\t1000\t1000\t1000\t1000",
+      "NSpid:\t5456"
+    ],
+    "/proc/1/status": [
+      "Name:\tsystemd",
+      "Pid:\t1",
+      "PPid:\t0",
+      "Uid:\t0\t0\t0\t0",
+      "NSpid:\t1"
+    ],
+    "/proc/1/comm": "systemd\n",
+    "/proc/1/cmdline": "/sbin/init\u0000",
+    "/proc/self/mountinfo": [
+      "114 82 0:61 / /proc rw,nosuid,nodev,noexec,noatime shared:16 - proc proc rw",
+      "132 82 0:70 / /mnt/c rw,noatime - 9p C:\\134 rw,aname=drvfs;path=C:\\;uid=1000;gid=1000;symlinkroot=/mnt/,cache=0x5,access=client,msize=65536,trans=fd,rfd=6,wfd=6",
+      "133 82 0:71 / /mnt/d rw,noatime - 9p D:\\134 rw,aname=drvfs;path=D:\\;uid=1000;gid=1000;symlinkroot=/mnt/,cache=0x5,access=client,msize=65536,trans=fd,rfd=6,wfd=6"
+    ],
+    "/proc/version": "Linux version 6.18.33.2-microsoft-standard-WSL2 (root@f1bbfb02316b) (gcc (GCC) 13.2.0, GNU ld (GNU Binutils) 2.41) #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026\n",
+    "/proc/uptime": "799.78 25069.13\n"
+  },
+  "errors": [
+    {
+      "path": "/proc/1/ns/pid",
+      "type": "PermissionError",
+      "message": "[Errno 13] Permission denied: '/proc/1/ns/pid'"
+    }
+  ],
+  "scope": "Read-only attribution evidence. No terminal checkpoint or cleanup is synthesized. Initial direct PID1 namespace read was denied; the exact denial is retained here."
+}
