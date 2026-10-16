@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "bytes": 10202,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-compensation-candidate01/sixStateTangent.h",
+    "sha256": "9a46f04591de8b8956cb6af0888936ace7f35688cef778861a99a859a65cdef0"
+  },
+  "checks": [
+    "Candidate is byte-identical to reviewed diagnostic08 after removing exactly the three declared telemetry callback lines.",
+    "Preconditioner and solveSixStateTangent from tangentSolve3 onward are byte-identical to production1590.",
+    "No solver limits, acceptance test, model, quadrature weights, or profile changes.",
+    "Supplemental fixture expected final position +/-2.5 and velocity +/-1 independently verified with rational arithmetic; explicit C++ exceptions remain active under NDEBUG.",
+    "Supplemental Python runner is syntactically valid and uses production header/fixture paths after repository installation."
+  ],
+  "experiment_source_review": {
+    "bytes": 3765,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08-independent-review01.json",
+    "sha256": "5493b444d846a996f1370f8ed24bf74e81bad8bbb135d7f17d1ee6ed22776f25"
+  },
+  "generation": {
+    "bytes": 732,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-compensation-candidate01/generation.json",
+    "sha256": "7b1f85b16e79c59f327add28814d37e6e1f9fbde6554a3bd756a371cfe5d0a52"
+  },
+  "joint_actual_review": {
+    "bytes": 6635,
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-07-independent-terminal-review01.json",
+    "sha256": "632e32fd831fdb00a1e566efa4751b78d27dfdc0a5453c320dd72448cfa213cd"
+  },
+  "native_build_eligible": true,
+  "native_runs": 0,
+  "observed_at": "2026-10-16T16:13:03.460027+00:00",
+  "passed": true,
+  "release_approved": false,
+  "schema": "orbit-poc-compensated-production-form-independent-review-v1",
+  "scope": "Source-form and fixture review only; permits candidate build and exact native validation, not release. Supplemental C++ fixture has not been compiled by this reviewer.",
+  "supplemental_fixture": {
+    "bytes": 1446,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-compensation-candidate01/tangent_compensated_quadrature.cpp",
+    "sha256": "1e11c286ceeec33bc5f75fc9a2287dbcf76e4bca565a693228eefe32b2037627"
+  },
+  "supplemental_python_test": {
+    "bytes": 929,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-compensation-candidate01/test_numerics_compensated_quadrature.py",
+    "sha256": "1638627325eb31a6dd25a46b30f8dff242c091e13c61ae0e5d0eeea5582383b7"
+  }
+}

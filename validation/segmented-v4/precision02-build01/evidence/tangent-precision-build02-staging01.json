@@ -1,0 +1,51 @@
+{
+  "schema": "orbit-poc-tangent-precision-build-staging-v1",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/control/plan.json",
+    "sha256": "09f659c3a5fb3719a4cb46e6b76194f9317e6f379653ec21e5828607ba088e53"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/control/execution.json",
+    "sha256": "89814a08b267b3a5c23bf5e188175095c7a4e86b4936de0b063513af6d13a7b8"
+  },
+  "source_freeze": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/control/source-freeze.json",
+    "sha256": "87b220cf9a66737e72ed2037c3a80895eb445bf3058918fad32d38e79df8078c"
+  },
+  "base_execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/execution.json",
+    "sha256": "98e9ea204c22d176e271141b993338579430df9354bcde5f74a44fb9476efe77"
+  },
+  "input_attribution": {
+    "original_build_manifest": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/build/build-manifest.json",
+      "sha256": "767bcbeb57763d7ac75d2e385e949782f0c2e4d6b475904cbc1127e4c08ad058"
+    },
+    "recipe_inspection": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/control/precision-recipes.json",
+      "sha256": "baa412eeb97f6183678fbbf2993df807c96e565b92beecb89670daeb6e8697cf"
+    },
+    "link_inspection": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/control/link-inspection.json",
+      "sha256": "686733f9a1a6c625cde3332b35c34f49a31ac088a7de0886a979599308644eaa"
+    },
+    "candidate_header": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/control/sixStateTangent-compensated-native01.h",
+      "sha256": "9a46f04591de8b8956cb6af0888936ace7f35688cef778861a99a859a65cdef0"
+    }
+  },
+  "runtime_pins_verified": 455,
+  "mutable_inventory": {
+    "native_source": [],
+    "build": [],
+    "binaries": [],
+    "run": [],
+    "temporary": []
+  },
+  "semantic_delta": "Separate native compensated-quadrature candidate: preserve prior wide affine update and original GMRES control/limits, change only stored-weight quadrature accumulation; all27 dependent translation units recompiled. Existing installed export hook and all original artifacts preserved. Frozen Python runtime remains unchanged; full numerical validation is separate.",
+  "original_failure": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/pipeline.json",
+    "sha256": "7f3e029b2314dde54ebab75892f2193adb474f9caa1bb15225b58d041f7e8241"
+  },
+  "native_runs": 0
+}
