@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="9.414" timestamp="2026-10-15T14:42:01.763537+02:00" hostname="pfaff"><testcase classname="tests.test_numerics_geometry_precision" name="test_installer_is_idempotent_and_preserves_compatibility_output" time="0.021"><failure message="ValueError: Relative query patch anchor mismatch: twofold light-time duration">tmp_path = PosixPath('@TEMP_ROOT@/candidate10-installer-before/test_installer_is_idempotent_a0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7dccee3485d0&gt;
+
+    def test_installer_is_idempotent_and_preserves_compatibility_output(tmp_path,monkeypatch):
+        installer=module('positionRemainder',monkeypatch);prestage(tmp_path)
+&gt;       installer.apply(tmp_path);first=snapshot(tmp_path);installer.apply(tmp_path)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_numerics_geometry_precision.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+groops/extension/positionRemainder.py:117: in apply
+    text=replace_one(text,"auto query=[&amp;](long double travel)\n      {\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = 'Vector3d &amp;k, Vector3d &amp;kRecv, Vector3d &amp;kTrans, Vector3d *receiverRemainder=nullptr, Vector3d *transmitterRemainder=n...              k, kRecvAnt, kTrans);\ntransmitter-&gt;clockError(idEpoch),transmitter-&gt;scaleFactor(idEpoch)) : l(i)-r12;\n'
+old = 'auto query=[&amp;](long double travel)\n      {\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;'
+new = '// ORBIT_POC_TWOFOLD_LIGHT_TIME_V31\n      auto query=[&amp;](const orbitPocQr::TwofoldGeometry &amp;travel)\n      {\n        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;'
+label = 'twofold light-time duration'
+
+    def replace_one(text, old, new, label):
+        if text.count(old) != 1:
+&gt;           raise ValueError(f"Relative query patch anchor mismatch: {label}")
+E           ValueError: Relative query patch anchor mismatch: twofold light-time duration
+
+groops/extension/relativeQueryInterpolation.py:7: ValueError</failure></testcase><testcase classname="tests.test_numerics_geometry_precision" name="test_piecewise_exact_legacy_batch_and_both_receiver_caches" time="0.012"><failure message="ValueError: Relative query patch anchor mismatch: twofold light-time duration">tmp_path = PosixPath('@TEMP_ROOT@/candidate10-installer-before/test_piecewise_exact_legacy_ba0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7dccee672610&gt;
+
+    def test_piecewise_exact_legacy_batch_and_both_receiver_caches(tmp_path,monkeypatch):
+&gt;       installer=module('positionRemainder',monkeypatch);prestage(tmp_path);installer.apply(tmp_path)
+                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_numerics_geometry_precision.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+groops/extension/positionRemainder.py:117: in apply
+    text=replace_one(text,"auto query=[&amp;](long double travel)\n      {\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = 'Vector3d &amp;k, Vector3d &amp;kRecv, Vector3d &amp;kTrans, Vector3d *receiverRemainder=nullptr, Vector3d *transmitterRemainder=n...              k, kRecvAnt, kTrans);\ntransmitter-&gt;clockError(idEpoch),transmitter-&gt;scaleFactor(idEpoch)) : l(i)-r12;\n'
+old = 'auto query=[&amp;](long double travel)\n      {\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;'
+new = '// ORBIT_POC_TWOFOLD_LIGHT_TIME_V31\n      auto query=[&amp;](const orbitPocQr::TwofoldGeometry &amp;travel)\n      {\n        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;'
+label = 'twofold light-time duration'
+
+    def replace_one(text, old, new, label):
+        if text.count(old) != 1:
+&gt;           raise ValueError(f"Relative query patch anchor mismatch: {label}")
+E           ValueError: Relative query patch anchor mismatch: twofold light-time duration
+
+groops/extension/relativeQueryInterpolation.py:7: ValueError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,334 @@
+{
+  "schema": "orbit-poc-complete-native-terminal-independent-readback-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T22:37:16.439778+00:00",
+  "root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/control/plan.json",
+    "sha256": "e9a87c182c6d8de59a094598328c301c2f5e3ce84c1db92a0f81afd88770bb4d",
+    "bytes": 6326
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/control/execution.json",
+    "sha256": "e8babf65533411cb0f34f9dd91c9127e637e50c280c6d0ba79c98ac454b1bfd6",
+    "bytes": 142555
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/control/pipeline.json",
+    "sha256": "cf5ebcd9b7e0308adb637e7df91af86c22cad444ff5026ead24bd34abd29fc5e",
+    "bytes": 6312
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/result.json",
+    "sha256": "049059b2b1a26f02a5c361f5dae951db1ebce736acbd3ca2bd06dbbdfcbd8885",
+    "bytes": 9475
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+    "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+  },
+  "status": "closed",
+  "physical_inputs_verified": 13,
+  "explicit_build_and_supplemental_inputs_verified": 3,
+  "fixed_initial_state_si": [
+    6878126.008098155,
+    -207.021077880319,
+    -280.6935528494022,
+    0.3915402784536195,
+    4581.389322493871,
+    6079.704432546018
+  ],
+  "initialization_criteria": {
+    "maximum_iterations": 10,
+    "position_tolerance_m": 2e-06,
+    "velocity_tolerance_m_s": 3e-09
+  },
+  "iterations": [
+    {
+      "iteration": 1,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/propagate.xml"
+        ],
+        "config_sha256": "4ef008211a96a8db7155cfcf380f968a94bba856cefb39d9317c20626ecb8a2a",
+        "elapsed_seconds": 3.67581866402179,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+        "peak_rss_bytes": 291749888,
+        "pid": 3,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "xml_output_only": true,
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/propagate.xml",
+          "sha256": "4ef008211a96a8db7155cfcf380f968a94bba856cefb39d9317c20626ecb8a2a",
+          "bytes": 4804
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/propagate.execution.json",
+          "sha256": "988938d7864416a0a3a88a0dfcb3e5a6503abcb868c8c5d414edbc9c8daf4ef3",
+          "bytes": 822
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/propagate.log",
+          "sha256": "10e58026ef3f57fef551c93252a228ba6abf9ba1acb1b4b58bc4904af0ffd67d",
+          "bytes": 1230
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/nominal.txt",
+          "sha256": "3667a9b7eb4ee6abff0f439a99d5adc33a160cb94fcc5b1cf6927b9883f3a919",
+          "bytes": 13478998
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/nominal.dat",
+          "sha256": "d5e133ec91e7c8a06adc0e4e978af3ee75e0670e59488b5762e8e99eac1dd286",
+          "bytes": 4561982
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-01/variational.dat",
+          "sha256": "a32a23f8a3cced1ecbf425d599ef32c1b863adbe97242f20466ee85d30248647",
+          "bytes": 21570168
+        }
+      ],
+      "fixed_initial_state_exact": true,
+      "epoch_support_exact": true,
+      "state_epochs": 51840,
+      "maximum_position_change_m": 1266.5932926620926,
+      "maximum_velocity_change_m_s": 1.4039046792824985,
+      "closed": false
+    },
+    {
+      "iteration": 2,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/propagate.xml"
+        ],
+        "config_sha256": "4be9d7cc2060b79a882483d8bab6c3816c6ca6cfa3908330ca6c3b49c95886ed",
+        "elapsed_seconds": 3.472373981960118,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+        "peak_rss_bytes": 291594240,
+        "pid": 4,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "xml_output_only": true,
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/propagate.xml",
+          "sha256": "4be9d7cc2060b79a882483d8bab6c3816c6ca6cfa3908330ca6c3b49c95886ed",
+          "bytes": 4721
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/propagate.execution.json",
+          "sha256": "1e1399b909a58479026584f11bf167f71f456ea602113f8ce990a7cea3aa2897",
+          "bytes": 823
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/propagate.log",
+          "sha256": "0da695e8cf2d139464b7dbbb02437f9d0fa250925231712c2eadf36e8ddf0168",
+          "bytes": 1231
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/nominal.txt",
+          "sha256": "9f32658d05a33ce3aaa7e71bcd7aacea4c0c650df4322c59529f3b0cc3956f73",
+          "bytes": 13478998
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/nominal.dat",
+          "sha256": "e1ec24cef39369a30e40c0373846548e02e40ee6075a353d459128ca1a728c59",
+          "bytes": 4561982
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-02/variational.dat",
+          "sha256": "1bfa2ee917c7a5cf3a870fa88276ed4fb123efa48aa085fbd164464376c12ca2",
+          "bytes": 21570168
+        }
+      ],
+      "fixed_initial_state_exact": true,
+      "epoch_support_exact": true,
+      "state_epochs": 51840,
+      "maximum_position_change_m": 0.13295317572640616,
+      "maximum_velocity_change_m_s": 0.00014708167002949827,
+      "closed": false
+    },
+    {
+      "iteration": 3,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/propagate.xml"
+        ],
+        "config_sha256": "25375ec01d7b8876abd006a17eca7234c29cf5ee5f1ce1327996948e7bf175a1",
+        "elapsed_seconds": 3.3246723650954664,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+        "peak_rss_bytes": 291921920,
+        "pid": 5,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "xml_output_only": true,
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/propagate.xml",
+          "sha256": "25375ec01d7b8876abd006a17eca7234c29cf5ee5f1ce1327996948e7bf175a1",
+          "bytes": 4721
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/propagate.execution.json",
+          "sha256": "a7291f8785ca186390a7447fda10dc2b9d1243fbee2e68ba3260580878c10aad",
+          "bytes": 824
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/propagate.log",
+          "sha256": "22974558b985ab4c104f9f5d8c38dfa48543872fbf6bdcf0d1d912915aec4edd",
+          "bytes": 1234
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/nominal.txt",
+          "sha256": "91a72ed2099fa8ce7d8728440165cac85604b4c28ca1b670de97fbdb1f9ca25b",
+          "bytes": 13478998
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/nominal.dat",
+          "sha256": "adc6ab586954b7469477a898850d70112071a3437850d544d8790042b2d8ced7",
+          "bytes": 4561982
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-03/variational.dat",
+          "sha256": "0f58071c985b161b5225ee43ed4b65cd4ec527b6adb9a151f7f0c2452a08563a",
+          "bytes": 21570168
+        }
+      ],
+      "fixed_initial_state_exact": true,
+      "epoch_support_exact": true,
+      "state_epochs": 51840,
+      "maximum_position_change_m": 1.3259379131942005e-05,
+      "maximum_velocity_change_m_s": 1.4691501544753477e-08,
+      "closed": false
+    },
+    {
+      "iteration": 4,
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.xml"
+        ],
+        "config_sha256": "3b142cd26f8ff3b0359a9d504baaa328a775c1a0fb50196791ea2cb447a6f6ad",
+        "elapsed_seconds": 3.7262680800631642,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+        "peak_rss_bytes": 292048896,
+        "pid": 6,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "xml_output_only": true,
+      "artifacts": [
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.xml",
+          "sha256": "3b142cd26f8ff3b0359a9d504baaa328a775c1a0fb50196791ea2cb447a6f6ad",
+          "bytes": 4721
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.execution.json",
+          "sha256": "ad49c208f13d31eb8055c92e148614f0a75675616affe8f77c0be57f98ade50c",
+          "bytes": 824
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/propagate.log",
+          "sha256": "b60987b65858d44f7d14c2e0e4dc4b34ff84c73fe43174e3e6521210a57fe76e",
+          "bytes": 1234
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/nominal.txt",
+          "sha256": "7a1907f8d4349bc78e2c7c42f173a609d770ded0cae5651738f7eee08db87ba6",
+          "bytes": 13478998
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/nominal.dat",
+          "sha256": "37830add4a430c3809e38285bdc917a15c893c2c44b9845014df6f7a553c5666",
+          "bytes": 4561982
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/run/replay/iteration-04/variational.dat",
+          "sha256": "5e65d3e9679bae808f8bdbc95fba607694a2ad22f9b353d79b5fea1c406c62cb",
+          "bytes": 21570168
+        }
+      ],
+      "fixed_initial_state_exact": true,
+      "epoch_support_exact": true,
+      "state_epochs": 51840,
+      "maximum_position_change_m": 3.1968249370036457e-08,
+      "maximum_velocity_change_m_s": 3.51540585872275e-11,
+      "closed": true
+    }
+  ],
+  "owned_identities": [
+    {
+      "pid": 2870793,
+      "start_ticks": 117356003,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870831,
+      "start_ticks": 117356294,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870832,
+      "start_ticks": 117356296,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870834,
+      "start_ticks": 117356299,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870837,
+      "start_ticks": 117356383,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870895,
+      "start_ticks": 117356766,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870906,
+      "start_ticks": 117357129,
+      "live": false,
+      "absent": true
+    },
+    {
+      "pid": 2870935,
+      "start_ticks": 117357477,
+      "live": false,
+      "absent": true
+    }
+  ],
+  "native_propagations": 4,
+  "fit_attempts": 0,
+  "release_ready": false,
+  "scope": "Read-only independent exact XML/input attribution and saved trajectory checks. Native failure, if present, remains failed. No new propagation, covariance, full-suite or release certification."
+}

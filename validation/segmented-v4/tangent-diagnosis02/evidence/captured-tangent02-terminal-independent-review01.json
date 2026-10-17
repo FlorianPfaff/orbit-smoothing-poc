@@ -1,0 +1,103 @@
+{
+  "schema": "orbit-poc-captured-tangent02-terminal-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:41:34.454935+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent02-terminal-independent-readback01.json",
+    "sha256": "4384c6e48abebdca6b3ae7b30397482b0de6de3d39cc6f54c8cda20de97364fc",
+    "bytes": 8257
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_captured_tangent02_terminal.py",
+    "sha256": "52b773048bd24cc55e4b2bc9848ed71d2e30debdeb35c93d5ac6e15183608820",
+    "bytes": 5643
+  },
+  "controls_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent01-controls-independent-review01.json",
+    "sha256": "40b6bdd18ea1ffc79494915863ea78cbff94fe2e4ef398bcfc4c85683d8c7c51",
+    "bytes": 2869
+  },
+  "reader_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-wide-update05-independent-review01.json",
+    "sha256": "d0375e8463d71d614358ef7c041306d9f5cd4b903a03e55fd8488bfab2a40986",
+    "bytes": 2747
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/control/plan.json",
+    "sha256": "5400511bbdf8c068babf42c1aeb9fa20f16908d1639a1f686eefe64d71e322ac",
+    "bytes": 3476
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/control/execution.json",
+    "sha256": "0bc1bfbd08f4c9f08d5cc225c17e0233125ccf93301c6be6b5256eb61f16f55b",
+    "bytes": 124305
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/control/pipeline.json",
+    "sha256": "37ba2adf5d30daa94085c761660936abd4c1f5fd84e6f356ec04357ef20a3833",
+    "bytes": 5909
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/run/replay/result.json",
+    "sha256": "03fc228ddce3b55e895b75e098e304e74169cb87221e8d69e9a2ecbcc9e89d55",
+    "bytes": 6019
+  },
+  "reader": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/binaries/tangent-reader",
+    "sha256": "1565688fb22e968b5e4a3a23f1c5eb7eec28c69bc56d41dd19013ab8dbc7415e"
+  },
+  "source": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/control/reader/replay.cpp",
+    "sha256": "8433a206fc221c724af99c40591617fc695dde23477cd353b7df1e54e2975323"
+  },
+  "capture": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+    "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+  },
+  "trace": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/run/replay/trace.jsonl",
+    "sha256": "c4196770a93a00a2d6e3b2c93043ac992de35c116b98eca6a30d8aba053185fd",
+    "bytes": 2486
+  },
+  "stderr": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-02/run/replay/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "unchanged_initial_trace_rows": 7,
+  "quad_records": [
+    {
+      "kind": "quad_residual",
+      "iteration": 6,
+      "binary_digits": 113,
+      "relative_residual_native_velocity_conversion": 5.93296563238232e-12,
+      "relative_residual_exact_velocity_conversion": 5.932965609373973e-12
+    },
+    {
+      "kind": "accepted_quad_residual",
+      "iteration": 7,
+      "binary_digits": 113,
+      "relative_residual_native_velocity_conversion": 1.6558481483345173e-12,
+      "relative_residual_exact_velocity_conversion": 1.655848151936809e-12
+    }
+  ],
+  "terminal": {
+    "kind": "terminal",
+    "status": "passed",
+    "iterations": 7,
+    "relative_residual": 1.7564764459600119e-12
+  },
+  "finished_at": "2026-10-16T07:39:33.848753+00:00",
+  "owned_identities_non_live": 7,
+  "checks": [
+    "All eight preserved inputs and reviewed reader/header candidate pins verified against actual deployed files.",
+    "Same captured coefficients, original compiler/options/libraries and initial five Krylov projections preserved.",
+    "Wide affine update reaches the unchanged native2e-12 threshold at iteration7:1.7564764459600119e-12.",
+    "Independent113-bit evaluation of that accepted double iterate is1.6558481483345173e-12 with native velocity conversion and1.655848151936809e-12 with exact conversion; both pass.",
+    "All owned identities independently non-live; no new GROOPS propagation, full trajectory closure or fit was performed."
+  ],
+  "scope": "Separately versioned wide affine-update diagnostic passes this captured linear system at seven iterations, confirmed by native and113-bit residuals. It does not establish nonlinear closure, a production correction, covariance or release readiness.",
+  "groops_propagations": 0,
+  "fit_attempts": 0,
+  "release_ready": false
+}

@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Validation06 arithmetic diagnostics</title><style>body{font:16px system-ui;max-width:960px;margin:2rem auto;padding:0 1rem;line-height:1.55}table{border-collapse:collapse}td,th{border:1px solid #ccd;padding:.6rem}pre{white-space:pre-wrap;overflow-wrap:anywhere}strong{color:#8b2b13}</style><h1>Validation06 arithmetic diagnostics</h1><p><strong>Scientific correctness remains unresolved.</strong> This is a separate diagnostic history, not a replacement scientific gate.</p><table><tr><th>Attempt</th><th>Result</th></tr><tr><td>D01</td><td>Build failed before accepted binary or replay; owned cleanup verified.</td></tr><tr><td>D02</td><td>Both exact nuisance replays failed. All 104 equivalence checks across 8 generations passed; owned cleanup verified.</td></tr></table><p>The independent Decimal analysis reconstructs five selected observation rows. It records 330 complete equations, 250 paired row evaluations and 800 local-update checks with zero native-arithmetic mismatches. Two individual signed row reductions change sign at the same stored nuisance states. This demonstrates arithmetic rounding; it cannot establish descent or stationarity of the complete objective.</p><p>No priors, weights, observation support, gauges or acceptance thresholds change. No convergence, covariance or release claim follows from this diagnostic. The complete unchanged validation suite remains required after a numerical correction.</p><ul><li><a href="attempt-d01/diagnostic/pipeline.json">D01 failed build journal</a></li><li><a href="attempt-d02/diagnostic/pipeline.json">D02 completed diagnostic journal</a></li><li><a href="attempt-d02/diagnostic/trace-off/receipt.json">Failed replay: trace disabled</a></li><li><a href="attempt-d02/diagnostic/trace-on/receipt.json">Failed replay: trace enabled</a></li><li><a href="attempt-d02/diagnostic/equivalence.json">104 equivalence checks</a></li><li><a href="decimal-analysis/row-trace-d02-independent-summary-01.json">Independent Decimal summary</a></li><li><a href="decimal-analysis/row-trace-d02-decimal-actual-01.json">Complete Decimal report</a></li><li><a href="reviews/row-trace-d02-external-trace-inventory.json">External trace inventory</a></li><li><a href="manifest.json">Original/published hash manifest</a></li></ul><h2>Machine-readable overview</h2><pre>{
+  &quot;schema&quot;: &quot;orbit-poc-diagnostic-publication-summary-v1&quot;,
+  &quot;diagnostic_only&quot;: true,
+  &quot;main06_scientific_status&quot;: &quot;failed&quot;,
+  &quot;scientific_acceptance&quot;: false,
+  &quot;covariance_authorized&quot;: false,
+  &quot;release_ready&quot;: false,
+  &quot;d01&quot;: {
+    &quot;status&quot;: &quot;build_failed_before_accepted_binary_or_replay&quot;,
+    &quot;cause&quot;: &quot;Native Vector overload hides the two-argument accessor in the first diagnostic header.&quot;,
+    &quot;cleanup_verified&quot;: true
+  },
+  &quot;d02&quot;: {
+    &quot;status&quot;: &quot;diagnostic_execution_completed&quot;,
+    &quot;native_sha256&quot;: &quot;4e1318d1449ba69de6c4448295fdee6e620231626fbdd9f74b161d6e6732f4fc&quot;,
+    &quot;trace_off_replay&quot;: &quot;failed&quot;,
+    &quot;trace_on_replay&quot;: &quot;failed&quot;,
+    &quot;strict_nuisance_convergence&quot;: false,
+    &quot;equivalence_checks&quot;: 104,
+    &quot;generations&quot;: 8,
+    &quot;equivalence_passed&quot;: true,
+    &quot;cleanup_verified&quot;: true
+  },
+  &quot;decimal_analysis&quot;: {
+    &quot;selected_observation_rows&quot;: 5,
+    &quot;complete_equations&quot;: 330,
+    &quot;paired_selected_rows&quot;: 250,
+    &quot;checked_local_updates&quot;: 800,
+    &quot;native_arithmetic_replay_mismatches&quot;: 0,
+    &quot;row_reduction_sign_reversals&quot;: 2,
+    &quot;source_analysis_sha256&quot;: &quot;bbc92c1e4b9d057c17948e59aefdb588c36f12ac8dbf3ccc8681aca7f0a94db4&quot;,
+    &quot;interpretation&quot;: &quot;Arithmetic rounding is demonstrated at the stored nuisance states. Five selected rows do not establish descent or stationarity of the full objective.&quot;
+  },
+  &quot;limitations&quot;: [
+    &quot;Outcome-selected diagnostics, not an independent statistical benchmark.&quot;,
+    &quot;All scientific correctness gates remain required after any source correction.&quot;,
+    &quot;No change to priors, weights, observation support, gauges or numerical acceptance limits.&quot;,
+    &quot;Raw51 trace TSVs (12,065,394 bytes), row spools, executable and upstream tree remain external.&quot;,
+    &quot;Intermediate factor identities use declared retention receipts; final factor bytes were checked by the original equivalence verifier.&quot;,
+    &quot;Sanitized copies are not original receipt bytes; publication manifest records both hashes.&quot;
+  ],
+  &quot;scope&quot;: &quot;Separate diagnostic history. Does not replace the failed06 gate bundle or the frozen150-attempt benchmark.&quot;
+}</pre><p>Private paths use named tokens. Original and published byte hashes are distinct and recorded in the manifest. Raw traces and row spools remain outside Git.</p></html>

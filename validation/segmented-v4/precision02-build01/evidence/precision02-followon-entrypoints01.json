@@ -1,0 +1,212 @@
+{
+  "schema": "orbit-poc-existing-report-control-entrypoints-v1",
+  "observed_at": "2026-10-16T16:18:48.464535+00:00",
+  "entrypoints": {
+    "validation_snapshot_and_launch": [
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/assemble_validation05_packet.py",
+          "sha256": "c2a811fcc5a0fd04a2abcb0042a58290bc649bfbccfb43cb8de9c3c6f7896ce5",
+          "bytes": 6065
+        },
+        "purpose": "Build the fresh immutable source/config/runtime snapshot; version this for new header and supplemental files rather than mutating validation05."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/stage_segmented_validation05.py",
+          "sha256": "db97d00919ea8166e5a21220f97b6c7df7121cfce4d8d91c2ac3a818caec2483",
+          "bytes": 3580
+        },
+        "purpose": "Stage validated namespace/config/admission metadata."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/smoke_segmented_validation05.py",
+          "sha256": "99ee37f2ea16594f8e7d1f120e3f26798e5f2031f3c6f8eb3e7f2711497254f4",
+          "bytes": 3573
+        },
+        "purpose": "Run the owned startup probe in separate scratch."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/validation05_startup_probe.py",
+          "sha256": "7b2b169e569905b30bfabb2e3a15cca12a711e91dee5c44af238508f351258b1",
+          "bytes": 4629
+        },
+        "purpose": "Check exact source/runtime and test collection without scientific propagation."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/run_segmented_validation02.py",
+          "sha256": "f4d30899df4045675a46f34eeda884eca36af2df9e3ea4e6e9fe9dbd1764b9de",
+          "bytes": 11178
+        },
+        "purpose": "Owned serial public segmented validate controller with shared lock and cleanup."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_validation02.py",
+          "sha256": "6943270772fb1c03727ef55c91b11e097def35a1bc3dbf857ec8d904ac42ed20",
+          "bytes": 4843
+        },
+        "purpose": "Detached launch using exact plan/pins and durable ownership receipt."
+      }
+    ],
+    "validation_terminal_and_presentation": [
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/capture_segmented_validation02.py",
+          "sha256": "7e480192bec1b7ce15c5314f08e73068a48aa146ec4767e300ac4514ade1b094",
+          "bytes": 9353
+        },
+        "purpose": "Capture completed or failed native records; includes actual native-rebuild provenance."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/capture_segmented_linearization_arrays01.py",
+          "sha256": "dfb02d84672162696523ba77d411bc6ebebe8c671fad3474d40c33b37e8008c3",
+          "bytes": 3318
+        },
+        "purpose": "Capture the exact eight-array appendix separately."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/audit_validation05_terminal02.py",
+          "sha256": "d63c9ae09d0e53db353f652a6c82638d4b8758228a9673558a03188a8a65e66a",
+          "bytes": 33992
+        },
+        "purpose": "Independent terminal audit with remote-path adaptation; retain original numerical gates and update only versioned identity bindings."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/check_validation05_owned_cleanup01.py",
+          "sha256": "dfc2eca0223777eea7d7647ada2303a083cc087bc33192ae0bc4f7326f61f27a",
+          "bytes": 4077
+        },
+        "purpose": "Check exact current-boot owned process identities."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/present_segmented_validation06.py",
+          "sha256": "9a56ca91a7e9347a9b0d0b7ee68b60cafced3761748edf83f5d01c4b949d6449",
+          "bytes": 22083
+        },
+        "purpose": "Present original terminal audit with explicit remote-to-local manifest mapping; never rewrite raw audit paths."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/distribute_segmented_validation03_02.py",
+          "sha256": "de2f7e4150395bf7a0016669a6be3c947c486adc92a7705ce8e5291a1506b524",
+          "bytes": 7674
+        },
+        "purpose": "Produce Git text view and external numerical inventory from full presentation."
+      }
+    ],
+    "fixed_state_native_replay": [
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/stage_nominal_precision_closure01.py",
+          "sha256": "8fa925a6396d5ccfc44a7a05873302a9ea044cfa0a98749879fd637d86041d5c",
+          "bytes": 5108
+        },
+        "purpose": "Prior versioned fixed-state exact-input replay stager; requires fresh adaptation for new build/failed target."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/replay_nominal_precision_closure02.py",
+          "sha256": "a2a54bd433001d3f1c46a6773b557f34b1ab02df2caa0a62ad966071b13cc914",
+          "bytes": 7123
+        },
+        "purpose": "Current new compensation replay worker; fixed physical initial state, unchanged10-iteration/2um/3nm-per-second closure limits."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/run_nominal_precision_closure02.py",
+          "sha256": "045e5b9b228cfaf98e308a88e968bc6f05b0f23a5c4f5c95b7e51849254d712c",
+          "bytes": 5210
+        },
+        "purpose": "Current replay controller, native outcome remains separate from build."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/test_replay_nominal_precision_closure02.py",
+          "sha256": "1903cc274bec8458c83ae14d69172f69a300da3caa7b4562cfa6ced2ebb99691",
+          "bytes": 2465
+        },
+        "purpose": "Pure controller/XML/identity regression fixtures."
+      }
+    ],
+    "preparation_and_environment": [
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/install_preparation04_product_cache01.py",
+          "sha256": "8291e3a35880c995534a11071186eee888ea3ac6bfba784af84d63627e0fde23",
+          "bytes": 6176
+        },
+        "purpose": "Install exact20 products and20 original verification records only after a passed independent terminal14 audit."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/assemble_preparation04_controls01.py",
+          "sha256": "7de0494a3a6a871003cd26e42fa41157078cdaf3f5cd1d3823c4873d21b71006",
+          "bytes": 11241
+        },
+        "purpose": "Seal direct canonical preparation plan/source/runtime/products after terminal audit and installed cache."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/probe_segmented_preparation02.py",
+          "sha256": "9c0e9a2c6964911ce7e78f4e971241aeb1d729959efc2652843227927889e04b",
+          "bytes": 10475
+        },
+        "purpose": "Probe real Tudat startup, flight/product input closure and retained validation contexts."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/smoke_segmented_preparation01.py",
+          "sha256": "9f2e68ba837a8430d88a92489ca2fda9051947c88ba4570a37fa5d73ad900a53",
+          "bytes": 5200
+        },
+        "purpose": "Owned preparation startup, separate from actual generation."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/run_segmented_preparation01.py",
+          "sha256": "cda35fe48b97debf2132a15e8b84ef10884535e461a9be33a0f9dcc39c5d2d9f",
+          "bytes": 9743
+        },
+        "purpose": "Shared-lock preparation controller with before/after support checks and owned cleanup."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_preparation01.py",
+          "sha256": "671e177ba7309f18c2b5a0914f75e389d6500b03b7989e85190c75410144e014",
+          "bytes": 5070
+        },
+        "purpose": "Durable preparation launch helper."
+      },
+      {
+        "helper": {
+          "path": "/mnt/d/orbit-segmented-v4/control/recover_preparation04_startup03.py",
+          "sha256": "b4630b23afde0b9680f51c09adeafb8bc470f507a0d3d372a74fa38d9b9ce2e2",
+          "bytes": 13334
+        },
+        "purpose": "Audited metadata-only proper-HOME recovery for historical preparation04; use its environment lesson without reusing stale output identities."
+      }
+    ]
+  },
+  "previous_published_reports": {
+    "validation05": "validation/segmented-v4/validation05",
+    "original_fixed_state_closure": "validation/segmented-v4/candidate-native-closure02",
+    "preparation04_startup_failure": "validation/segmented-v4/preparation04-startup01-failure",
+    "preparation04_recovery": "validation/segmented-v4/preparation04-recovery02",
+    "preparation04_numerical_failure": "validation/segmented-v4/preparation04-numerical-failure01"
+  },
+  "cautions": [
+    "These are references to immutable prior helpers, not permission to rerun them with stale roots/pins.",
+    "Preserve all14 required gates and their fixed106/51 inventories. Supplemental fixture identities should be explicit separate validation evidence rather than silently changing frozen counts.",
+    "A new source snapshot must account for the committed supplemental fixture and Python runner; validation05 has384 files and does not contain those new source files.",
+    "Use the actual account HOME for real Tudat startup and preparation; preserve the wrong-HOME failure history.",
+    "No launch, compilation, scientific execution or artifact mutation occurred while making this map."
+  ]
+}

@@ -1,0 +1,778 @@
+{
+  "archived_protocol": {
+    "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/src/orbit_poc/numerics/protocol.py",
+    "sha256": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769"
+  },
+  "boot_id": "04656a53-958c-4419-8605-c7088e036b9f",
+  "campaign_adapter": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/campaign-adapter03.json",
+    "sha256": "11a8d70bb8542f02b2fc0cf08be939506455b8fefdcbdd8b89b1073e540d9cd6"
+  },
+  "canonical_artifact_resolution": [
+    {
+      "actual_namespace_path": "/proc/9879/root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt",
+      "backing_path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt",
+      "canonical_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt"
+    },
+    {
+      "actual_namespace_path": "/proc/9879/root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/bootstrap_trf.txt",
+      "backing_path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/bootstrap_trf.txt",
+      "canonical_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/bootstrap_trf.txt"
+    },
+    {
+      "actual_namespace_path": "/proc/9879/root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native_preparation.json",
+      "backing_path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native_preparation.json",
+      "canonical_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native_preparation.json"
+    },
+    {
+      "actual_namespace_path": "/proc/9879/root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initialization.json",
+      "backing_path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initialization.json",
+      "canonical_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initialization.json"
+    },
+    {
+      "actual_namespace_path": "/proc/9879/root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initial_state.txt",
+      "backing_path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initial_state.txt",
+      "canonical_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initial_state.txt"
+    },
+    {
+      "actual_namespace_path": "/proc/9879/root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/iteration-04/nominal.dat",
+      "backing_path": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/iteration-04/nominal.dat",
+      "canonical_path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/iteration-04/nominal.dat"
+    }
+  ],
+  "cleanup_scope": "Known worker/native identities and every current member of the isolated worker process group are absent or zombie/non-live. This observation is not an invented controller cleanup receipt or proof of earlier intermediate process membership.",
+  "configuration": {
+    "bytes": 4173,
+    "path": "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+    "sha256": "6ba79d36b15cb574169eae4364ec11a87fe82a2deef9d707e6d0e4a369f364e7"
+  },
+  "eleventh": {
+    "accepted_covariance": false,
+    "artifacts": [
+      {
+        "metadata": {
+          "accepted_covariance": false,
+          "usage": "Current completed pair or unmarked partial closure retained for failed-fit recovery"
+        },
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/point-001-initial/closure-03/orbit.dat",
+        "role": "terminal_protected_closure_binary",
+        "sha256": "90e78b898ae4c4fe2d6a0eff9ca108a455351963bca491b0ff896661b99bf7cc"
+      },
+      {
+        "metadata": {
+          "accepted_covariance": false,
+          "usage": "Current completed pair or unmarked partial closure retained for failed-fit recovery"
+        },
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/point-001-initial/closure-03/variational.dat",
+        "role": "terminal_protected_closure_binary",
+        "sha256": "b610cd6c14a41ac75329759e40b3ce4a06c7f9cd4032b742f3ea36d1928577ed"
+      },
+      {
+        "metadata": {
+          "accepted_covariance": false,
+          "usage": "Last available failed-attempt linearization"
+        },
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/point-001-initial/qr.14.R.bin",
+        "role": "terminal_diagnostic_qr_factor",
+        "sha256": "c63c4bc297cffb4280029276513c47908c846ead35ab169678902dce71fc6cb8"
+      },
+      {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/retention.json",
+        "role": "numerical_retention_audit",
+        "sha256": "4c4588004ad8eaa1dc7127778b79d11fdab12cae97f52d6d4241ef69f700d664"
+      }
+    ],
+    "elapsed_seconds": 7200.069287443001,
+    "exact_input_inventory_records": 239,
+    "index": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/result-record.json",
+      "sha256": "7643ca8a2b6b05975d9d3817f8effe786fa0030e7c7f6b5678d1d870fd783f5f"
+    },
+    "input_manifest_hash": "21de07c5a3527f99d468e42157c58bfedd6ec6c22894b2f1bd9f519e55af9411",
+    "input_scope": "Exact frozen job, full input-inventory declaration hash and six selected observation/initialization metadata or payload pins verified. Complete frozen input/runtime trees inherit the sealed startup receipt; no bulk rehash was repeated.",
+    "peak_process_tree_rss_bytes": 2060500992,
+    "request": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/request.json",
+      "sha256": "69ad5e2927531bf53686e8bcbfc8cb212bf2096e17e69eb3d284c2a926c57180"
+    },
+    "resource_guard": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/resource-guard.json",
+      "sha256": "307139a80167daa0e7fa86cbc0049bcc5bb2f0ee54676f11abfc4c37f377963d"
+    },
+    "result": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/result.json",
+      "sha256": "090ab79f6ec053b184b67193bf938a64c3875d5db2e78dbd2bd5ba6be7060156"
+    },
+    "retention": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/retention.json",
+      "sha256": "4c4588004ad8eaa1dc7127778b79d11fdab12cae97f52d6d4241ef69f700d664"
+    },
+    "returncode": -15,
+    "selected_input_bytes_reverified": [
+      {
+        "bytes": 5000973,
+        "mask_hash": "144c645900232a543af87bf766153e3eeaaf8a0b1628fae654195178b9ab80f6",
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt",
+        "records": 30361,
+        "role": "gnss_observations",
+        "sha256": "d49bb74dd5293092855d9cbbae142ebc71bd86540746fcbd96802529a5bdcee8",
+        "source_sha256": "850582d2eb9682b913fd79c2ba5e5ea32250fe46f5422cd986fabfb6b634f29e"
+      },
+      {
+        "bytes": 1729969,
+        "code_residual_rms_median_m": 3.4679279278974193,
+        "frame": "TRF",
+        "gap_fill": "central+J2 propagation from retained code-only solution",
+        "grid_epochs": 17280,
+        "include_endpoint": false,
+        "input_sha256": [
+          "d49bb74dd5293092855d9cbbae142ebc71bd86540746fcbd96802529a5bdcee8",
+          "b08bcf1400087a905213a593b5442583789acbcab1dbf4de11a5e7939fff7528",
+          "f44b9bfdbd585a5ff8cc71b8c97983535c33ee71adf66a6b16ba7297edbf695f"
+        ],
+        "integration_step_seconds": 5.0,
+        "mask_hash": "144c645900232a543af87bf766153e3eeaaf8a0b1628fae654195178b9ab80f6",
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native-prepared/preprocessing/bootstrap_trf.txt",
+        "provenance": "gnss_only",
+        "role": "bootstrap_orbit",
+        "sha256": "52925b3ecc08a5e2871d3872e487fe4282f37dfb615e72e0ef9638cb68171019",
+        "solved_epochs": 2640,
+        "time_scale": "GPS",
+        "usage": "initialization only; not a measurement or accuracy reference"
+      },
+      {
+        "metadata": {
+          "kind": "native_preparation"
+        },
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/native_preparation.json",
+        "role": "force_auxiliary",
+        "sha256": "7c03d1a2b1ecf603e802ca26130b116d83a21fa17a3dcc386b2ca90db1fcfc92"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initialization.json",
+        "role": "nominal_initialization",
+        "sha256": "4b47b887d7e35b00cf2631ea2ed2d9535acca19888b5b0a3ed415186b8832123"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/initial_state.txt",
+        "role": "fixed_initial_state",
+        "sha256": "4eb2bcd58637e5ead4d85ecd12643114b9c4216db75bb6f6ffc027a3980c1332"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/jobs/synthetic-calibration-prepare-5fc57804d30beb50bff0/nominal-initialization/iteration-04/nominal.dat",
+        "role": "closed_nominal_orbit",
+        "sha256": "e9d57bda845db385ff8075d6e9d3fc9a6f56bd4c42e977e57126b2c7b631feab"
+      }
+    ],
+    "worker_request": {
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/worker-request.json",
+      "sha256": "69ad5e2927531bf53686e8bcbfc8cb212bf2096e17e69eb3d284c2a926c57180"
+    }
+  },
+  "eleventh_known_identity_cleanup": [
+    {
+      "observation": null,
+      "prior_identity": {
+        "affinity": [
+          30
+        ],
+        "argv": [
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+          "-s",
+          "-c",
+          "\nimport importlib,json,os,sys,traceback\nfrom pathlib import Path\nsource,request_path,output_path,module,operation,cpu_json=sys.argv[1:]\nsys.path.insert(0,str(Path(source)/\"src\"))\ncpus=json.loads(cpu_json)\nif cpus: os.sched_setaffinity(0,cpus)\nrequest=json.loads(Path(request_path).read_text())\ntry:\n    result=getattr(importlib.import_module(module),operation)(request,Path(output_path).parent)\nexcept Exception as error:\n    result={\"status\":\"failed\",\"converged\":False,\"covariance_valid\":False,\n            \"error\":type(error).__name__+\": \"+str(error),\"traceback\":traceback.format_exc()}\ntemporary=Path(output_path).with_suffix(\".tmp\")\ntemporary.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+\"\\n\")\ntemporary.replace(output_path)\n",
+          "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f",
+          "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/worker-request.json",
+          "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/worker-result.json",
+          "orbit_poc.numerics.backend",
+          "fit_job",
+          "[30]"
+        ],
+        "parent": 9879,
+        "pid": 28272,
+        "start_ticks": 1468704,
+        "state": "S"
+      },
+      "status": "absent"
+    },
+    {
+      "observation": {
+        "affinity": [
+          30
+        ],
+        "argv": [],
+        "parent": 9877,
+        "pid": 28419,
+        "process_group": 28272,
+        "session": 28272,
+        "start_ticks": 1480094,
+        "state": "Z"
+      },
+      "prior_identity": {
+        "affinity": [
+          30
+        ],
+        "argv": [
+          "/mnt/d/orbit-numerics-v3.1/capacity-archive-01/binaries/groops-3aad854b51102dce",
+          "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/point-001-initial/profile.xml"
+        ],
+        "parent": 28272,
+        "pid": 28419,
+        "start_ticks": 1480094,
+        "state": "D"
+      },
+      "status": "zombie_non_live"
+    }
+  ],
+  "eleventh_process_group_members": [
+    {
+      "affinity": [
+        30
+      ],
+      "argv": [],
+      "parent": 9877,
+      "pid": 28419,
+      "process_group": 28272,
+      "session": 28272,
+      "start_ticks": 1480094,
+      "state": "Z"
+    }
+  ],
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_original150_eleventh_terminal02.py",
+    "sha256": "aaf37926086931e7bb45e565698ca93d0c1d127171ddf89b53dde215a745f410"
+  },
+  "live_control_chain": [
+    {
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/orbit-segmented-v4/control/launch_original150_resume.py",
+        "--plan",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/resume-plan03.json",
+        "--sha256",
+        "68b2ea578af4700165688c04e5b043da330755051006a9718257533bbee7bf80",
+        "--supervise"
+      ],
+      "parent": 985,
+      "pid": 9877,
+      "process_group": 9877,
+      "session": 9877,
+      "start_ticks": 465866,
+      "state": "S"
+    },
+    {
+      "affinity": [
+        30
+      ],
+      "argv": [
+        "/usr/bin/bwrap",
+        "--die-with-parent",
+        "--unshare-user",
+        "--ro-bind",
+        "/",
+        "/",
+        "--dev-bind",
+        "/dev",
+        "/dev",
+        "--proc",
+        "/proc",
+        "--ro-bind",
+        "/sys",
+        "/sys",
+        "--tmpfs",
+        "/home",
+        "--ro-bind",
+        "/home/emper",
+        "/home/emper",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/home/florianpfaff",
+        "/home/florianpfaff",
+        "--tmpfs",
+        "/mnt",
+        "--ro-bind",
+        "/mnt/c",
+        "/mnt/c",
+        "--ro-bind",
+        "/mnt/d",
+        "/mnt/d",
+        "--bind",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume",
+        "--bind",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/temporary",
+        "/tmp",
+        "--ro-bind",
+        "/home/emper/orbit-numerics-v3.1-runtime/remote-root/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete",
+        "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/project-test-candidate-03-complete",
+        "--ro-bind",
+        "/home/emper/orbit-numerics-v3.1-runtime/remote-root/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/lib",
+        "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/lib",
+        "--ro-bind",
+        "/home/emper/orbit-numerics-v3.1-runtime/remote-root/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin",
+        "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/native/bin",
+        "--ro-bind",
+        "/home/emper/orbit-numerics-v3.1-runtime/remote-root/home/florianpfaff/codex-runs/orbit-poc-20261013/env",
+        "/home/florianpfaff/codex-runs/orbit-poc-20261013/env",
+        "--ro-bind",
+        "/home/emper/orbit-numerics-v3.1-runtime/remote-root/home/florianpfaff/codex-runs/orbit-poc-20261013/tudat-env",
+        "/home/florianpfaff/codex-runs/orbit-poc-20261013/tudat-env",
+        "--ro-bind",
+        "/home/emper/orbit-numerics-v3.1-runtime/remote-root/home/florianpfaff/.local/share/uv/python",
+        "/home/florianpfaff/.local/share/uv/python",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb",
+        "/mnt/seagate10tb",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/30279ff39f39489c1d4f43459c850969b4cbcab6e588ca9f39ee35a8885f1816",
+        "/home/emper/orbit-numerics-v3.1-preparation/30279ff39f39489c1d4f43459c850969b4cbcab6e588ca9f39ee35a8885f1816",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/d3788b86324ef7cf5a84cec418d8700be7e1b8b047bced1a96b22cd0f9f1df3e",
+        "/home/emper/orbit-numerics-v3.1-preparation/d3788b86324ef7cf5a84cec418d8700be7e1b8b047bced1a96b22cd0f9f1df3e",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/efd9b64cbffc66b9a4f931d1a863565a15b50ed2a68723243b7c91c3e1d14e29",
+        "/home/emper/orbit-numerics-v3.1-preparation/efd9b64cbffc66b9a4f931d1a863565a15b50ed2a68723243b7c91c3e1d14e29",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/f733ec809c11e13ec489c0eeb58545994b82a7a577162b3c3ef2ef6bef52dca8",
+        "/home/emper/orbit-numerics-v3.1-preparation/f733ec809c11e13ec489c0eeb58545994b82a7a577162b3c3ef2ef6bef52dca8",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/35b831e727a6d716711c27df4ab0b7483059a1a2ac8d1731026d263664f37b24",
+        "/home/emper/orbit-numerics-v3.1-preparation/35b831e727a6d716711c27df4ab0b7483059a1a2ac8d1731026d263664f37b24",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/8c691ec79e6a3432ddeb98fe9b6de96a7ff65141a0f6de6fa525effd4ea3e7f5",
+        "/home/emper/orbit-numerics-v3.1-preparation/8c691ec79e6a3432ddeb98fe9b6de96a7ff65141a0f6de6fa525effd4ea3e7f5",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/90c3971904f740de838fd930e42c1845b31918bfca5da071dd72656d5954caaf",
+        "/home/emper/orbit-numerics-v3.1-preparation/90c3971904f740de838fd930e42c1845b31918bfca5da071dd72656d5954caaf",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/14cca402c99df48607f9cb0f046218828ff5b25db4c5e64b3a489e18ae401317",
+        "/home/emper/orbit-numerics-v3.1-preparation/14cca402c99df48607f9cb0f046218828ff5b25db4c5e64b3a489e18ae401317",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/d911218cdbe2e0c704908bdaf13bb2c17d6cbbe8c064b6649f5a797c5e3fc204",
+        "/home/emper/orbit-numerics-v3.1-preparation/d911218cdbe2e0c704908bdaf13bb2c17d6cbbe8c064b6649f5a797c5e3fc204",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/8c3b62eb82a650377f7a87d3b0e6f99fb3cb2ac26c4a67a14b2ddccb331e6828",
+        "/home/emper/orbit-numerics-v3.1-preparation/8c3b62eb82a650377f7a87d3b0e6f99fb3cb2ac26c4a67a14b2ddccb331e6828",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/772c67a36b94ffe89ea4d4a7365264e51662419f61ab90e7aafb719e94c0e784",
+        "/home/emper/orbit-numerics-v3.1-preparation/772c67a36b94ffe89ea4d4a7365264e51662419f61ab90e7aafb719e94c0e784",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/710dce574606fe14267f8a31f00da6c112262c9396383b87a4ae5c7946614103",
+        "/home/emper/orbit-numerics-v3.1-preparation/710dce574606fe14267f8a31f00da6c112262c9396383b87a4ae5c7946614103",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/774793fe4047489c3ec921e8f4518675a12fcd874e79b5cb65a19763fca996a8",
+        "/home/emper/orbit-numerics-v3.1-preparation/774793fe4047489c3ec921e8f4518675a12fcd874e79b5cb65a19763fca996a8",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/6168c1ab319f28d9105facadb7ab8c72dc853f794f286a2857c7595d6b410bda",
+        "/home/emper/orbit-numerics-v3.1-preparation/6168c1ab319f28d9105facadb7ab8c72dc853f794f286a2857c7595d6b410bda",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/916e38b8fd5c70a3ec1c028de3fc0670cc55b7d314fd7a84a3760c73cd5c1f70",
+        "/home/emper/orbit-numerics-v3.1-preparation/916e38b8fd5c70a3ec1c028de3fc0670cc55b7d314fd7a84a3760c73cd5c1f70",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/preparation-archive/4d85c026605dc9c07e1c6a7add352d169a72f4787e773df3ffc27e76612a9f09",
+        "/home/emper/orbit-numerics-v3.1-preparation/4d85c026605dc9c07e1c6a7add352d169a72f4787e773df3ffc27e76612a9f09",
+        "--ro-bind",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/temporary/empty-bytecode-4y5rfrkq",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/temporary/empty-bytecode-4y5rfrkq",
+        "--",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+        "--config",
+        "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+        "--receipt",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json",
+        "--",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/d/orbit-segmented-v4/control/original150_retention_recovery02.py",
+        "--plan",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/retention-recovery-plan03.json",
+        "--sha256",
+        "43c3cd865435f5e79391ccba6ee889597ffdd0c4793bb7d1165e815311a2c956",
+        "--mode",
+        "campaign",
+        "--startup-receipt",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json"
+      ],
+      "parent": 9877,
+      "pid": 9878,
+      "process_group": 9878,
+      "session": 9878,
+      "start_ticks": 465929,
+      "state": "S"
+    },
+    {
+      "affinity": [
+        30
+      ],
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/d/orbit-segmented-v4/control/original150_retention_recovery02.py",
+        "--plan",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/retention-recovery-plan03.json",
+        "--sha256",
+        "43c3cd865435f5e79391ccba6ee889597ffdd0c4793bb7d1165e815311a2c956",
+        "--mode",
+        "campaign",
+        "--startup-receipt",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json"
+      ],
+      "parent": 9878,
+      "pid": 9879,
+      "process_group": 9878,
+      "session": 9878,
+      "start_ticks": 465981,
+      "state": "S"
+    }
+  ],
+  "live_thread_environment": {
+    "49553": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "49801": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "live_twelfth_descendants": [
+    {
+      "affinity": [
+        30
+      ],
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-c",
+        "\nimport importlib,json,os,sys,traceback\nfrom pathlib import Path\nsource,request_path,output_path,module,operation,cpu_json=sys.argv[1:]\nsys.path.insert(0,str(Path(source)/\"src\"))\ncpus=json.loads(cpu_json)\nif cpus: os.sched_setaffinity(0,cpus)\nrequest=json.loads(Path(request_path).read_text())\ntry:\n    result=getattr(importlib.import_module(module),operation)(request,Path(output_path).parent)\nexcept Exception as error:\n    result={\"status\":\"failed\",\"converged\":False,\"covariance_valid\":False,\n            \"error\":type(error).__name__+\": \"+str(error),\"traceback\":traceback.format_exc()}\ntemporary=Path(output_path).with_suffix(\".tmp\")\ntemporary.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+\"\\n\")\ntemporary.replace(output_path)\n",
+        "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/worker-request.json",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/worker-result.json",
+        "orbit_poc.numerics.backend",
+        "fit_job",
+        "[30]"
+      ],
+      "parent": 9879,
+      "pid": 49553,
+      "process_group": 49553,
+      "session": 49553,
+      "start_ticks": 2191988,
+      "state": "S"
+    },
+    {
+      "affinity": [
+        30
+      ],
+      "argv": [
+        "/mnt/d/orbit-numerics-v3.1/capacity-archive-01/binaries/groops-3aad854b51102dce",
+        "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/point-001-initial/profile.xml"
+      ],
+      "parent": 49553,
+      "pid": 49801,
+      "process_group": 49553,
+      "session": 49553,
+      "start_ticks": 2204643,
+      "state": "R"
+    }
+  ],
+  "manifest": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/manifest.json",
+    "sha256": "d2b030e6cd65efa3f726d2a694b1e91510d00d67fe1e2f76e98dee3a08b3a5bd"
+  },
+  "observed_at": "2026-10-16T08:29:08.324996+00:00",
+  "original_namespace_wrapper": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+    "sha256": "9c39280813adcc0080f92aab5f0b91d0f60b9ce38b2c0e51f9d8bf6eea7f3578"
+  },
+  "owned_locks": [
+    {
+      "device": 71,
+      "inode": 1970324837430907,
+      "owned_fds": [
+        "3"
+      ],
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/controller/numerics.lock",
+      "proc_lock": "24: POSIX  ADVISORY  WRITE 9879 00:47:1970324837430907 0 EOF"
+    },
+    {
+      "device": 71,
+      "inode": 4503599627826790,
+      "owned_fds": [
+        "4"
+      ],
+      "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/numerics.lock",
+      "proc_lock": "23: POSIX  ADVISORY  WRITE 9879 00:47:4503599627826790 0 EOF"
+    }
+  ],
+  "passed": true,
+  "preserved_prior_author_check": {
+    "helper": {
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_original150_eleventh_terminal01.py",
+      "sha256": "47413b29269c08d32219590ccd77c8f768cda2deed456b871951552da8ed7333"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/original150-eleventh-terminal-independent-review01.log",
+      "sha256": "36c7931adb1c4db7049997234853c09a2bf56e66b1289e2f24fbdaeca929504e"
+    },
+    "reason": "Initial audit compared complete pin dictionaries; the proposal additionally records bytes. Version02 compares identical path and SHA256, retaining all prior byte checks."
+  },
+  "prior_ten_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/original150-tenth-terminal-independent-review01.json",
+    "sha256": "2038256650e3fbde12c40ce342e02b59c61274e89d71a0a8abea3778bbb9df71"
+  },
+  "remaining_unstarted_after_twelfth": 138,
+  "runtime": {
+    "libraries": {
+      "directory": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib",
+      "files": [
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libopenblasp-r0.3.34.so",
+          "sha256": "f1424288e9ac125331102c0150b66fbd244560987779552e0e97d5cfd9de572b"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libexpat.so.1.12.5",
+          "sha256": "8b61b41a8f5bee8d8d336e8bc5318233d6b435d482a7510f4e01788b618a6598"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/liberfa.so.1.8.1",
+          "sha256": "0b565cccc453d93882a8a84a8639badc71f22f370aeba2040e96c58361fc7857"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libz.so.1.3.2",
+          "sha256": "3c6fd78e248a60e45081bcc77031204a7cb64a88ff2e27fc786ef12ae7e91fca"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgfortran.so.5.0.0",
+          "sha256": "8b93406aef97f0f39ebac58aed3b63c58c9c26eb246595d8141dde5baeee5b33"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libquadmath.so.0.0.0",
+          "sha256": "9fa4807097fa47da1815765f0a43177c45e7ec7cc94e44cfa95a4c3a1a341ee6"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6.0.36",
+          "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+        }
+      ]
+    },
+    "native": {
+      "path": "/mnt/d/orbit-numerics-v3.1/capacity-archive-01/binaries/groops-3aad854b51102dce",
+      "sha256": "3aad854b51102dce1fa7a8622177b33075d928d060cb10d740f1b137a00c33e9"
+    },
+    "python": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "resolved_path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/python3.11",
+      "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+    },
+    "source_root": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f",
+    "source_sha256": "553ad084a7165b045f8f1f9eb9abfaac4df8833d2038595f622def468fcdebae",
+    "supplemental_sources": {
+      "path": "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f.native-supplemental.json",
+      "sha256": "570f6af341741d46442336a5bab82acd355040f4d934f5357ea5ec6324bd8a76"
+    }
+  },
+  "schema": "orbit-poc-original150-eleventh-terminal-independent-review-v1",
+  "scope": "Read-only new checkpoint/artifact verification, exact frozen identity, retained-failure evidence and timestamped ownership audit. First ten result/index bytes are unchanged and their previous independent audit is retained without rereading their large artifacts. Twelfth is active, not complete. The one completed legacy result uses archived legacy criteria, not corrected v3.1/V4 strict convergence. No retry, estimator execution, campaign mutation, full campaign completion or V4 release claim.",
+  "startup_receipt": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json",
+    "sha256": "0b633174a3e0723c3f7377032e00d99c2e9ea335e92e5622897208fe258230fb"
+  },
+  "status_counts": {
+    "complete": 1,
+    "failed": 3,
+    "interrupted": 1,
+    "timeout": 6
+  },
+  "terminal_attempts": 11,
+  "terminal_prefix": [
+    {
+      "attempt_id": "retained-pulse-weak-300000--legacy_v3",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300000--legacy_v3/result-record.json",
+        "sha256": "b6e0af0ad6a2ee02801e390155b2d9b2e5aaa39e8ec26c6e50c5d006b48165cf"
+      },
+      "profile": "legacy_v3",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300000--legacy_v3/result.json",
+        "sha256": "cd3e0dd3702d188c34c8e7e5656db9629590125af104a2029f0c402fc562ee2f"
+      },
+      "status": "failed"
+    },
+    {
+      "attempt_id": "retained-pulse-weak-300000--qr_lm_legacy_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300000--qr_lm_legacy_jacobian/result-record.json",
+        "sha256": "cd4b6c4c05783ff723cf95d3f9cc2dc7e3ed2d85ff280d0e0c02026c15caab1e"
+      },
+      "profile": "qr_lm_legacy_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300000--qr_lm_legacy_jacobian/result.json",
+        "sha256": "eaa84edd20658a4ddcc68847540948ce3c60b7d6b7849573de60496b839d81c6"
+      },
+      "status": "timeout"
+    },
+    {
+      "attempt_id": "retained-pulse-weak-300000--qr_lm_staged_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300000--qr_lm_staged_jacobian/result-record.json",
+        "sha256": "b13e45d0cbc16fb9a188067594fe29f868271a1213ce887ab89acf1b9e7b8f5c"
+      },
+      "profile": "qr_lm_staged_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300000--qr_lm_staged_jacobian/result.json",
+        "sha256": "6b102c841dff372df2d32a382fafdd957147b9bc5b2875151c853c57fc5bf01a"
+      },
+      "status": "timeout"
+    },
+    {
+      "attempt_id": "retained-pulse-neighbor-300000--qr_lm_legacy_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300000--qr_lm_legacy_jacobian/result-record.json",
+        "sha256": "ee23ff6f890f8a89b38de0f72cbdcd486e66e3f676a1dd96ccc8d4f45542ce67"
+      },
+      "profile": "qr_lm_legacy_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300000--qr_lm_legacy_jacobian/result.json",
+        "sha256": "a8a9372c3f00a91d896e2214acdad73c467e499d7f55e3247d4765ad4dc25e36"
+      },
+      "status": "timeout"
+    },
+    {
+      "attempt_id": "retained-pulse-neighbor-300000--qr_lm_staged_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300000--qr_lm_staged_jacobian/result-record.json",
+        "sha256": "8e3fcbeabbd616124a92f6b2937c2fd62555a2f3961ce5343ab7c6dfa15368ef"
+      },
+      "profile": "qr_lm_staged_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300000--qr_lm_staged_jacobian/result.json",
+        "sha256": "7f2a8ed7e68066634333cd7a2189bc9f8224332099969fbf6eb8ef817adf74b0"
+      },
+      "status": "timeout"
+    },
+    {
+      "attempt_id": "retained-pulse-neighbor-300000--legacy_v3",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300000--legacy_v3/result-record.json",
+        "sha256": "487f8a1d8bb13d43a28e65743561303a31a93f34a04b166ee432d751464e6d4a"
+      },
+      "profile": "legacy_v3",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300000--legacy_v3/result.json",
+        "sha256": "e2dcd71f4338abaaa1a86086d482cf4588559e8ce6d7b51ddee657df456e6c44"
+      },
+      "status": "failed"
+    },
+    {
+      "attempt_id": "retained-pulse-weak-300001--qr_lm_staged_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300001--qr_lm_staged_jacobian/result-record.json",
+        "sha256": "adde7adbb6df1538db2d06d43e6583a9b80e1cf446c28c7436bc0adccebc2946"
+      },
+      "profile": "qr_lm_staged_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300001--qr_lm_staged_jacobian/result.json",
+        "sha256": "19286dc028d38ccb1e4e1029d46f029e5a27b6db0038b7692ff00537a9e332a6"
+      },
+      "status": "interrupted"
+    },
+    {
+      "attempt_id": "retained-pulse-weak-300001--legacy_v3",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300001--legacy_v3/result-record.json",
+        "sha256": "d44369b4547a9f3248e496f82e66b89289fe1e0b074b20ab1e7b475df496ffcc"
+      },
+      "profile": "legacy_v3",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300001--legacy_v3/result.json",
+        "sha256": "35e3a9f2fafba79d24bb859624a8d7b6d0072a10c3ebf9ade0d04fa6e6c68763"
+      },
+      "status": "failed"
+    },
+    {
+      "attempt_id": "retained-pulse-weak-300001--qr_lm_legacy_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300001--qr_lm_legacy_jacobian/result-record.json",
+        "sha256": "fa7bd5df2b61bbd93c86be85ae21b8aecc2414284309310987ca98d59d24f5ae"
+      },
+      "profile": "qr_lm_legacy_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-weak-300001--qr_lm_legacy_jacobian/result.json",
+        "sha256": "68a8bb1293c573ab83aa4002772f70269c468f013a9d35e03261b650ee2dc858"
+      },
+      "status": "timeout"
+    },
+    {
+      "attempt_id": "retained-pulse-neighbor-300001--legacy_v3",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--legacy_v3/result-record.json",
+        "sha256": "394150f50e16326903d12814bbc41923c7b704548234e2468e2f0795f6ba4936"
+      },
+      "profile": "legacy_v3",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--legacy_v3/result.json",
+        "sha256": "dbd9198765c3ea089b8b20f70ea329634b1f10e226c5fcce16d36db8ff1984ba"
+      },
+      "status": "complete"
+    },
+    {
+      "attempt_id": "retained-pulse-neighbor-300001--qr_lm_legacy_jacobian",
+      "index": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/result-record.json",
+        "sha256": "7643ca8a2b6b05975d9d3817f8effe786fa0030e7c7f6b5678d1d870fd783f5f"
+      },
+      "profile": "qr_lm_legacy_jacobian",
+      "result": {
+        "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_legacy_jacobian/result.json",
+        "sha256": "090ab79f6ec053b184b67193bf938a64c3875d5db2e78dbd2bd5ba6be7060156"
+      },
+      "status": "timeout"
+    }
+  ],
+  "twelfth_request": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/request.json",
+    "sha256": "6c961da0248d0c88a4b4c13ebf5e69c981a3bf00cfd676175e53452e302b042e"
+  },
+  "twelfth_worker_request": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/attempts/retained-pulse-neighbor-300001--qr_lm_staged_jacobian/worker-request.json",
+    "sha256": "6c961da0248d0c88a4b4c13ebf5e69c981a3bf00cfd676175e53452e302b042e"
+  }
+}

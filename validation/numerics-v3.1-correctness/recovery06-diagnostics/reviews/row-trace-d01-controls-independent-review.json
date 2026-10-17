@@ -1,0 +1,64 @@
+{
+  "blocking_findings": [],
+  "created_at": "2026-10-15T08:18:54.115399+00:00",
+  "files": {
+    "build_row_trace_d01.py": {
+      "bytes": 5850,
+      "sha256": "c99f02cffeee8c78e59f2d3c898e64b983c5b1c85ee1dfb734f6a1a3156003fa"
+    },
+    "prepare_row_trace_d01.py": {
+      "bytes": 2914,
+      "sha256": "3cf2ecc0428d3735d9ce1760eb8b16e2855426ef067b45d3ecf79c5d1b34bf39"
+    },
+    "run_row_trace_d01.py": {
+      "bytes": 8025,
+      "sha256": "b2cea20b8e1fdc5334a3055f4714792dc73e93576dbdf93974ae5d4d6a9bb6ae"
+    },
+    "test_row_trace_d01_controls.py": {
+      "bytes": 14009,
+      "sha256": "48dc05e916b11ce5977950a61b53dff30c15901cfd16b4717ad763f27ede8e00"
+    }
+  },
+  "limitations": [
+    "Trace arithmetic/equivalence is independently reviewed elsewhere; this review does not establish native numerical correctness.",
+    "Terminal journal status and verified cleanup must be read; process exit alone is not evidence of diagnostic success."
+  ],
+  "original_build_fixture_sha256": "ec769cddd2b6ef5691b9a4d9883a0621f3e2d8fca9bc2770653de84ae33a0f91",
+  "preserved_earlier_fixture_attempts": [
+    {
+      "junit_sha256": "968e7c5474b2a8ba2b5fff09b6424f935ca6c3884fb56d8e55cb55f94eb31eaa",
+      "reason": "Nine stale-fixture failures after input_links became required; ten passed."
+    },
+    {
+      "junit_sha256": "da60f7fb1faa27c39c272e09a925c0acad13825e2daf34c3770826f6578cda7f",
+      "reason": "One fabricated equivalence-command classification error; nineteen passed."
+    }
+  ],
+  "resolved_review_findings": [
+    "Initial/supervision step receipt failures now mark that step terminal",
+    "Final journal save is nested inside a finally that restores signal handlers"
+  ],
+  "review_status": "passed",
+  "reviewed_behavior": [
+    "Pinned source/input/runtime/helper identity and changed-link rejection before native work",
+    "Preparation includes resolved symlink target hashes and original link identity",
+    "Build refuses wrong upstream revision, changed compilation inputs, and failed startup",
+    "Trace environment absent from inherited off-run environment and explicit only for on run",
+    "Failed off/on replay exit codes retained for equivalence diagnostics without acceptance promotion",
+    "Failed/time-limited/interrupted steps receive terminal status and timestamps",
+    "Transient prelaunch/on_started/on_finished receipt-write failures retain cleanup and failure",
+    "Final receipt failure still restores handlers; cleanup failures cannot claim completion",
+    "No implicit retry or overwriting existing diagnostic run"
+  ],
+  "schema": "orbit-poc-diagnostic-row-trace-controls-independent-review-v1",
+  "scope": "Fabricated local orchestration fixtures only. No native launch, source patching, real build or SSH workload performed. Two absolute deployment roots are remapped only in the preparation fixture.",
+  "source_snapshot": "@TEMP_ROOT@/row-trace-d01-controls-review-03",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "junit_sha256": "757a56793a70faecfd1787173937aa7a7e4a22cbec075f5a816d45f763264ea2",
+    "log_sha256": "f0d06729f8a5d0bc61f76f762f4d7db309a74e25c5fc00a9351b84e0a008eeaa",
+    "passed": 21,
+    "skipped": 0
+  }
+}

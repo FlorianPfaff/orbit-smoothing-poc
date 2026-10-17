@@ -1,0 +1,58 @@
+{
+  "schema": "orbit-poc-nominal-precision-closure-controls-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:53:35.125804+00:00",
+  "scripts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/replay_nominal_precision_closure01.py",
+      "sha256": "2c1daac9e1856b87b0f54ceb9377b23d0db3c6efdfff76651b89da67d745adce",
+      "bytes": 7022
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_nominal_precision_closure01.py",
+      "sha256": "045e5b9b228cfaf98e308a88e968bc6f05b0f23a5c4f5c95b7e51849254d712c",
+      "bytes": 5210
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_nominal_precision_closure01.py",
+      "sha256": "8fa925a6396d5ccfc44a7a05873302a9ea044cfa0a98749879fd637d86041d5c",
+      "bytes": 5108
+    }
+  ],
+  "build_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-build01-terminal-independent-review01.json",
+    "sha256": "0fcbe2817d023b20fc99edd47486309b785c88ca980022316c71b00d4e86eea7",
+    "bytes": 3230
+  },
+  "fixtures": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_replay_nominal_precision_closure01.py",
+      "sha256": "0cb00022343888618c9dd71d8d1bcee63c1e799fb1b4a815bb49a20cffe561e3",
+      "bytes": 2465
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-precision-closure01-independent-tests.log",
+      "sha256": "a17d0eb85c8baf4f6ca73d6aba50e5e4d76cb89409bfdc5c2a8a0586d7a85a75",
+      "bytes": 207
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-precision-closure01-independent-tests.xml",
+      "sha256": "910c961bef2e96d0fb4366a507abc0498e73d2598e7604bd8e0214ca53fbec06",
+      "bytes": 3187
+    }
+  },
+  "checks": [
+    "Original thirteen inputs remain pinned; fourteenth input binds actual separate precision build and exact native.",
+    "First evaluation preserves original fixed initial state/profile and changes only five XML output/intermediate paths; later input reference is previous exported orbit.",
+    "Same epoch support,10-iteration cap,2\u00b5m position and3nm/s velocity closure criteria retained.",
+    "Failure is retained explicitly; no fit/covariance or release promotion.",
+    "Existing current-host shared-lock controller preserves one thread,8GiB/7200s outer bound, transactional owned cleanup and original inputs."
+  ],
+  "resource_difference": "Diagnostic worker limits each propagation to600seconds rather than shared closure default7200seconds. This stricter cap does not alter numerical criteria; any timeout remains a diagnostic failure, not a convergence result.",
+  "scope": "Exact failed-case native closure diagnostic. Actual trajectory/output/cleanup audit and complete prescribed validation remain required.",
+  "fit_attempts": 0,
+  "release_ready": false
+}

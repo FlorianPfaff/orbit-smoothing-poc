@@ -1,0 +1,374 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "private-path-sha256:31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6",
+        "private-path-sha256:be6aade99092e152838b7c3d9e3e19a69e95af3583707c54a9697a58ba68bb76",
+        "--plan",
+        "private-path-sha256:6e638ca44a1b7840c86cd02a7c3008eafaedcbb0f8397d11ce4b894b415b0031",
+        "--plan-sha256",
+        "642c160ebf69c9fc76413f850e79902d92d5e4faadf58f59cf177b76a3aa9010"
+      ],
+      "command_sha256": "9339824c761a2650706d17f8f7807cd39260f6374648918b347b28dc05b93133",
+      "parent": 1784810,
+      "pid": 1784811,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 103299485,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T07:29:32.847662+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Attempt06: four CPU cores24-27 for build; CPU24 for serial validation with taskset affinity, owned-process cleanup and competing-native workload admission. No administrative exclusive CPU allocation is claimed. Original v3 remains on workstation2. Same pinned scientific runtime and isolated glibc2.39 from05, host/control glibc2.35 unchanged. No prior build objects or outputs reused.",
+    "status": "admitted"
+  },
+  "argv": [
+    "private-path-sha256:31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6",
+    "private-path-sha256:a959f5a95192def608a95d1c94b8b50a624910c6b873a4066ae9f003b7c1264b",
+    "--execution",
+    "private-path-sha256:aa8f8fbbd5c6a5356664c4a9d72d29c0dd158f64cae3e740b00e4c9bc6615ec2",
+    "--execution-sha256",
+    "93ace2cbfe46bd89d468cbeab140f341721c141e4320d4ef0d3671fbd707c690",
+    "--",
+    "private-path-sha256:a88792586caa361ce9d192d44655c8261a09d35f610b314c4735aca42cb13119",
+    "-c",
+    "24",
+    "env",
+    "ORBIT_POC_CORRECTNESS_NATIVE=private-path-sha256:5df3731ac3a906e409cc9b3945f2a380dfcf2c4e56ea86d2930bb6e2a607bbec",
+    "ORBIT_POC_V31_NATIVE=private-path-sha256:5df3731ac3a906e409cc9b3945f2a380dfcf2c4e56ea86d2930bb6e2a607bbec",
+    "ORBIT_POC_GROOPS=private-path-sha256:5df3731ac3a906e409cc9b3945f2a380dfcf2c4e56ea86d2930bb6e2a607bbec",
+    "private-path-sha256:8b6ccc54212195763a01ed2fcc41bbd29bfb3213d85aa9ab1c2e13dbdfc2914d",
+    "private-path-sha256:36d545ab0bfb28aa4b345c25cb5d89008a5b2bb692a1df23e61dde83541eafae",
+    "--source-profile",
+    "private-path-sha256:45907c38c5bde014e2923499a476448b8a2115afdfc344d6a43ba66ceba24fdc",
+    "--native",
+    "private-path-sha256:5df3731ac3a906e409cc9b3945f2a380dfcf2c4e56ea86d2930bb6e2a607bbec",
+    "--output",
+    "private-path-sha256:fcbcc082a58973ddcdd8e3920de700c0dcf9989019b36022f738cd63ffdc315c",
+    "--allow-floor-limited"
+  ],
+  "campaign_resume": "not_applicable",
+  "child_finished_at": "2026-10-15T07:30:18.421247+00:00",
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 1784811,
+        "pid": 1784815,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 103299545,
+        "state": "Z"
+      },
+      {
+        "parent": 1784815,
+        "pid": 1784816,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103299548,
+        "state": "S"
+      },
+      {
+        "parent": 1784816,
+        "pid": 1784818,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103299549,
+        "state": "S"
+      },
+      {
+        "parent": 1784818,
+        "pid": 1784819,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103299560,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784843,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103300245,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784852,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103300376,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784901,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103300913,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784911,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103301044,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784941,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103301580,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784944,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103301712,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784974,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103302248,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1784975,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103302379,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1785032,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103302915,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1785034,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103303046,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1785049,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103303505,
+        "state": "R"
+      },
+      {
+        "parent": 1784819,
+        "pid": 1785051,
+        "pid_namespace": "pid:[4026534164]",
+        "start_ticks": 103303636,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-15T07:30:18.421189+00:00",
+    "pid_namespaces": [
+      "pid:[4026534164]"
+    ],
+    "returncode": 0,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "covariance_authorized": false,
+  "diagnostic_checks_passed": true,
+  "diagnostic_receipt": {
+    "path": "private-path-sha256:972833e288e757db4ccef7fd1cdce995f2b4a1764fb1b8d17407a6fa8c2e0a57",
+    "sha256": "8febd6ce4cf7980ac958c6345a33e2955b5945a392dc7619f662700016af8ecf"
+  },
+  "elapsed_seconds": 45.52255257603247,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 1784811,
+            "pid": 1784815,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 103299545,
+            "state": "Z"
+          },
+          {
+            "parent": 1784815,
+            "pid": 1784816,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103299548,
+            "state": "S"
+          },
+          {
+            "parent": 1784816,
+            "pid": 1784818,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103299549,
+            "state": "S"
+          },
+          {
+            "parent": 1784818,
+            "pid": 1784819,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103299560,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784843,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103300245,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784852,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103300376,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784901,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103300913,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784911,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103301044,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784941,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103301580,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784944,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103301712,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784974,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103302248,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1784975,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103302379,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1785032,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103302915,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1785034,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103303046,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1785049,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103303505,
+            "state": "R"
+          },
+          {
+            "parent": 1784819,
+            "pid": 1785051,
+            "pid_namespace": "pid:[4026534164]",
+            "start_ticks": 103303636,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-15T07:30:18.810979+00:00",
+        "pid_namespaces": [
+          "pid:[4026534164]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-15T07:30:18.811022+00:00",
+  "input_artifacts": {
+    "density": {
+      "path": "private-path-sha256:3a0bb16013b7ecd127c490803690428c46291284d8d32c849eaab8984e1820cc",
+      "sha256": "f6f6318000045ef05215e15f6cefd0a7a00c588149661979389100fb6506b61b"
+    },
+    "profile": {
+      "path": "private-path-sha256:45907c38c5bde014e2923499a476448b8a2115afdfc344d6a43ba66ceba24fdc",
+      "sha256": "488750ce84c459aa90149914c6abcda0981c8b602b4615e7ef3f1dca13f64647"
+    },
+    "reference": {
+      "path": "private-path-sha256:7bd95b4c8ae048e7774ba8501578b357bfa8d12989a342b92afe1a5f114ba9fc",
+      "sha256": "880caf951e16c160898370d8982e7bc5dedea029aa793dd0814c56d356cf0714"
+    },
+    "variational": {
+      "path": "private-path-sha256:4e9e1c61baff097d679d0bf977118f34ea72727f0345d76f27344a175c762dac",
+      "sha256": "6e8db6beefed51f54dcedf7e305b1a5d03186bad4a95cadde4ef2042c32321b9"
+    }
+  },
+  "interrupted_or_timeout": false,
+  "native": {
+    "build_manifest_sha256": "e6893b0dbbe148fc2e4d22101067bba478b77d511e59dea7f1f8fd5832937d41",
+    "path": "private-path-sha256:5df3731ac3a906e409cc9b3945f2a380dfcf2c4e56ea86d2930bb6e2a607bbec",
+    "sha256": "37c0d22c843d2a160e7537086a8440c5c79d550d71fc7c9172ca5994d6f30e2f"
+  },
+  "pid": 1784815,
+  "plan": {
+    "path": "private-path-sha256:6e638ca44a1b7840c86cd02a7c3008eafaedcbb0f8397d11ce4b894b415b0031",
+    "sha256": "642c160ebf69c9fc76413f850e79902d92d5e4faadf58f59cf177b76a3aa9010"
+  },
+  "postprocess_pipeline": {
+    "path": "private-path-sha256:8edf277934e7e9c4e3ded08b3a2ac9bb410e28e1f67dfbf8e76666ad5d56739b",
+    "sha256": "8539d3cda98f57004ede1c0ba7890116923f23bc28c50b0a2eb9ea8fb9cf0aae"
+  },
+  "progress_only_floor_validated": false,
+  "required_gate_classifications_changed": false,
+  "returncode": 0,
+  "runner_sha256": "22ddf243f0194966942972f0ae51e4fc8f44cb4893009acdff57257a2abebd4a",
+  "schema": "orbit-poc-supplemental-point017-run-v1",
+  "scope": "Supplemental exact validation05 point017 diagnostic only.",
+  "started_at": "2026-10-15T07:29:32.847971+00:00",
+  "status": "completed",
+  "strict_nuisance_converged": true,
+  "timeout_seconds": 7500,
+  "validation_pipeline": {
+    "path": "private-path-sha256:50d06b50fff72e8d6c2195025f5d3071ef65573f1b6cdbc621b46717daf244b6",
+    "sha256": "520bec0ee8502eb01a5917e7bb9245c0a2150a8544c9e6bc4613e8008b94a434"
+  }
+}

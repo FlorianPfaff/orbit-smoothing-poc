@@ -14,6 +14,8 @@ def parser() -> argparse.ArgumentParser:
     register(commands)
     from .numerics.cli import register as register_numerics
     register_numerics(commands)
+    from .segmented.cli import register as register_segmented
+    register_segmented(commands)
     for name in ("generate", "calibrate", "benchmark", "scaling", "posterior"):
         command = commands.add_parser(name)
         command.add_argument("--config", type=Path, help="JSON or YAML scenario/benchmark configuration")
@@ -74,6 +76,9 @@ def main(argv=None) -> int:
     try:
         if args.command == "comparison":
             from .comparison.cli import dispatch
+            return dispatch(args)
+        if args.command == "segmented":
+            from .segmented.cli import dispatch
             return dispatch(args)
         if args.command == "numerics":
             from .numerics.cli import dispatch

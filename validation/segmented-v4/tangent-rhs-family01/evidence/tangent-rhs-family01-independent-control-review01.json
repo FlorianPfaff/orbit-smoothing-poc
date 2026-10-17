@@ -1,0 +1,65 @@
+{
+  "schema": "orbit-poc-tangent-rhs-family01-independent-control-review-v1",
+  "passed": true,
+  "control_inventory": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family01-controls.json",
+    "sha256": "cdce54e438ed87a4026433eeacbc3fbd07d39e73e561a206f3c3f1285f2f33e8",
+    "bytes": 847
+  },
+  "files": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/replay_tangent_rhs_family01.py",
+      "sha256": "fe2758b17a205273abc9aa3ed5e5b628a3ecfeeaf5986d1d7af058969faeccf5"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_tangent_rhs_family01.py",
+      "sha256": "112b5c76207115ce49bab647b1ad4ea73bf4f2605d7f83ce39c246a75a15d025"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/launch_tangent_rhs_family01.py",
+      "sha256": "7050d4d7c601821d84f0132735c6351e2fee48ee001717eb284be0c0781d0b15"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_tangent_rhs_family01.py",
+      "sha256": "b37e7f1a02968a9ff0cc642579b0048948bacc39a8a3605afeade487dca531c8"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_rhs_family01.py",
+      "sha256": "0c0c1417ff0240f668110bfe51554568c562925dabb356e17ad1054da545b83a"
+    }
+  ],
+  "source_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01-independent-source-review01.json",
+    "sha256": "f54acc2afbe4fd0c438581dc54598610fafea9523ee248784da9fad9dfa4e7fd",
+    "bytes": 4979
+  },
+  "tests": {
+    "count": 45,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family01-independent-tests01.log",
+      "sha256": "5c57b22c9af6c85d2b2eb63fc4790024ee7ff6b848931ed3a11750c3182e329b",
+      "bytes": 202
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family01-independent-tests01.xml",
+      "sha256": "c43ac041bf32ac13494745431b0a6fa3d3ef9fde07f0b880a9b8ff18b6ce6ee5",
+      "bytes": 6436
+    }
+  },
+  "reviewed": [
+    "Strict prepare/run phases and exact input sets",
+    "Prepare compiles common replay/native fixture and executes separate native,CLI and four-test unittest interfaces; no54-family calls",
+    "Run requires exact successful preflight and pinned independent family audit",
+    "Three exact anchors/nine cases each/exact original plus eight declared perturbations",
+    "Balanced frozen54-call execution order and immutable output directories",
+    "Every reader success requires matching profile/dimensions/120/20/2e-12/64-bit-extended input, kernel residual<=tol and one returned113-bit certificate matching terminal iteration/value",
+    "Decimal oracle comparison retains values marginally above binary64 tolerance",
+    "Numerical failures/timeouts remain recorded and do not replace cases; protocol or identity errors stop",
+    "Timeout retains partial raw trace/stderr pins; precheck failure preserves original exception without masking it with missing result",
+    "Existing current-host admission,global lock,one numericalCPU,8GiB,2h owned cleanup unchanged"
+  ],
+  "scope": "External captured-system controls only. No compiler/native workload launched by reviewer. Actual prepared family/binary and cleanup must pass independent audit before run phase. No GROOPS propagation, fits, covariance or release authorization."
+}

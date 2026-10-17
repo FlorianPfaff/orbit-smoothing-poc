@@ -1,0 +1,35 @@
+{
+  "schema": "orbit-poc-shifted02-staging-input-independent-review-v1",
+  "passed": true,
+  "reviewed_utc": "2026-10-16T05:57:47.854697+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted02-staging-input-independent-readback01.json",
+    "sha256": "aedfd29aac5d5ad995328c1914c268b161e6aa35639caa7f463397dabf3579bf"
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_shifted02_staging_input01.py",
+    "sha256": "f4d8a4d0dbe45abcd9b1a6a2e36081c0edd141f50e55f29f4b1aea2ff0e79c0e"
+  },
+  "staging_input": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/shifted02-staging-plan01.json",
+    "sha256": "8703269fa2755930d58729bd0e59fc1ee0381e61917b4b8298096c4e2076f7d7"
+  },
+  "stager": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/stage_shifted_diagnostic02.py",
+    "sha256": "5db4726a32fe4982caa41442a7bd3bcbeb5610407655a92f2e8e1075216fdf78"
+  },
+  "terminal_full14_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-validation04-terminal-independent-review-01.json",
+    "sha256": "06fd170a383214cdade87bddcb925d465184825a47281093f4aaad2043e863d0"
+  },
+  "checks": [
+    "Exact new execution/config/source/terminal input pins independently rehashed",
+    "All six diagnostic helpers byte-identical to previous reviewed implementation; only driver/wrapper canonical control paths update",
+    "Original nested launchplan/shared-lock pin retained",
+    "Fresh shifted-diagnostic-02 root absent",
+    "Full14 numerical audit passed with current source and exact actual cleanup"
+  ],
+  "staging_authorized": true,
+  "native_or_namespace_launch_authorized": false,
+  "scope": "Approve unchanged stager creating a separate exact diagnostic packet only. Actual staged execution/namespace and runtime smoke require review before diagnostic launch; no physical model/threshold/source substitution."
+}

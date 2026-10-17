@@ -1,0 +1,53 @@
+{
+  "artifacts": {
+    "freeze_recovery09.py": {
+      "bytes": 4598,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze_recovery09.py",
+      "sha256": "d6ed1b35019b250270c988cfefb7c8b4cfe831274faaecab83fe8d4c6b046f98"
+    },
+    "smoke_recovery09.py": {
+      "bytes": 9706,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/smoke_recovery09.py",
+      "sha256": "e046558e86fd44dffac9aed08093a51ced1220ef883521c8db812052d864770d"
+    },
+    "test_freeze_smoke09_independent.py": {
+      "bytes": 12956,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_freeze_smoke09_independent.py",
+      "sha256": "8cfce8af38531aa62da4ba4d510b4e9ff0df638a4239e9e40cac6b9b9caf5244"
+    }
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:07:33.927191+00:00",
+  "delta_review": [
+    "New previous_correction_lineage field is copied from validated lineage and equals executed08 pins.correction_lineage.",
+    "Independent fixture now explicitly asserts this emitted field, in addition to prior changed-lineage rejection.",
+    "Smoke helper remains unchanged; prior namespace/cleanup/no-native static findings remain applicable."
+  ],
+  "native_launched": false,
+  "passed": true,
+  "preservation": [
+    "original14 inputs and106 tests remain inherited",
+    "previous regression additions retained",
+    "changed identity, output reuse, interruption and cleanup failures remain fail-closed",
+    "42 freeze/smoke fixtures and14 source-packager fixtures passed together"
+  ],
+  "previous_review": {
+    "bytes": 2616,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-smoke09-independent-review-01.json",
+    "sha256": "44e5336f78ea503833ea9bf660dd3896c79a8d2a8649ff34ad4be3a9bb0e3ce8"
+  },
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-freeze-smoke09-independent-review-v2",
+  "scope": "Independent fabricated control tests and static review only; no remote staging, native build, fit, scientific acceptance or covariance authorization.",
+  "test_result": {
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 7999,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/freeze-smoke-source09-independent-tests-03.xml",
+      "sha256": "4bea4507789e42d166f2af231d297ac47612d2a9b5157c4c22ab167815b3a9f0"
+    },
+    "skipped": 0,
+    "tests": 56
+  }
+}

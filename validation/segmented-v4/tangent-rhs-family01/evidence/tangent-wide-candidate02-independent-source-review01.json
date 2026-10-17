@@ -1,0 +1,29 @@
+{
+  "schema": "orbit-poc-wide-candidate02-independent-source-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:09:10.913745+00:00",
+  "generation": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate02/generation.json",
+    "sha256": "fc7f1b604f5c06b9fdd6c5d506c73735730a5468e76e508e2e1f1a783c0903d2"
+  },
+  "predecessor": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/generation.json",
+    "sha256": "6615014643a2332a9f706c9b3275f07c65b9872d534edbcc661f4320c8ef71f2"
+  },
+  "prior_source_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01-independent-source-review01.json",
+    "sha256": "f54acc2afbe4fd0c438581dc54598610fafea9523ee248784da9fad9dfa4e7fd"
+  },
+  "changed_files": [
+    "replay.cpp",
+    "test_wide.cpp"
+  ],
+  "checks": [
+    "All nine source hashes and sizes match frozen generation.",
+    "Exactly two source files differ: explicit no-main guard and fixture define/undef.",
+    "Removing only the two new preprocessor lines and blank separator reproduces old replay.cpp byte-for-byte.",
+    "Reversing only fixture macro names reproduces old fixture byte-for-byte.",
+    "Numerical kernels, reader mathematics, generator, limits and tests otherwise unchanged."
+  ],
+  "scope": "Eligible for fresh owned preflight only; no compilation, generated family or numerical success certified."
+}

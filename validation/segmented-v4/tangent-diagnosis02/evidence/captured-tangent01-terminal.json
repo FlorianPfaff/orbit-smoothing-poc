@@ -1,0 +1,317 @@
+{
+  "control/pipeline.json": {
+    "sha256": "78351bd0849df13a34d38cda847e5f4b92056c210fc66fb560e49b9dc5c55865",
+    "value": {
+      "admission": {
+        "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+        "build_cpus": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "conflicting_processes": [],
+        "driver_identity": {
+          "argv": [
+            "/usr/bin/python3",
+            "-B",
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/run_captured_tangent01.py",
+            "--plan",
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/plan.json",
+            "--sha256",
+            "f9730ed02016bfa3e3d6f559df5aa1525ae3a306875a4f817b90db740153a7b6"
+          ],
+          "command_sha256": "e66da8eca523bd732e62ad2ea8bfbfbb718373a21ccb16b16cbaf8fdfc731c2c",
+          "parent": 2454294,
+          "pid": 2454302,
+          "pid_namespace": "pid:[4026531836]",
+          "start_ticks": 111974069,
+          "state": "R"
+        },
+        "fit_cpu": 24,
+        "hostname": "workstation1",
+        "observed_at": "2026-10-16T07:35:20.892949+00:00",
+        "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+        "reserved_cpu_note": "One pinned standalone diagnostic compiled and executed onCPU24/one thread/8GiB/2h. Captured physical operator remains read-only. No GROOPS propagation/fits; protected6000 and original150WSL untouched.",
+        "status": "admitted"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/with_correctness_namespace_09.py",
+        "--execution",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/execution.json",
+        "--execution-sha256",
+        "008078a3083dc16b8f0c257a7045175663f48911366a4a4e224f418b89744008",
+        "--",
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/replay_captured_tangent01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/plan.json",
+        "--sha256",
+        "f9730ed02016bfa3e3d6f559df5aa1525ae3a306875a4f817b90db740153a7b6"
+      ],
+      "cleanup": {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2454302,
+            "pid": 2454313,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 111974353,
+            "state": "S"
+          },
+          {
+            "parent": 2454313,
+            "pid": 2454314,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 111974355,
+            "state": "S"
+          },
+          {
+            "parent": 2454314,
+            "pid": 2454316,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 111974358,
+            "state": "S"
+          },
+          {
+            "parent": 2454316,
+            "pid": 2454317,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 111974372,
+            "state": "S"
+          },
+          {
+            "parent": 2454317,
+            "pid": 2454318,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 111974372,
+            "state": "R"
+          },
+          {
+            "parent": 2454316,
+            "pid": 2454343,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 111974516,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T07:35:26.540117+00:00",
+        "pid_namespaces": [
+          "pid:[4026534163]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      "elapsed_seconds": 5.567169497953728,
+      "final_cleanup": {
+        "commands": [
+          {
+            "forced": false,
+            "identities": [
+              {
+                "parent": 2454302,
+                "pid": 2454313,
+                "pid_namespace": "pid:[4026531836]",
+                "start_ticks": 111974353,
+                "state": "S"
+              },
+              {
+                "parent": 2454313,
+                "pid": 2454314,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 111974355,
+                "state": "S"
+              },
+              {
+                "parent": 2454314,
+                "pid": 2454316,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 111974358,
+                "state": "S"
+              },
+              {
+                "parent": 2454316,
+                "pid": 2454317,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 111974372,
+                "state": "S"
+              },
+              {
+                "parent": 2454317,
+                "pid": 2454318,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 111974372,
+                "state": "R"
+              },
+              {
+                "parent": 2454316,
+                "pid": 2454343,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 111974516,
+                "state": "R"
+              }
+            ],
+            "live_owned_processes": [],
+            "observed_at": "2026-10-16T07:35:29.379736+00:00",
+            "pid_namespaces": [
+              "pid:[4026534163]"
+            ],
+            "returncode": 1,
+            "verified": true,
+            "was_running": false,
+            "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+          }
+        ],
+        "errors": [],
+        "verified": true
+      },
+      "finished_at": "2026-10-16T07:35:29.379762+00:00",
+      "fit_attempts": 0,
+      "interrupted_or_timeout": false,
+      "peak_owned_rss_bytes": 262283264,
+      "plan": {
+        "bytes": 3476,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/plan.json",
+        "sha256": "f9730ed02016bfa3e3d6f559df5aa1525ae3a306875a4f817b90db740153a7b6"
+      },
+      "process": {
+        "parent": 2454302,
+        "pid": 2454313,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 111974353,
+        "state": "S"
+      },
+      "release_evidence": false,
+      "returncode": 1,
+      "schema": "orbit-poc-owned-captured-tangent-v1",
+      "started_at": "2026-10-16T07:35:20.893021+00:00",
+      "status": "failed_diagnostic"
+    }
+  },
+  "run/replay/result.json": {
+    "sha256": "37f1302c0957e8a2ade9dc426361e6feee734a6a80ee1af6ee0b5d0258820435",
+    "value": {
+      "schema": "orbit-poc-captured-tangent-experiment-v1",
+      "status": "reader_failed",
+      "plan_sha256": "f9730ed02016bfa3e3d6f559df5aa1525ae3a306875a4f817b90db740153a7b6",
+      "inputs": {
+        "capture": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+          "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+        },
+        "capture_result": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/result.json",
+          "sha256": "f5a87f7ce1a038e1d1af08f6d432791a53397a31decaec2ce74c366eb33d90d8"
+        },
+        "build_result": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/run/build-result/result.json",
+          "sha256": "ee59b7116aa6ff22cc083ccfc809394f4daa9bd1291cb8446fde83750c3dec94"
+        },
+        "reader_source": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/replay.cpp",
+          "sha256": "1360653f2b3226bc578d1dd3e68f3598a0e762c9ab8d3fb345d2dadf46d637c7"
+        },
+        "reader_manifest": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/include/manifest.json",
+          "sha256": "1790d5c5c31c15f41223b3eb6051ac1d32c161b079d3183ac5ef97ee5a089047"
+        },
+        "reader_tangent": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/include/sixStateTangent.h",
+          "sha256": "6e3161f70b615fda4250983e501eb5d0e7daec0ff424026fadf9bd1bde55793b"
+        },
+        "reader_force": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/include/syntheticForceDerivatives.h",
+          "sha256": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310"
+        },
+        "reader_quadrature": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/include/eventQuadrature.h",
+          "sha256": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5"
+        }
+      },
+      "compiler_command": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/include",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/control/reader/replay.cpp",
+        "-o",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/binaries/tangent-reader"
+      ],
+      "groops_propagations": 0,
+      "fit_attempts": 0,
+      "release_evidence": false,
+      "reader": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/binaries/tangent-reader",
+        "sha256": "edf50b698acfa7d5bb4dd66f52d7d447d24be387a61ae2e4f61991c786e6d182"
+      },
+      "compiler_version": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "reader_loader_output": "\tlinux-vdso.so.1 (0x00007ffcb2bfe000)\n\tlibstdc++.so.6 => /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6 (0x000075bdb9800000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000075bdb9752000)\n\tlibgcc_s.so.1 => /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1 (0x000075bdb9ae0000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000075bdb957a000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x000075bdb9ad9000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000075bdb9b3b000)\n",
+      "reader_libraries": [
+        {
+          "path": "/lib/x86_64-linux-gnu/libc.so.6",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "sha256": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab"
+        },
+        {
+          "path": "/lib/x86_64-linux-gnu/libdl.so.2",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+          "sha256": "7d13eb4345b129fe7572c2eb9a3e120ca02783303c292fe270dd41d5afdb5a72"
+        },
+        {
+          "path": "/lib/x86_64-linux-gnu/libm.so.6",
+          "resolved": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+          "sha256": "c858d0f5308a1b6ab2fcb4388b34faca06ac6f34ac4db77357a3a91ad8598319"
+        },
+        {
+          "path": "/lib64/ld-linux-x86-64.so.2",
+          "resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+          "sha256": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+          "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6",
+          "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6.0.36",
+          "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+        }
+      ],
+      "returncode": 1,
+      "trace": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/run/replay/trace.jsonl",
+        "sha256": "58db7f1478fe7fbd18f44afdb8e33a26d9afbcc86df0535b3369c93bc07d7336"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-01/run/replay/stderr.log",
+        "sha256": "d9408edb0a3f3932dfa05d0a294afadd3878aa853c9e8ab6f0e649cf44c77b0b"
+      },
+      "record_count": 200,
+      "input": {
+        "kind": "input",
+        "epochs": 51840,
+        "dt": 5,
+        "duration": 259195,
+        "tolerance": 2e-12,
+        "maximum_iterations": 120,
+        "restart": 20,
+        "extended_digits": 64
+      },
+      "terminal": {
+        "kind": "terminal",
+        "status": "failed",
+        "iterations": 120,
+        "relative_residual": 1.503709478355439e-11
+      }
+    }
+  }
+}

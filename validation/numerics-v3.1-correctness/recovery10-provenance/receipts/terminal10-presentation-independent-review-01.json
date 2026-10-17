@@ -1,0 +1,61 @@
+{
+  "actual_terminal10_published": false,
+  "artifacts": {
+    "publish_terminal10.py": {
+      "bytes": 14141,
+      "path": "private-path-sha256:ddda460c5f2c0214627866e658d7e193286f82b93569f6c96c875d3df93c3201",
+      "sha256": "7aace830b6e31e88bc3978e93c6768b7f420d0a1ab1f924f7ea3f0916c77847d"
+    },
+    "recovery09/collect_correctness_publication_09.py": {
+      "bytes": 29190,
+      "path": "private-path-sha256:3e3fff4232d11e6608fb3c575e7e1e81329c6dfd76d12835332b56e969783911",
+      "sha256": "5e3b4e758409baff27c03deb48f6a5b6ef646ed2f9190dbbc7490c7e26f22a84"
+    },
+    "terminal10-presentation-author-validation-01.json": {
+      "bytes": 2443,
+      "path": "private-path-sha256:272f79bfc6eeefcbaa3e7d74f07165569783ff1e7fdb3ffc5bd26793b9524592",
+      "sha256": "a70d0f1cab0a97f406054312d566d2a5276a5ec1516620122a78e94d15bc8417"
+    },
+    "terminal10-presentation-independent-tests-01.xml": {
+      "bytes": 3454,
+      "path": "private-path-sha256:ff03ff892fc8303a25abae5232b7e4c7869f0c4d169e1bcb6139ae6c6b6495cf",
+      "sha256": "ebf930df06acc8905154276f5b461e68659af025ca954f0bec2a7da7d7bbf97a"
+    },
+    "test_publish_terminal10.py": {
+      "bytes": 8323,
+      "path": "private-path-sha256:681bdda82121753a91774ad3261a56cf520cfdd7cb9936f5b940405d89239269",
+      "sha256": "4232fe28f013f497fa6ca83da7beb6da85612638e243f3f0f0b9f5245c23f4fd"
+    },
+    "test_transfer_terminal10_compact.py": {
+      "bytes": 13469,
+      "path": "private-path-sha256:3c07dd37952cf96b5b888b5fc5cebb3528a0bd2e6fec67943ff1f3e2476e7c24",
+      "sha256": "a9c8e3cb2557d9663e24047629164a9610dada5bbe1aa1d9bc0909558b7bc3e9"
+    },
+    "transfer_terminal10_compact.py": {
+      "bytes": 18889,
+      "path": "private-path-sha256:b46f5f11706536ece5736cfc40a9641ae7b4f7b6cbbba91de445700f5198d3c4",
+      "sha256": "3fdb4fc8a85a3d0c8734fda69bbcbf80d465caa6382120d15e982be7ef5c386b"
+    }
+  },
+  "created_at": "2026-10-15T13:27:25.713774+00:00",
+  "findings": [
+    "All transferred stored and expanded bytes, remote-relative attribution, terminal journal hashes and independent audit source/execution/pins are checked before output creation.",
+    "Successful collector bundle is copied verbatim, including its version09 terminology; separate presentation explains immediate failed09 versus cumulative08 chronology.",
+    "Re-pinning a changed report summary cannot bypass original postprocessor result path/hash/size attribution.",
+    "All13 planned stages remain present and failed/missing collector or report outputs are explicit; scientific gate outcomes are copied rather than recomputed.",
+    "Strict nuisance and floor-limited progress fields are preserved distinctly in reported metrics and full evidence.",
+    "No covariance, release acceptance or frozen-benchmark reclassification is introduced."
+  ],
+  "issues": [],
+  "native_work_executed": false,
+  "passed": true,
+  "reviewer": "private-path-sha256:4dd31298c00a883f223a7f362646120129df1094121ef89137f9844bfcec863a",
+  "schema": "orbit-poc-terminal10-presentation-independent-review-v1",
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider control/test_publish_terminal10.py --basetemp=private-path-sha256:fe1dd59ff5d002fb875f0fe523703172d0afa005ff93019a359dd0a6620577ca",
+    "errors": 0,
+    "failed": 0,
+    "passed": 19,
+    "skipped": 0
+  }
+}

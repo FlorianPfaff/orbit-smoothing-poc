@@ -1,0 +1,31 @@
+{
+  "schema": "orbit-poc-segmented-native-qr-author-validation-v1",
+  "status": "passed",
+  "files": {
+    "groops/extension/segmentedQr.h": {
+      "sha256": "06b042c9936eea726850f3642efe280c534b681d5c35b6c9161f2d61fe84bf35",
+      "bytes": 25027
+    },
+    "groops/extension/segmentedQrMain.cpp": {
+      "sha256": "f475f3c39cf5e9a77dfc12f3f5a9749d44f7c9eafe1908410c044ea14b2d03ef",
+      "bytes": 6097
+    },
+    "tests/test_segmented_native_qr.py": {
+      "sha256": "0493a24e1d48ba850796a0f118f712c98c8c0d59cf731ab8f0a5430fcf7859fb",
+      "bytes": 20915
+    }
+  },
+  "tests": {
+    "passed": 64,
+    "native_qr": 47,
+    "python_adapters": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit": "/tmp/segmented-qr-blocks-validation-02.xml",
+    "sha256": "85b49d7b80b0868e140d92e78b2e838ffae03ed4e9a6ef0ff946f4edcb1b3a93"
+  },
+  "oracle": "GTSAM4.2 small equality-constrained QR only; production kernel uses LAPACK",
+  "blocked_covariance": "6x6 independent grid blocks and joint12 cross-segment queries; no all-epoch dense covariance; fresh undamped factors required by caller",
+  "engineering01_unchanged": true
+}

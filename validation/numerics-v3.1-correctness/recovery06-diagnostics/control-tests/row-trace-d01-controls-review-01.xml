@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="9" skipped="0" tests="19" time="9.046" timestamp="2026-10-15T10:15:17.141907+02:00" hostname="pfaff"><testcase classname="test_row_trace_d01_controls" name="test_complete_diagnostic_keeps_failed_replays_and_no_acceptance" time="0.062"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_complete_diagnostic_keeps0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x7892849aaca0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x78928485f110&gt;
+
+    def test_complete_diagnostic_keeps_failed_replays_and_no_acceptance(context,monkeypatch):
+        c=context;monkeypatch.setenv('ORBIT_POC_ROW_TRACE_DIRECTORY','unrelated')
+&gt;       c.invoke();j=result(c)
+        ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs[clone_failed-RuntimeError]" time="0.105"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_failed_or_interrupted_ste0/diagnostic/run/pipeline.json'">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_failed_or_interrupted_ste0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a38540&gt;, handlers={2: 'original-int', 15: 'original-term'})
+mode = 'clone_failed', error = &lt;class 'RuntimeError'&gt;
+
+    @pytest.mark.parametrize('mode,error',[('clone_failed',RuntimeError),('timeout',subprocess.TimeoutExpired),('interrupt',KeyboardInterrupt)])
+    def test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs(context,mode,error):
+        c=context;c.driver.mode=mode
+        with pytest.raises(error):c.invoke()
+&gt;       j=result(c);assert j['status']=='failed' and j['finished_at'] and j['final_cleanup']['verified']
+          ^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:130: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:108: in result
+    def result(c):return json.loads((Path(c.paths['run'])/'pipeline.json').read_text())
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_failed_or_interrupted_ste0/diagnostic/run/pipeline.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_failed_or_interrupted_ste0/diagnostic/run/pipeline.json'
+
+work/v3/native-env/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs[timeout-TimeoutExpired]" time="0.033"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_failed_or_interrupted_ste1/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a38fe0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+mode = 'timeout', error = &lt;class 'subprocess.TimeoutExpired'&gt;
+
+    @pytest.mark.parametrize('mode,error',[('clone_failed',RuntimeError),('timeout',subprocess.TimeoutExpired),('interrupt',KeyboardInterrupt)])
+    def test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs(context,mode,error):
+        c=context;c.driver.mode=mode
+&gt;       with pytest.raises(error):c.invoke()
+                                  ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs[interrupt-KeyboardInterrupt]" time="0.099"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_failed_or_interrupted_ste2/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x7892849aa3e0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+mode = 'interrupt', error = &lt;class 'KeyboardInterrupt'&gt;
+
+    @pytest.mark.parametrize('mode,error',[('clone_failed',RuntimeError),('timeout',subprocess.TimeoutExpired),('interrupt',KeyboardInterrupt)])
+    def test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs(context,mode,error):
+        c=context;c.driver.mode=mode
+&gt;       with pytest.raises(error):c.invoke()
+                                  ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_transient_step_receipt_failure_preserves_terminal_failure[2]" time="0.028"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_transient_step_receipt_fa0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a3a200&gt;, handlers={2: 'original-int', 15: 'original-term'})
+save_call = 2
+
+    @pytest.mark.parametrize('save_call',[2,3,4])
+    def test_transient_step_receipt_failure_preserves_terminal_failure(context,save_call):
+        c=context;c.driver.fail_save_at=save_call
+&gt;       with pytest.raises(OSError):c.invoke()
+                                    ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_transient_step_receipt_failure_preserves_terminal_failure[3]" time="0.009"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_transient_step_receipt_fa1/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a3aa20&gt;, handlers={2: 'original-int', 15: 'original-term'})
+save_call = 3
+
+    @pytest.mark.parametrize('save_call',[2,3,4])
+    def test_transient_step_receipt_failure_preserves_terminal_failure(context,save_call):
+        c=context;c.driver.fail_save_at=save_call
+&gt;       with pytest.raises(OSError):c.invoke()
+                                    ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_transient_step_receipt_failure_preserves_terminal_failure[4]" time="0.009"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_transient_step_receipt_fa2/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a3b4c0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+save_call = 4
+
+    @pytest.mark.parametrize('save_call',[2,3,4])
+    def test_transient_step_receipt_failure_preserves_terminal_failure(context,save_call):
+        c=context;c.driver.fail_save_at=save_call
+&gt;       with pytest.raises(OSError):c.invoke()
+                                    ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_final_save_failure_still_restores_handlers_and_cleans_children" time="0.010"><failure message="RuntimeError: Unknown plan fields">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_final_save_failure_still_0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a100e0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+
+    def test_final_save_failure_still_restores_handlers_and_cleans_children(context):
+        c=context;c.driver.mode='final_save'
+&gt;       with pytest.raises(OSError):c.invoke()
+                                    ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[input]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[helper]" time="0.073" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[source]" time="0.073" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[runtime]" time="0.073" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[unclean]" time="0.062" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[conflict]" time="0.063" /><testcase classname="test_row_trace_d01_controls" name="test_input_mutation_after_a_step_is_preserved_as_global_failure" time="0.031"><failure message="AssertionError: Regex pattern did not match.&#10; Regex: 'Pin changed'&#10; Input: 'Unknown plan fields'">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_input_mutation_after_a_st0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a119e0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+
+    def test_input_mutation_after_a_step_is_preserved_as_global_failure(context):
+        c=context;c.driver.after=lambda:Path(c.plan['inputs']['profile']['path']).write_text('changed during command')
+&gt;       with pytest.raises(RuntimeError,match='Pin changed'):c.invoke()
+                                                             ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:21: in main
+    require(set(plan)=={'schema','runner','execution','driver','source_freeze','helpers','inputs','input_links','prior_pipeline','last_generation'},'Unknown plan fields')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'Unknown plan fields'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Unknown plan fields
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/run_row_trace_d01.py:12: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-01/test_input_mutation_after_a_st0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x789284a119e0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+
+    def test_input_mutation_after_a_step_is_preserved_as_global_failure(context):
+        c=context;c.driver.after=lambda:Path(c.plan['inputs']['profile']['path']).write_text('changed during command')
+&gt;       with pytest.raises(RuntimeError,match='Pin changed'):c.invoke()
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'Pin changed'
+E        Input: 'Unknown plan fields'
+
+@TEMP_ROOT@/row-trace-d01-controls-review-01/test_row_trace_d01_controls.py:166: AssertionError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_build_refuses_wrong_identity_changed_inputs_or_failed_startup[revision]" time="0.028" /><testcase classname="test_row_trace_d01_controls" name="test_build_refuses_wrong_identity_changed_inputs_or_failed_startup[changed_source]" time="0.029" /><testcase classname="test_row_trace_d01_controls" name="test_build_refuses_wrong_identity_changed_inputs_or_failed_startup[help_failure]" time="0.014" /><testcase classname="test_row_trace_d01_controls" name="test_prepare_pins_all_inputs_and_rejects_modified_build_adapter" time="0.003" /></testsuite></testsuites>

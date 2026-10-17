@@ -1,0 +1,60 @@
+{
+  "schema": "orbit-poc-tangent72-telemetry-reader-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T06:56:20.691894+00:00",
+  "files": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/prepare_header.py",
+      "sha256": "ef32696e2eb31cd8f9aa6f07d970e747b5711c01908c8d7b3b715d3d8be75c56",
+      "bytes": 1526
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/replay.cpp",
+      "sha256": "e5daf3535ecb2f2160b22a61ad7effdeb1ba34f3b8916c5606a88763cc48cc50",
+      "bytes": 6870
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/test_replay.py",
+      "sha256": "1444850701eadcce25788f9c260839d294757442d2090a11a58255320f3adaa1",
+      "bytes": 3112
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/include/manifest.json",
+      "sha256": "1790d5c5c31c15f41223b3eb6051ac1d32c161b079d3183ac5ef97ee5a089047",
+      "bytes": 731
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/replay",
+      "sha256": "0b9a9280232fe5e5149bc65f2bcfef1eb2373ee9709e9cf89153287f1c219e26",
+      "bytes": 63384
+    }
+  ],
+  "independent_fixture_tests": {
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-replay-independent-tests01.log",
+      "sha256": "c32df25d4cf1b4a23d9c5159e6cc94c57bf3cef6208a87c8fbeab5a420e08c85",
+      "bytes": 197
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-replay-independent-tests01.xml",
+      "sha256": "5eee10953d9b911db7127777998025e9a1122612346b39358e8a7fded324617b",
+      "bytes": 1274
+    }
+  },
+  "header_delta": "Exactly three callbacks added at restart/final true residual and projected residual points. Removing those lines recovers the frozen header byte-for-byte; other included native headers are identical.",
+  "reader_checks": [
+    "Exact 16-byte magic, little-endian uint64 and IEEE754 binary64 format; rejects nonfinite/truncated/trailing data, invalid dimensions and out-of-grid quadrature indices.",
+    "Synthetic matrix-vector accumulation, quadrature invocation, preconditioner inputs and native 2e-12/120/restart20 defaults are preserved.",
+    "Extended residual independently evaluates the same binary64 iterate without final native subtraction rounding, separately labeling native binary64 velocity conversion and exact extended division by1000.",
+    "Fixture tests cover nontrivial Krylov iterations and projected/true residuals in addition to parser failures."
+  ],
+  "limitations": [
+    "This is a diagnostic-only standalone replay; it cannot authorize production convergence, covariance or release readiness.",
+    "The actual deployed compiler executable/version/flags/architecture/long-double precision must be recorded alongside the native compiler provenance before comparing precise floating-point residuals.",
+    "Standalone or telemetry-build residual differences alone cannot establish a native numerical floor or correction efficacy; the unchanged original-binary replay is the attribution anchor."
+  ],
+  "scientific_native_runs_by_reviewer": 0
+}

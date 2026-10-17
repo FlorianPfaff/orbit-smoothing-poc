@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "additional_parent_requirement": "Retain original analytical compensated-quadrature fixture against installed9a46 header once as an explicitly bound supplemental regression; interpolation/serializer fixtures do not substitute. Keep separate from prescribed106/51 counts.",
+  "candidate": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-native-controls-author-review01.json",
+    "sha256": "144cac248df57ee527f762cea35d017e604bba2f9643a2b3106a7ac9f503818f"
+  },
+  "finding": {
+    "description": "Closure output records states[0]-target but does not reject a changed physical initial state. Unlike the single replay, it could accept a closed trajectory with a consistently shifted initial state.",
+    "kind": "missing_exact_fixed_initial_state_acceptance_guard",
+    "required_correction": "Require np.array_equal(states[0], target) after every successful propagation and before recording/accepting closure. Retain exact original XML target and all 10/2e-6/3e-9 criteria.",
+    "scope": "Inherited adapter acceptance condition, not evidence of an actual native numerical failure."
+  },
+  "native_execution": false,
+  "observed_at": "2026-10-16T21:58:14.243876+00:00",
+  "schema": "orbit-poc-complete-native-check-independent-finding-v1",
+  "unchanged_reviewed_properties": [
+    "Distinct preparation03 vs preparation04 initial targets and single vs closure reference selections",
+    "Only five initial XML output/intermediate paths rebound",
+    "Original synthetic_complete_v1 profile and physical inputs remain pinned",
+    "Closure10iterations/2e-6m/3e-9m/s and owned CPU24/one numerical thread/8GiB/7200s outer resource limits unchanged",
+    "Complete611/20/0 build attribution and exact25661 baseline",
+    "No covariance, fit or release claim"
+  ],
+  "worker": {
+    "path": "/mnt/d/orbit-segmented-v4/control/replay_nominal_complete_closure01.py",
+    "sha256": "0cfa2d8cc595bd26f2501d9266de6ec30c958d3187a1f240340c500c27fa29ca"
+  }
+}

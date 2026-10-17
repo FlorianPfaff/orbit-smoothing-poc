@@ -1,0 +1,134 @@
+{
+  "accepted_covariance_authorized": false,
+  "base_commit": "8e4d36f7c47d57acdb9fa30d15a6005189bbf221",
+  "changed_files": {
+    "groops/extension/gnssRangeResidual.h": {
+      "after": "3da250d643d491bca9580641574555db29ecb7de4d88d883d44c6975f07efe85",
+      "before": "a55a03fdd3dea9df400ac5b8a0077732702c2a908dadbe34a1fcd48775fe56ea"
+    },
+    "groops/extension/orbitPocQrSolve.cpp": {
+      "after": "009ce7940b696df8ec8ad435269fcf7e4876ee8aa2d5c919faa7cf647970eeec",
+      "before": "dd8ac2fdecd344dea12a3be4a40e219be7c66d3946db46e09b0ad424b77029b3"
+    },
+    "groops/extension/positionRemainder.py": {
+      "after": "4f10db7dbd9f6b1d273ece846405cf2414d6ba80772ea14883b6a0a1dae2373f",
+      "before": "39109f60752b17fdadb59bb90aa63423ba32e74b13608330ca6c14c22608f77c"
+    },
+    "groops/extension/scaledRowQr.h": {
+      "after": "fcdf202c98ea3ecdc9bb71311a86b53335294863191d9a0553f9dbfc4d921083",
+      "before": "ba44b334d9c2a7c120303106d9d97fed8c4f12973dc611bbc222a85201599df1"
+    },
+    "tests/test_numerics_light_time_precision.py": {
+      "after": "045181e2b43d38bdd83f0bf5560c6046dddee4febacda4298baa192eac00db4a",
+      "before": null
+    }
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:14:05.843179+00:00",
+  "expected_total_regressions": 51,
+  "findings": [
+    "New production arithmetic preserves the distance expansion through division by light speed, addition of stored receiver clock and cancellation against native split Time. Only the small final relative query remainder is narrowed to long double.",
+    "Rounding the duration to choose the existing Time grid does not lose the physical query: timeRemainderExpansion restores the complete difference from that grid, including midnight/day-fraction boundaries.",
+    "Native long-double compatibility overloads and preciseDistance stopping API are retained; the generated legacy branch is byte-identical.",
+    "Ten light-time iterations and the existing1e-10 m position closure limit are unchanged; no objective, optimizer, nuisance, rank, covariance, force, derivative, prior, weight, observation support or acceptance threshold changes.",
+    "The measured D03 baseline/trial distances are represented by three native binary64 fixture components with exact Decimal reconstruction of all captured expansion bits.",
+    "Independent nonlinear fixture solves the moving-receiver/transmitter Euclidean light-time equation in120-digit Decimal; it tests perturbation response over three day-grid fractions with no change to production convergence settings.",
+    "Non-nearest arithmetic fails closed. A preexisting old generated query is explicitly rejected; fresh pinned upstream installation is required.",
+    "Final standalone fixture block and generated program/header are byte-identical to source; old106 tests and40 regressions plus all existing gate/backend files are hash-identical to executed08."
+  ],
+  "fixture_artifacts": {
+    "fixture-extracted": {
+      "bytes": 42888,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted",
+      "sha256": "635e1eb8e795dd2eda85c480b80c24c0ef1349533d36355b5f9459c56f2e0e34"
+    },
+    "fixture-extracted.compile.json": {
+      "bytes": 309,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted.compile.json",
+      "sha256": "aed514429443bbb317ef8da57a14990e8ed6ae7e701922abcdc4bd3d3fac3482"
+    },
+    "fixture-extracted.cpp": {
+      "bytes": 6412,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-extracted.cpp",
+      "sha256": "ef75eaa1c6ff753acf971fe39e388c2c6988025a1a5706bce86055e85c047f6e"
+    },
+    "fixture-wrapper.py": {
+      "bytes": 278,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/fixture-wrapper.py",
+      "sha256": "e356d49b79d97b054207b0e67c384930bcb6b9dde405f4aed2ffb3c1b88cab25"
+    },
+    "installation.json": {
+      "bytes": 663,
+      "path": "@TEMP_ROOT@/candidate09-generated-02/installation.json",
+      "sha256": "704867baa785768ce7be7017a330eb2a46eaf20f564b6b4fb7c4e0d24fc3a0cd"
+    }
+  },
+  "full_native_acceptance_pending": true,
+  "independent_test_run": {
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 1875,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-lighttime-independent-tests-02.xml",
+      "sha256": "ba1724db68a193ee43bea2101516d37e430471cd09248435152151e805deedb8"
+    },
+    "scope": "Standalone exact fixture block using actual pinned GROOPS Time/Vector headers, plus independent Decimal120 oracle and static tests; not a full native GROOPS build or fit.",
+    "skipped": 0,
+    "tests": 11
+  },
+  "inventory_policy": "All tracked files plus the one declared new regression file, to be committed byte-for-byte before packaging; canonical sorted filename-to-SHA256 JSON with compact separators.",
+  "limitations": [
+    "The standalone fixture does not execute the full GNSS pipeline; fresh full build and all prescribed gates are still required.",
+    "The fixture measures the narrow arithmetic correction, not orbit accuracy or covariance acceptance.",
+    "Full-extension reapplication has two preexisting bookkeeping changes reported by author; this review does not claim global byte-idempotence.",
+    "Native receiver clock design approximation, force/flight derivative approximations and native binary64 separate constraints remain unchanged."
+  ],
+  "measured_defect_review": {
+    "bytes": 6777,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/d03-analysis04-attribution-review-01.json",
+    "sha256": "ccb45608af591fa6b5f1d0d962317801b40bd4740d98b00c4862ec9cba7d6a98"
+  },
+  "native_fit_launched": false,
+  "new_regressions": 11,
+  "original_native_tests_preserved": 106,
+  "passed": true,
+  "previous_regressions_preserved": 40,
+  "previous_source_freeze": {
+    "bytes": 110170,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/remote-recovery-08-terminal-01/control/candidate07-source-freeze.json",
+    "sha256": "18722c1cdd54b545dfe4e48a45b0c05aa49c39f3738edb39e3bd12a839145676"
+  },
+  "protected_previous_files": 63,
+  "reviewed_source_files": {
+    "groops/extension/gnssRangeResidual.h": {
+      "bytes": 5753,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/gnssRangeResidual.h",
+      "sha256": "3da250d643d491bca9580641574555db29ecb7de4d88d883d44c6975f07efe85"
+    },
+    "groops/extension/orbitPocQrSolve.cpp": {
+      "bytes": 32769,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/orbitPocQrSolve.cpp",
+      "sha256": "009ce7940b696df8ec8ad435269fcf7e4876ee8aa2d5c919faa7cf647970eeec"
+    },
+    "groops/extension/positionRemainder.py": {
+      "bytes": 14612,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/positionRemainder.py",
+      "sha256": "4f10db7dbd9f6b1d273ece846405cf2414d6ba80772ea14883b6a0a1dae2373f"
+    },
+    "groops/extension/scaledRowQr.h": {
+      "bytes": 42691,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/groops/extension/scaledRowQr.h",
+      "sha256": "fcdf202c98ea3ecdc9bb71311a86b53335294863191d9a0553f9dbfc4d921083"
+    },
+    "tests/test_numerics_light_time_precision.py": {
+      "bytes": 8748,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05/tests/test_numerics_light_time_precision.py",
+      "sha256": "045181e2b43d38bdd83f0bf5560c6046dddee4febacda4298baa192eac00db4a"
+    }
+  },
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-candidate09-source-independent-review-v1",
+  "source_file_count": 772,
+  "source_root": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-05",
+  "source_sha256": "029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498"
+}

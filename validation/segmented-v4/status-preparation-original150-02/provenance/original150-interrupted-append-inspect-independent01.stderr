@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/mnt/d/orbit-segmented-v4/control/apply_original150_interrupted_append01.py", line 103, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/mnt/d/orbit-segmented-v4/control/apply_original150_interrupted_append01.py", line 102, in main
+    print(json.dumps(run(args.plan,args.sha256,args.apply),sort_keys=True,indent=2))
+                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-segmented-v4/control/apply_original150_interrupted_append01.py", line 91, in run
+    candidates=inspect(plan); written=[]
+  File "/mnt/d/orbit-segmented-v4/control/apply_original150_interrupted_append01.py", line 50, in inspect
+    need(set(actual)-set(NAMES)==set(expected),'Partial output membership changed')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-segmented-v4/control/apply_original150_interrupted_append01.py", line 8, in need
+    if not value: raise ValueError(message)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Partial output membership changed

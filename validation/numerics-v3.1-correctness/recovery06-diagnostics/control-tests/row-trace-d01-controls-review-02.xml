@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="20" time="4.085" timestamp="2026-10-15T10:16:08.511263+02:00" hostname="pfaff"><testcase classname="test_row_trace_d01_controls" name="test_complete_diagnostic_keeps_failed_replays_and_no_acceptance" time="0.012"><failure message="RuntimeError: equivalence failed">context = namespace(root=PosixPath('@TEMP_ROOT@/row-trace-d01-controls-fixtures-02/test_complete_diagnostic_keeps0/diagnostic'), plan={...4.py'}, invoke=&lt;function context.&lt;locals&gt;.invoke at 0x7f9bdf406ca0&gt;, handlers={2: 'original-int', 15: 'original-term'})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f9bdf2cbcd0&gt;
+
+    def test_complete_diagnostic_keeps_failed_replays_and_no_acceptance(context,monkeypatch):
+        c=context;monkeypatch.setenv('ORBIT_POC_ROW_TRACE_DIRECTORY','unrelated')
+&gt;       c.invoke();j=result(c)
+        ^^^^^^^^^^
+
+@TEMP_ROOT@/row-trace-d01-controls-review-02/test_row_trace_d01_controls.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+@TEMP_ROOT@/row-trace-d01-controls-review-02/test_row_trace_d01_controls.py:104: in invoke
+    return r.main()
+           ^^^^^^^^
+@TEMP_ROOT@/row-trace-d01-controls-review-02/run_row_trace_d01.py:76: in main
+    command('equivalence',[paths['python'],plan['helpers']['compare']['path'],'--reference',Path(plan['inputs']['profile']['path']).parent,'--trace-off',run/'trace-off','--trace-on',run/'trace-on','--last-generation','8','--receipt',run/'equivalence.json'],600)
+@TEMP_ROOT@/row-trace-d01-controls-review-02/run_row_trace_d01.py:62: in command
+    entry.update(returncode=code,status='completed' if code in allowed else 'failed',finished_at=d.stamp());save();guard();require(code in allowed,name+' failed')
+                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, why = 'equivalence failed'
+
+    def require(ok,why):
+&gt;       if not ok:raise RuntimeError(why)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: equivalence failed
+
+@TEMP_ROOT@/row-trace-d01-controls-review-02/run_row_trace_d01.py:12: RuntimeError</failure></testcase><testcase classname="test_row_trace_d01_controls" name="test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs[clone_failed-RuntimeError]" time="0.009" /><testcase classname="test_row_trace_d01_controls" name="test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs[timeout-TimeoutExpired]" time="0.010" /><testcase classname="test_row_trace_d01_controls" name="test_failed_or_interrupted_step_is_terminal_and_owned_cleanup_runs[interrupt-KeyboardInterrupt]" time="0.009" /><testcase classname="test_row_trace_d01_controls" name="test_transient_step_receipt_failure_preserves_terminal_failure[2]" time="0.009" /><testcase classname="test_row_trace_d01_controls" name="test_transient_step_receipt_failure_preserves_terminal_failure[3]" time="0.009" /><testcase classname="test_row_trace_d01_controls" name="test_transient_step_receipt_failure_preserves_terminal_failure[4]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_final_save_failure_still_restores_handlers_and_cleans_children" time="0.011" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[input]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[helper]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[source]" time="0.009" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[runtime]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[unclean]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[conflict]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_identity_or_admission_failure_prevents_native_work[link]" time="0.017" /><testcase classname="test_row_trace_d01_controls" name="test_input_mutation_after_a_step_is_preserved_as_global_failure" time="0.017" /><testcase classname="test_row_trace_d01_controls" name="test_build_refuses_wrong_identity_changed_inputs_or_failed_startup[revision]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_build_refuses_wrong_identity_changed_inputs_or_failed_startup[changed_source]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_build_refuses_wrong_identity_changed_inputs_or_failed_startup[help_failure]" time="0.008" /><testcase classname="test_row_trace_d01_controls" name="test_prepare_pins_all_inputs_and_rejects_modified_build_adapter" time="0.003" /></testsuite></testsuites>

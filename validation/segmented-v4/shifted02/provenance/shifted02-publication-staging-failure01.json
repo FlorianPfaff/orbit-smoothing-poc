@@ -1,0 +1,35 @@
+{
+  "schema": "orbit-poc-shifted02-publication-staging-failure-v1",
+  "observed_at": "2026-10-16T06:20:28.336708+00:00",
+  "status": "failed_before_output_creation",
+  "failed_plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted02-publication-plan01.json",
+    "sha256": "fe38fb55441d378f502f7cb9c0ecba4315b003f9cf8c86c70f2a926d7e41551b",
+    "bytes": 15990
+  },
+  "builder": {
+    "path": "/mnt/d/orbit-segmented-v4/control/package_shifted02_publication01.py",
+    "sha256": "b57cb04100a34735466bfb3ca5ab5b1824f1aa12f297fbe2f1eaff0ff29caf22",
+    "bytes": 11915
+  },
+  "stderr": {
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted02-publication01.stderr.log",
+    "sha256": "f8013f5f32bcf65e73a575096fa0efb115c4f033605acd1f640e3b9e33bf0f22",
+    "bytes": 2122
+  },
+  "raw_non_json_sources": [
+    {
+      "source": {
+        "bytes": 0,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted02-launch-independent-readback01.json",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "destination": "shifted02-launch-independent-readback01.json.raw.txt",
+      "reason": "Preserve exact non-JSON readback bytes without interpreting as a successful JSON record.",
+      "parse_error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ],
+  "source_or_numerical_changes": false,
+  "output_directory_created": false,
+  "correction": "Only output labels for malformed/empty historical JSON-named readbacks become .json.raw.txt. Exact source bytes and original filename/pins remain recorded. The unchanged builder validates all scientific evidence as before."
+}

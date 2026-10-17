@@ -1,0 +1,102 @@
+{
+  "schema": "orbit-poc-v4-new-system-tangent-diagnosis-publication-v1",
+  "status": "diagnosis_verified_solver_still_failed",
+  "observed_at": "2026-10-16T15:46:50.091623+00:00",
+  "original_failure": "six-state tangent did not meet its true residual tolerance: relative_residual=5.2053902058798312e-12, tolerance=2e-12, iterations=120, rhs_norm=4.8014353984884544e-06, solution_norm=0.0076587054185056243, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+  "build": {
+    "baseline_relinked_sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133",
+    "capture_native": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-05/binaries/groops-capture-7d51262e4635e528",
+      "sha256": "7d51262e4635e5286c9ba4dd18df0537d4f8d5dc14b2e64543c687a737c12d14"
+    },
+    "reader": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-05/binaries/tangent-replay",
+      "sha256": "6dd7c97dc0825ffb815266ea478c038208a4fe883dce872653904e0a57dd5b34"
+    },
+    "reused_objects": 610,
+    "original_objects": 611,
+    "original_link_input_pins": 637,
+    "scope": "Diagnostic-only native/operator capture build, no solver correction, propagation, fit, convergence or release claim."
+  },
+  "trace_summary": {
+    "best_native": {
+      "extended_residual_exact_velocity_conversion": 2.4572007506240804e-12,
+      "extended_residual_native_velocity_conversion": 2.4572007506240804e-12,
+      "final": false,
+      "iteration": 91,
+      "kind": "true_residual",
+      "native_relative_residual": 2.458626682382519e-12,
+      "native_solution_norm": 0.007658705418505733
+    },
+    "best_native_quad": {
+      "binary_digits": 113,
+      "epsilon_times_solution_over_rhs_norm": 3.5418038102202973e-13,
+      "iteration": 91,
+      "kind": "best_native_iterate_quad_residual",
+      "native_relative_residual": 2.458626682382519e-12,
+      "native_solution_norm": 0.007658705418505733,
+      "relative_residual_exact_velocity_conversion": 2.4179463620548558e-12,
+      "relative_residual_native_velocity_conversion": 2.417945997329731e-12,
+      "selection": "lowest_observed_native_true_residual"
+    },
+    "counts": {
+      "best_native_iterate_quad_residual": 1,
+      "input": 1,
+      "projected_residual": 120,
+      "quad_residual": 1,
+      "terminal": 1,
+      "true_residual": 95
+    },
+    "cycle_lengths": {
+      "1": 71,
+      "2": 22,
+      "5": 1
+    },
+    "final_quad": {
+      "binary_digits": 113,
+      "iteration": 120,
+      "kind": "quad_residual",
+      "relative_residual_exact_velocity_conversion": 5.4360979938346625e-12,
+      "relative_residual_native_velocity_conversion": 5.436097612732665e-12
+    },
+    "terminal": {
+      "iterations": 120,
+      "kind": "terminal",
+      "relative_residual": 5.205390205879831e-12,
+      "status": "failed"
+    }
+  },
+  "trace_rows": 219,
+  "update_cycles": 94,
+  "original_residual_threshold": 2e-12,
+  "actual_capture": {
+    "bytes": 27786112,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/captured-system.bin",
+    "sha256": "f172b81438d7c5cf0c4d2ada953a2a2f42282c833293a8fbf120c75607bf4044"
+  },
+  "benchmark_attempts": 0,
+  "covariance_authorized": false,
+  "release_ready": false,
+  "pending_candidate_outcomes_included": false,
+  "scope": [
+    "The exact new failed third nominal propagation was reproduced; standalone final residual agrees with the native failure.",
+    "The best observed native true-residual iterate and final iterate both fail the original threshold under the independent 113-bit residual computation. Best means lowest observed native true residual, not a search over all states.",
+    "Ninety-four short update cycles were observed: 71 one-step, 22 two-step and one five-step. This motivates further diagnostics; it does not establish a cause or correction.",
+    "Capture instrumentation and telemetry preserve the production tangent algorithm and thresholds. The unmodified baseline relinks exactly to eb41 before the diagnostic hook is applied.",
+    "Metadata staging04 and author/reviewer tooling failures are retained separately from actual build05 and telemetry03 outcomes.",
+    "No full trajectory closure, accepted covariance, benchmark result, production correction or release claim. Pending candidate07 outcomes are excluded."
+  ],
+  "audits": {
+    "tangent-capture-build05-independent-terminal-review01.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build05-independent-terminal-review01.json",
+      "sha256": "dc549c1013d8810f9068b6d3f65a6b104e4f738d2317b6fbd9978d5b9657d435",
+      "bytes": 2485
+    },
+    "nominal-tangent-capture03-independent-terminal-review01.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-capture03-independent-terminal-review01.json",
+      "sha256": "59634cafaaf9979e3cf45eb8413dfd41113211a31134e0677a9a5f76cafd556d",
+      "bytes": 6994
+    }
+  },
+  "external_reference_count": 1156
+}

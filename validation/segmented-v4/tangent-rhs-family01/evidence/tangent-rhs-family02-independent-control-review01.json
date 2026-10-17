@@ -1,0 +1,39 @@
+{
+  "schema": "orbit-poc-rhs-family-run02-independent-control-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:10:55.908765+00:00",
+  "files": {
+    "replay_tangent_rhs_family02.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/replay_tangent_rhs_family02.py",
+      "sha256": "cd0bd39280e0e2c7da728bf0a84b11e20cf87a6a774c9f97c9e008407d91d077"
+    },
+    "stage_tangent_rhs_family04.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_tangent_rhs_family04.py",
+      "sha256": "1fd750afdc126d3f1bf31dce7ab2a08ce54d2fff17a51bb83ce323dd7d2d5d18"
+    },
+    "test_tangent_rhs_family02.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_rhs_family02.py",
+      "sha256": "b749d8baf53bc15b002e5d46746dd6b8d77a3870a36e583f7376032d636ae054"
+    }
+  },
+  "tests": {
+    "passed": 51,
+    "failures": 0,
+    "skips": 0,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family02-independent-tests01.log",
+      "sha256": "b59293f53d4464454305dda1486bfbc96c0e35c32da67a9548c078eccbbf14fa"
+    },
+    "xml": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family02-independent-tests01.xml",
+      "sha256": "af400049df1152695945251e24cbc71272d1a5b0e3000d39e5cae26d803bef88"
+    }
+  },
+  "checks": [
+    "Only worker changes are exact family audit binding function and its invocation from run_family. All other function ASTs unchanged.",
+    "Independent audit must bind family manifest, successful preflight result and plan, common binary, and source bundle exactly.",
+    "Stager verifies successful preflight and clean controller; preserves exact driver/controller/source freeze, original worker, native reference and source tree; adds completed preflight root read-only.",
+    "Fresh run output and immutable pins; 54 serial calls retain numerical failures under unchanged limits and returned binary64-state 113-bit certificate."
+  ],
+  "scope": "Control code approval only. Actual generated family and concrete run packet remain prerequisites; no scientific fits or production promotion."
+}

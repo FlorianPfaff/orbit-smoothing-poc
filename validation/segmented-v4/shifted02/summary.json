@@ -1,0 +1,358 @@
+{
+  "benchmark_attempts_executed": 0,
+  "benchmark_attempts_planned": 68,
+  "benchmark_status": "not_run",
+  "capture": {
+    "bytes": 71099,
+    "path": "/mnt/d/orbit-segmented-v4/shifted-diagnostic-02-results/terminal-capture-01/manifest.json",
+    "sha256": "2fcbbeb40d456fb852eda01aac0098ef748938de16eae8bfe12aaf90d4c14f79"
+  },
+  "fit_covariance_authorized": false,
+  "identity": {
+    "comparison_source_sha256": "68e17e5b5ebe6fe22a47b9c6213c89397cfb80e25cc5e033da2621fc0aa44474",
+    "full_source_sha256": "1fe0f24166a7983a7c10eaf1712e4b5545f02c61bd38406fa9d07e70cd7d6a4e",
+    "native_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+    "solver_sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+  },
+  "independent_audit": {
+    "bytes": 70074,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted02-terminal-independent-review01.json",
+    "sha256": "8b7710f665992bbed6ce128ce9f773104f283c95eb4c623739375380bc0aec51"
+  },
+  "limitations": [
+    "One-hour synthetic captured linearizations; this is not the24/48/72-hour benchmark or flight fit equivalence.",
+    "The300-second pulse shifts had no interior original-parameter movement and are reported only as numerical equivalence without cut coverage. The1800-second shifts supply genuine interior movement for both periods and methods.",
+    "The gradient in this diagnostic has unit denominator, not the nonlinear objective normalization.",
+    "Only undamped linearization covariance is checked; no accepted-fit covariance, speedup or release approval follows.",
+    "Raw row energy/equality checks use independent binary64 products and math.fsum; original dense MAP/covariance use independent SciPy triangular and QR calculations."
+  ],
+  "methods": [
+    {
+      "method": "log_drag_ou",
+      "original_columns": 146,
+      "profiles": [
+        {
+          "covariance_relative_error": 9.139596999390493e-14,
+          "cut_coverage": "genuine_interior_movement",
+          "interior_movement_count": 5,
+          "maximum_independent_equality_backward_error": 1.6536759526146972e-16,
+          "maximum_map_discrepancy_posterior_sd": 1.9156993891441904e-12,
+          "maximum_normalized_full_energy_difference": 1.82800745666033e-15,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 300.0,
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.6210688700207295e-16,
+              "kernel_equality_backward_error": 1.6205558735428748e-16,
+              "map_discrepancy_posterior_sd": 1.9156993891441904e-12,
+              "normalized_full_energy_difference": 1.82800745666033e-15,
+              "normalized_orthogonal_energy_difference": 1.82800745666033e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5546457070634892e-16,
+              "kernel_equality_backward_error": 1.5546457070634892e-16,
+              "map_discrepancy_posterior_sd": 1.4054919014865738e-12,
+              "normalized_full_energy_difference": 1.1220568563269511e-15,
+              "normalized_orthogonal_energy_difference": 3.3661705689808536e-15
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6536759526146972e-16,
+              "kernel_equality_backward_error": 1.6536759526146972e-16,
+              "map_discrepancy_posterior_sd": 4.63031402299041e-14,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 8.904309661780191e-14,
+          "cut_coverage": "genuine_interior_movement",
+          "interior_movement_count": 54,
+          "maximum_independent_equality_backward_error": 1.6307791829438486e-16,
+          "maximum_map_discrepancy_posterior_sd": 1.9073021762451643e-12,
+          "maximum_normalized_full_energy_difference": 1.5467755402510487e-15,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 1800.0,
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.5982183669960996e-16,
+              "kernel_equality_backward_error": 1.5981015278842458e-16,
+              "map_discrepancy_posterior_sd": 1.9073021762451643e-12,
+              "normalized_full_energy_difference": 1.5467755402510487e-15,
+              "normalized_orthogonal_energy_difference": 2.812319164092816e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5372082202251614e-16,
+              "kernel_equality_backward_error": 1.537390141706714e-16,
+              "map_discrepancy_posterior_sd": 1.5478720044107935e-12,
+              "normalized_full_energy_difference": 1.402571070408689e-15,
+              "normalized_orthogonal_energy_difference": 9.817997492860822e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6307791829438486e-16,
+              "kernel_equality_backward_error": 1.6278087290587048e-16,
+              "map_discrepancy_posterior_sd": 9.67691409648825e-13,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 9.139596999390493e-14,
+          "cut_coverage": "genuine_interior_movement",
+          "interior_movement_count": 5,
+          "maximum_independent_equality_backward_error": 1.6536759526146972e-16,
+          "maximum_map_discrepancy_posterior_sd": 1.9156993891441904e-12,
+          "maximum_normalized_full_energy_difference": 1.82800745666033e-15,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 300.0,
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.6210688700207295e-16,
+              "kernel_equality_backward_error": 1.6205558735428748e-16,
+              "map_discrepancy_posterior_sd": 1.9156993891441904e-12,
+              "normalized_full_energy_difference": 1.82800745666033e-15,
+              "normalized_orthogonal_energy_difference": 1.82800745666033e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5546457070634892e-16,
+              "kernel_equality_backward_error": 1.5546457070634892e-16,
+              "map_discrepancy_posterior_sd": 1.4054919014865738e-12,
+              "normalized_full_energy_difference": 1.1220568563269511e-15,
+              "normalized_orthogonal_energy_difference": 3.3661705689808536e-15
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6536759526146972e-16,
+              "kernel_equality_backward_error": 1.6536759526146972e-16,
+              "map_discrepancy_posterior_sd": 4.63031402299041e-14,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 8.904309661780191e-14,
+          "cut_coverage": "genuine_interior_movement",
+          "interior_movement_count": 54,
+          "maximum_independent_equality_backward_error": 1.6307791829438486e-16,
+          "maximum_map_discrepancy_posterior_sd": 1.9073021762451643e-12,
+          "maximum_normalized_full_energy_difference": 1.5467755402510487e-15,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 1800.0,
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.5982183669960996e-16,
+              "kernel_equality_backward_error": 1.5981015278842458e-16,
+              "map_discrepancy_posterior_sd": 1.9073021762451643e-12,
+              "normalized_full_energy_difference": 1.5467755402510487e-15,
+              "normalized_orthogonal_energy_difference": 2.812319164092816e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5372082202251614e-16,
+              "kernel_equality_backward_error": 1.537390141706714e-16,
+              "map_discrepancy_posterior_sd": 1.5478720044107935e-12,
+              "normalized_full_energy_difference": 1.402571070408689e-15,
+              "normalized_orthogonal_energy_difference": 9.817997492860822e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6307791829438486e-16,
+              "kernel_equality_backward_error": 1.6278087290587048e-16,
+              "map_discrepancy_posterior_sd": 9.67691409648825e-13,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "pulses",
+      "original_columns": 91,
+      "profiles": [
+        {
+          "covariance_relative_error": 7.038103665818366e-14,
+          "cut_coverage": "no_cut_coverage",
+          "interior_movement_count": 0,
+          "maximum_independent_equality_backward_error": 1.5137117718097012e-16,
+          "maximum_map_discrepancy_posterior_sd": 2.244185309369486e-12,
+          "maximum_normalized_full_energy_difference": 8.397934927365646e-16,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 300.0,
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.350575459742412e-16,
+              "kernel_equality_backward_error": 1.350575459742412e-16,
+              "map_discrepancy_posterior_sd": 8.81206187245845e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 9.838674517021386e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5137117718097012e-16,
+              "kernel_equality_backward_error": 1.5137117718097012e-16,
+              "map_discrepancy_posterior_sd": 4.960234864196403e-13,
+              "normalized_full_energy_difference": 8.397934927365646e-16,
+              "normalized_orthogonal_energy_difference": 8.397934927365646e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013885813e-16,
+              "kernel_equality_backward_error": 1.3490797013885813e-16,
+              "map_discrepancy_posterior_sd": 2.244185309369486e-12,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 3.460063100844305e-14,
+          "cut_coverage": "genuine_interior_movement",
+          "interior_movement_count": 27,
+          "maximum_independent_equality_backward_error": 1.5042008464690595e-16,
+          "maximum_map_discrepancy_posterior_sd": 7.569267300162023e-13,
+          "maximum_normalized_full_energy_difference": 6.998279106138039e-16,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 1800.0,
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.4978082722914706e-16,
+              "kernel_equality_backward_error": 1.4978082722914706e-16,
+              "map_discrepancy_posterior_sd": 7.561602341308252e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 2.8110498620061106e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5042008464690595e-16,
+              "kernel_equality_backward_error": 1.5042008464690595e-16,
+              "map_discrepancy_posterior_sd": 7.569267300162023e-13,
+              "normalized_full_energy_difference": 6.998279106138039e-16,
+              "normalized_orthogonal_energy_difference": 6.998279106138039e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013877562e-16,
+              "kernel_equality_backward_error": 1.3490797013877562e-16,
+              "map_discrepancy_posterior_sd": 3.4256075949041875e-13,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 7.038103665818366e-14,
+          "cut_coverage": "no_cut_coverage",
+          "interior_movement_count": 0,
+          "maximum_independent_equality_backward_error": 1.5137117718097012e-16,
+          "maximum_map_discrepancy_posterior_sd": 2.244185309369486e-12,
+          "maximum_normalized_full_energy_difference": 8.397934927365646e-16,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 300.0,
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.350575459742412e-16,
+              "kernel_equality_backward_error": 1.350575459742412e-16,
+              "map_discrepancy_posterior_sd": 8.81206187245845e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 9.838674517021386e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5137117718097012e-16,
+              "kernel_equality_backward_error": 1.5137117718097012e-16,
+              "map_discrepancy_posterior_sd": 4.960234864196403e-13,
+              "normalized_full_energy_difference": 8.397934927365646e-16,
+              "normalized_orthogonal_energy_difference": 8.397934927365646e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013885813e-16,
+              "kernel_equality_backward_error": 1.3490797013885813e-16,
+              "map_discrepancy_posterior_sd": 2.244185309369486e-12,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 3.460063100844305e-14,
+          "cut_coverage": "genuine_interior_movement",
+          "interior_movement_count": 27,
+          "maximum_independent_equality_backward_error": 1.5042008464690595e-16,
+          "maximum_map_discrepancy_posterior_sd": 7.569267300162023e-13,
+          "maximum_normalized_full_energy_difference": 6.998279106138039e-16,
+          "numerical_equivalence": "passed_scoped_checks",
+          "offset_seconds": 1800.0,
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.4978082722914706e-16,
+              "kernel_equality_backward_error": 1.4978082722914706e-16,
+              "map_discrepancy_posterior_sd": 7.561602341308252e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 2.8110498620061106e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5042008464690595e-16,
+              "kernel_equality_backward_error": 1.5042008464690595e-16,
+              "map_discrepancy_posterior_sd": 7.569267300162023e-13,
+              "normalized_full_energy_difference": 6.998279106138039e-16,
+              "normalized_orthogonal_energy_difference": 6.998279106138039e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013877562e-16,
+              "kernel_equality_backward_error": 1.3490797013877562e-16,
+              "map_discrepancy_posterior_sd": 3.4256075949041875e-13,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "nuisance_profile_evaluations": 0,
+  "physical_evaluations": 0,
+  "preserved_history": [
+    {
+      "description": "The original diagnostic01 read-only parser failure is retained as historical provenance. Diagnostic02 used the previously corrected parser and passed a fresh independent row audit; this historical failure is not attributed to the new native run.",
+      "evidence": "shifted-independent-row-analysis-01/result.json",
+      "kind": "historical_actual_readonly_parser_failure"
+    },
+    {
+      "description": "The first publication attempt stopped before creating output because a preserved read-only launch readback was empty despite a .json filename. The retry keeps the exact bytes under a .json.raw.txt label; scientific inputs, validation and thresholds are unchanged.",
+      "evidence": "shifted02-publication-staging-failure01.json",
+      "kind": "publication_only_input_format_failure"
+    }
+  ],
+  "release_ready": false,
+  "schema": "orbit-poc-shifted-cut-publication-summary-v1",
+  "scientific_status": "passed_scoped_checks",
+  "scope": "Read-only post-validation diagnostic on two captured one-hour synthetic linearizations. No new nonlinear/flight fit or change to immutable validation04.",
+  "solver_calls": 32
+}

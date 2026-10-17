@@ -1,0 +1,171 @@
+{
+  "artifacts": {
+    "actual-smoke-verification.json": {
+      "bytes": 2481,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/actual-smoke-verification.json",
+      "sha256": "a49d69f177289fd0058d7f6a393409c8428bb68bb2de30bd87dbd099c96b4069"
+    },
+    "actual-static-verification.json": {
+      "bytes": 26591,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/actual-static-verification.json",
+      "sha256": "0c22fda837f9d1749bd98e23bdf2ef8096c4b5535d0ee7c1279a6cb7af4bc6fd"
+    },
+    "execution.json": {
+      "bytes": 24869,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/execution.json",
+      "sha256": "49d7ecfcf33cf1d413fe187926217451384f9b9a6faf0e401b2983a978adba3c"
+    },
+    "pins.json": {
+      "bytes": 382,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/pins.json",
+      "sha256": "77666b9f1338b3dbd31d9775ce975437434c46a1dc34b03751b13847167c3384"
+    },
+    "plan.json": {
+      "bytes": 2923,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/plan.json",
+      "sha256": "7e8a00946a84a5fceb29e75dc802b13710d70e31ce7faddf24966358272ee031"
+    },
+    "smoke-execution.json": {
+      "bytes": 24994,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke-execution.json",
+      "sha256": "60745acf35e563699bb64345def29a0ab26a4d5d59d5e8ffcd14b1576777f007"
+    },
+    "smoke-process.json": {
+      "bytes": 6102,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke-process.json",
+      "sha256": "8aab85767d5395a0c040535e9172a8445b0fd2d6a7c94c02ede9b5634f4dc2d3"
+    },
+    "smoke-runtime-log_drag_ou-before.json": {
+      "bytes": 1423,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke-runtime-log_drag_ou-before.json",
+      "sha256": "f34555eeb9a2961c5c66300bb46d75894e4a2aee1054bd0d019891a621462cb9"
+    },
+    "staging.json": {
+      "bytes": 52108,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/staging.json",
+      "sha256": "d4fd4aad331e0a70349a353ccd4830386ffaa122dc3990045e6a9caee9bf093d"
+    }
+  },
+  "checks": {
+    "current_smoke_exact_identities_absent": true,
+    "five_production_paths_absent": {
+      "binaries": true,
+      "build": true,
+      "native_source": true,
+      "run": true,
+      "temporary": true
+    },
+    "fresh_admission": {
+      "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+      "build_cpus": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "conflicting_processes": [],
+      "driver_identity": {
+        "argv": [
+          "python3",
+          "-B",
+          "-"
+        ],
+        "command_sha256": "5a5cff3ba9f3379bceb96da8fda3ef4a6ab51547f4b5cd0c1d9305e99b4c2ad0",
+        "parent": 2240390,
+        "pid": 2240391,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 109150056,
+        "state": "R"
+      },
+      "fit_cpu": 24,
+      "hostname": "workstation1",
+      "observed_at": "2026-10-15T23:44:38.521147+00:00",
+      "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+      "reserved_cpu_note": "Serial validation on CPU24 with host-local exclusive orbit lock and affinity, not administrator-exclusive reservation. Other-user background workloads may exist; this is an untimed correctness validation.",
+      "status": "admitted"
+    },
+    "frozen_diagnostic_scope_unchanged": true,
+    "full_frozen_runtime_verified_inside_namespace": true,
+    "original_runtime_pins_preserved": 60,
+    "owned_cleanup_verified": true,
+    "plan_controller_pipeline_bind_passed_all14": true,
+    "runtime_pin_count": 72,
+    "runtime_result_matches_terminal_validation_context": true,
+    "smoke_constrained_solves": 0,
+    "smoke_execution_changes_only_five_scratch_paths": true,
+    "smoke_physical_evaluations": 0,
+    "source_files_verified": 384,
+    "whole_validation03_readonly": true
+  },
+  "helper_reviews": {
+    "shifted-cut-diagnostic-02/independent-review.json": {
+      "bytes": 2843,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-02/independent-review.json",
+      "sha256": "d3d0dfae72633de227d2e2d3f0d5f3ed608dd663965a6c10078cebeb9ba17337"
+    },
+    "shifted-runtime-smoke-independent-review-01.json": {
+      "bytes": 2559,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-runtime-smoke-independent-review-01.json",
+      "sha256": "66c6333ea4c8f1cabcbba1577522457931708ebe299c6a8e5f3122f282ba2029"
+    }
+  },
+  "identity": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "comparison_source": "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b",
+    "full_source": "5f85c630c89be7e0a7654b31764186d8a4f914e2f4b74fec1535339658e42dd2",
+    "native": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+    "python": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8",
+    "solver": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223",
+    "source_file_count": 384
+  },
+  "limits": [
+    "Not a shifted-cut outcome or benchmark acceptance.",
+    "Runtime checked before and after each method by pinned runner; global lock and fresh admission remain launch requirements.",
+    "No claim of administrator-exclusive CPU reservation."
+  ],
+  "observed_utc": "2026-10-15T23:44:38.522642+00:00",
+  "passed": true,
+  "prerequisite_validation_audit": {
+    "bytes": 102828,
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-validation03-terminal-independent-review-01.json",
+    "sha256": "3df121d1b3142eb4814ce557a24991acc3388813d43178499732bd7422c1daee"
+  },
+  "preserved_audit_invocation_failure": {
+    "classification": "Read-only absence probe used helper that raises FileNotFoundError for already terminated PID; corrected only that exception handling, no remote source or output mutation.",
+    "files": {
+      "smoke.stderr": {
+        "bytes": 606,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke.stderr",
+        "sha256": "b4cdcaf187ca177abc8dafc96f35c202cfd46ae09d8d5ab7af619c69bf24b48c"
+      },
+      "smoke.stdout": {
+        "bytes": 0,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke02.stderr": {
+        "bytes": 0,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke02.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke02.stdout": {
+        "bytes": 36843,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/smoke02.stdout",
+        "sha256": "b8ab5ef26ac221ebf5b83e72843186fed09eee13efff82c374c1afea9adc7c26"
+      },
+      "verify_smoke.py": {
+        "bytes": 2456,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/verify_smoke.py",
+        "sha256": "d7512cd71f2282c069c3eef84919875f2ac441197931c22c4e34c5c6928e8b2b"
+      },
+      "verify_smoke02.py": {
+        "bytes": 2498,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted01-independent-prelaunch-01/verify_smoke02.py",
+        "sha256": "d97d2755ad5d99677121b2589ce65d678cf85c1466e639f23c5f42321310a60e"
+      }
+    }
+  },
+  "reviewer": "v31_recovery_review",
+  "schema": "orbit-poc-shifted-diagnostic-prelaunch-independent-review-v1",
+  "scope": "Concrete shifted-cut diagnostic only: two fixed captured linearizations, 32 bounded constrained solver invocations, no physical or nuisance evaluation, no preparation or benchmark authorization."
+}

@@ -1,0 +1,102 @@
+{
+  "actual_groops_api_compile": {
+    "corrected_log": {
+      "bytes": 0,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/corrected.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "corrected_returncode": 0,
+    "original_log": {
+      "bytes": 4111,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/original.log",
+      "sha256": "def0999da47f510e73d065f6d9624c3f904d21c7b34e418b3d4482d3fd0e1184"
+    },
+    "original_returncode": 1,
+    "probe": {
+      "bytes": 549,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/native_api.cpp",
+      "sha256": "7986558ad2d5d46ac8c6671006fb8f052f5a3e2e55f36e684bb985fe37fcd4c1"
+    },
+    "receipt": {
+      "bytes": 996,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/receipt.json",
+      "sha256": "eb43be6fa21a3b51ad8b9be9e3ecefccfdedf97fe2cfa35b54c00b1614b60afb"
+    },
+    "scope": "g++ syntax-only, actual pinned Vector, Matrix and const_MatrixSlice interfaces"
+  },
+  "changed_files": {
+    "rowArithmeticTrace.h": {
+      "after": {
+        "bytes": 7267,
+        "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/rowArithmeticTrace.h",
+        "sha256": "7e6c2c2ceea957d11c8205860b8b5d2f75a93ec7d2ec177cf192274cd8480694"
+      },
+      "before": {
+        "bytes": 6705,
+        "path": "@CORRECTNESS_ROOT@/control/row-trace07/rowArithmeticTrace.h",
+        "sha256": "5a273bb31a703408b78da1a19dc51855767df34cc65a3b82ca2e62973a661e4a"
+      }
+    },
+    "test_row_trace.py": {
+      "after": {
+        "bytes": 13534,
+        "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/test_row_trace.py",
+        "sha256": "2b59d29ce33038e94b7b469dc5e85c9fb2487eabbc7f6c18491eadd36c2c7cd2"
+      },
+      "before": {
+        "bytes": 11915,
+        "path": "@CORRECTNESS_ROOT@/control/row-trace07/test_row_trace.py",
+        "sha256": "bb9d99182181ede98ffd727d70a399eb44c51f361c363f9ec7c61cc909ad2c6b"
+      }
+    }
+  },
+  "created_at": "2026-10-15T08:24:08.308018+00:00",
+  "files": {
+    "README.md": {
+      "bytes": 3589,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/README.md",
+      "sha256": "570fe9d9bf200bc35d763728d90d9a470c0c80ffafdbb18d679a3beb027889e6"
+    },
+    "install_row_trace.py": {
+      "bytes": 13921,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/install_row_trace.py",
+      "sha256": "e6aefda04b5fcea1e87952a29a96e7e17841592be2518723e14201e1ac1566d2"
+    },
+    "rowArithmeticTrace.h": {
+      "bytes": 7267,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/rowArithmeticTrace.h",
+      "sha256": "7e6c2c2ceea957d11c8205860b8b5d2f75a93ec7d2ec177cf192274cd8480694"
+    },
+    "test_row_trace.py": {
+      "bytes": 13534,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/test_row_trace.py",
+      "sha256": "2b59d29ce33038e94b7b469dc5e85c9fb2487eabbc7f6c18491eadd36c2c7cd2"
+    },
+    "verify_trace_equivalence.py": {
+      "bytes": 6497,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/verify_trace_equivalence.py",
+      "sha256": "3ba6b6e22be16bbc96138052ee84b3e1d294191aef933a31506d698b5d43171d"
+    }
+  },
+  "original_diagnostic_preservation": "row-trace07 files unchanged; root preserves D01 failed build and cleanup receipt separately",
+  "passed": true,
+  "prior_controls": {
+    "bytes": 3555,
+    "path": "@CORRECTNESS_ROOT@/control/row-trace07/control-validation.json",
+    "sha256": "4189503b0ca7ec73f80ae93b6e393f48dffcd04c7109c26c40e79546c04e94e2"
+  },
+  "required_next_gate": "Fresh D02 native build followed by original06 versus trace-off versus trace-on exact numerical equivalence.",
+  "schema": "orbit-poc-row-trace-d02-control-validation-v1",
+  "scope": "Accessor-only diagnostic correction; no arithmetic, installer, comparator, filter, trace schema or native estimator changes. No full native build or orbit run.",
+  "tests": {
+    "count": 30,
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 5234,
+      "path": "@TEMP_ROOT@/row-trace-d02-fixtures-01.xml",
+      "sha256": "a99831eb92be7b04f63bd8b24103a8cc78d709eff310a1c4da69c5efc4a93af8"
+    },
+    "skips": 0
+  }
+}

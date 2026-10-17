@@ -1,0 +1,82 @@
+{
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 72
+  },
+  "created_utc": "2026-10-15T16:10:30.401969+00:00",
+  "files": {
+    "src/orbit_poc/numerics/optimizer.py": {
+      "bytes": 18214,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/numerics/optimizer.py",
+      "sha256": "a1a086e6f5e93ec8982ccad78746ff9d352b7719f01e0af422d2f26797c5506c"
+    },
+    "src/orbit_poc/segmented/backend.py": {
+      "bytes": 22037,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/backend.py",
+      "sha256": "f06f8f1ccf522f25e0488adc7c275e2306d3bd3f941c35814e4def1cb9a6ebb5"
+    },
+    "src/orbit_poc/segmented/diagnostics.py": {
+      "bytes": 15325,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/diagnostics.py",
+      "sha256": "fe2ce9f2cebe1a15d8b5cd044964c0ab0928921373c95fd1c9e8594651ed4611"
+    },
+    "src/orbit_poc/segmented/graph.py": {
+      "bytes": 24478,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/graph.py",
+      "sha256": "5519decbf16f95d56067b3528f25ba8ffdaad6a3951689c5dadb76a041745152"
+    },
+    "src/orbit_poc/segmented/solver.py": {
+      "bytes": 15681,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/solver.py",
+      "sha256": "12cebbcb0d6128e7626ac3a1de0fa1e296710a79259f7a75bf73203f98a9a93a"
+    },
+    "tests/test_segmented_backend.py": {
+      "bytes": 4230,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_backend.py",
+      "sha256": "64ee0b8c7d1b5fcac39575fd66e16a17185835b9af56a14087546c328f75766e"
+    },
+    "tests/test_segmented_diagnostics.py": {
+      "bytes": 4913,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_diagnostics.py",
+      "sha256": "24a8d6317618381eb0fb1816770bf4d258426e073f24ccc298bd01fc159ef6d2"
+    },
+    "tests/test_segmented_graph.py": {
+      "bytes": 12610,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_graph.py",
+      "sha256": "1b58e2cd9a6e1eb58564b441464cf90cc42a33f11af6e235a951dc088097dae7"
+    },
+    "tests/test_segmented_solver.py": {
+      "bytes": 6725,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_solver.py",
+      "sha256": "e966eedf57458df2a9bd36ddf69420e61b460067512a27db5f5817086ee91760"
+    }
+  },
+  "findings": [
+    "Native local observation stencils replace only global physical observation columns; global priors remain once.",
+    "Native original coordinate IDs, units, scales and dynamics mask are checked before equality lifting.",
+    "Clock/VTEC QR conditionals retain exact scaling and recover joint original-row corrections in the independent fixture.",
+    "Shifted cuts alter ownership only; all equality/stochastic rows and variables remain identical. Exact verified cadence governs computational cut assignment.",
+    "Pulse and density force columns use exported native variation-of-constants operators, not a substituted force-gradient solve.",
+    "Original undamped dense QR/SVD remains the statistical rank certificate. Native segmented solve uses original rows/equalities, dynamic-only damping and no normal-equation fallback.",
+    "Final covariance requires a fresh tighter strict undamped correction, then uses native query stencils and conditional block solves; local nuisance uncertainty is marginalized.",
+    "Dense selected cross-block diagnostics use separately pinned read-only operator export from the accepted archive."
+  ],
+  "limitations": [
+    "Current native original-chart QR and SVD costs are retained and must be measured.",
+    "Python assembly and native separator sweeps have not yet been measured on full72h cases.",
+    "Flight derivative omissions remain unchanged; this review certifies no complete flight Jacobian."
+  ],
+  "no_native_fits_run_by_reviewer": true,
+  "nonlinear_controller_ast_unchanged_from_HEAD": true,
+  "passed": true,
+  "reviewer": "independent scientific/native operator reviewer",
+  "schema": "orbit-poc-segmented-backend-independent-review-v1",
+  "scope": "Static integration/math review and bounded fabricated-row tests. Actual native end-to-end engineering02 and full corrected gates remain separate requirements.",
+  "tests": {
+    "bytes": 10581,
+    "path": "/tmp/segmented-backend-independent-01.xml",
+    "sha256": "a0e6a8403797e1c6722f9901c1c988dc79c506222fee486828de8dfd85ea2617"
+  }
+}

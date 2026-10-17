@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/independent-complete-preflight-audit-01/audit_native_complete_build_remote03.py", line 52, in <module>
+    v.verify_complete_build(build,receipt,documents,repo,checked)
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/independent-complete-preflight-audit-01/validation07_provenance04.py", line 226, in verify_complete_build
+    artifact({'path':calls[index][0],'sha256':tool['python']['sha256']},checked)
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/independent-complete-preflight-audit-01/validation07_provenance04.py", line 267, in artifact
+    checked({k:record[k]for k in ('path','sha256')})
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/independent-complete-preflight-audit-01/audit_native_complete_build_remote03.py", line 29, in checked
+    p=resolved(record['path']);require(p.is_file()and sha(p)==record['sha256'],'Changed artifact '+record['path']);checked_files[record['path']]=record['sha256'];return p
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/independent-complete-preflight-audit-01/audit_native_complete_build_remote03.py", line 12, in require
+    if not ok:raise RuntimeError(message)
+RuntimeError: Changed artifact /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python

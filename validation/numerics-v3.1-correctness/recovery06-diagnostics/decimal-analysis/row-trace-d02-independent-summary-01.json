@@ -1,0 +1,625 @@
+{
+  "analysis": {
+    "bytes": 4588543,
+    "path": "@CORRECTNESS_ROOT@/control/row-trace-d02-decimal-actual-01.json",
+    "sha256": "bbc92c1e4b9d057c17948e59aefdb588c36f12ac8dbf3ccc8681aca7f0a94db4"
+  },
+  "conclusions": [
+    "Residual-evaluation rounding is directly demonstrated at fixed actual stored nuisance states; native arithmetic and observed stage values agree in every reconstructed case.",
+    "The representative row's ambiguity composition rounding changes by 2.51249526e-16 m between baseline and trial and dominates its accumulated residual-error swing. Retaining only the range low part would leave this demonstrated error.",
+    "A coherent high/low path through active antenna, signal-bias, ambiguity, STEC, weighting and original objective rows is justified as a numerical correction with unchanged statistical models and stored parameter states.",
+    "Five selected rows cannot prove that this correction restores descent or stationarity for the complete nuisance objective. The unchanged required correctness suite must be rerun after any source change.",
+    "Local STEC/VTEC stored-update rounding is measured separately; ideal clock, shared-bias and ambiguity update arithmetic is unavailable in this probe. No conclusion that parameter representability is negligible for the complete objective is justified.",
+    "No convergence tolerance, objective floor, covariance rule, observation support, weighting, gauge, scientific acceptance gate or production campaign is changed."
+  ],
+  "counts": {
+    "all_records": 61221,
+    "checked_updates": 800,
+    "complete_equations": 330,
+    "excluded_initialization_records": 1412,
+    "final_ordinary_row_sign_reversals": 2,
+    "native_arithmetic_replay_mismatches": 0,
+    "paired_selected_rows": 250,
+    "retained_equations": 290
+  },
+  "created_at": "2026-10-15T08:43:04.536430+00:00",
+  "diagnostic_only": true,
+  "equivalence": {
+    "bytes": 116528,
+    "path": "@DIAGNOSTIC_D02_ROOT@/diagnostic/equivalence.json",
+    "sha256": "c375380bd4d5984b51065cabfec078b9125bcc57ef74325f16520d6c655c8bf9"
+  },
+  "execution": {
+    "analyzer_tests": {
+      "errors": 0,
+      "failed": 0,
+      "passed": 34,
+      "skipped": 0
+    },
+    "native_fits_run_by_reviewer": 0,
+    "preserved_analysis_guard_failure": {
+      "bytes": 239,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02-decimal-execution-failed-02.json",
+      "sha256": "3ef40c2f4ab810969607b1638c8a800bb5723242ed1f3555329336caaa826520"
+    },
+    "remote_writes": false,
+    "transport": "@WINDOWS_MOUNT@/Windows/System32/OpenSSH/ssh.exe gpuserver4090 python3 -"
+  },
+  "generation8": {
+    "accepted": false,
+    "floor_limited": false,
+    "maximum_selected_row_reduction_error": "3.9876483547226569664216735756494886640596969895333646305319583176768873222659162377766306495116781644290732538E-13",
+    "native_full_step_prediction": "2.5077353436997686e-16",
+    "sign_reversal_rows": [
+      {
+        "alpha": "0.03125",
+        "audit_mode": "0",
+        "baseline_evaluation": 15,
+        "baseline_file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-3.tsv",
+        "block": [
+          0,
+          9,
+          113
+        ],
+        "evaluation": 18,
+        "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-39.tsv",
+        "first_event": 15739,
+        "native_minus_precise_reduction": "3.6671191737517215347265234279733109861623715776661212448928406722157045141610804557069644918668486670284558231E-13",
+        "native_residual_change": "-8.88178419700125232338905334472656250E-15",
+        "native_row_actual_reduction": "3.56541874813899083314212397067390660858581929310018310275154362898319959640502929687500E-14",
+        "native_stec_replay_matches_both": true,
+        "precise_residual_change_at_stored_states": "8.24695083908572951299489420852387914141270657722260277322718442586092631883681673837162981871028E-14",
+        "precise_row_actual_reduction_at_stored_states": "-3.3105772989378224514123110309059203253037896483561029346176863093173845545205775260194644918668486670284558231E-13",
+        "row": 5,
+        "stec_prior_native_actual_reduction": "3.6503352052021116150948858811425352246448128739176950816041968841084430774657221263623796403408050537109375E-13",
+        "stec_prior_precise_actual_reduction_at_stored_states": "3.65033507026085810661965864094191789088180386056069082353035815113884154925472103059291839599609375E-13",
+        "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+      },
+      {
+        "alpha": "0.00048828125",
+        "audit_mode": "0",
+        "baseline_evaluation": 15,
+        "baseline_file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-3.tsv",
+        "block": [
+          0,
+          9,
+          113
+        ],
+        "evaluation": 18,
+        "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-45.tsv",
+        "first_event": 15739,
+        "native_minus_precise_reduction": "3.9876483547226569664216735756494886640596969895333646305319583176768873222659162377766306495116781644290732538E-13",
+        "native_residual_change": "-5.240252676230738870799541473388671875E-14",
+        "native_row_actual_reduction": "2.1035970614019931885694681729719576725292222202541581044243912401725538074970245361328125E-13",
+        "native_stec_replay_matches_both": true,
+        "precise_residual_change_at_stored_states": "4.69334408814940993204264966024843858193597844410564835890063306024282362708184147502385805213029E-14",
+        "precise_row_actual_reduction_at_stored_states": "-1.8840512933206637778522054026775309915304747692792065261075670775043335147688917016438181495116781644290732538E-13",
+        "row": 5,
+        "stec_prior_native_actual_reduction": "5.70367441711949138213985741840942285268143710256219785153258979536194939186088959104381501674652099609375E-15",
+        "stec_prior_precise_actual_reduction_at_stored_states": "5.703660922994130918708921615371352008045225462568635771409830681477615144103765487670898437500E-15",
+        "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+      }
+    ],
+    "undamped_maximum_update_m": "1.3191520463520057e-08"
+  },
+  "generation8_search": {
+    "bytes": 10665,
+    "path": "@CORRECTNESS_ROOT@/control/row-trace-d02-generation8-line-search.json",
+    "sha256": "4691cc68d35a53ddd3f34673ccbb441fc65e3cdb505ee1f43e0eb2d4353fed95"
+  },
+  "maximum_update_rounding_by_state_TECU": {
+    "VTEC_STEC": {
+      "block": [
+        0,
+        13,
+        30
+      ],
+      "evaluation": 13,
+      "event": 11861,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-26.tsv",
+      "ideal_before_plus_delta": "0.60663171741568105990851891439748365865908315299256820533100236053762061109796359218999245443981749303929973394",
+      "native_separate_operations_match": true,
+      "shadow_coefficients": true,
+      "state": "VTEC_STEC",
+      "stored_after": "0.60663171741568111539066876503056846559047698974609375",
+      "stored_minus_ideal": "5.548214985063308480693139383675352554466899763946237938890203640781000754556018250696070026606E-17"
+    },
+    "local_STEC": {
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 13,
+      "event": 11836,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-25.tsv",
+      "ideal_before_plus_delta": "0.7047696842177321726558335685981228867225123480011461651884019374847412109375",
+      "native_rounding_match": true,
+      "state": "local_STEC",
+      "stored_after": "0.70476968421773211748160292700049467384815216064453125",
+      "stored_minus_ideal": "-5.51742306415976282128743601873566149151884019374847412109375E-17"
+    },
+    "local_dSTEC": {
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 13,
+      "event": 11836,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-25.tsv",
+      "ideal_before_plus_delta": "0.5185888746370244658484881656763400802068186834503649151884019374847412109375",
+      "native_rounding_match": true,
+      "state": "local_dSTEC",
+      "stored_after": "0.51858887463702441067425752407871186733245849609375000",
+      "stored_minus_ideal": "-5.51742306415976282128743601873566149151884019374847412109375E-17"
+    }
+  },
+  "representative_row_sign_reversal": {
+    "alpha": "0.03125",
+    "audit_mode": "0",
+    "baseline_evaluation": 15,
+    "baseline_file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-3.tsv",
+    "block": [
+      0,
+      9,
+      113
+    ],
+    "evaluation": 18,
+    "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-39.tsv",
+    "first_event": 15739,
+    "native_minus_precise_reduction": "3.6671191737517215347265234279733109861623715776661212448928406722157045141610804557069644918668486670284558231E-13",
+    "native_residual_change": "-8.88178419700125232338905334472656250E-15",
+    "native_row_actual_reduction": "3.56541874813899083314212397067390660858581929310018310275154362898319959640502929687500E-14",
+    "native_stec_replay_matches_both": true,
+    "precise_residual_change_at_stored_states": "8.24695083908572951299489420852387914141270657722260277322718442586092631883681673837162981871028E-14",
+    "precise_row_actual_reduction_at_stored_states": "-3.3105772989378224514123110309059203253037896483561029346176863093173845545205775260194644918668486670284558231E-13",
+    "row": 5,
+    "stec_prior_native_actual_reduction": "3.6503352052021116150948858811425352246448128739176950816041968841084430774657221263623796403408050537109375E-13",
+    "stec_prior_precise_actual_reduction_at_stored_states": "3.65033507026085810661965864094191789088180386056069082353035815113884154925472103059291839599609375E-13",
+    "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+  },
+  "representative_row_stage_error_changes": [
+    {
+      "baseline_native_minus_precise": "-4.51550946422407560689628535629106835381347227753590090060242800973355770111083984375E-17",
+      "error_change": "-6.6102164168968201990421940909160545886842077697997943630525696789845824241638183593750E-18",
+      "stage": "range_narrowed",
+      "trial_native_minus_precise": "-5.17653110591375762680050476538267381268189305451588033690768497763201594352722167968750E-17"
+    },
+    {
+      "baseline_native_minus_precise": "-3.12773068344262993136674577117754296318847227753590090060242800973355770111083984375E-17",
+      "error_change": "-3.43657920325257337096329857931865624011842077697997943630525696789845824241638183593750E-17",
+      "stage": "after_receiver_antenna",
+      "trial_native_minus_precise": "-6.56430988669520330233004435049619920330689305451588033690768497763201594352722167968750E-17"
+    },
+    {
+      "baseline_native_minus_precise": "-1.73995190266118425583720618606401757256347227753590090060242800973355770111083984375E-17",
+      "error_change": "-3.43657920325257337096329857931865624011842077697997943630525696789845824241638183593750E-17",
+      "stage": "after_transmitter_antenna",
+      "trial_native_minus_precise": "-5.17653110591375762680050476538267381268189305451588033690768497763201594352722167968750E-17"
+    },
+    {
+      "baseline_native_minus_precise": "-8.583384926719402566731721699212217077689014320049376571830634929938241839408874511718750E-17",
+      "error_change": "2.5124952551106238080609875409237089077477082647328610054415776176028884947299957275390625E-16",
+      "stage": "ambiguity_operand",
+      "trial_native_minus_precise": "1.6541567624386835513878153710024871999788068327279233482585141246090643107891082763671875E-16"
+    },
+    {
+      "baseline_native_minus_precise": "6.843433024058218310894515513148199505125542042513475671228206920204684138298034667968750E-17",
+      "error_change": "-2.8561531754358811451573173988555745317595503424308589490721033143927343189716339111328125E-16",
+      "stage": "after_ambiguity",
+      "trial_native_minus_precise": "-2.1718098730300593140678658475407545812469961381795113819492826223722659051418304443359375E-16"
+    },
+    {
+      "baseline_native_minus_precise": "5.5528329173349740588340718217181565481889047794505920307983615202829241752624511718750000E-17",
+      "error_change": "-2.74739237525458555576673897120355577419131625719478373426341022423002868890762329101562500E-16",
+      "stage": "stec_operation_1_after",
+      "trial_native_minus_precise": "-2.19210908352108814988333178903174011937242577924972453118357407220173627138137817382812500E-16"
+    },
+    {
+      "baseline_native_minus_precise": "5.4723011316489414206622092308246717194091494264724205909603514663697154674082412384450435638428E-17",
+      "error_change": "-2.73873283929707989133407515515162921053196575356796882084922228201007143866263504605740308761597E-16",
+      "stage": "stec_operation_2_after",
+      "trial_native_minus_precise": "-2.19150272613218574926785423206916203859105081092072676175318713537309989192181092221289873123169E-16"
+    },
+    {
+      "baseline_native_minus_precise": "5.4020040374375755715466801778387296233149443495492148303338865140479277970304795544293441212225E-17",
+      "error_change": "-2.72894498878483582431758190689329620429871122447082232552013721552949467992957675014972851926962E-16",
+      "stage": "stec_operation_3_after",
+      "trial_native_minus_precise": "-2.18874458504107826716291388910942324196721678951590084248674856412470190022652879470679410714737E-16"
+    },
+    {
+      "baseline_native_minus_precise": "5.4294881087410661662357221834376348561050556103339698827218369313102804709709518168159518994640E-17",
+      "error_change": "-2.73429377312223963678932841238063709191893028109751001374597250563125199538196937189337288485176E-16",
+      "stage": "stec_operation_4_after",
+      "trial_native_minus_precise": "-2.19134496224813302016575619403687360630842472006411302547378881250022394828487419021177769490536E-16"
+    },
+    {
+      "baseline_native_minus_precise": "5.4294881087410661662357221834376348561050556103339698827218369313102804709709518168159518994640E-17",
+      "error_change": "-2.73429377312223963678932841238063709191893028109751001374597250563125199538196937189337288485176E-16",
+      "stage": "before_homogenize",
+      "trial_native_minus_precise": "-2.19134496224813302016575619403687360630842472006411302547378881250022394828487419021177769490536E-16"
+    },
+    {
+      "baseline_native_minus_precise": "1.83034279815475871273508346680372632095879223537920844388690148768608030313468030153806185315612E-14",
+      "error_change": "-9.13512925878585474533379954299653539141270657722260277322718442586092631883681673837162981871028E-14",
+      "stage": "after_homogenize",
+      "trial_native_minus_precise": "-7.30478646063109603259871607619280907045391434184339432934028293817484601570213643683356796555416E-14"
+    }
+  ],
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-row-trace-d02-independent-scientific-diagnostic-v1",
+  "scientific_status": "v3.1 correctness remains failed",
+  "source": {
+    "bytes": 24711,
+    "path": "@CORRECTNESS_ROOT@/control/row-trace07-analysis-03/analyze_row_trace.py",
+    "sha256": "70f6647197ed0850c66d9382cdece5c5eac9677c12d35534e7ff5dc542cd8bc8"
+  },
+  "stage_maxima": {
+    "after_ambiguity": {
+      "absolute_error": "5.08658074334815726433687198466338480113331769365877382815810392457933630794286727905273437500E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-34.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "after_homogenize": {
+      "absolute_error": "8.32089272375030819674083121792911195180875113268002108571126062429459254111649106357596586744569E-14",
+      "alpha": "0.0078125",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 12,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-21.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.5"
+    },
+    "after_receiver_antenna": {
+      "absolute_error": "3.4288110763233427404644913604644321982979810365136860705881360900093568488955497741699218750E-16",
+      "alpha": "0.0625",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 12,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-18.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.5"
+    },
+    "after_transmitter_antenna": {
+      "absolute_error": "5.08658074334815726433687198466338480113331769365877382815810392457933630794286727905273437500E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-34.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "ambiguity_operand": {
+      "absolute_error": "2.2135552694463287878177084296701168620115813016543948599235136498464271426200866699218750E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 14,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-25.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.6"
+    },
+    "before_homogenize": {
+      "absolute_error": "4.9063989087864310666287383813578082073706463910495666625597884274323542973814413168744465274490E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-34.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "range_narrowed": {
+      "absolute_error": "2.1374010892907595238646741198311632389946789677354424541455557573499390855431556701660156250E-16",
+      "alpha": "0.015625",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-40.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "receiver_antenna_operand[0]": {
+      "absolute_error": "6.938893903907228377647697925567626953125E-18",
+      "alpha": "0",
+      "block": [
+        0,
+        16,
+        8
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 4,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "receiver_antenna_operand[1]": {
+      "absolute_error": "1.387778780781445675529539585113525390625E-17",
+      "alpha": "1",
+      "block": [
+        0,
+        13,
+        30
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-11.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "receiver_antenna_operand[2]": {
+      "absolute_error": "2.775557561562891351059079170227050781250E-17",
+      "alpha": "0",
+      "block": [
+        0,
+        16,
+        8
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 4,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "receiver_antenna_operand[3]": {
+      "absolute_error": "6.071532165918824830441735684871673583984375E-18",
+      "alpha": "0",
+      "block": [
+        0,
+        9,
+        114
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 4,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "receiver_antenna_operand[4]": {
+      "absolute_error": "6.071532165918824830441735684871673583984375E-18",
+      "alpha": "0",
+      "block": [
+        0,
+        9,
+        114
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 4,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "receiver_antenna_operand[5]": {
+      "absolute_error": "1.387778780781445675529539585113525390625000E-17",
+      "alpha": "0",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "stec_operation_1_after": {
+      "absolute_error": "2.51412441252292411256038728385226726677622010588594725355449099879479035735130310058593750E-16",
+      "alpha": "0.0078125",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 12,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-21.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.5"
+    },
+    "stec_operation_2_after": {
+      "absolute_error": "2.50861374556952528045258865700120534510830847701931017691766127863939317421682062558829784393311E-16",
+      "alpha": "0.0078125",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 12,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-21.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.5"
+    },
+    "stec_operation_3_after": {
+      "absolute_error": "2.50953091062798238746345424971815395306007020930515678136550324043244778512713756679590826527055E-16",
+      "alpha": "0.0078125",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 12,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-21.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.5"
+    },
+    "stec_operation_4_after": {
+      "absolute_error": "2.50524057726330095770529833079900688903193140768402168986018872112492789935250425397402332349971E-16",
+      "alpha": "0.0078125",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 12,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-21.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.5"
+    },
+    "stec_operation_5_after": {
+      "absolute_error": "4.77851080291662752217946129236268655951961779873777592941852532248958596028387546539306640625E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-34.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "stec_operation_6_after": {
+      "absolute_error": "4.6740374729929760895989958853155976756177206998754097105571499864984374994492100086063146591187E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-34.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "stec_operation_7_after": {
+      "absolute_error": "4.9063989087864310666287383813578082073706463910495666625597884274323542973814413168744465274490E-16",
+      "alpha": "1",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 18,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-34.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.8"
+    },
+    "transmitter_antenna_operand[0]": {
+      "absolute_error": "2.220446049250313080847263336181640625E-16",
+      "alpha": "0",
+      "block": [
+        0,
+        16,
+        8
+      ],
+      "evaluation": 1,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-3.tsv",
+      "phase": "linearization",
+      "row": 4,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.1"
+    },
+    "transmitter_antenna_operand[1]": {
+      "absolute_error": "1.8041124150158793781884014606475830078125E-16",
+      "alpha": "0",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "transmitter_antenna_operand[2]": {
+      "absolute_error": "2.74953670942323924464290030300617218017578125E-16",
+      "alpha": "0",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 1,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-3.tsv",
+      "phase": "linearization",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.1"
+    },
+    "transmitter_antenna_operand[3]": {
+      "absolute_error": "1.387778780781445675529539585113525390625E-17",
+      "alpha": "0",
+      "block": [
+        0,
+        9,
+        113
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 5,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "transmitter_antenna_operand[4]": {
+      "absolute_error": "1.387778780781445675529539585113525390625E-17",
+      "alpha": "0",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    },
+    "transmitter_composed_operand": {
+      "absolute_error": "1.8041124150158793781884014606475830078125E-16",
+      "alpha": "0",
+      "block": [
+        0,
+        4,
+        115
+      ],
+      "evaluation": 10,
+      "file": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace/row-trace-10.tsv",
+      "phase": "trial",
+      "row": 1,
+      "stem": "@DIAGNOSTIC_D02_ROOT@/diagnostic/trace-on/qr.4"
+    }
+  },
+  "trace_file_count": 51
+}

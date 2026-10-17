@@ -1,0 +1,85 @@
+{
+  "artifacts": {
+    "actual09_terminal_audit": {
+      "bytes": 22254,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/terminal09-independent-audit-01.json",
+      "sha256": "8d13cbb8f1e1232f535a74d26edce04b79083dd978f67eda39704632680b245e"
+    },
+    "author_validation": {
+      "bytes": 4273,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-installer-author-validation.json",
+      "sha256": "16a7c378e77b06248c660503353350230afecade24aa9fb62d3efc2b44f9baac"
+    },
+    "full_generated_receipt": {
+      "bytes": 281190,
+      "path": "@TEMP_ROOT@/candidate10-generated-equivalence-01/receipt.json",
+      "sha256": "677709894a017c37a63ac305ab48bbdd2d03fed08f067d9e4eaa432fc16d5d5d"
+    },
+    "previous_source_freeze": {
+      "bytes": 110630,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate09-source-freeze.json",
+      "sha256": "149f55da9ae92ee0d6c6c529125b1268c327f6ba0904b09898ddcc0cd57a4f1b"
+    }
+  },
+  "base_commit": "7e232423566a9d608ada0bcc88af8a86dd914db3",
+  "changed_files": {
+    "groops/extension/positionRemainder.py": {
+      "after": "7a5da03557facc3a73ff031d0a57a8ba9292ae1afb931730db3419f5652e6926",
+      "before": "4f10db7dbd9f6b1d273ece846405cf2414d6ba80772ea14883b6a0a1dae2373f"
+    }
+  },
+  "correctness_resolved": false,
+  "covariance_authorized": false,
+  "created_at": "2026-10-15T12:50:57.528692+00:00",
+  "full_native_validation_complete": false,
+  "generated_native_file_count": 1129,
+  "generated_tree_byte_equivalence": true,
+  "generated_trees": {
+    "candidate09": {
+      "files": 1129,
+      "inventory_sha256": "36fd52106490452b177da72dc2a20ee4845ceab3b2b4a0ba646ed0ec65c1e3e1"
+    },
+    "candidate10": {
+      "files": 1129,
+      "inventory_sha256": "36fd52106490452b177da72dc2a20ee4845ceab3b2b4a0ba646ed0ec65c1e3e1"
+    }
+  },
+  "independent_focused_tests": {
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_numerics_geometry_precision.py",
+      "-k",
+      "not native_twofold"
+    ],
+    "failed": 0,
+    "junit": {
+      "bytes": 1571,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate10-installer-independent-tests-01.xml",
+      "sha256": "2afa03bb7b0e65a22c0780b2b829ad2f5cf6b671f383c8c27f3d3062af788b5c"
+    },
+    "passed": 9,
+    "scope": "All nine installer/static geometry tests; unchanged standalone C++ arithmetic test deliberately deselected. No native build or fit was run by this reviewer.",
+    "skipped": 0
+  },
+  "issues": [],
+  "only_changed_path": "groops/extension/positionRemainder.py",
+  "original106_and_previous51_tests_unchanged": true,
+  "passed": true,
+  "release": "not_assessed",
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-candidate10-source-independent-review-v1",
+  "semantic_findings": [
+    "The old inner-lambda literal was not part of the existing scaffold installer contract. Replacing the structurally bounded query region removes that accidental dependency without a test-specific branch.",
+    "The generated1129-file native source inventories are byte-identical between fresh pinned candidate09 and candidate10 installations; original guards, legacy branch, light-time arithmetic, iteration bounds and tolerances are unchanged.",
+    "Only the installer Python file differs from the executed09 source freeze. Every existing test, fixture, gate, backend, physical-model and numerical-helper byte remains unchanged.",
+    "The existing idempotence test now passes and previous-version preflight refusal is preserved."
+  ],
+  "source": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/source-06",
+  "source_file_count": 772,
+  "source_sha256": "365313010e30a086729f21c6a4d7721431395155db590ed92a2bcb37b6d15fe1"
+}

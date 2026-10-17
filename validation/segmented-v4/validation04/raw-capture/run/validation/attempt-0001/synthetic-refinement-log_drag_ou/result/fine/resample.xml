@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <program>
+    <InstrumentResample>
+      <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/synthetic-refinement-log_drag_ou/result/coarse/closure-02/orbit.dat</inputfileInstrument>
+      <outputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/synthetic-refinement-log_drag_ou/result/fine/seed.dat</outputfileInstrument>
+      <method>
+        <polynomial>
+          <polynomialDegree>7</polynomialDegree>
+          <maxDataPointRange>-8.1</maxDataPointRange>
+          <maxExtrapolationDistance>-1.1</maxExtrapolationDistance>
+        </polynomial>
+      </method>
+      <timeSeries>
+        <uniformSampling>
+          <timeStart>60424</timeStart>
+          <offsetSeconds>0</offsetSeconds>
+          <timeEnd>60424+(3600.0+2.5*0.25)/86400</timeEnd>
+          <sampling>2.5/86400</sampling>
+        </uniformSampling>
+      </timeSeries>
+    </InstrumentResample>
+  </program>
+  <program>
+    <InstrumentResample>
+      <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/synthetic-refinement-log_drag_ou/result/native/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat</inputfileInstrument>
+      <outputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/synthetic-refinement-log_drag_ou/result/fine/attitude.dat</outputfileInstrument>
+      <method>
+        <polynomial>
+          <polynomialDegree>7</polynomialDegree>
+          <maxDataPointRange>-8.1</maxDataPointRange>
+          <maxExtrapolationDistance>-1.1</maxExtrapolationDistance>
+        </polynomial>
+      </method>
+      <timeSeries>
+        <uniformSampling>
+          <timeStart>60424</timeStart>
+          <offsetSeconds>0</offsetSeconds>
+          <timeEnd>60424+(3600.0+2.5*0.25)/86400</timeEnd>
+          <sampling>2.5/86400</sampling>
+        </uniformSampling>
+      </timeSeries>
+    </InstrumentResample>
+  </program>
+</groops>

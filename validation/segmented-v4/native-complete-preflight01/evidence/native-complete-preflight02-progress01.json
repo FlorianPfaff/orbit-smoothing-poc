@@ -1,0 +1,11 @@
+{"status": "failed_diagnostic", "started_at": "2026-10-16T21:21:54.410889+00:00", "finished_at": "2026-10-16T21:22:00.309804+00:00", "cleanup": true, "result_status": "failed", "error": "ValueError('Native complete build stage failed: installer-equivalence')", "stages": [["baseline-link", 0], ["installer-equivalence", 1]]}
+tive_complete01.py", line 157, in main
+    run('installer-equivalence',[tool['python']['path'],p['inputs']['installation_helper']['path'],'--request',p['inputs']['installation_request']['path'],'--sha256',p['inputs']['installation_request']['sha256']])
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/build_native_complete01.py", line 138, in run
+    record.update(returncode=q.returncode,stdout=pin(out),stderr=pin(err));require(q.returncode==0,'Native complete build stage failed: '+label);return out.read_text()
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/build_native_complete01.py", line 9, in require
+    if not ok: raise ValueError(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Native complete build stage failed: installer-equivalence
+

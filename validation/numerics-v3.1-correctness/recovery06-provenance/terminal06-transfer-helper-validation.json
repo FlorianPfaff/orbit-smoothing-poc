@@ -1,0 +1,33 @@
+{
+  "blocking_findings": [],
+  "created_at": "2026-10-15T07:21:44.699834+00:00",
+  "helpers": {
+    "test_transfer_terminal06.py": {
+      "bytes": 4389,
+      "sha256": "66acf87a28a8dcb10d6263fca2b4c4e24acf17773261d9f0cb7824f5753c9b35"
+    },
+    "transfer_terminal06.py": {
+      "bytes": 9417,
+      "sha256": "133cb0e179669950af5e455031f97451b5f1a7f4c4f79b033a086c10b8825cd1"
+    }
+  },
+  "review": "No native work or SSH transfer executed. Fabricated cases only. Exact source bytes match the test snapshot.",
+  "reviewed_scope": [
+    "Read-only bounded remote receipt selection",
+    "No transfer before validation and postprocess terminal cleanup",
+    "16MiB/file and64MiB total bounds",
+    "Reject archive traversal, symlinks, hardlinks, repeated/unexpected/missing entries and tampered bytes",
+    "Preserve identical existing files; reject conflicting files without overwrite",
+    "Verify unchanged remote manifest after transfer; preserve failure receipt"
+  ],
+  "schema": "orbit-poc-control-helper-independent-validation-v1",
+  "status": "passed",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "junit_sha256": "5d7dafccc4792d635a259414fd47d539e5972dbcfb0387cbfb84f374b4e812c5",
+    "log_sha256": "614394d194425b94682edd0e5b3f6cebad9631cdd3b7ee30a396d74f03970426",
+    "passed": 19,
+    "skipped": 0
+  }
+}

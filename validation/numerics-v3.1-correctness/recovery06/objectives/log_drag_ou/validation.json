@@ -1,0 +1,24 @@
+{
+  "derivative_refinement_policy": {
+    "maximum_scales": 9,
+    "physical_repeat_allowance_multiplier": 10,
+    "ratio": 0.5,
+    "required_consecutive_passing_scales": 2
+  },
+  "error": "NumericalFailure: Native profile exited 1; see private-path-sha256:540c1223ac4dcc8714770017f474cee77af611199a072114d9d37893c61cdfa0",
+  "initialization_policy": "preserved_blind_engineering_initial_state",
+  "native_binary_sha256": "37c0d22c843d2a160e7537086a8440c5c79d550d71fc7c9172ca5994d6f30e2f",
+  "passed": false,
+  "profile_evaluations": [],
+  "relative_derivative_tolerance": 0.0001,
+  "resolution_scope": "empirical arithmetic spread, not a rigorous error bound or nuisance convergence",
+  "schema_version": 1,
+  "scope": "native synthetic correctness gate; no evaluation truth",
+  "source_hash": "bd529c043b939fabda2503a282e14cc6ca1b9f6b46d1a8a9c51713b3bb5fcfe7",
+  "state_input": {
+    "path": "private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a",
+    "role": "blind_engineering_physical_initial",
+    "sha256": "61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea"
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"private-path-sha256:3568e71c60ea9a43fdb7de551a1757d72c5d7cc0ef35e2fa5f88dd5af8f1142b\", line 165, in execute\n    result = native.run_native(self.binary, path, folder, label, timeout=remaining,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"private-path-sha256:bfac319c95e210a3ddf554f6bee99b7aca809e5271bf0d0beaf3a7688db534ef\", line 88, in run_native\n    raise NativeExecutionError(f\"Native {label} {'timed out' if timed_out else 'exited '+str(code)}; see {log}\", execution=record)\norbit_poc.comparison.backend.NativeExecutionError: Native profile exited 1; see private-path-sha256:540c1223ac4dcc8714770017f474cee77af611199a072114d9d37893c61cdfa0\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"private-path-sha256:6b9a8f3e1cada63ed488bee57a59d295952510ef8eccdc987bdf3c1c181100e5\", line 113, in main\n    point = model.evaluate(replace(initial, force=force), \"nonzero-full-prior\", tighter=True)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"private-path-sha256:3568e71c60ea9a43fdb7de551a1757d72c5d7cc0ef35e2fa5f88dd5af8f1142b\", line 309, in evaluate\n    configuration = self.execute(_standalone(source, [processing], config[\"date\"]), folder, \"profile\", environment)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"private-path-sha256:3568e71c60ea9a43fdb7de551a1757d72c5d7cc0ef35e2fa5f88dd5af8f1142b\", line 173, in execute\n    raise NumericalFailure(reason, str(error)) from error\norbit_poc.numerics.optimizer.NumericalFailure: Native profile exited 1; see private-path-sha256:540c1223ac4dcc8714770017f474cee77af611199a072114d9d37893c61cdfa0\n"
+}

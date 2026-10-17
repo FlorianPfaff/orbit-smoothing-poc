@@ -1,0 +1,57 @@
+{
+  "schema": "orbit-poc-nominal-tangent-replay-code-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T06:55:05.121776+00:00",
+  "scripts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/replay_nominal_tangent01.py",
+      "sha256": "46b5d002fd5648814b8f1f034a8603baaa0251b66953c9a7e78574b6bc503b17",
+      "bytes": 5649
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_nominal_tangent01.py",
+      "sha256": "42e4b54317f147636605e92f8b01530f4fdff66b3d11210cd785ed7cb5924ee6",
+      "bytes": 5189
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_nominal_tangent_replay01.py",
+      "sha256": "26606d5f4dfa28ebc1f60191f61672d318d399eda207d6f5fd95d39170d8c159",
+      "bytes": 4670
+    }
+  ],
+  "tests": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "test_source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_replay_nominal_tangent01.py",
+      "sha256": "1678c060f9a69fc6246bcab9256e0361728d791927220bda96876ac4a20e4250",
+      "bytes": 2455
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-replay01-independent-tests.xml",
+      "sha256": "46bb9bd2f671b35e9424c3ac36e047c8c445a214e9a41c4dd0f1975af31bff36",
+      "bytes": 2997
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-replay01-independent-tests.log",
+      "sha256": "8cf5e4997b5cb5c6a17b4881ba37b275328766aaf2dfd2218fd2e3b76a6f4d56",
+      "bytes": 204
+    }
+  },
+  "input_fixture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/failed72h-iteration01.xml",
+    "sha256": "0df968c048f62631ab89ebaa90fc3b2ea1cb29b8762f60c58a2ec0031ed4d904",
+    "bytes": 5244
+  },
+  "findings": [
+    "The worker preserves exact three-program XML semantics except five output/intermediate path fields and requires the existing explicit synthetic_complete_v1 profile.",
+    "It reuses the original input orbit, initial-state file and fixed initialization target without initializer, preprocessing or fitting.",
+    "The unchanged native executable and 13 original inputs are pinned and checked before and after one native propagation.",
+    "The controller retains shared-lock/current-host admission, source/runtime guards, one numerical thread, owned-process cleanup, 8 GiB and two-hour limits.",
+    "The staging adapter uses separate source/control/build/run directories, copies exact frozen source and retains original runtime/physical inputs read-only; no original scientific artifacts are overwritten.",
+    "A reproduced native residual failure remains a failed diagnostic native evaluation. It does not authorize a fit, covariance or release claim."
+  ],
+  "authorization_scope": "Metadata staging only under root standing authority. Exact staged identities, fresh outputs and current-host admission must be reviewed before the single native replay.",
+  "scientific_runs_by_reviewer": 0
+}

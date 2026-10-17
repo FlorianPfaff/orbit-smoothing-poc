@@ -1,0 +1,167 @@
+{
+  "all89_protocol_multiday_validation_tests_passed_in_combined_run": true,
+  "author_receipt": {
+    "bytes": 1215,
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-owned-supervisor-author-validation-01.json",
+    "sha256": "7984140303bfa78f891054cc915ac805485c95d73481e76a7bb04da0c6ac71bf"
+  },
+  "checks": [
+    "Signals use pidfds with expected start-tick verification before and after opening; no numeric PID or PGID signal fallback.",
+    "Only direct children of dedicated subreaper authorize signals or owned registry entries; recursive observations are only conservative RSS estimates.",
+    "Cleanup requires kernel waitpid ECHILD after reaping, so an empty /proc snapshot alone cannot certify absence.",
+    "Rapid double fork/setsid descendants are adopted and cleaned; unrelated process remains alive.",
+    "Real exit, whole-tree memory threshold, timeout, caller SIGTERM, stale/reused PID and missing pidfd capability cases exercised.",
+    "Unverified supervision stops current and future validation; fit resumes also reject prior unverified cleanup."
+  ],
+  "fixture_command": "taskset -c31 env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src <pinned scientific Python> -m pytest -q -p no:cacheprovider --basetemp=<fresh /tmp directory> --junitxml=<preserved XML> tests/test_segmented_supervisor.py tests/test_segmented_protocol.py tests/test_segmented_multiday.py tests/test_segmented_validation.py; then exact failed node only unchanged",
+  "limitations": [
+    "Local fixtures and static source review do not substitute for current-source native Gate1, actual native segmented linearizations, paired flight/long-arc fits or completion of the original150.",
+    "A supervisor destroyed by an uncatchable signal cannot certify cleanup; wrapper records unverified failure and blocks subsequent validation or fitting.",
+    "This audit does not authorize covariance, accuracy or performance claims, or release readiness."
+  ],
+  "logs": [
+    {
+      "bytes": 2546,
+      "path": "/tmp/segmented-final-protocol-independent-01.log",
+      "sha256": "ec902eceb19a0b0feafe6089b3c5066950d0e77a205ffd56ea8f4275072fe39b"
+    },
+    {
+      "bytes": 179,
+      "path": "/tmp/segmented-final-protocol-independent-02.log",
+      "sha256": "d4f641d09e7b84439afda459f4b6d2274d7e61fa5e661fb8e3859e428b22fe36"
+    }
+  ],
+  "native_workloads_run": false,
+  "passed": true,
+  "remaining_blockers": [],
+  "remote_workloads_run": false,
+  "resolved_findings": [
+    "Empty /proc snapshot race fixed with kernel_ECHILD certificate and real adopted-child fixture.",
+    "Stale numeric intermediate-parent ancestry fixed with direct-child-only authorization and adversarial fixture."
+  ],
+  "reviewer": "v31_recovery_review",
+  "runtime": {
+    "bytes": 25912192,
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+  },
+  "schema": "orbit-poc-segmented-independent-review-v1",
+  "scope": "Dedicated process ownership and integration",
+  "source_files": {
+    "configs/segmented-v4.json": {
+      "bytes": 2371,
+      "path": "/mnt/d/orbit-segmented-v4/source/configs/segmented-v4.json",
+      "sha256": "20de5571fc04315ace7b8afb04682d9f570823f37e929ce309f900a55a46874c"
+    },
+    "docs/segmented-v4.md": {
+      "bytes": 20135,
+      "path": "/mnt/d/orbit-segmented-v4/source/docs/segmented-v4.md",
+      "sha256": "4be3f78992ed23ba519e778e0135f885795d71d1337c41fa096f082b5beef24b"
+    },
+    "src/orbit_poc/cli.py": {
+      "bytes": 9051,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/cli.py",
+      "sha256": "f41fd59dd409b0acd88b1fd04b1c5de3123cdaeb94eeb2484041686b28953622"
+    },
+    "src/orbit_poc/segmented/__init__.py": {
+      "bytes": 84,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/__init__.py",
+      "sha256": "17ab0bd5b113164e732142f1d83f999d3040d1dd7990925f496baf305f6f9729"
+    },
+    "src/orbit_poc/segmented/cli.py": {
+      "bytes": 1289,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/cli.py",
+      "sha256": "83b78c7fe4a4dd720d4c5dd8d129429afa513b7d2be15ef252d83a100c4dcece"
+    },
+    "src/orbit_poc/segmented/config.py": {
+      "bytes": 6384,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/config.py",
+      "sha256": "036dd41c576c4016ea86cb60a899eaacef1a7baf06aa586c7c50a0c32b72eca9"
+    },
+    "src/orbit_poc/segmented/multiday.py": {
+      "bytes": 54278,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/multiday.py",
+      "sha256": "bb010cb51373516b50a557e3b294781b4cd192fa29bcfed2e69313b18a5fe508"
+    },
+    "src/orbit_poc/segmented/preparation.py": {
+      "bytes": 4965,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/preparation.py",
+      "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+    },
+    "src/orbit_poc/segmented/protocol.py": {
+      "bytes": 34810,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/protocol.py",
+      "sha256": "dc13b9872a181f13a7adfdf8a6cb29280b61367ea8fcd059ede656d734f20835"
+    },
+    "src/orbit_poc/segmented/report.py": {
+      "bytes": 33937,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/report.py",
+      "sha256": "b0d200e37e9c90419cb13a9a67217d966c50e130aeec169198098dec81d6a0d2"
+    },
+    "src/orbit_poc/segmented/supervisor.py": {
+      "bytes": 14990,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/supervisor.py",
+      "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+    },
+    "src/orbit_poc/segmented/validation.py": {
+      "bytes": 25921,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/validation.py",
+      "sha256": "70797240aa695f41d257d518affda1a49a1eeed3867cc8fc8b225986aba03f59"
+    },
+    "src/orbit_poc/segmented/validation_reference.py": {
+      "bytes": 23754,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/validation_reference.py",
+      "sha256": "9115f72e6f33f44e246b44f97cabef51e98e47462ebc6ce0f8cd6778b20b68cb"
+    },
+    "tests/test_segmented_multiday.py": {
+      "bytes": 15999,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_multiday.py",
+      "sha256": "daef87fa34684f9c55f4ff60c564f5caef9a65955f28c395f5b8ffe4aa9d5e35"
+    },
+    "tests/test_segmented_protocol.py": {
+      "bytes": 37800,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_protocol.py",
+      "sha256": "4510bd33a6c50aec8206b7b6cadd256733d904b2fab9b345851522ab60d61190"
+    },
+    "tests/test_segmented_supervisor.py": {
+      "bytes": 8261,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_supervisor.py",
+      "sha256": "14c2452158525665f66614523d77651ee6c078a134b3ac6730304a571c3da8b0"
+    },
+    "tests/test_segmented_validation.py": {
+      "bytes": 19291,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_validation.py",
+      "sha256": "3e868ec52b7361964d4b43ba4d82302b69bd1b5a5cf96f380593ac71594ff2d3"
+    }
+  },
+  "startup_failure_disposition": "Combined run retained99passes/1failure. SIGTERM fixture exceeded its8second launch-readiness deadline before any supervisor ownership receipt; calling controller correctly reported cleanup unverified. Observed blocked p9_client_rpc filesystem I/O suggests startup latency, but is not a proven cause. Exact unchanged failed fixture passed alone in fresh02; no timeout, science limit or source was changed. No claim that the first combined run was clean.",
+  "test_runs": [
+    {
+      "artifact": {
+        "bytes": 14915,
+        "path": "/tmp/segmented-final-protocol-independent-01.xml",
+        "sha256": "bd83f8356289aaa0ea7b0d29f6a3f17cb67faceb9e0f7af40a0d545c4db8af64"
+      },
+      "errors": 0,
+      "failed": [
+        "tests.test_segmented_supervisor::test_parent_sigterm_requests_owned_cleanup_before_return"
+      ],
+      "passed": 99,
+      "skipped": 0,
+      "tests": 100
+    },
+    {
+      "artifact": {
+        "bytes": 374,
+        "path": "/tmp/segmented-final-protocol-independent-02.xml",
+        "sha256": "018ba7b0dc3ed002f2c3589cb386a68b51df4f54b81b6be0cc28ea968ae20c1e"
+      },
+      "errors": 0,
+      "failed": [],
+      "passed": 1,
+      "skipped": 0,
+      "tests": 1
+    }
+  ],
+  "unique_fixture_tests_with_passing_evidence": 100
+}

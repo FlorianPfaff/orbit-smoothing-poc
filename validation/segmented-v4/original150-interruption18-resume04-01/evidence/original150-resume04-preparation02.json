@@ -1,0 +1,89 @@
+{
+  "admission": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/continuation-prelaunch04.json",
+    "sha256": "b6abe9319066b4520312daf61264f7eba9a00dd08ea89a6a59f0b3675942a491"
+  },
+  "all_artifacts_reverified": true,
+  "artifact_count": 93,
+  "created_at": "2026-10-16T21:25:22.259103+00:00",
+  "frozen_config_source_native_unchanged": true,
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/original150_retention_recovery02.py",
+    "sha256": "bb23360e9cd9af6219e6771fca90c834288f9467e3f1f55b38eca8552fd49c61"
+  },
+  "launch_argv": [
+    "/usr/bin/python3",
+    "/mnt/d/orbit-segmented-v4/control/launch_original150_resume.py",
+    "--plan",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/resume-plan04.json",
+    "--sha256",
+    "1c449a8e2c7548190ec3964db30c3ea8c50db827deafd8943e09aeceb2efe8c3"
+  ],
+  "launched": false,
+  "launcher": {
+    "path": "/mnt/d/orbit-segmented-v4/control/launch_original150_resume.py",
+    "sha256": "7da49c30caf0fd7e942f96cd40a40d73b9fa1ea92d85db894bc5e88e02653230"
+  },
+  "new_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "30",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+    "--config",
+    "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+    "--receipt",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/startup-resume-04.json",
+    "--",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/d/orbit-segmented-v4/control/original150_retention_recovery02.py",
+    "--plan",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/retention-recovery-plan04.json",
+    "--sha256",
+    "811ce1a01add789057e928871a4e61ca121c91875e121a830abc9c2998bde5c5",
+    "--mode",
+    "campaign",
+    "--startup-receipt",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/startup-resume-04.json"
+  ],
+  "old_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "30",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+    "--config",
+    "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+    "--receipt",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json",
+    "--",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/d/orbit-segmented-v4/control/original150_retention_recovery02.py",
+    "--plan",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/retention-recovery-plan03.json",
+    "--sha256",
+    "43c3cd865435f5e79391ccba6ee889597ffdd0c4793bb7d1165e815311a2c956",
+    "--mode",
+    "campaign",
+    "--startup-receipt",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json"
+  ],
+  "plan": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/resume-plan04.json",
+    "sha256": "1c449a8e2c7548190ec3964db30c3ea8c50db827deafd8943e09aeceb2efe8c3"
+  },
+  "retention_delta": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/retention-plan-delta04.json",
+    "sha256": "5f96193d424502a20e965edb4fe134ec52ae32c27af7f51b7d30b13487ef4277"
+  },
+  "retention_plan": {
+    "path": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-03/retention-recovery-plan04.json",
+    "sha256": "811ce1a01add789057e928871a4e61ca121c91875e121a830abc9c2998bde5c5"
+  },
+  "schema": "orbit-poc-original150-resume04-preparation-v1",
+  "scope": "Fresh boot/output metadata only. Existing original numerical workers/configuration/seeds and control helper are unchanged. Both metadata validators passed; complete frozen startup remains mandatory after reviewed launch. Continue after18 terminal checkpoints, without retry/replacement."
+}

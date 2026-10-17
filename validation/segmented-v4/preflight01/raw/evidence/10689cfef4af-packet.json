@@ -1,0 +1,197 @@
+{
+  "auxiliary_overlay": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-auxiliary-overlay-01/staging.json",
+    "sha256": "3e6e027dff895052b1845b37454dd6287d84e72dc2640be79b45c515e6ee0211"
+  },
+  "execution_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02",
+  "files": {
+    "corrected-terminal10-independent-audit.json": {
+      "bytes": 79069,
+      "sha256": "2c3561ec5f26f594c4962245623caf33f3d7a8e364291813089176b8659c9533"
+    },
+    "flight-input-catalog.json": {
+      "bytes": 493,
+      "sha256": "dc98dc3ba5f065d2e34bd15af6e0cd445a3a19408df968443a64888621cb9ef3"
+    },
+    "original150-manifest.json": {
+      "bytes": 10713663,
+      "sha256": "d2b030e6cd65efa3f726d2a694b1e91510d00d67fe1e2f76e98dee3a08b3a5bd"
+    },
+    "original150-plan.json": {
+      "bytes": 103725,
+      "sha256": "322acf0ddb17ceb80e30fca2868bb92d403e65063df484491ba7d585ab45de8d"
+    },
+    "prior-seed-archive-inventory.json": {
+      "bytes": 287493,
+      "sha256": "ff4aa468d514f342e7e10abdaacc89b825ff579b8b6ee3c0eaa77808ce8021e5"
+    },
+    "prior-seed-archive-scan.json": {
+      "bytes": 413347,
+      "sha256": "85bbeea0252bc22fe6413ee76d81616b0152787b52bf8fd529ab8b8dae4713b2"
+    },
+    "prior-v3-protocol.json": {
+      "bytes": 14817,
+      "sha256": "2e9a70f85f129c23fd637051694a8d744aac194b0ea9636fb928c3aa667e5ef1"
+    },
+    "segmented-v4-deployment-draft.json": {
+      "bytes": 5681,
+      "sha256": "c076e9311b2d0e6fabfb622a87c9b9430406ee58560859054fbe28509b11eeff"
+    }
+  },
+  "future_preparation": "generate_missing=true; four continuous72h plus twelve prefix checkpoints inside run/preparation; exact four original flight wrappers only; no re-download/re-initialization of flight",
+  "later_reporting_inputs": [
+    "original150_report",
+    "release_evidence: report-only attachment, excluded from execution-plan identity"
+  ],
+  "not_claimed": [
+    "scientific validation",
+    "prepared68 manifest",
+    "Tudat scientific import success",
+    "source freeze or launch readiness"
+  ],
+  "original_copies": {
+    "corrected-terminal10-independent-audit.json": {
+      "bytes": 79069,
+      "destination": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/control/corrected-terminal10-independent-audit.json",
+      "sha256": "2c3561ec5f26f594c4962245623caf33f3d7a8e364291813089176b8659c9533",
+      "source": "/mnt/d/orbit-numerics-v3.1/correctness/control/terminal10-independent-audit-01.json"
+    },
+    "original150-manifest.json": {
+      "bytes": 10713663,
+      "destination": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/control/original150-manifest.json",
+      "sha256": "d2b030e6cd65efa3f726d2a694b1e91510d00d67fe1e2f76e98dee3a08b3a5bd",
+      "source": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/manifest.json"
+    },
+    "original150-plan.json": {
+      "bytes": 103725,
+      "destination": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/control/original150-plan.json",
+      "sha256": "322acf0ddb17ceb80e30fca2868bb92d403e65063df484491ba7d585ab45de8d",
+      "source": "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/benchmark-01/plan.json"
+    },
+    "prior-v3-protocol.json": {
+      "bytes": 14817,
+      "destination": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/control/prior-v3-protocol.json",
+      "sha256": "2e9a70f85f129c23fd637051694a8d744aac194b0ea9636fb928c3aa667e5ef1",
+      "source": "/mnt/d/orbit-numerics-v3.1-mirror/remote-root/mnt/seagate10tb/orbit-comparison-v3-20261013-florianpfaff/campaign-v3-03/protocol.json"
+    }
+  },
+  "previous_packet": {
+    "path": "/mnt/d/orbit-segmented-v4/control/deployment-config-02/packet.json",
+    "sha256": "a482702c3550e60dc0ae4259a4903ef56302414f1da5520f0ed0ffe3bca70a27"
+  },
+  "reason": "Separate validation-02 deployment for corrected per-arity balanced profile order. Previous validation-01 source/config are preserved and never launched. Native inputs,68cases,limits and prior artifact bytes are unchanged.",
+  "required_final_fill": [
+    "dense_runtime.source_root/source_sha256 and segmented_runtime.source_root/source_sha256: same final v4 shared source",
+    "resources.reserved_cpu_ids and resources.admission: current host/boot audited reservation",
+    "reverify exact engineering02 native build inputs against final source; rebuild separately if changed"
+  ],
+  "required_read_only_bindings": [
+    "original14 validation and dependency inventories",
+    "full runtime prefixes and paired loader",
+    "corrected10 and engineering02 binaries/build manifests",
+    "original150 historical flight request/preparation trees",
+    "six-file flight normalization/bias overlay",
+    "full example and auxiliary manifests/data at canonical paths",
+    "whole Tudat virtual environment at original invocation path"
+  ],
+  "schema": "orbit-poc-segmented-deployment-config-packet-v1",
+  "seed_scan": {
+    "candidate_overlap": [],
+    "metadata_files": 780,
+    "observed_prior_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      10000,
+      10001,
+      10002,
+      10003,
+      10004,
+      20000,
+      40000,
+      40001,
+      40002,
+      40003,
+      40004,
+      300000,
+      300001,
+      300002,
+      300003,
+      300004,
+      300005,
+      400000,
+      400001,
+      400002,
+      400003,
+      400004,
+      400005,
+      400006,
+      400007,
+      400008,
+      400009,
+      400010,
+      400011,
+      400012,
+      400013,
+      400014,
+      400015,
+      400016,
+      400017,
+      400018,
+      400019,
+      400020,
+      400021,
+      400022,
+      400023,
+      400024,
+      400025,
+      400026,
+      400027,
+      400028,
+      400029,
+      400030,
+      400031,
+      400032,
+      400033,
+      400034,
+      400035,
+      400036,
+      400037,
+      400038,
+      400039,
+      400040,
+      400041,
+      400042,
+      400043,
+      400044,
+      400045,
+      400046,
+      400047,
+      400048,
+      400049,
+      500000,
+      510000,
+      510001
+    ],
+    "scan_sha256": "85bbeea0252bc22fe6413ee76d81616b0152787b52bf8fd529ab8b8dae4713b2",
+    "scope": "All matching archived protocol/config/manifest/request metadata in the listed v2, v3 and v3.1 roots; exact files and directory membership recorded before preparation."
+  },
+  "status": "pending_final_source_and_admission"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "orbit-poc-segmented-native-qr-author-validation-v1",
+  "created_at": "2026-10-15T15:14:22.677446+00:00",
+  "files": {
+    "groops/extension/segmentedQr.h": "f912db2426a6e1b9d8d1c4c7409ce811b6e3a13d7e56dae9804a58e8ec6b4edc",
+    "groops/extension/segmentedQrMain.cpp": "3b4c3c63f349b67674b00832a008dd80ed3a95751c41687a72835f2ea62f6e8b",
+    "tests/test_segmented_native_qr.py": "80b4d55508151a4eca2a2fd42ca0095c7702d119744130be515a2081835924bd"
+  },
+  "test_count": 53,
+  "test_scope": "36 native constrained QR fixtures and17 Python adapter tests",
+  "junit": {
+    "path": "/tmp/segmented-qr-validation-01.xml",
+    "sha256": "5cfeffb3a221467f5ac90d363454b0b026320868b9eadc390d6f347896df3a32"
+  },
+  "compiler_command": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "groops/extension/segmentedQrMain.cpp",
+    "/usr/lib/x86_64-linux-gnu/liblapack.so.3",
+    "/usr/lib/x86_64-linux-gnu/libblas.so.3"
+  ],
+  "limitations": [
+    "Local-front rank diagnostics require the separate original-chart certificate.",
+    "takeRows scans remaining sparse ledgers each microfront; computational scaling must be measured.",
+    "No nonlinear native fit or v4 benchmark result is implied."
+  ]
+}

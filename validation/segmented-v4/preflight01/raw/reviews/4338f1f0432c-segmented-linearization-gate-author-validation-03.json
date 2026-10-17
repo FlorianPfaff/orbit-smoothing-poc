@@ -1,0 +1,39 @@
+{
+  "adversarial_fixture": "A native-result equality error exactly2e-12 fails despite an unchanged passing MAP and full-energy result; progress is preserved.",
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 17
+  },
+  "cpu_affinity": [
+    31
+  ],
+  "created_utc": "2026-10-15T16:17:52.556443+00:00",
+  "files": {
+    "scripts/validate_segmented_linearization.py": {
+      "bytes": 18444,
+      "path": "/mnt/d/orbit-segmented-v4/source/scripts/validate_segmented_linearization.py",
+      "sha256": "fa0eb444ed9e959b8cd48d896903d41e1cffb3abfd98726970c3b70befe59527"
+    },
+    "tests/test_segmented_linearization_gate.py": {
+      "bytes": 8748,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_linearization_gate.py",
+      "sha256": "5050d60811d011c57f9997c33caa3799b9b08f0c0a90440247426496245447cc"
+    }
+  },
+  "normalization": "max_i |d_i-E_i*x|/(|d_i|+sum_j|E_ij*x_j|); zero denominator gives zero.",
+  "passed": true,
+  "previous_reviewed_addition": {
+    "bytes": 2115,
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-linearization-gate-author-validation-02.json",
+    "sha256": "2c67c035f77218eacd5c5a8bc2f46acd8e52e8d2c5435edfb625852ab5c14588"
+  },
+  "schema": "orbit-poc-segmented-linearization-author-validation-v3",
+  "scope": "Add explicit per-trial exact-equality residual evidence and fixed2e-12 check separately from full objective-energy differences. Actual-row GTSAM oracle unchanged. Engineering02 frozen snapshot untouched; no native fit run.",
+  "tests": {
+    "bytes": 2771,
+    "path": "/tmp/segmented-linearization-gate-04.xml",
+    "sha256": "3b2454eba621a2469f4b47496d867187f5732b25223e76fd6a1342923cf6cf89"
+  }
+}

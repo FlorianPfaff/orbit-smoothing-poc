@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/recover_preparation04_startup02.py", line 74, in load_plan
+    for k in ('helper','control_python','execution','preparation_plan','preparation_pins','old_smoke','old_probe','smoke','probe'):checked(p[k])
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/recover_preparation04_startup02.py", line 13, in checked
+    p=Path(item['path']); need(p.is_absolute() and p.is_file() and not p.is_symlink() and sha(p)==item['sha256'],'Changed artifact: '+str(p)); return p
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/recover_preparation04_startup02.py", line 9, in need
+    if not ok: raise RuntimeError(msg)
+RuntimeError: Changed artifact: /usr/bin/python3

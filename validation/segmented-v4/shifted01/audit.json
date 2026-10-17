@@ -1,0 +1,1691 @@
+{
+  "artifacts": {
+    "config": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/segmented-v4.json",
+      "sha256": "3f085132dc0fb62c090ebbed50dd8865360cd6fcf7d8b8a3c9703b3312ace985"
+    },
+    "controller": {
+      "bytes": 39841,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/pipeline.json",
+      "sha256": "97fe0ff0091bee2b439bb958b36a3fd351242b30fad652e7412eac875eeaf9a6"
+    },
+    "diagnostic_helper": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/validate_shifted_cuts.py",
+      "sha256": "07624cc57a43e09d48b712df6bcbc371ec77549ab9fcc3db37d6587731930c07"
+    },
+    "execution": {
+      "bytes": 24869,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/execution.json",
+      "sha256": "49d7ecfcf33cf1d413fe187926217451384f9b9a6faf0e401b2983a978adba3c"
+    },
+    "launch": {
+      "bytes": 1588,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/shifted-launch.json",
+      "sha256": "7eb09f997447a3340561028bb065157f908b9b04e7584af02195b57a38b2a866"
+    },
+    "plan": {
+      "bytes": 2923,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/plan.json",
+      "sha256": "7e8a00946a84a5fceb29e75dc802b13710d70e31ce7faddf24966358272ee031"
+    },
+    "prerequisite_validation_audit": {
+      "bytes": 102828,
+      "path": "/mnt/d/orbit-segmented-v4/control/segmented-validation03-terminal-independent-review-01.json",
+      "sha256": "3df121d1b3142eb4814ce557a24991acc3388813d43178499732bd7422c1daee"
+    },
+    "runner": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/run_shifted_diagnostic03.py",
+      "sha256": "e6c55715f6d4dfae2c168085a0e8474355d6bccdd8b4e180efbd2b21dba685cb"
+    },
+    "runtime_checker": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/control/check_shifted_runtime01.py",
+      "sha256": "06e94be786fb05038c8d5991ccd6516204ca92127456f66151dc617101d1ba80"
+    },
+    "source_freeze": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/source-freeze.json",
+      "sha256": "efbef2b87ce78aad025e259d82203e1c6ec76502eca2e7e15d966f3dac866a01"
+    }
+  },
+  "audit_helper": {
+    "bytes": 13967,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_shifted_terminal01.py",
+    "sha256": "a535924c15cac89d7e51aca55284de934dd42e8446b904f39764d31a028d30b6"
+  },
+  "benchmark_attempts_executed": 0,
+  "capture": {
+    "bytes": 70884,
+    "path": "/mnt/d/orbit-segmented-v4/shifted-diagnostic-01-results/terminal-capture-01/manifest.json",
+    "sha256": "0b9118320cd5208c4371b2ffb128feff383d747269bd24f262b09e67adcf3efc"
+  },
+  "cleanup_verified": true,
+  "consistency_passed": true,
+  "created_utc": "2026-10-15T23:58:09.975673+00:00",
+  "fit_covariance_authorized": false,
+  "identity": {
+    "comparison_source_sha256": "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b",
+    "full_source_sha256": "5f85c630c89be7e0a7654b31764186d8a4f914e2f4b74fec1535339658e42dd2",
+    "native_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+    "solver_sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+  },
+  "independent_row_arithmetic": {
+    "bytes": 43818,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted-independent-row-analysis-02/result.json",
+    "sha256": "d61077b20d0ebfdc169c5bbc7023cb09882478bd08f0e59f929596a366450f87"
+  },
+  "limitations": [
+    "One-hour synthetic captured linearizations; this is not the24/48/72-hour benchmark or flight fit equivalence.",
+    "The300-second pulse shifts had no interior original-parameter movement and are reported only as numerical equivalence without cut coverage. The1800-second shifts supply genuine interior movement for both periods and methods.",
+    "The gradient in this diagnostic has unit denominator, not the nonlinear objective normalization.",
+    "Only undamped linearization covariance is checked; no accepted-fit covariance, speedup or release approval follows.",
+    "Raw row energy/equality checks use independent binary64 products and math.fsum; original dense MAP/covariance use independent SciPy triangular and QR calculations."
+  ],
+  "methods": [
+    {
+      "method": "log_drag_ou",
+      "original_columns": 146,
+      "original_validation": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/run/validation/attempt-0001/linearization-log_drag_ou/result/validation.json",
+        "sha256": "296afade9e71458b731d5398d777443949cc6dcee92bb742cd080e120fc253ce"
+      },
+      "profiles": [
+        {
+          "covariance_relative_error": 9.139596999390493e-14,
+          "coverage": {
+            "adequate": true,
+            "changed_original_elimination_ids": 5,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 5,
+            "interior_movements": [
+              {
+                "identifier": 0,
+                "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 1,
+                "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 2,
+                "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 3,
+                "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 4,
+                "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              }
+            ]
+          },
+          "offset_seconds": 300.0,
+          "raw_covariance": {
+            "bytes": 145127,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/log_drag_ou/comparison/period-3600-offset-300/covariance.npz",
+            "sha256": "89baa4c486830b4b2c861d40db6e146d033c9d00be77084fda1e30b84ebeff4b"
+          },
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.6210688700207295e-16,
+              "kernel_equality_backward_error": 1.6205558735428748e-16,
+              "map_discrepancy_posterior_sd": 1.9156993891441904e-12,
+              "normalized_full_energy_difference": 1.82800745666033e-15,
+              "normalized_orthogonal_energy_difference": 1.82800745666033e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5546457070634892e-16,
+              "kernel_equality_backward_error": 1.5546457070634892e-16,
+              "map_discrepancy_posterior_sd": 1.4054919014865738e-12,
+              "normalized_full_energy_difference": 1.1220568563269511e-15,
+              "normalized_orthogonal_energy_difference": 3.3661705689808536e-15
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6536759526146972e-16,
+              "kernel_equality_backward_error": 1.6536759526146972e-16,
+              "map_discrepancy_posterior_sd": 4.63031402299041e-14,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 8.904309661780191e-14,
+          "coverage": {
+            "adequate": true,
+            "changed_original_elimination_ids": 54,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 54,
+            "interior_movements": [
+              {
+                "identifier": 0,
+                "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 1,
+                "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 2,
+                "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 3,
+                "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 4,
+                "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 5,
+                "name": "GRACEC:logDensity::2024-04-24_00-05-00_2024-04-24_00-05-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 6,
+                "name": "GRACEC:logDensity::2024-04-24_00-06-00_2024-04-24_00-06-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 7,
+                "name": "GRACEC:logDensity::2024-04-24_00-07-00_2024-04-24_00-07-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 8,
+                "name": "GRACEC:logDensity::2024-04-24_00-08-00_2024-04-24_00-08-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 9,
+                "name": "GRACEC:logDensity::2024-04-24_00-09-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 10,
+                "name": "GRACEC:logDensity::2024-04-24_00-10-00_2024-04-24_00-10-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 11,
+                "name": "GRACEC:logDensity::2024-04-24_00-11-00_2024-04-24_00-11-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 12,
+                "name": "GRACEC:logDensity::2024-04-24_00-12-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 13,
+                "name": "GRACEC:logDensity::2024-04-24_00-13-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 14,
+                "name": "GRACEC:logDensity::2024-04-24_00-14-00_2024-04-24_00-14-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 15,
+                "name": "GRACEC:logDensity::2024-04-24_00-15-00_2024-04-24_00-15-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 16,
+                "name": "GRACEC:logDensity::2024-04-24_00-16-00_2024-04-24_00-16-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 17,
+                "name": "GRACEC:logDensity::2024-04-24_00-17-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 18,
+                "name": "GRACEC:logDensity::2024-04-24_00-18-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 19,
+                "name": "GRACEC:logDensity::2024-04-24_00-19-00_2024-04-24_00-19-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 20,
+                "name": "GRACEC:logDensity::2024-04-24_00-20-00_2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 21,
+                "name": "GRACEC:logDensity::2024-04-24_00-21-00_2024-04-24_00-21-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 22,
+                "name": "GRACEC:logDensity::2024-04-24_00-22-00_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 23,
+                "name": "GRACEC:logDensity::2024-04-24_00-23-00_2024-04-24_00-23-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 24,
+                "name": "GRACEC:logDensity::2024-04-24_00-24-00_2024-04-24_00-24-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 25,
+                "name": "GRACEC:logDensity::2024-04-24_00-25-00_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 26,
+                "name": "GRACEC:logDensity::2024-04-24_00-26-00_2024-04-24_00-26-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 27,
+                "name": "GRACEC:logDensity::2024-04-24_00-27-00_2024-04-24_00-27-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 28,
+                "name": "GRACEC:logDensity::2024-04-24_00-28-00_2024-04-24_00-28-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 29,
+                "name": "GRACEC:logDensity::2024-04-24_00-29-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 72,
+                "name": "GRACEC.G04:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 73,
+                "name": "GRACEC.G04:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 74,
+                "name": "GRACEC.G02:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 75,
+                "name": "GRACEC.G02:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 76,
+                "name": "GRACEC.G28:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 77,
+                "name": "GRACEC.G28:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 78,
+                "name": "GRACEC.G21:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 79,
+                "name": "GRACEC.G21:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 80,
+                "name": "GRACEC.G31:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 81,
+                "name": "GRACEC.G31:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 82,
+                "name": "GRACEC.G10:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 83,
+                "name": "GRACEC.G10:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 84,
+                "name": "GRACEC.G16:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 85,
+                "name": "GRACEC.G16:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 86,
+                "name": "GRACEC.G08:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 87,
+                "name": "GRACEC.G08:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 88,
+                "name": "GRACEC.G18:ambiguity1of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 89,
+                "name": "GRACEC.G18:ambiguity2of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 96,
+                "name": "GRACEC.G29:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 97,
+                "name": "GRACEC.G29:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 98,
+                "name": "GRACEC.G07:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 99,
+                "name": "GRACEC.G07:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 100,
+                "name": "GRACEC.G13:ambiguity1of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 101,
+                "name": "GRACEC.G13:ambiguity2of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              }
+            ]
+          },
+          "offset_seconds": 1800.0,
+          "raw_covariance": {
+            "bytes": 145032,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/log_drag_ou/comparison/period-3600-offset-1800/covariance.npz",
+            "sha256": "cfcb8202917e4a12efa7deaa8e40e16d0b738e772582b6ea33a0ff99c5702588"
+          },
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.5982183669960996e-16,
+              "kernel_equality_backward_error": 1.5981015278842458e-16,
+              "map_discrepancy_posterior_sd": 1.9073021762451643e-12,
+              "normalized_full_energy_difference": 1.5467755402510487e-15,
+              "normalized_orthogonal_energy_difference": 2.812319164092816e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5372082202251614e-16,
+              "kernel_equality_backward_error": 1.537390141706714e-16,
+              "map_discrepancy_posterior_sd": 1.5478720044107935e-12,
+              "normalized_full_energy_difference": 1.402571070408689e-15,
+              "normalized_orthogonal_energy_difference": 9.817997492860822e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6307791829438486e-16,
+              "kernel_equality_backward_error": 1.6278087290587048e-16,
+              "map_discrepancy_posterior_sd": 9.67691409648825e-13,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 9.139596999390493e-14,
+          "coverage": {
+            "adequate": true,
+            "changed_original_elimination_ids": 5,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 5,
+            "interior_movements": [
+              {
+                "identifier": 0,
+                "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 1,
+                "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 2,
+                "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 3,
+                "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              },
+              {
+                "identifier": 4,
+                "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+                "new_seconds": 300.0,
+                "new_stage": 60,
+                "old_stage": 719
+              }
+            ]
+          },
+          "offset_seconds": 300.0,
+          "raw_covariance": {
+            "bytes": 145127,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/log_drag_ou/comparison/period-14400-offset-300/covariance.npz",
+            "sha256": "89baa4c486830b4b2c861d40db6e146d033c9d00be77084fda1e30b84ebeff4b"
+          },
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.6210688700207295e-16,
+              "kernel_equality_backward_error": 1.6205558735428748e-16,
+              "map_discrepancy_posterior_sd": 1.9156993891441904e-12,
+              "normalized_full_energy_difference": 1.82800745666033e-15,
+              "normalized_orthogonal_energy_difference": 1.82800745666033e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5546457070634892e-16,
+              "kernel_equality_backward_error": 1.5546457070634892e-16,
+              "map_discrepancy_posterior_sd": 1.4054919014865738e-12,
+              "normalized_full_energy_difference": 1.1220568563269511e-15,
+              "normalized_orthogonal_energy_difference": 3.3661705689808536e-15
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6536759526146972e-16,
+              "kernel_equality_backward_error": 1.6536759526146972e-16,
+              "map_discrepancy_posterior_sd": 4.63031402299041e-14,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 8.904309661780191e-14,
+          "coverage": {
+            "adequate": true,
+            "changed_original_elimination_ids": 54,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 54,
+            "interior_movements": [
+              {
+                "identifier": 0,
+                "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 1,
+                "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 2,
+                "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 3,
+                "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 4,
+                "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 5,
+                "name": "GRACEC:logDensity::2024-04-24_00-05-00_2024-04-24_00-05-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 6,
+                "name": "GRACEC:logDensity::2024-04-24_00-06-00_2024-04-24_00-06-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 7,
+                "name": "GRACEC:logDensity::2024-04-24_00-07-00_2024-04-24_00-07-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 8,
+                "name": "GRACEC:logDensity::2024-04-24_00-08-00_2024-04-24_00-08-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 9,
+                "name": "GRACEC:logDensity::2024-04-24_00-09-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 10,
+                "name": "GRACEC:logDensity::2024-04-24_00-10-00_2024-04-24_00-10-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 11,
+                "name": "GRACEC:logDensity::2024-04-24_00-11-00_2024-04-24_00-11-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 12,
+                "name": "GRACEC:logDensity::2024-04-24_00-12-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 13,
+                "name": "GRACEC:logDensity::2024-04-24_00-13-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 14,
+                "name": "GRACEC:logDensity::2024-04-24_00-14-00_2024-04-24_00-14-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 15,
+                "name": "GRACEC:logDensity::2024-04-24_00-15-00_2024-04-24_00-15-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 16,
+                "name": "GRACEC:logDensity::2024-04-24_00-16-00_2024-04-24_00-16-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 17,
+                "name": "GRACEC:logDensity::2024-04-24_00-17-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 18,
+                "name": "GRACEC:logDensity::2024-04-24_00-18-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 19,
+                "name": "GRACEC:logDensity::2024-04-24_00-19-00_2024-04-24_00-19-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 20,
+                "name": "GRACEC:logDensity::2024-04-24_00-20-00_2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 21,
+                "name": "GRACEC:logDensity::2024-04-24_00-21-00_2024-04-24_00-21-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 22,
+                "name": "GRACEC:logDensity::2024-04-24_00-22-00_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 23,
+                "name": "GRACEC:logDensity::2024-04-24_00-23-00_2024-04-24_00-23-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 24,
+                "name": "GRACEC:logDensity::2024-04-24_00-24-00_2024-04-24_00-24-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 25,
+                "name": "GRACEC:logDensity::2024-04-24_00-25-00_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 26,
+                "name": "GRACEC:logDensity::2024-04-24_00-26-00_2024-04-24_00-26-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 27,
+                "name": "GRACEC:logDensity::2024-04-24_00-27-00_2024-04-24_00-27-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 28,
+                "name": "GRACEC:logDensity::2024-04-24_00-28-00_2024-04-24_00-28-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 29,
+                "name": "GRACEC:logDensity::2024-04-24_00-29-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 72,
+                "name": "GRACEC.G04:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 73,
+                "name": "GRACEC.G04:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 74,
+                "name": "GRACEC.G02:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 75,
+                "name": "GRACEC.G02:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 76,
+                "name": "GRACEC.G28:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 77,
+                "name": "GRACEC.G28:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 78,
+                "name": "GRACEC.G21:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 79,
+                "name": "GRACEC.G21:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 80,
+                "name": "GRACEC.G31:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 81,
+                "name": "GRACEC.G31:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 82,
+                "name": "GRACEC.G10:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 83,
+                "name": "GRACEC.G10:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 84,
+                "name": "GRACEC.G16:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 85,
+                "name": "GRACEC.G16:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 86,
+                "name": "GRACEC.G08:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 87,
+                "name": "GRACEC.G08:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 88,
+                "name": "GRACEC.G18:ambiguity1of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 89,
+                "name": "GRACEC.G18:ambiguity2of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 96,
+                "name": "GRACEC.G29:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 97,
+                "name": "GRACEC.G29:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 98,
+                "name": "GRACEC.G07:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 99,
+                "name": "GRACEC.G07:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 100,
+                "name": "GRACEC.G13:ambiguity1of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 101,
+                "name": "GRACEC.G13:ambiguity2of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              }
+            ]
+          },
+          "offset_seconds": 1800.0,
+          "raw_covariance": {
+            "bytes": 145032,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/log_drag_ou/comparison/period-14400-offset-1800/covariance.npz",
+            "sha256": "cfcb8202917e4a12efa7deaa8e40e16d0b738e772582b6ea33a0ff99c5702588"
+          },
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.5982183669960996e-16,
+              "kernel_equality_backward_error": 1.5981015278842458e-16,
+              "map_discrepancy_posterior_sd": 1.9073021762451643e-12,
+              "normalized_full_energy_difference": 1.5467755402510487e-15,
+              "normalized_orthogonal_energy_difference": 2.812319164092816e-15
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5372082202251614e-16,
+              "kernel_equality_backward_error": 1.537390141706714e-16,
+              "map_discrepancy_posterior_sd": 1.5478720044107935e-12,
+              "normalized_full_energy_difference": 1.402571070408689e-15,
+              "normalized_orthogonal_energy_difference": 9.817997492860822e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.6307791829438486e-16,
+              "kernel_equality_backward_error": 1.6278087290587048e-16,
+              "map_discrepancy_posterior_sd": 9.67691409648825e-13,
+              "normalized_full_energy_difference": 1.1111206563573402e-16,
+              "normalized_orthogonal_energy_difference": 1.1111206563573402e-16
+            }
+          ]
+        }
+      ],
+      "rank_smallest_singular_value": 0.00143397217382516,
+      "rank_unresolved_threshold": 9.640762197493936e-11,
+      "raw_result": {
+        "bytes": 68335,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/log_drag_ou/validation.json",
+        "sha256": "5ce9179437c1776426013b73330e6c9c75e532e2a63ae4e7f876d20125b8593e"
+      },
+      "status": "passed"
+    },
+    {
+      "method": "pulses",
+      "original_columns": 91,
+      "original_validation": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/run/validation/attempt-0001/linearization-pulses/result/validation.json",
+        "sha256": "3be90cfd2cd9320ef9b0643547548b79aa116c0e0423f376154f47f54295e1dd"
+      },
+      "profiles": [
+        {
+          "covariance_relative_error": 7.038103665818366e-14,
+          "coverage": {
+            "adequate": false,
+            "changed_original_elimination_ids": 0,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 0,
+            "interior_movements": []
+          },
+          "offset_seconds": 300.0,
+          "raw_covariance": {
+            "bytes": 47303,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/pulses/comparison/period-3600-offset-300/covariance.npz",
+            "sha256": "bd4897ed5a4aaa74815259dd41195c4d8e67dd48362c7ff35f2d829d9e31659b"
+          },
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.350575459742412e-16,
+              "kernel_equality_backward_error": 1.350575459742412e-16,
+              "map_discrepancy_posterior_sd": 8.81206187245845e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 9.838674517021386e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5137117718097012e-16,
+              "kernel_equality_backward_error": 1.5137117718097012e-16,
+              "map_discrepancy_posterior_sd": 4.960234864196403e-13,
+              "normalized_full_energy_difference": 8.397934927365646e-16,
+              "normalized_orthogonal_energy_difference": 8.397934927365646e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013885813e-16,
+              "kernel_equality_backward_error": 1.3490797013885813e-16,
+              "map_discrepancy_posterior_sd": 2.244185309369486e-12,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 3.460063100844305e-14,
+          "coverage": {
+            "adequate": true,
+            "changed_original_elimination_ids": 27,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 27,
+            "interior_movements": [
+              {
+                "identifier": 0,
+                "name": "GRACEC:stochasticPulse.x::2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 1,
+                "name": "GRACEC:stochasticPulse.y::2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 2,
+                "name": "GRACEC:stochasticPulse.z::2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 17,
+                "name": "GRACEC.G04:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 18,
+                "name": "GRACEC.G04:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 19,
+                "name": "GRACEC.G02:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 20,
+                "name": "GRACEC.G02:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 21,
+                "name": "GRACEC.G28:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 22,
+                "name": "GRACEC.G28:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 23,
+                "name": "GRACEC.G21:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 24,
+                "name": "GRACEC.G21:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 25,
+                "name": "GRACEC.G31:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 26,
+                "name": "GRACEC.G31:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 27,
+                "name": "GRACEC.G10:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 28,
+                "name": "GRACEC.G10:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 29,
+                "name": "GRACEC.G16:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 30,
+                "name": "GRACEC.G16:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 31,
+                "name": "GRACEC.G08:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 32,
+                "name": "GRACEC.G08:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 33,
+                "name": "GRACEC.G18:ambiguity1of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 34,
+                "name": "GRACEC.G18:ambiguity2of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 41,
+                "name": "GRACEC.G29:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 42,
+                "name": "GRACEC.G29:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 43,
+                "name": "GRACEC.G07:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 44,
+                "name": "GRACEC.G07:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 45,
+                "name": "GRACEC.G13:ambiguity1of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 46,
+                "name": "GRACEC.G13:ambiguity2of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              }
+            ]
+          },
+          "offset_seconds": 1800.0,
+          "raw_covariance": {
+            "bytes": 47354,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/pulses/comparison/period-3600-offset-1800/covariance.npz",
+            "sha256": "641f57c61f5f79ebae2d5a9d145106c01f6dd88323ef07d5acda682ec6d2c973"
+          },
+          "segment_seconds": 3600,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.4978082722914706e-16,
+              "kernel_equality_backward_error": 1.4978082722914706e-16,
+              "map_discrepancy_posterior_sd": 7.561602341308252e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 2.8110498620061106e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5042008464690595e-16,
+              "kernel_equality_backward_error": 1.5042008464690595e-16,
+              "map_discrepancy_posterior_sd": 7.569267300162023e-13,
+              "normalized_full_energy_difference": 6.998279106138039e-16,
+              "normalized_orthogonal_energy_difference": 6.998279106138039e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013877562e-16,
+              "kernel_equality_backward_error": 1.3490797013877562e-16,
+              "map_discrepancy_posterior_sd": 3.4256075949041875e-13,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 7.038103665818366e-14,
+          "coverage": {
+            "adequate": false,
+            "changed_original_elimination_ids": 0,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 0,
+            "interior_movements": []
+          },
+          "offset_seconds": 300.0,
+          "raw_covariance": {
+            "bytes": 47303,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/pulses/comparison/period-14400-offset-300/covariance.npz",
+            "sha256": "bd4897ed5a4aaa74815259dd41195c4d8e67dd48362c7ff35f2d829d9e31659b"
+          },
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.350575459742412e-16,
+              "kernel_equality_backward_error": 1.350575459742412e-16,
+              "map_discrepancy_posterior_sd": 8.81206187245845e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 9.838674517021386e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5137117718097012e-16,
+              "kernel_equality_backward_error": 1.5137117718097012e-16,
+              "map_discrepancy_posterior_sd": 4.960234864196403e-13,
+              "normalized_full_energy_difference": 8.397934927365646e-16,
+              "normalized_orthogonal_energy_difference": 8.397934927365646e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013885813e-16,
+              "kernel_equality_backward_error": 1.3490797013885813e-16,
+              "map_discrepancy_posterior_sd": 2.244185309369486e-12,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        },
+        {
+          "covariance_relative_error": 3.460063100844305e-14,
+          "coverage": {
+            "adequate": true,
+            "changed_original_elimination_ids": 27,
+            "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+            "interior_movement_count": 27,
+            "interior_movements": [
+              {
+                "identifier": 0,
+                "name": "GRACEC:stochasticPulse.x::2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 1,
+                "name": "GRACEC:stochasticPulse.y::2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 2,
+                "name": "GRACEC:stochasticPulse.z::2024-04-24_00-20-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 17,
+                "name": "GRACEC.G04:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 18,
+                "name": "GRACEC.G04:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 19,
+                "name": "GRACEC.G02:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 20,
+                "name": "GRACEC.G02:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 21,
+                "name": "GRACEC.G28:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 22,
+                "name": "GRACEC.G28:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 23,
+                "name": "GRACEC.G21:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 24,
+                "name": "GRACEC.G21:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 25,
+                "name": "GRACEC.G31:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 26,
+                "name": "GRACEC.G31:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 27,
+                "name": "GRACEC.G10:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 28,
+                "name": "GRACEC.G10:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 29,
+                "name": "GRACEC.G16:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 30,
+                "name": "GRACEC.G16:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 31,
+                "name": "GRACEC.G08:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 32,
+                "name": "GRACEC.G08:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 33,
+                "name": "GRACEC.G18:ambiguity1of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 34,
+                "name": "GRACEC.G18:ambiguity2of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 41,
+                "name": "GRACEC.G29:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 42,
+                "name": "GRACEC.G29:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 43,
+                "name": "GRACEC.G07:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 44,
+                "name": "GRACEC.G07:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 45,
+                "name": "GRACEC.G13:ambiguity1of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              },
+              {
+                "identifier": 46,
+                "name": "GRACEC.G13:ambiguity2of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+                "new_seconds": 1800.0,
+                "new_stage": 360,
+                "old_stage": 719
+              }
+            ]
+          },
+          "offset_seconds": 1800.0,
+          "raw_covariance": {
+            "bytes": 47354,
+            "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/pulses/comparison/period-14400-offset-1800/covariance.npz",
+            "sha256": "641f57c61f5f79ebae2d5a9d145106c01f6dd88323ef07d5acda682ec6d2c973"
+          },
+          "segment_seconds": 14400,
+          "trials": [
+            {
+              "damping": 0.0,
+              "independent_all_row_equality_backward_error": 1.4978082722914706e-16,
+              "kernel_equality_backward_error": 1.4978082722914706e-16,
+              "map_discrepancy_posterior_sd": 7.561602341308252e-13,
+              "normalized_full_energy_difference": 5.622099724012221e-16,
+              "normalized_orthogonal_energy_difference": 2.8110498620061106e-16
+            },
+            {
+              "damping": 0.001,
+              "independent_all_row_equality_backward_error": 1.5042008464690595e-16,
+              "kernel_equality_backward_error": 1.5042008464690595e-16,
+              "map_discrepancy_posterior_sd": 7.569267300162023e-13,
+              "normalized_full_energy_difference": 6.998279106138039e-16,
+              "normalized_orthogonal_energy_difference": 6.998279106138039e-16
+            },
+            {
+              "damping": 1000.0,
+              "independent_all_row_equality_backward_error": 1.3490797013877562e-16,
+              "kernel_equality_backward_error": 1.3490797013877562e-16,
+              "map_discrepancy_posterior_sd": 3.4256075949041875e-13,
+              "normalized_full_energy_difference": 2.0508682727743463e-16,
+              "normalized_orthogonal_energy_difference": 2.0508682727743463e-16
+            }
+          ]
+        }
+      ],
+      "rank_smallest_singular_value": 0.0014163654663326578,
+      "rank_unresolved_threshold": 5.3505034764505073e-11,
+      "raw_result": {
+        "bytes": 52359,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-01/run/pulses/validation.json",
+        "sha256": "aa6702020439234b1a9dc6a83332f663fd16ef62ce325e17d85f9b32b6eb37b6"
+      },
+      "status": "passed"
+    }
+  ],
+  "nuisance_profile_evaluations": 0,
+  "physical_evaluations": 0,
+  "prelaunch_review": {
+    "bytes": 7794,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted01-prelaunch-independent-review-01.json",
+    "sha256": "835c66e70c15184db195d1c9a9c1874594d4ec90ac74559c0582dbc29eccf553"
+  },
+  "preserved_parser_failure": {
+    "bytes": 1171,
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted-independent-row-analysis-01/result.json",
+    "sha256": "5d901b357a05cf852e429ed98d4b9fbf622a41851d77f7cfda3e6dac314a31ef"
+  },
+  "release_ready": false,
+  "reviewer": "/root/v31_recovery_review",
+  "schema": "orbit-poc-shifted-cut-terminal-independent-review-v1",
+  "scientific_status": "passed_scoped_checks",
+  "solver_calls": 32
+}

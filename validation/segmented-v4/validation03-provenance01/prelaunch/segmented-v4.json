@@ -1,0 +1,137 @@
+{
+  "controls": {
+    "initial_damping": 0.001,
+    "maximum_accepted_iterations": 32,
+    "maximum_density_update": 0.0001,
+    "maximum_position_change_m": 3e-05,
+    "maximum_pulse_update_m_s": 1e-08,
+    "maximum_trial_evaluations": 96,
+    "minimum_gain_ratio": 0.0001,
+    "normalized_gradient_tolerance": 1e-08,
+    "wall_time_seconds": 7200.0
+  },
+  "corrected_reference": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/corrected-terminal10-independent-audit.json",
+    "sha256": "2c3561ec5f26f594c4962245623caf33f3d7a8e364291813089176b8659c9533"
+  },
+  "dense_runtime": {
+    "build_manifest": {
+      "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f.build-manifest.json",
+      "sha256": "1030f8930e40d0f899529bd39cf5db6dc00bcd675e3c423f845cdbeec6e3c455"
+    },
+    "library_manifest": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-inventory-04/output/corrected-runtime-closure.json",
+      "sha256": "a2997e53befbd7866d93a5e946ea17c0c2209422a4f247b6aa6ea1866fa84948"
+    },
+    "native": {
+      "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+      "sha256": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625"
+    },
+    "python": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+    },
+    "segmented_solver": {
+      "path": "",
+      "sha256": ""
+    },
+    "source_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source",
+    "source_sha256": "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b"
+  },
+  "flight_input_catalog": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/flight-input-catalog.json",
+    "sha256": "dc98dc3ba5f065d2e34bd15af6e0cd445a3a19408df968443a64888621cb9ef3"
+  },
+  "name": "orbit-segmented-v4",
+  "original150_manifest": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/original150-manifest.json",
+    "sha256": "d2b030e6cd65efa3f726d2a694b1e91510d00d67fe1e2f76e98dee3a08b3a5bd"
+  },
+  "original150_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/original150-plan.json",
+    "sha256": "322acf0ddb17ceb80e30fca2868bb92d403e65063df484491ba7d585ab45de8d"
+  },
+  "original150_report": {
+    "path": "",
+    "sha256": ""
+  },
+  "output_dir": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/run",
+  "preparation": {
+    "auxiliary_dir": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary",
+    "cache_dir": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/cache",
+    "example_directory": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/example",
+    "generate_missing": true,
+    "interpolation_margin_seconds": 3600.0,
+    "tudat_python": "/home/florianpfaff/codex-runs/orbit-poc-20261013/tudat-env/bin/python",
+    "tudat_python_sha256": "7e100b56503671d44f2f94b8274121667759b649c6a61211fe4fcbaa777762fb"
+  },
+  "prepared_input_catalog": {
+    "path": "",
+    "sha256": ""
+  },
+  "prior_seed_protocols": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/prior-v3-protocol.json",
+      "sha256": "2e9a70f85f129c23fd637051694a8d744aac194b0ea9636fb928c3aa667e5ef1"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/original150-plan.json",
+      "sha256": "322acf0ddb17ceb80e30fca2868bb92d403e65063df484491ba7d585ab45de8d"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/prior-seed-archive-inventory.json",
+      "sha256": "ff4aa468d514f342e7e10abdaacc89b825ff579b8b6ee3c0eaa77808ce8021e5"
+    }
+  ],
+  "profiles": [
+    "dense_corrected",
+    "segmented_1h",
+    "segmented_4h"
+  ],
+  "release_evidence": {
+    "path": "",
+    "sha256": ""
+  },
+  "resources": {
+    "admission": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/admission.json",
+      "sha256": "0c538645dcd09ed9bb0bd2d8bc273213eb5935b233d8f850428ab87249e1af7d"
+    },
+    "maximum_process_tree_rss_bytes": 8589934592,
+    "minimum_free_output_bytes": 34359738368,
+    "reserve_bytes": 8589934592,
+    "reserved_cpu_ids": [
+      24
+    ],
+    "threads": 1
+  },
+  "schema_version": 1,
+  "segmented_runtime": {
+    "build_manifest": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/build-manifest.json",
+      "sha256": "767bcbeb57763d7ac75d2e385e949782f0c2e4d6b475904cbc1127e4c08ad058"
+    },
+    "library_manifest": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-inventory-04/output/engineering02-runtime-closure.json",
+      "sha256": "8d044ce491d14bbef85ca22c84fe9df350ebbc8c4c909e72f72c9f002b115d72"
+    },
+    "native": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+      "sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+    },
+    "python": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+    },
+    "segmented_solver": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/segmented-qr-2c8481050806ce9d",
+      "sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+    },
+    "source_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source",
+    "source_sha256": "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b"
+  },
+  "validation_inputs": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-inventory-04/output/validation-inputs.json",
+    "sha256": "50d9d05d275d48f6039a9478397c5470e9391ca32e53ed67c7d6b32d2bd0edb4"
+  }
+}

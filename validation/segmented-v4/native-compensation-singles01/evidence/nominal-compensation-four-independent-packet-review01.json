@@ -1,0 +1,140 @@
+{
+  "audit_script": {
+    "bytes": 20014,
+    "path": "/mnt/d/orbit-segmented-v4/control/read_nominal_compensation_four_packets01.py",
+    "sha256": "81993791a854c26e528ba9dec084bad3f90f55de64080da2c2c2f0a3b171bacb"
+  },
+  "cases": [
+    {
+      "case": "preparation03",
+      "exact_original_input_count": 13,
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/control/execution.json",
+        "sha256": "ffc201bb5ac473e5998536c58da6026c56719bcd03920f0977e26d6fbb32d05b"
+      },
+      "mode": "single",
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+        "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+      },
+      "original_fixed_state": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/control/plan.json",
+        "sha256": "6c48910aac1b3e39b30a1305069e4b32b3cae56e05717f25149d0dae4e1ddb3e"
+      }
+    },
+    {
+      "case": "preparation04",
+      "exact_original_input_count": 13,
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/control/execution.json",
+        "sha256": "57b9db44d5d9624b7d9c7699b8d81c5d3c51d1f02cc699f4f07d767ae2c08368"
+      },
+      "mode": "single",
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+        "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+      },
+      "original_fixed_state": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/control/plan.json",
+        "sha256": "afaa0c2103b2ab4a161cfe77f54dafd98a7ec191895b92d3c5d0eaf9a476ba59"
+      }
+    },
+    {
+      "case": "preparation03",
+      "exact_original_input_count": 13,
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-02/control/execution.json",
+        "sha256": "d1ec8e70149418ca5b28b1e1a2d23a24de509cf3af6d19f272b304a7732abb2b"
+      },
+      "mode": "closure",
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+        "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+      },
+      "original_fixed_state": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-02/control/plan.json",
+        "sha256": "e74ead671125955a9b71735b1519dfe59ad340b64187bb84c857a222f625cf43"
+      }
+    },
+    {
+      "case": "preparation04",
+      "exact_original_input_count": 13,
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-03/control/execution.json",
+        "sha256": "4265853332d6687989c776eb72ae77ea634c174d83cd8f5c0475a774fd764078"
+      },
+      "mode": "closure",
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+        "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+      },
+      "original_fixed_state": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-03/control/plan.json",
+        "sha256": "449b17afb0c5e5e19637e3ab860dfa15f3788c3f12586992752706c81fbf0a28"
+      }
+    }
+  ],
+  "checks": [
+    "All four concrete plans/executions and original13input bindings independently matched preserved historical failure/replay records.",
+    "P3 single and closure use original initial reference/iteration01; P4 exact single uses referenceiteration02/XMLiteration03; P4 fullclosure uses original initial reference/XMLiteration01.",
+    "P3 andP4 fixed initial states are distinct and unchanged; closure limits10/2e-6/3e-9 preserved.",
+    "Actual native25661fd8 is bound to completed build92dcf754 and audited candidate9a46.",
+    "Current source freezes and all prior runtime declarations preserved; additional controls independently rehashed.",
+    "All four mutableoutputsets empty at observation; no native launched by reviewer.",
+    "Original force input declarations matched exactly without redundant full resource rehash; owned execution guards retain their full runtime checks."
+  ],
+  "controls_review": {
+    "bytes": 5373,
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-native-controls-independent-review02.json",
+    "sha256": "a2acf5c4747cebe62f1bf69761fd0ac08aed5d29d4e31f01fd6e498fca374dba"
+  },
+  "launch_eligible_under_parent_authorization": true,
+  "native_build_review": {
+    "bytes": 3137,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-build02-terminal-independent-review01.json",
+    "sha256": "705dd240d1e0590f7201af6b0dfed5771ba93a8b47c1398ec59e5d0c58c6f142"
+  },
+  "native_work_launched_by_reviewer": 0,
+  "observed_at": "2026-10-16T16:24:38.137648+00:00",
+  "passed": true,
+  "readback": {
+    "bytes": 33600,
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-four-independent-readback01.json",
+    "sha256": "98f77dcf98f89dd7da1e3fb37f2db6382577efba4370630cbca91dec9b5a8b51"
+  },
+  "release_ready": false,
+  "schema": "orbit-poc-independent-compensation-four-native-packets-review-v1",
+  "scope": "Concrete archived regression inputs and controls only. Current host admission, serial global lock, actual terminal and fixed-state output audits remain required."
+}

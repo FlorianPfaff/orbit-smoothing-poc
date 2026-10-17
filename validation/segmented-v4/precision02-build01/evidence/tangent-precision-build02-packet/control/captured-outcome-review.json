@@ -1,0 +1,147 @@
+{
+  "audit_script": {
+    "bytes": 5986,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_captured_tangent06_07_terminal01.py",
+    "sha256": "8e5804e5cece26280d0257b27c84e0f2ea585a42476529a529b016438561b55a"
+  },
+  "benchmark_attempts": 0,
+  "candidate_native_validation_supported": true,
+  "candidate_review": {
+    "bytes": 3765,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08-independent-review01.json",
+    "sha256": "5493b444d846a996f1370f8ed24bf74e81bad8bbb135d7f17d1ee6ed22776f25"
+  },
+  "control_review": {
+    "bytes": 3053,
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent03-independent-control-review01.json",
+    "sha256": "ddc510003058c0cf40e4dbf9507a78eef8107d3d95960e384406a0f5014b5d05"
+  },
+  "current_readback": {
+    "bytes": 7229,
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-07-independent-current-readback01.json",
+    "sha256": "608323d869db7160b83f6583409c38aa10ff231a988da4a56adea8edd52d0280"
+  },
+  "findings": [
+    "Both captured systems satisfy the unchanged native and independent113-bit residual thresholds.",
+    "The same compiled reader and resolved libraries were used for both systems.",
+    "Compensation changes floating-point operator evaluations; unchanged preconditioner, GMRES policy, weights and model do not imply identical iteration histories.",
+    "These two successes do not certify new tangent matrices encountered during nonlinear native closure."
+  ],
+  "observed_at": "2026-10-16T16:11:15.131905+00:00",
+  "outcomes": [
+    {
+      "accepted_quad": {
+        "binary_digits": 113,
+        "iteration": 5,
+        "kind": "accepted_quad_residual",
+        "relative_residual_exact_velocity_conversion": 1.317692071079814e-12,
+        "relative_residual_native_velocity_conversion": 1.3176918808001025e-12
+      },
+      "actual_result": {
+        "bytes": 8863,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/result.json",
+        "sha256": "a0be87071a07e53cc6989137a9bf428d88d075bac8f802eb1402491ce5c48fca"
+      },
+      "best_native_quad": {
+        "binary_digits": 113,
+        "epsilon_times_solution_over_rhs_norm": 3.5418038102197106e-13,
+        "iteration": 5,
+        "kind": "best_native_iterate_quad_residual",
+        "native_relative_residual": 1.321764983063378e-12,
+        "native_solution_norm": 0.007658705418504464,
+        "relative_residual_exact_velocity_conversion": 1.317692071079814e-12,
+        "relative_residual_native_velocity_conversion": 1.3176918808001025e-12,
+        "selection": "lowest_observed_native_true_residual"
+      },
+      "capture": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/captured-system.bin",
+        "sha256": "f172b81438d7c5cf0c4d2ada953a2a2f42282c833293a8fbf120c75607bf4044"
+      },
+      "case": "06",
+      "compact_capture": {
+        "bytes": 211138,
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent06-terminal-capture01.json",
+        "sha256": "0284a48cf19ed9b2519b0b69af728fa4256d1e32003b6c5b3e94d9d8d0ae819b"
+      },
+      "compact_records_verified": 14,
+      "fixture_tests_passed": 3,
+      "nested_original_reader_checks": 8,
+      "owned_current_nonlive": 12,
+      "reader": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/binaries/tangent-reader",
+        "sha256": "4f127662f76b0da5058446dec79ce04caed174f30c8606ecf5123d85c313891f"
+      },
+      "terminal": {
+        "iterations": 5,
+        "kind": "terminal",
+        "relative_residual": 1.321764983063378e-12,
+        "status": "passed"
+      },
+      "trace": {
+        "bytes": 1943,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-06/run/replay/trace.jsonl",
+        "sha256": "adf78fd45cdaa04fee4454cd25d793f6947c01e00e14fcd83ef1f46e63d2fcc5"
+      }
+    },
+    {
+      "accepted_quad": {
+        "binary_digits": 113,
+        "iteration": 46,
+        "kind": "accepted_quad_residual",
+        "relative_residual_exact_velocity_conversion": 1.7706734134057734e-12,
+        "relative_residual_native_velocity_conversion": 1.7706735103637685e-12
+      },
+      "actual_result": {
+        "bytes": 8867,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/result.json",
+        "sha256": "8b70e425cfd220e80ce0d7c172bc7e0a1021e0dec400ab19965ef2a272a8cbe8"
+      },
+      "best_native_quad": {
+        "binary_digits": 113,
+        "epsilon_times_solution_over_rhs_norm": 3.9453458602872207e-13,
+        "iteration": 46,
+        "kind": "best_native_iterate_quad_residual",
+        "native_relative_residual": 1.7745943440717721e-12,
+        "native_solution_norm": 6658355.621595271,
+        "relative_residual_exact_velocity_conversion": 1.7706734134057734e-12,
+        "relative_residual_native_velocity_conversion": 1.7706735103637685e-12,
+        "selection": "lowest_observed_native_true_residual"
+      },
+      "capture": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+        "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+      },
+      "case": "07",
+      "compact_capture": {
+        "bytes": 226963,
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent07-terminal-capture01.json",
+        "sha256": "aa89b1e3ac8864454dbf62d5d3510fcc930d2dee9a755c9b952ef4714aec6c9f"
+      },
+      "compact_records_verified": 14,
+      "fixture_tests_passed": 3,
+      "nested_original_reader_checks": 8,
+      "owned_current_nonlive": 12,
+      "reader": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/binaries/tangent-reader",
+        "sha256": "4f127662f76b0da5058446dec79ce04caed174f30c8606ecf5123d85c313891f"
+      },
+      "terminal": {
+        "iterations": 46,
+        "kind": "terminal",
+        "relative_residual": 1.7745943440717721e-12,
+        "status": "passed"
+      },
+      "trace": {
+        "bytes": 13809,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-07/run/replay/trace.jsonl",
+        "sha256": "31d568dbc89b64abcdd5593e0c32e26786cb3adfd668c700a4f969ca3b8ea613"
+      }
+    }
+  ],
+  "passed": true,
+  "production_release_approved": false,
+  "release_evidence": false,
+  "reviewer_native_runs": 0,
+  "schema": "orbit-poc-independent-compensated-quadrature-terminal-review-v1",
+  "scope": "Diagnostic08 outcome and provenance audit for two distinct captured systems; no full native propagation or release evidence."
+}

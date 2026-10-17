@@ -1,0 +1,50 @@
+{
+  "author_review": {
+    "bytes": 987,
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-terminal-capture-author-review-01.json",
+    "sha256": "aedb195f427c20af3b378293a81e90ca6c88d787362c98a41563c3e920787257"
+  },
+  "blocking_findings": [],
+  "errors": 0,
+  "failures": 0,
+  "findings_resolved": [
+    "Pinned launch argv binds exact controller plan path/hash; observed argv mismatch rejected",
+    "Oversized external evidence retains stream-computed SHA and repeated identity verification",
+    "Explicit benchmark manifest and attempts-directory presence recorded, including empty/present distinction"
+  ],
+  "helpers": [
+    {
+      "bytes": 9320,
+      "path": "/mnt/d/orbit-segmented-v4/control/capture_segmented_validation01.py",
+      "sha256": "3409b4af6bd2f5e9d8882ca5b3c504ae15c9f7c90810cdf8fee228acd3513a08"
+    },
+    {
+      "bytes": 8015,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_capture_segmented_validation01.py",
+      "sha256": "6bac9328520c5190ab587d24e766069007c4a2815360004062316f6f2e61b74f"
+    }
+  ],
+  "junit": {
+    "bytes": 3624,
+    "path": "/tmp/segmented-capture-independent-01/junit.xml",
+    "sha256": "30f8b0f54b730fdb2f6bac1056806474d31a3f04b1f19f2577a56ce36be0655e"
+  },
+  "log": {
+    "bytes": 180,
+    "path": "/tmp/segmented-capture-independent-01/tests.log",
+    "sha256": "daef8e8adc48ca3cf23089da3e733de311c5b9fbbe945044238184d544ec34be"
+  },
+  "reviewed_at": "2026-10-15T17:24:16.023701+00:00",
+  "reviewed_behaviors": [
+    "Exact14 ordered gates, terminal controller/CLI, matching source/execution/driver identity, cleanup required",
+    "All passed/failed/not_run stages retained; missing/changed/foreign artifacts reject",
+    "Raw source hashes and deterministic gzip stored hashes, no scientific reclassification",
+    "Original evidence unchanged; failed/oversize capture cannot fabricate scientific completion"
+  ],
+  "reviewer": "recovery04_reporting",
+  "schema": "orbit-poc-terminal-capture-independent-review-v1",
+  "scope": "Independent static review and fabricated26-fixture rerun only; no actual terminal capture or native/scientific execution",
+  "skips": 0,
+  "status": "passed",
+  "tests": 26
+}

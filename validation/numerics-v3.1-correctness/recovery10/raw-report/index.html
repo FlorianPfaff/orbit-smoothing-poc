@@ -1,0 +1,3189 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>Orbit v3.1 correction evidence</title><style>body{font:16px system-ui;max-width:1180px;margin:2rem auto;padding:0 1rem;color:#19212a}table{border-collapse:collapse;width:100%;font-size:13px;margin:1rem 0}th,td{border:1px solid #ccd2d8;padding:.4rem;text-align:left;overflow-wrap:anywhere}th{background:#eef2f6}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}details{margin:1rem 0}h2{margin-top:2rem}.scope{border-left:4px solid #b36d00;padding:1rem;background:#fff7e8}</style>
+<h1>Orbit v3.1 correction evidence</h1><p><strong>passed_scoped_checks</strong> · 2026-10-15T13:35:04.405211+00:00</p>
+<p class="scope">This is a bounded numerical engineering correctness check, including selected synthetic and flight refinement fixtures. It does not replace, reclassify or certify the frozen 150-attempt campaign, establish flight accuracy, or accept a v3.1 release. Audited numerical-floor status is not nuisance convergence and cannot authorize accepted covariance. Repeated-evaluation spread is empirical, not a rigorous error bound.</p>
+<p>Unchanged objective rule: relative derivative discrepancy plus empirical resolution ≤ 10⁻⁴ at two consecutive step halvings; at most nine scales, ratio ½, repeated physical-cost allowance ×10. Refinement uses 5 s and 2.5 s grids: position differences &lt;30 µm and code/carrier differences &lt;1% of the smaller assumed/native noise, with fixed nuisance values and common weights.</p>
+<h2>Candidate sequence</h2>
+<table><thead><tr><th>Step</th><th>Status</th><th>Return code</th><th>Seconds</th></tr></thead><tbody><tr><td>clone</td><td>passed</td><td>0</td><td>0.9056035289540887</td></tr><tr><td>checkout</td><td>passed</td><td>0</td><td>0.31172798410989344</td></tr><tr><td>build</td><td>passed</td><td>0</td><td>191.3555168430321</td></tr><tr><td>native-tests</td><td>passed</td><td>0</td><td>19.04308692109771</td></tr><tr><td>correction-regression-tests</td><td>passed</td><td>0</td><td>1.8184108601417392</td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>passed</td><td>0</td><td>10.123630437068641</td></tr><tr><td>synthetic-refinement-pulses</td><td>passed</td><td>0</td><td>10.515811990015209</td></tr><tr><td>flight-refinement</td><td>passed</td><td>0</td><td>39.042959259822965</td></tr><tr><td>eccentric-24h-refinement</td><td>passed</td><td>0</td><td>153.03033823193982</td></tr><tr><td>objective-log_drag_ou</td><td>passed</td><td>0</td><td>1043.8108484961558</td></tr><tr><td>objective-pulses</td><td>passed</td><td>0</td><td>477.2473812440876</td></tr><tr><td>nuisance-replay</td><td>passed</td><td>0</td><td>48.989181988174096</td></tr><tr><td>nuisance-replay-candidate1-point012</td><td>passed</td><td>0</td><td>49.325043336022645</td></tr></tbody></table>
+<details><summary>Pipeline identities, source inventory, admitted execution and cleanup</summary><p>Complete structured evidence (584126 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Preserved previous validation attempt</h2><p>This candidate uses a new build. The previous candidate and every failed check remain preserved; a new run does not erase them.</p>
+<table><thead><tr><th>Prior step</th><th>Status</th><th>Return code</th><th>Seconds</th></tr></thead><tbody><tr><td>native-tests</td><td>passed</td><td>0</td><td>36.780421837000176</td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>passed</td><td>0</td><td>70.04143816999567</td></tr><tr><td>synthetic-refinement-pulses</td><td>passed</td><td>0</td><td>48.873938327997166</td></tr><tr><td>flight-refinement</td><td>passed</td><td>0</td><td>124.33835549400101</td></tr><tr><td>eccentric-24h-refinement</td><td>passed</td><td>0</td><td>501.74237121499755</td></tr><tr><td>objective-log_drag_ou</td><td>failed</td><td>1</td><td>362.0467976729997</td></tr><tr><td>objective-pulses</td><td>passed</td><td>0</td><td>299.7358965739986</td></tr><tr><td>nuisance-replay</td><td>failed</td><td>1</td><td>25.216197488000034</td></tr></tbody></table>
+<details><summary>Complete prior attempt and pinned build reuse evidence</summary><p>Complete structured evidence (696043 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Preserved interrupted validation03</h2><p>The earlier host restart interrupted the build before a native executable or native test results were produced. This is incomplete infrastructure evidence, distinct from validation02 scientific failures.</p>
+<details><summary>Interrupted attempt and restart evidence</summary><p>Complete structured evidence (125732 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Explicit correction lineage</h2><p>The original758-file, historical06 and immediate previous07 source freezes and failed attempts04/05/06/07/08 are retained. Only the reviewed, hash-pinned source paths changed; the original106 tests and prescribed numerical gate scripts remain unchanged.</p>
+<details><summary>Correction source inventories, path differences and prior failures</summary><p>Complete structured evidence (5887308 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Separate correction regression tests</h2><p>These new tests are additional to the unchanged106-test inventory.</p>
+<details><summary>Separate regression JUnit evidence</summary><pre>{
+  &quot;cases&quot;: [
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_query_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_complete_values_derivatives_and_native_split_match_decimal&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_query_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_sub_long_double_query_shift_corrects_measured_legacy_wrong_sign&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_query_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_anchor_modes_preserve_same_polynomial&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_query_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_only_replaces_arithmetic_and_is_idempotent&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_query_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_rejects_incomplete_prior_stage_before_writing&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_query_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_query_precision_is_explicit_and_does_not_import_gnss_range&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_matches_independent_high_precision_oracle[case0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_matches_independent_high_precision_oracle[case1]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_matches_independent_high_precision_oracle[case2]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_matches_independent_high_precision_oracle[case3]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_legacy_rounding_error_is_measured_at_identical_elements&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_low_parts_survive_mean_residual&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precise_reference_force_difference_matches_decimal[0.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precise_reference_force_difference_matches_decimal[500000000.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_rejects_nonelliptic_or_invalid_inputs[0--1.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_rejects_nonelliptic_or_invalid_inputs[1-0.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_reference_rejects_nonelliptic_or_invalid_inputs[2-1.1]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_reference_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precision_installer_is_separate_idempotent_and_preserves_fit&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_complete_chain_matches_independent_decimal_at_native_inputs&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_sub_double_residual_changes_survive_until_objective_boundary&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_row_validation_and_native_container_guards&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_rejects_missing_or_duplicate_anchor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_checks_every_anchor_before_writing&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_rejects_partial_or_changed_header_and_is_idempotent&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_requires_expansion_api_before_mutation&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_legacy_range_api_remains_explicitly_once_rounded&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_measured_ambiguity_rounding_change_is_removed&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_repeated_complete_install_removes_only_reintroduced_legacy_capture&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_equal_rounded_rows_retain_nonzero_precise_reduction&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precise_reduction_changes_sign_when_states_are_swapped&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_identical_precise_state_replay_is_exactly_zero&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precise_cost_is_invariant_to_row_order_and_group_qr_units&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_zero_low_parts_match_exact_binary64_fixture&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_precise_rows_fail_without_an_objective[target-Precise original observation and QR target disagree]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_precise_rows_fail_without_an_objective[rows-Objective expansion fixture dimensions differ]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_precise_rows_fail_without_an_objective[columns-Objective expansion fixture dimensions differ]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_precise_rows_fail_without_an_objective[prior-keeps native binary64 constraint targets]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_precise_rows_fail_without_an_objective[nonfixture-require the original-objective fixture]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precise_ledger_keeps_missing_support_failures[missing_capture_cost_only-Group QR lacks its original objective block]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_precise_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_precise_ledger_keeps_missing_support_failures[misclassified_prior_cost_only-Original objective row accounting differs]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_measured_clock_step_preserves_duration_low_part&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_split_time_boundaries_keep_same_query[0.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_split_time_boundaries_keep_same_query[0.9999999999999999]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_split_time_boundaries_keep_same_query[1.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_split_time_boundaries_keep_same_query[0.5]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nonlinear_clock_perturbations_match_independent_geometry[0.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nonlinear_clock_perturbations_match_independent_geometry[0.002777777777778212]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nonlinear_clock_perturbations_match_independent_geometry[0.5]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_non_nearest_rounding_is_rejected&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_light_time_upgrade_preserves_limits_legacy_api_and_version&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_light_time_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_install_rejects_a_preexisting_old_generated_query&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;counts&quot;: {
+    &quot;errors&quot;: 0,
+    &quot;failed&quot;: 0,
+    &quot;passed&quot;: 51,
+    &quot;skipped&quot;: 0,
+    &quot;total&quot;: 51
+  },
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 7904,
+    &quot;path&quot;: &quot;private-path-sha256:952d7f18618e0951b9caef1f6e616df2f92ee35d99e8f507a9823a7f93a4bb5c&quot;,
+    &quot;sha256&quot;: &quot;7cc64f42238c677273775febffd148397e8a6ed129774c1d932222194cf0dbc4&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>Native tests</h2><p>Status: passed. Skipped checks remain incomplete evidence.</p>
+<table><thead><tr><th>Passed</th><th>Failed</th><th>Errors</th><th>Skipped</th><th>Total</th></tr></thead><tbody><tr><td>106</td><td>0</td><td>0</td><td>0</td><td>106</td></tr></tbody></table>
+<details><summary>All JUnit cases and evidence identity</summary><pre>{
+  &quot;cases&quot;: [
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_row_qr_map_covariance_and_profile&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_row_order_and_block_size[1]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_row_order_and_block_size[7]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_row_order_and_block_size[1000]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[1]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[17]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[128]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[1000]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_local_global_and_unit_invariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_profile_holds_dynamics_fixed&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_potential_resolves_objective_subtraction_floor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_full_bias_coordinates_survive_overlapping_phase_updates&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_lm_excluded_from_covariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_rank_failure_has_no_covariance[unused]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_rank_failure_has_no_covariance[duplicate]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_rank_failure_has_no_covariance[unresolved]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_matches_independent_gtsam_nuisance_elimination&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_restores_eliminated_group_energy_to_direct_objective&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_ambiguity_datum_distinguishes_gauges_from_unresolved_rank[False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_ambiguity_datum_distinguishes_gauges_from_unresolved_rank[True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_factor_retention_and_secure_spool_do_not_change_arithmetic[False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_factor_retention_and_secure_spool_do_not_change_arithmetic[True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_failed_successor_preserves_previous_factor_and_cleans_spool&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[accept]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[reject]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[stationary]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[support]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[exception]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_cost_only_objective_has_no_factor_exports[False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_cost_only_objective_has_no_factor_exports[True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_vtec_clock_stec_map_covariance_and_profile&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_vtec_clock_units_rows_damping_invariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_local_rank_failures_reject_covariance[missing]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_local_rank_failures_reject_covariance[dependent]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_local_rank_failures_reject_covariance[near]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_continuous_interpolation_preserves_exact_grid_and_clock_derivative&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_lossless_rows_survive_intermediate_factor_cleanup&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_lossless_rows_preserve_previous_generation_on_successor_failure&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_corrected_range_preserves_subnanometre_clock_updates&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_receiver_clock_shift_avoids_negative_duration_loss_and_records_intrinsic_floor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_relative_clock_queries_preserve_exact_pulse_side&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_subdouble_coordinate_remainders_preserve_range_changes&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_accept-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_refine-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_small_direction-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_influence_cap-required_probe_influence_exceeds_limit]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_actual_influence-actual_probe_influence_exceeds_limit]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_derived_nonfinite-nonfinite_symmetric_probe_diagnostics]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_numeric_cap-required_probe_amplitude_exceeds_numeric_limit]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_exception-fixed_parameter_arithmetic_audit_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_nonfinite-fixed_parameter_arithmetic_audit_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_nonfinite-symmetric_probe_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_allowance-empirical_quadratic_potential_with_allowance_exceeds_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_support-fixed_parameter_arithmetic_audit_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_resolution-potential_not_within_positive_measured_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_small_resolution-potential_not_within_positive_measured_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_support-symmetric_probe_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_exception-symmetric_probe_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_wrong_slope-symmetric_slope_disagrees_with_undamped_gradient]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_negative_curvature-negative_or_unresolved_symmetric_curvature]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_unresolved_curvature-negative_or_unresolved_symmetric_curvature]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_amplitude-amplitude_dependent_symmetric_curvature]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_weak_curvature-empirical_quadratic_potential_exceeds_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_floor_limited_profile_cannot_export_covariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_objective_hook_precedes_empty_group_and_is_idempotent[]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_objective_hook_precedes_empty_group_and_is_idempotent[// ORBIT_POC_SCALED_ROW_QR_V31\\n]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_objective_hook_rejects_changed_upstream_anchor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_is_invariant_to_changing_group_qr_basis&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_keeps_tiny_reduction_and_all_priors_once&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_row_order_and_group_units_invariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[missing_capture-Group QR lacks its original objective block-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[missing_capture-Group QR lacks its original objective block-_cost_only]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[misclassified_prior-Original objective row accounting differs-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[misclassified_prior-Original objective row accounting differs-_cost_only]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_residual_retains_sub_ulp_signal&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_residual_is_translation_invariant&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_absolute_restore_rounds_once&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_residual_coordinates_match_exact_coupled_mean_problem&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[forces]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[finite_difference]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[oscillator]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[day_oscillator]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[day_kepler]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_synthetic_force_instances&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_complete_synthetic_transition[synthetic_complete_v1-False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_complete_synthetic_transition[synthetic_complete_v1-True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_complete_synthetic_transition[flight_gravity_drag_v1-False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_installer_is_idempotent_and_preserves_compatibility_output&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_piecewise_exact_legacy_batch_and_both_receiver_caches&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_old_marker_refused_before_any_installation_write[base/polynomial.h]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_old_marker_refused_before_any_installation_write[base/polynomial.cpp]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_old_marker_refused_before_any_installation_write[gnss/gnssObservation.cpp]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_qr_stage_installer_preflights_before_copy_or_patch&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_full_extension_entry_refuses_old_tree_before_any_write&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_full_extension_legacy_entry_does_not_apply_numerics_guard&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_new_header_copy_and_factor_version_are_explicit&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_twofold_helper_against_independent_decimal&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_patcher_preserves_other_profiles_and_is_idempotent&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_dispatch_is_actual_configured_components_and_fails_closed&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_stable_residual_matches_decimal_for_equal_and_unequal_GM&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_exact_coincident_equal_GM_and_required_unequal_term&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_recursive_scaled_component_accumulation&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_reference_is_rejected[reference0-398600441500000.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_reference_is_rejected[reference1-0.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_configured_headers_preserve_legacy_force_bits&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;counts&quot;: {
+    &quot;errors&quot;: 0,
+    &quot;failed&quot;: 0,
+    &quot;passed&quot;: 106,
+    &quot;skipped&quot;: 0,
+    &quot;total&quot;: 106
+  },
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 17287,
+    &quot;path&quot;: &quot;private-path-sha256:a91d31f8e575a443dfc59a22c3d0917ca1d6824b0de176b87a8d38a89792fb26&quot;,
+    &quot;sha256&quot;: &quot;e2faa2926009816c19a4171f44f79e5fd64ac92cf816e70c47c3050f283b7518&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>Candidate objective checks</h2>
+<h3>log_drag_ou — passed</h3>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody><tr><td>1.0</td><td>failed</td><td>-399.4825870180664</td><td>-397.01276707076</td><td>0.006182547193714625</td><td>7.227033554227024e-08</td><td>0.0061826194640501675</td><td>[&quot;direction-1.0--1&quot;, &quot;direction-1.0--1-repeat&quot;, &quot;direction-1.0-1&quot;, &quot;direction-1.0-1-repeat&quot;]</td></tr><tr><td>0.5</td><td>failed</td><td>-397.62987342519773</td><td>-397.01276707076</td><td>0.001551961750564568</td><td>1.4521414278256437e-07</td><td>0.0015521069647073506</td><td>[&quot;direction-0.5--1&quot;, &quot;direction-0.5--1-repeat&quot;, &quot;direction-0.5-1&quot;, &quot;direction-0.5-1-repeat&quot;]</td></tr><tr><td>0.25</td><td>failed</td><td>-397.1668863568884</td><td>-397.01276707076</td><td>0.0003880466660806788</td><td>2.9076684485873274e-07</td><td>0.00038833743292553753</td><td>[&quot;direction-0.25--1&quot;, &quot;direction-0.25--1-repeat&quot;, &quot;direction-0.25-1&quot;, &quot;direction-0.25-1-repeat&quot;]</td></tr><tr><td>0.125</td><td>passed</td><td>-397.05157263305955</td><td>-397.01276707076</td><td>9.773431204973636e-05</td><td>5.817025816698347e-07</td><td>9.831601463140619e-05</td><td>[&quot;direction-0.125--1&quot;, &quot;direction-0.125--1-repeat&quot;, &quot;direction-0.125-1&quot;, &quot;direction-0.125-1-repeat&quot;]</td></tr><tr><td>0.0625</td><td>passed</td><td>-397.0221085255398</td><td>-397.01276707076</td><td>2.3528802500462813e-05</td><td>1.16349150285096e-06</td><td>2.4692294003313773e-05</td><td>[&quot;direction-0.0625--1&quot;, &quot;direction-0.0625--1-repeat&quot;, &quot;direction-0.0625-1&quot;, &quot;direction-0.0625-1-repeat&quot;]</td></tr><tr><td>0.03125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.015625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0078125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.00390625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr></tbody></table>
+<p>Base repeat spread: 2.887074060708983e-06; empirical physical allowance: 2.887074060708983e-05. Prior check: passed.</p>
+<p>Profile resolution counts: {&quot;audited_floor_only&quot;: 0, &quot;strict&quot;: 22, &quot;unresolved&quot;: 0}. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;accepted_derivative_scales&quot;: [
+    0.125,
+    0.0625
+  ],
+  &quot;derivative_refinement_policy&quot;: {
+    &quot;maximum_scales&quot;: 9,
+    &quot;physical_repeat_allowance_multiplier&quot;: 10,
+    &quot;ratio&quot;: 0.5,
+    &quot;required_consecutive_passing_scales&quot;: 2
+  },
+  &quot;directional_scales&quot;: [
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-1.0--1&quot;,
+        &quot;direction-1.0--1-repeat&quot;,
+        &quot;direction-1.0-1&quot;,
+        &quot;direction-1.0-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 7.227033554227024e-08,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4549.608250713954,
+          &quot;repeat_difference&quot;: 7.000762707320973e-07,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 3750.6430756878267,
+          &quot;repeat_difference&quot;: 1.6900703485589474e-06,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -399.4825870180664,
+      &quot;native_derivative&quot;: -397.01276707076,
+      &quot;negative_cost&quot;: 4549.60825141403,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3750.643077377897,
+      &quot;relative_difference&quot;: 0.006182547193714625,
+      &quot;relative_difference_plus_resolution&quot;: 0.0061826194640501675,
+      &quot;scale&quot;: 1.0,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.5--1&quot;,
+        &quot;direction-0.5--1-repeat&quot;,
+        &quot;direction-0.5-1&quot;,
+        &quot;direction-0.5-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 1.4521414278256437e-07,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4306.831538577536,
+          &quot;repeat_difference&quot;: 7.61955561756622e-07,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 3909.2016640646966,
+          &quot;repeat_difference&quot;: 3.256859599787276e-07,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.62987342519773,
+      &quot;native_derivative&quot;: -397.01276707076,
+      &quot;negative_cost&quot;: 4306.83153781558,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3909.2016643903826,
+      &quot;relative_difference&quot;: 0.001551961750564568,
+      &quot;relative_difference_plus_resolution&quot;: 0.0015521069647073506,
+      &quot;scale&quot;: 0.5,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.25--1&quot;,
+        &quot;direction-0.25--1-repeat&quot;,
+        &quot;direction-0.25-1&quot;,
+        &quot;direction-0.25-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 2.9076684485873274e-07,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4196.792380384447,
+          &quot;repeat_difference&quot;: 5.258116289041936e-07,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 3998.20893621939,
+          &quot;repeat_difference&quot;: 4.6080094762146473e-07,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.1668863568884,
+      &quot;native_derivative&quot;: -397.01276707076,
+      &quot;negative_cost&quot;: 4196.792379858635,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3998.208936680191,
+      &quot;relative_difference&quot;: 0.0003880466660806788,
+      &quot;relative_difference_plus_resolution&quot;: 0.00038833743292553753,
+      &quot;scale&quot;: 0.25,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.125--1&quot;,
+        &quot;direction-0.125--1-repeat&quot;,
+        &quot;direction-0.125-1&quot;,
+        &quot;direction-0.125-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 5.817025816698347e-07,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4144.503786930362,
+          &quot;repeat_difference&quot;: 8.019405868253671e-07,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4045.2408951722073,
+          &quot;repeat_difference&quot;: 2.2020503820385784e-06,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.05157263305955,
+      &quot;native_derivative&quot;: -397.01276707076,
+      &quot;negative_cost&quot;: 4144.503786128422,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 4045.240892970157,
+      &quot;relative_difference&quot;: 9.773431204973636e-05,
+      &quot;relative_difference_plus_resolution&quot;: 9.831601463140619e-05,
+      &quot;scale&quot;: 0.125,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.0625--1&quot;,
+        &quot;direction-0.0625--1-repeat&quot;,
+        &quot;direction-0.0625-1&quot;,
+        &quot;direction-0.0625-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 1.16349150285096e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4119.029271969815,
+          &quot;repeat_difference&quot;: 7.378985174000263e-07,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 2.887074060708983e-05,
+          &quot;repeat_cost&quot;: 4069.4015084546704,
+          &quot;repeat_difference&quot;: 7.884459591878112e-07,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.0221085255398,
+      &quot;native_derivative&quot;: -397.01276707076,
+      &quot;negative_cost&quot;: 4119.029271231917,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 4069.4015076662245,
+      &quot;relative_difference&quot;: 2.3528802500462813e-05,
+      &quot;relative_difference_plus_resolution&quot;: 2.4692294003313773e-05,
+      &quot;scale&quot;: 0.0625,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.03125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.015625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0078125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.00390625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 2.887074060708983e-05,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 15689,
+    &quot;path&quot;: &quot;private-path-sha256:34df2d5a8b70ba87a385ce79e339e079749e5fbc40af13e1a53ac623e3d9f227&quot;,
+    &quot;sha256&quot;: &quot;f7cb8668148af5129e6315ec749cd98066bcc0f62c58faec5948225afbb291bd&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;initialization_policy&quot;: &quot;preserved_blind_engineering_initial_state&quot;,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_binary_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;objective_repeat_difference&quot;: 2.887074060708983e-06,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 2e-08,
+    &quot;cost&quot;: 4.848917841373497,
+    &quot;maximum_residual_difference&quot;: 2.0548241996820593e-09,
+    &quot;objective&quot;: 4093.99640620035,
+    &quot;rows&quot;: 61,
+    &quot;source&quot;: &quot;constraint.logDensityOu&quot;
+  },
+  &quot;prior_status&quot;: &quot;passed&quot;,
+  &quot;profile_evaluations&quot;: [
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;nonzero-full-prior&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.2398764889394256e-19,
+      &quot;objective&quot;: 4093.99640620035,
+      &quot;receipt&quot;: &quot;private-path-sha256:e935a3aaf7c5d175a3eb253c856ace014c32ca6cbfe7aa2d2227d375786c5cee&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.2790850010056077e-19,
+      &quot;objective&quot;: 4093.996409087424,
+      &quot;receipt&quot;: &quot;private-path-sha256:4f4835e139f81cd3244f4f4a3e63a38093c6c6e6c04124e622512ece3fd8f1c7&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.0262748135137679e-18,
+      &quot;objective&quot;: 4549.60825141403,
+      &quot;receipt&quot;: &quot;private-path-sha256:aaff46b96ff0165a3dc28fd55a9c36869cfa1142e0633a899d62873ab5a03048&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.0210226071496118e-18,
+      &quot;objective&quot;: 4549.608250713954,
+      &quot;receipt&quot;: &quot;private-path-sha256:3a1c8526a9fce59ff0d9e802d91d3481df1a7d6e1835f2a1ca1290d45256b98f&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 9.9037876993691e-21,
+      &quot;objective&quot;: 3750.643077377897,
+      &quot;receipt&quot;: &quot;private-path-sha256:0ee2bc710f3981ad02b0b9a5dd43326b88f3b3f64da336a268b4b4db9709f2be&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 9.85717428847761e-21,
+      &quot;objective&quot;: 3750.6430756878267,
+      &quot;receipt&quot;: &quot;private-path-sha256:ad3c8df11272fb26a3ea0e65ec08e15f0398b0a839102f0afc12c1ee62c204e2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 3.784135430140462e-19,
+      &quot;objective&quot;: 4306.83153781558,
+      &quot;receipt&quot;: &quot;private-path-sha256:ee4a3bf4dd26243b87f0b2ab4e4d753d05b0a1624d04c4e37ce5831ec066100f&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 3.8115614967668585e-19,
+      &quot;objective&quot;: 4306.831538577536,
+      &quot;receipt&quot;: &quot;private-path-sha256:fd7969ccd5d83c22cda2b0c9050e998d27b7866155941908605b9b10d6eb1570&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 3.6990353966125996e-20,
+      &quot;objective&quot;: 3909.2016643903826,
+      &quot;receipt&quot;: &quot;private-path-sha256:a5d15ed4b55f5ea123c813241f7407ac122015b7157702860a6d59e265cdb57f&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 3.829255321050231e-20,
+      &quot;objective&quot;: 3909.2016640646966,
+      &quot;receipt&quot;: &quot;private-path-sha256:262747b8ee20fb58a4a35dd1a5474fe2217fccc74276d7e9fab1a2dbe4b5920a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.2447498852602287e-19,
+      &quot;objective&quot;: 4196.792379858635,
+      &quot;receipt&quot;: &quot;private-path-sha256:5de8cc066246c74c5d793e138feee4d474c97dc633d0aa9c43467834d09f3c52&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.22037463486442e-19,
+      &quot;objective&quot;: 4196.792380384447,
+      &quot;receipt&quot;: &quot;private-path-sha256:dc6fc01f8068c0ea4e9321145fce053642e5f67a7943ba92f8d3ec4debcb46b4&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 7.012927988966841e-20,
+      &quot;objective&quot;: 3998.208936680191,
+      &quot;receipt&quot;: &quot;private-path-sha256:816f6c779c88b41c7f87656db61913b7a79eedf894684441b10dfdcbbda9ae90&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 6.937862952616848e-20,
+      &quot;objective&quot;: 3998.20893621939,
+      &quot;receipt&quot;: &quot;private-path-sha256:1aa1c56ade6cbda798be5f39a4e081eb53a39c233729ff2c9259fd398152c351&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.125--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.6916893398689376e-19,
+      &quot;objective&quot;: 4144.503786128422,
+      &quot;receipt&quot;: &quot;private-path-sha256:4f521c74f2d3512e38439686d28cdd677e7ad3f179d34b5238b5f7b1c0330a67&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.125--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.682988241375483e-19,
+      &quot;objective&quot;: 4144.503786930362,
+      &quot;receipt&quot;: &quot;private-path-sha256:589924eddcd4f9cc4b6b39abd944adade2ffc1f77a43e62747683cd24c775fc6&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.125-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 9.551236766509e-20,
+      &quot;objective&quot;: 4045.240892970157,
+      &quot;receipt&quot;: &quot;private-path-sha256:1908fbab78d4511b31ec7e1b21696e6854f41ecc0f60e038c943dbf348d95f4a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.125-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 9.420509384477544e-20,
+      &quot;objective&quot;: 4045.2408951722073,
+      &quot;receipt&quot;: &quot;private-path-sha256:f5e7e3ab8c2de3fe6f20e19c138777fb741cc7633ccbdb32a1d31ed646ffd48c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.0625--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.4610165602960254e-19,
+      &quot;objective&quot;: 4119.029271231917,
+      &quot;receipt&quot;: &quot;private-path-sha256:7411849becb24cd5f610376ed398f3c3456136449d06e77df58006fde76345cd&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.0625--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.4645862603150694e-19,
+      &quot;objective&quot;: 4119.029271969815,
+      &quot;receipt&quot;: &quot;private-path-sha256:4484941a6f90b1fbfb73169537ff96e68dac38f96d021b9c2ebd8d6854d172d9&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.0625-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.1006399487624856e-19,
+      &quot;objective&quot;: 4069.4015076662245,
+      &quot;receipt&quot;: &quot;private-path-sha256:df2d7119d6a593bd2c56087cea3877462bef6f7bf6666c8475292a6bc712d7a9&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.0625-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.0926184267235954e-19,
+      &quot;objective&quot;: 4069.4015084546704,
+      &quot;receipt&quot;: &quot;private-path-sha256:082d501f3ceded714aa0e94a4fc65c51c9258bbca0872fcd94ee17fa66907230&quot;
+    }
+  ],
+  &quot;profile_resolution_counts&quot;: {
+    &quot;audited_floor_only&quot;: 0,
+    &quot;strict&quot;: 22,
+    &quot;unresolved&quot;: 0
+  },
+  &quot;rank&quot;: {
+    &quot;columns&quot;: 146,
+    &quot;condition_number&quot;: 3839.9778870958726,
+    &quot;effective_rows&quot;: 7885,
+    &quot;maximum_singular_value&quot;: 5.506421438199271,
+    &quot;minimum_singular_value&quot;: 0.001433972173825123,
+    &quot;rank&quot;: 146,
+    &quot;status&quot;: &quot;full_rank&quot;,
+    &quot;threshold&quot;: 9.640762197493936e-12
+  },
+  &quot;relative_derivative_tolerance&quot;: 0.0001,
+  &quot;reported_passed&quot;: true,
+  &quot;source_hash&quot;: &quot;768abaea61d3a17efcdad81176ce52319e30195e399fb773d43d0fcc11bd10eb&quot;,
+  &quot;state_input&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a&quot;,
+    &quot;role&quot;: &quot;blind_engineering_physical_initial&quot;,
+    &quot;sha256&quot;: &quot;61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea&quot;
+  },
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h3>pulses — passed</h3>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody><tr><td>1.0</td><td>passed</td><td>-525.4759779618805</td><td>-525.4759909259956</td><td>2.467118437717094e-08</td><td>1.2962412340534707e-06</td><td>1.3209124184306416e-06</td><td>[&quot;direction-1.0--1&quot;, &quot;direction-1.0--1-repeat&quot;, &quot;direction-1.0-1&quot;, &quot;direction-1.0-1-repeat&quot;]</td></tr><tr><td>0.5</td><td>passed</td><td>-525.4758512095605</td><td>-525.4759909259956</td><td>2.6588547817088595e-07</td><td>2.5924824681069414e-06</td><td>2.8583679462778272e-06</td><td>[&quot;direction-0.5--1&quot;, &quot;direction-0.5--1-repeat&quot;, &quot;direction-0.5-1&quot;, &quot;direction-0.5-1-repeat&quot;]</td></tr><tr><td>0.25</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.03125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.015625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0078125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.00390625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr></tbody></table>
+<p>Base repeat spread: 6.811436469433829e-05; empirical physical allowance: 0.0006811436469433829. Prior check: passed.</p>
+<p>Profile resolution counts: {&quot;audited_floor_only&quot;: 0, &quot;strict&quot;: 10, &quot;unresolved&quot;: 0}. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;accepted_derivative_scales&quot;: [
+    1.0,
+    0.5
+  ],
+  &quot;derivative_refinement_policy&quot;: {
+    &quot;maximum_scales&quot;: 9,
+    &quot;physical_repeat_allowance_multiplier&quot;: 10,
+    &quot;ratio&quot;: 0.5,
+    &quot;required_consecutive_passing_scales&quot;: 2
+  },
+  &quot;directional_scales&quot;: [
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-1.0--1&quot;,
+        &quot;direction-1.0--1-repeat&quot;,
+        &quot;direction-1.0-1&quot;,
+        &quot;direction-1.0-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 1.2962412340534707e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0006811436469433829,
+          &quot;repeat_cost&quot;: 5017.981202748843,
+          &quot;repeat_difference&quot;: 4.765187804878224e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0006811436469433829,
+          &quot;repeat_cost&quot;: 3967.029218924243,
+          &quot;repeat_difference&quot;: 1.975103896256769e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -525.4759779618805,
+      &quot;native_derivative&quot;: -525.4759909259956,
+      &quot;negative_cost&quot;: 5017.981155096965,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 3967.0291991732042,
+      &quot;relative_difference&quot;: 2.467118437717094e-08,
+      &quot;relative_difference_plus_resolution&quot;: 1.3209124184306416e-06,
+      &quot;scale&quot;: 1.0,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.5--1&quot;,
+        &quot;direction-0.5--1-repeat&quot;,
+        &quot;direction-0.5-1&quot;,
+        &quot;direction-0.5-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 2.5924824681069414e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0006811436469433829,
+          &quot;repeat_cost&quot;: 4712.081688183777,
+          &quot;repeat_difference&quot;: 1.9639065612864215e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0006811436469433829,
+          &quot;repeat_cost&quot;: 4186.6058458474945,
+          &quot;repeat_difference&quot;: 2.8512343305919785e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -525.4758512095605,
+      &quot;native_derivative&quot;: -525.4759909259956,
+      &quot;negative_cost&quot;: 4712.081668544712,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 4186.605817335151,
+      &quot;relative_difference&quot;: 2.6588547817088595e-07,
+      &quot;relative_difference_plus_resolution&quot;: 2.8583679462778272e-06,
+      &quot;scale&quot;: 0.5,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.25,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.03125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.015625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0078125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.00390625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 0.0006811436469433829,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 7857,
+    &quot;path&quot;: &quot;private-path-sha256:630d1356ddd3be2f398072baf5eabcb008efe34b2dc32a4b36b02ed6f9272b8e&quot;,
+    &quot;sha256&quot;: &quot;70f6e7f4dcb2ef97c3a6e614eb35840553a97b23f172980a0ba7bec2270a0d88&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;initialization_policy&quot;: &quot;preserved_blind_engineering_initial_state&quot;,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_binary_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;objective_repeat_difference&quot;: 6.811436469433829e-05,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 1e-12,
+    &quot;cost&quot;: 0.053929305673915545,
+    &quot;maximum_residual_difference&quot;: 0.0,
+    &quot;objective&quot;: 4434.956614024171,
+    &quot;rows&quot;: 6,
+    &quot;source&quot;: &quot;constraint.pulses&quot;
+  },
+  &quot;prior_status&quot;: &quot;passed&quot;,
+  &quot;profile_evaluations&quot;: [
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;nonzero-full-prior&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 7.797363619312949e-17,
+      &quot;objective&quot;: 4434.956614024171,
+      &quot;receipt&quot;: &quot;private-path-sha256:19921703c842d0928f028c880d8945fd03320bba0f07bdd7b12197b0b5c02a4a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 7.801140678882444e-17,
+      &quot;objective&quot;: 4434.956545909807,
+      &quot;receipt&quot;: &quot;private-path-sha256:535ee06e544c6c7e0b9396bb3f10fc9668feb346259daef07bf4573f669628d8&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.5031105900287382e-19,
+      &quot;objective&quot;: 5017.981155096965,
+      &quot;receipt&quot;: &quot;private-path-sha256:1c279f60f8743c671391c3eb4f1472169e32b616856fdaff2cdb45107b0f6497&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.5031897020807511e-19,
+      &quot;objective&quot;: 5017.981202748843,
+      &quot;receipt&quot;: &quot;private-path-sha256:b8591762f7753105a0bf048b1212302228fd66e5a955e5cdbc779629cc85e5cd&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 6.859857091534095e-18,
+      &quot;objective&quot;: 3967.0291991732042,
+      &quot;receipt&quot;: &quot;private-path-sha256:21e914a6c4c1fb095ee877225cd9da59bd56c99cf634ccccfbbca393b49fdf93&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 6.868858567837712e-18,
+      &quot;objective&quot;: 3967.029218924243,
+      &quot;receipt&quot;: &quot;private-path-sha256:e1b0a29de0e2a9b45ab14eb3a332c58f3af739fbdd8214b273ce59c870ed9abe&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.0066847937931214e-20,
+      &quot;objective&quot;: 4712.081668544712,
+      &quot;receipt&quot;: &quot;private-path-sha256:b8a13cabf4e3a30807f6f3d3836e5f31cbde56d75e4023cbfb05488e1a5056d5&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.015537897494595e-20,
+      &quot;objective&quot;: 4712.081688183777,
+      &quot;receipt&quot;: &quot;private-path-sha256:72882aaf633756e5ffe5dbea18a050c91eb2033bcc781b6622f627b8d26fcd11&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.491770537645893e-17,
+      &quot;objective&quot;: 4186.605817335151,
+      &quot;receipt&quot;: &quot;private-path-sha256:d41b6f844b403774520b0498147f69c9c15123c97642364ab7fd3452e4761a8d&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.4977043466512175e-17,
+      &quot;objective&quot;: 4186.6058458474945,
+      &quot;receipt&quot;: &quot;private-path-sha256:f75f8d146ab5cf54a6c1247793754f469872d66e166c2e1d8b08bb046453d8fd&quot;
+    }
+  ],
+  &quot;profile_resolution_counts&quot;: {
+    &quot;audited_floor_only&quot;: 0,
+    &quot;strict&quot;: 10,
+    &quot;unresolved&quot;: 0
+  },
+  &quot;rank&quot;: {
+    &quot;columns&quot;: 91,
+    &quot;condition_number&quot;: 2172.7878983779133,
+    &quot;effective_rows&quot;: 7830,
+    &quot;maximum_singular_value&quot;: 3.077461744928103,
+    &quot;minimum_singular_value&quot;: 0.0014163654663327105,
+    &quot;rank&quot;: 91,
+    &quot;status&quot;: &quot;full_rank&quot;,
+    &quot;threshold&quot;: 5.3505034764505075e-12
+  },
+  &quot;relative_derivative_tolerance&quot;: 0.0001,
+  &quot;reported_passed&quot;: true,
+  &quot;source_hash&quot;: &quot;768abaea61d3a17efcdad81176ce52319e30195e399fb773d43d0fcc11bd10eb&quot;,
+  &quot;state_input&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a&quot;,
+    &quot;role&quot;: &quot;blind_engineering_physical_initial&quot;,
+    &quot;sha256&quot;: &quot;61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea&quot;
+  },
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>Preserved earlier objective checks</h2>
+<h3>log_drag_ou — failed</h3>
+<p>NumericalFailure: Native profile exited 1; see private-path-sha256:4a993793c87b3f2ded3c6aed70b3bb7832277e716623fd0c8b11308de8bf422f</p>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody><tr><td>1.0</td><td>failed</td><td>-399.4825810357286</td><td>-397.01275351488505</td><td>0.006182566244665945</td><td>2.94236511326854e-06</td><td>0.006185508609779213</td><td>[&quot;direction-1.0--1&quot;, &quot;direction-1.0--1-repeat&quot;, &quot;direction-1.0-1&quot;, &quot;direction-1.0-1-repeat&quot;]</td></tr><tr><td>0.5</td><td>failed</td><td>-397.63050058527233</td><td>-397.01275351488505</td><td>0.0015535706377604824</td><td>6.687535261532285e-06</td><td>0.0015602581730220148</td><td>[&quot;direction-0.5--1&quot;, &quot;direction-0.5--1-repeat&quot;, &quot;direction-0.5-1&quot;, &quot;direction-0.5-1-repeat&quot;]</td></tr><tr><td>0.25</td><td>failed</td><td>-397.1665175378921</td><td>-397.01275351488505</td><td>0.00038715253229367825</td><td>2.5751645268978845e-05</td><td>0.0004129041775626571</td><td>[&quot;direction-0.25--1&quot;, &quot;direction-0.25--1-repeat&quot;, &quot;direction-0.25-1&quot;, &quot;direction-0.25-1-repeat&quot;]</td></tr><tr><td>0.125</td><td>failed</td><td>-397.0514534371705</td><td>-397.01275351488505</td><td>9.746828011944173e-05</td><td>1.4795048695892423e-05</td><td>0.00011226332881533415</td><td>[&quot;direction-0.125--1&quot;, &quot;direction-0.125--1-repeat&quot;, &quot;direction-0.125-1&quot;, &quot;direction-0.125-1-repeat&quot;]</td></tr><tr><td>0.0625</td><td>failed</td><td>-397.0223630892724</td><td>-397.01275351488505</td><td>2.4204113623680208e-05</td><td>7.977955719477012e-05</td><td>0.00010398367081845033</td><td>[&quot;direction-0.0625--1&quot;, &quot;direction-0.0625--1-repeat&quot;, &quot;direction-0.0625-1&quot;, &quot;direction-0.0625-1-repeat&quot;]</td></tr><tr><td>0.03125</td><td>failed</td><td>-397.02147103579773</td><td>-397.01275351488505</td><td>2.1957303442404023e-05</td><td>0.00010528831752831306</td><td>0.00012724562097071707</td><td>[&quot;direction-0.03125--1&quot;, &quot;direction-0.03125--1-repeat&quot;, &quot;direction-0.03125-1&quot;, &quot;direction-0.03125-1-repeat&quot;]</td></tr><tr><td>0.015625</td><td>incomplete</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[&quot;direction-0.015625--1&quot;, &quot;direction-0.015625--1-repeat&quot;, &quot;direction-0.015625-1&quot;]</td></tr><tr><td>0.0078125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.00390625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr></tbody></table>
+<p>Base repeat spread: 7.3427769166301e-05; empirical physical allowance: 0.00073427769166301. Prior check: passed.</p>
+<p>Profile resolution counts: {&quot;audited_floor_only&quot;: 22, &quot;strict&quot;: 7, &quot;unresolved&quot;: 0}. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;accepted_derivative_scales&quot;: [],
+  &quot;derivative_refinement_policy&quot;: {
+    &quot;maximum_scales&quot;: 9,
+    &quot;physical_repeat_allowance_multiplier&quot;: 10,
+    &quot;ratio&quot;: 0.5,
+    &quot;required_consecutive_passing_scales&quot;: 2
+  },
+  &quot;directional_scales&quot;: [
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-1.0--1&quot;,
+        &quot;direction-1.0--1-repeat&quot;,
+        &quot;direction-1.0-1&quot;,
+        &quot;direction-1.0-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 2.94236511326854e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0013620968348465631,
+          &quot;repeat_cost&quot;: 4549.608342291305,
+          &quot;repeat_difference&quot;: 0.00013620633399114013,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0009887503847494372,
+          &quot;repeat_cost&quot;: 3750.6429451384756,
+          &quot;repeat_difference&quot;: 9.887503847494372e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -399.4825810357286,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4549.608206084971,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3750.643044013514,
+      &quot;relative_difference&quot;: 0.006182566244665945,
+      &quot;relative_difference_plus_resolution&quot;: 0.006185508609779213,
+      &quot;scale&quot;: 1.0,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.5--1&quot;,
+        &quot;direction-0.5--1-repeat&quot;,
+        &quot;direction-0.5-1&quot;,
+        &quot;direction-0.5-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 6.687535261532285e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0007343048333110343,
+          &quot;repeat_cost&quot;: 4306.831998237093,
+          &quot;repeat_difference&quot;: 5.011563189327717e-06,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.001924863160413708,
+          &quot;repeat_cost&quot;: 3909.2016951486235,
+          &quot;repeat_difference&quot;: 0.0001924852394949994,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.63050058527233,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4306.832003248656,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3909.201502663384,
+      &quot;relative_difference&quot;: 0.0015535706377604824,
+      &quot;relative_difference_plus_resolution&quot;: 0.0015602581730220148,
+      &quot;scale&quot;: 0.5,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.25--1&quot;,
+        &quot;direction-0.25--1-repeat&quot;,
+        &quot;direction-0.25-1&quot;,
+        &quot;direction-0.25-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 2.5751645268978845e-05,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0025382149211752884,
+          &quot;repeat_cost&quot;: 4196.792258846705,
+          &quot;repeat_difference&quot;: 0.0002538196658861125,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.002575630715000443,
+          &quot;repeat_cost&quot;: 3998.209003821165,
+          &quot;repeat_difference&quot;: 0.0002575630715000443,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.1665175378921,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4196.7920050270395,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3998.2087462580935,
+      &quot;relative_difference&quot;: 0.00038715253229367825,
+      &quot;relative_difference_plus_resolution&quot;: 0.0004129041775626571,
+      &quot;scale&quot;: 0.25,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.125--1&quot;,
+        &quot;direction-0.125--1-repeat&quot;,
+        &quot;direction-0.125-1&quot;,
+        &quot;direction-0.125-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 1.4795048695892423e-05,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.000734306943892703,
+          &quot;repeat_cost&quot;: 4144.503968211815,
+          &quot;repeat_difference&quot;: 5.6992053032445256e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0007342919532017472,
+          &quot;repeat_cost&quot;: 4045.241173306131,
+          &quot;repeat_difference&quot;: 1.1461555459391093e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.0514534371705,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4144.504025203868,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 4045.2411618445753,
+      &quot;relative_difference&quot;: 9.746828011944173e-05,
+      &quot;relative_difference_plus_resolution&quot;: 0.00011226332881533415,
+      &quot;scale&quot;: 0.125,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.0625--1&quot;,
+        &quot;direction-0.0625--1-repeat&quot;,
+        &quot;direction-0.0625-1&quot;,
+        &quot;direction-0.0625-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 7.977955719477012e-05,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0007342883337402934,
+          &quot;repeat_cost&quot;: 4119.02930773662,
+          &quot;repeat_difference&quot;: 3.271913828939432e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0032249952067201315,
+          &quot;repeat_cost&quot;: 4069.401222573056,
+          &quot;repeat_difference&quot;: 0.00032249654259430827,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.0223630892724,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4119.029340455758,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 4069.401545069599,
+      &quot;relative_difference&quot;: 2.4204113623680208e-05,
+      &quot;relative_difference_plus_resolution&quot;: 0.00010398367081845033,
+      &quot;scale&quot;: 0.0625,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.03125--1&quot;,
+        &quot;direction-0.03125--1-repeat&quot;,
+        &quot;direction-0.03125-1&quot;,
+        &quot;direction-0.03125-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 0.00010528831752831306,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0007342984806985395,
+          &quot;repeat_cost&quot;: 4106.4579583717305,
+          &quot;repeat_difference&quot;: 1.8166911104344763e-06,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.001878309188549899,
+          &quot;repeat_cost&quot;: 4081.643930420064,
+          &quot;repeat_difference&quot;: 0.0001878286202554591,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.02147103579773,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4106.457960188422,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 4081.644118248684,
+      &quot;relative_difference&quot;: 2.1957303442404023e-05,
+      &quot;relative_difference_plus_resolution&quot;: 0.00012724562097071707,
+      &quot;scale&quot;: 0.03125,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.015625--1&quot;,
+        &quot;direction-0.015625--1-repeat&quot;,
+        &quot;direction-0.015625-1&quot;
+      ],
+      &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see private-path-sha256:4a993793c87b3f2ded3c6aed70b3bb7832277e716623fd0c8b11308de8bf422f&quot;,
+      &quot;failure_label_from_error&quot;: &quot;direction-0.015625-1-repeat&quot;,
+      &quot;scale&quot;: 0.015625,
+      &quot;status&quot;: &quot;incomplete&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0078125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.00390625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 0.00073427769166301,
+  &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see private-path-sha256:4a993793c87b3f2ded3c6aed70b3bb7832277e716623fd0c8b11308de8bf422f&quot;,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 22518,
+    &quot;path&quot;: &quot;private-path-sha256:14b8b71c602cf4fb6101ad924adb27217db4bd0658e8b8176325a7de1976e66e&quot;,
+    &quot;sha256&quot;: &quot;84aa40b03b76a5a071e182c71306b3de2f085189d536503ecf9f5aacaf09832d&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;initialization_policy&quot;: &quot;preserved_blind_engineering_initial_state&quot;,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_binary_sha256&quot;: &quot;7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c&quot;,
+  &quot;objective_repeat_difference&quot;: 7.3427769166301e-05,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 2e-08,
+    &quot;cost&quot;: 4.848917841373498,
+    &quot;maximum_residual_difference&quot;: 2.054824088659757e-09,
+    &quot;objective&quot;: 4093.9963568720195,
+    &quot;rows&quot;: 61,
+    &quot;source&quot;: &quot;constraint.logDensityOu&quot;
+  },
+  &quot;prior_status&quot;: &quot;passed&quot;,
+  &quot;profile_evaluations&quot;: [
+    {
+      &quot;empirical_objective_resolution&quot;: 2.4615150922682824e-08,
+      &quot;label&quot;: &quot;nonzero-full-prior&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.499670906253023e-10,
+      &quot;objective&quot;: 4093.9963568720195,
+      &quot;receipt&quot;: &quot;private-path-sha256:1ee9b7ba9f688bd237c5338fd774c1465d442197cbe73d61b67b6de16cf26ce0&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 8.36314055784286e-09,
+      &quot;label&quot;: &quot;repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.0159566424034316e-11,
+      &quot;objective&quot;: 4093.9962834442504,
+      &quot;receipt&quot;: &quot;private-path-sha256:8bfa5f9776d90c97c384e05b0731bef429271576754cb005499bb01cc49870e2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.6262175158822003e-08,
+      &quot;label&quot;: &quot;direction-1.0--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.1494001817950867e-10,
+      &quot;objective&quot;: 4549.608206084971,
+      &quot;receipt&quot;: &quot;private-path-sha256:67a14f30b479dbffc2fbbc94889c6154cb6582fb8a1abc70a8f7112fb4c21486&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.349493516181592e-08,
+      &quot;label&quot;: &quot;direction-1.0--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.7555006976745543e-10,
+      &quot;objective&quot;: 4549.608342291305,
+      &quot;receipt&quot;: &quot;private-path-sha256:0c5384f1ba625d7bf1cd1a36b0e1067f25bbc5261f6d7858e74ca5eb2f7e828d&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.5542398567824152e-16,
+      &quot;objective&quot;: 3750.643044013514,
+      &quot;receipt&quot;: &quot;private-path-sha256:14e1e543c640b64908e8f0e13f588e5e79731969986c771280edd31cf0beb456&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.359566653455527e-19,
+      &quot;objective&quot;: 3750.6429451384756,
+      &quot;receipt&quot;: &quot;private-path-sha256:638e7bce55b37ef3fe57df6f15fb2a470624e4e7f52863a7422538f8b7b9db4c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.714164802428358e-08,
+      &quot;label&quot;: &quot;direction-0.5--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.401032621707542e-10,
+      &quot;objective&quot;: 4306.832003248656,
+      &quot;receipt&quot;: &quot;private-path-sha256:91c180f9dcadcd97b59b443c4aafef3b9f078a514da8c167122363c2a38329b2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.790550350828056e-08,
+      &quot;label&quot;: &quot;direction-0.5--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.1382088625198063e-10,
+      &quot;objective&quot;: 4306.831998237093,
+      &quot;receipt&quot;: &quot;private-path-sha256:35fb550597ea56534ac04187357106d363c3ffaf98581591e0b044e002a149c6&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.0765463714132359e-08,
+      &quot;label&quot;: &quot;direction-0.5-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 7.458648968670664e-11,
+      &quot;objective&quot;: 3909.201502663384,
+      &quot;receipt&quot;: &quot;private-path-sha256:b0ca18c297ef64937ec65cf274c686bb48b7741a761e7ac5a257829cb4c99c5c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.67353413048158e-19,
+      &quot;objective&quot;: 3909.2016951486235,
+      &quot;receipt&quot;: &quot;private-path-sha256:627075e601ad36b8ef3c6e1afce2fc416a730cd7ddce9fb764a6a36e6a11a833&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.8287628565317075e-18,
+      &quot;objective&quot;: 4196.7920050270395,
+      &quot;receipt&quot;: &quot;private-path-sha256:285688cde69743a768a15238abf1b32e81211ca97e575a5a24edd3086f82073c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.8262314163669823e-08,
+      &quot;label&quot;: &quot;direction-0.25--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.3287757456007945e-11,
+      &quot;objective&quot;: 4196.792258846705,
+      &quot;receipt&quot;: &quot;private-path-sha256:d8332e18d539b1f6e969ae708f8b8fd6888fcb2f6cb0b5abb29c4a69215aa0fa&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.996842695008722e-19,
+      &quot;objective&quot;: 3998.2087462580935,
+      &quot;receipt&quot;: &quot;private-path-sha256:d941c46576706855152158232ea9c3bed3b3dfc370bf6cee54ab5771d68c1bcb&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 7.73234044478321e-20,
+      &quot;objective&quot;: 3998.209003821165,
+      &quot;receipt&quot;: &quot;private-path-sha256:105ad4e65440731aea39f99c961b536f87eb86b40e7d18cb261ec483fd0fed98&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.9252229692985384e-08,
+      &quot;label&quot;: &quot;direction-0.125--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.8913135873505034e-10,
+      &quot;objective&quot;: 4144.504025203868,
+      &quot;receipt&quot;: &quot;private-path-sha256:0e8fcc6662dc65b8666145872ae56ee644f7dca84eee14c689b93d95e1cd6c2e&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 9.315370073285267e-09,
+      &quot;label&quot;: &quot;direction-0.125--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.6768993952143177e-10,
+      &quot;objective&quot;: 4144.503968211815,
+      &quot;receipt&quot;: &quot;private-path-sha256:62e59b7cc75fab306d0906ba6aafd13eb7e22e3481076e0b6f9162ffbedf9c4a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.0490398229309804e-08,
+      &quot;label&quot;: &quot;direction-0.125-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.5508948523686053e-11,
+      &quot;objective&quot;: 4045.2411618445753,
+      &quot;receipt&quot;: &quot;private-path-sha256:6eda14254a7bfafe91c1065fa2e9446cdc058639ed1bc2ad8f5bc89bfe18982c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.4261538737128489e-08,
+      &quot;label&quot;: &quot;direction-0.125-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.501661976619159e-15,
+      &quot;objective&quot;: 4045.241173306131,
+      &quot;receipt&quot;: &quot;private-path-sha256:3f6783ab089c529842e59447361b21a914a2339c7cfce404ebf3796670b6be33&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.0642077283282897e-08,
+      &quot;label&quot;: &quot;direction-0.0625--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.894883021007215e-15,
+      &quot;objective&quot;: 4119.029340455758,
+      &quot;receipt&quot;: &quot;private-path-sha256:56e5f86ce664d38e2e7d9a553ca1fcd38aa859af799e24a80150a7d35e801e7d&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 5.286114126104067e-09,
+      &quot;label&quot;: &quot;direction-0.0625--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.1252478804020517e-16,
+      &quot;objective&quot;: 4119.02930773662,
+      &quot;receipt&quot;: &quot;private-path-sha256:d32276b5d9b7c27b8c106f1a7df47a97e380177e5b699e5ab3baabfc21771a0f&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.5899568062823118e-08,
+      &quot;label&quot;: &quot;direction-0.0625-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.065058993769235e-15,
+      &quot;objective&quot;: 4069.401545069599,
+      &quot;receipt&quot;: &quot;private-path-sha256:ed5e39bee616c8799a052dd45c6092b9867ce80133e3a9af250da220628bac8e&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.9780777048694017e-08,
+      &quot;label&quot;: &quot;direction-0.0625-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.785712238667898e-11,
+      &quot;objective&quot;: 4069.401222573056,
+      &quot;receipt&quot;: &quot;private-path-sha256:2c5be3c30517ede5f71fbc22a4f38ad933f614cb7e2f9895872d63236c21ede1&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.12170217921311e-08,
+      &quot;label&quot;: &quot;direction-0.03125--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.269939454378826e-15,
+      &quot;objective&quot;: 4106.457960188422,
+      &quot;receipt&quot;: &quot;private-path-sha256:7dd5917c0984f401185b3370566367e53e6756f34b2f40c203374c4c5c684b6a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.0789035529453676e-08,
+      &quot;label&quot;: &quot;direction-0.03125--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.6707548825626323e-10,
+      &quot;objective&quot;: 4106.4579583717305,
+      &quot;receipt&quot;: &quot;private-path-sha256:ab18657993b1d6f632fd242696ed780eb9175825ff755a9dbc82e59bdab9e5fc&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.410849421451148e-08,
+      &quot;label&quot;: &quot;direction-0.03125-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.1716780997666088e-10,
+      &quot;objective&quot;: 4081.644118248684,
+      &quot;receipt&quot;: &quot;private-path-sha256:6e93652e52b2e591dd5ba6b3959e0669eb673d5e78f2eadf53f1858cd74a601a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.298599530802281e-08,
+      &quot;label&quot;: &quot;direction-0.03125-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.4345335761964573e-10,
+      &quot;objective&quot;: 4081.643930420064,
+      &quot;receipt&quot;: &quot;private-path-sha256:159a7902f69e4b7115b846357c47fe5d90f91214fd49ed5437a2be870b8b635c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.4825881246558045e-08,
+      &quot;label&quot;: &quot;direction-0.015625--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.503456959033158e-11,
+      &quot;objective&quot;: 4100.213178487907,
+      &quot;receipt&quot;: &quot;private-path-sha256:3a5b02c447ce5d32399e62991106d42afb65f1980335f2c8b8765f7159d8f023&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 9.95631418362778e-09,
+      &quot;label&quot;: &quot;direction-0.015625--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.5371656273279394e-15,
+      &quot;objective&quot;: 4100.213186580594,
+      &quot;receipt&quot;: &quot;private-path-sha256:e44310d3260f7d067fbc68474b882832c0b5bb369854b5808e5366ddc0a8a9e2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.015625-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.367859734959716e-18,
+      &quot;objective&quot;: 4087.8064218103023,
+      &quot;receipt&quot;: &quot;private-path-sha256:aa60c2b7714962045e9084e78ab5e7eaca03264b8cdfbc197519a02e7c06de9a&quot;
+    }
+  ],
+  &quot;profile_resolution_counts&quot;: {
+    &quot;audited_floor_only&quot;: 22,
+    &quot;strict&quot;: 7,
+    &quot;unresolved&quot;: 0
+  },
+  &quot;rank&quot;: {
+    &quot;columns&quot;: 146,
+    &quot;condition_number&quot;: 3839.977887101887,
+    &quot;effective_rows&quot;: 7885,
+    &quot;maximum_singular_value&quot;: 5.506421438331463,
+    &quot;minimum_singular_value&quot;: 0.0014339721738573022,
+    &quot;rank&quot;: 146,
+    &quot;status&quot;: &quot;full_rank&quot;,
+    &quot;threshold&quot;: 9.64076219772538e-12
+  },
+  &quot;relative_derivative_tolerance&quot;: 0.0001,
+  &quot;reported_passed&quot;: false,
+  &quot;source_hash&quot;: &quot;adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8&quot;,
+  &quot;state_input&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a&quot;,
+    &quot;role&quot;: &quot;blind_engineering_physical_initial&quot;,
+    &quot;sha256&quot;: &quot;61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea&quot;
+  },
+  &quot;status&quot;: &quot;failed&quot;
+}</pre></details>
+<h3>pulses — passed</h3>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody><tr><td>1.0</td><td>passed</td><td>-525.476004384941</td><td>-525.4759739466639</td><td>5.7925151420624593e-08</td><td>5.224364683949524e-06</td><td>5.282289835370149e-06</td><td>[&quot;direction-1.0--1&quot;, &quot;direction-1.0--1-repeat&quot;, &quot;direction-1.0-1&quot;, &quot;direction-1.0-1-repeat&quot;]</td></tr><tr><td>0.5</td><td>passed</td><td>-525.47553161427</td><td>-525.4759739466639</td><td>8.417747257275885e-07</td><td>9.905361197005085e-06</td><td>1.0747135922732673e-05</td><td>[&quot;direction-0.5--1&quot;, &quot;direction-0.5--1-repeat&quot;, &quot;direction-0.5-1&quot;, &quot;direction-0.5-1-repeat&quot;]</td></tr><tr><td>0.25</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.03125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.015625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0078125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.00390625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr></tbody></table>
+<p>Base repeat spread: 0.0002602488311822526; empirical physical allowance: 0.002602488311822526. Prior check: passed.</p>
+<p>Profile resolution counts: {&quot;audited_floor_only&quot;: 7, &quot;strict&quot;: 3, &quot;unresolved&quot;: 0}. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;accepted_derivative_scales&quot;: [
+    1.0,
+    0.5
+  ],
+  &quot;derivative_refinement_policy&quot;: {
+    &quot;maximum_scales&quot;: 9,
+    &quot;physical_repeat_allowance_multiplier&quot;: 10,
+    &quot;ratio&quot;: 0.5,
+    &quot;required_consecutive_passing_scales&quot;: 2
+  },
+  &quot;directional_scales&quot;: [
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-1.0--1&quot;,
+        &quot;direction-1.0--1-repeat&quot;,
+        &quot;direction-1.0-1&quot;,
+        &quot;direction-1.0-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 5.224364683949524e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.002888049955164352,
+          &quot;repeat_cost&quot;: 5017.9812962121605,
+          &quot;repeat_difference&quot;: 0.0002888034478019108,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0026025066039788306,
+          &quot;repeat_cost&quot;: 3967.0289923696355,
+          &quot;repeat_difference&quot;: 6.269195182539988e-06,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -525.476004384941,
+      &quot;native_derivative&quot;: -525.4759739466639,
+      &quot;negative_cost&quot;: 5017.981007408713,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 3967.0289986388307,
+      &quot;relative_difference&quot;: 5.7925151420624593e-08,
+      &quot;relative_difference_plus_resolution&quot;: 5.282289835370149e-06,
+      &quot;scale&quot;: 1.0,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.5--1&quot;,
+        &quot;direction-0.5--1-repeat&quot;,
+        &quot;direction-0.5-1&quot;,
+        &quot;direction-0.5-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 9.905361197005085e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0026025095888875917,
+          &quot;repeat_cost&quot;: 4712.081516894709,
+          &quot;repeat_difference&quot;: 2.9426682885969058e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0026025197334021474,
+          &quot;repeat_cost&quot;: 4186.605943922342,
+          &quot;repeat_difference&quot;: 1.1931414519494865e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -525.47553161427,
+      &quot;native_derivative&quot;: -525.4759739466639,
+      &quot;negative_cost&quot;: 4712.081487468026,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 4186.605955853756,
+      &quot;relative_difference&quot;: 8.417747257275885e-07,
+      &quot;relative_difference_plus_resolution&quot;: 1.0747135922732673e-05,
+      &quot;scale&quot;: 0.5,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.25,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.03125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.015625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0078125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.00390625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 0.002602488311822526,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 8039,
+    &quot;path&quot;: &quot;private-path-sha256:6a2e5a1041191c13063831d09c28d6814afbdba739d6dbfac19b44f9915f259f&quot;,
+    &quot;sha256&quot;: &quot;44133151719a742c922fd3254f28170769553a032f6f74bf76ac92f96d36aa17&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;initialization_policy&quot;: &quot;preserved_blind_engineering_initial_state&quot;,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_binary_sha256&quot;: &quot;7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c&quot;,
+  &quot;objective_repeat_difference&quot;: 0.0002602488311822526,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 1e-12,
+    &quot;cost&quot;: 0.053929305673915545,
+    &quot;maximum_residual_difference&quot;: 0.0,
+    &quot;objective&quot;: 4434.956511330055,
+    &quot;rows&quot;: 6,
+    &quot;source&quot;: &quot;constraint.pulses&quot;
+  },
+  &quot;prior_status&quot;: &quot;passed&quot;,
+  &quot;profile_evaluations&quot;: [
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;nonzero-full-prior&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 8.06591285084399e-17,
+      &quot;objective&quot;: 4434.956511330055,
+      &quot;receipt&quot;: &quot;private-path-sha256:8cde7909a200f623f12cea93135fc9c8efc1d3a808fd735dd2706d7891e959e9&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.113089309385663e-08,
+      &quot;label&quot;: &quot;repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.3020325570558396e-09,
+      &quot;objective&quot;: 4434.956771578886,
+      &quot;receipt&quot;: &quot;private-path-sha256:a0e388ef34c306bd6e66b8afbe04ea094b34804160faef3cea95c38486c66203&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.5477145243884638e-08,
+      &quot;label&quot;: &quot;direction-1.0--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.034418952394404e-16,
+      &quot;objective&quot;: 5017.981007408713,
+      &quot;receipt&quot;: &quot;private-path-sha256:582c41f80e00c63b4edbe3a24fa27ccac0598d3dbc8ece75e7c084024841eef7&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.357923632483113e-08,
+      &quot;label&quot;: &quot;direction-1.0--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.020612087445318e-13,
+      &quot;objective&quot;: 5017.9812962121605,
+      &quot;receipt&quot;: &quot;private-path-sha256:f04b85680b44feadd6cd2f53fb34b5e4e5fe1d957399b24d1860db7787870664&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 9.190263607584685e-09,
+      &quot;label&quot;: &quot;direction-1.0-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.6403654311837233e-14,
+      &quot;objective&quot;: 3967.0289986388307,
+      &quot;receipt&quot;: &quot;private-path-sha256:d6765062ae776c14db54f301fb3391d3313fa00153fc278bff7f535ad66cdd04&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.8292156304607156e-08,
+      &quot;label&quot;: &quot;direction-1.0-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 5.974375060612792e-14,
+      &quot;objective&quot;: 3967.0289923696355,
+      &quot;receipt&quot;: &quot;private-path-sha256:7141d97a5cc2b8dfdef095910468433fc690bfa335247ea02ea06da87c0cfd5a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.714271811927101e-17,
+      &quot;objective&quot;: 4712.081487468026,
+      &quot;receipt&quot;: &quot;private-path-sha256:59ee6ec6ee72f3413d1737eb6db54e3ba880a9f4046ad6565935ceeb0927e802&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.1277065065730733e-08,
+      &quot;label&quot;: &quot;direction-0.5--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.9779739253949147e-14,
+      &quot;objective&quot;: 4712.081516894709,
+      &quot;receipt&quot;: &quot;private-path-sha256:878caedba39413d3659599b30f6449780ceba7463f7ff5c70e48a83050462236&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.142157962105949e-08,
+      &quot;label&quot;: &quot;direction-0.5-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 5.188146752776449e-10,
+      &quot;objective&quot;: 4186.605955853756,
+      &quot;receipt&quot;: &quot;private-path-sha256:3bae4ec30f8ae1aef1f13ce08d25f0ec25a7cf06ee880d7fd86fd29e22529399&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.599698217263535e-17,
+      &quot;objective&quot;: 4186.605943922342,
+      &quot;receipt&quot;: &quot;private-path-sha256:26abe07cfaa79ca27ea24c9a197ce212d7e2f4efccb5372e3cd7e89c03093c0e&quot;
+    }
+  ],
+  &quot;profile_resolution_counts&quot;: {
+    &quot;audited_floor_only&quot;: 7,
+    &quot;strict&quot;: 3,
+    &quot;unresolved&quot;: 0
+  },
+  &quot;rank&quot;: {
+    &quot;columns&quot;: 91,
+    &quot;condition_number&quot;: 2172.787898376266,
+    &quot;effective_rows&quot;: 7830,
+    &quot;maximum_singular_value&quot;: 3.0774617449258117,
+    &quot;minimum_singular_value&quot;: 0.0014163654663327295,
+    &quot;rank&quot;: 91,
+    &quot;status&quot;: &quot;full_rank&quot;,
+    &quot;threshold&quot;: 5.3505034764465235e-12
+  },
+  &quot;relative_derivative_tolerance&quot;: 0.0001,
+  &quot;reported_passed&quot;: true,
+  &quot;source_hash&quot;: &quot;adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8&quot;,
+  &quot;state_input&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a&quot;,
+    &quot;role&quot;: &quot;blind_engineering_physical_initial&quot;,
+    &quot;sha256&quot;: &quot;61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea&quot;
+  },
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>Synthetic propagation and measurement refinement</h2>
+<h3>log_drag_ou — passed</h3>
+<table><thead><tr><th>Observable</th><th>Frequency Hz</th><th>Maximum difference m</th><th>Fraction of noise</th><th>Passed</th></tr></thead><tbody><tr><td>code</td><td>1575420000.0</td><td>6.151822162792087e-09</td><td>2.0506073875973623e-08</td><td>True</td></tr><tr><td>code</td><td>1227600000.0</td><td>6.151822162792087e-09</td><td>2.0506073875973623e-08</td><td>True</td></tr><tr><td>carrier</td><td>1575420000.0</td><td>6.150912668090314e-09</td><td>2.0503042226967714e-06</td><td>True</td></tr><tr><td>carrier</td><td>1227600000.0</td><td>6.151822162792087e-09</td><td>2.050607387597362e-06</td><td>True</td></tr></tbody></table>
+<details><summary>Refinement metrics, fixed settings and evidence identity</summary><pre>{
+  &quot;binary_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;case&quot;: {
+    &quot;atmosphere&quot;: &quot;quiet&quot;,
+    &quot;cadence&quot;: 30.0,
+    &quot;coverage&quot;: &quot;normal&quot;,
+    &quot;duration_hours&quot;: 1.0,
+    &quot;epoch&quot;: &quot;2024-04-24T00:00:00&quot;,
+    &quot;mask&quot;: {
+      &quot;cadence_seconds&quot;: 30,
+      &quot;intervals_seconds&quot;: [],
+      &quot;time_scale&quot;: &quot;elapsed&quot;
+    },
+    &quot;orbit&quot;: &quot;leo500&quot;,
+    &quot;seed&quot;: 300000,
+    &quot;truth_model&quot;: &quot;retained_tudat_engineering_truth_instruments&quot;
+  },
+  &quot;controls&quot;: null,
+  &quot;diagnostic_source_sha256&quot;: &quot;1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0&quot;,
+  &quot;elapsed_seconds&quot;: 7.990822087973356,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 5426,
+    &quot;path&quot;: &quot;private-path-sha256:64c52a8b0773efafe0bfb3c97e43c7c09b8085475a2dcd03efe50cf2571bdbf0&quot;,
+    &quot;sha256&quot;: &quot;60b04604fd33719a79ecc895f44bdb76c5597e88e23324e68fbf08efe263e2ac&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;method&quot;: &quot;groops_log_drag_ou&quot;,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 7.303611906877776e-09,
+    &quot;offgrid_position_maximum_m&quot;: 5.54304497667047e-06
+  },
+  &quot;native_signals&quot;: {
+    &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+    &quot;comparison_weights_frozen&quot;: true,
+    &quot;fixed_nuisance_values_identical&quot;: true,
+    &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+    &quot;passed&quot;: true,
+    &quot;raw_native_sigma_maximum_relative_change&quot;: 3.700743415417189e-16,
+    &quot;raw_native_sigmas_identical&quot;: false,
+    &quot;receiver_clock_values_seconds&quot;: [
+      -2e-05,
+      -5e-06,
+      -5e-08,
+      5e-08,
+      5e-06,
+      2e-05
+    ],
+    &quot;signals&quot;: [
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 6.151822162792087e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 2.0506073875973623e-08,
+        &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 2702
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 6.151822162792087e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 2.0506073875973623e-08,
+        &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 1351
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 6.150912668090314e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 2.0503042226967714e-06,
+        &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 2702
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 6.151822162792087e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 2.050607387597362e-06,
+        &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 1351
+      }
+    ]
+  },
+  &quot;passed&quot;: true,
+  &quot;reported_status&quot;: &quot;complete&quot;,
+  &quot;request_sha256&quot;: &quot;2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd&quot;,
+  &quot;scope&quot;: &quot;Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim&quot;,
+  &quot;signal_diagnostic_source_sha256&quot;: &quot;a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9&quot;,
+  &quot;state_grid_seconds&quot;: [
+    5.0,
+    2.5
+  ],
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h3>pulses — passed</h3>
+<table><thead><tr><th>Observable</th><th>Frequency Hz</th><th>Maximum difference m</th><th>Fraction of noise</th><th>Passed</th></tr></thead><tbody><tr><td>code</td><td>1575420000.0</td><td>1.6024387150537223e-08</td><td>5.3414623835124075e-08</td><td>True</td></tr><tr><td>code</td><td>1227600000.0</td><td>1.6024387150537223e-08</td><td>5.3414623835124075e-08</td><td>True</td></tr><tr><td>carrier</td><td>1575420000.0</td><td>1.6024387150537223e-08</td><td>5.3414623835124075e-06</td><td>True</td></tr><tr><td>carrier</td><td>1227600000.0</td><td>1.6024387150537223e-08</td><td>5.3414623835124075e-06</td><td>True</td></tr></tbody></table>
+<details><summary>Refinement metrics, fixed settings and evidence identity</summary><pre>{
+  &quot;binary_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;case&quot;: {
+    &quot;atmosphere&quot;: &quot;quiet&quot;,
+    &quot;cadence&quot;: 30.0,
+    &quot;coverage&quot;: &quot;normal&quot;,
+    &quot;duration_hours&quot;: 1.0,
+    &quot;epoch&quot;: &quot;2024-04-24T00:00:00&quot;,
+    &quot;mask&quot;: {
+      &quot;cadence_seconds&quot;: 30,
+      &quot;intervals_seconds&quot;: [],
+      &quot;time_scale&quot;: &quot;elapsed&quot;
+    },
+    &quot;orbit&quot;: &quot;leo500&quot;,
+    &quot;seed&quot;: 300000,
+    &quot;truth_model&quot;: &quot;retained_tudat_engineering_truth_instruments&quot;
+  },
+  &quot;controls&quot;: null,
+  &quot;diagnostic_source_sha256&quot;: &quot;1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0&quot;,
+  &quot;elapsed_seconds&quot;: 7.885820861905813,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 3962,
+    &quot;path&quot;: &quot;private-path-sha256:5d844272d7603bd4fe4bd398b9758e94ef36f5d156555d6dee65dcdf2ed40eef&quot;,
+    &quot;sha256&quot;: &quot;aec6147e5e296d7fec568a4313fff55394c72741f4c30cefa6bdc71a34d7734b&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;method&quot;: &quot;groops_pulses&quot;,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 1.742967150380174e-08,
+    &quot;offgrid_position_maximum_m&quot;: 5.543041475485635e-06
+  },
+  &quot;native_signals&quot;: {
+    &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+    &quot;comparison_weights_frozen&quot;: true,
+    &quot;fixed_nuisance_values_identical&quot;: true,
+    &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+    &quot;passed&quot;: true,
+    &quot;raw_native_sigma_maximum_relative_change&quot;: 3.700743415417189e-16,
+    &quot;raw_native_sigmas_identical&quot;: false,
+    &quot;receiver_clock_values_seconds&quot;: [
+      -2e-05,
+      -5e-06,
+      -5e-08,
+      5e-08,
+      5e-06,
+      2e-05
+    ],
+    &quot;signals&quot;: [
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+        &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-08,
+        &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 2702
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+        &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-08,
+        &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 1351
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+        &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-06,
+        &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 2702
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+        &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-06,
+        &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 1351
+      }
+    ]
+  },
+  &quot;passed&quot;: true,
+  &quot;reported_status&quot;: &quot;complete&quot;,
+  &quot;request_sha256&quot;: &quot;9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5&quot;,
+  &quot;scope&quot;: &quot;Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim&quot;,
+  &quot;signal_diagnostic_source_sha256&quot;: &quot;a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9&quot;,
+  &quot;state_grid_seconds&quot;: [
+    5.0,
+    2.5
+  ],
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>Full-day synthetic and selected flight refinement</h2><p>These are fixed-parameter numerical checks. They do not establish flight orbit accuracy.</p>
+<h3>density_24h — passed</h3>
+<details><summary>Unchanged refinement criteria, measured differences and full evidence</summary><pre>{
+  &quot;binary_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;case&quot;: {
+    &quot;arc_id&quot;: &quot;eccentric-300000&quot;,
+    &quot;atmosphere&quot;: &quot;quiet&quot;,
+    &quot;cadence&quot;: 30.0,
+    &quot;coverage&quot;: &quot;normal&quot;,
+    &quot;duration_hours&quot;: 24.0,
+    &quot;epoch&quot;: &quot;2024-05-10T00:00:00&quot;,
+    &quot;holdout_minutes&quot;: 30,
+    &quot;mask&quot;: {
+      &quot;cadence_seconds&quot;: 30,
+      &quot;intervals_seconds&quot;: [
+        [
+          42300,
+          44100
+        ]
+      ],
+      &quot;time_scale&quot;: &quot;elapsed&quot;
+    },
+    &quot;orbit&quot;: &quot;eccentric&quot;,
+    &quot;seed&quot;: 300000,
+    &quot;truth_model&quot;: &quot;tudat_independent_central_j2_exponential_gnss&quot;
+  },
+  &quot;controls&quot;: null,
+  &quot;diagnostic_source_sha256&quot;: &quot;1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0&quot;,
+  &quot;elapsed_seconds&quot;: 150.16231922688894,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 40913,
+    &quot;path&quot;: &quot;private-path-sha256:7aeb47b5381ee2444a824b0423aab062ff5fe83a918b8a917ba2a09e880ee30e&quot;,
+    &quot;sha256&quot;: &quot;5f67e51461b623b4a64a04fe97040d2c322dd6f50a20e77b12d6061c648f0793&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;method&quot;: &quot;groops_log_drag_ou&quot;,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 1.7423449953896652e-09,
+    &quot;offgrid_position_maximum_m&quot;: 5.584682031119349e-06
+  },
+  &quot;native_signals&quot;: {
+    &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+    &quot;comparison_weights_frozen&quot;: true,
+    &quot;fixed_nuisance_values_identical&quot;: true,
+    &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+    &quot;passed&quot;: true,
+    &quot;raw_native_sigma_maximum_relative_change&quot;: 4.336808689942018e-16,
+    &quot;raw_native_sigmas_identical&quot;: false,
+    &quot;receiver_clock_values_seconds&quot;: [
+      -2e-05,
+      -5e-06,
+      -5e-08,
+      5e-08,
+      5e-06,
+      2e-05
+    ],
+    &quot;signals&quot;: [
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 1.7319052858510986e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 5.773017619503662e-09,
+        &quot;minimum_native_sigma_m&quot;: 0.2999999999999999,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 65018
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 1.7316779121756554e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 5.772259707252185e-09,
+        &quot;minimum_native_sigma_m&quot;: 0.2999999999999999,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 32509
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 1.7321326595265418e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 5.77377553175514e-07,
+        &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 65018
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 1.7321326595265418e-09,
+        &quot;maximum_fraction_of_sigma&quot;: 5.77377553175514e-07,
+        &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 32509
+      }
+    ]
+  },
+  &quot;passed&quot;: true,
+  &quot;reported_status&quot;: &quot;complete&quot;,
+  &quot;request_sha256&quot;: &quot;8c1af6352f555f3b25d619d81899c28459321cea8204ae97a418e614f072c666&quot;,
+  &quot;scope&quot;: &quot;Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim&quot;,
+  &quot;signal_diagnostic_source_sha256&quot;: &quot;a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9&quot;,
+  &quot;state_grid_seconds&quot;: [
+    5.0,
+    2.5
+  ],
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h3>flight_april24 — passed</h3>
+<details><summary>Unchanged refinement criteria, measured differences and full evidence</summary><pre>{
+  &quot;binary_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;case&quot;: null,
+  &quot;controls&quot;: {
+    &quot;coarse&quot;: {
+      &quot;atmosphere_seconds&quot;: 1.0,
+      &quot;state_seconds&quot;: 5.0,
+      &quot;thermal_seconds&quot;: [
+        1.0
+      ]
+    },
+    &quot;fine&quot;: {
+      &quot;atmosphere_seconds&quot;: 0.5,
+      &quot;state_seconds&quot;: 2.5,
+      &quot;thermal_seconds&quot;: [
+        0.5
+      ]
+    }
+  },
+  &quot;diagnostic_source_sha256&quot;: &quot;77ca65a0359ceead4c24082493501e7f6e4c61a4b8de926906531d4023e843d9&quot;,
+  &quot;elapsed_seconds&quot;: 37.926729077938944,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 24659,
+    &quot;path&quot;: &quot;private-path-sha256:d4c1b5616ea7f6709040b0c5a5e9fca1e6d76d7754761bf5f07c8bf7dca327d2&quot;,
+    &quot;sha256&quot;: &quot;f516968873715db1697860d970b831df726d29feb820d015bec910d8430402ce&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;method&quot;: null,
+  &quot;metrics&quot;: {
+    &quot;aligned_position_maximum_m&quot;: 2.094944070391797e-06,
+    &quot;offgrid_position_maximum_m&quot;: 1.1789941775955e-05
+  },
+  &quot;native_signals&quot;: {
+    &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+    &quot;comparison_weights_frozen&quot;: true,
+    &quot;fixed_nuisance_values_identical&quot;: true,
+    &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+    &quot;passed&quot;: true,
+    &quot;raw_native_sigma_maximum_relative_change&quot;: 8.918505153368854e-12,
+    &quot;raw_native_sigmas_identical&quot;: false,
+    &quot;receiver_clock_values_seconds&quot;: [
+      -2e-05,
+      -5e-06,
+      -5e-08,
+      5e-08,
+      5e-06,
+      2e-05
+    ],
+    &quot;signals&quot;: [
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+        &quot;maximum_fraction_of_sigma&quot;: 1.3955851183532094e-05,
+        &quot;minimum_native_sigma_m&quot;: 0.05744091083620496,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 960
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.3,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+        &quot;maximum_fraction_of_sigma&quot;: 1.8630257430262548e-05,
+        &quot;minimum_native_sigma_m&quot;: 0.04633023750726588,
+        &quot;observable&quot;: &quot;code&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 480
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1575420000.0,
+        &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+        &quot;maximum_fraction_of_sigma&quot;: 0.0022019718410824394,
+        &quot;minimum_native_sigma_m&quot;: 0.0003333034886558371,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 960
+      },
+      {
+        &quot;assumed_sigma_m&quot;: 0.003,
+        &quot;frequency_hz&quot;: 1227600000.0,
+        &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+        &quot;maximum_fraction_of_sigma&quot;: 0.000713018539525509,
+        &quot;minimum_native_sigma_m&quot;: 0.0010948069715336307,
+        &quot;observable&quot;: &quot;carrier&quot;,
+        &quot;passed&quot;: true,
+        &quot;rows&quot;: 480
+      }
+    ]
+  },
+  &quot;passed&quot;: true,
+  &quot;reported_status&quot;: &quot;complete&quot;,
+  &quot;request_sha256&quot;: null,
+  &quot;scope&quot;: &quot;Apr24 30-minute development window at fixed initial state and zero pulses; joint grid, thermal and atmospheric refinement; no accuracy claim&quot;,
+  &quot;signal_diagnostic_source_sha256&quot;: &quot;a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9&quot;,
+  &quot;state_grid_seconds&quot;: null,
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>nuisance-replay</h2><p>Exact failed location: original near03 density point-030-direction-0.015625-1-repeat.</p><p>Validation: passed; resolution: <strong>strict_convergence</strong>.</p>
+<p>Audited floor-only evidence does not establish stationarity or convergence and cannot authorize accepted covariance.</p>
+<details><summary>Nuisance transaction checks and profile audit</summary><pre>{
+  &quot;allow_floor_limited_requested&quot;: true,
+  &quot;ambiguity_half_integer_crossings_tested&quot;: 50,
+  &quot;build_manifest_sha256&quot;: &quot;1030f8930e40d0f899529bd39cf5db6dc00bcd675e3c423f845cdbeec6e3c455&quot;,
+  &quot;elapsed_seconds&quot;: 48.290195035981014,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 19424,
+    &quot;path&quot;: &quot;private-path-sha256:7d3e7e4471a5ffd03c0defc5bad6f2e706a0f73a1073a46c20af8744eb78fe03&quot;,
+    &quot;sha256&quot;: &quot;6465ad0b1cda5f294c91b1e1a2d1f8f9faaa4f554e75aadae4d2337c6605989a&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;final_search&quot;: {
+    &quot;accepted&quot;: false,
+    &quot;alpha&quot;: 0,
+    &quot;completed_probe_rounds&quot;: 0,
+    &quot;floor_rejection&quot;: &quot;&quot;,
+    &quot;full_step_prediction&quot;: 1.2185228453990937e-19,
+    &quot;generation&quot;: 6,
+    &quot;maximum_probe_amplitude&quot;: 1000000000,
+    &quot;maximum_probe_influence_m&quot;: 1,
+    &quot;maximum_probe_rounds&quot;: 5,
+    &quot;memory_scope&quot;: &quot;child_wait4_peak_rss_only_not_simultaneous_process_tree_peak&quot;,
+    &quot;nuisance_floor_audit&quot;: [],
+    &quot;nuisance_floor_limited&quot;: false,
+    &quot;nuisance_objective_resolution&quot;: 0,
+    &quot;objective_before&quot;: 4087.806285672341,
+    &quot;requested_probe_amplitude&quot;: 0,
+    &quot;requested_probe_influence_m&quot;: 0,
+    &quot;schema&quot;: &quot;orbit-poc-native-nuisance-line-search-v1&quot;,
+    &quot;sha256&quot;: &quot;5035aea7669fd2df92090ca3b9fd78054f45509076a9eb3c8911d65593912ab7&quot;,
+    &quot;stationary_without_update&quot;: true,
+    &quot;trials&quot;: [
+      {
+        &quot;actual_reduction&quot;: 6.006177089222968e-18,
+        &quot;alpha&quot;: 1,
+        &quot;ambiguity_half_integer_crossings&quot;: 0,
+        &quot;changed_receiver_times&quot;: 0,
+        &quot;child_system_seconds&quot;: 0.010992,
+        &quot;child_user_seconds&quot;: 2.071612,
+        &quot;cost&quot;: 4087.806285672341,
+        &quot;error&quot;: &quot;&quot;,
+        &quot;largest_raw_residual_change&quot;: [
+          0,
+          23,
+          92,
+          3,
+          -3.488251363009612,
+          -3.4882513630068055,
+          9.790279082638467e-12
+        ],
+        &quot;maximum_update_m&quot;: 2.990560933249703e-10,
+        &quot;observation_signature&quot;: &quot;468164590554894258&quot;,
+        &quot;peak_child_rss_bytes&quot;: 98414592,
+        &quot;receiver_position_change_m&quot;: 1.788112030672749e-18,
+        &quot;receiver_time_change_seconds&quot;: 0,
+        &quot;status&quot;: 0
+      }
+    ],
+    &quot;undamped_maximum_update_m&quot;: 2.990560933249703e-10,
+    &quot;zero_update_replay&quot;: {
+      &quot;actual_reduction&quot;: 0,
+      &quot;cost&quot;: 4087.806285672341,
+      &quot;maximum_update_m&quot;: 0,
+      &quot;status&quot;: 0
+    }
+  },
+  &quot;fixed_observations_and_weights_verified_every_trial&quot;: true,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;native_unchanged&quot;: true,
+  &quot;passed&quot;: true,
+  &quot;profile&quot;: {
+    &quot;dynamic_updates&quot;: false,
+    &quot;fixed_weights&quot;: true,
+    &quot;history&quot;: [
+      {
+        &quot;gradient_scaled&quot;: 0.08298514630508524,
+        &quot;maximum_update_m&quot;: 1.7050630298287524,
+        &quot;predicted_reduction&quot;: 62502734.248776235
+      },
+      {
+        &quot;gradient_scaled&quot;: 3.5924663195212875e-05,
+        &quot;maximum_update_m&quot;: 0.0019876921949478284,
+        &quot;predicted_reduction&quot;: 7.35513935144104e-06
+      },
+      {
+        &quot;gradient_scaled&quot;: 1.8788204575953827e-07,
+        &quot;maximum_update_m&quot;: 1.041198734140906e-05,
+        &quot;predicted_reduction&quot;: 1.562688579820648e-10
+      },
+      {
+        &quot;gradient_scaled&quot;: 9.918648003902791e-10,
+        &quot;maximum_update_m&quot;: 5.496838613462828e-08,
+        &quot;predicted_reduction&quot;: 4.354734047515262e-15
+      },
+      {
+        &quot;gradient_scaled&quot;: 5.234324879115872e-12,
+        &quot;maximum_update_m&quot;: 2.990560933249703e-10,
+        &quot;predicted_reduction&quot;: 1.2185228453990937e-19
+      },
+      {
+        &quot;gradient_scaled&quot;: 5.234324879115872e-12,
+        &quot;maximum_update_m&quot;: 2.990560933249703e-10,
+        &quot;predicted_reduction&quot;: 1.2185228453990937e-19
+      }
+    ],
+    &quot;initial_zero_update_cache_refresh_m&quot;: 0.002584843617831006,
+    &quot;iterations&quot;: 6,
+    &quot;maximum_update_m&quot;: 2.990560933249703e-10,
+    &quot;nuisance_converged&quot;: true,
+    &quot;nuisance_floor_audit&quot;: [],
+    &quot;nuisance_floor_limited&quot;: false,
+    &quot;nuisance_floor_policy&quot;: &quot;empirical_equivalent_arithmetic_and_symmetric_probes_v1&quot;,
+    &quot;nuisance_gradient_scaled&quot;: 5.234324879115872e-12,
+    &quot;nuisance_objective_resolution&quot;: 0,
+    &quot;nuisance_predicted_reduction&quot;: 1.2185228453990937e-19,
+    &quot;required_consecutive_small_updates&quot;: 2,
+    &quot;schema_version&quot;: 1,
+    &quot;threshold_m&quot;: 1e-08
+  },
+  &quot;progress_only_floor_validated&quot;: false,
+  &quot;replay_profile_sha256&quot;: &quot;19855c9360ab08ed02d6e110cf3191ce25c6b1f9f082b93f99e52a75e3be1fe6&quot;,
+  &quot;resolution_status&quot;: &quot;strict_convergence&quot;,
+  &quot;returncode&quot;: 0,
+  &quot;source_failure&quot;: &quot;original near03 density point-030-direction-0.015625-1-repeat&quot;,
+  &quot;source_profile_sha256&quot;: &quot;902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;strict_nuisance_converged&quot;: true,
+  &quot;timed_out&quot;: false,
+  &quot;zero_update_replay_exact&quot;: true
+}</pre></details>
+<h2>nuisance-replay-candidate1-point012</h2><p>Exact failed location: validation02 density point-012-direction-0.25--1-repeat.</p><p>Validation: passed; resolution: <strong>strict_convergence</strong>.</p>
+<p>Audited floor-only evidence does not establish stationarity or convergence and cannot authorize accepted covariance.</p>
+<details><summary>Nuisance transaction checks and profile audit</summary><pre>{
+  &quot;allow_floor_limited_requested&quot;: true,
+  &quot;ambiguity_half_integer_crossings_tested&quot;: 47,
+  &quot;build_manifest_sha256&quot;: &quot;1030f8930e40d0f899529bd39cf5db6dc00bcd675e3c423f845cdbeec6e3c455&quot;,
+  &quot;elapsed_seconds&quot;: 48.045787764946,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 19661,
+    &quot;path&quot;: &quot;private-path-sha256:289e9ad5c637bc4fc6de05e77d43886f0db5eaee1a838c7f50b4dc71d11af5c0&quot;,
+    &quot;sha256&quot;: &quot;31797b47223bcfabcdabad90bdad15c4c70605a158c3ef7a116151ad29f97e3c&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;final_search&quot;: {
+    &quot;accepted&quot;: false,
+    &quot;alpha&quot;: 0,
+    &quot;completed_probe_rounds&quot;: 0,
+    &quot;floor_rejection&quot;: &quot;&quot;,
+    &quot;full_step_prediction&quot;: 2.197293126239228e-19,
+    &quot;generation&quot;: 6,
+    &quot;maximum_probe_amplitude&quot;: 1000000000,
+    &quot;maximum_probe_influence_m&quot;: 1,
+    &quot;maximum_probe_rounds&quot;: 5,
+    &quot;memory_scope&quot;: &quot;child_wait4_peak_rss_only_not_simultaneous_process_tree_peak&quot;,
+    &quot;nuisance_floor_audit&quot;: [],
+    &quot;nuisance_floor_limited&quot;: false,
+    &quot;nuisance_objective_resolution&quot;: 0,
+    &quot;objective_before&quot;: 4196.792466153936,
+    &quot;requested_probe_amplitude&quot;: 0,
+    &quot;requested_probe_influence_m&quot;: 0,
+    &quot;schema&quot;: &quot;orbit-poc-native-nuisance-line-search-v1&quot;,
+    &quot;sha256&quot;: &quot;eaf913ff51add075b24a7580b07624dd80e4dca7c1346a548e2f1805c8269e71&quot;,
+    &quot;stationary_without_update&quot;: true,
+    &quot;trials&quot;: [
+      {
+        &quot;actual_reduction&quot;: 6.868453250724917e-19,
+        &quot;alpha&quot;: 1,
+        &quot;ambiguity_half_integer_crossings&quot;: 0,
+        &quot;changed_receiver_times&quot;: 0,
+        &quot;child_system_seconds&quot;: 0.013996,
+        &quot;child_user_seconds&quot;: 2.088441,
+        &quot;cost&quot;: 4196.792466153936,
+        &quot;error&quot;: &quot;&quot;,
+        &quot;largest_raw_residual_change&quot;: [
+          0,
+          25,
+          24,
+          4,
+          2.5164765294309537,
+          2.516476529434227,
+          -8.23738788222511e-12
+        ],
+        &quot;maximum_update_m&quot;: 3.79231092821175e-10,
+        &quot;observation_signature&quot;: &quot;468164590554894258&quot;,
+        &quot;peak_child_rss_bytes&quot;: 98582528,
+        &quot;receiver_position_change_m&quot;: 1.939479807224432e-18,
+        &quot;receiver_time_change_seconds&quot;: 0,
+        &quot;status&quot;: 0
+      }
+    ],
+    &quot;undamped_maximum_update_m&quot;: 3.79231092821175e-10,
+    &quot;zero_update_replay&quot;: {
+      &quot;actual_reduction&quot;: 0,
+      &quot;cost&quot;: 4196.792466153936,
+      &quot;maximum_update_m&quot;: 0,
+      &quot;status&quot;: 0
+    }
+  },
+  &quot;fixed_observations_and_weights_verified_every_trial&quot;: true,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_sha256&quot;: &quot;f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625&quot;,
+  &quot;native_unchanged&quot;: true,
+  &quot;passed&quot;: true,
+  &quot;profile&quot;: {
+    &quot;dynamic_updates&quot;: false,
+    &quot;fixed_weights&quot;: true,
+    &quot;history&quot;: [
+      {
+        &quot;gradient_scaled&quot;: 0.08247299351427774,
+        &quot;maximum_update_m&quot;: 1.693811599100473,
+        &quot;predicted_reduction&quot;: 62482458.636591226
+      },
+      {
+        &quot;gradient_scaled&quot;: 4.033564467049749e-05,
+        &quot;maximum_update_m&quot;: 0.0022609784230311135,
+        &quot;predicted_reduction&quot;: 9.405605209650589e-06
+      },
+      {
+        &quot;gradient_scaled&quot;: 2.232731835622517e-07,
+        &quot;maximum_update_m&quot;: 1.2537120564842962e-05,
+        &quot;predicted_reduction&quot;: 2.265722710619666e-10
+      },
+      {
+        &quot;gradient_scaled&quot;: 1.2476909872713763e-09,
+        &quot;maximum_update_m&quot;: 7.006312824035388e-08,
+        &quot;predicted_reduction&quot;: 7.074579292780214e-15
+      },
+      {
+        &quot;gradient_scaled&quot;: 6.944471477488699e-12,
+        &quot;maximum_update_m&quot;: 3.79231092821175e-10,
+        &quot;predicted_reduction&quot;: 2.197293126239228e-19
+      },
+      {
+        &quot;gradient_scaled&quot;: 6.944471477488699e-12,
+        &quot;maximum_update_m&quot;: 3.79231092821175e-10,
+        &quot;predicted_reduction&quot;: 2.197293126239228e-19
+      }
+    ],
+    &quot;initial_zero_update_cache_refresh_m&quot;: 0.002584843617831006,
+    &quot;iterations&quot;: 6,
+    &quot;maximum_update_m&quot;: 3.79231092821175e-10,
+    &quot;nuisance_converged&quot;: true,
+    &quot;nuisance_floor_audit&quot;: [],
+    &quot;nuisance_floor_limited&quot;: false,
+    &quot;nuisance_floor_policy&quot;: &quot;empirical_equivalent_arithmetic_and_symmetric_probes_v1&quot;,
+    &quot;nuisance_gradient_scaled&quot;: 6.944471477488699e-12,
+    &quot;nuisance_objective_resolution&quot;: 0,
+    &quot;nuisance_predicted_reduction&quot;: 2.197293126239228e-19,
+    &quot;required_consecutive_small_updates&quot;: 2,
+    &quot;schema_version&quot;: 1,
+    &quot;threshold_m&quot;: 1e-08
+  },
+  &quot;progress_only_floor_validated&quot;: false,
+  &quot;replay_profile_sha256&quot;: &quot;f53e4bde81032fada98aaadc993796ddde71c59612d01f71ca8a7b51dbba38d0&quot;,
+  &quot;resolution_status&quot;: &quot;strict_convergence&quot;,
+  &quot;returncode&quot;: 0,
+  &quot;source_failure&quot;: &quot;validation02 density point-012-direction-0.25--1-repeat&quot;,
+  &quot;source_profile_sha256&quot;: &quot;3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;strict_nuisance_converged&quot;: true,
+  &quot;timed_out&quot;: false,
+  &quot;zero_update_replay_exact&quot;: true
+}</pre></details>
+<h2>Independent evidence audit</h2><p>Status: passed.</p>
+<details><summary>Independent calculations and matched input identities</summary><p>Complete structured evidence (7004630 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Execution and restart provenance</h2><p>Fresh serial validation of an explicitly versioned numerical correction. The original 106-test suite, physical inputs and numerical criteria remain unchanged. Interrupted03 and failed04/05/06/07/08 remain distinct. No campaign pause or resume is claimed.</p>
+<details><summary>Recovery classification</summary><p>Complete structured evidence (6340450 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<details><summary>Exact external control records</summary><p>Complete structured evidence (5981665 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<details><summary>Report integrity errors</summary><pre>[]</pre></details>
+<p>Machine-readable companion: <a href="summary.json.gz">summary.json.gz</a>. Missing and failed evidence has not been replaced or removed.</p></html>

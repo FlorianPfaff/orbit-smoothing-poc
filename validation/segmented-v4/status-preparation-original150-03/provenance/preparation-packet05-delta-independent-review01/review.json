@@ -1,0 +1,115 @@
+{
+  "added_control_pins": {
+    "preparation_device_detached_fixture": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-preparation-output-view-smoke-02/control/receipt.json",
+      "sha256": "d87c044e8189793d0f4c53194a582e2d1a73fb8ded9a80327eb90875ad259cc5"
+    },
+    "preparation_launch04_failure": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/launch04-failure.json",
+      "sha256": "fa45776786f4d0319042bd06706e380979eb9cb1ece0bc271bb9786dcc193434"
+    },
+    "preparation_output_view04": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/with_preparation_output_view04.py",
+      "sha256": "ae2e74c416fe00f7845f342eb658857d0c351980dd74f86af52a3cc02d097946"
+    },
+    "preparation_packet05": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/stage_preparation_packet05.py",
+      "sha256": "cec3595227721c6eca13ae8da3d69060ef31446031504bb3c65b34fcadf21638"
+    }
+  },
+  "changed_plan_fields": {
+    "outer-prepare-plan": [
+      "control",
+      "execution",
+      "helper",
+      "payload"
+    ],
+    "outer-startup-plan": [
+      "control",
+      "execution",
+      "helper",
+      "payload"
+    ],
+    "pins": [
+      "control_root",
+      "execution_sha256",
+      "launch_helper",
+      "plan"
+    ],
+    "plan": [
+      "checker",
+      "control_root",
+      "execution",
+      "runner"
+    ],
+    "probe-plan": [
+      "output"
+    ],
+    "smoke-plan": [
+      "execution",
+      "helper",
+      "output",
+      "probe_plan"
+    ]
+  },
+  "current_boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "device_fixture_code_review": {
+    "bytes": 2421,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-view04-independent-code-review01.json",
+    "sha256": "c11177055cb591fe98a6b4d5b50074985c2fe6a08b85644c9d914341b9f32d6d"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/execution05.json",
+    "sha256": "c19fc090eb7be49ec5380520d00c31d0114af9c2894fde55685109a3e06e18f8"
+  },
+  "failure_phase": "Popen DEVNULL handle creation before child spawn",
+  "failure_stdout_scope": "Outer-view command disclosure only; no controller handoff or successful launch",
+  "generation_outputs_absent": true,
+  "helper": {
+    "bytes": 5641,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation_packet05_delta01.py",
+    "sha256": "10a7f297cc4500cd7a3a4f0aad3bc8417d06a48778ff1a945f2226f3fdd25dc5"
+  },
+  "observed_at": "2026-10-16T03:53:09.749310+00:00",
+  "packet": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/packet05.json",
+    "sha256": "c212f694917c0279a80b560b1770bdfd181961f302181ea1d21854aef6770c5d"
+  },
+  "passed": true,
+  "preserved_failure": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/launch04-failure.json",
+    "sha256": "fa45776786f4d0319042bd06706e380979eb9cb1ece0bc271bb9786dcc193434"
+  },
+  "prior_reviewer_failure": {
+    "helper": {
+      "bytes": 1634,
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation_launch04_failure01.py",
+      "sha256": "3a748b10441433d7e69d7480b48c341e3366993e88521489f9e1e1806020b9af"
+    },
+    "reason": "Reviewer assumed empty outer-wrapper stdout. Actual stdout is the preserved view/command disclosure, not a controller launch receipt. Final audit verifies that schema and leaves bytes unchanged.",
+    "stderr": {
+      "bytes": 88,
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation-launch04-failure-independent-review01/stderr.log",
+      "sha256": "16b9f46e759b5fcfc0695e5bf2097dc3db7a036e1dd52c0a90e196eee31996b5"
+    }
+  },
+  "prior_runtime_review": {
+    "bytes": 3780,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet04-runtime-independent-review03/review.json",
+    "sha256": "f76eeb53a9b2f3a325c1be36170f52c91063a3d5fa44dc6f012421452caecb69"
+  },
+  "readback": {
+    "bytes": 2820,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet05-delta-independent-review01/readback.json",
+    "sha256": "122ea9965375edaa97844c5deac57d00b638a88a25f0cadf07de30155f2b4c33"
+  },
+  "schema": "orbit-poc-preparation-device-delta-independent-review-v1",
+  "scope": "Metadata and control delta audit reuses the exact prior runtime/input closure. It did not duplicate unchanged payload hashes or launch any process. Supports owned startup05 subject to separate reviewed mapping/device fixture; generation still needs actual startup result and admission.",
+  "stderr": {
+    "bytes": 0,
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-packet05-delta-independent-review01/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "unchanged_prior_runtime_pins": 356,
+  "wrapper_change": "Only --dev /dev added to outer bubblewrap argv; private minimal device view. Lock, PID/network visibility and scientific output mappings unchanged."
+}

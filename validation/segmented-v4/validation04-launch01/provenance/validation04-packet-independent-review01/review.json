@@ -1,0 +1,102 @@
+{
+  "changed_files": [
+    "src/orbit_poc/segmented/multiday.py",
+    "tests/test_comparison_initialization.py",
+    "tests/test_segmented_multiday.py"
+  ],
+  "comparison_file_count": 304,
+  "comparison_source_sha256": "68e17e5b5ebe6fe22a47b9c6213c89397cfb80e25cc5e033da2621fc0aa44474",
+  "config": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/segmented-v4.json",
+    "sha256": "e23eb3a1b4eafc6c1c279183292513b87e64a366061ac6ef645987700c193fac"
+  },
+  "created_at": "2026-10-16T04:44:08.462246+00:00",
+  "distinct_unchanged_native_binaries": {
+    "dense_corrected": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625",
+    "segmented": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/execution.json",
+    "sha256": "526e8f704650eccc69863669ac4068c1c192f38b990a5a2190eba81d4a22007d"
+  },
+  "external_control_code_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation04-controls-independent-code-review01.json",
+    "sha256": "1b8ceeeeebbeeb89d4c64ea03d7bc3ff2e4d4eacbbe0d419fa644800819ce3b1"
+  },
+  "full_source_sha256": "1fe0f24166a7983a7c10eaf1712e4b5545f02c61bd38406fa9d07e70cd7d6a4e",
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_validation04_packet02.py",
+    "sha256": "3e8287865e6733b225100a4386f697a9d82108a44d6d489556b5a386a2bdc7df"
+  },
+  "known_startup_control_followup": "Controls identified the prior read-only probe expected301 structural collection cases; the two added multiday parametrizations make303. No startup was launched. A separately pinned probe/smoke addendum must be reviewed before startup. This qualification supersedes the generic startup approval wording in the raw readback.",
+  "launch_pins": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/launch-pins.json",
+    "sha256": "4b0467351c96859874e78569ad626baddda98902e3206770814516a34d14bd24"
+  },
+  "launch_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/launch-plan.json",
+    "sha256": "0a5c65a31b0e8db192a99c29018ab391eb22d81e26f9ce66c77ea164092b07c7"
+  },
+  "native_equivalence": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/native-input-equivalence.json",
+    "sha256": "42e9019de199d61f9ae2fa1583bedbe38b3ceca52463730ddf7f46be48309653"
+  },
+  "native_input_count": 70,
+  "native_launch_authorized": false,
+  "passed": true,
+  "preserved_reviewer_failure": {
+    "helper": {
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_validation04_packet01.py",
+      "sha256": "99a838816bb984cdbb9f67885e9ba420280edb471163865e0ec256846090f157"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation04-packet-independent-review01/stderr.log",
+      "sha256": "43b93e4f29861972cd9faaf7f2fdc5cdd87b5eabe110ab4abb3d92a9dc6eafe6"
+    },
+    "reason": "Reviewer initially assumed dense and segmented runtime use the same native binary. Corrected review explicitly verifies both distinct original frozen binaries and unchanged declarations."
+  },
+  "production_outputs_absent": true,
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation04-packet-independent-review01/readback02.json",
+    "sha256": "e1df41822a632955539c0edfe2dd55ce2cef2c9266c47d3274d9496c3ab571cb"
+  },
+  "runtime_pin_count": 371,
+  "schema": "orbit-poc-validation04-base-packet-independent-review-v1",
+  "scope": "Base packet source/config/native/runtime/launch identities verified. Exactly three reviewed Python files differ; all70 native inputs and every other scientific setting are unchanged. Fresh full14 validation is planned with no result inheritance. Startup control addendum and actual startup evidence remain required.",
+  "source_file_count": 384,
+  "source_freeze": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/source-freeze.json",
+    "sha256": "87ad55dcd0c4329cb4e37a37adfe3871cb85d3fb88e8a46b3cff388aa17e9f29"
+  },
+  "source_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/independent-review02.json",
+    "sha256": "3f16bde08e1c9d5993292a061ead4279184100545593bc58247f1a203e4319b3"
+  },
+  "source_review_scope_clarification": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation-profile-fix01/independent-review02-scope-clarification.json",
+    "sha256": "de23dcd339b399ced680f9dc2db118c60aaf8d433766b7b1a99931117100ef96"
+  },
+  "stages": [
+    "native-tests",
+    "correction-tests",
+    "synthetic-refinement-log_drag_ou",
+    "synthetic-refinement-pulses",
+    "flight-refinement",
+    "eccentric-24h-refinement",
+    "objective-log_drag_ou",
+    "objective-pulses",
+    "nuisance-replay",
+    "nuisance-replay-candidate1-point012",
+    "segmented-native-tangent",
+    "segmented-structural",
+    "linearization-log_drag_ou",
+    "linearization-pulses"
+  ],
+  "staging": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/staging.json",
+    "sha256": "9518d7e68fc11280818c57138545328ea726b5bef10d916166e9de459b87c319"
+  },
+  "startup_absent": true,
+  "startup_authorized": false,
+  "unchanged_all_other_config_fields": true
+}

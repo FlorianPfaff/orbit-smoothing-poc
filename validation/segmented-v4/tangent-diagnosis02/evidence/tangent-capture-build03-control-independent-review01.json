@@ -1,0 +1,95 @@
+{
+  "schema": "orbit-poc-tangent-capture-build03-installed-base-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:24:07.619072+00:00",
+  "preserved_build02_failure": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-02/control/pipeline.json",
+    "sha256": "08884142825960af685419b62a1a88fc6bb640140639803344ae376d31a5110b",
+    "bytes": 4847
+  },
+  "failure_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build02-failure-independent-readback01.json",
+    "sha256": "d4965800906ee986102d29cd0a0369abdd3f7170763b05cad1c60f6d7e5b37a4",
+    "bytes": 2145
+  },
+  "failure_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_tangent_capture_build02_failure.py",
+    "sha256": "dfa147523abd76e5ae29ae4f5c3df98ae90158eed88f8fae93db8966e24e658c",
+    "bytes": 3065
+  },
+  "failure_classification": "Precompile capture-base mismatch: the original installed header contains the existing29-line segmented tangent export hook, while the proposed base pin was for the repository extension. All copied native source bytes match the original build manifest and original a66 executable remains unchanged; no capture insertion or compilation occurred.",
+  "original_source_members_verified": 1131,
+  "owned_identities_non_live": 4,
+  "installed_header": {
+    "path": "/mnt/d/orbit-segmented-v4/control/stagedVariationalBody-installed-a669.h",
+    "sha256": "1cace042d5deffac657cc68b9be08de4dc607fba2f8028ac1440e4446fb5d500",
+    "bytes": 18951
+  },
+  "candidate_header": {
+    "path": "/mnt/d/orbit-segmented-v4/control/stagedVariationalBody-tangent-capture02.h",
+    "sha256": "738aeb343f6f187710298d584044376c59c6300b8ebed336358959bcff71d8f4",
+    "bytes": 21388
+  },
+  "capture_block": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent_capture_block01.txt",
+    "sha256": "28123629be0291303a438fb31bcf983588914637896238e335eee4b60e93e070",
+    "bytes": 2437
+  },
+  "scripts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/build_tangent_capture03.py",
+      "sha256": "5dc24d6480267e709bb39920118eab7c31d9e33c560a63b4097c6f6f780faef4",
+      "bytes": 10250
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_tangent_capture_build03.py",
+      "sha256": "4144307970de888b27a771bb0b2b16d51eba46dee9a25c54803a44f18d72e28f",
+      "bytes": 5178
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_tangent_capture_build03.py",
+      "sha256": "403ace76435ceaa4386b641c21bc97e838282ce33a09c0620cb92b7463192820",
+      "bytes": 4547
+    }
+  ],
+  "prior_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build02-control-independent-review01.json",
+    "sha256": "2070986335697a07c53b0434850df5d938bb352d9105d06d8e68916986e4358e",
+    "bytes": 3479
+  },
+  "independent_fixture_tests": {
+    "passed": 28,
+    "failed": 0,
+    "skipped": 0,
+    "sources": [
+      {
+        "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_capture_build03.py",
+        "sha256": "843628485d1aaad3009d0eceeb568e3bba1763161f25d798c8135c14bc500ef3",
+        "bytes": 3946
+      },
+      {
+        "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_capture_writer03.py",
+        "sha256": "363eca17d74462edcb6169cf8e928068ad8691bbcf228a7d9c0aba13a8a9c172",
+        "bytes": 3342
+      }
+    ],
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build03-independent-tests.log",
+      "sha256": "d9f7e305fae9b9208d349deacb562974327a792d521ab091a2820f16b4146d72",
+      "bytes": 203
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build03-independent-tests.xml",
+      "sha256": "ee13d3db23fd22dc3f3fd844aec1be8479d830cf73f1317a1eb860a1c9299a27",
+      "bytes": 4353
+    }
+  },
+  "checks": [
+    "Candidate header minus the single identical audited capture block equals actual installed a66 header byte-for-byte, retaining the existing29-line segmented export hook.",
+    "Worker derives expected base identity from original frozen build manifest, pins the capture block, and rejects any extra source change.",
+    "Three standalone reader headers must match their declared original installed native hashes and reviewed telemetry hashes.",
+    "All original637link dependency pins, exact a66 baseline relink requirement, one changed translation unit, compiler flags/loader attribution and owned controls remain unchanged."
+  ],
+  "scope": "Diagnostic-only installed-base correction approved under root standing continuation authority. Exact staged pins/current admission remain controller prerequisites; no added metadata approval stop is required. Actual build and captured numerical results still need independent attribution audit.",
+  "release_ready": false
+}

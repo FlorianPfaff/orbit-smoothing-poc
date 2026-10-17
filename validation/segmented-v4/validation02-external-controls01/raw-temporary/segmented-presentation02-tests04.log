@@ -1,0 +1,87 @@
+.........................F                                               [100%]
+=================================== FAILURES ===================================
+_____ test_capture_mutation_during_copy_fails_and_preserves_partial_output _____
+
+tmp_path = PosixPath('/tmp/segmented-presentation02-tests04/test_capture_mutation_during_c0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7afc1c3ef610>
+
+    def test_capture_mutation_during_copy_fails_and_preserves_partial_output(tmp_path,monkeypatch):
+     p=fixture(tmp_path);original=m.shutil.copytree
+     def changed(source,destination):
+      result=original(source,destination);record=load(Path(p['capture']['path']))['records'][0];(Path(destination)/record['stored']['path']).write_text('tampered after inspection');return result
+     monkeypatch.setattr(m.shutil,'copytree',changed)
+>    with pytest.raises(ValueError,match='Captured stored bytes'):m.publish(p,tmp_path/'published')
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_present_segmented_validation02.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:104: in publish
+    shutil.copytree(state['capture_root'],output/'raw-capture')
+/mnt/d/orbit-segmented-v4/control/test_present_segmented_validation02.py:108: in changed
+    result=original(source,destination);record=load(Path(p['capture']['path']))['records'][0];(Path(destination)/record['stored']['path']).write_text('tampered after inspection');return result
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/shutil.py:573: in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+entries = [<DirEntry 'manifest.json'>, <DirEntry 'run'>, <DirEntry 'control'>]
+src = PosixPath('/tmp/segmented-presentation02-tests04/test_capture_mutation_during_c0/capture')
+dst = PosixPath('/tmp/segmented-presentation02-tests04/test_capture_mutation_during_c0/published/raw-capture')
+symlinks = False, ignore = None
+copy_function = <function copy2 at 0x7afc1d0451c0>
+ignore_dangling_symlinks = False, dirs_exist_ok = False
+
+    def _copytree(entries, src, dst, symlinks, ignore, copy_function,
+                  ignore_dangling_symlinks, dirs_exist_ok=False):
+        if ignore is not None:
+            ignored_names = ignore(os.fspath(src), [x.name for x in entries])
+        else:
+            ignored_names = ()
+    
+        os.makedirs(dst, exist_ok=dirs_exist_ok)
+        errors = []
+        use_srcentry = copy_function is copy2 or copy_function is copy
+    
+        for srcentry in entries:
+            if srcentry.name in ignored_names:
+                continue
+            srcname = os.path.join(src, srcentry.name)
+            dstname = os.path.join(dst, srcentry.name)
+            srcobj = srcentry if use_srcentry else srcname
+            try:
+                is_symlink = srcentry.is_symlink()
+                if is_symlink and os.name == 'nt':
+                    # Special check for directory junctions, which appear as
+                    # symlinks but we want to recurse.
+                    lstat = srcentry.stat(follow_symlinks=False)
+                    if lstat.st_reparse_tag == stat.IO_REPARSE_TAG_MOUNT_POINT:
+                        is_symlink = False
+                if is_symlink:
+                    linkto = os.readlink(srcname)
+                    if symlinks:
+                        # We can't just leave it to `copy_function` because legacy
+                        # code with a custom `copy_function` may rely on copytree
+                        # doing the right thing.
+                        os.symlink(linkto, dstname)
+                        copystat(srcobj, dstname, follow_symlinks=not symlinks)
+                    else:
+                        # ignore dangling symlink if the flag is on
+                        if not os.path.exists(linkto) and ignore_dangling_symlinks:
+                            continue
+                        # otherwise let the copy occur. copy2 will raise an error
+                        if srcentry.is_dir():
+                            copytree(srcobj, dstname, symlinks, ignore,
+                                     copy_function, ignore_dangling_symlinks,
+                                     dirs_exist_ok)
+                        else:
+                            copy_function(srcobj, dstname)
+                elif srcentry.is_dir():
+>                   copytree(srcobj, dstname, symlinks, ignore, copy_function,
+                             ignore_dangling_symlinks, dirs_exist_ok)
+E                            TypeError: test_capture_mutation_during_copy_fails_and_preserves_partial_output.<locals>.changed() takes 2 positional arguments but 7 were given
+
+work/v3/native-env/lib/python3.11/shutil.py:509: TypeError
+-------- generated xml file: /tmp/segmented-presentation02-tests04.xml ---------
+=========================== short test summary info ============================
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_present_segmented_validation02.py::test_capture_mutation_during_copy_fails_and_preserves_partial_output
+1 failed, 25 passed in 3.72s

@@ -82,6 +82,26 @@ def test_nonclosure_never_overwrites_bootstrap(tmp_path, monkeypatch):
     assert json.loads((tmp_path/"closure/initialization.json").read_text())["status"] == "failed"
 
 
+@pytest.mark.parametrize("profile", [None, "legacy_v3"])
+def test_shared_closure_preserves_legacy_profile_selection(tmp_path, monkeypatch, profile):
+    config = prepared(tmp_path)
+    path = Path(config["configs"]["variational"])
+    if profile is not None:
+        tree = ET.parse(path)
+        ET.SubElement(tree.find(".//PreprocessingVariationalEquation"),
+                      "orbitPocDerivativeProfile").text = profile
+        tree.write(path)
+    original = path.read_bytes()
+    binary = tmp_path / "native"; binary.write_bytes(b"fixed binary")
+    calls = fake_native(monkeypatch, [0., .01, .0100005])
+    result = close_nominal_reference(config, binary, tmp_path / "closure")
+    assert result["converged"] and len(calls) == 3
+    assert path.read_bytes() == original
+    for call in calls:
+        assert ET.parse(call).findtext(
+            ".//PreprocessingVariationalEquation/orbitPocDerivativeProfile") == profile
+
+
 def test_dynamic_orbit_cannot_alias_receiver_geometry(tmp_path):
     config = prepared(tmp_path)
     config["native_paths"]["receiver_orbit"] = config["native_paths"]["orbit"]

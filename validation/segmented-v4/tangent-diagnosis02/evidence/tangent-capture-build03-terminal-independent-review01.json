@@ -1,0 +1,65 @@
+{
+  "schema": "orbit-poc-tangent-capture-build03-terminal-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:30:32.280192+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build03-terminal-independent-readback01.json",
+    "sha256": "640354b9a6995453409b7884b782032a2025c9f628f5a6805856e9836b05bf62",
+    "bytes": 7004
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_tangent_capture_build03_terminal.py",
+    "sha256": "bf1bc340875dc7f92ba1ea6e689ab70102c37fd6bd24dd8ea0cb153af416b27b",
+    "bytes": 4846
+  },
+  "code_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build03-control-independent-review01.json",
+    "sha256": "88aed3e6ea7d4bafcfb9c12d525711de2e2d3caeeb08bc3ad6b20ae4f58e9f61",
+    "bytes": 4762
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/control/plan.json",
+    "sha256": "98f9cc2e933b55581c4efeb0484b5f45f6e965a6d1d138126af4a893c3cc9220",
+    "bytes": 3715
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/control/execution.json",
+    "sha256": "20012eee20f71df16277ec24baa8fbc59ef96a7d0e2ff29f4530dcac35bb958a",
+    "bytes": 123940
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/control/pipeline.json",
+    "sha256": "885c21c2a56d01321093cd61e7054a3661eb8658a28e682698092515b4be6a7a",
+    "bytes": 8489
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/run/build-result/result.json",
+    "sha256": "ee59b7116aa6ff22cc083ccfc809394f4daa9bd1291cb8446fde83750c3dec94",
+    "bytes": 555154
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/binaries/groops-capture-e444cec3fc972fac",
+    "sha256": "e444cec3fc972fac1800ab0d41e223dfc9eaee761c8d85b34588cec1702b897c"
+  },
+  "reader": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/binaries/tangent-replay",
+    "sha256": "c1829b65dc7115297a273e7269cccb4e803e899267bfbd40e5d34f905fd90cd5"
+  },
+  "baseline_relinked_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+  "source_files_verified": 1131,
+  "python_source_files_verified": 384,
+  "reused_objects": 610,
+  "pinned_link_inputs": 637,
+  "owned_identities_non_live": 14,
+  "finished_at": "2026-10-16T07:24:06.369175+00:00",
+  "checks": [
+    "Original object baseline relinks byte-for-byte to the preserved a669 executable before telemetry compilation.",
+    "Exactly one native translation unit is rebuilt; capture-only header insertion preserves the installed segmented export hook and original solver arithmetic.",
+    "All 1131 native source and 384 Python source file identities are verified; original link inputs remain unchanged.",
+    "Native and standalone reader use the recorded identical GCC 15.3.0 executable and O3/NDEBUG/gnu++17 options; reader dynamic libraries are pinned.",
+    "All fourteen owned identities were independently non-live on the same recorded boot."
+  ],
+  "scope": "Diagnostic build provenance only. No propagation result, numerical correction, scientific gate, covariance or release claim.",
+  "fit_attempts": 0,
+  "release_ready": false
+}

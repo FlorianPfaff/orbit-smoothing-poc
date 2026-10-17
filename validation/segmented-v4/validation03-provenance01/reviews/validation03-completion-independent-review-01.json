@@ -1,0 +1,58 @@
+{
+  "schema": "orbit-poc-validation03-completion-independent-review-v1",
+  "reviewer": "/root/v31_recovery_review",
+  "created_utc": "2026-10-15T22:22:36.349417+00:00",
+  "passed": true,
+  "artifacts": {
+    "complete_segmented_validation03_01.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/complete_segmented_validation03_01.py",
+      "sha256": "6d612adf4c463392e5a1c142760d0cb4c7087e5a6e2217c245eec5e4cc74edda",
+      "bytes": 5875
+    },
+    "test_complete_segmented_validation03_01.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_complete_segmented_validation03_01.py",
+      "sha256": "74b1c8b7a19539e2b2e727d74729b5b614dbc1b2043f17cc74919163217ade2e",
+      "bytes": 4047
+    },
+    "validation03-staging-failure-01.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation03-staging-failure-01.json",
+      "sha256": "9925aecdc26509901dda1d123bdc4543d12f1ff4fb4b8e05e5ffdc9a1470f592",
+      "bytes": 7400
+    },
+    "validation03-completion-author-review-01.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation03-completion-author-review-01.json",
+      "sha256": "9ea3a5f242170e63ea9c5591848cd6b584cdeca4976ccc99b80a107177e24f2e",
+      "bytes": 1173
+    },
+    "completion03-independent-01.log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/completion03-independent-01.log",
+      "sha256": "1c52447170731913574edf950aa339b2fc2cd9a437ac1b14116dd64f0602da3b",
+      "bytes": 784
+    }
+  },
+  "junit": {
+    "path": "/tmp/completion03-independent-01.xml",
+    "sha256": "7a493c0bf948fcd836b012b92f7b07b64d24ad41374f56950ac746fa788b1fd0",
+    "bytes": 2358
+  },
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "review": [
+    "Exact original stager, partial execution, preserved affinity failure, every partial control byte/member, original405-file packet and prior02 terminal evidence are verified.",
+    "The unchanged384-file source and original3-file/fresh4-file sidecar trees are rechecked, including all inherited runtime pins.",
+    "All missing metadata and five production output paths must be absent, including dangling symlinks; all original partial files remain untouched.",
+    "Only admission/config/launch metadata is completed under unchanged required24\u201327 affinity; no numerical workload, source or threshold change."
+  ],
+  "required_invocation": [
+    "Use /usr/bin/python3 -B or equivalent PYTHONDONTWRITEBYTECODE=1 to avoid adding import bytecode before exact partial membership check.",
+    "Use taskset affinity containing24,25,26,27; controls confirmed this concrete invocation."
+  ],
+  "remaining_requirements": [
+    "Actual final03 staging/plan/runtime/sidecar pins and owned dependency smoke must be independently audited before launch.",
+    "Full unchanged14-stage suite remains required."
+  ],
+  "scope": "Read-only static review and12 fabricated fixtures; reviewer did not execute actual completion or native work.",
+  "native_scientific_acceptance": false
+}

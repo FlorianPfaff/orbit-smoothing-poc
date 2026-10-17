@@ -1,0 +1,165 @@
+{
+  "schema": "orbit-poc-validation04-launch-independent-review-v1",
+  "passed": true,
+  "reviewed_utc": "2026-10-16T04:57:56.350159+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation04-launch-independent-readback04.json",
+    "sha256": "21bd3248303d6b97c4f85c9f511071e32f1d1feb3f70632f4c0da1a8c0b7ba67"
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_validation04_launch04.py",
+    "sha256": "67e86bd16e819b4f20c4afaf73c4051d82d713b9c9089e41f70f23fb287979ce"
+  },
+  "startup_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation04-actual-startup-independent-review01.json",
+    "sha256": "c275645b44f87e3bb15bbe86d35b7f56c334431a5dc3f10694baf57fa63f55ad"
+  },
+  "launch": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/validation-launch.json",
+    "sha256": "4921d408e8da22dc5e93b3890ced7328a48974ce3e0e87cff5eec8a1b5bd4b2c",
+    "bytes": 1568
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/launch-plan.json",
+    "sha256": "0a5c65a31b0e8db192a99c29018ab391eb22d81e26f9ce66c77ea164092b07c7",
+    "bytes": 1472
+  },
+  "owned_driver": {
+    "pid": 2374220,
+    "start_ticks": 111009241,
+    "parent": 1,
+    "state": "R",
+    "argv": [
+      "/usr/bin/python3",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/run_segmented_validation01.py",
+      "--plan",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/control/launch-plan.json",
+      "--sha256",
+      "0a5c65a31b0e8db192a99c29018ab391eb22d81e26f9ce66c77ea164092b07c7"
+    ],
+    "command_sha256": "b13aba3a2d141e27da677be294c6479322770a71f431c099563104b8cdc247bb",
+    "affinity": "24-27",
+    "pid_namespace": "pid:[4026531836]"
+  },
+  "observed_phase": "public_validation_pipeline_running",
+  "active_stage": [],
+  "completed_test_gates": [
+    {
+      "name": "native-tests",
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/native-tests/execution.json",
+        "sha256": "496a661f65a2999157e360f759d3fd3c49a99bdcbc9ea9ffcac2dbed7e964c7c"
+      },
+      "junit": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/native-tests/tests.xml",
+        "sha256": "be134661ad48e3387dbcbd07b19e902b417f7a8c1c855edca6c6cfa9516bcfc3"
+      },
+      "counts": {
+        "tests": 106,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "correction-tests",
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/correction-tests/execution.json",
+        "sha256": "51e93139bdf88ee00879b7600f48db467f87b39e473b914bf5cd78587e87641d"
+      },
+      "junit": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/correction-tests/tests.xml",
+        "sha256": "2b588b9698e1f82d942525edeb5c2d46d87f5e666f3a59f5ffc5d07c0af03358"
+      },
+      "counts": {
+        "tests": 51,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "stages": [
+    {
+      "name": "native-tests",
+      "status": "passed"
+    },
+    {
+      "name": "correction-tests",
+      "status": "passed"
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou",
+      "status": "passed"
+    },
+    {
+      "name": "synthetic-refinement-pulses",
+      "status": "not_run"
+    },
+    {
+      "name": "flight-refinement",
+      "status": "not_run"
+    },
+    {
+      "name": "eccentric-24h-refinement",
+      "status": "not_run"
+    },
+    {
+      "name": "objective-log_drag_ou",
+      "status": "not_run"
+    },
+    {
+      "name": "objective-pulses",
+      "status": "not_run"
+    },
+    {
+      "name": "nuisance-replay",
+      "status": "not_run"
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012",
+      "status": "not_run"
+    },
+    {
+      "name": "segmented-native-tangent",
+      "status": "not_run"
+    },
+    {
+      "name": "segmented-structural",
+      "status": "not_run"
+    },
+    {
+      "name": "linearization-log_drag_ou",
+      "status": "not_run"
+    },
+    {
+      "name": "linearization-pulses",
+      "status": "not_run"
+    }
+  ],
+  "checks": {
+    "exact_durable_launch_plan_and_identity": true,
+    "current_driver_orphan_adopted_by_init": true,
+    "current_owned_chain": true,
+    "shared_and_local_locks_held": true,
+    "fresh_admission_no_conflicts": true,
+    "public_cli_on_cpu24": true,
+    "exact_fourteen_stage_pipeline_running": true,
+    "no_benchmark_attempts": true
+  },
+  "scope": "Exact full14-stage validation launch/current ownership independently verified. Active attempt-0001 pipeline read directly; latest.json is terminal-only, and inter-stage hash checks may leave no stage marked running. Two completed test-gate evidence pins/counts independently checked if listed. No completed-suite, fit, release or covariance claim. Shared/local locks and owned CPU24 chain verified without duplicate runtime hashing.",
+  "supersedes_draft_phase_inference": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation04-launch-independent-review02.json",
+    "sha256": "49f81c495babea6401f09464a4c38997295cb980921fa5507ddc95b48555822a"
+  },
+  "preserved_reviewer_failures": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation04-launch-independent-readback01.stderr.log",
+      "reason": "Reviewer initially looked for terminal-only latest.json. Draft02 inferred too early a phase despite active native-tests descendants. Direct active pipeline corrects phase."
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation04-launch-independent-readback03.stderr.log",
+      "reason": "Reviewer required a running step during inter-stage hash verification. Overall active pipeline plus exact owned CLI establishes current phase; criteria and scientific inputs unchanged."
+    }
+  ]
+}

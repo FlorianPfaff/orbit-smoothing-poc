@@ -1,0 +1,51 @@
+{
+  "attestation": "Reviewed independently from implementation author; this receipt is content-addressed, not a cryptographic identity signature.",
+  "blocking_issues": [],
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 private-path-sha256:8b6ccc54212195763a01ed2fcc41bbd29bfb3213d85aa9ab1c2e13dbdfc2914d -m pytest -q -p no:cacheprovider tests/test_numerics_query_precision.py tests/test_numerics_geometry_precision.py --basetemp private-path-sha256:d4cafc2c7a3b6fd16662c1f9a61fa29647f8eabb1a43885e38667f9b04d219eb --junitxml private-path-sha256:f250e2f4710179bbd239f5673f4eb7de7234981880beb0985afc99bf6771622c",
+    "Independent real generated polynomial installer boundary/idempotence check in private-path-sha256:af5d8b98074960daa7841dc02477b48ccd5561300dbedaf4f515573ec8a69b90"
+  ],
+  "created_at": "2026-10-15T06:59:50.568307+00:00",
+  "installer_smoke": {
+    "copied_header_exact": true,
+    "idempotent": true,
+    "original_path": "private-path-sha256:8df98093ffb5333830ee85b4345eb8dbf6ba4f57577fa45a5fe1993445274180",
+    "original_sha256": "68dc02f64f3e44226f2a56da17fb9d8f78f2d750d8d66c8c76dd0c3f4f8efb0d",
+    "outside_opt_in_arithmetic_block_byte_identical_except_include": true,
+    "patched_path": "private-path-sha256:44c44f6ad4fe7fb95368a54de1a3999301b914126af3fe536981733d05f15baa",
+    "patched_sha256": "106cefe17329225189deadd6cbf5681d7a553f5e068935181b55950ac5eb1fd0"
+  },
+  "junit": {
+    "errors": 0,
+    "failures": 0,
+    "path": "private-path-sha256:f250e2f4710179bbd239f5673f4eb7de7234981880beb0985afc99bf6771622c",
+    "sha256": "98c65a084f2cee664d26695e4ee57d77982b0d26bff3503b617e125f151584f3",
+    "skipped": 0,
+    "tests": 16
+  },
+  "limitations": [
+    "Standalone arithmetic and installer review only; full native correctness validation remains required.",
+    "The prior attempted command used nonexistent test names, collected zero tests, and is not counted as validation; its zero-test JUnit is preserved as query-independent-tests-01.xml."
+  ],
+  "passed": true,
+  "review_findings": [
+    "Normalized node sign and derivative factorial/sampling powers match the existing Lagrange polynomial.",
+    "Twofold arithmetic retains sub-long-double query offsets and weight products until native output split.",
+    "Forward anchoring and adjoint accumulation preserve the existing mathematical polynomial; derivative-at-or-above-count remains zero.",
+    "The replacement is inside the existing continuousQuery and non-least-squares branch. Degree, stencil selection, exact shortcuts, boundaries and legacy path remain byte-identical outside the replaced block.",
+    "Native hook follows position-remainder installer, and factor metadata explicitly names twofold_query_weights_v1."
+  ],
+  "reviewed_source_sha256": {
+    "groops/extension/native_row_qr.py": "4af1c77bb44cb4108f3645d49fd6a89245dc96cad7f4c51c4be59e2eb5a08446",
+    "groops/extension/queryPrecision.py": "1827020d732f52443f86dd3f8c73a2f71caa06cc78322f584383a9c526633780",
+    "groops/extension/scaledRowQr.h": "765ae951318f8edc847343b8a94adb22039a5ba7479e4a06124f2131d0aa92c1",
+    "groops/extension/twofoldGeometry.h": "41fe31d5aded9584c6cf51098f3460ccec49a14567bd65c321c07e0d4e5ab70e",
+    "groops/extension/twofoldInterpolation.h": "eef54386cf09807e25d8c3446f285bae9e119b4d71c54fb09ff90c0ead618b82",
+    "tests/fixtures/twofold_interpolation_probe.cpp": "2ce27fcbc81194a304fa995071ca03f015c2f08518dec06176cb6ab0c6921902",
+    "tests/test_numerics_query_precision.py": "4026ac8a4fe59cb10fd351bbe9dfa9821fb86398a4cbb37b7d20e5f042da8800"
+  },
+  "reviewer": "private-path-sha256:4dd31298c00a883f223a7f362646120129df1094121ef89137f9844bfcec863a",
+  "schema": "orbit-poc-independent-query-precision-review-v1",
+  "source_commit": "163cc929f9e02a5c18da63c17a04724461ebcfb0",
+  "source_root": "private-path-sha256:f6e3eb75e9c89cd50cbcfb16f7fa875eba7df742b446617fe833f18383b7733f"
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "orbit-poc-tangent-rhs-family-result-v1",
+  "status": "prepared_family_no_planned_solves",
+  "phase": "prepare",
+  "plan_sha256": "e6d9ddf25ab6801b9ebee8675ab9036f3595b87f5cd06facbf45e69d4ed15272",
+  "source_bundle": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/control/source-bundle.json",
+    "sha256": "ceaa4f5c20699780c8ebd6c05438209357e6ad233a3aee4db06ec82635b847b2"
+  },
+  "fit_attempts": 0,
+  "groops_propagations": 0,
+  "release_evidence": false,
+  "reference_native_not_executed": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+    "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+  },
+  "steps": [
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/include",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay.cpp",
+        "-o",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compile-replay.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compile-replay.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/include",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/test_wide.cpp",
+        "-o",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/test_wide"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compile-test_wide.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compile-test_wide.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/test_wide"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/wide-fixtures.stdout",
+        "sha256": "06e9b6b4dd7ab5e8223b48e6c6fb4dc50c251296c2486ffd8ae41f830105125a"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/wide-fixtures.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/test_reader.py",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/reader-fixtures.stdout",
+        "sha256": "2c81151509e4ffd2e0779aa6300a7f69148175e925dfa9de5e0daff91222d7c5"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/reader-fixtures.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/test_family.py"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/family-fixtures.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/family-fixtures.stderr",
+        "sha256": "af55efa5c3ceb122f8184c380aa405d3f3b4e7e0c1e892773d0eff31d0645c8a"
+      }
+    },
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/generate_family.py",
+        "--base",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/family"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/generate-family.stdout",
+        "sha256": "c3de6f5c64924accd19f69fb73b90c5c31f031c90cf14c69c754906b768aa9e5"
+      },
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/generate-family.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "binary": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay",
+    "sha256": "8f065ef4f3bec5e4cf05063e8673edd02bdeea4a40d7fd39d48006d7ca184d0d"
+  },
+  "compiler": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+    "sha256": "e802ef021bccd09d2ae1dae3f9400e53ab2c2c7bc2b4e47dc29a81c7ec3bcd31"
+  },
+  "compiler_version": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "loader": {
+    "argv": [
+      "/usr/bin/ldd",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/compiled-source/replay"
+    ],
+    "returncode": 0,
+    "stdout": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/reader-loader.stdout",
+      "sha256": "ed5ec35bc863d2814ac918c4ed089c838c79ed4a683be3219927c3a9ce04dde2"
+    },
+    "stderr": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/reader-loader.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "family_manifest": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-preflight-02/run/preflight/family/manifest.json",
+    "sha256": "1dc8e32c1a0e54c0b0b57d67a439657b795a8c1aee4966c0d53ab8c2cca8158b"
+  },
+  "planned_family_calls_executed": 0
+}

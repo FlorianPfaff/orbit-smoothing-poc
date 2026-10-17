@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/check_preparation_state01.py", line 37, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/check_preparation_state01.py", line 31, in main
+    if a.phase=='after':manifest,prepared=inspect_prepared(p,config,root,source)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/check_preparation_state01.py", line 12, in inspect_prepared
+    need(status.get('status')=='prepared' and status.get('expected_attempts')==68,'Public preparation is blocked, failed or incomplete')
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/check_preparation_state01.py", line 8, in need
+    if not ok:raise ValueError(why)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: Public preparation is blocked, failed or incomplete

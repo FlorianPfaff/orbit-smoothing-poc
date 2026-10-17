@@ -1,0 +1,206 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/run_nominal_complete_closure02.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/plan.json",
+        "--sha256",
+        "8bae8b91c524e54fc8d68ab0fd19e5c804649b4234fe0e5afe89dc1142b1991c"
+      ],
+      "command_sha256": "252f6c3c192ca20c1408e87a324de5f761588f28592aeba2931703502c270d2e",
+      "parent": 1,
+      "pid": 2869823,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 117346220,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T22:30:42.491073+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "One separately attributed archived native check onCPU24/one thread/8GiB/2h. Distinct preparation03 and preparation04 references/fixed states preserved; no fitting or regenerated initialization.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/execution.json",
+    "--execution-sha256",
+    "9dc14cbe7c2a87d5963334af19e5892fe8ab853b725c0b7ab7ebb2d62e1e5f96",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/replay_nominal_complete_closure02.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/plan.json",
+    "--sha256",
+    "8bae8b91c524e54fc8d68ab0fd19e5c804649b4234fe0e5afe89dc1142b1991c"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2869823,
+        "pid": 2869834,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 117346511,
+        "state": "Z"
+      },
+      {
+        "parent": 2869834,
+        "pid": 2869835,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 117346514,
+        "state": "S"
+      },
+      {
+        "parent": 2869835,
+        "pid": 2869837,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 117346517,
+        "state": "S"
+      },
+      {
+        "parent": 2869837,
+        "pid": 2869840,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 117346599,
+        "state": "R"
+      },
+      {
+        "parent": 2869837,
+        "pid": 2869909,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 117347017,
+        "state": "R"
+      },
+      {
+        "parent": 2869837,
+        "pid": 2869941,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 117347372,
+        "state": "R"
+      },
+      {
+        "parent": 2869837,
+        "pid": 2869950,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 117347730,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-16T22:30:58.887054+00:00",
+    "pid_namespaces": [
+      "pid:[4026534163]"
+    ],
+    "returncode": 0,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "elapsed_seconds": 16.33171919710003,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2869823,
+            "pid": 2869834,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 117346511,
+            "state": "Z"
+          },
+          {
+            "parent": 2869834,
+            "pid": 2869835,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 117346514,
+            "state": "S"
+          },
+          {
+            "parent": 2869835,
+            "pid": 2869837,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 117346517,
+            "state": "S"
+          },
+          {
+            "parent": 2869837,
+            "pid": 2869840,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 117346599,
+            "state": "R"
+          },
+          {
+            "parent": 2869837,
+            "pid": 2869909,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 117347017,
+            "state": "R"
+          },
+          {
+            "parent": 2869837,
+            "pid": 2869941,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 117347372,
+            "state": "R"
+          },
+          {
+            "parent": 2869837,
+            "pid": 2869950,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 117347730,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T22:31:01.876959+00:00",
+        "pid_namespaces": [
+          "pid:[4026534163]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T22:31:01.877001+00:00",
+  "fit_attempts": 0,
+  "interrupted_or_timeout": false,
+  "peak_owned_rss_bytes": 398053376,
+  "plan": {
+    "bytes": 6326,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/plan.json",
+    "sha256": "8bae8b91c524e54fc8d68ab0fd19e5c804649b4234fe0e5afe89dc1142b1991c"
+  },
+  "process": {
+    "parent": 2869823,
+    "pid": 2869834,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 117346511,
+    "state": "S"
+  },
+  "release_evidence": false,
+  "returncode": 0,
+  "schema": "orbit-poc-owned-nominal-complete-closure-v1",
+  "started_at": "2026-10-16T22:30:42.491147+00:00",
+  "status": "passed_diagnostic"
+}

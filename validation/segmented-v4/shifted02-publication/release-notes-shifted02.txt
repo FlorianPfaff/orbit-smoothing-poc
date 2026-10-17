@@ -1,0 +1,13 @@
+This prerelease preserves the separately audited shifted-cut diagnostic against validation04. It is not the v4.0 release or the 68-fit benchmark.
+
+Both one-hour synthetic captured linearizations passed fresh MAP, covariance, residual-energy and deterministic-equation checks: 24 proposal solves and 8 undamped covariance solves, with no physical propagation or nuisance refit. The largest MAP discrepancy was 2.2442e-12 posterior standard deviations; the largest relative covariance discrepancy was 9.1396e-14.
+
+The 1,800-second offsets provide genuine interior-parameter movement for both methods and segment periods. The 300-second pulse offsets provide no cut-coverage evidence; their numerical agreement remains reported. These checks do not establish multi-day or flight equivalence, accepted-fit covariance, a speedup, or release readiness. The benchmark remains 0/68 in this dated diagnostic record; the original v3.1 campaign remains separate.
+
+The attached archive preserves all 109 compact-capture files plus their manifest, including 48 numerical payload files. SHA-256:
+
+`17c16d8ee9c628f33346e61bbbc065eba6830afb10c54a686b5c8ac3eeb85c5c`
+
+The 32 shifted and 4 original weighted-row files remain at their separately hashed external locations and are not included in this archive. The report explicitly lists all external evidence. Earlier control/parser failures and the publication-only empty-readback issue are retained; no scientific limits changed.
+
+See [PR #5](https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/5) and `validation/segmented-v4/shifted02/index.html` for the report.

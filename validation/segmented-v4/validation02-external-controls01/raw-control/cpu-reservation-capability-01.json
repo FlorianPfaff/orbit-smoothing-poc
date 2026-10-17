@@ -1,0 +1,287 @@
+{
+  "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "cgroups": [
+    {
+      "directory_writable": false,
+      "exists": true,
+      "files": {
+        "cgroup.controllers": {
+          "contents": "cpuset cpu io memory hugetlb pids rdma misc",
+          "writable": false
+        },
+        "cgroup.subtree_control": {
+          "contents": "cpuset cpu io memory pids",
+          "writable": false
+        },
+        "cpuset.cpus": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.effective": {
+          "contents": "0-127",
+          "writable": false
+        },
+        "cpuset.cpus.exclusive": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.partition": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        }
+      },
+      "path": "/sys/fs/cgroup"
+    },
+    {
+      "directory_writable": false,
+      "exists": true,
+      "files": {
+        "cgroup.controllers": {
+          "contents": "cpuset cpu io memory pids",
+          "writable": false
+        },
+        "cgroup.subtree_control": {
+          "contents": "memory pids",
+          "writable": false
+        },
+        "cpuset.cpus": {
+          "contents": "",
+          "writable": false
+        },
+        "cpuset.cpus.effective": {
+          "contents": "0-127",
+          "writable": false
+        },
+        "cpuset.cpus.exclusive": {
+          "contents": "",
+          "writable": false
+        },
+        "cpuset.cpus.exclusive.effective": {
+          "contents": "",
+          "writable": false
+        },
+        "cpuset.cpus.partition": {
+          "contents": "member",
+          "writable": false
+        }
+      },
+      "path": "/sys/fs/cgroup/user.slice"
+    },
+    {
+      "directory_writable": false,
+      "exists": true,
+      "files": {
+        "cgroup.controllers": {
+          "contents": "memory pids",
+          "writable": false
+        },
+        "cgroup.subtree_control": {
+          "contents": "memory pids",
+          "writable": false
+        },
+        "cpuset.cpus": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.partition": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        }
+      },
+      "path": "/sys/fs/cgroup/user.slice/user-1002.slice"
+    },
+    {
+      "directory_writable": true,
+      "exists": true,
+      "files": {
+        "cgroup.controllers": {
+          "contents": "memory pids",
+          "writable": false
+        },
+        "cgroup.subtree_control": {
+          "contents": "memory pids",
+          "writable": true
+        },
+        "cpuset.cpus": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.partition": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        }
+      },
+      "path": "/sys/fs/cgroup/user.slice/user-1002.slice/user@1002.service"
+    },
+    {
+      "directory_writable": false,
+      "exists": true,
+      "files": {
+        "cgroup.controllers": {
+          "contents": "memory pids",
+          "writable": false
+        },
+        "cgroup.subtree_control": {
+          "contents": "",
+          "writable": false
+        },
+        "cpuset.cpus": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.exclusive.effective": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        },
+        "cpuset.cpus.partition": {
+          "contents": {
+            "error": "FileNotFoundError"
+          },
+          "writable": false
+        }
+      },
+      "path": "/sys/fs/cgroup/user.slice/user-1002.slice/session-9996.scope"
+    }
+  ],
+  "groups": [
+    27,
+    1002
+  ],
+  "hostname": "workstation1",
+  "observed_at": "2026-10-15T17:20:57.497204+00:00",
+  "requested_cpu_pair": [
+    24,
+    88
+  ],
+  "scheduler_commands": {
+    "bjobs": null,
+    "bsub": null,
+    "qstat": null,
+    "qsub": null,
+    "salloc": null,
+    "sbatch": null,
+    "scontrol": null,
+    "srun": null,
+    "systemctl": "/usr/bin/systemctl",
+    "systemd-run": "/usr/bin/systemd-run"
+  },
+  "schema": "orbit-poc-cpu-reservation-capability-v1",
+  "scope": "Read-only discovery; no reservation was created and no other process was modified.",
+  "self_capabilities": [
+    "CapInh:\t0000000000000000",
+    "CapPrm:\t0000000000000000",
+    "CapEff:\t0000000000000000",
+    "CapBnd:\t000001ffffffffff",
+    "CapAmb:\t0000000000000000",
+    "NoNewPrivs:\t0"
+  ],
+  "systemd_queries": [
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "user@1002.service",
+        "-p",
+        "Delegate",
+        "-p",
+        "DelegateControllers",
+        "-p",
+        "AllowedCPUs",
+        "-p",
+        "EffectiveCPUs",
+        "-p",
+        "CPUAffinity",
+        "-p",
+        "ControlGroup"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "ControlGroup=/user.slice/user-1002.slice/user@1002.service\nEffectiveCPUs=\nDelegate=yes\nDelegateControllers=memory pids\nAllowedCPUs=\nCPUAffinity=\n"
+    },
+    {
+      "argv": [
+        "systemctl",
+        "--user",
+        "show",
+        "-p",
+        "ControlGroup"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "ControlGroup=/user.slice/user-1002.slice/user@1002.service\n"
+    }
+  ],
+  "uid": 1002
+}

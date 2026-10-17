@@ -1,0 +1,220 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/run_nominal_tangent_capture03.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/plan.json",
+        "--sha256",
+        "a4dd4867dbcc937c4769dafb87109b0812494bc83f14b2082815c7409c03e861"
+      ],
+      "command_sha256": "06db822b6093fa6a133fa4dd5c772cc1416f985422db054fb205bcf1bbd1a610",
+      "parent": 1,
+      "pid": 2713284,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 115219540,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T16:36:15.801160+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "One exact72h telemetry-only operator capture plus standalone diagnostic onCPU24/one thread/8GiB/2h. Separate capture binary with mandatory original-object baseline byte match; original inputs/profile/thresholds. No fits. Protected6000 and original150WSL untouched.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/execution.json",
+    "--execution-sha256",
+    "52b9cc86e7102e431455d316b1c92e200ab33f54c199aa9513e9e6e7ed79e860",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/replay_nominal_tangent_capture03.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/plan.json",
+    "--sha256",
+    "a4dd4867dbcc937c4769dafb87109b0812494bc83f14b2082815c7409c03e861"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2713284,
+        "pid": 2713295,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 115219843,
+        "state": "S"
+      },
+      {
+        "parent": 2713295,
+        "pid": 2713296,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115219845,
+        "state": "S"
+      },
+      {
+        "parent": 2713296,
+        "pid": 2713299,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115219848,
+        "state": "R"
+      },
+      {
+        "parent": 2713299,
+        "pid": 2713300,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115219931,
+        "state": "S"
+      },
+      {
+        "parent": 2713300,
+        "pid": 2713301,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115219931,
+        "state": "R"
+      },
+      {
+        "parent": 2713299,
+        "pid": 2713327,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115220092,
+        "state": "R"
+      },
+      {
+        "parent": 2713299,
+        "pid": 2713346,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115220136,
+        "state": "R"
+      },
+      {
+        "parent": 2713299,
+        "pid": 2713367,
+        "pid_namespace": "pid:[4026534149]",
+        "start_ticks": 115220693,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-16T16:36:31.248002+00:00",
+    "pid_namespaces": [
+      "pid:[4026534149]"
+    ],
+    "returncode": 1,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "elapsed_seconds": 15.378069963073358,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2713284,
+            "pid": 2713295,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 115219843,
+            "state": "S"
+          },
+          {
+            "parent": 2713295,
+            "pid": 2713296,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115219845,
+            "state": "S"
+          },
+          {
+            "parent": 2713296,
+            "pid": 2713299,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115219848,
+            "state": "R"
+          },
+          {
+            "parent": 2713299,
+            "pid": 2713300,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115219931,
+            "state": "S"
+          },
+          {
+            "parent": 2713300,
+            "pid": 2713301,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115219931,
+            "state": "R"
+          },
+          {
+            "parent": 2713299,
+            "pid": 2713327,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115220092,
+            "state": "R"
+          },
+          {
+            "parent": 2713299,
+            "pid": 2713346,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115220136,
+            "state": "R"
+          },
+          {
+            "parent": 2713299,
+            "pid": 2713367,
+            "pid_namespace": "pid:[4026534149]",
+            "start_ticks": 115220693,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T16:36:34.946843+00:00",
+        "pid_namespaces": [
+          "pid:[4026534149]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T16:36:34.946869+00:00",
+  "fit_attempts": 0,
+  "interrupted_or_timeout": false,
+  "peak_owned_rss_bytes": 315486208,
+  "plan": {
+    "bytes": 6589,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/control/plan.json",
+    "sha256": "a4dd4867dbcc937c4769dafb87109b0812494bc83f14b2082815c7409c03e861"
+  },
+  "process": {
+    "parent": 2713284,
+    "pid": 2713295,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 115219843,
+    "state": "S"
+  },
+  "release_evidence": false,
+  "returncode": 1,
+  "schema": "orbit-poc-owned-nominal-tangent-capture-v1",
+  "started_at": "2026-10-16T16:36:15.801227+00:00",
+  "status": "failed_diagnostic"
+}

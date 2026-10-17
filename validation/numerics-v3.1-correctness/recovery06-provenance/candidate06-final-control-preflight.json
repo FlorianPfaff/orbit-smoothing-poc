@@ -1,0 +1,64 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "python3",
+        "-"
+      ],
+      "command_sha256": "1aa9cf5c0bca8df239eca152d65c19745f1607b3f38766e7b7bef5f353d3c116",
+      "parent": 1771895,
+      "pid": 1771896,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 103164473,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T07:07:02.516234+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Attempt06: four CPU cores24-27 for build; CPU24 for serial validation with taskset affinity, owned-process cleanup and competing-native workload admission. No administrative exclusive CPU allocation is claimed. Original v3 remains on workstation2. Same pinned scientific runtime and isolated glibc2.39 from05, host/control glibc2.35 unchanged. No prior build objects or outputs reused.",
+    "status": "admitted"
+  },
+  "executed_controls_sha256": {
+    "collect_correctness_publication_06.py": "aa42e3228ace5ed3cb3d05c700ddbbde3e69d594fe2c6b35918c2e50da177936",
+    "launch_recovery06.py": "979874cce52d0461530f60ce642e9bcdbad99b52b3ad92e2b7d096fde6fa6358",
+    "postprocess_candidate06.py": "0b2f03c073140640ff403be37d94a5e21c68e277fa05978d59506f90e4e78261",
+    "recovery_evidence_06.py": "fe18f5b771aa14c40c03cce9de42cababda55e6a5a6678a87cd76cd21a5e4289",
+    "render_correctness_report_06.py": "33ce14ee41ebb21b60b67b12ee817c6e17d6fa177325b2b39b4debd41e65acd8",
+    "validate_candidate_06.py": "f53817eaa4cfabc8d09599ca91b68f210624f61382e606984d5c1b00ecf58f61",
+    "verify_correctness_results_06.py": "ed2a1c2c35feb9a7c4c5839d3ae15841dcfe8f9bcd33c206b93908ddd0318047",
+    "with_correctness_namespace_04.py": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+  },
+  "execution": {
+    "path": "private-path-sha256:aa8f8fbbd5c6a5356664c4a9d72d29c0dd158f64cae3e740b00e4c9bc6615ec2",
+    "sha256": "93ace2cbfe46bd89d468cbeab140f341721c141e4320d4ef0d3671fbd707c690"
+  },
+  "fresh_mutable_directories_absent": true,
+  "observed_at": "2026-10-15T07:07:02.516435+00:00",
+  "original_input_count": 14,
+  "original_native_tests": 106,
+  "passed": true,
+  "pins": {
+    "path": "private-path-sha256:a13bc264db382c1f07e99e03903e12abc00a240c73d69e08073ece5f9be2b459",
+    "sha256": "61b42ed6b71a2696e89782d59ae30eaf0e6c8355d3bbf24ed01cd24e3bb03776"
+  },
+  "schema": "orbit-poc-candidate06-final-control-preflight-v1",
+  "scope": "Read-only preflight; no native build or fit; live driver will repeat all guards.",
+  "separate_regression_suite": {
+    "expected_count": 18,
+    "files": [
+      "tests/test_numerics_query_precision.py",
+      "tests/test_numerics_reference_precision.py"
+    ]
+  },
+  "source_file_count": 764,
+  "source_sha256": "194b460ab90ed2eb3818af16324086f8cd0fe9aecd77308cd9ff45de23da660a"
+}

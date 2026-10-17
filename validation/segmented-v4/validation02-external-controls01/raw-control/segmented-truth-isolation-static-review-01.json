@@ -1,0 +1,127 @@
+{
+  "changes_made_to_frozen_source": false,
+  "conclusion": {
+    "direct_cartesian_clock_ambiguity_truth_read_in_initializer_or_fit_found": false,
+    "future_runtime_artifacts_not_yet_generated": true,
+    "manifest_and_dataflow_boundary": true,
+    "os_level_truth_unreadability": false,
+    "truth_derived_known_attitude_input": true
+  },
+  "findings": [
+    {
+      "description": "One continuous72h generation per family writes the original generated truth/dataset, simulation orbit, clocks/ambiguities and evaluation/truth.npz. Public component worker forces retain_native_diagnostics=True, so compaction does not remove those files.",
+      "kind": "generation_retention",
+      "references": [
+        "segmented/multiday.py:645-695",
+        "segmented/preparation.py:11-18"
+      ]
+    },
+    {
+      "description": "Prefix preparation passes the raw generation record with evaluation_inputs to verify_manifest. That routine reads/hashes evaluation truth for integrity. This is not an estimator likelihood or initializer read; therefore an absolute statement that only generation ever reads truth bytes would be inaccurate.",
+      "kind": "preparation_provenance_read",
+      "references": [
+        "segmented/multiday.py:731-745",
+        "comparison/data.py:495-509"
+      ]
+    },
+    {
+      "description": "Observation masking precedes code-only bootstrap. Bootstrap reads retained code, transmitter SP3 and clock data; nominal closure fits six initial-state components to that bootstrap then closes fixed-state nominal physics. The fitting initial_state converts that prepared orbit and initializes force parameters to zero. No evaluation trajectory, true clocks or true ambiguities enters these calls.",
+      "kind": "gnss_only_initializer",
+      "references": [
+        "segmented/multiday.py:119-232",
+        "segmented/multiday.py:282-290",
+        "comparison/initialization.py:1-5,54-177",
+        "numerics/backend.py:176-186"
+      ]
+    },
+    {
+      "description": "Known noiseless nadir-pointing attitude is derived from truth position/velocity and explicitly included in estimation_inputs. It supplies antenna/spacecraft orientation to the native model. It is a declared synthetic observation assumption; truth-isolation claims must not imply that all estimation inputs are independent of truth.",
+      "kind": "known_attitude_assumption",
+      "references": [
+        "comparison/synthetic.py:140-173",
+        "segmented/multiday.py:678-685"
+      ]
+    },
+    {
+      "description": "Blind preparation allowlist excludes evaluation_inputs/truth/reference fields. Runtime request validation rejects their roles/paths; native_data_inventory pins exact prepared-data membership. Private fit data contain prepared GNSS/attitude/transmitter products and a copy of the GNSS-derived orbit; no planned copying of generation truth into fit data was found.",
+      "kind": "blind_fit_request",
+      "references": [
+        "comparison/backend.py:173-196,291-332",
+        "segmented/multiday.py:764-776",
+        "segmented/protocol.py:328-331",
+        "segmented/backend.py:282-284"
+      ]
+    },
+    {
+      "description": "The outer namespace read-only-binds the run root parent then bind-mounts the entire run directory writable. Generation, prefix preparation and later fits are siblings under that run root and use the same runtime identity. The per-job lifecycle supervisor does not add a filesystem sandbox. Retained generation/evaluation paths therefore remain readable by a fit process if it explicitly opens them. Read-only mounts prevent mutation, not reading; inherited flight/reference trees likewise are not hidden by this mechanism.",
+      "kind": "filesystem_scope",
+      "references": [
+        "with_correctness_namespace_09.py:11-36",
+        "execution.json:paths.run"
+      ]
+    }
+  ],
+  "recommended_claim": "Truth trajectory/clock/ambiguity files are excluded from frozen estimation requests and estimator dataflow; known noiseless synthetic attitude is supplied. This is not an operating-system denial of access. Strict filesystem isolation would require a separately reviewed per-fit namespace/input export before claiming truth files are inaccessible.",
+  "release_ready": false,
+  "reviewed_at": "2026-10-15T17:23:03.958810+00:00",
+  "reviewer": "recovery04_reporting",
+  "schema": "orbit-poc-segmented-truth-isolation-static-review-v1",
+  "scope": "Read-only source/dataflow and configured namespace audit; no synthetic preparation, fit, negative-access probe or native work performed",
+  "source_artifacts": [
+    {
+      "bytes": 54278,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/segmented/multiday.py",
+      "sha256": "bb010cb51373516b50a557e3b294781b4cd192fa29bcfed2e69313b18a5fe508"
+    },
+    {
+      "bytes": 4965,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/segmented/preparation.py",
+      "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+    },
+    {
+      "bytes": 35092,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/segmented/protocol.py",
+      "sha256": "43254fe92571a7febe9eec19f9133bfb8f2be9ececec17bcb81e71808dca18ea"
+    },
+    {
+      "bytes": 22037,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/segmented/backend.py",
+      "sha256": "f06f8f1ccf522f25e0488adc7c275e2306d3bd3f941c35814e4def1cb9a6ebb5"
+    },
+    {
+      "bytes": 63970,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/comparison/backend.py",
+      "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+    },
+    {
+      "bytes": 46770,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/comparison/data.py",
+      "sha256": "566dc07200df3e26d24ab1baef9c7b6b925710435299b67d40836ed4b74d3449"
+    },
+    {
+      "bytes": 11443,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/comparison/initialization.py",
+      "sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655"
+    },
+    {
+      "bytes": 27670,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/comparison/synthetic.py",
+      "sha256": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9"
+    },
+    {
+      "bytes": 31748,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-packet/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648"
+    },
+    {
+      "bytes": 20598,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-results/prelaunch/control/execution.json",
+      "sha256": "c4ed42b7549d4bece5255a0fc64eafb7cbed71e3eae4690286792735827da3de"
+    },
+    {
+      "bytes": 3175,
+      "path": "/mnt/d/orbit-segmented-v4/validation-02-results/prelaunch/control/with_correctness_namespace_09.py",
+      "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+    }
+  ]
+}

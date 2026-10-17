@@ -1,0 +1,60 @@
+{
+  "actual_result": "330 complete equations; 250 paired selected rows; 800 update checks; zero native arithmetic replay mismatches",
+  "actual_trace_analysis_completed": true,
+  "author": "@AGENT_ROOT@/v31_recovery_review",
+  "created_at": "2026-10-15T08:43:43.481870+00:00",
+  "diagnostic_only": true,
+  "difference_from_version02": "Only explicit pre-linearization initialization records (empty stem AND phase unassigned AND evaluation 0) are separately counted and excluded after all representation checks. Every fit record still requires the verified trace-on directory.",
+  "files": [
+    {
+      "bytes": 24711,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07-analysis-03/analyze_row_trace.py",
+      "sha256": "70f6647197ed0850c66d9382cdece5c5eac9677c12d35534e7ff5dc542cd8bc8"
+    },
+    {
+      "bytes": 13730,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07-analysis-03/test_analyze_row_trace.py",
+      "sha256": "9fb12e1773e66de51f7290b4e36ee53158196d722c5c8ff4ecc0a48e829258c8"
+    },
+    {
+      "bytes": 3299,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace07-analysis-03/README.md",
+      "sha256": "a146ae53473a48494ef40e3a375de3305f8f088aa9820461ddee78f6c621e287"
+    },
+    {
+      "bytes": 25705,
+      "path": "@CORRECTNESS_ROOT@/control/run-row-trace-d02-decimal-readonly-02.py",
+      "sha256": "ae488421755e38e5e2f4ad7260cc2eb5b81a988d9e7276aa075b8f109dd56cfa"
+    },
+    {
+      "bytes": 8151,
+      "path": "@CORRECTNESS_ROOT@/control/summarize_row_trace_d02.py",
+      "sha256": "09ef1002c12970ec5a5c57bcd2a8a5b057feb43ef36ec005b22e1e0898b68487"
+    },
+    {
+      "bytes": 4588543,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02-decimal-actual-01.json",
+      "sha256": "bbc92c1e4b9d057c17948e59aefdb588c36f12ac8dbf3ccc8681aca7f0a94db4"
+    },
+    {
+      "bytes": 29026,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02-independent-summary-01.json",
+      "sha256": "67955fff5ade8ad8ebb142b877529da6ca9b3904a83c5d74ca0d81bcc1043838"
+    },
+    {
+      "bytes": 9525,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02-context-inventory-01.json",
+      "sha256": "f9d1ccc3a38f27d89cf9ba9f955476e120f3ac68306c12dd4782b966cf2dab70"
+    }
+  ],
+  "schema": "orbit-poc-diagnostic-decimal-replay-validation-v1",
+  "scope": "Independent bounded diagnostic evidence. Scientific correctness gates remain failed; no covariance or release acceptance.",
+  "test_command": "PYTHONDONTWRITEBYTECODE=1 @WORKSPACE_ROOT@/work/numerics-v3.1/python/bin/python -m pytest test_analyze_row_trace.py -q -p no:cacheprovider --basetemp=@TEMP_ROOT@/row-trace07-decimal-tests-05",
+  "test_result": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 34,
+    "pytest_seconds": 0.12,
+    "skipped": 0
+  }
+}

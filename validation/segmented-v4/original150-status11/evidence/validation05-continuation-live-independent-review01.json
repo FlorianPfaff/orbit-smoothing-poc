@@ -1,0 +1,56 @@
+{
+  "benchmark_fits": 0,
+  "checks": [
+    "Durable exact argv/PID/start/currentboot; driver adopted by PID1 onCPU32",
+    "Waiter owns only its local continuation lock",
+    "Original validation retains global native lock and remains live",
+    "No terminal capture, audit scratch/cleanup or preparation pipeline started"
+  ],
+  "driver": {
+    "affinity": "32",
+    "argv": [
+      "/usr/bin/python3",
+      "-B",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/run_validation_prepare_continuation01.py",
+      "--plan",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/plan.json",
+      "--sha256",
+      "66827a32b238424aaa12b1b59e9643208f66fae76a456730adaa84ab07db19bc"
+    ],
+    "command_sha256": "8aabde36bf19921226d6fad3a625037432818c5529c53ce0b2679aa70754e05b",
+    "parent": 1,
+    "pid": 2483527,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 112298640,
+    "state": "S"
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_validation05_continuation_live01.py",
+    "sha256": "d72fa9f550915a601f9450cbc8e46a7e85f5f1b1a0156d6d69f951039e4b7435"
+  },
+  "launch": {
+    "bytes": 2013,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/continuation-launch.json",
+    "sha256": "9a0b7cef43ef083c4c291741efe39a91d47fa9059261b0f42cbfea3d7f05168d"
+  },
+  "observed_at": "2026-10-16T08:30:29.344122+00:00",
+  "packet_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation-packet-independent-review01.json",
+    "sha256": "83e2a19396ce89b7a12ca703a42c633dcd4903aff1d78eaaa0bb180dda5aab31"
+  },
+  "passed": true,
+  "plan": {
+    "bytes": 4173,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/plan.json",
+    "sha256": "66827a32b238424aaa12b1b59e9643208f66fae76a456730adaa84ab07db19bc"
+  },
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation05-continuation-live-independent-readback01.json",
+    "sha256": "510113adb49d155c4dfb99e7a8d462fd77a4253cf67dd2e73f48b4e25f897f9c"
+  },
+  "release_ready": false,
+  "reviewed_at": "2026-10-16T08:30:46.147732+00:00",
+  "schema": "orbit-poc-independent-one-shot-live-review-v1",
+  "scope": "Waiting-state attribution only. Future outcome/audit/preparation must be read from actual terminal evidence; no success or release claim.",
+  "status": "waiting_for_exact_validation"
+}

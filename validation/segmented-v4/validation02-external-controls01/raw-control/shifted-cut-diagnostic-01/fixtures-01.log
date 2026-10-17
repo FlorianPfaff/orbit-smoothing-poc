@@ -1,0 +1,20 @@
+..........F...............                                               [100%]
+=================================== FAILURES ===================================
+______ test_four_shift_profiles_use_fixed_ledgers_and_undamped_covariance ______
+
+helper = <module 'shifted_diagnostic' from '/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/validate_shifted_cuts.py'>
+tmp_path = PosixPath('/tmp/shifted-cut-fixtures-01/test_four_shift_profiles_use_f0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x73a48c0cc810>
+
+    def test_four_shift_profiles_use_fixed_ledgers_and_undamped_covariance(helper,tmp_path,monkeypatch):
+        point,paths=exported_problem(tmp_path,local_forcing=True,wide_halo=True);install_solver_stub(helper,monkeypatch)
+        r=helper.compare(point,paths,tmp_path/'solver',tmp_path/'result')
+>       assert len(r['profiles'])==4 and r['coverage_adequate']
+E       AssertionError: assert (4 == 4 and False)
+E        +  where 4 = len([{'calls': [{'output': '/tmp/shifted-cut-fixtures-01/test_four_shift_profiles_use_f0/result/period-3600-offset-300/sol...927247dcc213881029353f101a646e0e8066'}, 'covariance_optimization_damping': 0.0, 'covariance_relative_error': 0.0, ...}])
+
+/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/test_validate_shifted_cuts.py:81: AssertionError
+------------- generated xml file: /tmp/shifted-cut-fixtures-01.xml -------------
+=========================== short test summary info ============================
+FAILED ../../../../../../../d/orbit-segmented-v4/control/shifted-cut-diagnostic-01/test_validate_shifted_cuts.py::test_four_shift_profiles_use_fixed_ledgers_and_undamped_covariance
+1 failed, 25 passed in 13.92s

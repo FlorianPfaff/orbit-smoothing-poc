@@ -1,0 +1,1 @@
+Independent audit verifies the preserved failed preparation and its publication, not scientific preparation success. No benchmark fit started. Exact compact failed controls remain in the report; repeated runtime inventories and native arrays are explicitly external.

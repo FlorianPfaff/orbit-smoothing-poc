@@ -1,0 +1,163 @@
+{
+  "audit_script": {
+    "bytes": 6377,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_captured_tangent03_04_terminal02.py",
+    "sha256": "e63981bc9cd242ca1c4b2d92f865790ea0a435bd20be3b0829ff4389cc357ed8"
+  },
+  "benchmark_attempts": 0,
+  "candidate_review": {
+    "bytes": 3918,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07-independent-review01.json",
+    "sha256": "454b279a06d82f9766e198d30d83ccf6743ca32d8645d1a386c02be20bea3cc0"
+  },
+  "control_review": {
+    "bytes": 3237,
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent02-independent-code-review01.json",
+    "sha256": "32cd0d015e3cea739e3a792f948a2f96cfd8db5567849e4b1f384214fd3ac065"
+  },
+  "current_readback": {
+    "bytes": 6405,
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent03-04-independent-current-readback01.json",
+    "sha256": "d8190d5840d6d197797bea44b9068e3fc4c5f27c06ffb660126698769b896f8b"
+  },
+  "findings": [
+    "The new small-RHS system meets both original native and independent113-bit residual thresholds after7steps.",
+    "The old large-RHS system fails after120steps, including its lowest observed native residual under113-bit re-evaluation.",
+    "Both traces match their prior baseline until the first rejected projected crossing; the intended basis-continuation divergence begins afterward.",
+    "A fresh current diagnostic06 baseline on oldb1fd is being requested to strengthen regression attribution; prior05 comparison alone is not a new baseline execution."
+  ],
+  "observed_at": "2026-10-16T15:56:44.195906+00:00",
+  "outcomes": [
+    {
+      "accepted_or_final_quad": {
+        "binary_digits": 113,
+        "iteration": 7,
+        "kind": "accepted_quad_residual",
+        "relative_residual_exact_velocity_conversion": 1.17053347545448e-12,
+        "relative_residual_native_velocity_conversion": 1.170533711634619e-12
+      },
+      "actual_result": {
+        "bytes": 8978,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-03/run/replay/result.json",
+        "sha256": "9a2f07ea68c8f5a367b74e882b1edb6f51ec791bebdc5d438871d93b93f7a6e9"
+      },
+      "baseline_trace": {
+        "bytes": 40754,
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-capture03-standalone-trace.jsonl",
+        "sha256": "b0efb316934219b6bfda303d15e70629479ea8a5990f582a73a746d1af484101"
+      },
+      "best_native_quad": {
+        "binary_digits": 113,
+        "epsilon_times_solution_over_rhs_norm": 3.541803810220337e-13,
+        "iteration": 7,
+        "kind": "best_native_iterate_quad_residual",
+        "native_relative_residual": 1.2183859441480567e-12,
+        "native_solution_norm": 0.007658705418505819,
+        "relative_residual_exact_velocity_conversion": 1.17053347545448e-12,
+        "relative_residual_native_velocity_conversion": 1.170533711634619e-12,
+        "selection": "lowest_observed_native_true_residual"
+      },
+      "capture": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/captured-system.bin",
+        "sha256": "f172b81438d7c5cf0c4d2ada953a2a2f42282c833293a8fbf120c75607bf4044"
+      },
+      "case": "03",
+      "compact_capture": {
+        "bytes": 211840,
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent03-terminal-capture01.json",
+        "sha256": "9f670aa6074c4463bb50b48723b00d8e1252098d8e865991cdfe8edff5f3a40d"
+      },
+      "compact_records_verified": 14,
+      "fixture_tests_passed": 3,
+      "native_terminal": {
+        "iterations": 7,
+        "kind": "terminal",
+        "relative_residual": 1.2183859441480567e-12,
+        "status": "passed"
+      },
+      "nested_original_checks": 8,
+      "operator_counts": {
+        "arnoldi": 7,
+        "kind": "operator_counts",
+        "true_residual": 4
+      },
+      "owned_current_nonlive": 10,
+      "prefix_check": "initial true and first5projected and first rejected true crossing exact baseline matches",
+      "status": "passed",
+      "trace": {
+        "bytes": 3205,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-03/run/replay/trace.jsonl",
+        "sha256": "c59dee38989e1288aed4865f18a437f9159ab630666cb8890e84ab38d6b251be"
+      }
+    },
+    {
+      "accepted_or_final_quad": {
+        "binary_digits": 113,
+        "iteration": 120,
+        "kind": "quad_residual",
+        "relative_residual_exact_velocity_conversion": 8.980836798317863e-12,
+        "relative_residual_native_velocity_conversion": 8.980836588702807e-12
+      },
+      "actual_result": {
+        "bytes": 8976,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-04/run/replay/result.json",
+        "sha256": "81954ccff2768b85815c7309b6b77492569f2e33da6b31b533ecb6349e5d39a6"
+      },
+      "baseline_trace": {
+        "bytes": 2486,
+        "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic05/actual-trace01.jsonl",
+        "sha256": "c4196770a93a00a2d6e3b2c93043ac992de35c116b98eca6a30d8aba053185fd"
+      },
+      "best_native_quad": {
+        "binary_digits": 113,
+        "epsilon_times_solution_over_rhs_norm": 3.9453458602871995e-13,
+        "iteration": 8,
+        "kind": "best_native_iterate_quad_residual",
+        "native_relative_residual": 2.127407946133913e-12,
+        "native_solution_norm": 6658355.621595235,
+        "relative_residual_exact_velocity_conversion": 2.0399780849601113e-12,
+        "relative_residual_native_velocity_conversion": 2.039978489460305e-12,
+        "selection": "lowest_observed_native_true_residual"
+      },
+      "capture": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+        "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+      },
+      "case": "04",
+      "compact_capture": {
+        "bytes": 293247,
+        "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent04-terminal-capture01.json",
+        "sha256": "130f84a33afef7d112dc3cdeaaf233a1b63c98d84c68c308e02cd77a8e49faee"
+      },
+      "compact_records_verified": 14,
+      "fixture_tests_passed": 3,
+      "native_terminal": {
+        "iterations": 120,
+        "kind": "terminal",
+        "relative_residual": 8.89024170922695e-12,
+        "status": "failed"
+      },
+      "nested_original_checks": 8,
+      "operator_counts": {
+        "arnoldi": 120,
+        "kind": "operator_counts",
+        "true_residual": 120
+      },
+      "owned_current_nonlive": 10,
+      "prefix_check": "initial true and first5projected and first rejected true crossing exact baseline matches",
+      "status": "failed",
+      "trace": {
+        "bytes": 64049,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-standalone-04/run/replay/trace.jsonl",
+        "sha256": "06a9cb668dac600a2af2c4a2f50bb2933cb05adfc79796932797306aaa2445d5"
+      }
+    }
+  ],
+  "passed": true,
+  "promotion_approved": false,
+  "release_evidence": false,
+  "reviewer_native_runs": 0,
+  "reviewer_tooling_note": "An earlier inline audit invocation had a Python conditional-expression spacing syntax error before execution; it made no output or evidence mutation. This saved script is the successful audit.",
+  "schema": "orbit-poc-independent-crossing-experiment-terminal-review-v1",
+  "scope": "Diagnostic07 outcome/provenance audit for two captured systems. Experimental candidate does not qualify for production promotion."
+}

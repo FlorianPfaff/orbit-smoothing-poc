@@ -165,16 +165,52 @@ if(orbitPocDerivativeProfile!="legacy_v3")
     const auto integratedDrag=OrbitPoc::tangentIntegrate(orbitPocAtmosphericWeights,deltaT,samples(orbitPocDrag));
     for(UInt i=0;i<integratedForce.size();i++)integratedForce[i]+=integratedDrag[i];
   }
-  Matrix forcedPosition(posRef),forcedVelocity(velRef);
-  for(UInt i=0;i<offset;i++){forcedPosition(i,0)+=integratedForce[i];forcedVelocity(i,0)+=integratedForce[offset+i];}
-  const Vector initial=leastSquares(Matrix(pBasis),posApprox-forcedPosition);
-  matMult(1,pBasis,initial,forcedPosition);matMult(1,vBasis,initial,forcedVelocity);
   Matrix approximateVelocity(offset,1);for(UInt i=0;i<epochCount;i++)copy(orbit.at(i).velocity.vector(),approximateVelocity.row(3*i,3));
-  auto correction=solveCoupled(forcedPosition-posApprox,forcedVelocity-approximateVelocity,"physical_correction");
-  Matrix position=posApprox+correction.first,velocity=approximateVelocity+correction.second;
+  // Keep the mean solve in residual coordinates. Forming a full absolute
+  // position first and then subtracting posApprox discards sub-nanometre
+  // residual information before the coupled solve. The same cancellation
+  // occurs if the final homogeneous fit recovers its RHS from a rounded orbit.
+  // BEGIN ORBIT_POC_MEAN_RESIDUAL_ARITHMETIC (also compiled by the focused test)
+  auto meanResidual=[](Double reference,Double approximate,Double integral)
+  {
+    return static_cast<Double>((static_cast<long double>(reference)-approximate)
+                               +static_cast<long double>(integral));
+  };
+  auto restoreMean=[](Double approximate,Double correction)
+  {
+    return static_cast<Double>(static_cast<long double>(approximate)
+                               +static_cast<long double>(correction));
+  };
+  // END ORBIT_POC_MEAN_RESIDUAL_ARITHMETIC
+  Matrix residualPosition(offset,1),residualVelocity(offset,1);
+  for(UInt i=0;i<offset;i++)
+  {
+    if(synthetic)
+    {
+      // Preserve the precise reference's low part until the residual has a
+      // small magnitude. The coupled solve and archive remain native doubles.
+      residualPosition(i,0)=OrbitPoc::preciseReferenceMeanResidual(posRef(i),orbitPocReferencePositionLow[i],posApprox(i),integratedForce[i]);
+      residualVelocity(i,0)=OrbitPoc::preciseReferenceMeanResidual(velRef(i),orbitPocReferenceVelocityLow[i],approximateVelocity(i,0),integratedForce[offset+i]);
+    }
+    else
+    {
+      residualPosition(i,0)=meanResidual(posRef(i),posApprox(i),integratedForce[i]);
+      residualVelocity(i,0)=meanResidual(velRef(i),approximateVelocity(i,0),integratedForce[offset+i]);
+    }
+  }
+  const Vector initial=leastSquares(Matrix(pBasis),-1.*residualPosition);
+  matMult(1,pBasis,initial,residualPosition);matMult(1,vBasis,initial,residualVelocity);
+  auto correction=solveCoupled(residualPosition,residualVelocity,"physical_correction");
   auto tangent=solveCoupled(pBasis,vBasis,"state_transition");
-  const Vector initialCorrection=leastSquares(Matrix(tangent.first),posApprox-position);
-  matMult(1,tangent.first,initialCorrection,position);matMult(1,tangent.second,initialCorrection,velocity);
+  const Vector initialCorrection=leastSquares(Matrix(tangent.first),-1.*correction.first);
+  matMult(1,tangent.first,initialCorrection,correction.first);
+  matMult(1,tangent.second,initialCorrection,correction.second);
+  Matrix position(offset,1),velocity(offset,1);
+  for(UInt i=0;i<offset;i++)
+  {
+    position(i,0)=restoreMean(posApprox(i),correction.first(i,0));
+    velocity(i,0)=restoreMean(approximateVelocity(i,0),correction.second(i,0));
+  }
   VariationalEquationArc arc;arc.times=times;arc.pos0=position;arc.vel0=velocity;
   arc.PosState=tangent.first;arc.VelState=tangent.second;arc.rotEarth=rotEarth;
   for(UInt i=0;i<epochCount;i++)arc.rotSat.push_back(starCamera.at(i).rotary);
@@ -188,6 +224,13 @@ if(orbitPocDerivativeProfile!="legacy_v3")
     out<<"{\"schema\":\"orbit-poc-derivatives-3.1\",\"profile\":\""<<orbitPocDerivativeProfile
        <<"\",\"coordinates\":\"CRF SI\",\"gravity_source\":\"actual_forward_force\",\"maximum_tangent_relative_residual\":"<<maximumTangentResidual
        <<",\"tangent_integral_accumulation\":\"long_double_local_moments\",\"tangent_accumulator_binary_digits\":"<<std::numeric_limits<long double>::digits
+       <<",\"mean_solve_coordinates\":\"residual_then_single_absolute_restore_v1\""
+       <<",\"reference_kinematics\":\""<<(synthetic ? "fitted_equinoctial_long_double_low_parts_v1" : "unchanged_flight_reference")<<"\""
+       <<",\"maximum_reference_position_precision_difference_m\":"<<orbitPocReferencePositionDifference
+       <<",\"maximum_reference_velocity_precision_difference_m_s\":"<<orbitPocReferenceVelocityDifference
+       <<",\"remaining_mean_precision_limit\":\"native_double_coupled_solve_absolute_archive_and_initial_reanchoring\""
+       <<",\"synthetic_force_arithmetic\":\""<<(synthetic ? "configured_crf_parts_stable_reference_v1" : "unchanged_flight_forward")<<"\""
+       <<",\"reference_GM_m3_s2\":"<<GM
        <<",\"maximum_tangent_iterations\":"<<maximumTangentIterations<<",\"drag_fd_evaluations\":"<<fdEvaluations
        <<",\"drag_fd_maximum_refinements\":"<<fdRefinements<<",\"drag_fd_maximum_relative_difference\":"<<maximumFdDifference
        <<",\"drag_fd_position_derivative_floor_s_minus2\":"<<(synthetic ? 0 : 1e-15)

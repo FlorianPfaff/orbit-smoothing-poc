@@ -1,0 +1,41 @@
+{
+  "actual_distribution_created": false,
+  "fit_covariance_authorized": false,
+  "helper": {
+    "bytes": 7600,
+    "path": "/mnt/d/orbit-segmented-v4/control/distribute_segmented_validation03.py",
+    "sha256": "b00154964848d67868624d0b7afbce4692e944db40436be13c53d13204da5a2e"
+  },
+  "measured_actual_capture_findings": [
+    "Eight NPZs include original weighted designs and covariance/reference arrays.",
+    "Six graph JSON receipts contain epoch-conditional R/S coefficient arrays.",
+    "Segmented solver output JSON files contain full covariance/conditionals and are not compact scalar diagnostics.",
+    "Main capture contains only JSON/XML/log file suffixes; raw JSONL/TSV/binary row spools were not included by the capture helper."
+  ],
+  "passed": true,
+  "policy": "Preserve full external presentation exactly. Separate Git distribution excludes every NPZ/binary/row archive and JSON with raw epoch/general conditional or weighted-design payload, including compressed JSON. Copy scalar metrics, audit/provenance/log text byte-identically; preserve original index and derive one explicit external-evidence notice. Every intentional omission has full external artifact and canonical captured source hashes/bytes. No silent omission or numerical change.",
+  "preservation": "No existing publication, raw capture, configuration or scientific source changed. Source publication is checked before and after copies; changed included or external data preserves a failed partial output instead of publishing a manifest.",
+  "release_ready": false,
+  "schema": "orbit-poc-segmented-validation-distribution-author-review-v1",
+  "tests": {
+    "bytes": 5436,
+    "path": "/mnt/d/orbit-segmented-v4/control/test_distribute_segmented_validation03.py",
+    "sha256": "fbe89b2aa304c0065750df43dd2b351b174db70cb638cd97c12e8aa0e3227053"
+  },
+  "validation": {
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 2877,
+      "path": "/tmp/segmented-distribute03-test01.xml",
+      "sha256": "e1dbdd61c709dc1cb38df292f2eb462036c69018d6a28c6dcb63db38946d20a0"
+    },
+    "log": {
+      "bytes": 180,
+      "path": "/tmp/segmented-distribute03-test01.log",
+      "sha256": "acf6831d0c879463a117e44dcfdd5a73fb10719f91735483caf32182b83610ac"
+    },
+    "passed": 15,
+    "skipped": 0
+  }
+}
