@@ -1,0 +1,508 @@
+{
+  "accepted_fit_covariance": false,
+  "captured_exports": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-03/local-design.jsonl",
+      "role": "native_variation_design",
+      "sha256": "156a11e4300aafab3cb206414d2a4761af52ac4c5c115bc8cc2f39e78ec15876"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.segmented_rows.jsonl",
+      "role": "native_weighted_rows",
+      "sha256": "c3bd6d4641c1f2af8b47f00648b86a134049893eb55de9853c670c9b3ecac731"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.segmented_observations.jsonl",
+      "role": "native_local_observation_design",
+      "sha256": "fbf5b6917180aadf485467952b6d29718900a5c2d3deee2ff97a11b6d73e08ae"
+    }
+  ],
+  "comparison": {
+    "dense_orthogonal_residual_energy": 6467.933749378041,
+    "dense_reference": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/dense-reference.npz",
+      "role": "identical_dense_reference",
+      "sha256": "b2c7ba0ae899e59816ef742e9cae3d628d4b59b4617455c0260563c41008fc33"
+    },
+    "effective_rows": 7885,
+    "independent_gtsam": {
+      "columns": 146,
+      "covariance_relative_error": 1.4569108200186115e-14,
+      "elimination_api": "JacobianFactor.eliminate(Ordering) -> EliminateQR",
+      "full_residual_energy": 6467.933749378033,
+      "maximum_equality_substitution_residual": 0.0,
+      "maximum_map_discrepancy_posterior_sd": 2.103842825192419e-12,
+      "normalized_residual_energy_difference": 1.265543623841767e-15,
+      "original_rows_and_result": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/gtsam-original-rows.npz",
+        "role": "gtsam_original_weighted_rows",
+        "sha256": "57d6dda1c0e0d63dd599b3609a9dbe3e0f84d049edb86de128c177a4dbae08c5"
+      },
+      "rows": 7885,
+      "scope": "Actual original weighted observation/prior rows after native-compatible epoch nuisance projection and causal deterministic substitution; no input from native R or segment conditionals",
+      "version": "4.2"
+    },
+    "linearization_sha256": "641662cdb2c6af7690dcf74d1cbb6e59d6a3f35ed461aa3c74e5ac9a37014555",
+    "original_columns": 146,
+    "profiles": [
+      {
+        "calls": [
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 0.9482079029548913,
+            "equality_max_backward_error": 1.697187649593031e-16,
+            "factor_nonzeros": 28567,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0001.rows",
+            "input_bytes": 16445709,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 6467.933749378003,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0001.json",
+            "output_bytes": 2514421,
+            "residual_energy": 6467.933749378035,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 0.9766288830433041,
+            "equality_max_backward_error": 1.8740833015336768e-16,
+            "factor_nonzeros": 28619,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0002.rows",
+            "input_bytes": 16448083,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 6484.482112609895,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0002.json",
+            "output_bytes": 2517028,
+            "residual_energy": 6484.482112609906,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 0.9449745030142367,
+            "equality_max_backward_error": 1.6974738209770483e-16,
+            "factor_nonzeros": 28514,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0003.rows",
+            "input_bytes": 16448084,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 8185.3819976183695,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0003.json",
+            "output_bytes": 2526731,
+            "residual_energy": 8185.38199761837,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 1.065485896077007,
+            "equality_max_backward_error": 1.697187649593031e-16,
+            "factor_nonzeros": 28567,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0004.rows",
+            "input_bytes": 16446769,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 6467.933749378003,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0004.json",
+            "output_bytes": 2998039,
+            "residual_energy": 6467.933749378035,
+            "returncode": 0
+          }
+        ],
+        "covariance": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/covariance.npz",
+          "role": "segmented_original_covariance",
+          "sha256": "e348678cf9d7dbc014be42b214944a86e23a69ad1bb91f8ffaccad27ae13a05a"
+        },
+        "covariance_all_original_coordinates": true,
+        "covariance_optimization_damping": 0.0,
+        "covariance_posterior_normalized_error": 6.907768676571849e-12,
+        "covariance_relative_error": 7.929488002739502e-14,
+        "graph": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/graph.json",
+          "role": "segmented_graph",
+          "sha256": "f66e254beac97295772216e38eef92b86a3aaadee09d011c511003abea3bc345"
+        },
+        "segment_seconds": 3600,
+        "trials": [
+          {
+            "damping": 0.0,
+            "dense_predicted_reduction": 860.0295315113298,
+            "dense_residual_energy": 6467.933749378041,
+            "dense_scaled_gradient": 0.10956083100042874,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.697187649593031e-16,
+            "maximum_map_discrepancy_posterior_sd": 2.078891086892206e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0001.json",
+              "role": "constrained_qr_result",
+              "sha256": "4293caef5ef50ccea7657ea4fa9fad5a525b3e136c3a95f4f1e958d65aa15017"
+            },
+            "normalized_orthogonal_residual_energy_difference": 5.9058702445949134e-15,
+            "normalized_residual_energy_difference": 9.843117074324854e-16,
+            "segmented_orthogonal_residual_energy": 6467.933749378003,
+            "segmented_predicted_reduction": 860.0295315113292,
+            "segmented_residual_energy": 6467.933749378035,
+            "segmented_scaled_gradient": 0.10956083100042874
+          },
+          {
+            "damping": 0.001,
+            "dense_predicted_reduction": 857.2240256025717,
+            "dense_residual_energy": 6484.482112609912,
+            "dense_scaled_gradient": 0.10956083100042874,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.8740833015336768e-16,
+            "maximum_map_discrepancy_posterior_sd": 1.559714560743449e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0002.json",
+              "role": "constrained_qr_result",
+              "sha256": "f53f7422f74f4517b4c80cbc269b308dd3ab1cb2d0f38b1d1be9ed71e9db95b3"
+            },
+            "normalized_orthogonal_residual_energy_difference": 2.6648850337765094e-15,
+            "normalized_residual_energy_difference": 9.817997492860824e-16,
+            "segmented_orthogonal_residual_energy": 6484.482112609895,
+            "segmented_predicted_reduction": 857.2240256025719,
+            "segmented_residual_energy": 6484.482112609906,
+            "segmented_scaled_gradient": 0.10956083100042874
+          },
+          {
+            "damping": 1000.0,
+            "dense_predicted_reduction": 2.6086636807353343,
+            "dense_residual_energy": 8185.3819976183695,
+            "dense_scaled_gradient": 0.10956083100042874,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.6974738209770483e-16,
+            "maximum_map_discrepancy_posterior_sd": 7.32497534348027e-13,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-3600/solves/solve-0003.json",
+              "role": "constrained_qr_result",
+              "sha256": "df040263a9f30dbb02560044661a9bb0f23d348520f4c0fa4da404672d39c15f"
+            },
+            "normalized_orthogonal_residual_energy_difference": 0.0,
+            "normalized_residual_energy_difference": 1.1111206563573405e-16,
+            "segmented_orthogonal_residual_energy": 8185.3819976183695,
+            "segmented_predicted_reduction": 2.6086636807352903,
+            "segmented_residual_energy": 8185.38199761837,
+            "segmented_scaled_gradient": 0.10956083100042874
+          }
+        ]
+      },
+      {
+        "calls": [
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 0.9461951991543174,
+            "equality_max_backward_error": 1.697187649593031e-16,
+            "factor_nonzeros": 28567,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0001.rows",
+            "input_bytes": 16445709,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 6467.933749378003,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0001.json",
+            "output_bytes": 2514421,
+            "residual_energy": 6467.933749378035,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 0.951147701125592,
+            "equality_max_backward_error": 1.8740833015336768e-16,
+            "factor_nonzeros": 28619,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0002.rows",
+            "input_bytes": 16448083,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 6484.482112609895,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0002.json",
+            "output_bytes": 2517028,
+            "residual_energy": 6484.482112609906,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 0.9764067630749196,
+            "equality_max_backward_error": 1.6974738209770483e-16,
+            "factor_nonzeros": 28514,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0003.rows",
+            "input_bytes": 16448084,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 8185.3819976183695,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0003.json",
+            "output_bytes": 2526731,
+            "residual_energy": 8185.38199761837,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 276,
+            "elapsed_seconds": 1.1042549051344395,
+            "equality_max_backward_error": 1.697187649593031e-16,
+            "factor_nonzeros": 28567,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0004.rows",
+            "input_bytes": 16446769,
+            "max_front_columns": 188,
+            "max_front_rows": 299,
+            "orthogonal_residual_energy": 6467.933749378003,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0004.json",
+            "output_bytes": 2998039,
+            "residual_energy": 6467.933749378035,
+            "returncode": 0
+          }
+        ],
+        "covariance": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/covariance.npz",
+          "role": "segmented_original_covariance",
+          "sha256": "e348678cf9d7dbc014be42b214944a86e23a69ad1bb91f8ffaccad27ae13a05a"
+        },
+        "covariance_all_original_coordinates": true,
+        "covariance_optimization_damping": 0.0,
+        "covariance_posterior_normalized_error": 6.907768676571849e-12,
+        "covariance_relative_error": 7.929488002739502e-14,
+        "graph": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/graph.json",
+          "role": "segmented_graph",
+          "sha256": "32495b2fc5abf17f51fc67958668cff5132c5cf5ed38ce58eedc41d28e8d9ced"
+        },
+        "segment_seconds": 14400,
+        "trials": [
+          {
+            "damping": 0.0,
+            "dense_predicted_reduction": 860.0295315113298,
+            "dense_residual_energy": 6467.933749378041,
+            "dense_scaled_gradient": 0.10956083100042874,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.697187649593031e-16,
+            "maximum_map_discrepancy_posterior_sd": 2.078891086892206e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0001.json",
+              "role": "constrained_qr_result",
+              "sha256": "4293caef5ef50ccea7657ea4fa9fad5a525b3e136c3a95f4f1e958d65aa15017"
+            },
+            "normalized_orthogonal_residual_energy_difference": 5.9058702445949134e-15,
+            "normalized_residual_energy_difference": 9.843117074324854e-16,
+            "segmented_orthogonal_residual_energy": 6467.933749378003,
+            "segmented_predicted_reduction": 860.0295315113292,
+            "segmented_residual_energy": 6467.933749378035,
+            "segmented_scaled_gradient": 0.10956083100042874
+          },
+          {
+            "damping": 0.001,
+            "dense_predicted_reduction": 857.2240256025717,
+            "dense_residual_energy": 6484.482112609912,
+            "dense_scaled_gradient": 0.10956083100042874,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.8740833015336768e-16,
+            "maximum_map_discrepancy_posterior_sd": 1.559714560743449e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0002.json",
+              "role": "constrained_qr_result",
+              "sha256": "f53f7422f74f4517b4c80cbc269b308dd3ab1cb2d0f38b1d1be9ed71e9db95b3"
+            },
+            "normalized_orthogonal_residual_energy_difference": 2.6648850337765094e-15,
+            "normalized_residual_energy_difference": 9.817997492860824e-16,
+            "segmented_orthogonal_residual_energy": 6484.482112609895,
+            "segmented_predicted_reduction": 857.2240256025719,
+            "segmented_residual_energy": 6484.482112609906,
+            "segmented_scaled_gradient": 0.10956083100042874
+          },
+          {
+            "damping": 1000.0,
+            "dense_predicted_reduction": 2.6086636807353343,
+            "dense_residual_energy": 8185.3819976183695,
+            "dense_scaled_gradient": 0.10956083100042874,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.6974738209770483e-16,
+            "maximum_map_discrepancy_posterior_sd": 7.32497534348027e-13,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/comparison/segments-14400/solves/solve-0003.json",
+              "role": "constrained_qr_result",
+              "sha256": "df040263a9f30dbb02560044661a9bb0f23d348520f4c0fa4da404672d39c15f"
+            },
+            "normalized_orthogonal_residual_energy_difference": 0.0,
+            "normalized_residual_energy_difference": 1.1111206563573405e-16,
+            "segmented_orthogonal_residual_energy": 8185.3819976183695,
+            "segmented_predicted_reduction": 2.6086636807352903,
+            "segmented_residual_energy": 8185.38199761837,
+            "segmented_scaled_gradient": 0.10956083100042874
+          }
+        ]
+      }
+    ],
+    "rank": {
+      "columns": 146,
+      "condition_number": 3839.9778870962687,
+      "effective_rows": 7885,
+      "maximum_singular_value": 5.506421438199274,
+      "minimum_singular_value": 0.0014339721738249758,
+      "rank": 146,
+      "status": "full_rank",
+      "threshold": 9.64076219749394e-12
+    },
+    "residual_energy_scope": "Full linear least-squares residual including orthogonal constant; eliminated nuisance conditional targets are fitted, not extra penalties.",
+    "support_hash": "44227df5345b3dbe0c9802e5391f51768c1566ead947992e31f59d48e9468b93"
+  },
+  "cut_scope": "One-hour preserved fixtures may have no interior computational cut; differing-cut long arcs remain required benchmark evidence.",
+  "damping_values": [
+    0.0,
+    0.001,
+    1000.0
+  ],
+  "initial_state_input": {
+    "path": "/mnt/d/orbit-numerics-v3.1/engineering-archive/development-fits-07/pulses-staged/point-029-confirmation/physical_initial.txt",
+    "role": "preserved_blind_initial_state",
+    "sha256": "61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea"
+  },
+  "map_tolerance_posterior_sd": 1e-07,
+  "maximum_original_columns": 200,
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+    "role": "native_binary",
+    "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+  },
+  "native_evidence": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.profile.json",
+      "role": "nuisance_profile",
+      "sha256": "e5d9385a307f402c322dac8153cca3319936e8044381c3cce4f8e37d26e19b9d"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure.json",
+      "role": "closure",
+      "sha256": "8af770d11ac522fec1e5708b0efac892e9c591149ebcd931f7efca38cc3c29f8"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.factor.json",
+      "role": "native_factor",
+      "sha256": "c29b9d5d85f2bfdf322771b7c0ced7b07fb4643b8f4f4a6eb9aac66c342d035b"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.diagnostics.json",
+      "role": "native_rank",
+      "sha256": "a082e2ad1dbefa468ab2b790018bea2152c92955f06a93380aa0476dc69ccf5d"
+    }
+  ],
+  "native_executions": [
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/initial-input/convert.xml"
+      ],
+      "config_sha256": "7d3fb5715ecb3297cc4a18a17c6b397e576c3e4585a0220ac407bd6ecf878f40",
+      "elapsed_seconds": 0.053465926088392735,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/initial-input/convert.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+      "peak_rss_bytes": 4452352,
+      "pid": 1633,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-01/propagate.xml"
+      ],
+      "config_sha256": "90835cae6d4ef53c606859ac9f74c742171cab1d62fb5fbf7dd85273901adbcc",
+      "elapsed_seconds": 0.6558042119722813,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-01/propagate.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+      "peak_rss_bytes": 291909632,
+      "pid": 1634,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-02/propagate.xml"
+      ],
+      "config_sha256": "223021b559e94daca876d46bc1e5559bfdaa197ff8b99e8ccc1ef901d6ee01bd",
+      "elapsed_seconds": 0.60514579503797,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-02/propagate.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+      "peak_rss_bytes": 292261888,
+      "pid": 1635,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-03/propagate.xml"
+      ],
+      "config_sha256": "2c02ef18d37ca29f7e81a45046b158dbc9612025eac0a5422ae222ef4d657d53",
+      "elapsed_seconds": 0.6052363822236657,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/closure-03/propagate.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+      "peak_rss_bytes": 292208640,
+      "pid": 1636,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/profile.xml"
+      ],
+      "config_sha256": "635ad8488f9f3f1a701e911fe548ace59aff875edbc2c4074ede4bc1af83d717",
+      "elapsed_seconds": 48.527573838829994,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/profile.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+      "peak_rss_bytes": 290705408,
+      "pid": 1637,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "normalized_residual_energy_tolerance": 2e-12,
+  "original_request": {
+    "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json",
+    "role": "original_blind_engineering_request",
+    "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd"
+  },
+  "passed": true,
+  "physical_evaluations": 1,
+  "preserved_failures": true,
+  "prior": {
+    "absolute_tolerance": 2e-08,
+    "cost": 4.848917841373497,
+    "maximum_residual_difference": 2.0548241996820593e-09,
+    "objective": 4093.99640620035,
+    "rows": 61,
+    "source": "constraint.logDensityOu"
+  },
+  "prior_check_source": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/source/scripts/validate_numerics_objective.py",
+    "role": "unchanged_native_prior_check",
+    "sha256": "8000fedb69d874e7680a62dd3b24c65982c3230ef57aa022174b3df2b28bcf10"
+  },
+  "propagation_count": 3,
+  "relative_covariance_tolerance": 1e-08,
+  "request": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/request.json",
+    "role": "derived_engineering_request",
+    "sha256": "ef8991734f7313937777779614a98c509bfae3d2536421601d8a657bd3bd9e97"
+  },
+  "schema": "orbit-poc-segmented-linearization-gate-v1",
+  "scope": "One blind native engineering linearization; no accepted fit covariance or release approval",
+  "solver": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/segmented-qr-2c8481050806ce9d",
+    "role": "segmented_qr_binary",
+    "sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+  },
+  "source": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/source.json",
+    "role": "source_snapshot",
+    "sha256": "a090d3794ef2451f25fe04d4c31e5c2567250a0dc3e98a1e44e580aff146aa3b"
+  },
+  "source_sha256": "a838553d4ba9dc394a3f498f46917275b19139d2bb583c401cf71e90f82a9fa6"
+}
