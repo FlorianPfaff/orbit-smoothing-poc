@@ -1,0 +1,55 @@
+{
+  "schema": "orbit-poc-direct-campaign-controls-independent-review-v1",
+  "reviewed_at": "2026-10-18T20:18:17.907206+00:00",
+  "status": "approved_draft_controls_pending_actual_preparation_and_instantiation",
+  "consistency_passed": true,
+  "inputs": {
+    "manifest": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-path-campaign-draft01/manifest.json",
+      "sha256": "26a67b1353f2936b93353e2fbb1de86a0314d4a60e188712114ba48bd8b8395f"
+    },
+    "read_only_helper": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-path-campaign-draft01/with_completed_preparation_direct01.py",
+      "sha256": "02830d53b8f5298c477c80eef06cf999578b460cc0b88d75e7687e3c2042f465"
+    },
+    "host_helper": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-path-campaign-draft01/with_segmented_campaign_host_direct01.py",
+      "sha256": "aa1255a0826cc61cbcb9abd2997984bf8610f2c21b7d18dbcd6687dc862b3bb6"
+    },
+    "reviewable_delta": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-path-campaign-draft01/reviewable-delta.diff",
+      "sha256": "ff9e942015ffff6bd2a7c8e9c8119ee34e0a162684321bc35ed0446f4ba5baa2"
+    },
+    "independent_tests": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-path-independent01.xml",
+      "sha256": "abc49114c96ed31d2894bb311a866b1ce3a3e346b49482001f39b0f0130efbde"
+    }
+  },
+  "tests": {
+    "passed": 57,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 13.09
+  },
+  "checks": [
+    "Direct directory inode identities replace remapped-view records explicitly, with no fabricated old view.",
+    "Sealer requires actual clean completed preparation and verified after-check with28cases/68attempts/zero fits, unchanged configuration/source/pipeline and exact manifest.",
+    "Metadata sealer has one writable dedicated control directory; completed input/output slots and historical validation remain read-only.",
+    "Host view exposes exactly attempts, selected private temporary directory, statistical lock, canonical global lock file and fresh host control.",
+    "Every writable source equals its canonical target and inode identity; aliases and their resolved paths are checked.",
+    "Read-only ancestor carveout is only the same pinned empty regular global-lock inode. Mount order restores exactly this file after its ancestor; no directory/sibling write exposure.",
+    "Original host03, launcher01 and inner empty-root estimation namespace controls unchanged; host and PID/network visibility retained.",
+    "57 independent pure tests passed, including wrong metadata/identity, alias overlap, fresh-path and shared-lock negative cases."
+  ],
+  "scope": "Draft external control code only; no native execution, fabricated completed preparation or campaign manifest. This review does not approve an uninstantiated launch.",
+  "pending": [
+    "Successful actual preparation07 and independent outcome check.",
+    "Exact completed preparation/manifest/directory/lock binding in concrete sealing and campaign packets.",
+    "Independent actual packet review and unchanged empty-root denial probes before campaign launch."
+  ],
+  "scientific_source_changed": false,
+  "numerical_limits_changed": false,
+  "native_executions": 0,
+  "benchmark_fit_attempts": 0
+}

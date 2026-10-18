@@ -1,0 +1,266 @@
+{
+  "after": {
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/b.txt": "df7e70e5021544f4834bbee64a9e3789febc4be81470df629cad6ddb03320a5c",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/c.txt": "6b23c0d5f35d1b11f9b683f0b0a617355deb11277d91ae091d399c655b87940d",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/runtime/ready.txt": "d92c6a81b2ff50096bcda80885427d1f59a25b5f483f7055523504925d16ab23",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt": "78a9ff84cc9c4ec6ee413f0b927b88ad51827a19f9e1eb8f0bf5dbcb896506e6",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt": "4209fed616d70c61f22d471d453adaa0d80e0d8891a93420d7e0c4a2153e2236",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt": "4f0826d0b5da6ec7cca842d1833e5d5fe9f25e6dc6080de4be85e6a82d09a68b"
+  },
+  "argv": [
+    "/usr/bin/bwrap",
+    "--unshare-user",
+    "--ro-bind",
+    "/",
+    "/",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt",
+    "--chmod",
+    "755",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt",
+    "--symlink",
+    "keep.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep-link",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt",
+    "--dir",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate",
+    "--tmpfs",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate",
+    "--chmod",
+    "755",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate",
+    "--dir",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt",
+    "--tmpfs",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing",
+    "--chmod",
+    "755",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt",
+    "--dir",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c",
+    "--dir",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep",
+    "--dir",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new",
+    "--dir",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new/deep",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/b.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new/deep/b.txt",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/c.txt",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/final.dat",
+    "--ro-bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/runtime",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/runtime",
+    "--remount-ro",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing",
+    "--remount-ro",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate",
+    "--remount-ro",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt",
+    "--bind",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/control",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/control",
+    "--",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "\nfrom pathlib import Path\nimport json,errno,sys\nv=json.loads(sys.argv[1]);result={'positive_reads':[],'write_denials':[]}\nfor path,want in v['positive'].items():\n if Path(path).read_text()!=want:raise ValueError('Positive read differs: '+path)\n result['positive_reads'].append(path)\nfor path in v['denied']:\n try:Path(path).write_text('forbidden')\n except OSError as e:\n  if e.errno not in (errno.EROFS,errno.EACCES,errno.EPERM):raise\n  result['write_denials'].append({'path':path,'errno':e.errno})\n else:raise ValueError('Readonly write was accepted: '+path)\nPath(v['control']).write_text('allowed')\nresult['control_write']=True;result['status']='passed';print(json.dumps(result))\n",
+    "{\"positive\": {\"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt\": \"A\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new/deep/b.txt\": \"B\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/final.dat\": \"C\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/runtime/ready.txt\": \"runtime\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep-link\": \"root-sibling\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt\": \"nested-sibling\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt\": \"final-parent-sibling\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt\": \"A\"}, \"denied\": [\"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/new-unapproved\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new-unapproved\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/new-unapproved\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt\"], \"control\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/control/allowed.txt\"}"
+  ],
+  "before": {
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/b.txt": "df7e70e5021544f4834bbee64a9e3789febc4be81470df629cad6ddb03320a5c",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/c.txt": "6b23c0d5f35d1b11f9b683f0b0a617355deb11277d91ae091d399c655b87940d",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/runtime/ready.txt": "d92c6a81b2ff50096bcda80885427d1f59a25b5f483f7055523504925d16ab23",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt": "78a9ff84cc9c4ec6ee413f0b927b88ad51827a19f9e1eb8f0bf5dbcb896506e6",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt": "4209fed616d70c61f22d471d453adaa0d80e0d8891a93420d7e0c4a2153e2236",
+    "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt": "4f0826d0b5da6ec7cca842d1833e5d5fe9f25e6dc6080de4be85e6a82d09a68b"
+  },
+  "case_count": 5,
+  "elapsed_seconds": 0.03218256798572838,
+  "fit_attempts": 0,
+  "fixture_root": "/tmp/orbit-v4-scaffold-real01-wdjruo43",
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-path-campaign-draft02/with_completed_preparation_direct02.py",
+    "sha256": "e2d6532cb90e91694aca103e9541e5450ff7c589c62a9982fc6970e3f0f674e1"
+  },
+  "host_missing_targets_remain_absent": true,
+  "native_executions": 0,
+  "physical_backings_unchanged": true,
+  "probe": {
+    "control_write": true,
+    "positive_reads": [
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new/deep/b.txt",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/final.dat",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/runtime/ready.txt",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep-link",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt"
+    ],
+    "status": "passed",
+    "write_denials": [
+      {
+        "errno": 30,
+        "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/new-unapproved"
+      },
+      {
+        "errno": 30,
+        "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new-unapproved"
+      },
+      {
+        "errno": 30,
+        "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/new-unapproved"
+      },
+      {
+        "errno": 30,
+        "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt"
+      },
+      {
+        "errno": 30,
+        "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt"
+      },
+      {
+        "errno": 30,
+        "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt"
+      }
+    ]
+  },
+  "returncode": 0,
+  "schema": "orbit-poc-direct-readonly-scaffold-real-fixture-v1",
+  "status": "passed",
+  "stderr": "",
+  "stdout": "{\"positive_reads\": [\"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new/deep/b.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/final.dat\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/runtime/ready.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep-link\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt\", \"/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt\"], \"write_denials\": [{\"path\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/new-unapproved\", \"errno\": 30}, {\"path\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new-unapproved\", \"errno\": 30}, {\"path\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/new-unapproved\", \"errno\": 30}, {\"path\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep/a.txt\", \"errno\": 30}, {\"path\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/backing/a.txt\", \"errno\": 30}, {\"path\": \"/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt\", \"errno\": 30}], \"control_write\": true, \"status\": \"passed\"}\n",
+  "topology": {
+    "missing_parents": [
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/c/deep",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new",
+      "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/new/deep"
+    ],
+    "roots": [
+      {
+        "children": [
+          {
+            "device": 76,
+            "gid": 1000,
+            "inode": 75687,
+            "kind": "symlink",
+            "link_target": "keep.txt",
+            "mode": 511,
+            "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep-link",
+            "uid": 1000
+          },
+          {
+            "device": 76,
+            "gid": 1000,
+            "inode": 75686,
+            "kind": "file",
+            "link_target": null,
+            "mode": 420,
+            "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/keep.txt",
+            "uid": 1000
+          },
+          {
+            "device": 76,
+            "gid": 1000,
+            "inode": 75677,
+            "kind": "directory",
+            "link_target": null,
+            "mode": 493,
+            "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate",
+            "uid": 1000
+          }
+        ],
+        "directory": {
+          "device": 76,
+          "gid": 1000,
+          "inode": 75676,
+          "kind": "directory",
+          "link_target": null,
+          "mode": 493,
+          "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt",
+          "uid": 1000
+        }
+      },
+      {
+        "children": [
+          {
+            "device": 76,
+            "gid": 1000,
+            "inode": 75678,
+            "kind": "directory",
+            "link_target": null,
+            "mode": 493,
+            "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing",
+            "uid": 1000
+          },
+          {
+            "device": 76,
+            "gid": 1000,
+            "inode": 75688,
+            "kind": "file",
+            "link_target": null,
+            "mode": 420,
+            "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/store.txt",
+            "uid": 1000
+          }
+        ],
+        "directory": {
+          "device": 76,
+          "gid": 1000,
+          "inode": 75677,
+          "kind": "directory",
+          "link_target": null,
+          "mode": 493,
+          "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate",
+          "uid": 1000
+        }
+      },
+      {
+        "children": [
+          {
+            "device": 76,
+            "gid": 1000,
+            "inode": 75689,
+            "kind": "file",
+            "link_target": null,
+            "mode": 420,
+            "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing/keep.txt",
+            "uid": 1000
+          }
+        ],
+        "directory": {
+          "device": 76,
+          "gid": 1000,
+          "inode": 75678,
+          "kind": "directory",
+          "link_target": null,
+          "mode": 493,
+          "path": "/tmp/orbit-v4-scaffold-real01-wdjruo43/host/mnt/seagate/existing",
+          "uid": 1000
+        }
+      }
+    ],
+    "schema": "orbit-poc-direct-readonly-parent-topology-v1"
+  }
+}

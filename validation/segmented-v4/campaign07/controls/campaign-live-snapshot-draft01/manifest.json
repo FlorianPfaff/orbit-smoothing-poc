@@ -1,0 +1,33 @@
+{
+  "command_template": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "capture_campaign_live01.py",
+    "--host-plan-sha256",
+    "<actual reviewed host-plan SHA>"
+  ],
+  "files": [
+    {
+      "bytes": 8306,
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft01/capture_campaign_live01.py",
+      "sha256": "977be51873a9071379b2b5784621a1e6814ff5fb4417327764f7c750f8952a2f"
+    },
+    {
+      "bytes": 1577,
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft01/test_snapshot.py",
+      "sha256": "be9aa6c544a2d9db4d15c75294894bba532b5f7a37d0f6f98a39197622eb2984"
+    },
+    {
+      "bytes": 1431,
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft01/tests02.xml",
+      "sha256": "65e07b85aaad442fb8c5aa44d34a7d9c5ca8a12772b75186542a441cab57af38"
+    }
+  ],
+  "read_only": true,
+  "schema": "orbit-poc-campaign-live-snapshot-control-v1",
+  "scope": "One shot after actual launch, requiring exact host-plan SHA. Reuses frozen observer parse/ownership functions. Only selected owned environment is exported; no service, signal, lock acquisition or affinity mutation.",
+  "tests_passed": 8
+}

@@ -190,3 +190,13 @@ At that terminal preparation capture, no benchmark fit had begun. Preparation
 does not establish fit convergence or accepted covariance. The 68-attempt
 benchmark and the separate original v3.1 150-attempt campaign remain release
 requirements.
+
+The [campaign control report](../validation/segmented-v4/campaign07/index.html)
+preserves three failed metadata setup attempts and their independently reviewed
+corrections. The latest correction closes the dynamic loader's parent-symlink
+chain and creates each resolved link location once, while retaining the complete
+link ledger and exact input checks. It passed 122 independent control tests, a
+real isolated-filesystem fixture, and replay of all 44,072 captured file rows and
+46,948 inventory entries. Scientific source, runtime payloads, prepared inputs
+and numerical settings are unchanged. This dated snapshot does not certify a
+successful remote setup, launch, fit convergence or release readiness.

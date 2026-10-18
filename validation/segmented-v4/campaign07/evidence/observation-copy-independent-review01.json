@@ -1,0 +1,79 @@
+{
+  "actual_collision_replay": {
+    "path": "/mnt/d/orbit-segmented-v4/control/observation-copy-independent-actual01.json",
+    "sha256": "a7b3129aad6e720ba506b2883c7b4e74e97551256b349483a019fbb1e69f31c7"
+  },
+  "candidates": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/observation-copy-allowlist-draft03/manifest.json",
+      "sha256": "36d2f8f19fca993f6d2477b17d01a51042519a81a1a027e109b73b57e78b8cd4"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-sealer-draft03/manifest.json",
+      "sha256": "5f4db92cc31bf421031c3a181b466e04af2ee2df1199ebe331d0493e4096909c"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-campaign-plan-draft04/manifest.json",
+      "sha256": "9cf6e3eb7953ee47feb8877dd00c21c2158c1fb5093cd84dbf9d5a348e2c7ceb"
+    }
+  ],
+  "install_packet": {
+    "archive": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install10/helpers-and-request.tar",
+      "sha256": "bed9ffa01a94f77741f3167b99b455ab0f62e0b3a0049d353bca545c6423e4ec"
+    },
+    "fresh_output_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-02",
+    "installer": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install10/install_owned01.py",
+      "sha256": "4a7b60f0fc5875c0e794894d940365becf9ee4437b5a25522e08fe427f723bb4"
+    },
+    "new_regular_files": 5,
+    "plan": {
+      "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install10/install-plan.json",
+      "sha256": "9d097e5be911036739338c6892a3055b70f42f8fb439185c1ec577403d8b43d7"
+    },
+    "preserved_controls": 27,
+    "preserved_partial_files": 6
+  },
+  "install_review": [
+    "Only the reviewed allowlist/sealer/downstream helper bytes and exact request are installed.",
+    "Existing partial output directory identity and all six bytes are checked before/after exclusive installation under unchanged current-host admission and both locks. Failed execution03 remains pinned.",
+    "New request differs from02 only in sealer/allowlist identities and fresh sealed-inputs-02 output."
+  ],
+  "replay_driver": {
+    "path": "/mnt/d/orbit-segmented-v4/control/replay_observation_copy_actual01.py",
+    "sha256": "0f01c3ca3fa28af794573eda76c1d9bb3ed3c648ed7d5fce4d7de4e4fa1c0828"
+  },
+  "request": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install10/sealing-request03.json",
+    "sha256": "d2ab28c243ac64df6ce93984971e49c17d8b5d7ad04d4b4746d9ba92aa8ea4c9"
+  },
+  "review": [
+    "The only substantive policy addition is shared_observation. It requires the exact synthetic generation observation filename derived from the frozen case, normal72h coverage, empty/full-duration mask, request/case and canonical mask identity, explicit GNSS observation role, native-preparation dependency, and identical source hash, content hash and size with positive integer records.",
+    "The generation pathname remains in denied_files and prelaunch denial probes. Truth, receiver-clock, ambiguity and GNV/SLR reference content remain protected. No generic shared-hash exception is introduced.",
+    "Independent replay over all542 captured matching generation paths recognizes only the two measured quiet72h observation copies.",
+    "Full-build tests preserve the original path denial and truth-copy rejection. Negative cases cover missing roles/dependencies, source/content/size mismatch, invalid records, changed masks/cases, blackout/shorter duration, generation mismatch, flight and truth-like paths.",
+    "Sealer03 changes only its accepted allowlist hash. Both downstream builders change only their accepted sealer hash. Readonly02, empty-root wrapper, inner02, probe02 and scientific source/native/data/threshold identities remain unchanged.",
+    "The first author fixture run failed only because a relocated static XML test fixture was absent; both failed records remain preserved, and the copied fixture matches its original pinned bytes. No production inputs changed."
+  ],
+  "reviewed_at": "2026-10-18T21:32:46.350252+00:00",
+  "schema": "orbit-poc-shared-observation-copy-independent-review-v1",
+  "scope": "Approve exact fresh install10 and metadata-plan derivation. Review actual derived view before the fresh owned seal. This is not probe success, fit execution or release certification.",
+  "status": "approved_narrow_control_correction_and_exact_metadata_install",
+  "tests": {
+    "cpu": 1,
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/observation-copy-independent01.xml",
+      "sha256": "5cbc28d3fb796f9fe005de17448e4651fca7cb8e57bafb42dc448ccb12a21026"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/observation-copy-independent01.log",
+      "sha256": "352217f29d37ec155b364109ff42390f3851b00ced32ab73ceac3ca258061515"
+    },
+    "passed": 122,
+    "skipped": 0,
+    "threads": 1
+  }
+}

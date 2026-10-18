@@ -1,0 +1,87 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-"
+      ],
+      "command_sha256": "a06f73fe34c728dbb2ac6653689a3e0306406d711c5333f9cad9bce72fe2dbb2",
+      "parent": 4043316,
+      "pid": 4043317,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 134283475,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-18T21:33:32.385317+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Fresh validation07: audited complete611-object wide tangent candidate, exact405source, original14 stages/106/51 unchanged; source/decoder/interpolation supplements separately reported. Serial CPU24,1thread,8GiB; proper userHOME; no fits.",
+    "status": "admitted"
+  },
+  "environment": {
+    "HOME": "/home/florianpfaff",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PATH": "/usr/bin:/bin",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "fit_attempts": 0,
+  "native_executions": 0,
+  "schema": "orbit-poc-direct-sealing-plan-derivation-v1",
+  "stages": [
+    {
+      "argv": [
+        "/usr/bin/taskset",
+        "-c",
+        "32",
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_direct_fit_sealing01.py",
+        "--request",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealing-request03.json",
+        "--sha256",
+        "d2ab28c243ac64df6ce93984971e49c17d8b5d7ad04d4b4746d9ba92aa8ea4c9",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealing-plan03.json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"plan\": {\"path\": \"/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealing-plan03.json\", \"sha256\": \"186b00359126a9d5a27abbc6d03952d12138456b15cac2a590db46d594676c01\"}, \"actual_manifest\": {\"path\": \"/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/manifest.json\", \"sha256\": \"4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6\"}, \"native_executions\": 0, \"fit_attempts\": 0}\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/taskset",
+        "-c",
+        "32",
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_direct_sealing_view04.py",
+        "--sealing-plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealing-plan03.json",
+        "--sha256",
+        "186b00359126a9d5a27abbc6d03952d12138456b15cac2a590db46d594676c01",
+        "--readonly-helper",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_completed_preparation_direct02.py",
+        "--readonly-helper-sha256",
+        "e2d6532cb90e91694aca103e9541e5450ff7c589c62a9982fc6970e3f0f674e1",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/readonly-view-plan04.json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"schema\": \"orbit-poc-direct-readonly-plan-build-result-v1\", \"plan\": {\"path\": \"/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/readonly-view-plan04.json\", \"sha256\": \"bbe3ce9d9457257ea880e0364641032d504fbf2618456c68e50d2b6d736ba681\"}, \"actual_manifest\": {\"path\": \"/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/manifest.json\", \"sha256\": \"4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6\"}, \"native_executions\": 0, \"fit_attempts\": 0, \"fit_execution_authorized\": false}\n"
+    }
+  ],
+  "status": "derived_metadata"
+}

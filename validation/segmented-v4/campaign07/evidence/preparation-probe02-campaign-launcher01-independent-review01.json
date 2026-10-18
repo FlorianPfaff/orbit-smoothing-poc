@@ -1,0 +1,57 @@
+{
+  "benchmark_attempts": 0,
+  "campaign_launcher": {
+    "actual_campaign_packet_and_admission_still_required": true,
+    "helper": {
+      "bytes": 6499,
+      "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_campaign01.py",
+      "sha256": "9a1d6f83ae99d1abc2c017a7b1ca6b1bbf763fe06a1e7d4e0f2dc6c598f04ad4"
+    },
+    "passed_tests": 15,
+    "reviewed": [
+      "Exact launch pins, host controller, control interpreter and plan identity validated.",
+      "CPU32 affinity required; original host-controller load_plan executes before Popen.",
+      "Create-only outputs and locked detached launch preserve any earlier attempts.",
+      "PID/start-tick/argv handoff, durable receipt and launcher failure cleanup inherited from the reviewed preparation launcher.",
+      "Clean control environment and new session; launch receipt explicitly does not certify scientific success or descendant cleanup."
+    ],
+    "tests": {
+      "bytes": 3476,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_launch_segmented_campaign01.py",
+      "sha256": "212ace809959c1e3541ee6aa75168f097f2a80be17ead73da47ab52ca13da626"
+    }
+  },
+  "created_at": "2026-10-16T03:20:28.858960+00:00",
+  "junit": {
+    "bytes": 7468,
+    "path": "/mnt/d/orbit-segmented-v4/control/independent-preparation-probe-campaign-launch-tests01.xml",
+    "sha256": "ec4be53d1ec8f78261caafac5336e14a025226f3ea5cbd6a5fcde502193e9090"
+  },
+  "native_runs": 0,
+  "passed": true,
+  "probe": {
+    "actual_offline_namespace_smoke_still_required": true,
+    "helper": {
+      "bytes": 10475,
+      "path": "/mnt/d/orbit-segmented-v4/control/probe_segmented_preparation02.py",
+      "sha256": "9c0e9a2c6964911ce7e78f4e971241aeb1d729959efc2652843227927889e04b"
+    },
+    "passed_tests": 27,
+    "reviewed": [
+      "All previous source/cache/runtime/validation/flight identity checks retained.",
+      "Exactly20 original product files plus20 acquisition sidecars required.",
+      "Calls actual frozen example and flight auxiliary reuse (56/33 records) and20 precise product fetches with download=False before invoking Tudat startup.",
+      "Returns exact sidecar identities and download prohibition; no physical propagation or fit requested.",
+      "Frozen underlying fetch functions inspected: cache reuse checks SHA/URL, missing acquisition metadata fails offline; read-only source/auxiliary protections retained."
+    ],
+    "tests": {
+      "bytes": 9190,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_probe_segmented_preparation02.py",
+      "sha256": "095706b26a545548a406f2d022525e8c85e248a147b0bff36756874b94d5a575"
+    }
+  },
+  "reviewer": "/root/v4_independent_review",
+  "schema": "orbit-poc-preparation-probe-campaign-launcher-independent-review-v1",
+  "scope": "Code and fixture review only. No real native workload, physical propagation, namespace, remote smoke or benchmark launch occurred. Concrete preparation and campaign packets remain separate approvals.",
+  "tests_passed": 42
+}
