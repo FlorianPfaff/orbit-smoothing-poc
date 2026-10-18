@@ -1,0 +1,40 @@
+{
+  "fit_attempts": 0,
+  "native_executions": 0,
+  "new_wrapper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/run_campaign_assembly07_packet02.py",
+    "sha256": "e5d809e846302a3d2f746e59b033e3a2d73c39012d4fa0cffeef7ce3153daccf"
+  },
+  "next_scope": "Retry exact metadata assembly, then review actual host-plan/view/launch-pins before eventual campaign launcher.",
+  "numerical_scope": "Eventual launcher/controller/observerCPU32, numericalfitCPU24 and monitoredSMTsiblingCPU88 remain unchanged. No scientific/native/fit limits change.",
+  "old_wrapper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/run_campaign_assembly07_packet01.py",
+    "sha256": "fa7c190b49905500998528c4e8f537e495d389a62daf2df1aa691eea206cf8bf"
+  },
+  "preserved_failed_process": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/assembly-process.json",
+    "sha256": "d02a04c4b30a53e13e1edd5fbd8ae460c38f2f50e5082da7943584314564144e"
+  },
+  "preserved_failed_stderr": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/assembly.stderr.log",
+    "sha256": "0af48d3b1d454d9014e242d5068f0bf1020914c53d2314174e3b348959bc7174"
+  },
+  "preserved_failed_stdout": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/assembly.stdout.json",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "preserved_remote_payload": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/remote-assembly01.py",
+    "sha256": "1345eb7e1107744c3ab6982c36a5c5f52b612bb8f582468064c56bed0fa87e87"
+  },
+  "reviewed_at": "2026-10-18T22:31:19.191072+00:00",
+  "schema": "orbit-poc-campaign-assembly07-wrapper-affinity-independent-review-v1",
+  "status": "approved_narrow_metadata_runner_retry",
+  "targeted_checks": [
+    "Embedded remote payload is byte-identical.",
+    "Only the outer SSH Python taskset32 restriction is removed; separate attempt02 local log/script names preserve the failure.",
+    "Current-host admission still runs before the assembler, under both unchanged global/statistical locks.",
+    "The metadata assembler subprocess remains taskset32 with proper HOME and one-thread settings.",
+    "The actual failed preflight exited at admission before the assembler subprocess or any remote assembly output was created."
+  ]
+}

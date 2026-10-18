@@ -1,18 +1,61 @@
 {
   "actual_metadata": {
-    "derivation": "evidence/sealing04/derivation-result.json",
-    "fresh_output_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-02",
-    "installation": "evidence/sealing04/install-result.json",
-    "output_root_label": "Preserved failed output root",
+    "correspondence": "evidence/sealing05/sealed/correspondence.json",
+    "derivation": "evidence/sealing05-plan/derivation-result.json",
+    "fresh_output_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-03",
+    "installation": "evidence/sealing05-plan/install-result.json",
+    "invocation": "evidence/sealing05/sealed/invocation.json",
+    "output_root_label": "Successfully sealed output root",
     "parent_topology": "external-evidence.json",
-    "parent_topology_scope": "Full parent-membership bytes retained outside Git; reviewed scope is three ephemeral readonly scaffold roots with preserved existing children.",
+    "parent_topology_scope": "Full parent-membership bytes remain outside Git; three readonly scaffold roots were independently checked.",
     "parent_topology_sha256": "40d77ec27dac877d4c102030a797b120eb36d4ceef82ad25a9bf037d215d3291",
-    "plan": "evidence/sealing04/sealing-plan03.json",
-    "readonly_view": "evidence/sealing04/readonly-view-plan04.json",
-    "request": "evidence/sealing04/sealing-request03.json",
-    "status": "failed_metadata_planning",
-    "terminal_audit": "evidence/direct-sealing04-failure-independent-review01.json"
+    "plan": "evidence/sealing05/control/sealing-plan04.json",
+    "readonly_view": "evidence/sealing05/control/readonly-view-plan05.json",
+    "request": "evidence/sealing05/control/sealing-request04.json",
+    "sealed_result": "evidence/sealing05/sealed/result.json",
+    "status": "sealed_metadata",
+    "terminal_audit": "evidence/direct-sealing05-terminal-independent-review01.json"
   },
+  "assembly_milestone": {
+    "detail": "The concrete request links accepted seal05 output to the unchanged host controller, launcher, observer and inner namespace. Exact host-plan, host-view and launch pins were generated successfully and reviewed by root and independently accepted after fresh host-view reconstruction. The numerical allocation remains CPU24 with one thread; host controller and observer use CPU32, and CPU88 is monitored as the SMT sibling. These are cooperative shared-host timing controls. This record does not establish actual runtime probe success or native handoff.",
+    "evidence": [
+      {
+        "label": "Independent exact controller-packet acceptance",
+        "path": "evidence/campaign07-concrete-launch-independent-review01.json"
+      },
+      {
+        "label": "Root concrete packet review",
+        "path": "evidence/campaign07-concrete-launch-root-review01.json"
+      },
+      {
+        "label": "Exact assembly request",
+        "path": "evidence/assembly07/assembly-request05.json"
+      },
+      {
+        "label": "Successful metadata assembly",
+        "path": "evidence/assembly07/assembly.json"
+      },
+      {
+        "label": "Owned assembly execution",
+        "path": "evidence/assembly07/assembly-execution01.json"
+      },
+      {
+        "label": "Exact host plan",
+        "path": "evidence/assembly07/host-plan.json"
+      },
+      {
+        "label": "Exact outer host-view plan",
+        "path": "evidence/assembly07/host-view-plan.json"
+      },
+      {
+        "label": "Exact launcher pins",
+        "path": "evidence/assembly07/launch-pins.json"
+      }
+    ],
+    "status": "assembled_metadata_with_independent_packet_acceptance",
+    "title": "Exact campaign metadata assembled"
+  },
+  "boundary": "Campaign07 is terminal and failed during setup. This is not a statistical fit failure; zero of 68 fit attempts were consumed. No recovery build, runtime probe or relaunch is claimed in this snapshot.",
   "control_correction": {
     "detail": "The sealer retains original lexical link identities and adds only intermediate links actually traversed by required paths. The planner preserves the full ledger and exact resolution checks, while placing links at resolved-parent locations. All 44,072 file rows and 46,948 inventory entries replayed successfully: 2,581 links yield 1,529 placements, including 135 external placements. The real local fixture confirms five reads, five denied writes and four aliases for the same loader. These are control checks; no actual remote sealing or fit success is inferred. Draft01 remains preserved with its original failed missing-child negative test (89 passed, 1 failed).",
     "evidence": [
@@ -56,6 +99,70 @@
     "status": "approved_metadata_control_correction",
     "title": "Reviewed symlink-closure correction"
   },
+  "control_events": [
+    {
+      "at": "2026-10-18T22:00:03.592903+00:00",
+      "detail": "The first installer stopped before mutation because a read-only diagnostic import had generated one planner bytecode file inside the strict control directory. The cache was preserved outside control with the same SHA-256, byte count, device and inode. The retry used the identical remote installation script and installed the unchanged reviewed packet. This was an installation preflight event; it was neither another sealer attempt nor a fit failure.",
+      "evidence": [
+        {
+          "label": "Original failed preflight process receipt",
+          "path": "evidence/control-events/install11/install-process.json"
+        },
+        {
+          "label": "Original preflight stderr",
+          "path": "evidence/control-events/install11/install.stderr.log"
+        },
+        {
+          "label": "Same-byte/same-inode cache preservation",
+          "path": "evidence/control-events/install11/bytecode-preservation01.json"
+        },
+        {
+          "label": "Successful retry process receipt",
+          "path": "evidence/control-events/install11/install02-process.json"
+        },
+        {
+          "label": "Exact installed packet receipt",
+          "path": "evidence/control-events/install11/install02-result.json"
+        },
+        {
+          "label": "Independent actual-plan and event review",
+          "path": "evidence/direct-sealing05-actual-plan-independent-review01.json"
+        }
+      ],
+      "id": "install11_preflight_cache",
+      "status": "preserved_control_event_then_exact_packet_installed",
+      "title": "Install11 preflight stopped on diagnostic cache"
+    },
+    {
+      "at": "2026-10-18T22:31:19.191072+00:00",
+      "detail": "The first wrapper failed current-host admission because its outer SSH Python process was restricted to CPU32, excluding reserved CPUs needed by the admission check. No assembler subprocess or remote assembly output was created. Reviewed wrapper02 removes only that outer restriction and uses new attempt filenames; its embedded remote payload is byte-identical, and the actual metadata assembler remains pinned to CPU32 under both unchanged locks. The separate retry assembled metadata successfully.",
+      "evidence": [
+        {
+          "label": "Original failed preflight process record",
+          "path": "evidence/control-events/assembly07/assembly-process.json"
+        },
+        {
+          "label": "Original failed admission stderr",
+          "path": "evidence/control-events/assembly07/assembly.stderr.log"
+        },
+        {
+          "label": "Independent wrapper02 retry review",
+          "path": "evidence/campaign-assembly07-wrapper02-independent-review01.json"
+        },
+        {
+          "label": "Exact wrapper01-to02 source diff",
+          "path": "evidence/control-events/assembly07/wrapper01-to02.diff"
+        },
+        {
+          "label": "Successful retry process record",
+          "path": "evidence/control-events/assembly07/assembly02-process.json"
+        }
+      ],
+      "id": "assembly07_wrapper_preflight",
+      "status": "preserved_preflight_then_versioned_metadata_retry_succeeded",
+      "title": "Assembly wrapper admission preflight stopped before the assembler"
+    }
+  ],
   "control_reviews": [
     {
       "detail": "Three ephemeral parent roots preserve existing readonly children and aliases. Real bubblewrap fixture: 8 positive reads, 6 write denials, one explicit control write; physical backings unchanged.",
@@ -84,9 +191,56 @@
       "evidence": "evidence/symlink-closure-independent-review01.json",
       "label": "Complete symlink inventory and normalized link placement",
       "tests_passed": 122
+    },
+    {
+      "detail": "Request04, sealing-plan04 and readonly-view05 were reconstructed on the current host. The failed install preflight, unchanged cache identity, successful exact-packet retry, preserved older failures and fresh sealed-inputs-03 output were independently checked.",
+      "evidence": "evidence/direct-sealing05-actual-plan-independent-review01.json",
+      "label": "Actual sealing05 packet and installation event"
     }
   ],
-  "evidence_cutoff": "2026-10-18T21:58:31.016553+00:00",
+  "evidence_cutoff": "2026-10-18T22:47:31.267720+00:00",
+  "launch_milestone": {
+    "actual_inner_proof_passed": false,
+    "detail": "Historical observation retained unchanged in the linked evidence: Durable controller launch was recorded at 2026-10-18 22:33:34.357836 UTC. The independent 22:36:38 snapshot verifies PID4092025, start tick134643691 and the expected boot identity on CPU32, holding the pinned global and controller locks. The statistical lock is not yet held. Pipeline stage is starting; no prelaunch proof, prefix-before record, native process or fit record is present. Controller environment observations do not establish numerical-thread settings before native handoff. This starting snapshot was superseded by the terminal setup failure at 22:43:33 UTC; it is not an ongoing campaign status.",
+    "driver_process": {
+      "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+      "pid": 4092025,
+      "start_ticks": 134643691
+    },
+    "evidence": [
+      {
+        "label": "Independent controller-start audit",
+        "path": "evidence/campaign07-launch-live-independent-review01.json"
+      },
+      {
+        "label": "Exact dated independent snapshot",
+        "path": "evidence/live/controller-start-independent01.json"
+      },
+      {
+        "label": "Exact controller launch request",
+        "path": "evidence/launch01/request.json"
+      },
+      {
+        "label": "Launch process receipt",
+        "path": "evidence/launch01/process.json"
+      },
+      {
+        "label": "Original durable launch receipt",
+        "path": "evidence/launch01/stdout.log"
+      },
+      {
+        "label": "Original launch stderr",
+        "path": "evidence/launch01/stderr.log"
+      }
+    ],
+    "fit_attempts_observed": 0,
+    "historical_only": true,
+    "launch_committed_at": "2026-10-18T22:33:34.357836+00:00",
+    "native_processes_observed": 0,
+    "observed_at": "2026-10-18T22:36:38.465151+00:00",
+    "status": "verified_controller_started_before_inner_proof",
+    "title": "Historical controller-start snapshot"
+  },
   "limits": [
     "Code review, fixture tests, metadata derivation, namespace probes, launch and scientific outcomes are separate claims; only evidence actually included is reported.",
     "No strict convergence, covariance validity, nonlinear equivalence, accuracy improvement or v4 release readiness is inferred.",
@@ -94,10 +248,53 @@
     "The original 150-attempt campaign remains a separate unchanged executable, campaign and completion requirement.",
     "The copied controls preserve their original absolute paths and exact bytes. Reproduction of a remote execution also requires the pinned external inputs/runtime, original paths, host admission and actual approved packet."
   ],
+  "metadata_milestone": {
+    "captured_bytes": 117584395,
+    "captured_records": 27,
+    "counts": {
+      "allowed_files": 44072,
+      "denial_paths": 600,
+      "denied_files": 596,
+      "external_symlink_placements": 135,
+      "protected_readonly_targets": 3317,
+      "safe_trees": 3,
+      "skeleton_entries": 2101,
+      "symlink_ledger_entries": 2581,
+      "symlink_placements": 1529,
+      "writable_mounts": 3
+    },
+    "detail": "The owned seal completed in 1,352.340 seconds (execution record). Independent review accepted 27 captured metadata records totaling 117,584,395 bytes, checked all 44,072 allowed file rows and their exact backing correspondence, and verified 600 denial paths, 3,317 readonly targets and three writable declarations. Fresh host checks confirmed the 2,101-entry zero-data skeleton, owned cleanup and empty fit directories. This audit did not rehash bulky scientific payloads again or execute the actual inner runtime probe.",
+    "elapsed_seconds": 1352.3398249859456,
+    "evidence": [
+      {
+        "label": "Terminal independent metadata/cleanup audit",
+        "path": "evidence/direct-sealing05-terminal-independent-review01.json"
+      },
+      {
+        "label": "Exact sealed metadata result",
+        "path": "evidence/sealing05/sealed/result.json"
+      },
+      {
+        "label": "Owned execution record",
+        "path": "evidence/sealing05/execution/execution.json"
+      },
+      {
+        "label": "Original seal log",
+        "path": "evidence/sealing05/execution/sealing.log"
+      },
+      {
+        "label": "External capture inventory",
+        "path": "evidence/sealing05/manifest.json"
+      }
+    ],
+    "reviewed_at": "2026-10-18T22:28:52.570429+00:00",
+    "status": "accepted_sealed_metadata_and_cleanup",
+    "title": "Metadata sealed and independently audited"
+  },
   "observed_fit_attempts": {
     "count": 0,
-    "evidence": "evidence/direct-sealing04-failure-independent-review01.json",
-    "scope": "At the failed sealing04 execution and its independent cleanup audit; this is not a live status query."
+    "evidence": "evidence/campaign07-terminal-failure-independent-review01.json",
+    "scope": "At the independently audited campaign07 terminal failure and fresh cleanup snapshot; all 68 fits remain unstarted."
   },
   "preparation_publication": {
     "commit": "46f2bc46ab2e0e1ab097a7dda28d3cd157eb431a",
@@ -139,9 +336,80 @@
       "status": "preserved_symlink_inventory_metadata_failure"
     }
   ],
+  "prior_publications": [
+    {
+      "commit": "0677abbbe9f36229181787a367b1459531dcad17",
+      "evidence_cutoff": "2026-10-18T21:58:31.016553+00:00",
+      "manifest_sha256": "e220a9d782288843691304287cc3756ca85fe8506b75b9f294fd5275470d4c3c",
+      "status": "symlink_control_correction_reviewed_after_preserved_metadata_failure",
+      "summary_sha256": "8f9cb5075abdbcaa46ca2df301da300761c56fa55a23f934c09354df70ce7414"
+    }
+  ],
+  "related_campaign_status": {
+    "detail": "Separate original150 campaign snapshot: 56 of 150 attempts have terminal records; attempt57 is active with no terminal result. Recorded terminal classifications are 12 complete, 12 failed, 30 timeout and 2 interrupted. Legacy complete labels are not corrected-v3.1 or v4 strict-convergence claims. This is one dated local observation and does not merge the original150 and frozen68 campaign requirements.",
+    "earlier_evidence": "evidence/related-status/original150-20261018T222934Z.json",
+    "evidence": "evidence/related-status/original150-20261018T223331Z.json",
+    "observed_at": "2026-10-18T22:33:31.624401+00:00"
+  },
   "release_ready": false,
   "schema": "orbit-poc-campaign07-publication-v1",
-  "scope": "Reviewed campaign controls and three preserved metadata setup failures. The symlink-closure correction is independently approved for exact metadata installation and derivation. This snapshot contains no successful remote seal, campaign launch receipt, successful inner probe or scientific fit outcome.",
+  "scope": "Campaign07 ended in a verified namespace setup failure at 22:43:33 UTC. Installed bubblewrap rejected the 11,069-argument expanded payload against its 9,000-argument parser cap before inner Python, the mandatory probe or any fit. Owned cleanup and released locks were independently verified. All 68 planned fits remain unstarted.",
   "source_native_input_limits_changed": false,
-  "status": "symlink_control_correction_reviewed_after_preserved_metadata_failure"
+  "status": "campaign07_terminal_namespace_setup_failure_zero_fits",
+  "terminal_milestone": {
+    "detail": "Campaign07 finished at 2026-10-18 22:43:33.914425 UTC after 599.512 seconds outer elapsed time (310.520 seconds in the wrapper workload). Bubblewrap rejected 11,069 expanded arguments against its installed 9,000-argument parser cap. The sealed descriptor avoids shell/exec transport limits, but does not bypass this parser limit. The rejection occurred before inner Python, the required positive/denial probe or any fit; the outer missing-result error was secondary. Independent review verified all 16 captured files (6,644,139 bytes), 156 observer samples without known native conflict or process-read errors, owned cleanup, released global/controller/statistical locks, and empty attempts/temp directories. All 68 frozen fit attempts remain unstarted and unconsumed.",
+    "evidence": [
+      {
+        "label": "Terminal independent failure/cleanup review",
+        "path": "evidence/campaign07-terminal-failure-independent-review01.json"
+      },
+      {
+        "label": "Exact terminal pipeline and cleanup receipts",
+        "path": "evidence/terminal07/host/pipeline.json"
+      },
+      {
+        "label": "Exact bubblewrap failure log",
+        "path": "evidence/terminal07/host/workload.log"
+      },
+      {
+        "label": "Compact observer summary",
+        "path": "evidence/terminal07/host/observer/summary.json"
+      },
+      {
+        "label": "Independent terminal process/lock snapshot",
+        "path": "evidence/live/terminal-independent01.json"
+      },
+      {
+        "label": "Full external capture manifest",
+        "path": "evidence/terminal07/manifest.json"
+      }
+    ],
+    "status": "verified_setup_failure_no_fits",
+    "title": "Terminal setup failure; zero fits"
+  },
+  "terminal_outcome": {
+    "actual_inner_proof_passed": false,
+    "captured_bytes_verified": 6644139,
+    "captured_files_verified": 16,
+    "cleanup_verified": true,
+    "finished_at": "2026-10-18T22:43:33.914425+00:00",
+    "fit_attempts": 0,
+    "observer_samples": 156,
+    "outer_elapsed_seconds": 599.5124619759154,
+    "reviewed_at": "2026-10-18T22:47:31.267720+00:00",
+    "root_cause": {
+      "command_argument_count": 16,
+      "complete_payload_argument_count": 11069,
+      "component": "Installed bubblewrap argument parser",
+      "interpretation": "The sealed descriptor avoids the shell/execve transport length limit but the installed bubblewrap parser rejects its expanded argument list. It exits before inner Python and the mandatory proof; the outer missing-result error is secondary.",
+      "message": "bwrap: Exceeded maximum number of arguments 9000",
+      "readonly_mounts": 3317,
+      "setup_mount_argument_count": 11022,
+      "setup_payload_sha256": "41b15cac7b4948929af2f329ac5ce842032007bd8bf52d7d45d625be5b6b5a21",
+      "wrapper_added_environment_argument_count": 30,
+      "writable_mounts": 3
+    },
+    "status": "verified_setup_failure_no_fits",
+    "workload_elapsed_seconds": 310.5201535841916
+  }
 }

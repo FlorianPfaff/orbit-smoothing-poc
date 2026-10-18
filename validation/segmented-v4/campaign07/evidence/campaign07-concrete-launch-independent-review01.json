@@ -1,0 +1,93 @@
+{
+  "actual_controls": {
+    "assembly-execution01.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/assembly-execution01.json",
+      "sha256": "c1cb02cfd96b4c24e8bf60b5b609662a0c283693e2c3e79c98d09f9ee833c112"
+    },
+    "assembly-request05.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/assembly-request05.json",
+      "sha256": "65d23604811c64e2cc7a99da96894e56d9976f5ce24605ee2eba3745a40e5782"
+    },
+    "assembly.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/assembly.json",
+      "sha256": "ad6a3a51dc556bad83ca460bb5354ae6a3bed26b7bbed359d8388598650e180b"
+    },
+    "evidence-extension-result01.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/evidence-extension-result01.json",
+      "sha256": "7af38339dbc19e6962e7f2e2b2eec25b531a37bec3cdf2c92b4af7793fe20ed8"
+    },
+    "host-plan.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/host-plan.json",
+      "sha256": "c7831380af9a077ba0f29fa9763eea185ff4672a287efa1e7cecaea6765a0768"
+    },
+    "host-view-plan.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/host-view-plan.json",
+      "sha256": "ca7870c1e658626c9abef7319bb80c1de4cadc23b3f4c9bcc36ab814fe801b79"
+    },
+    "launch-pins.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/launch-pins.json",
+      "sha256": "0acd2681c58b1a3214aaf40a1274b9a7dfa7c1e233123ebaf6c37bbd1b1ac748"
+    }
+  },
+  "assembly_request": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/assembly-request05.json",
+    "sha256": "65d23604811c64e2cc7a99da96894e56d9976f5ce24605ee2eba3745a40e5782"
+  },
+  "checks": [
+    "Seven actual assembly/control readbacks match fresh remote hashes. Thirteen staged evidence/request files and26 prelaunch evidence pins verify; accepted validation/supplemental/preparation/sealing identities remain exact.",
+    "Fresh host-view reconstruction verifies one readonly sealing-control mount plus exactly five writable host mappings: attempts, temporary, statistical lock, pinned shared lock file and fresh host-control directory.",
+    "Current host/boot/control inode match; host.load_plan and bind_prepared_context accept the exact prepared manifest and frozen source/config context. No bulk44k backing hashes were redundantly recomputed.",
+    "Host/observerCPU32, numericalCPU24, monitoredSMTsiblingCPU88, one numerical thread,8GiB process-tree limit and frozen fit settings are preserved.",
+    "Actual metadata retry succeeded using a byte-identical remote payload after the preserved outer-affinity preflight failure. Eventual controller launch command remains taskset32.",
+    "The detached host rechecks current admission and ownership; the unchanged wrapper rechecks all backing identities before entering the empty-root fit namespace. Its unchanged inner probe must pass before any public run or native fit.",
+    "Fresh read shows attempts and temporary directories empty and no prior launch/controller outputs. No fit, native orbit run or actual inner runtime probe has yet occurred."
+  ],
+  "fit_attempts": 0,
+  "independent_remote_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_campaign07_actual01.py",
+    "sha256": "802936d2cbe8cc52d4aff5e46e576c4cc3529127b2d5b9faef07081af6bf8f02"
+  },
+  "independent_remote_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-actual-independent-readback01.json",
+    "sha256": "1d9b252e33598c5cf5a5889971b465261fb4687bc28494c17cf90a897f992685"
+  },
+  "launch_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/host-view-plan.json",
+    "--sha256",
+    "ca7870c1e658626c9abef7319bb80c1de4cadc23b3f4c9bcc36ab814fe801b79"
+  ],
+  "metadata_affinity_correction_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-wrapper02-independent-review01.json",
+    "sha256": "d39c6efdd717ea994355deadcdd632097b33ce88718f5c3f21f5058ea011c429"
+  },
+  "native_executions": 0,
+  "next_scope": "Run the exact approved launch command with proper outer HOME, preserve all launch evidence, and independently inspect actual inner positive/denial proof and owned live handoff as soon as available. A failed proof must stop without fitting.",
+  "release_ready": false,
+  "required_outer_environment": {
+    "HOME": "/home/florianpfaff",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "reviewed_at": "2026-10-18T22:33:10.442557+00:00",
+  "schema": "orbit-poc-campaign07-concrete-launch-independent-review-v1",
+  "scope": "Approve exact detached controller and its existing fail-closed inner prelaunch proof. This does not assert that the namespace proof or any fit has run.",
+  "sealed_metadata_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing05-terminal-independent-review01.json",
+    "sha256": "c0d6827888602fc856ed1b2c28dbf93dc776262bc7f1ca4e17f12a04fe36ec72"
+  },
+  "staging_plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/staging-plan.json",
+    "sha256": "1870f29c0bd3da228d3e782b14bf51868262418d5a74c5694faa1ad26fd1eb4c"
+  },
+  "status": "approved_exact_owned_controller_launch"
+}

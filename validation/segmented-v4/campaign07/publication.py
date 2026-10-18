@@ -70,11 +70,12 @@ details{margin-top:16px}summary{cursor:pointer;font-weight:600}ul{padding-left:2
              '<div class="card"><span class="number">' + str(s["observed_fit_attempts"]["count"]) + '</span><span class="label">fit attempts in the cited snapshot</span></div></div>',
              '<p class="small">' + escape(s["observed_fit_attempts"]["scope"]) + ' ' + link(s["observed_fit_attempts"]["evidence"], "Snapshot source") + '.</p>',
              '<div class="notice"><strong>Evidence boundary.</strong> ' + escape(s.get("boundary", "No campaign launch, successful inner probe or fit outcome is asserted by this snapshot.")) + ' Release ready: ' + str(s["release_ready"]).lower() + '.</div>']
-    if "launch_milestone" in s:
-        m = s["launch_milestone"]
-        parts += ['<section class="block"><h2>' + escape(m["title"]) + '</h2><p>' + escape(m["detail"]) + '</p><ul>']
-        parts += ['<li>' + link(x["path"], x["label"]) + '</li>' for x in m["evidence"]]
-        parts += ['</ul></section>']
+    for milestone in ("terminal_milestone", "metadata_milestone", "assembly_milestone", "launch_milestone"):
+        if milestone in s:
+            m = s[milestone]
+            parts += ['<section class="block"><h2>' + escape(m["title"]) + '</h2><p>' + escape(m["detail"]) + '</p><ul>']
+            parts += ['<li>' + link(x["path"], x["label"]) + '</li>' for x in m["evidence"]]
+            parts += ['</ul></section>']
     parts += ['<section class="block"><h2>Reviewed controls</h2><div class="scroll"><table><thead><tr><th>Control</th><th>Recorded evidence</th></tr></thead><tbody>']
     for row in s["control_reviews"]:
         count = str(row["tests_passed"]) + ' independent tests passed. ' if "tests_passed" in row else ''
@@ -85,6 +86,10 @@ details{margin-top:16px}summary{cursor:pointer;font-weight:600}ul{padding-left:2
         parts += ['<h3>' + escape(f["id"]) + ' · ' + format(f["elapsed_seconds"], '.3f') + ' seconds</h3><p>' + escape(f["detail"]) + '</p><p>' + link(f["evidence"], "Independent review") + ' · ' + link(f["execution"], "Execution record") + ' · ' + link(f["log"], "Original log") + '</p>']
     a = s["actual_metadata"]
     parts += ['</section>']
+    for event in s.get("control_events", []):
+        parts += ['<section class="block"><h2>' + escape(event["title"]) + '</h2><p>' + escape(event["detail"]) + '</p><ul>']
+        parts += ['<li>' + link(x["path"], x["label"]) + '</li>' for x in event["evidence"]]
+        parts += ['</ul></section>']
     if "control_correction" in s or "pending_correction" in s:
         candidate = s.get("control_correction", s.get("pending_correction"))
         parts += ['<section class="block"><h2>' + escape(candidate.get("title", "Correction candidate awaiting review")) + '</h2><p>' + escape(candidate["detail"]) + '</p><ul>']
@@ -93,8 +98,12 @@ details{margin-top:16px}summary{cursor:pointer;font-weight:600}ul{padding-left:2
     parts += ['<section class="block"><h2>Actual metadata packet</h2><p>Status: <strong>' + escape(a["status"]) + '</strong>. ' + escape(a.get("output_root_label", "Fresh output root")) + ':</p><p><code>' + escape(a["fresh_output_root"]) + '</code></p><ul>']
     for name in ("request", "plan", "readonly_view", "parent_topology", "installation", "derivation"):
         parts += ['<li>' + link(a[name], name.replace('_', ' ').capitalize()) + '</li>']
-    if "terminal_audit" in a:
-        parts += ['<li>' + link(a["terminal_audit"], "Terminal independent audit") + '</li>']
+    for key, label in (("terminal_audit", "Terminal independent audit"),
+                       ("sealed_result", "Sealed result"),
+                       ("invocation", "Exact invocation metadata"),
+                       ("correspondence", "Conditional correspondence result")):
+        if key in a:
+            parts += ['<li>' + link(a[key], label) + '</li>']
     parts += ['</ul><p>Manifest identity: <code>' + escape(p["manifest_hash"]) + '</code></p>',
               '<p class="small">Prepared source: ' + str(p["source_files_verified"]) + ' files; aggregate SHA-256 <code>' + escape(p["full_405_source_sha256"]) + '</code>. Preparation publication commit <code>' + escape(p["commit"]) + '</code>.</p></section>',
               '<section class="block"><h2>Exact control bytes</h2><p>The copies below retain reviewed bytes and original path semantics. They are evidence copies; remote execution requires the complete pinned context and approved packet.</p><details><summary>Inspect copied Python controls and fixtures</summary><div class="scroll"><table><thead><tr><th>File</th><th>SHA-256 / bytes</th></tr></thead><tbody>']
@@ -105,7 +114,16 @@ details{margin-top:16px}summary{cursor:pointer;font-weight:600}ul{padding-left:2
               '<section class="block"><h2>Reproduce the publication checks</h2><p>From this folder, verify the closed file inventory, SHA-256 identities, copy provenance, JSON, Python syntax and local report links:</p><pre>python3 -B publication.py verify</pre><p>Add <code>--source-copies</code> to compare exact copies with the original local control workspace. This verifier does not start a namespace or import or execute campaign controls.</p><p>' + link(MANIFEST, "Publication inventory") + ' excludes only itself. Anchor its identity in the reviewed Git commit when transferring the bundle. Bulk inputs, collision ledgers and runtime inventories remain external; remote-only pins are attributed to the named evidence record.</p></section>',
               '<section class="block"><h2>Interpretation limits</h2><ul>']
     parts += ['<li>' + escape(x) + '</li>' for x in s["limits"]]
-    parts += ['</ul></section><footer>Static evidence publication. Counts and statuses are tied to the cited capture, not refreshed from the running host.</footer></main></html>']
+    parts += ['</ul></section>']
+    if "related_campaign_status" in s:
+        related = s["related_campaign_status"]
+        parts += ['<section class="block"><h2>Separate original150 status</h2><p>' + escape(related["detail"]) + '</p><p class="small">Observed: ' + escape(related["observed_at"]) + ' · ' + link(related["evidence"], "Dated extract and source pin") + '</p></section>']
+    if s.get("prior_publications"):
+        parts += ['<section class="block"><h2>Earlier published snapshot</h2><p>The previous dated status and all earlier evidence remain recoverable from the recorded Git commit.</p><ul>']
+        for earlier in s["prior_publications"]:
+            parts += ['<li>' + escape(earlier["evidence_cutoff"]) + ' · <code>' + escape(earlier["commit"]) + '</code><br>Publication manifest SHA-256: <code>' + escape(earlier["manifest_sha256"]) + '</code></li>']
+        parts += ['</ul></section>']
+    parts += ['<footer>Static evidence publication. Counts and statuses are tied to the cited capture, not refreshed from the running host.</footer></main></html>']
     (ROOT / "index.html").write_text('\n'.join(parts) + '\n')
 
 

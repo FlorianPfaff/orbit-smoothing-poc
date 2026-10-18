@@ -1,0 +1,53 @@
+{
+  "actual_inner_proof_passed": false,
+  "approved_concrete_controls": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-concrete-launch-independent-review01.json",
+    "sha256": "d76cf7c60d61fcdd5942adfa0ae7e07f6db4b484e06b21fb7074adb47f562295"
+  },
+  "checks": [
+    "Actual request uses the exact approved host-view launch command, taskset32 and proper outer HOME; launcher returns success and records the expected controller hash and exact PID/start/boot.",
+    "Independent read observes that same owned driver on CPU32 with the expected command identity and private host-control HOME. Its outer environment is deliberately cleared by the host view; no numerical-thread count is inferred from this controller-only state.",
+    "Pinned global and controller locks are held by the same process identity; the statistical lock is not yet held.",
+    "The pipeline is starting, with no actual inner proof, prefix-before, native process or fit record at the snapshot. The unchanged inner proof must pass before public run or fitting."
+  ],
+  "driver_process": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "pid": 4092025,
+    "start_ticks": 134643691
+  },
+  "fit_attempts_observed": 0,
+  "independent_snapshot": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-independent-live01.json",
+    "sha256": "c7a6b590641f55ae61c9319de4100fe33280d71b2029bcdd9d4827ce6ba47288"
+  },
+  "launch_committed_at": "2026-10-18T22:33:34.357836+00:00",
+  "launch_evidence": {
+    "process.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign07-launch01/process.json",
+      "sha256": "bf973a7c5be662626d509c8fcb76e8c667f19e5c358107d5aed5ebd26291122f"
+    },
+    "request.json": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign07-launch01/request.json",
+      "sha256": "ee8b7ddd45b1ddd20150eef2c1493b862f2333f5fdcef1dae29a4137b93f007e"
+    },
+    "stderr.log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign07-launch01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign07-launch01/stdout.log",
+      "sha256": "0d772822716fea0b4590b2845b7416b1951e28674ca9d5f943d735c2d4a0b9f7"
+    }
+  },
+  "native_processes_observed": 0,
+  "observed_at": "2026-10-18T22:36:38.465151+00:00",
+  "release_ready": false,
+  "reviewed_at": "2026-10-18T22:37:30.372696+00:00",
+  "schema": "orbit-poc-campaign07-launch-live-independent-review-v1",
+  "scope": "Actual controller launch and one independent live snapshot only. This is not an actual empty-root proof, fit start, convergence, covariance or release acceptance.",
+  "snapshot_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft01/capture_campaign_live01.py",
+    "sha256": "977be51873a9071379b2b5784621a1e6814ff5fb4417327764f7c750f8952a2f"
+  },
+  "status": "verified_controller_started_before_inner_proof"
+}

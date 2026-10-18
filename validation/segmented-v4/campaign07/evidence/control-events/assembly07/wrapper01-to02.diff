@@ -1,0 +1,13 @@
+--- run_campaign_assembly07_packet01.py
++++ run_campaign_assembly07_packet02.py
+@@ -31,8 +31,8 @@
+  if r.returncode:raise SystemExit(r.returncode)
+ '''
+ code='REQUEST_JSON='+repr(json.dumps(request))+'\nSTAGE_JSON='+repr(json.dumps(stage))+'\nREQUEST_PIN='+repr(request_pin)+'\n'+code
+-(C/'remote-assembly01.py').write_text(code);t=time.time();r=subprocess.run(['/mnt/c/Windows/System32/OpenSSH/ssh.exe','-o','BatchMode=yes','gpuserver4090','env PYTHONDONTWRITEBYTECODE=1 /usr/bin/taskset -c 32 /usr/bin/python3 -B -'],input=code,text=True,capture_output=True)
+-(C/'assembly.stdout.json').write_text(r.stdout);(C/'assembly.stderr.log').write_text(r.stderr);(C/'assembly-process.json').write_text(json.dumps({'returncode':r.returncode,'elapsed_seconds':time.time()-t,'script_sha256':hashlib.sha256(code.encode()).hexdigest()},indent=2)+'\n')
++(C/'remote-assembly02.py').write_text(code);t=time.time();r=subprocess.run(['/mnt/c/Windows/System32/OpenSSH/ssh.exe','-o','BatchMode=yes','gpuserver4090','env PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 -B -'],input=code,text=True,capture_output=True)
++(C/'assembly02.stdout.json').write_text(r.stdout);(C/'assembly02.stderr.log').write_text(r.stderr);(C/'assembly02-process.json').write_text(json.dumps({'returncode':r.returncode,'elapsed_seconds':time.time()-t,'script_sha256':hashlib.sha256(code.encode()).hexdigest()},indent=2)+'\n')
+ if r.stdout:
+  v=json.loads(r.stdout);out=C/'actual-readback';out.mkdir()
+  for name,row in v['files'].items():

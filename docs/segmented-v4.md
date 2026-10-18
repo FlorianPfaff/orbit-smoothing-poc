@@ -198,5 +198,11 @@ chain and creates each resolved link location once, while retaining the complete
 link ledger and exact input checks. It passed 122 independent control tests, a
 real isolated-filesystem fixture, and replay of all 44,072 captured file rows and
 46,948 inventory entries. Scientific source, runtime payloads, prepared inputs
-and numerical settings are unchanged. This dated snapshot does not certify a
-successful remote setup, launch, fit convergence or release readiness.
+and numerical settings are unchanged. The corrected metadata seal completed and
+passed independent audit. Campaign07 then stopped before the inner runtime probe:
+the installed bubblewrap rejected its 11,069 expanded arguments against a 9,000
+argument cap. Owned-process cleanup and empty fit directories were independently
+verified. All 68 fits remain unstarted in that terminal snapshot; the preserved
+failure is a setup failure, not a failed statistical fit. The report retains the
+earlier controller-start observations as historical evidence. This does not
+establish fit convergence or release readiness.
