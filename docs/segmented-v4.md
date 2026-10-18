@@ -176,10 +176,17 @@ retained final reference, so this is neither an ordinary-to-QR comparison nor a
 replay of the deleted intermediate input. The flight derivative omissions above
 remain applicable.
 
-Fresh preparation07 launched on 18 October 2026 at 20:19:49 UTC after these
-audits. Independent inspection at 20:21:14 UTC verified running preparation and
-lock ownership; the 20:22:01 UTC numerical-child check verified CPU24 affinity and one-thread environment
-settings. These observations do not establish completed preparation or a sealed
-benchmark manifest. No fit in the 68-attempt benchmark has begun. That benchmark and the
-separate original v3.1 150-attempt campaign remain release requirements; these
-prebenchmark checks do not authorize accepted-fit covariance or release.
+Fresh preparation07 completed on 18 October 2026 at 20:31:00 UTC. All four
+continuous 72-hour generations and twelve prefix/mask jobs completed with
+verified owned-process cleanup. The [preparation report](../validation/segmented-v4/preparation07/index.html)
+publishes the exact 28-case catalog, 68-attempt order, settings and input pins.
+Independent audit verified the retained preparation receipts, unchanged source
+and runtime identities, and the frozen manifest
+`63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251`.
+Bulky generated inputs and full inventories remain outside Git with their hashes
+recorded in the report.
+
+At that terminal preparation capture, no benchmark fit had begun. Preparation
+does not establish fit convergence or accepted covariance. The 68-attempt
+benchmark and the separate original v3.1 150-attempt campaign remain release
+requirements.
