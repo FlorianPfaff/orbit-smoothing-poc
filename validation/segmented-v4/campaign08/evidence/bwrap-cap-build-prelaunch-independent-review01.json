@@ -1,0 +1,41 @@
+{
+  "actual_binary_accepted": false,
+  "checks": [
+    "All packet pins and safe unique source-archive members independently verified. Both exact64-entry source inventories match; only bubblewrap.c changes, by the single MAX_ARGS9000 to16384 constant.",
+    "Independently extracted upstream/Ubuntu tarballs, verified DSC-listed tar hashes, and reapplied both ordered Ubuntu patches with zero fuzz. All resulting distro source file hashes match; the distro patch has an expected135-line location offset and local backup file. The DSC signature was not independently verified.",
+    "Build selects generated configure, private libcap development headers, SELinux support and Ubuntu hardening flags with serial LTO/make. It does not install packages or replace /usr/bin/bwrap. Compiler/runtime dependencies are pinned and compiled-header inputs recorded. This route differs from the distro Meson build and is explicitly disclosed.",
+    "Runner holds current global/statistical locks, verifies current host admission, stages fresh owned inputs/output and supervises the CPU32 single-thread build/tests with1800-second control watchdog and owned cleanup. No orbital build or fit is invoked.",
+    "Worker requires nonprivileged0755 output/no capability xattr, SELinux features, PIE/RELRO/BIND_NOW and exact linked library set, then records linked library resolution.",
+    "Real tests require old9000-cap rejection, new11,069-argument empty-root3317-input fixture success with read/write denials and backing preservation, and retained16384-cap rejection. Actual results still require independent audit."
+  ],
+  "fit_execution_authorized": false,
+  "independent_checks": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-build-preflight-independent-checks01.json",
+    "sha256": "fcfee93ad1c878caa20ef30d476205e1dbd9b8b3315a1a0556f0e721eca5d5fa"
+  },
+  "independent_distro_patch_replay": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-distro-source-independent-replay03.json",
+    "sha256": "200637a21ecd5d36aaed51d09e6daa142c5b07c148ef11d8bb514eccb54b3198"
+  },
+  "packet": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-build-packet01/manifest.json",
+    "sha256": "89abfdca8b5818b0e74efe083ce6bee6cf7f7da44925e148dd352377b6642669"
+  },
+  "plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-build-packet01/build-plan.json",
+    "sha256": "c88defa44a7985c1d87602a2c51db00c36db9cc049c2112fd04456e0e24a9ef0"
+  },
+  "release_ready": false,
+  "reviewed_at": "2026-10-18T22:56:40.304015+00:00",
+  "runner": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-build-packet01/run_owned.py",
+    "sha256": "9305ac6168bc10c06dbe4a0f19e440f6dcdb26a9cd88f318d9550eb63b95b67f"
+  },
+  "schema": "orbit-poc-bwrap-cap-build-prelaunch-independent-review-v1",
+  "scope": "Approve exactly this infrastructure-only build/test operation. This is not acceptance of a produced binary, wrapper, recovery launch, runtime proof, fit or release.",
+  "status": "approved_owned_control_build_and_regressions",
+  "worker": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-build-packet01/build_and_test.py",
+    "sha256": "3a9f6c1a5f415c2cb6ad799f7d287e6218e4c050938bde94b9388c42b78770c7"
+  }
+}

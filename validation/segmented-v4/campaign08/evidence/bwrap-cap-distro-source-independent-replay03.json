@@ -1,0 +1,29 @@
+{
+  "commands": [
+    {
+      "patch": "debian/Change-EPERM-error-message-to-show-Debian-specific-inform.patch",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "patching file bubblewrap.c\nHunk #1 succeeded at 2787 (offset 135 lines).\n"
+    },
+    {
+      "patch": "Add-bind-fd-and-ro-bind-fd-to-let-you-bind-a-O_PATH-fd.patch",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "patching file bubblewrap.c\npatching file tests/test-run.sh\n"
+    }
+  ],
+  "exact_distro_inventory_entries": 64,
+  "extra_local_patch_backup_files": [
+    "bubblewrap.c.orig"
+  ],
+  "prior_review_attempts": [
+    "Initial local extraction check rejected known relative Debian test symlink before extracting Debian archive; no production operation.",
+    "Second local check stopped after first exact no-fuzz distro patch because upstream hunk applied at a135-line offset. Final file hashes below, rather than hunk line location, certify identity."
+  ],
+  "schema": "orbit-poc-bwrap-distro-source-independent-replay-v1",
+  "scope": "Independent extraction of pinned upstream/Ubuntu tarballs and exact ordered no-fuzz distro patches. All64 source inventory entries match. No build or fit.",
+  "source_directory": "/tmp/bwrap-ubuntu-patches-independent03-zehtgzin/bubblewrap-0.6.1",
+  "source_packet_sha256": "f8d928f7326230d946c90c8e12475a54080d2966aa1d5b2dba9dd4108a7ff1df",
+  "status": "passed"
+}

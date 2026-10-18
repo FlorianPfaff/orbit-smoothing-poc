@@ -1,0 +1,71 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-"
+      ],
+      "command_sha256": "fcf552dde7f0b76406ecc61a399e9adc3fa19352ba8943b0428696d16dc4f603",
+      "parent": 4116682,
+      "pid": 4116683,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 134821504,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-18T23:03:13.133443+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Fresh validation07: audited complete611-object wide tangent candidate, exact405source, original14 stages/106/51 unchanged; source/decoder/interpolation supplements separately reported. Serial CPU24,1thread,8GiB; proper userHOME; no fits.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validate_existing.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validation-plan.json",
+    "--sha256",
+    "0f93cbdaffdb76257809358c11ea3664d9fcbd45fbc22f1712b650e93e96ebf2"
+  ],
+  "cwd": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-02",
+  "environment": {
+    "HOME": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-02",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PATH": "/usr/bin:/bin",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "fit_attempts": 0,
+  "inputs": {
+    "prior-build-manifest.json": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/prior-build-manifest.json",
+      "sha256": "be14116fc69f8b731f8281549a86997c16972d7db7de184b7aeda087d536a035"
+    },
+    "validate_existing.py": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validate_existing.py",
+      "sha256": "428c6b1394dd7dcb8f1e6cff79be8010834cf0ede6ee3e15c1372bd8187c2d80"
+    },
+    "validation-plan.json": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validation-plan.json",
+      "sha256": "0f93cbdaffdb76257809358c11ea3664d9fcbd45fbc22f1712b650e93e96ebf2"
+    }
+  },
+  "schema": "orbit-poc-bwrap-cap-owned-validation-v1",
+  "scientific_native_executions": 0,
+  "status": "running"
+}

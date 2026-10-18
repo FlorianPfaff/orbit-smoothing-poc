@@ -1,0 +1,123 @@
+{
+  "binary": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01/binaries/bwrap-0.6.1-ubuntu0.3-maxargs16384",
+  "build_environment": {
+    "CC": "/usr/bin/gcc",
+    "CFLAGS": "-g -O2 -ffile-prefix-map=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01=. -flto=1 -ffat-lto-objects -flto=1 -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security",
+    "CPPFLAGS": "-Wdate-time -D_FORTIFY_SOURCE=2 -I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01/private-dev/usr/include",
+    "LDFLAGS": "-Wl,-Bsymbolic-functions -flto=1 -ffat-lto-objects -flto=1 -Wl,-z,relro -Wl,-z,now -L/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01/private-dev/usr/lib/x86_64-linux-gnu"
+  },
+  "build_route": "Generated upstream configure with exact Ubuntu-patched source; same SELinux/libcap features and Ubuntu hardening flags, explicitly serial LTO. No host package installation.",
+  "fit_attempts": 0,
+  "fixture_argument_count": 11069,
+  "host_files": {
+    "/bin/dash": {
+      "path": "/bin/dash",
+      "resolved": "/usr/bin/dash",
+      "sha256": "4f291296e89b784cd35479fca606f228126e3641f5bcaee68dee36583d7c9483"
+    },
+    "/lib/x86_64-linux-gnu/libc.so.6": {
+      "path": "/lib/x86_64-linux-gnu/libc.so.6",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "b2cf6c33b74d2f22543b7a469a75b538911e690f769d0b238843a49465b83793"
+    },
+    "/lib/x86_64-linux-gnu/libcap.so.2.44": {
+      "path": "/lib/x86_64-linux-gnu/libcap.so.2.44",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libcap.so.2.44",
+      "sha256": "00e8d9ef4e9c081a3c8d8164cfd06165937c9bcb6d4f9b47c6dcfa53d9e52046"
+    },
+    "/lib/x86_64-linux-gnu/libpcre2-8.so.0": {
+      "path": "/lib/x86_64-linux-gnu/libpcre2-8.so.0",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4",
+      "sha256": "f887eed7d0df7073f3d8bdc9e60d35082453b10165cf45359b5019e33ba2b9ec"
+    },
+    "/lib/x86_64-linux-gnu/libselinux.so.1": {
+      "path": "/lib/x86_64-linux-gnu/libselinux.so.1",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libselinux.so.1",
+      "sha256": "624eb1e6a7510e0983e9caa1bbf3e1966acb64fd6d3ad4db94528addbe1e7224"
+    },
+    "/lib64/ld-linux-x86-64.so.2": {
+      "path": "/lib64/ld-linux-x86-64.so.2",
+      "resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "41daf7836f7fce21a40ca63a00c5caf21b05a35a76ccc075d86f1716212cdf01"
+    },
+    "/usr/bin/as": {
+      "path": "/usr/bin/as",
+      "resolved": "/usr/bin/x86_64-linux-gnu-as",
+      "sha256": "4e6b50c3faaa834150db32be778fd7d9440a4e1f5fa8beb8a72277b12159d689"
+    },
+    "/usr/bin/bwrap": {
+      "path": "/usr/bin/bwrap",
+      "sha256": "bf6cf3d4456665f5d80c14eb79a76e0ce87b39a0883e614a161658b4ec33492c"
+    },
+    "/usr/bin/dpkg-buildflags": {
+      "path": "/usr/bin/dpkg-buildflags",
+      "resolved": "/usr/bin/dpkg-buildflags",
+      "sha256": "4f26005120e9e3a77823d93624c67a2435f46cca06f7b1b45a85ad367db23b00"
+    },
+    "/usr/bin/dpkg-deb": {
+      "path": "/usr/bin/dpkg-deb",
+      "resolved": "/usr/bin/dpkg-deb",
+      "sha256": "25ecb9e986bbbf6184f13617c2a31d8afc556d8b0fd5b764cd1eef506f9c9e73"
+    },
+    "/usr/bin/gcc": {
+      "path": "/usr/bin/gcc",
+      "resolved": "/usr/bin/x86_64-linux-gnu-gcc-11",
+      "sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89"
+    },
+    "/usr/bin/ld": {
+      "path": "/usr/bin/ld",
+      "resolved": "/usr/bin/x86_64-linux-gnu-ld.bfd",
+      "sha256": "58937fc20c21e147883b4fdaa0fc7438a8e8f2bb886cfcaa4896100ca91139e7"
+    },
+    "/usr/bin/ldd": {
+      "path": "/usr/bin/ldd",
+      "resolved": "/usr/bin/ldd",
+      "sha256": "5debdb52a8a3ed797ce1b85ff5563e79e7f94600ae9f7ffffcecf19f52155ed2"
+    },
+    "/usr/bin/make": {
+      "path": "/usr/bin/make",
+      "resolved": "/usr/bin/make",
+      "sha256": "92f646030615cd98490a68a94c0aefd87b552be3158b941c02e43b0bfdb576db"
+    },
+    "/usr/bin/patch": {
+      "path": "/usr/bin/patch",
+      "resolved": "/usr/bin/patch",
+      "sha256": "4eeeadd2ad2b18e977b63440ef2be720a82c68f43f843f68fc7e89e6f77deb3d"
+    },
+    "/usr/bin/pkg-config": {
+      "path": "/usr/bin/pkg-config",
+      "resolved": "/usr/bin/pkg-config",
+      "sha256": "5b3ac843680075b8266500aaa948eb3f622aed206ff4116c08de5d8609eaa563"
+    },
+    "/usr/bin/python3": {
+      "path": "/usr/bin/python3",
+      "resolved": "/usr/bin/python3.10",
+      "sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae"
+    },
+    "/usr/bin/readelf": {
+      "path": "/usr/bin/readelf",
+      "resolved": "/usr/bin/x86_64-linux-gnu-readelf",
+      "sha256": "04db0000749aff89e4af21429340b00b536fc6f80e811c872c006507881a5560"
+    },
+    "cc1": {
+      "path": "/usr/lib/gcc/x86_64-linux-gnu/11/cc1",
+      "sha256": "31c2233432d9105001eea158b799f7d403dc5a1944c712283dba251f3ab8eb43"
+    },
+    "collect2": {
+      "path": "/usr/lib/gcc/x86_64-linux-gnu/11/collect2",
+      "sha256": "74da9a263cce4582f98c7995d04fa52110c8366d65cba1c5bc976a00f1b3f14b"
+    }
+  },
+  "root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01",
+  "schema": "orbit-poc-bwrap-cap-build-plan-v1",
+  "scientific_changes": false,
+  "source_archive": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-inputs01/source-inputs.tar",
+    "sha256": "f8d928f7326230d946c90c8e12475a54080d2966aa1d5b2dba9dd4108a7ff1df"
+  },
+  "source_manifest_sha256": "a868526fd9c677f55a79819cfef0c8fc1d821993a9eca45e74d04cfa03351a0f",
+  "worker": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-inputs01/build_and_test.py",
+    "sha256": "3a9f6c1a5f415c2cb6ad799f7d287e6218e4c050938bde94b9388c42b78770c7"
+  }
+}

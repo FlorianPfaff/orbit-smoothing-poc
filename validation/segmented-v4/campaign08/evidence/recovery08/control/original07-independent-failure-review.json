@@ -1,0 +1,59 @@
+{
+  "actual_inner_proof_passed": false,
+  "captured_bytes_verified": 6644139,
+  "captured_files_verified": 16,
+  "checks": [
+    "All16 exact captured artifacts and bytes match the capture manifest; terminal pipeline agrees with a separate fresh remote read.",
+    "Pinned launch, host plan, invocation and mount-plan identities match the reviewed packet. All existing scientific input, source and runtime identities remain attributed to that frozen packet; no scientific workload was launched.",
+    "All156 observer samples report no known native workload/conflict or process-read error; observer stops by its owner without signals, with verified cleanup.",
+    "Fresh independent terminal snapshot observes no live owned driver/observer/wrapper/native process and all three locks released. Capture independently verifies empty attempts and temporary directories.",
+    "No inner proof, prefix-before or fit record exists. This launch remains failed, and none of the68 planned fit attempts was consumed or replaced."
+  ],
+  "cleanup_verified": true,
+  "finished_at": "2026-10-18T22:43:33.914425+00:00",
+  "fit_attempts": 0,
+  "independent_terminal_snapshot": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-independent-terminal-live01.json",
+    "sha256": "c380d5665ac16fd1afdd7633711dc1fc5c7168fe34d113956beebc369d8e319c"
+  },
+  "next_scope": "Review a separately versioned control-only correction for the measured argument-cap failure, preserve exact mount/denial semantics and all prior failed outputs, then verify actual inner proof before any fit.",
+  "observer_summary": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-terminal01/host/observer/summary.json",
+    "sha256": "2ec44646cfe09c79e9ed756576d912e4ee61e84148cfbe735fbda4085e8eb7dc"
+  },
+  "outer_elapsed_seconds": 599.5124619759154,
+  "pipeline": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-terminal01/host/pipeline.json",
+    "sha256": "e4406673a2267d992d090626f99798d7646f2bebb8240d5477688731cd6a1b5b"
+  },
+  "prior_launch_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-launch-live-independent-review01.json",
+    "sha256": "b258b55ec759fba6ed8614f7fceb1f702904474a26d23aa0b6a7974bfe7e4c89"
+  },
+  "release_ready": false,
+  "reviewed_at": "2026-10-18T22:47:31.267720+00:00",
+  "root_cause": {
+    "command_argument_count": 16,
+    "complete_payload_argument_count": 11069,
+    "component": "Installed bubblewrap argument parser",
+    "interpretation": "The sealed descriptor avoids the shell/execve transport length limit but the installed bubblewrap parser rejects its expanded argument list. It exits before inner Python and the mandatory proof; the outer missing-result error is secondary.",
+    "message": "bwrap: Exceeded maximum number of arguments 9000",
+    "readonly_mounts": 3317,
+    "setup_mount_argument_count": 11022,
+    "setup_payload_sha256": "41b15cac7b4948929af2f329ac5ce842032007bd8bf52d7d45d625be5b6b5a21",
+    "wrapper_added_environment_argument_count": 30,
+    "writable_mounts": 3
+  },
+  "schema": "orbit-poc-campaign07-terminal-failure-independent-review-v1",
+  "scope": "Audit of failed namespace setup and owned cleanup. This is not a statistical fit failure or an accepted runtime namespace proof.",
+  "status": "verified_setup_failure_no_fits",
+  "terminal_capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-terminal01/manifest.json",
+    "sha256": "20c14ed104f0a7e1dd3f270f29fd43ceb0e59922d9ccb3535d5a19abcf15dbc0"
+  },
+  "workload_elapsed_seconds": 310.5201535841916,
+  "workload_log": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign07-terminal01/host/workload.log",
+    "sha256": "89b90b4562ff4eb5a4dfa559d4da9a43d2dae2473251166180893f36b79fbc4f"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "actual_inner_probe_present": false,
+  "captured_at": "2026-10-18T23:17:38.292116+00:00",
+  "current_nonterminal_attempt_ids": [],
+  "driver_identity_matches": true,
+  "driver_live": true,
+  "driver_process": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "pid": 4127290,
+    "start_ticks": 134905838
+  },
+  "locks": [
+    {
+      "bytes": 0,
+      "device": 2048,
+      "inode": 217252784,
+      "kernel_locks": [
+        {
+          "line": "22: FLOCK  ADVISORY  WRITE 4127290 08:00:217252784 0 EOF",
+          "owned_at_snapshot": true,
+          "owner_pid": 4127290,
+          "owner_start_ticks": 134905838,
+          "waiting": false
+        }
+      ],
+      "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/control/candidate09-validation.lock"
+    },
+    {
+      "bytes": 0,
+      "device": 2048,
+      "inode": 239479247,
+      "kernel_locks": [],
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/.segmented.lock"
+    },
+    {
+      "bytes": 0,
+      "device": 2048,
+      "inode": 239602706,
+      "kernel_locks": [
+        {
+          "line": "21: FLOCK  ADVISORY  WRITE 4127290 08:00:239602706 0 EOF",
+          "owned_at_snapshot": true,
+          "owner_pid": 4127290,
+          "owner_start_ticks": 134905838,
+          "waiting": false
+        }
+      ],
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/controller.lock"
+    }
+  ],
+  "manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+  "native_process_count": 0,
+  "owned_controller_affinity": [
+    32
+  ],
+  "pipeline_status": "starting",
+  "process_visibility_errors": [],
+  "schema": "orbit-poc-campaign08-live-publication-extract-v1",
+  "scope": "Selected fields from a non-atomic read-only snapshot; full capture remains external. Controller startup is not proof or fit execution.",
+  "source": {
+    "bytes": 27108,
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign08-live01.json",
+    "sha256": "0fd26ee0477a95a770f60a0ff3e8f111c3ad8d8d7c8c65f1955619f525bf1dc5"
+  },
+  "terminal_count": 0,
+  "terminal_prefix": 0,
+  "terminal_status_counts": {},
+  "unstarted_attempt_count": 68
+}

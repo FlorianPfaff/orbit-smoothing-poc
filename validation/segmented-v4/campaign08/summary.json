@@ -1,0 +1,217 @@
+{
+  "actual_binary_build_accepted": true,
+  "actual_controller_started": true,
+  "actual_inner_proof_passed": false,
+  "actual_launch_evidence_included": true,
+  "actual_recovery_assembled": true,
+  "build01": {
+    "binary_sha256": "7983e8f9ac3c68f072b4ea7884f4d3ce87c2086a1198412649663614113fc3f4",
+    "detail": "Configure, serial make, ELF inspection, linked-library inspection and version commands returned zero. The compiled control executable was preserved, but the header collector indexed an unused # dummy .Po line without a colon and raised IndexError. It did not reach the namespace/regression fixtures. The original failure and verified owned cleanup remain preserved; the later unchanged-binary validation and acceptance are recorded separately. No orbital run occurred during this failed attempt.",
+    "execution": "evidence/build01/execution.json",
+    "external_capture": {
+      "bytes_verified": 5262942,
+      "files_verified": 182,
+      "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-build-terminal01/manifest.json",
+      "sha256": "be14116fc69f8b731f8281549a86997c16972d7db7de184b7aeda087d536a035"
+    },
+    "failure": "evidence/build01/failure.json",
+    "log": "evidence/build01/build.log",
+    "status": "compiled_binary_preserved_metadata_collector_failed_before_fixtures"
+  },
+  "build_acceptance": {
+    "detail": "The binary is accepted for the corrected transport after source replay, actual build provenance, synthetic isolation/cap fixtures and a fresh independent readback. The audit rehashed 430 control/source/header/runtime/artifact files and 32 links, checked 209 dependency files across four compiled objects, confirmed mode 0755 with no capabilities and PIE/RELRO/BIND_NOW, and found all 18 earlier owned identities absent or nonexecuting. The original installed bubblewrap and scientific payloads remain unchanged. Actual inner proof is still mandatory before a fit.",
+    "review": "evidence/bwrap-cap-build-independent-review01.json",
+    "reviewed_at": "2026-10-18T23:12:15.566501+00:00",
+    "title": "Exact control binary independently accepted"
+  },
+  "campaign_running": false,
+  "control_reviews": [
+    {
+      "detail": "Seals setup options in the descriptor and places the exact unchanged command after -- on actual argv. Preparation, namespace, probe, environment and descriptor guards remain unchanged. The complete effective argument hash retains its meaning.",
+      "evidence": "evidence/cap-wrapper-transport-independent-review01.json",
+      "label": "Wrapper03 command transport",
+      "tests_passed": 28
+    },
+    {
+      "detail": "Only the wrapper03 path and required transport-aware review status change. All prior failure, zero-fit, process, input and metadata checks remain unchanged.",
+      "evidence": "evidence/cap-recovery-transport-independent-review01.json",
+      "label": "Recovery adapter for wrapper03",
+      "tests_passed": 32
+    },
+    {
+      "detail": "Only host-control07 to08 and its recorded inode change. A prior wrong local test filename ran zero tests; its log/XML remain preserved. Actual launch and proof remain separate gates.",
+      "evidence": "evidence/campaign-live-snapshot02-independent-review01.json",
+      "label": "Read-only live capture02",
+      "tests_passed": 8
+    }
+  ],
+  "elf_compatibility": {
+    "detail": "The pinned taskset requires only libc.so.6; all required GLIBC versions are defined by the frozen libc, and its loader-version requirements are also satisfied. This necessary symbol-version check did not test runtime library lookup. The actual namespace later failed to locate libc.so.6 before Python; that failure preserves the narrow ELF check while demonstrating that it was insufficient to establish a runnable namespace.",
+    "evidence": "evidence/taskset-elf-compatibility-summary.json"
+  },
+  "evidence_cutoff": "2026-10-18T23:31:00.291827+00:00",
+  "fit_attempts_completed": 0,
+  "fit_attempts_observed": 0,
+  "fit_attempts_started": 0,
+  "fresh_control": {
+    "device": 2048,
+    "inode": 239602380,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08"
+  },
+  "fresh_control_evidence": "evidence/campaign08-control-identity01.json",
+  "historical_control_reviews": [
+    {
+      "detail": "Historical accepted control version, insufficient after the command-transport failure. Wrapper02 changes only the fixed alternative executable path/hash guard. Namespace reconstruction, denied aliases, descriptor closure and sealed argument transport remain exact. The review does not accept the pending binary build.",
+      "evidence": "evidence/cap-wrapper-independent-review01.json",
+      "label": "Fixed alternative bubblewrap wrapper pin",
+      "tests_passed": 25
+    },
+    {
+      "detail": "Historical accepted control version, insufficient after the command-transport failure. Changes only wrapper/bubblewrap pins and fresh control08 links after exact build/wrapper acceptance. Original mount plan, allowlist, probe, inner controller, source, inputs and fit order/settings stay fixed.",
+      "evidence": "evidence/cap-recovery-adapter-independent-review01.json",
+      "label": "Recovery metadata adapter",
+      "tests_passed": 32
+    }
+  ],
+  "launch08": {
+    "created_at": "2026-10-18T23:17:15.822838+00:00",
+    "detail": "The exact detached campaign08 launch returned zero and recorded driver PID 4127290, start ticks 134905838, on the unchanged host boot. At 23:17:38 UTC the matching driver was live on CPU32 with the global and controller locks, and pipeline stage starting. The actual inner-probe file was absent, no native fit process was present and all 68 attempts were unstarted. This dated launch envelope establishes controller startup only. The independent 23:18:16 snapshot confirmed the same starting/zero-fit state. These startup observations are historical; the terminal failure is recorded separately.",
+    "driver_process": {
+      "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+      "pid": 4127290,
+      "start_ticks": 134905838
+    },
+    "execution": "evidence/launch08/process.json",
+    "log": "evidence/launch08/stdout.log",
+    "observed_at": "2026-10-18T23:17:38.292116+00:00",
+    "request": "evidence/launch08/request.json",
+    "result": "evidence/launch08/live01-summary.json",
+    "review": "evidence/campaign08-launch-live-independent-review01.json",
+    "title": "Preserved historical controller-start snapshot"
+  },
+  "limits": [
+    "Campaign08 is terminal and no longer running. The accepted control build, synthetic fixtures and historical controller launch do not establish actual inner proof or a fit. All 68 planned attempts remain unstarted.",
+    "Scientific source, measurements, weights, priors, runtime payloads and numerical thresholds remain frozen. Separate library-search topology diagnosis does not establish an accepted correction or retry in this report.",
+    "No fit convergence, covariance validity, accuracy improvement, release readiness or completion of the separate original150 campaign is inferred."
+  ],
+  "planned_fit_attempts": 68,
+  "prior_campaign": {
+    "detail": "Campaign07 remains a preserved setup failure: expanded payload 11,069 exceeded the installed parser cap of 9,000 before inner Python or any fit. All 68 frozen attempts were unstarted.",
+    "finished_at": "2026-10-18T22:43:33.914425+00:00",
+    "publication_commit": "0c6000206c3405297e710d7bb972efb89f850aa1",
+    "relative_report": "../campaign07/index.html",
+    "status": "terminal_namespace_setup_failure_zero_fits"
+  },
+  "prior_reviewed_snapshot": {
+    "archive": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign08-publication-reviewed01.tar",
+      "sha256": "1d0f391700f80bf7b6d6b03a3a32e4e5464863ef265a6df9f2cc43c8f5029268"
+    },
+    "detail": "The earlier 145-file startup-only report was independently accepted and preserved byte for byte in an external archive. Its review applies only to manifest 217cbc99d29ecf810596d4e0a6211d6ab6157d71b7bff4cf609188fe4e501f4e; it does not certify this later terminal update. The prior report and all underlying failures remain recoverable.",
+    "manifest_sha256": "217cbc99d29ecf810596d4e0a6211d6ab6157d71b7bff4cf609188fe4e501f4e",
+    "review": "evidence/campaign08-publication-independent-review01.json",
+    "title": "Preserved reviewed startup-only report"
+  },
+  "production_transport": {
+    "detail": "The root review reconstructs the original effective 11,069-argument vector and its unchanged hash 41b15cac7b4948929af2f329ac5ce842032007bd8bf52d7d45d625be5b6b5a21. The new sealed descriptor contains 11,052 setup arguments; the same 16 command arguments remain on real argv after the separator. Source, runtime and mount identities match their frozen pins. This is a local vector and readback check, not the actual inner proof.",
+    "review": "evidence/cap-wrapper-production-transport-root-review01.json",
+    "title": "Exact production argument reconstruction"
+  },
+  "recovery08": {
+    "detail": "All 19 actual readback files / 63,176 bytes match the capture. Independent comparison reconstructs four derived control documents from campaign07, changing only the accepted binary/wrapper transport pins, fresh control08 directory and metadata references. Current host-view reconstruction, exact source/config/manifest binding and empty fit directories passed. Owned metadata cleanup succeeded. The exact controller launch is approved; actual unchanged positive/denial inner proof remains mandatory before any fit.",
+    "elapsed_seconds": 0.7580680788960308,
+    "execution": "evidence/recovery08/execution/execution.json",
+    "finished_at": "2026-10-18T23:13:40.357533+00:00",
+    "manifest": "evidence/recovery08/manifest.json",
+    "result": "evidence/recovery08/control/recovery.json",
+    "review": "evidence/campaign08-concrete-launch-independent-review01.json",
+    "root_review": "evidence/campaign08-concrete-packet-root-review01.json",
+    "title": "Actual campaign08 recovery packet accepted"
+  },
+  "related_campaign_status": {
+    "active_attempt_id": "fresh-leo300-quiet-normal-groops_pulses--qr_lm_staged_jacobian",
+    "active_order_one_based": 57,
+    "detail": "Separate original150 read-only snapshot at 23:15:05 UTC: 56 terminal outcomes (12 complete under archived criteria, 30 timeouts, 12 failures and 2 interruptions); attempt 57 was active. Its original pinned runtimes remain separate. This is a dated process/status observation, not a scientific completion claim.",
+    "external_source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/original150-current-status-20261018T231505Z.json",
+      "sha256": "c467b7f0b79545800092493abe0215450edc548e5c448ba21f5992a27a0a04ec"
+    },
+    "observed_at": "2026-10-18T23:15:05.720366+00:00",
+    "status_counts": {
+      "complete": 12,
+      "failed": 12,
+      "interrupted": 2,
+      "timeout": 30
+    },
+    "terminal_attempts": 56
+  },
+  "release_ready": false,
+  "schema": "orbit-poc-campaign08-publication-v1",
+  "scope": "Campaign08 stopped at 23:27:48 UTC before inner Python, the actual proof or any fit. The corrected argument cap and transport reached taskset inside the empty-root namespace, but its dynamic loader could not locate libc.so.6 and returned 127. Independent terminal audit verified cleanup and all 68 frozen attempts unstarted.",
+  "snapshot_created_at": "2026-10-18T23:32:36.289304+00:00",
+  "source_provenance": {
+    "build_route": "Generated configure; distro package uses Meson.",
+    "detail": "Pinned Ubuntu 0.6.1-1ubuntu0.3 source tarballs match DSC-listed hashes; both ordered distro patches replay without fuzz. Exactly one source constant changes, MAX_ARGS 9000 to 16384. Original /usr/bin/bwrap and all scientific source/runtime payloads remain unchanged.",
+    "evidence": "evidence/source/research-result.json",
+    "limits": [
+      "The source package GPG signature was not verified. Hash matching and patch replay do not substitute for that signature check.",
+      "The configure build route differs from the distribution Meson build. Build flags, generated configuration, dynamic dependencies and exact produced bytes require their own acceptance.",
+      "Local parser or synthetic namespace fixtures do not certify the actual frozen scientific namespace. Its original mandatory inner proof must pass before any fit."
+    ],
+    "patch": "evidence/source/max-args-16384.patch",
+    "source_signature_verified": false
+  },
+  "status": "terminal_namespace_loader_failure_zero_fits",
+  "terminal08": {
+    "cleanup": "evidence/terminal08/independent-live-summary.json",
+    "detail": "The actual wrapper recorded the unchanged full argument hash and setup-only descriptor transport, then taskset failed to load libc.so.6 inside the empty-root namespace (return code 127). No inner Python, actual positive/denial proof, public campaign run or native fit was reached. The outer missing-result FileNotFoundError was secondary. Independent audit verified all 26 captured files / 7,421,248 bytes, 172 observer samples with no known native conflict or incomplete sample, four owned identities no longer executing, all three locks released and empty attempts/private temporary directories. All 68 frozen fits remain unstarted; this is a setup failure, not a statistical fit failure.",
+    "elapsed_seconds": 632.8609476729762,
+    "execution": "evidence/terminal08/host/pipeline.json",
+    "finished_at": "2026-10-18T23:27:48.973321+00:00",
+    "log": "evidence/terminal08/host/workload.log",
+    "manifest": "evidence/terminal08/manifest.json",
+    "observer_summary": "evidence/terminal08/host/observer/summary.json",
+    "result": "evidence/terminal08/namespace-exec-receipt-extract.json",
+    "returncode": 127,
+    "review": "evidence/campaign08-terminal-failure-independent-review01.json",
+    "status": "verified_terminal_setup_failure_zero_fits",
+    "title": "Terminal loader failure before Python or any fit",
+    "workload_elapsed_seconds": 341.9661722329911
+  },
+  "unchanged_artifact_pins": {
+    "allowlist_sha256": "a768ddf14c8ebb7fb11e4752c9787da407f7db77ee618176ae2946ce32c4ed3d",
+    "configuration_sha256": "33cf305ada15863e2ee04e57390707344ed045a9fc712efc3f5e6e9247656378",
+    "inner_plan_sha256": "721fe70c1d89b6eec07a5682ce2786975cecfda54f62899e83c66390be3e5f69",
+    "manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+    "mount_plan_sha256": "937e2bf3cb2dae31e459950f912593058cf2f58a30cc77c218794fe295ee6826",
+    "probe_spec_sha256": "c76ac8b5f19e875e6475bc96eabd3645be0678107af7085616e25cbdb7635c9b"
+  },
+  "unstarted_fit_attempts": 68,
+  "validation02": {
+    "detail": "The unchanged binary parsed setup options from the descriptor but discarded its descriptor-local command tail, then returned usage because outer argv had no command. This control transport failure preceded namespace fixture execution. The original build and this failed validation remain preserved; verified owned cleanup left no live processes and zero orbital fits.",
+    "elapsed_seconds": 0.7121014301665127,
+    "execution": "evidence/validation02/execution.json",
+    "finished_at": "2026-10-18T23:03:13.846882+00:00",
+    "log": "evidence/validation02/validation.log",
+    "manifest": "evidence/validation02/manifest.json",
+    "result": "evidence/validation02/results/candidate-empty-root.json",
+    "review": "evidence/bwrap-cap-validation03-prelaunch-independent-review01.json",
+    "status": "failed_command_transport_before_namespace_fixture",
+    "title": "Preserved validation02 transport failure"
+  },
+  "validation03": {
+    "acceptance": "evidence/bwrap-cap-build-independent-review01.json",
+    "build_repeated": false,
+    "detail": "The validation-only continuation reused the exact compiled binary. Wrong descriptor-only command transport still returns usage; the installed binary rejects the large payload; the candidate passes the 11,069-argument synthetic empty-root fixture and still rejects 16,385 arguments above its finite 16,384 cap. Its owned execution and cleanup passed. These are synthetic control results; they do not establish the actual frozen scientific inner proof.",
+    "elapsed_seconds": 12.227810471085832,
+    "execution": "evidence/validation03/execution.json",
+    "finished_at": "2026-10-18T23:09:50.022918+00:00",
+    "manifest": "evidence/validation03/manifest.json",
+    "result": "evidence/validation03/result.json",
+    "review": "evidence/bwrap-cap-validation03-prelaunch-independent-review01.json",
+    "source_or_binary_changed": false,
+    "status": "actual_fixtures_passed_independently_accepted",
+    "test_environment_event": "The first local independent suite used a scientific Python lacking os.memfd_create: nine passed and one failed. The identical ten tests passed under the controls system Python. The failure log/XML and successful rerun log are retained.",
+    "title": "Validation03 synthetic fixtures passed"
+  }
+}

@@ -206,3 +206,21 @@ verified. All 68 fits remain unstarted in that terminal snapshot; the preserved
 failure is a setup failure, not a failed statistical fit. The report retains the
 earlier controller-start observations as historical evidence. This does not
 establish fit convergence or release readiness.
+
+The [campaign08 recovery report](../validation/segmented-v4/campaign08/index.html)
+retains the accepted cap-only bubblewrap build, corrected command transport and
+successful synthetic namespace fixtures, together with both earlier control
+failures. The actual campaign08 controller then stopped on October 18 at
+23:27:48 UTC: taskset's dynamic loader could not locate `libc.so.6` inside the
+empty-root namespace and returned 127 before inner Python, the mandatory proof
+or any native fit. Independent terminal audit verified all 26 captured files,
+172 observer samples, released locks, cleanup of four owned process identities,
+and empty attempts/private temporary directories. All 68 fits remain unstarted;
+this is a setup failure, not a statistical fit failure. The earlier ELF check
+established symbol-version compatibility but did not establish runtime library
+lookup. Scientific source, frozen runtime bytes, inputs and numerical settings
+remain unchanged. The source package GPG signature was not verified and the
+control build used generated configure rather than the distro Meson route.
+Earlier startup snapshots and their reviewed report archive remain preserved.
+This report accepts no later loader-topology correction or retry and establishes
+no fit convergence or release readiness.

@@ -1,0 +1,11 @@
+--- source-distro/bubblewrap.c
++++ source-candidate/bubblewrap.c
+@@ -1623,7 +1623,7 @@
+    * I picked 9000 because the Internet told me to and it was hard to
+    * resist.
+    */
+-  static const uint32_t MAX_ARGS = 9000;
++  static const uint32_t MAX_ARGS = 16384;
+ 
+   if (*total_parsed_argc_p > MAX_ARGS)
+     die ("Exceeded maximum number of arguments %u", MAX_ARGS);
