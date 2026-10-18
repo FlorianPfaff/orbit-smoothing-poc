@@ -155,7 +155,31 @@ nonzero coefficient lost to underflow. This decoder is limited to 1,000 epochs
 for diagnostic checks; it does not replace the production variation-of-constants
 factor construction. GNSS query interpolation remains unchanged.
 
-The candidate still needs native interpolation/serializer checks, the original
-106/51 tests and all other unchanged correctness stages, full failed-input
-closures, shifted-cut checks and fresh preparation before benchmark execution.
-Captured-system success and source installation never authorize covariance.
+The complete native candidate (`643a1b6d523a363e…`) passed the unchanged
+106/51 tests and all fourteen validation07 stages, including the four refinements,
+two objective/prior checks and both distinct nuisance replays. The
+[supplemental report](../validation/segmented-v4/native-supplements07/index.html)
+records ten native batch-interpolation cases, a matched QR-enabled flight
+export/no-export pair and 32 shifted-cut solver calls, with independent audits.
+The shifted checks use one-hour captured synthetic linearizations; their
+one-hour/four-hour layouts do not constitute multi-day fit results. The
+300-second pulse shifts have no interior ownership movement; the 1,800-second
+shifts provide that coverage. GNSS precise-offset interpolation remains outside
+the batch fixture's coverage.
+
+The flight pair's original checker failure is preserved: it compared native
+`dt = 5.000000000000568` with literal `5`. A separately versioned decoder checks
+the exact retained binary time grid and native endpoint arithmetic. Independent
+reinspection passed with unchanged residual and STM limits, using the same
+preserved outputs and no new propagation. Both native legs used QR and the
+retained final reference, so this is neither an ordinary-to-QR comparison nor a
+replay of the deleted intermediate input. The flight derivative omissions above
+remain applicable.
+
+Fresh preparation07 launched on 18 October 2026 at 20:19:49 UTC after these
+audits. Independent inspection at 20:21:14 UTC verified running preparation and
+lock ownership; the 20:22:01 UTC numerical-child check verified CPU24 affinity and one-thread environment
+settings. These observations do not establish completed preparation or a sealed
+benchmark manifest. No fit in the 68-attempt benchmark has begun. That benchmark and the
+separate original v3.1 150-attempt campaign remain release requirements; these
+prebenchmark checks do not authorize accepted-fit covariance or release.
