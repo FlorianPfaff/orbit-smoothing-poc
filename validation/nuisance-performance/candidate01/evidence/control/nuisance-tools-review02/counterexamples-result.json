@@ -1,0 +1,67 @@
+{
+  "schema": "nuisance-tools-review-counterexamples-v2",
+  "script_sha256": "3e46ab9e6f6a6f392eba01439a667d8b1e9cbab95f56833194d9a5ad3c83868b",
+  "cases": [
+    {
+      "case": "reviewed_actual_runner_taskset_shape",
+      "passed": true
+    },
+    {
+      "case": "both_running_unclean_and_cache_off",
+      "passed": false,
+      "issues": [
+        {
+          "side": "off",
+          "message": "Execution lacks complete status and verified owned cleanup",
+          "file": "profile.execution.json"
+        },
+        {
+          "side": "on",
+          "message": "Execution lacks complete status and verified owned cleanup",
+          "file": "profile.execution.json"
+        },
+        {
+          "message": "Cache treatment lacks verified completed execution"
+        }
+      ]
+    },
+    {
+      "case": "off_off_alone_rejected",
+      "passed": false
+    },
+    {
+      "case": "unmatched_arithmetic_timing_rejected",
+      "passed": false,
+      "issues": [
+        {
+          "side": "on",
+          "message": "Performance/canonical arithmetic-audit counts disagree",
+          "file": "qr.1.nuisance_performance.json"
+        },
+        {
+          "message": "Cache experiment lacks one performance sidecar per nuisance search"
+        }
+      ]
+    },
+    {
+      "case": "unmatched_probe_timing_rejected",
+      "passed": false,
+      "issues": [
+        {
+          "side": "on",
+          "message": "Performance/canonical probe-round counts disagree",
+          "file": "qr.1.nuisance_performance.json"
+        },
+        {
+          "message": "Cache experiment lacks one performance sidecar per nuisance search"
+        }
+      ]
+    },
+    {
+      "case": "actual_preparation_schema_contract_with_explicitly_synthetic_execution_values",
+      "verified": true,
+      "native_executed": false,
+      "scope": "Metadata binding fixture only, not evidence of actual completed profiles."
+    }
+  ]
+}

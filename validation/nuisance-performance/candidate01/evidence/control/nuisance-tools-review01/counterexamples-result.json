@@ -1,0 +1,388 @@
+{
+  "schema": "nuisance-tools-review-counterexamples-v1",
+  "script_sha256": "0ab599af7db86a9981804b36fd8463f4ba70c2b8d8d27fc09152dfe3af0fea04",
+  "cases": [
+    {
+      "case": "both_running_unclean_and_cache_off",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "case": "actual_runner_taskset_shape",
+      "passed": false,
+      "issues": [
+        {
+          "side": "on",
+          "message": "Execution command does not identify this profile XML",
+          "file": "profile.execution.json"
+        }
+      ]
+    },
+    {
+      "case": "audit_and_probe_timings_without_corresponding_scientific_receipts",
+      "input_issues": [],
+      "child_categories": {
+        "ordinary_trials": {
+          "wall_seconds": {
+            "recorded_sum": 3.0,
+            "recorded_count": 1,
+            "record_count": 1,
+            "unknown_count": 0,
+            "coverage": "complete"
+          },
+          "child_cpu": {
+            "user_seconds": {
+              "recorded_sum": 2.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "system_seconds": {
+              "recorded_sum": 0.5,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "total_cpu_seconds": {
+              "recorded_sum": 2.5,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "scope": "Recorded child CPU only; not elapsed wall time or a complete profile-stage breakdown."
+          },
+          "row_build": {
+            "build_wall_seconds": {
+              "recorded_sum": 2.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_wall_seconds": {
+              "recorded_sum": 0.75,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_calls": {
+              "recorded_sum": 4.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "interpolation_wall_seconds": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_calls": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_cache_hits": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_evaluations": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "cache_enabled_build_count": 0,
+            "completed_count": 1,
+            "incomplete_count": 0,
+            "cost_only_count": 1,
+            "scope": "Interpolation time is included in observation-design wall time, which is included in row-build wall time; do not add them."
+          },
+          "failed_or_unknown_status_count": 0
+        },
+        "arithmetic_audits": {
+          "wall_seconds": {
+            "recorded_sum": 3.0,
+            "recorded_count": 1,
+            "record_count": 1,
+            "unknown_count": 0,
+            "coverage": "complete"
+          },
+          "child_cpu": {
+            "user_seconds": {
+              "recorded_sum": 4.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "system_seconds": {
+              "recorded_sum": 0.1,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "total_cpu_seconds": {
+              "recorded_sum": 4.1,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "scope": "Recorded child CPU only; not elapsed wall time or a complete profile-stage breakdown."
+          },
+          "row_build": {
+            "build_wall_seconds": {
+              "recorded_sum": 2.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_wall_seconds": {
+              "recorded_sum": 0.75,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_calls": {
+              "recorded_sum": 4.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "interpolation_wall_seconds": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_calls": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_cache_hits": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_evaluations": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "cache_enabled_build_count": 0,
+            "completed_count": 0,
+            "incomplete_count": 1,
+            "cost_only_count": 1,
+            "scope": "Interpolation time is included in observation-design wall time, which is included in row-build wall time; do not add them."
+          },
+          "failed_or_unknown_status_count": 1
+        },
+        "probe_rounds": {
+          "wall_seconds": {
+            "recorded_sum": 6.0,
+            "recorded_count": 2,
+            "record_count": 2,
+            "unknown_count": 0,
+            "coverage": "complete"
+          },
+          "child_cpu": {
+            "user_seconds": {
+              "recorded_sum": 11.0,
+              "recorded_count": 2,
+              "record_count": 2,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "system_seconds": {
+              "recorded_sum": 0.7,
+              "recorded_count": 2,
+              "record_count": 2,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "total_cpu_seconds": {
+              "recorded_sum": 11.7,
+              "recorded_count": 2,
+              "record_count": 2,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "scope": "Recorded child CPU only; not elapsed wall time or a complete profile-stage breakdown."
+          },
+          "row_build": {
+            "build_wall_seconds": {
+              "recorded_sum": 4.0,
+              "recorded_count": 2,
+              "record_count": 2,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_wall_seconds": {
+              "recorded_sum": 1.5,
+              "recorded_count": 2,
+              "record_count": 2,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_calls": {
+              "recorded_sum": 8.0,
+              "recorded_count": 2,
+              "record_count": 2,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "interpolation_wall_seconds": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 2,
+              "unknown_count": 2,
+              "coverage": "unknown"
+            },
+            "interpolation_calls": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 2,
+              "unknown_count": 2,
+              "coverage": "unknown"
+            },
+            "interpolation_cache_hits": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 2,
+              "unknown_count": 2,
+              "coverage": "unknown"
+            },
+            "interpolation_evaluations": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 2,
+              "unknown_count": 2,
+              "coverage": "unknown"
+            },
+            "cache_enabled_build_count": 0,
+            "completed_count": 2,
+            "incomplete_count": 0,
+            "cost_only_count": 2,
+            "scope": "Interpolation time is included in observation-design wall time, which is included in row-build wall time; do not add them."
+          },
+          "failed_or_unknown_status_count": 0
+        },
+        "zero_update_replay": {
+          "wall_seconds": {
+            "recorded_sum": 3.0,
+            "recorded_count": 1,
+            "record_count": 1,
+            "unknown_count": 0,
+            "coverage": "complete"
+          },
+          "child_cpu": {
+            "user_seconds": {
+              "recorded_sum": 3.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "system_seconds": {
+              "recorded_sum": 0.2,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "total_cpu_seconds": {
+              "recorded_sum": 3.2,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "scope": "Recorded child CPU only; not elapsed wall time or a complete profile-stage breakdown."
+          },
+          "row_build": {
+            "build_wall_seconds": {
+              "recorded_sum": 2.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_wall_seconds": {
+              "recorded_sum": 0.75,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "observation_design_calls": {
+              "recorded_sum": 4.0,
+              "recorded_count": 1,
+              "record_count": 1,
+              "unknown_count": 0,
+              "coverage": "complete"
+            },
+            "interpolation_wall_seconds": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_calls": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_cache_hits": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "interpolation_evaluations": {
+              "recorded_sum": null,
+              "recorded_count": 0,
+              "record_count": 1,
+              "unknown_count": 1,
+              "coverage": "unknown"
+            },
+            "cache_enabled_build_count": 0,
+            "completed_count": 1,
+            "incomplete_count": 0,
+            "cost_only_count": 1,
+            "scope": "Interpolation time is included in observation-design wall time, which is included in row-build wall time; do not add them."
+          },
+          "failed_or_unknown_status_count": 0
+        }
+      }
+    }
+  ]
+}

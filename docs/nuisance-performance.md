@@ -4,6 +4,17 @@ The frozen v4 campaign and its executable remain unchanged. This development
 checkout investigates the cost of objective evaluation; it does not replace a
 frozen attempt, change the statistical problem, or relax any numerical gate.
 
+The completed [candidate01 report](../validation/nuisance-performance/candidate01/index.html)
+publishes six same-executable cache-off/on comparisons, including both distinct
+original nuisance-failure inputs. All twelve profiles converged strictly and
+matched exactly on 97 scientific artifacts per pair. The unchanged 106 native
+tests and 51 correction regressions passed with no failures or skips; the
+independent audit verified the actual executions, inputs, build and runtime.
+Observed profile-time reductions were 6.5–24.9% in these single paired runs.
+Whole-orbit performance and covariance remain unverified, and the cache remains
+off by default. The bounded protocol below records the specification used for
+this separate investigation.
+
 The preserved first 24-hour dense pulse timeout records two completed nuisance
 profiles taking 3,129.534 and 3,927.822 seconds. Their 7,057.355 seconds account for
 98.013% of the supervised 7,200.426-second fit. Both reported strict nuisance
@@ -73,8 +84,9 @@ the performance candidate separately.
    one density case. Include the archived troublesome nuisance replay as a
    separate regression. Freeze their original profile XML, inputs, observation
    support, physical coordinates and controls before comparing candidates.
-2. Run legacy and opt-in candidate from independently fresh native processes, with
-   the same single-thread settings and cold nuisance initialization. Alternate
+2. Run the same candidate executable with its cache off and on in independently
+   fresh native processes, with the same single-thread settings and cold nuisance
+   initialization. Alternate
    execution order in a predeclared list. Each run has its own spool/output root;
    neither reads previous factors or estimated nuisance coordinates.
 3. Compare direct objective values, actual reductions, zero-update replay,
@@ -96,7 +108,8 @@ the performance candidate separately.
    An arithmetic-equivalent optimization may be useful without making the
    complete two-hour orbit fit feasible; a whole-fit claim needs a separate run.
 
-This is the acceptance-runner specification, not evidence that the runs occurred.
+This is the acceptance-runner specification; execution evidence is in the
+candidate01 report linked above.
 The offline analyzer's focused tests cover timing scopes, incomplete captures,
 failed children, duplicate/conflicting receipts, input identity, terminal status,
 manifest validation, nonfinite evidence, and refusal to overwrite a report.
