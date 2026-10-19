@@ -1,0 +1,73 @@
+{
+  "annotations": [
+    {
+      "kind": "clock_discrepancy",
+      "observation": {
+        "path": "/home/emper/orbit-nuisance-performance/control/wholefit-clock-observation01/observation.json",
+        "sha256": "43397bdfb5a330921e88a6759e768cfc473ba30101261d4b7e13f0df5aa3d567"
+      },
+      "supervisor_snapshot": {
+        "path": "/home/emper/orbit-nuisance-performance/control/wholefit-clock-observation01/supervisor-snapshot.json",
+        "sha256": "db1456c2a5a22396e43884630d6712bcec9108f23698b34d5d713939c80fc91d"
+      }
+    }
+  ],
+  "checker": {
+    "path": "/home/emper/orbit-nuisance-performance/source/scripts/analyze_nuisance_wholefit.py",
+    "sha256": "6316cd37b23edadc678e1a3a083802780488882db37c7ca9d686691f93e74836"
+  },
+  "checker_called": false,
+  "controller_identity": {
+    "argv": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-s",
+      "-B",
+      "/home/emper/orbit-nuisance-performance/control/run_wholefit01.py",
+      "--freeze",
+      "/home/emper/orbit-nuisance-performance/wholefit01/freeze.json",
+      "--freeze-sha256",
+      "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4"
+    ],
+    "pid": 18239,
+    "start_ticks": 1153149,
+    "state": "S"
+  },
+  "controller_launch": {
+    "path": "/home/emper/orbit-nuisance-performance/wholefit01/controller-launch.json",
+    "sha256": "1cebc73b0cf46ff303b54c269a67607344a063d63b75ecc3d54087b837a194a6"
+  },
+  "controller_status": "alive",
+  "cpu": 4,
+  "created_at": "2026-10-19T09:04:04.284572+00:00",
+  "fit_output_read": false,
+  "freeze": {
+    "path": "/home/emper/orbit-nuisance-performance/wholefit01/freeze.json",
+    "sha256": "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4"
+  },
+  "helper": {
+    "path": "/home/emper/orbit-nuisance-performance/source/scripts/complete_nuisance_wholefit.py",
+    "sha256": "b7c9fee28b5fabdee9cb07c3234217fbfd9b66351694f5d70f00cff0dab57c53"
+  },
+  "load_plan_and_controller_preflight_passed": true,
+  "native_runs": 0,
+  "no_write_preflight": true,
+  "plan": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-completion-plan01.json",
+    "sha256": "9461e0c18468a7a5cc67498fa12a9d512f4094b25bd53312ee7dccfd1f8ed4dd"
+  },
+  "poll_seconds": 30,
+  "python": {
+    "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+  },
+  "release_authority": false,
+  "report_directory": "/mnt/d/orbit-nuisance-performance/publication/wholefit01-results",
+  "report_directory_absent": true,
+  "run_called": false,
+  "schema": "orbit-poc-wholefit-passive-plan-independent-review-v1",
+  "scope": "Read-only concrete plan and current original controller identity checks. Invoking the passive helper is authorized by parent; actual outcome analysis is separate and cannot support clean timing or speedup claims.",
+  "status": "accepted_concrete_passive_reporting_plan",
+  "threads": 1,
+  "wait_controller_called": false,
+  "wait_seconds": 18000
+}

@@ -43,6 +43,17 @@ original retention ledgers, rather than being treated as accepted posteriors.
 One observed pair cannot establish a statistical speedup. Do not use the
 single-profile checker below as a whole-fit acceptance test.
 
+The optional `scripts/complete_nuisance_wholefit.py` waits for the already
+launched controller and runs a pinned checker once, after terminal receipts
+establish owned-process cleanup. It launches no native fit, changes no run
+file and sends no process signal. Its separately reviewed plan pins the
+controller, checker, dependencies, output directory and provenance annotations.
+The [completion controls](../validation/nuisance-performance/wholefit-completion01/README.md)
+retain the observed discrepancy between UTC and the supervisor's monotonic
+clock. The unchanged 7,200-second supervisor limit therefore does not establish
+completion within two elapsed UTC hours. This pair cannot support a clean
+timing or speedup claim; its numerical outcomes require their own audit.
+
 The full-fit checker calls the strict scientific gates from verified frozen
 source bytes and records the loaded module identities. It binds completed
 optimizer histories and the full point sequence to the worker result and native
