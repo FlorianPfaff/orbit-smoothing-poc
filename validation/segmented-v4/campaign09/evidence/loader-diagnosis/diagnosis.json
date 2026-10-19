@@ -1,0 +1,198 @@
+{
+  "schema": "orbit-v4-frozen-loader-path-diagnosis-v1",
+  "diagnosis": "Frozen Conda loader defaults to /lib64 and /usr/lib64; existing namespace mounts its exact glibc dependency bytes only at /usr/lib/x86_64-linux-gnu and provides no ld.so.cache. Taskset therefore fails lookup before Python.",
+  "previous_version_audit_scope": "Version definitions are compatible, but that audit did not test lookup paths.",
+  "capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/frozen-loader-search-audit01/result.json",
+    "sha256": "a372133770a0393196135b05105742a34f0171904303d69e4dcbc8ce1d0502b5"
+  },
+  "mount_plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing05-terminal01/sealed/mount-plan.json",
+    "sha256": "937e2bf3cb2dae31e459950f912593058cf2f58a30cc77c218794fe295ee6826"
+  },
+  "runtime_closure": {
+    "path": "/mnt/d/orbit-segmented-v4/control/cap-wrapper-production-runtime-readback01.json",
+    "sha256": "3fc4054e08227f266d4c06300b4d653d09d0e33e9a07a4e8cf84c00330027a3b"
+  },
+  "loader": {
+    "bytes": 929360,
+    "device": 2048,
+    "inode": 259664968,
+    "mode": 511,
+    "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/ld-linux-x86-64.so.2",
+    "sha256": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711"
+  },
+  "observed_default_search_paths": [
+    "/lib64",
+    "/usr/lib64"
+  ],
+  "cache_mounted": false,
+  "exact_proposed_symlinks": [
+    {
+      "destination": "/usr/lib64/libc.so.6",
+      "symlink_target": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "equivalent_lookup_path": "/lib64/libc.so.6",
+      "existing_backing": {
+        "bytes": 2335544,
+        "device": 2048,
+        "inode": 259664975,
+        "mode": 511,
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/libc.so.6",
+        "sha256": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab"
+      },
+      "needed_sonames": [
+        "ld-linux-x86-64.so.2"
+      ]
+    },
+    {
+      "destination": "/usr/lib64/libdl.so.2",
+      "symlink_target": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "equivalent_lookup_path": "/lib64/libdl.so.2",
+      "existing_backing": {
+        "bytes": 15480,
+        "device": 2048,
+        "inode": 259664978,
+        "mode": 511,
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/libdl.so.2",
+        "sha256": "7d13eb4345b129fe7572c2eb9a3e120ca02783303c292fe270dd41d5afdb5a72"
+      },
+      "needed_sonames": [
+        "libc.so.6"
+      ]
+    },
+    {
+      "destination": "/usr/lib64/libm.so.6",
+      "symlink_target": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "equivalent_lookup_path": "/lib64/libm.so.6",
+      "existing_backing": {
+        "bytes": 720648,
+        "device": 2048,
+        "inode": 259664983,
+        "mode": 511,
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/libm.so.6",
+        "sha256": "c858d0f5308a1b6ab2fcb4388b34faca06ac6f34ac4db77357a3a91ad8598319"
+      },
+      "needed_sonames": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ]
+    },
+    {
+      "destination": "/usr/lib64/libmvec.so.1",
+      "symlink_target": "/usr/lib/x86_64-linux-gnu/libmvec.so.1",
+      "equivalent_lookup_path": "/lib64/libmvec.so.1",
+      "existing_backing": {
+        "bytes": 1027688,
+        "device": 2048,
+        "inode": 259664986,
+        "mode": 511,
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/libmvec.so.1",
+        "sha256": "e1085bc088290d133d45446ee9565d22b3bd1d1eca03c02cc424ded855529944"
+      },
+      "needed_sonames": [
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ]
+    },
+    {
+      "destination": "/usr/lib64/libpthread.so.0",
+      "symlink_target": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "equivalent_lookup_path": "/lib64/libpthread.so.0",
+      "existing_backing": {
+        "bytes": 15496,
+        "device": 2048,
+        "inode": 259664992,
+        "mode": 511,
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/libpthread.so.0",
+        "sha256": "435030ab98d97c8a9553ef25258315f23b0da3d79066cc2e22008bc6bb940e82"
+      },
+      "needed_sonames": [
+        "libc.so.6"
+      ]
+    },
+    {
+      "destination": "/usr/lib64/libutil.so.1",
+      "symlink_target": "/usr/lib/x86_64-linux-gnu/libutil.so.1",
+      "equivalent_lookup_path": "/lib64/libutil.so.1",
+      "existing_backing": {
+        "bytes": 15472,
+        "device": 2048,
+        "inode": 259664999,
+        "mode": 511,
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-04-florianpfaff/readonly/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/x86_64-conda-linux-gnu/sysroot/lib64/libutil.so.1",
+        "sha256": "71a691869703058342be2581f2b27b7ae4c46ece1f48f91c409890fe68dee925"
+      },
+      "needed_sonames": [
+        "libc.so.6"
+      ]
+    }
+  ],
+  "existing_loader_symlink": {
+    "destination": "/usr/lib64/ld-linux-x86-64.so.2",
+    "symlink_target": "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2"
+  },
+  "closed_sonames": [
+    "ld-linux-x86-64.so.2",
+    "libc.so.6",
+    "libdl.so.2",
+    "libm.so.6",
+    "libmvec.so.1",
+    "libpthread.so.0",
+    "libutil.so.1"
+  ],
+  "closed_for_declared_executables": {
+    "native": [
+      "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "/usr/lib/x86_64-linux-gnu/libmvec.so.1",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0"
+    ],
+    "python": [
+      "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "/usr/lib/x86_64-linux-gnu/libutil.so.1"
+    ],
+    "segmented_solver": [
+      "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0"
+    ]
+  },
+  "environment_handling": {
+    "source": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/protocol.py",
+    "sha256": "43254fe92571a7febe9eec19f9133bfb8f2be9ececec17bcb81e71808dca18ea",
+    "loader_dependencies_resets_LD_at_lines": [
+      98,
+      99,
+      100,
+      101
+    ],
+    "dependency_identity_resolves_at_line": 109,
+    "worker_resets_LD_at_lines": [
+      374,
+      375,
+      376
+    ]
+  },
+  "correction_constraints": [
+    "Add exactly the six namespace-only symlinks before existing root read-only remount.",
+    "Each destination must be absent from existing symlink/file/dir/mount namespace ledger; reject any collision.",
+    "Check exact existing canonical/backing hash pins before creating the aliases; retain all original mounts and bytes.",
+    "Keep current loader alias and /lib64\u2192usr/lib64 unchanged.",
+    "Do not substitute duplicate bind mounts: canonical resolve identity must remain the existing /usr/lib/x86_64-linux-gnu path.",
+    "Keep LD_LIBRARY_PATH, scientific source, manifests, models, weights, runtime interpreter, libraries, and resource limits unchanged.",
+    "Execute full actual namespace startup/probe before a new campaign launch; library graph closure is not a substitute for startup validation."
+  ],
+  "changes_performed": false,
+  "remote_mutations": false,
+  "fits_executed": 0,
+  "validation_scope": "Measured loader --help and readelf DT_NEEDED on hash-verified frozen backings, plus existing declared executable dependency inventories. No claim of exhaustive dynamic import/dlopen completeness."
+}

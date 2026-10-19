@@ -224,3 +224,32 @@ control build used generated configure rather than the distro Meson route.
 Earlier startup snapshots and their reviewed report archive remain preserved.
 This report accepts no later loader-topology correction or retry and establishes
 no fit convergence or release readiness.
+
+The [campaign09 handoff report](../validation/segmented-v4/campaign09/index.html)
+records the first ordered native fit running at 01:41:13 UTC on 19 October 2026:
+`leo500-quiet-normal-groops_pulses-24h--dense_corrected`. The actual campaign
+isolation proof passed before handoff, and independent audit reconstructed the
+frozen first request and verified the observed GROOPS process on CPU 24 with one
+numerical thread and private HOME. One of 68 attempts had started, with zero
+terminal outcomes at that dated snapshot.
+
+The report retains both failed full-namespace smoke attempts, the accepted
+loader/private-device bootstrap corrections, the three original OSB support-path
+additions and the successful metadata seal and smoke proof. These control changes
+preserve scientific source, runtime bytes, prepared data and numerical settings.
+Full proofs and inventories remain external with exact pins and reproducible
+compact projections. The separate original150 observation remains dated
+00:50:11 UTC, with 57 archived terminal classifications and attempt 58 active.
+Neither that status nor the first v4 native handoff establishes convergence,
+accepted covariance or release readiness; timing remains shared-host timing.
+
+The separate [campaign09 status update](../validation/segmented-v4/campaign09-status01/index.html)
+advances the observation cutoff to 04:37:47 UTC on 19 October 2026. The first
+`dense_corrected` attempt has a reported timeout; the second `segmented_1h`
+attempt is active with an observed native GROOPS process. Two attempts have
+started, one is terminal, 66 are unstarted and no successful completion is
+reported. The narrow independent audit checks ordering, process identity and
+resource environment; it does not audit the timeout's complete result, cleanup
+or numerical diagnostics. The original handoff report and its independent
+publication-review receipt remain preserved. This status establishes no
+convergence, accepted covariance or release readiness.

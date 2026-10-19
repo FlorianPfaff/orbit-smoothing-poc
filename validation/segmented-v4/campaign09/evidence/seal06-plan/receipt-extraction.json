@@ -1,0 +1,46 @@
+{
+  "extractions": [
+    {
+      "extracted": {
+        "bytes": 3964,
+        "path": "/mnt/d/orbit-segmented-v4/control/campaign09-publication-event-seal06-operation01/derivation-result.json",
+        "sha256": "87c1b515050eac93f9f520012a9f4cabe9fa7ca2493c4d8d773dbdcfec341848"
+      },
+      "json_key": "receipt",
+      "matches_remote_bytes_sha256": true,
+      "publication_path": "evidence/seal06-plan/derivation-result.json",
+      "remote_pin": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/direct-fit-helper-inputs-12/derivation-result.json",
+        "sha256": "87c1b515050eac93f9f520012a9f4cabe9fa7ca2493c4d8d773dbdcfec341848"
+      },
+      "serialization": "json.dumps(value, indent=2, sort_keys=True) + newline, UTF-8",
+      "source": {
+        "bytes": 52204,
+        "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing06-plan-readback01/stdout.json",
+        "sha256": "91c65920a43383b291af26a8a255e8ca5bae4513f1c842c2114487628b9807d9"
+      }
+    },
+    {
+      "extracted": {
+        "bytes": 2930,
+        "path": "/mnt/d/orbit-segmented-v4/control/campaign09-publication-event-seal06-operation01/install-result.json",
+        "sha256": "0ecd50df8f30827c2932af8175d89d28d917ca1f5715a6ee08f0ca909fcaaea3"
+      },
+      "json_key": "result",
+      "matches_remote_bytes_sha256": true,
+      "publication_path": "evidence/seal06-install/install-result.json",
+      "remote_pin": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/direct-fit-helper-inputs-12/install-result.json",
+        "sha256": "0ecd50df8f30827c2932af8175d89d28d917ca1f5715a6ee08f0ca909fcaaea3"
+      },
+      "serialization": "json.dumps(value, indent=2, sort_keys=True) + newline, UTF-8",
+      "source": {
+        "bytes": 3324,
+        "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install12/install01-result.json",
+        "sha256": "7acebf336e7700c495c6d553e8a8bcaaf45275acaab737d194dde3b3daac27b6"
+      }
+    }
+  ],
+  "schema": "orbit-poc-exact-remote-receipt-extraction-v1",
+  "scope": "Reconstruct only canonical receipt bytes from preserved readback payloads; both exact digests match their recorded remote file pins. Full parent-membership readback remains external."
+}

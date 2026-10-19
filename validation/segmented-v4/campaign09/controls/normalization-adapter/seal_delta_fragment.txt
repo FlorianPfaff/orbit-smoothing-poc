@@ -1,0 +1,156 @@
+OLD_SEAL = B / 'fit-seal-control-07/sealed-inputs-03'
+NEW_SEAL = B / 'fit-seal-control-07/sealed-inputs-04'
+OLD_RESULT_SHA = 'd7d83bec057d06020d2ec51d23905026fe7b074967e239898e0b8f42eafcb09a'
+CENSUS_SHA = '1cf15d472fb1f1cc9e7f89e0b434a2011a34f2a47984fefb151280027ca3da12'
+COLLECTOR_SHA = '62c3e34437867b5063b91a66547bb26a7d501dc639ca122192427823aed7ffb0'
+OSB_SHA = '027f0f0568634f44e7b8ce414dc506b0a9becc338f4e832d45ce25f8065de54b'
+NORMALIZATION_SMOKE_CAPTURE = '0ecfe5bacc920b887b9906604f0fbb6ce4d3ba5ce09750cfef9dd91cc1329934'
+NORMALIZATION_SMOKE_REVIEW = '947332207ea215765f5cae7943dc510d3bb08a5f997aba11be5a57ef30507a50'
+SEAL_ARTIFACTS = {'allowlist-core-plan.json','allowlist-core.json','allowlist-plan.json','allowlist.json','backing-map.json','correspondence.json','inner-plan.json','invocation.json','mount-input.json','mount-plan.json','probe-spec.json','safe-tree-00.json','safe-tree-01.json','safe-tree-02.json','skeleton-request.json','support-core.json','support-final.json'}
+
+
+def canonical(value):
+    return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+
+
+def census_rows(census):
+    need(census['schema']=='orbit-poc-public-verifier-read-closure-census-v1' and census['required_file_count']==43961 and census['covered_count']==43958 and census['missing_count']==3 and census['different_hash_count']==0 and census['different_hash']==[], 'Exact public verifier census required')
+    rows=census['missing'];need(len(rows)==3 and len({r['path'] for r in rows})==3, 'Exactly three unique OSB additions required')
+    for r in rows:
+        need(r['classification']=='namespace_file_absent' and r['denied_matches']==[] and r['host_matches_expected'] is True and r['sha256']==r['host_sha256']==OSB_SHA and r['host_bytes']==125584 and r['namespace_resolved']==r['path'], 'OSB census identity differs')
+    return {r['path']:r for r in rows}
+
+
+def load_seal(value,root):
+    need(value['path']==str(root/'result.json'), 'Exact sealed result path required')
+    result=read(value);need(set(result['artifacts'])==SEAL_ARTIFACTS, 'Sealed artifact membership differs')
+    data={};metadata={}
+    for name,q in result['artifacts'].items():
+        need(q['path']==str(root/name), 'Unexpected sealed artifact path')
+        path=checked(q);s=path.stat()
+        metadata[str(path)]={**q,'bytes':s.st_size,'device':s.st_dev,'inode':s.st_ino,'mode':s.st_mode&0o7777}
+        if not name.startswith('safe-tree-'):data[name]=json.loads(path.read_text())
+    skeleton=root/'run-skeleton';s=skeleton.stat();need(skeleton.is_dir() and not skeleton.is_symlink(), 'Exact fresh skeleton required')
+    metadata[str(skeleton)]={'path':str(skeleton),'device':s.st_dev,'inode':s.st_ino}
+    return {'root':str(root),'result':result,'data':data,'metadata':metadata}
+
+
+def compare_seals(old,new,census):
+    """Allow three measured data exposures and regenerated named metadata only."""
+    additions=census_rows(census);paths=set(additions)
+    for bundle in (old,new):
+        r=bundle['result'];need(r['status']=='sealed_metadata' and r['fit_attempts']==r['native_executions']==0 and r['fit_execution_authorized'] is False, 'Seal is not a zero-fit metadata result')
+        need(set(r['artifacts'])==SEAL_ARTIFACTS, 'Unexpected seal artifact set')
+        for name,key in [('allowlist-core.json','allowlist_hash'),('allowlist.json','allowlist_hash'),('mount-plan.json','mount_plan_hash')]:
+            v=bundle['data'][name];need(v[key]==canonical({k:x for k,x in v.items() if k!=key}), 'Sealed content digest differs')
+        m=bundle['data']['mount-plan.json'];payload=b''.join(v.encode()+b'\0' for v in m['mount_args'])
+        need(m['mount_args_payload']=={'sha256':hashlib.sha256(payload).hexdigest(),'bytes':len(payload),'encoding':'nul-terminated-utf8'}, 'Mount argument payload differs')
+    for name in ('safe-tree-00.json','safe-tree-01.json','safe-tree-02.json'):
+        need(old['result']['artifacts'][name]['sha256']==new['result']['artifacts'][name]['sha256'], 'Frozen source/runtime inventory changed')
+    need(new['result']['manifest']==old['result']['manifest'] and new['result']['manifest_hash']==old['result']['manifest_hash'], 'Scientific manifest changed')
+    def normalize(bundle,value):
+        root=bundle['root'];meta=bundle['metadata'];hashes={v['sha256']:'@metadata-sha/'+Path(p).name for p,v in meta.items() if 'sha256' in v}
+        for name,key in [('allowlist-core.json','allowlist_hash'),('allowlist.json','allowlist_hash'),('mount-plan.json','mount_plan_hash')]:hashes[bundle['data'][name][key]]='@content-sha/'+name
+        def walk(v):
+            if isinstance(v,str):
+                if v in hashes:return hashes[v]
+                return '@seal'+v[len(root):] if v==root or v.startswith(root+'/') else v
+            if isinstance(v,list):return [walk(x) for x in v]
+            if not isinstance(v,dict):return v
+            found=meta.get(v.get('path'));out={}
+            for k,x in v.items():
+                if found and k in ('sha256','bytes','device','inode','mode'):
+                    need(k in found and found[k]==x, 'Generated metadata identity differs')
+                    out[k]='@metadata-'+k+'/'+Path(v['path']).name
+                else:out[walk(k)]=walk(x)
+            return out
+        return walk(value)
+    def file_rows(name,kind):
+        for bundle in (old,new):
+            rows=bundle['data'][name]['files'];need(len(rows)==len({r[kind] for r in rows}), 'Duplicate sealed file identity')
+        before=old['data'][name]['files'];after=new['data'][name]['files']
+        fresh={r[kind]:r for r in after if r[kind] in paths}
+        need(set(fresh)==paths and not paths&{r[kind] for r in before}, 'Measured OSB membership differs')
+        for p,r in fresh.items():
+            c=additions[p]
+            if kind=='canonical':
+                b=r['backing'];need(set(r)=={'canonical','backing'} and b['path']==c['host_backing'] and b['sha256']==OSB_SHA and b['bytes']==125584 and b['device']==c['host_device'] and b['inode']==c['host_inode'] and b['mode']==c['host_lstat_mode']&0o7777, 'OSB physical backing differs')
+            else:
+                expected={'path':p,'resolved':p,'link_target':None,'device':c['host_device'],'inode':c['host_inode'],'bytes':125584,'sha256':OSB_SHA}
+                if name.startswith('allowlist'):expected['reasons']=['verification_metadata_or_required_native_dependency']
+                need(r==expected, 'OSB allowlist row differs')
+        need(normalize(old,before)==normalize(new,[r for r in after if r[kind] not in paths]), 'Existing support/data/control file changed')
+    for name in ('support-core.json','support-final.json','allowlist-core.json','allowlist.json'):file_rows(name,'path')
+    file_rows('backing-map.json','canonical')
+    # Existing paths are compared exactly after only named generated metadata
+    # identities are normalized. No directory-prefix exemption for input bytes.
+    for name in old['data']:
+        a=copy.deepcopy(old['data'][name]);b=copy.deepcopy(new['data'][name])
+        if name in ('support-core.json','support-final.json','allowlist-core.json','allowlist.json'):
+            a.pop('files');b.pop('files')
+        if name=='backing-map.json':a.pop('files');b.pop('files')
+        if name=='probe-spec.json':
+            need(paths<=set(b['protected_readonly_targets']) and not paths&set(a['protected_readonly_targets']), 'OSB probe readonly targets missing')
+            b['protected_readonly_targets']=[x for x in b['protected_readonly_targets'] if x not in paths]
+        if name=='correspondence.json':b['protected_readonly_targets']-=3
+        if name=='mount-plan.json':
+            fresh=[r for r in b['readonly_mounts'] if r['target'] in paths]
+            need(len(fresh)==3 and {r['target'] for r in fresh}==paths, 'Exactly three new readonly file mounts required')
+            for r in fresh:need(r=={'operation':'ro-bind','source':additions[r['target']]['host_backing'],'target':r['target'],'kind':'file'}, 'OSB readonly mount differs')
+            b['readonly_mounts']=[r for r in b['readonly_mounts'] if r['target'] not in paths]
+            for p in paths:
+                need(p not in a['verified_file_backings'] and p in b['verified_file_backings'], 'OSB file backing membership differs')
+                need(b['verified_file_backings'].pop(p)==next(r['backing'] for r in new['data']['backing-map.json']['files'] if r['canonical']==p), 'Mount/OSB backing differs')
+            def operations(args):
+                widths={'--unshare-user':0,'--unshare-pid':0,'--unshare-net':0,'--unshare-ipc':0,'--unshare-uts':0,'--die-with-parent':0,'--new-session':0,'--clearenv':0,'--cap-drop':1,'--tmpfs':1,'--dir':1,'--ro-bind':2,'--symlink':2,'--proc':1,'--dev':1,'--bind':2,'--setenv':2,'--chdir':1,'--remount-ro':1};out=[];i=0
+                while i<len(args):
+                    need(args[i] in widths,'Unknown namespace operation');n=widths[args[i]]+1;need(i+n<=len(args),'Truncated namespace operation');out.append(args[i:i+n]);i+=n
+                return out
+            oldops=operations(a.pop('mount_args'));newops=operations(b.pop('mount_args'));oldirs={normalize(old,x[1]) for x in oldops if x[0]=='--dir'};parents={str(x) for p in paths for x in Path(p).parents}
+            reduced=[];removed=0
+            for op in newops:
+                if op[0]=='--ro-bind' and op[2] in paths:
+                    need(op[1]==additions[op[2]]['host_backing'],'OSB argument backing differs');removed+=1;continue
+                if op[0]=='--dir' and normalize(new,op[1]) not in oldirs:
+                    need(op[1] in parents,'Unrelated new namespace directory');continue
+                reduced.append(op)
+            need(removed==3 and normalize(old,oldops)==normalize(new,reduced),'Original namespace operation/order changed')
+            a.pop('mount_args_payload');b.pop('mount_args_payload')
+        need(normalize(old,a)==normalize(new,b),'Unexpected sealed metadata delta: '+name)
+    a=copy.deepcopy(old['result']);b=copy.deepcopy(new['result']);b['files']-=3;b['conditional_host_correspondence']['protected_readonly_targets']-=3
+    need(normalize(old,a)==normalize(new,b),'Unexpected seal result delta')
+    return {'old_root':old['root'],'fresh_root':new['root'],'added_files':[additions[p] for p in sorted(paths)],'scientific_manifest':old['result']['manifest'],'manifest_hash':old['result']['manifest_hash'],'existing_file_identities_unchanged':True,'source_runtime_inventory_hashes_unchanged':True,'denials_unchanged':True,'writable_identities_unchanged':True,'namespace_order_preserved':True}
+
+
+def accepted_fresh_seal(request,old_view):
+    census=read(request['normalization_census']);need(request['normalization_census']['sha256']==CENSUS_SHA,'Measured census changed')
+    old=load_seal({'path':str(OLD_SEAL/'result.json'),'sha256':OLD_RESULT_SHA},OLD_SEAL)
+    new=load_seal(request['fresh_seal'],NEW_SEAL)
+    review=read(request['fresh_seal_review'])
+    need(review['status']=='accepted_exact_normalization_support_seal' and review['old_result']=={'path':str(OLD_SEAL/'result.json'),'sha256':OLD_RESULT_SHA} and review['fresh_result']==request['fresh_seal'] and review['census']==request['normalization_census'] and review['collector_sha256']==COLLECTOR_SHA and review['cleanup_verified'] is True and review['scientific_inputs_unchanged'] is True,'Fresh seal requires exact independent audit')
+    delta=compare_seals(old,new,census)
+    need(review['added_paths']==sorted(r['path'] for r in delta['added_files']), 'Seal audit addition scope differs')
+    old_base=read(old_view['readonly_plan']);base=read(request['fresh_readonly_plan']);old_plan=read(old_base['payload']['plan']);plan=read(request['fresh_sealing_plan'])
+    need(base['payload']=={'helper':plan['request']['helper'],'mode':'seal_inputs','plan':request['fresh_sealing_plan']}, 'Fresh readonly payload differs')
+    for key in base:
+        if key not in ('payload','parent_topology'):need(base[key]==old_base[key],'Readonly admission/mapping changed: '+key)
+    need(set(base)==set(old_base) and read(base['parent_topology'])==read(old_base['parent_topology']), 'Readonly parent topology changed')
+    before=copy.deepcopy(old_plan['request']);after=copy.deepcopy(plan['request'])
+    need(after['output_root']==str(NEW_SEAL) and before['output_root']==str(OLD_SEAL), 'Fresh seal roots differ')
+    need(after['helper']['path']==str(B/'fit-seal-control-07/seal_direct_fit_inputs05.py') and after['helpers']['allowlist']=={'path':str(B/'fit-seal-control-07/prepare_segmented_fit_allowlist04.py'),'sha256':COLLECTOR_SHA}, 'Unreviewed normalization sealing helpers')
+    need(review['sealing_plan']==request['fresh_sealing_plan'] and review['readonly_plan']==request['fresh_readonly_plan'],'Seal review controls differ')
+    checked(after['helper']);checked(after['helpers']['allowlist'])
+    before.pop('helper');after.pop('helper');before.pop('output_root');after.pop('output_root');before['helpers'].pop('allowlist');after['helpers'].pop('allowlist')
+    need(before==after,'Scientific or unrelated sealing request changed')
+    return old,new,delta
+
+
+def verified_normalization_failure(request):
+    need(request['normalization_smoke_capture']['sha256']==NORMALIZATION_SMOKE_CAPTURE and request['normalization_smoke_review']['sha256']==NORMALIZATION_SMOKE_REVIEW,'Normalization failure attribution differs')
+    capture=read(request['normalization_smoke_capture']);review=read(request['normalization_smoke_review'])
+    need(capture['status']=='failed' and capture['fit_attempts']==0 and capture['attempts_empty'] and capture['temporary_empty'],'Normalization failure boundary differs')
+    need(review['status']=='verified_failed_actual_namespace_probe' and review['actual_bootstrap_passed'] is True and review['actual_full_namespace_probe_passed'] is False and review['cleanup_verified'] is True and review['benchmark_attempts_launched']==0,'Normalization failure audit differs')
+    for row in capture['files']:checked({k:row[k] for k in ('path','sha256')})
+    execution=read(review['execution']);need(execution['status']=='failed' and execution['fit_attempts']==0 and execution['cleanup']['verified'] is True and execution['cleanup']['live_owned_processes']==[],'Normalization failure cleanup differs')
+    need(all(process_gone(row) for row in execution['cleanup']['identities']),'Normalization failure process remains live')
+    return capture

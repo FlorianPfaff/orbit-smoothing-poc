@@ -1,0 +1,74 @@
+{
+  "actual_probe_acceptance": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/actual-probe-independent-review.json",
+    "sha256": "a183a172655236912ad2c09cccc63a3484b69aaf2a65ae64c5eefa7f3db9fa64"
+  },
+  "approved_next_action": "Execute only the recorded launch_command through the unchanged outer launcher with real controller HOME and existing current-host admission. Independently inspect actual launch, inner proof and native handoff afterward.",
+  "capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-recovery-readback03/manifest.json",
+    "sha256": "e0b6aba81a1b0da75c6f31b09913260bb7a51e1f38f7f2abfed50674755a0644"
+  },
+  "captured_bytes_verified": 138626,
+  "captured_files_verified": 25,
+  "controller_home": "/home/florianpfaff",
+  "covariance_or_convergence_claim": false,
+  "created_at": "2026-10-19T01:24:24.909475+00:00",
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/campaign09-recovery-execution03/execution.json",
+    "sha256": "5c3c57b0c24ef1936e852dc62ea7ffa41632aa234573474033d224ef042d74a9"
+  },
+  "execution_elapsed_seconds": 5.517107261810452,
+  "findings": [
+    "Actual invocation is byte-for-byte identical to the successful full no-fit probe invocation and otherwise equals the fresh sealed invocation with only accepted wrapper05 and cap-only bwrap selected.",
+    "Host plan, launch pins and outer read-only view were independently reconstructed from original07 controls with only the named09 control relocation, accepted wrapper/invocation, fresh map and readonly-view06 pin changes. Every other field is exact.",
+    "The same frozen config,68-attempt manifest and order, source/native/runtime identities, numerical limits, one-thread CPU24 fits, CPU32 controller/observer and CPU88 contention monitoring remain in effect.",
+    "Original failure histories, exact3-file normalization delta and actual passed probe evidence are bound to the request and actual recovery result. All25 capture records agree with their exact hashes.",
+    "Owned metadata execution completed cleanly. The existing launcher must perform current-host admission and ownership checks; the original inner controller must repeat its actual full probe before starting the public campaign."
+  ],
+  "fit_attempts_started_at_review": 0,
+  "fresh_seal_acceptance": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/fresh-seal-independent-review.json",
+    "sha256": "eae2a898c358a93fcc3fd6e4cdd0614f5c268765493034adf8848a03f30ea5d7"
+  },
+  "host_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/host-plan.json",
+    "sha256": "c545c3d958fc3ab68cc3ce721fd257bf4981fa90b2138d21f0702c02504e938b"
+  },
+  "host_view": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/host-view-plan.json",
+    "sha256": "0276468ce244308ba8b082f41377bf30a61f371e41639b7e4e40c1eab597efe7"
+  },
+  "invocation": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/invocation.json",
+    "sha256": "655a2177cd3f9e8a9211ccf8a81d0cdd030db8808b842b8d6e0f214adcf064f5"
+  },
+  "launch_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/host-view-plan.json",
+    "--sha256",
+    "0276468ce244308ba8b082f41377bf30a61f371e41639b7e4e40c1eab597efe7"
+  ],
+  "launch_pins": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/launch-pins.json",
+    "sha256": "dc166c466ff2b3362f1d0f572653450c461d4cf8a120eb48920a4f3bebc08356"
+  },
+  "metadata_cleanup_verified": true,
+  "numerical_home_scope": "Existing private HOME inside the empty-root namespace remains unchanged.",
+  "recovery": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/recovery.json",
+    "sha256": "b1c43fc3dd7985cc01467d331c0f125fc6d2a8a0ef9a56d02ae77ae4c972aa3d"
+  },
+  "release_ready": false,
+  "request": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/recovery-request.json",
+    "sha256": "096a054a0ad57847d9ff451d7348cf6ea00a0ff840a847fce72ab2882a14d417"
+  },
+  "schema": "orbit-poc-campaign09-concrete-packet-independent-review-v1",
+  "status": "accepted_actual_campaign_launch_packet"
+}

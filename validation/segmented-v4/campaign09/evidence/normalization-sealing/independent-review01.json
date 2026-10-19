@@ -1,0 +1,82 @@
+{
+  "actual_full_namespace_probe_passed": false,
+  "actual_new_seal_passed": false,
+  "candidate_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/manifest.json",
+    "sha256": "791ae14d5deba92878b184e54fc22b3648542ca01c53907dc0cbbdcc41d666e2"
+  },
+  "checks": [
+    "Each of the three helpers is byte-identical to its previously reviewed version except one exact required-helper digest substitution. No sealing, namespace, reference-alias, ownership, cleanup or scientific algorithm changed.",
+    "Independent66 tests pass across the sealer, outer campaign planner and read-only sealing view builder. Author tests01 failure is retained:34 stale test-fixture calls lacked the newly required normalization_mode argument; the single fixture call was adapted, with production helper bytes unchanged.",
+    "Collector acceptance covers only the typed three-file support closure diagnosed from original normalization receipts. Actual new sealed metadata must still be checked for exactly those data additions and reviewed control changes before probe/campaign selection."
+  ],
+  "collector_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/normalization-support-independent-review01.json",
+    "sha256": "d6971ab2e7127f04ac258c6d0ad987c113816f2892e6a831eaa0fa96e3147eff"
+  },
+  "fit_execution_authorized": false,
+  "release_ready": false,
+  "reviewed_at": "2026-10-19T00:37:46.744784+00:00",
+  "schema": "orbit-poc-normalization-sealing-controls-independent-review-v1",
+  "scope": "Accept exact pin-only control sources. Concrete install/request, actual derived plan and actual sealed outputs remain separately reviewed. This receipt does not authorize native fitting, replace frozen inputs, or accept a full namespace proof.",
+  "sources": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/seal_direct_fit_inputs05.py",
+      "sha256": "ece54c60d011e3ef8ee252d9a424d35dc1862a1069246e7c0bf8f4b950ace776"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/plan_direct_campaign06.py",
+      "sha256": "f3f7305adcb33ea8e53ff0e873d0d710125f4b0fe154fd09c548f1cda3a6672d"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/plan_direct_sealing_view06.py",
+      "sha256": "494f84c734ef8174b0ac462e3dd748fc0c80bb324010f1d5ba29b8135e4c2288"
+    }
+  ],
+  "status": "accepted_pin_only_normalization_sealing_controls",
+  "tests": {
+    "affinity": [
+      1
+    ],
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-independent01.xml",
+      "sha256": "d81ba17a6c26632cf98310bc921a7f46fa212d937fab2cfd1290897ae4238313"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-independent01.log",
+      "sha256": "919854bc4cb56c25f7c05844b98f57571c6610b73b58fa020e292ca913a6ce87"
+    },
+    "numerical_threads": 1,
+    "passed": 66,
+    "prior_author_failure_log": {
+      "bytes": 57733,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/tests01.log",
+      "sha256": "deb13099598a9b483b41062749523f43f908b55a73c4df213701b77a9f7013c7"
+    },
+    "prior_author_failure_xml": {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/tests01.xml",
+      "sha256": "50d21d1b5adc1eccca1ebc19cd1956e0eee73183216d36d9ca810d777a5c63a0"
+    },
+    "prior_fixture_source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py.before-fixture-adaptation01",
+      "sha256": "50c1cc840f2428b95d9c2354ab6dc57a8433d2e427246ebc67e6ae0ccb82f6c9"
+    },
+    "skips": 0,
+    "test_sources": [
+      {
+        "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py",
+        "sha256": "3f02b662f7f61defed7ba530e24255783da0a3f2b8d6874169bbaeade6fb38c7"
+      },
+      {
+        "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_assembly.py",
+        "sha256": "71a44471c8f39e157c25ab6925242567e263c672e6915de4bc486320e28e281e"
+      },
+      {
+        "path": "/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealing_view.py",
+        "sha256": "f8f95d5b46bbf56da956f35433650313db85cda21c49bae56d0f956be21e3959"
+      }
+    ]
+  }
+}

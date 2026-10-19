@@ -1,0 +1,110 @@
+{
+  "schema": "orbit-poc-private-dev-smoke-terminal-independent-readback-v1",
+  "captured_at": "2026-10-19T01:20:04.924525+00:00",
+  "host": "workstation1",
+  "artifacts": {
+    "execution": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/loader-alias-smoke-execution03/execution.json",
+      "sha256": "f52310ac46fa5e6cd6b4e991ff23c597c3e458bf87dc24b3c6a7499447213e4c"
+    },
+    "proof": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/loader-alias-smoke-execution03/proof.json",
+      "sha256": "28a55f76f007b023d166621e29f80dbf508b6ca4a7fb81c68d7f6bd50461f75e"
+    },
+    "bootstrap": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/loader-alias-smoke-execution03/bootstrap.json",
+      "sha256": "a3e5d3686e7546623334cfe86c4e461363504dad6e202bce374502733642b988"
+    },
+    "namespace-exec": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/loader-alias-smoke-execution03/namespace-exec.json",
+      "sha256": "fe9c73ad834467d277c330005c935e706ff1e523ac55a0edaf51b475af54c7b3"
+    }
+  },
+  "execution_status": "passed",
+  "returncode": 0,
+  "identities": [
+    {
+      "expected": {
+        "argv": [
+          "/usr/bin/python3",
+          "-B",
+          "-"
+        ],
+        "command_sha256": "fcf552dde7f0b76406ecc61a399e9adc3fa19352ba8943b0428696d16dc4f603",
+        "parent": 3274,
+        "pid": 3282,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 135584315,
+        "state": "R"
+      },
+      "current": null
+    },
+    {
+      "expected": {
+        "parent": 3282,
+        "pid": 3308,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 135584438,
+        "state": "Z"
+      },
+      "current": null
+    },
+    {
+      "expected": {
+        "parent": 3308,
+        "pid": 3316,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 135584454,
+        "state": "S"
+      },
+      "current": null
+    },
+    {
+      "expected": {
+        "parent": 3316,
+        "pid": 7368,
+        "pid_namespace": "pid:[4026534167]",
+        "start_ticks": 135623050,
+        "state": "S"
+      },
+      "current": null
+    },
+    {
+      "expected": {
+        "parent": 7368,
+        "pid": 7847,
+        "pid_namespace": "pid:[4026534167]",
+        "start_ticks": 135626606,
+        "state": "R"
+      },
+      "current": null
+    }
+  ],
+  "empty_writables": {
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts": {
+      "device": 2048,
+      "inode": 239600079,
+      "empty": true
+    },
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/temporary/fit-private": {
+      "device": 2048,
+      "inode": 239600080,
+      "empty": true
+    }
+  },
+  "locks": [
+    {
+      "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/control/candidate09-validation.lock",
+      "device": 2048,
+      "inode": 217252784,
+      "holders": []
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/.segmented.lock",
+      "device": 2048,
+      "inode": 239479247,
+      "holders": []
+    }
+  ],
+  "native_or_fit_executed_by_audit": false
+}

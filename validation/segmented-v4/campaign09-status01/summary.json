@@ -1,0 +1,121 @@
+{
+  "active_attempt": {
+    "attempt_id": "leo500-quiet-normal-groops_pulses-24h--segmented_1h",
+    "expected_native_pin": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+      "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+    },
+    "native_process": {
+      "affinity": [
+        24
+      ],
+      "argv": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-24h--segmented_1h/point-002-repeat/profile.xml"
+      ],
+      "command_sha256": "f01df344410fb0ccd530378244b114928d9ee5aaff6dcdbb8a4f73dbce74517a",
+      "executable": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+      "executable_identity": {
+        "bytes": 24165368,
+        "device": 2048,
+        "inode": 239476867
+      },
+      "last_processor": 24,
+      "namespaces": {
+        "mnt": "mnt:[4026534164]",
+        "net": "net:[4026534168]",
+        "pid": "pid:[4026534167]"
+      },
+      "native_workload": true,
+      "parent": 85979,
+      "pid": 111782,
+      "rss_pages": 94552,
+      "selected_environment": {
+        "HOME": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/temporary/fit-private/home",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "start_ticks": 136763418,
+      "state": "D",
+      "system_ticks": 575,
+      "user_ticks": 39798
+    },
+    "observed_peak_process_tree_rss_bytes": 4185903104,
+    "order": 1,
+    "profile": "segmented_1h",
+    "request": {
+      "bytes": 89238,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-24h--segmented_1h/request.json",
+      "sha256": "cc0e012f4e32d1ea9eba728c11070249edcffa76828863e023af33301fd3d771"
+    },
+    "supervisor_elapsed_seconds": 3515.5715974410996,
+    "supervisor_receipt": {
+      "bytes": 2217,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-24h--segmented_1h/supervisor.json",
+      "sha256": "7717b94297b1998dfe3cda34c9db2deaf80d43d5a4afefbbf9fc9b38c790244f"
+    },
+    "supervisor_status": "running"
+  },
+  "active_attempts": 1,
+  "controller_live": true,
+  "cutoff": "2026-10-19T04:37:47.350976+00:00",
+  "first_attempt": {
+    "attempt_id": "leo500-quiet-normal-groops_pulses-24h--dense_corrected",
+    "order": 0,
+    "profile": "dense_corrected",
+    "record": {
+      "bytes": 442,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-24h--dense_corrected/result-record.json",
+      "sha256": "c1e2ffbfa9b6fa7756f2067e0b310116522f084d69c39e400aaf856c10917b1d"
+    },
+    "result": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-24h--dense_corrected/result.json",
+      "sha256": "1986f56dce650a42c33e4f63fd8b151047cf974f90dde2f6cfd503249b8e8c06"
+    },
+    "state": "terminal_record_present",
+    "status": "timeout"
+  },
+  "frozen_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation07-terminal01/run/manifest.json",
+    "sha256": "4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6"
+  },
+  "limitations": [
+    "The dense timeout is the reported terminal classification. Its complete result, cleanup, numerical diagnostics and scientific validity are not independently audited here.",
+    "The second process was present in D (uninterruptible sleep) state at one non-atomic snapshot; this alone does not establish a hang or convergence.",
+    "Native executable bytes and growing logs were not rehashed during fitting. Identity uses recorded path/device/inode/size against the previously sealed inventory.",
+    "The original campaign09 report retains its earlier 01:41:13 UTC cutoff. This separate follow-on status advances only the observed process/terminal counts.",
+    "No success, covariance acceptance, speed or scientific comparison claim follows from this status."
+  ],
+  "manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+  "not_started_attempts": 66,
+  "observer_latest": {
+    "monotonic_seconds": 1368289.395259485,
+    "native_conflict_seen": false,
+    "native_conflicts": [],
+    "observed_at": "2026-10-19T04:37:46.882147+00:00",
+    "owner": {
+      "pid": 12589,
+      "start_ticks": 135673405
+    },
+    "plan_sha256": "c45cd827c18204fe3e10605c28bc65d2db2572be0e97916e4ebe15822b7d422f",
+    "process_read_errors": [],
+    "sampling_incomplete_seen": false,
+    "schema": "orbit-poc-segmented-timing-guard-v2",
+    "status": "clear"
+  },
+  "planned_attempts": 68,
+  "release_ready": false,
+  "reported_successful_completions": 0,
+  "reported_terminal_status_counts": {
+    "timeout": 1
+  },
+  "schema": "orbit-poc-campaign09-follow-on-status-v1",
+  "source_snapshot": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-live06/snapshot.json",
+    "sha256": "2f728104b34d1d483337db4e10d08f7b91cfc8a8d9ef813eaad335dd28371cb5"
+  },
+  "started_attempts": 2,
+  "terminal_attempts": 1
+}

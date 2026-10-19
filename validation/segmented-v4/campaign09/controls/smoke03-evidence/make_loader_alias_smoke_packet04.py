@@ -1,0 +1,40 @@
+from pathlib import Path
+import argparse,hashlib,importlib.util,json
+C=Path('/mnt/d/orbit-segmented-v4/control');B=Path('/mnt/seagate10tb/orbit-segmented-v4-florianpfaff');S=B/'loader-alias-smoke-control-03';P=C/'loader-alias-smoke-packet04'
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def pin(p,path=None):return {'path':str(path or p),'sha256':sha(p)}
+def need(v,m):
+ if not v:raise ValueError(m)
+def write(p,v):
+ with p.open('x') as f:json.dump(v,f,indent=2,sort_keys=True);f.write('\n')
+a=argparse.ArgumentParser();a.add_argument('--seal-review',type=Path,required=True);a.add_argument('--seal-review-sha256',required=True);args=a.parse_args();seal_review=args.seal_review;need(sha(seal_review)==args.seal_review_sha256,'Actual review changed');audit=json.loads(seal_review.read_text());need(audit['status']=='accepted_exact_normalization_support_seal','Actual seal must be independently accepted')
+cap=C/'direct-sealing06-terminal01';capture=json.loads((cap/'manifest.json').read_text());records={r['relative_path']:r for r in capture['files']}
+for name in ('result.json','invocation.json','mount-plan.json','allowlist.json'):
+ need(sha(cap/'sealed'/name)==records['sealed/'+name]['sha256'],'Captured artifact changed')
+result=json.loads((cap/'sealed/result.json').read_text());need(result['status']=='sealed_metadata' and result['fit_attempts']==result['native_executions']==0,'Fresh seal not complete');need(audit['fresh_result']=={'path':records['sealed/result.json']['path'],'sha256':records['sealed/result.json']['sha256']},'Review result differs')
+old=cap/'sealed/invocation.json';inv=json.loads(old.read_text());wrapper=C/'device-bootstrap-wrapper-draft01/with_segmented_fit_namespace05.py';review=C/'device-bootstrap-wrapper-independent-review01.json';helper=C/'normalization-smoke-draft01/run_alias_probe03.py'
+need(sha(wrapper)=='3a0493c9ce4c446977f303dd9a1c13e3d0ef68ba9529e12ebc40aa18b33b9e4f' and sha(review)=='f14edd224c5a74f966501fde188ed69cd11e99344e0e53060528f7850249c96a','Exact wrapper review changed')
+need(sha(C/'device-bootstrap-smoke-draft01/run_alias_probe02.py')=='fa7f429333e8dd741a7fd4fc95e53c974f307fc6cce50d9177529f35fe1cb03a','Prior smoke helper changed')
+expected=(C/'device-bootstrap-smoke-draft01/run_alias_probe02.py').read_text().replace('937e2bf3cb2dae31e459950f912593058cf2f58a30cc77c218794fe295ee6826',result['artifacts']['mount-plan.json']['sha256']).replace('a768ddf14c8ebb7fb11e4752c9787da407f7db77ee618176ae2946ce32c4ed3d',result['artifacts']['allowlist.json']['sha256']);need(helper.read_text()==expected,'Smoke helper differs beyond two actual pins')
+inv['wrapper']=pin(wrapper,B/'bwrap-cap-01/controls'/wrapper.name);inv['bubblewrap']={'path':str(B/'bwrap-cap-01/binaries/bwrap-0.6.1-ubuntu0.3-maxargs16384'),'sha256':'7983e8f9ac3c68f072b4ea7884f4d3ce87c2086a1198412649663614113fc3f4'};P.mkdir();write(P/'invocation.json',inv)
+view=json.loads((C/'direct-sealing06-plan-readback01/readonly-view-plan06.json').read_text());plan={'schema':'orbit-poc-loader-alias-probe-smoke-v1','helper':pin(helper,S/helper.name),'invocation':pin(P/'invocation.json',S/'invocation.json'),'readonly_helper':view['helper'],'readonly_plan':{'path':str(B/'fit-seal-control-07/readonly-view-plan06.json'),'sha256':sha(C/'direct-sealing06-plan-readback01/readonly-view-plan06.json')},**{k:view[k] for k in ('control_python','bubblewrap')}};write(P/'smoke-plan.json',plan)
+files={helper.name:(helper,S/helper.name),'invocation.json':(P/'invocation.json',S/'invocation.json'),'smoke-plan.json':(P/'smoke-plan.json',S/'smoke-plan.json'),'wrapper-independent-review.json':(review,S/'wrapper-independent-review.json'),'seal-independent-review.json':(seal_review,S/'seal-independent-review.json')};prior=[]
+for n,review_name in [('01','loader-alias-smoke-terminal-independent-review01.json'),('02','device-bootstrap-smoke-terminal-independent-review02.json')]:
+ capture_file=C/('loader-alias-smoke-terminal'+n)/'manifest.json';review_file=C/review_name;files['prior-smoke'+n+'-capture.json']=(capture_file,S/('prior-smoke'+n+'-capture.json'));files['prior-smoke'+n+'-review.json']=(review_file,S/('prior-smoke'+n+'-review.json'));prior.append({'capture':pin(capture_file,S/('prior-smoke'+n+'-capture.json')),'review':pin(review_file,S/('prior-smoke'+n+'-review.json'))})
+entries=[]
+for n,(src,dst) in files.items():
+ if src!=P/n:
+  with (P/n).open('xb') as f:f.write(src.read_bytes())
+ entries.append({'local':str(P/n),'target':str(dst),'sha256':sha(src),'bytes':src.stat().st_size})
+# Reconstruct the exact effective setup vector from captured metadata only.
+def module(name,path):
+ s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+need(sha(C/'symlink-closure-draft02/plan_segmented_fit_namespace02.py')=='2a00bb3fa57bef3c034e3ab96348c6f720d25af5473e65efb9a5a6dc5a7d68d2','Planner changed')
+w=module('wrapper',wrapper);fresh=module('planner',C/'symlink-closure-draft02/plan_segmented_fit_namespace02.py');mount=json.loads((cap/'sealed/mount-plan.json').read_text());links={r['path']:r['target'] for r in mount['canonical_symlinks']}
+def backing(p):
+ q=mount['verified_file_backings'][fresh.links_resolve(p['path'],links)];need(q['sha256']==p['sha256'],'Existing library metadata differs');return Path(q['path'])
+options,aliases=w.add_loader_aliases(mount,mount,fresh,backing);environment=json.loads((C/'loader-alias-smoke-terminal02/execution/namespace-exec.json').read_text())['environment']
+for k,v in sorted(environment.items()):options+=['--setenv',k,v]
+write(P/'effective-setup-vector.json',{'mount_plan':inv['mount_plan'],'loader_aliases':aliases,'environment':environment,'options':options,'options_sha256':hashlib.sha256(fresh.args_bytes(options)).hexdigest(),'scope':'Pure metadata reconstruction; actual full wrapper/probe remains required.'})
+stage={'schema':'orbit-poc-loader-alias-smoke-staging-v3','files':entries,'control_root':str(S),'output_root':str(B/'loader-alias-smoke-execution03'),'smoke_plan':pin(P/'smoke-plan.json',S/'smoke-plan.json'),'original_invocation':result['artifacts']['invocation.json'],'original_captures':[{'path':str(B/'campaign07-terminal-01/manifest.json'),'sha256':'20c14ed104f0a7e1dd3f270f29fd43ceb0e59922d9ccb3535d5a19abcf15dbc0'},{'path':str(B/'campaign08-terminal-01/manifest.json'),'sha256':'cd831883bd951e2d36deadd1f8cadd0954e9ed5daa5c4e785226868d5785325d'}],'prior_smokes':prior,'wrapper_parent':{'path':str(B/'bwrap-cap-01/controls'),'device':2048,'inode':239602682},'preserved_wrappers':[{'path':str(B/'bwrap-cap-01/controls/with_segmented_fit_namespace03.py'),'sha256':'1cc25772cf62ea6236c164fc26640aab6e53f305c80c6d29f55a1eb8153a9d9d'},{'path':str(B/'bwrap-cap-01/controls/with_segmented_fit_namespace04.py'),'sha256':'4b3796ca75e731077600b5f8ba15d1697ddb5cfa0d9fcff8c8b6434862748827'},inv['wrapper']],'sealed_result':audit['fresh_result'],'seal_review':pin(seal_review,S/'seal-independent-review.json'),**{k:audit[k] for k in ('added_paths','census','old_result','sealing_plan','readonly_plan')},'expected_sealed_options_sha256':hashlib.sha256(fresh.args_bytes(options)).hexdigest(),'expected_allowlist_sha256':result['artifacts']['allowlist.json']['sha256'],'scope':'Existing public probe02 with full public_checks and unchanged checked bootstrap; fresh independently accepted seal adds exactly3existing normalized-GPS support files. No campaign or fit.'}
+write(P/'staging-plan.json',stage);template=(C/'run_loader_alias_smoke_template04.py').read_text();need(template.count('STAGING_PLAN_HASH')==1,'Template marker');(P/'run_owned.py').write_text(template.replace('STAGING_PLAN_HASH',sha(P/'staging-plan.json')));write(P/'manifest.json',{'schema':'orbit-poc-normalization-support-smoke-packet-v1','files':[{'name':p.name,'sha256':sha(p),'bytes':p.stat().st_size} for p in sorted(P.iterdir()) if p.is_file()]});print(json.dumps({'packet':str(P),'manifest_sha256':sha(P/'manifest.json'),'staging_plan_sha256':sha(P/'staging-plan.json')}))

@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="34" skipped="0" tests="66" time="15.409" timestamp="2026-10-19T02:32:24.722734+02:00" hostname="pfaff"><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_assemble_reviewed_host_and_direct_view_without_launch" time="0.538" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[unknown]" time="0.022" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[helper]" time="0.026" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[sealed_failed]" time="0.035" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[sealed_had_fit]" time="0.139" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[sealed_authorizes]" time="0.142" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[wrong_manifest]" time="0.159" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[wrong_sealer]" time="0.146" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[wrong_readonly]" time="0.056" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[bad_artifact_path]" time="0.051" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[changed_artifact]" time="0.114" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[missing_artifact]" time="0.191" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[failure_present]" time="0.084" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[stale_inode]" time="0.238" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[prior_output]" time="0.132" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[no_evidence]" time="0.054" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[duplicate_evidence]" time="0.057" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[changed_evidence]" time="0.066" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[resumed_invocation]" time="0.143" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[wrong_mount]" time="0.051" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[overlap_source]" time="0.046" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_reject_invalid_metadata_before_assembly[overlap_sealing]" time="0.061" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_assembly" name="test_failed_reviewed_host_validation_keeps_failed_output" time="0.162" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_alias_uses_exact_original_driver_mapping[False]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_alias_use0')
+present = False
+
+    @pytest.mark.parametrize('present',[False,True])
+    def test_known_reference_alias_uses_exact_original_driver_mapping(tmp_path,present):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path,present);plan=s.make_plan(p);context=s.context(p)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_alias_use0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_alias_uses_exact_original_driver_mapping[True]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_alias_use1')
+present = True
+
+    @pytest.mark.parametrize('present',[False,True])
+    def test_known_reference_alias_uses_exact_original_driver_mapping(tmp_path,present):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path,present);plan=s.make_plan(p);context=s.context(p)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_alias_use1')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_unchanged_probe_expands_canonical_and_backing_denial" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_unchanged_probe_expands_c0')
+
+    def test_unchanged_probe_expands_canonical_and_backing_denial(tmp_path):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path);c=s.context(p);probe=s.module('unchanged_probe',p['helpers']['probe'])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_unchanged_probe_expands_c0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[wrong_hash]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio0')
+kind = 'wrong_hash'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[unmapped]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio1')
+kind = 'unmapped'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio1')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[missing_backing]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio2')
+kind = 'missing_backing'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio2')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[cycle]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio3')
+kind = 'cycle'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio3')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[missing_physical_pin]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio4')
+kind = 'missing_physical_pin'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio4')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[missing_canonical_pin]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio5')
+kind = 'missing_canonical_pin'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio5')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[duplicate_pin]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio6')
+kind = 'duplicate_pin'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio6')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[wrong_driver]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio7')
+kind = 'wrong_driver'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio7')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_known_reference_resolution_rejects_errors_without_outputs[shadowed_alias]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio8')
+kind = 'shadowed_alias'
+
+    @pytest.mark.parametrize('kind',['wrong_hash','unmapped','missing_backing','cycle','missing_physical_pin','missing_canonical_pin','duplicate_pin','wrong_driver','shadowed_alias'])
+    def test_known_reference_resolution_rejects_errors_without_outputs(tmp_path,kind):
+&gt;    p,alias,back,prior=reference_fixture(tmp_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:46: in reference_fixture
+    p,root,prior,control=fixture(t);physical=t/'physical';physical.mkdir();back=physical/'GNV1B_fixture.txt';back.write_text('reference denial bytes only')
+                         ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_known_reference_resolutio8')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_actual_metadata_flow_uses_real_builders_and_preserves_truth_denial" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_actual_metadata_flow_uses0')
+
+    def test_actual_metadata_flow_uses_real_builders_and_preserves_truth_denial(tmp_path):
+&gt;    p,root,prior,control=fixture(tmp_path);before={str(q):s.sha(q) for q in root.rglob('*') if q.is_file()}
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_actual_metadata_flow_uses0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[missing_manifest]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno0')
+kind = 'missing_manifest'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[wrong_manifest_hash]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno1')
+kind = 'wrong_manifest_hash'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno1')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[missing_case]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno2')
+kind = 'missing_case'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno2')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[missing_attempt]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno3')
+kind = 'missing_attempt'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno3')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[failed_preparation]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno4')
+kind = 'failed_preparation'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno4')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[dirty_cleanup]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno5')
+kind = 'dirty_cleanup'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno5')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[ran_fits]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno6')
+kind = 'ran_fits'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno6')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[failed_check]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno7')
+kind = 'failed_check'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno7')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[incomplete_after]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno8')
+kind = 'incomplete_after'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno8')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[wrong_source]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno9')
+kind = 'wrong_source'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno9')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[wrong_cpu]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno10')
+kind = 'wrong_cpu'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno10')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[changed_helper]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno11')
+kind = 'changed_helper'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno11')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[unknown_option]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno12')
+kind = 'unknown_option'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno12')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[changed_config_pin]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno13')
+kind = 'changed_config_pin'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno13')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[nonempty_attempts]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno14')
+kind = 'nonempty_attempts'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno14')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[nonempty_temporary]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno15')
+kind = 'nonempty_temporary'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno15')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[output_overlap]" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno16')
+kind = 'output_overlap'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno16')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[wrong_catalog]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno17')
+kind = 'wrong_catalog'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno17')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_invalid_preparation_cannot_even_create_a_sealing_plan[missing_system_support]" time="0.000"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno18')
+kind = 'missing_system_support'
+
+    @pytest.mark.parametrize('kind',['missing_manifest','wrong_manifest_hash','missing_case','missing_attempt','failed_preparation','dirty_cleanup','ran_fits','failed_check','incomplete_after','wrong_source','wrong_cpu','changed_helper','unknown_option','changed_config_pin','nonempty_attempts','nonempty_temporary','output_overlap','wrong_catalog','missing_system_support'])
+    def test_invalid_preparation_cannot_even_create_a_sealing_plan(tmp_path,kind):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_invalid_preparation_canno18')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_failure_preserves_partial_metadata_and_original_inputs" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_failure_preserves_partial0')
+
+    def test_failure_preserves_partial_metadata_and_original_inputs(tmp_path):
+&gt;    p,root,prior,control=fixture(tmp_path)
+                          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_failure_preserves_partial0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealer" name="test_planned_output_path_tamper_rejected_before_write" time="0.001"><failure message="TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'">tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-34/test_planned_output_path_tampe0')
+
+    def test_planned_output_path_tamper_rejected_before_write(tmp_path):
+&gt;    p,*_=fixture(tmp_path);plan=s.make_plan(p);plan['planned_outputs']['allowlist.json']='/outside/allowlist.json'
+          ^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = PosixPath('/tmp/pytest-of-emper/pytest-34/test_planned_output_path_tampe0')
+
+    def fixture(t):
+&gt;    root=t/'actual';root.mkdir();f.test_support_collector_follows_gate_and_flight_read_dependencies_only(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: test_support_collector_follows_gate_and_flight_read_dependencies_only() missing 1 required positional argument: 'normalization_mode'
+
+/mnt/d/orbit-segmented-v4/control/normalization-sealing-draft01/test_sealer.py:18: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_actual_plan_derives_exact_reviewed_direct_view" time="0.047" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[wrong_plan]" time="0.026" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[wrong_helper]" time="0.021" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[wrong_manifest]" time="0.024" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[wrong_control]" time="0.025" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[nonempty_lock]" time="0.030" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[outside_output]" time="0.026" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[prior_output]" time="0.025" /><testcase classname="d.orbit-segmented-v4.control.normalization-sealing-draft01.test_sealing_view" name="test_bad_view_inputs_rejected_without_output[changed_sealer]" time="0.020" /></testsuite></testsuites>

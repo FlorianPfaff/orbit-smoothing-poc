@@ -1,0 +1,52 @@
+{
+  "archived_status_counts": {
+    "complete": 12,
+    "failed": 12,
+    "interrupted": 2,
+    "timeout": 31
+  },
+  "observed_at": "2026-10-19T00:50:11.225982+00:00",
+  "observed_control_and_descendant_entries": 27,
+  "observed_control_and_descendant_states": {
+    "D": 1,
+    "S": 4,
+    "Z": 22
+  },
+  "planned_attempts": 150,
+  "process_count_scope": "The source field live_control_and_descendants includes 22 zombie entries; 27 is the observed entry count, not the live-process count.",
+  "schema": "orbit-poc-original150-dated-compact-status-v1",
+  "scientific_status_scope": "Complete retains the original archived classification. This is not a corrected-v3.1 or v4 strict convergence audit, nor an overall campaign completion claim.",
+  "source_scope": "One dated local process/checkpoint observation. No full checkpoint, scientific artifact, input, runtime or cleanup audit; no native/workload mutation. Legacy completions retain their archived classification, not corrected-v3.1 or v4 strict convergence. The recorded campaign is local; gpuserver6000 hostname probe returned workstation2 with neither known campaign root.",
+  "source_snapshot": {
+    "bytes": 76440,
+    "path": "/mnt/d/orbit-segmented-v4/control/original150-current-status-20261019T005011Z.json",
+    "sha256": "b9dca1633c81c86fa66de9fa87868688fc6a6db10b3941f0ef3db2b92d9138de"
+  },
+  "started_without_terminal": [
+    {
+      "attempt_id": "fresh-leo300-quiet-normal-groops_log_drag_ou--qr_lm_legacy_jacobian",
+      "matching_processes": [
+        {
+          "cpu_allowed_list": "30",
+          "parent": 6367,
+          "pid": 128393,
+          "processor": 30,
+          "start_ticks": 18541301,
+          "state": "S"
+        },
+        {
+          "cpu_allowed_list": "30",
+          "parent": 128393,
+          "pid": 128563,
+          "processor": 30,
+          "start_ticks": 18555766,
+          "state": "D"
+        }
+      ],
+      "order_one_based": 58,
+      "profile": "qr_lm_legacy_jacobian",
+      "result_present": false
+    }
+  ],
+  "terminal_attempts": 57
+}
