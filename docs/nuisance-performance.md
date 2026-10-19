@@ -15,6 +15,44 @@ Whole-orbit performance and covariance remain unverified, and the cache remains
 off by default. The bounded protocol below records the specification used for
 this separate investigation.
 
+The subsequent [whole-fit protocol](../validation/nuisance-performance/wholefit01-protocol/README.md)
+freezes two full nonlinear attempts on the original 24-hour 500 km, quiet,
+normal-tracking pulse case. The same candidate runs with the cache enabled,
+then disabled, each with the original two-hour wall limit, 8 GiB process-tree
+limit and numerical thresholds. Its publication records the enabled attempt
+running and the disabled attempt pending at 08:20 UTC on 19 October 2026;
+that dated protocol is not a result. These attempts do not replace any frozen
+campaign job. The original initialization, observations, physics, priors and
+weights are retained; path remapping and the six historical runtime-library
+differences are recorded explicitly.
+
+`scripts/analyze_nuisance_wholefit.py` analyzes this separate full-fit protocol:
+
+```bash
+python scripts/analyze_nuisance_wholefit.py /path/to/wholefit01 \
+  --output /path/to/new-wholefit-analysis.json
+```
+
+It verifies the frozen worker, input and runtime identities and preserves every
+planned attempt. Running jobs stay pending; only terminal jobs are inspected
+for numerical evidence. A valid analysis may contain timeouts and does not
+mean the fits converged. Exact agreement on a completed nuisance-profile prefix
+is reported separately from whole-fit convergence, fresh covariance and final
+trajectory equivalence. Deleted intermediate factors are checked through their
+original retention ledgers, rather than being treated as accepted posteriors.
+One observed pair cannot establish a statistical speedup. Do not use the
+single-profile checker below as a whole-fit acceptance test.
+
+The full-fit checker calls the strict scientific gates from verified frozen
+source bytes and records the loaded module identities. It binds completed
+optimizer histories and the full point sequence to the worker result and native
+execution ledger. Exit code zero means that the outcome analysis is valid;
+read `scientific_equivalence.status` and `whole_fit_complete_pair` separately.
+A successful fit containing malformed partial artifacts from a rejected native
+trial currently requires further review: the checker reports invalid analysis
+instead of accepting incomplete evidence. Such a case would retain its first
+analysis before any separately reviewed extension to the checker.
+
 The preserved first 24-hour dense pulse timeout records two completed nuisance
 profiles taking 3,129.534 and 3,927.822 seconds. Their 7,057.355 seconds account for
 98.013% of the supervised 7,200.426-second fit. Both reported strict nuisance

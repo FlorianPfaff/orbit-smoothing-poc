@@ -1,0 +1,53 @@
+{
+  "accepted_covariance": false,
+  "actual_running_outputs_read": false,
+  "author_fixtures": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/test_nuisance_wholefit_analysis.py",
+    "sha256": "51c8b6d6c678f56704620e0adc97ae9513951f05591644de007d14e5a6cd184a"
+  },
+  "checker": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/analyze_nuisance_wholefit.py",
+    "sha256": "8874ca4622cf7b194f714c606a3d389d0d835fbe4e987a1b62ed7b81e2915709"
+  },
+  "counterexample_replay": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/replay_counterexamples.py",
+    "sha256": "ca5fea131b027b978542c72e7a5305b79ca01b775da50fa4660dc3962f4c1b0f"
+  },
+  "counterexamples": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/counterexamples.json",
+    "sha256": "1062590832ba7e12c334a59013659e64cce3583a47d8f1a39cbddbde8531c145"
+  },
+  "created_at": "2026-10-19T08:57:46.868877+00:00",
+  "documented_limitation": "A malformed partial native point from an ultimately accepted rejected trial can conservatively invalidate analysis; no fallback or numerical classification change is authorized. Preserve actual invalid analysis before separately reviewed handling.",
+  "independent_tests": {
+    "cpu": 4,
+    "failed": 0,
+    "junit": {
+      "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/tests.xml",
+      "sha256": "78b9f9d99f0808efd3850e4819f4d270140335e9eb71b64a613880eac5689e87"
+    },
+    "log": {
+      "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/tests.log",
+      "sha256": "d4757bf8d7863e2d5396781db9f5f718e64e879f3f650a5d5c00e4873d1250fb"
+    },
+    "passed": 53,
+    "skipped": 0,
+    "threads": 1
+  },
+  "native_runs": 0,
+  "release_authority": false,
+  "remaining_measured_finding": {
+    "cause": "Zero complete cache-on wall metric passes >=0 validation and reaches uncaught division by zero.",
+    "false_acceptance": false,
+    "id": "zero_complete_wall",
+    "required": "Require positive wall duration for complete fits and retain zero duration for failed/pending outcomes if otherwise valid."
+  },
+  "resolved_findings": [
+    "stale_optimizer_record",
+    "missing_one_or_both_complete_points",
+    "mutable_scientific_gate_imports"
+  ],
+  "schema": "orbit-poc-wholefit-checker-independent-review-v1",
+  "scope": "Offline synthetic fixtures and source review only. No actual running fit tree inspected.",
+  "status": "prior_correctness_findings_resolved_pending_zero_wall_guard"
+}
