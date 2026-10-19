@@ -173,3 +173,48 @@ observation-design time, which is nested inside row-build time. Cache counters
 report calls, actual evaluations and exact-key hits; they do not establish a
 speedup or numerical equivalence. Those claims require the native off/on evidence
 and unchanged acceptance gates described above.
+
+## Exact paired-run checker
+
+`scripts/check_nuisance_performance_pair.py` compares completed cache-off and
+cache-on native profile runs without launching a process:
+
+```bash
+python scripts/check_nuisance_performance_pair.py /path/to/cache0 /path/to/cache1 \
+  --freeze /path/to/freeze.json --preparation /path/to/preparation.json \
+  --output /path/to/new-pair-check.json
+```
+
+The freeze and preparation paths default to the cache-off run's parent directory.
+The checker verifies each taskset command against the frozen CPU, executable and
+profile; verifies configuration, freeze and supervisor hashes; requires completed
+owned-process cleanup; and checks cache-off/cache-on treatment, identical
+accumulation mode and shared fixture/input identities. Instrumentation must show
+one sidecar per nuisance search and actual cache hits in the enabled arm. Missing,
+running, unclean or unmatched attempts produce a failed comparison report.
+
+Every scientific generation from one through `nuisance_iterations + 1` is
+required. The last generation must be a separate fresh undamped, full-rank factor.
+Scientific JSON values, parameter/coordinate/update/time text, original row
+provenance and matrix payloads must match exactly. A gzip row file is compared by
+its uncompressed bytes. The only removed fields are
+`nuisance_line_search.trials[*].child_user_seconds`, `child_system_seconds` and
+`peak_child_rss_bytes`; no numerical threshold, objective, rank, support, prior,
+probe result or path is normalized away. Use the same declared spool location or
+the empty default in both runs because the factor metadata records that path.
+
+`artifact_equality` and `cache_pair_verified` are separate results. `passed`
+requires both plus valid complete scientific evidence. This prevents equal files
+from two cache-off runs, or historical files without experiment provenance, from
+being reported as a verified cache comparison. Both consecutive strict updates
+must satisfy the unchanged `1e-8 m` threshold, and their history must agree with
+the summary. The existing measured-resolution audit is required for a
+floor-limited label. Such a label remains progress-only; this checker never
+issues an accepted full-fit covariance or establishes whole-orbit convergence.
+
+Timing sidecars are checked against canonical ordinary trials, arithmetic audits
+and every probe-history round before their costs are attributed. Interpolation
+time is nested inside observation-design time, which is nested inside row-build
+time. Search sidecars omit the final linearization and unmeasured nuisance solve,
+local recovery and parameter-update stages. They are not an exhaustive profile
+cost or a speedup claim.
