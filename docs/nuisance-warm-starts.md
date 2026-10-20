@@ -7,11 +7,19 @@ default and makes no speedup or full-fit completion claim. The preceding
 [cache-only full-fit experiment](../validation/nuisance-performance/wholefit01-results/index.html)
 ended in two timeouts; those attempts and the frozen campaign remain unchanged.
 
+The [candidate06 experiment](../validation/nuisance-warm-starts/candidate06-profiles03/index.html)
+passed all 27 native fixed-trajectory profiles and all 15 comparisons, including
+an independent replay of every comparison. The unchanged 106 native tests and
+51 correction regressions also passed without failures or skips. This establishes
+bounded import and nuisance-fitting agreement; the main perturbed-target fits
+used the same iteration counts as their cold counterparts. No full-fit warm
+experiment, general speedup or release readiness is established.
+
 The first [real-profile validation](../validation/nuisance-warm-starts/candidate03-profiles01/index.html)
 failed: three disabled cold profiles completed, 15 enabled cold-export profiles
 failed their exact refresh checks, and nine dependent warm profiles were blocked.
-The independent audit accepts the failure attribution only. This candidate is
-not validated for use; no whole-fit warm experiment has been admitted.
+The independent audit accepts the failure attribution only. That earlier
+candidate was not validated for use; its failures remain preserved.
 The later [launch audit](../validation/nuisance-warm-starts/candidate03-launch-limitation/index.html)
 also found that the isolated launcher omitted prelaunch QR controls required for
 the production datum path. The original failures remain recorded; they do not
@@ -33,6 +41,31 @@ native test suites passed all 106 tests and 51 correction regressions. The prior
 fixture's original aggregate false status is preserved, alongside an independent
 schema-aware reconciliation of its successful native execution; it is not a
 replacement run or a relaxed scientific gate.
+
+Candidate06 separates receiver-clock starting guesses from statistical prior
+anchors. The native chart carries the versioned policy
+`receiver-clock-starting-guess-excluded-v2`; only explicitly typed starting clocks
+are excluded from cross-point cold-origin equality. Actual clock prior anchors,
+non-clock baselines, support, weights and gauges remain exact. Snapshot values
+and post-import refresh checks remain exact, and old-policy snapshots reject.
+This uses no rounding tolerance. The measured candidate05 starting-clock
+mismatches ranged from one to five ULPs; the numerical source operation was not
+identified. All 128 focused candidate06 tests passed independently.
+
+The candidate06 target comparisons retained these iteration counts:
+
+| Profile | Cold target | Independent cold repeat | Full warm target | Clock-only warm target |
+|---|---:|---:|---:|---:|
+| Pulses | 7 | 7 | 7 | 7 |
+| Density | 6 | 6 | 6 | 6 |
+| Nonzero-prior fixture | 9 | 9 | 9 | 9 |
+
+The same-trajectory prior fixture took 10, 8 and 8 iterations for cold, cold
+repeat and warm respectively, so its apparent improvement over the first cold
+run was also present in the cold repeat. These are single measurements in a
+bounded protocol, not independent performance trials. Ionosphere initialization
+remains cold. No additional whole-fit speed experiment was launched from these
+results. Earlier source, binaries, failures and frozen campaigns remain intact.
 
 A separately controlled worker enables the candidate with
 `ORBIT_POC_NUISANCE_WARM_STARTS=1`. The default enabled mode is
@@ -81,6 +114,15 @@ their SHA-256 digests, inode/device identities, size and timestamps must remain
 unchanged. Both files are rechecked at acceptance and import. An altered,
 missing, stale or mismatched seed stops the operation.
 
+A separate [composed controller test](../validation/nuisance-warm-starts/candidate06-controller/index.html)
+exercises the real optimizer and Python backend through acceptance, rejection,
+objective-floor checks, confirmation and final covariance. All seven cases
+passed independent replay and recorded 173 mocked native-call environments.
+Native outputs and physical closure are synthetic in these cases, so this adds
+Python control-flow evidence only. The first fixture-serialization failures are
+preserved alongside the corrected fixture and successful replay. It does not
+establish native whole-fit convergence, covariance or performance.
+
 ## Native controls and evidence
 
 The adapter owns these native environment fields:
@@ -116,9 +158,11 @@ The focused Python tests exercise accepted-only promotion, rejected-candidate
 rollback, floor-limited revocation, protected cold labels, tampering, missing and
 symlinked files, scientific-context changes, rank/retention/graph failures and
 inherited-environment suppression. These offline fixtures do not establish
-native import/export correctness or faster full-orbit estimation. Native checks,
-paired objective and uncertainty checks, independent review and separately
-frozen full-fit experiments are required before making those claims. No
+native import/export correctness or faster full-orbit estimation. The candidate06
+native profiles separately establish import/export agreement on their fixed
+trajectories, including objective and diagnostic covariance checks. A separately
+frozen native full-fit experiment remains necessary to establish complete
+optimizer integration, orbital covariance or whole-fit performance. No
 correctness threshold is relaxed for this candidate.
 
 ## Isolated validation harness

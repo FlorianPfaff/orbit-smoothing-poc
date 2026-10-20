@@ -1,0 +1,28 @@
+{
+  "candidate_source_mutated": false,
+  "created_at": "2026-10-20T04:06:20.154535+00:00",
+  "findings": [
+    "Warm source imported the exact202-coordinate donor payload21170861b8508834d41baca4be1f000691e5dbfa954373eeb899f896ae556c9f. The target receipt reports source/target chart and cold-origin equality and preserved cold ionosphere/anchors.",
+    "Initial warm diagnostics equal donor final coordinates exactly for120receiver clocks,1code-bias coordinate,1TEC-bias coordinate,3phase-bias coordinates and74ambiguity coordinates. Warm values were materially installed; no coordinate-reset evidence.",
+    "All120initial VTEC coordinates stay0 in both cold/warm, whereas donor final max is0.6652044980148822TECU. Retaining the target cold ionosphere is the current intentional scope.",
+    "Warm initial actual direct cost is26706889.694291707 versus62826467.37957154 cold. Epoch(clock-labelled) eliminated energy drops6353229.2467903 to1.7073631836598104 and retained nuisance predicted reduction124467.5013267754 to1.3102184949652423e-5. Warm local group eliminated target energy is53404907.76932614; configured group parameters are preeliminated STEC.",
+    "Both profiles take6iterations. Warm first maximum update0.7187539982750017m versus1.6641472536304414m cold; after first correction the two cost histories and VTEC trajectories nearly coincide. Both final stored direct costs are4434.956500560072. Final strict two-update checks remain unchanged.",
+    "Logs show the warm first step still estimates VTEC and then coupled TEC-bias corrections; the second step reports about2.7mm maximum receiver TEC-bias change in both arms. The2.949mm overall maximum is computed across joint observation influence, local STEC influence and native parameter changes. Its individual maximizing component is not separately exported, so exact per-component attribution of every tail iteration is not claimed.",
+    "Native import occurs after target apriori/chart construction and before the existing zero update; verifyRefresh checks all typed selected coordinates afterward. Chart reinitialization is locked. Subsequent builds record apriori values without reinitializing selected coordinates."
+  ],
+  "interpretation": "The remaining first-step work is dominated by intentionally cold local ionosphere. After it is refit, both runs follow essentially the same coupled nuisance convergence tail. This bounded source fixture shows no iteration-count benefit; it does not predict speed on24h physical trials.",
+  "limits": [
+    "No covariance/prediction-equivalence gate was recomputed; the prescribed checker and full actual-outcome audit remain separate.",
+    "No speedup claim; one observed pair, cooperative host admission.",
+    "Complete-profile success here is not full nonlinear-fit or release success."
+  ],
+  "measurements": {
+    "bytes": 63559,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-application-bottleneck05/measurements.json",
+    "sha256": "16fc4fbcc1dccf3dcc63f81fcdd6171aa2e998c1528c878ebba29d189f644714"
+  },
+  "new_native_or_test_runs": 0,
+  "release_authority": false,
+  "schema": "orbit-poc-warm-application-bottleneck-readonly-v1",
+  "scope": "Only3already-closed pulse-source profiles; running profiles02 unchanged. Not independent complete scientific outcome audit."
+}

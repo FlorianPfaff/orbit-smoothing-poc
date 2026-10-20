@@ -34,3 +34,23 @@ The format has a 64 MiB input limit, one MiB string limit, one million coordinat
 Focused tests cover codec/hash correctness, malformed input rejection before mutation, full-coordinate preservation, local invariant and lifecycle guards, the production collector's track/time/weight coverage, and installer/build re-entry. These tests do not establish native cross-physical equivalence. Release evidence requires separate cold-versus-warm target perturbation profiles with nonzero priors, the unchanged objective/rank/convergence gates, and Python accepted-state/rollback tests. Timing and speedup remain unestablished until measured under suitable conditions.
 
 The standalone API fixture `tests/nuisance_warm_native_matrix_fixture.cpp` must also be compiled against the actual pinned GROOPS source headers before a native build. Use `g++ -std=c++17 -fsyntax-only -I groops/extension -I /absolute/native-source/source tests/nuisance_warm_native_matrix_fixture.cpp`. This instantiates both ledger matrix readers with native `Matrix` and `Vector`; native `Vector` exposes a single-index accessor. The check requires the pinned native headers and performs no link or estimation. It complements the isolated runtime fixture and does not establish full native build or scientific correctness.
+
+
+Candidate06 cold-origin policy is `receiver-clock-starting-guess-excluded-v2`.
+The exact chart carries this policy and the typed classification of each selected
+receiver clock. Its starting estimate is excluded only from the cross-point cold
+origin fingerprint. Receiver-clock prior anchors (`x0Recv` and `x0Trans`), prior
+settings, all non-clock cold coordinates, observation support, weights and gauge
+bases retain exact checks. The payload still stores each clock exactly, and
+import plus zero refresh still checks every selected coordinate exactly. No
+rounding, numerical tolerance or nuisance convergence threshold changes.
+
+This separates the code-derived receiver-clock starting guess from any actual
+constraint anchor. The candidate05 perturbed-target fixtures had identical
+charts but observed differences of one to five ULPs in a few starting clock guesses;
+the unchanged v1 origin check therefore rejected them before mutation. The
+versioned chart tag causes old snapshots to reject; their origin fingerprints
+are never silently interpreted with the new policy. Candidate06 retains payload
+schema v1 because the coordinate serialization itself is unchanged. These are
+implementation semantics, not evidence that perturbed-target native equivalence
+has passed; that still requires separate real profile tests.

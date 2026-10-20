@@ -1,0 +1,94 @@
+{
+  "actual_prior_native157_review": {
+    "bytes": 5595,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate05-runtime/independent-review.json",
+    "sha256": "7b825b2c69e58f1c279e836c83542d77ceda223315dd130e481dca8c7b727acf"
+  },
+  "build_control": {
+    "bytes": 5197,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/build_candidate06.py",
+    "sha256": "92242ce08405e2fe944b0d305155e860f610e4310e808efab3c808067020b794"
+  },
+  "candidate_source_review_pending": true,
+  "created_at": "2026-10-20T04:16:36.354116+00:00",
+  "existing_outcomes": {
+    "bytes": 386359,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/profiles02-outcomes/independent-review.json",
+    "sha256": "d0904bfb5378d709f3e58cc0fabbdfafe2869fbfa685eac1aa89d7f84f596b8b"
+  },
+  "findings": [
+    "Build control is exact prior reviewed build05 with source/native-source/build/output labels moved to06 and five additional candidate05/profile02 preservation pins.",
+    "Fresh copied native source and build directories, compiler CPU0-3/thread1/7200s/8GiB, owned supervision, toolchain checks and before/after protected-byte checks remain unchanged.",
+    "Native-tests03 control differs only in source-candidate06, build-result06 and fresh native-tests03 destination. All eleven original prescribed test sources still match exact106+51 suite hashes.",
+    "These controls do not admit scientific profile or whole-fit execution. Candidate06 source review is a separate prerequisite before root builds."
+  ],
+  "native_execution_authorized_by_this_review": false,
+  "prior_build_control": {
+    "bytes": 5044,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/build_candidate05.py",
+    "sha256": "4dad2d20742cc481fded43f777c504c847033f020fc16c2ed155a9cb091809dd"
+  },
+  "prior_independent_suite_control_review": {
+    "bytes": 4762,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/native-suite-control02/independent-review.json",
+    "sha256": "ebdce42b0cb198cba088f7d6e900438775fa7e02551f407b7abce85577c5a34e"
+  },
+  "prior_suite_control": {
+    "bytes": 5247,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/run_native_tests02.py",
+    "sha256": "64ea31a068b0b81920ad2c14f01bd203beddeeeeb3954c48adcccb1e54443241"
+  },
+  "release_authority": false,
+  "review_execution": {
+    "compiler_runs": 0,
+    "cpu": 4,
+    "native_runs": 0,
+    "signals": 0,
+    "source_input_benchmark_changes": 0
+  },
+  "schema": "independent-warm-candidate06-build-and-native-suite-control-review-v1",
+  "snapshot_files": [
+    {
+      "bytes": 5247,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate06-controls/snapshot/run_native_tests03.py",
+      "sha256": "69e55aa61856707c8e72ebffe4197d39a0a1a5726a49d7af4fffcfa675849caf"
+    },
+    {
+      "bytes": 5197,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate06-controls/snapshot/build_candidate06.py",
+      "sha256": "92242ce08405e2fe944b0d305155e860f610e4310e808efab3c808067020b794"
+    }
+  ],
+  "status": "accepted_isolated_build_and_unchanged_suite_controls_pending_source_review",
+  "suite_control": {
+    "bytes": 5247,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/run_native_tests03.py",
+    "sha256": "69e55aa61856707c8e72ebffe4197d39a0a1a5726a49d7af4fffcfa675849caf"
+  },
+  "verified_suite_sources": [
+    {
+      "files": [
+        "tests/test_numerics_native_qr.py",
+        "tests/test_numerics_original_objective.py",
+        "tests/test_numerics_mean_residual.py",
+        "tests/test_numerics_derivatives.py",
+        "tests/test_numerics_geometry_precision.py",
+        "tests/test_numerics_synthetic_force_arithmetic.py"
+      ],
+      "suite": "native",
+      "unchanged_count": 106
+    },
+    {
+      "files": [
+        "tests/test_numerics_query_precision.py",
+        "tests/test_numerics_reference_precision.py",
+        "tests/test_numerics_precise_residual.py",
+        "tests/test_numerics_precise_objective.py",
+        "tests/test_numerics_light_time_precision.py"
+      ],
+      "suite": "correction",
+      "unchanged_count": 51
+    }
+  ],
+  "wholefit_admission": false
+}

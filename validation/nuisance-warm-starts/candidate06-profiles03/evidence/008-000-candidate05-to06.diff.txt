@@ -1,0 +1,72 @@
+--- candidate05/docs/native-nuisance-warm-state.md
++++ candidate06/docs/native-nuisance-warm-state.md
+@@ -34,3 +34,23 @@
+ Focused tests cover codec/hash correctness, malformed input rejection before mutation, full-coordinate preservation, local invariant and lifecycle guards, the production collector's track/time/weight coverage, and installer/build re-entry. These tests do not establish native cross-physical equivalence. Release evidence requires separate cold-versus-warm target perturbation profiles with nonzero priors, the unchanged objective/rank/convergence gates, and Python accepted-state/rollback tests. Timing and speedup remain unestablished until measured under suitable conditions.
+ 
+ The standalone API fixture `tests/nuisance_warm_native_matrix_fixture.cpp` must also be compiled against the actual pinned GROOPS source headers before a native build. Use `g++ -std=c++17 -fsyntax-only -I groops/extension -I /absolute/native-source/source tests/nuisance_warm_native_matrix_fixture.cpp`. This instantiates both ledger matrix readers with native `Matrix` and `Vector`; native `Vector` exposes a single-index accessor. The check requires the pinned native headers and performs no link or estimation. It complements the isolated runtime fixture and does not establish full native build or scientific correctness.
++
++
++Candidate06 cold-origin policy is `receiver-clock-starting-guess-excluded-v2`.
++The exact chart carries this policy and the typed classification of each selected
++receiver clock. Its starting estimate is excluded only from the cross-point cold
++origin fingerprint. Receiver-clock prior anchors (`x0Recv` and `x0Trans`), prior
++settings, all non-clock cold coordinates, observation support, weights and gauge
++bases retain exact checks. The payload still stores each clock exactly, and
++import plus zero refresh still checks every selected coordinate exactly. No
++rounding, numerical tolerance or nuisance convergence threshold changes.
++
++This separates the code-derived receiver-clock starting guess from any actual
++constraint anchor. The candidate05 perturbed-target fixtures had identical
++charts but deterministic differences of one to five ULPs in a few starting clock guesses;
++the unchanged v1 origin check therefore rejected them before mutation. The
++versioned chart tag causes old snapshots to reject; their origin fingerprints
++are never silently interpreted with the new policy. Candidate06 retains payload
++schema v1 because the coordinate serialization itself is unchanged. These are
++implementation semantics, not evidence that perturbed-target native equivalence
++has passed; that still requires separate real profile tests.
+--- candidate05/groops/extension/native_nuisance_warm.py
++++ candidate06/groops/extension/native_nuisance_warm.py
+@@ -35,7 +35,7 @@
+   for(UInt recv=0;recv<indexRecv.size();recv++)for(UInt epoch=0;epoch<indexRecv[recv].size();epoch++)
+   {
+     const auto &index=indexRecv[recv][epoch];const auto coordinate=key+"/receiver/"+std::to_string(recv)+"/epoch/"+std::to_string(epoch);
+-    l.index(coordinate,info,index);if(index){orbitPocWarm::require(info.count(index)==1,"non-scalar receiver clock");l.value(coordinate+"/seconds",gnss->receivers.at(recv)->clk.at(epoch));}
++    l.index(coordinate,info,index);if(index){orbitPocWarm::require(info.count(index)==1,"non-scalar receiver clock");l.receiverClockGuess(coordinate+"/seconds",gnss->receivers.at(recv)->clk.at(epoch));}
+   }
+ }
+ '''
+--- candidate05/groops/extension/nuisanceWarmState.h
++++ candidate06/groops/extension/nuisanceWarmState.h
+@@ -69,14 +69,20 @@
+ // one-coordinate API without copying values or changing their representation.
+ template<class T> inline auto entry(const T &m,std::size_t i,std::size_t j,int)->decltype(m(i,j)){return m(i,j);}
+ template<class T> inline auto entry(const T &m,std::size_t i,std::size_t j,long)->decltype(m(i)){require(j==0,"vector is not a column");return m(i);}
++inline const char *coldOriginPolicy(){return "receiver-clock-starting-guess-excluded-v2";}
+ struct Ledger {
+-  bool signal;Bytes chart,unchanged;std::vector<double*> bindings;std::vector<std::string> keys;std::set<std::string> unique;std::set<const void*> signalOwners;
+-  explicit Ledger(bool signal):signal(signal){}
++  bool signal;Bytes chart,unchanged;std::vector<double*> bindings;std::vector<bool> initialReceiverClock;std::vector<std::string> keys;std::set<std::string> unique;std::set<const void*> signalOwners;
++  explicit Ledger(bool signal):signal(signal){id("cold_origin_policy",std::string(coldOriginPolicy()));}
+   void id(const std::string &key,const std::string &v){text(chart,key);text(chart,v);}
+   void id(const std::string &key,std::uint64_t v){text(chart,key);number(chart,v);}
+   void id(const std::string &key,double v){text(chart,key);real(chart,v);}
+   void fixed(const std::string &key,double v){text(unchanged,key);real(unchanged,v);}
+-  void value(const std::string &key,double &v){require(unique.insert(key).second,"duplicate coordinate: "+key);require(std::isfinite(v),"nonfinite current coordinate");id("coordinate",key);keys.push_back(key);bindings.push_back(&v);}
++  void value(const std::string &key,double &v){require(unique.insert(key).second,"duplicate coordinate: "+key);require(std::isfinite(v),"nonfinite current coordinate");id("coordinate",key);keys.push_back(key);bindings.push_back(&v);initialReceiverClock.push_back(false);}
++  // Receiver clk is an estimable starting guess, not its separately hashed x0
++  // prior anchor. Only this typed binding is excluded from cold-origin equality.
++  // Every imported/refresh value still participates in exact values() checks.
++  void receiverClockGuess(const std::string &key,double &v){value(key,v);initialReceiverClock.back()=true;id("receiver_clock_initial_guess",key);}
++  Bytes coldOrigin() const {require(initialReceiverClock.size()==bindings.size(),"cold-origin binding shape mismatch");Bytes result;for(std::size_t i=0;i<bindings.size();i++){require(std::isfinite(*bindings[i]),"nonfinite current coordinate");if(!initialReceiverClock[i])real(result,*bindings[i]);}return result;}
+   template<class Matrix> void matrix(const std::string &key,const Matrix &m){id(key+".rows",std::uint64_t(m.rows()));id(key+".columns",std::uint64_t(m.columns()));for(std::size_t i=0;i<m.rows();i++)for(std::size_t j=0;j<m.columns();j++)id(key+".entry",double(entry(m,i,j,0)));}
+   template<class Vector> void values(const std::string &key,Vector &v){id(key+".size",std::uint64_t(v.rows()));for(std::size_t i=0;i<v.rows();i++)value(key+"/"+std::to_string(i),v(i));}
+   template<class Matrix> void unchangedMatrix(const std::string &key,const Matrix &m){id(key+".rows",std::uint64_t(m.rows()));id(key+".columns",std::uint64_t(m.columns()));for(std::size_t i=0;i<m.rows();i++)for(std::size_t j=0;j<m.columns();j++)fixed(key+".entry",double(entry(m,i,j,0)));}
+@@ -98,7 +104,7 @@
+   // One native profile per fresh process. Keep the chart locked after export:
+   // later parameter reinitialization must not reset imported full coordinates.
+   ~Session()=default;
+-  void begin(Ledger &l){if(!enabled)return;require(!l.bindings.empty(),"no eligible coordinates");chart=sha256(l.chart);origin=sha256(l.values());coldInvariant=l.unchanged;
++  void begin(Ledger &l){if(!enabled)return;require(!l.bindings.empty(),"no eligible coordinates");chart=sha256(l.chart);origin=sha256(l.coldOrigin());coldInvariant=l.unchanged;
+     if(!input.empty()){const auto b=read(input);require(sha256(b)==inputSha,"input digest mismatch");const auto s=Snapshot::decode(b);require(s.mode==mode&&s.context==context&&s.chart==chart&&s.origin==origin,"mode/context/chart/cold-origin mismatch");require(s.keys==l.keys&&s.values.size()==l.bindings.size(),"coordinate chart mismatch");
+       // Every parse, digest, finite and identity check completes before this loop.
+       for(std::size_t i=0;i<s.values.size();i++)*l.bindings[i]=s.values[i];imported=true;}

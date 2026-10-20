@@ -35,7 +35,7 @@ void GnssParametrizationClocks::orbitPocWarmCollect(orbitPocWarm::Ledger &l,cons
   for(UInt recv=0;recv<indexRecv.size();recv++)for(UInt epoch=0;epoch<indexRecv[recv].size();epoch++)
   {
     const auto &index=indexRecv[recv][epoch];const auto coordinate=key+"/receiver/"+std::to_string(recv)+"/epoch/"+std::to_string(epoch);
-    l.index(coordinate,info,index);if(index){orbitPocWarm::require(info.count(index)==1,"non-scalar receiver clock");l.value(coordinate+"/seconds",gnss->receivers.at(recv)->clk.at(epoch));}
+    l.index(coordinate,info,index);if(index){orbitPocWarm::require(info.count(index)==1,"non-scalar receiver clock");l.receiverClockGuess(coordinate+"/seconds",gnss->receivers.at(recv)->clk.at(epoch));}
   }
 }
 '''

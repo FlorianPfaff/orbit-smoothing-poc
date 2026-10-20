@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="7" time="41.797" timestamp="2026-10-20T06:50:15.047313+02:00" hostname="pfaff"><testcase classname="test_lifecycle_composition" name="test_optimizer_rejection_and_all_cold_checks_use_actual_backend_boundaries" time="11.626"><failure message="TypeError: Object of type bool_ is not JSON serializable">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x79f4418f5410&gt;
+tmp_path = PosixPath('/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/tmp/test_optimizer_rejection_and_a0')
+
+    def test_optimizer_rejection_and_all_cold_checks_use_actual_backend_boundaries(monkeypatch, tmp_path):
+        case = SyntheticNative(monkeypatch, tmp_path, reject_first=True, measure_floor=True)
+&gt;       result = case.run()
+                 ^^^^^^^^^^
+
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:335: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:291: in run
+    result = minimize(self.model, initial, controls=self.model.controls, emit=emit)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:339: in minimize
+    log(record)
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:201: in log
+    emit({"status": "running", "accepted_iterations": accepted_count,
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:288: in emit
+    self.trace['optimizer_emissions'].append(json.loads(json.dumps(value)))
+                                                        ^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/__init__.py:231: in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:200: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:258: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;json.encoder.JSONEncoder object at 0x79f441c5c990&gt;, o = True
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+&gt;       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type bool_ is not JSON serializable
+
+work/v3/native-env/lib/python3.11/json/encoder.py:180: TypeError</failure></testcase><testcase classname="test_lifecycle_composition" name="test_accepted_floor_limited_trial_revokes_donor_before_next_real_trial" time="6.613"><failure message="TypeError: Object of type bool_ is not JSON serializable">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x79f436231110&gt;
+tmp_path = PosixPath('/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/tmp/test_accepted_floor_limited_tr0')
+
+    def test_accepted_floor_limited_trial_revokes_donor_before_next_real_trial(monkeypatch, tmp_path):
+        case = SyntheticNative(monkeypatch, tmp_path, limited_first=True)
+&gt;       result = case.run()
+                 ^^^^^^^^^^
+
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:354: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:291: in run
+    result = minimize(self.model, initial, controls=self.model.controls, emit=emit)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:339: in minimize
+    log(record)
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:201: in log
+    emit({"status": "running", "accepted_iterations": accepted_count,
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:288: in emit
+    self.trace['optimizer_emissions'].append(json.loads(json.dumps(value)))
+                                                        ^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/__init__.py:231: in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:200: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:258: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;json.encoder.JSONEncoder object at 0x79f441c5c990&gt;, o = True
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+&gt;       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type bool_ is not JSON serializable
+
+work/v3/native-env/lib/python3.11/json/encoder.py:180: TypeError</failure></testcase><testcase classname="test_lifecycle_composition" name="test_default_off_suppresses_poisoned_inherited_seeds_through_complete_optimizer" time="2.857"><failure message="TypeError: Object of type bool_ is not JSON serializable">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x79f43623b0d0&gt;
+tmp_path = PosixPath('/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/tmp/test_default_off_suppresses_po0')
+
+    def test_default_off_suppresses_poisoned_inherited_seeds_through_complete_optimizer(monkeypatch, tmp_path):
+        case = SyntheticNative(monkeypatch, tmp_path, enabled=False, measure_floor=True)
+&gt;       result = case.run()
+                 ^^^^^^^^^^
+
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:291: in run
+    result = minimize(self.model, initial, controls=self.model.controls, emit=emit)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:339: in minimize
+    log(record)
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:201: in log
+    emit({"status": "running", "accepted_iterations": accepted_count,
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:288: in emit
+    self.trace['optimizer_emissions'].append(json.loads(json.dumps(value)))
+                                                        ^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/__init__.py:231: in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:200: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:258: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;json.encoder.JSONEncoder object at 0x79f441c5c990&gt;, o = True
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+&gt;       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type bool_ is not JSON serializable
+
+work/v3/native-env/lib/python3.11/json/encoder.py:180: TypeError</failure></testcase><testcase classname="test_lifecycle_composition" name="test_bad_native_export_cannot_be_promoted_in_composed_optimizer[fresh]" time="5.145" /><testcase classname="test_lifecycle_composition" name="test_bad_native_export_cannot_be_promoted_in_composed_optimizer[damped]" time="1.171" /><testcase classname="test_lifecycle_composition" name="test_bad_native_export_cannot_be_promoted_in_composed_optimizer[strict]" time="0.611" /><testcase classname="test_lifecycle_composition" name="test_actual_deficient_factor_rejects_trial_despite_full_rank_native_claim" time="9.349"><failure message="TypeError: Object of type bool_ is not JSON serializable">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x79f438601c50&gt;
+tmp_path = PosixPath('/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/tmp/test_actual_deficient_factor_r0')
+
+    def test_actual_deficient_factor_rejects_trial_despite_full_rank_native_claim(monkeypatch, tmp_path):
+        case = SyntheticNative(monkeypatch, tmp_path, corrupt='actual_rank', measure_floor=True)
+&gt;       result = case.run()
+                 ^^^^^^^^^^
+
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:390: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:291: in run
+    result = minimize(self.model, initial, controls=self.model.controls, emit=emit)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:339: in minimize
+    log(record)
+/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py:201: in log
+    emit({"status": "running", "accepted_iterations": accepted_count,
+/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/author-tests01/test_lifecycle_composition.py:288: in emit
+    self.trace['optimizer_emissions'].append(json.loads(json.dumps(value)))
+                                                        ^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/__init__.py:231: in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:200: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/json/encoder.py:258: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;json.encoder.JSONEncoder object at 0x79f441c5c990&gt;, o = True
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+&gt;       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type bool_ is not JSON serializable
+
+work/v3/native-env/lib/python3.11/json/encoder.py:180: TypeError</failure></testcase></testsuite></testsuites>

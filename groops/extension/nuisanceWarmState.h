@@ -69,14 +69,20 @@ inline std::string quote(const std::string &s){std::ostringstream out;out<<'"';f
 // one-coordinate API without copying values or changing their representation.
 template<class T> inline auto entry(const T &m,std::size_t i,std::size_t j,int)->decltype(m(i,j)){return m(i,j);}
 template<class T> inline auto entry(const T &m,std::size_t i,std::size_t j,long)->decltype(m(i)){require(j==0,"vector is not a column");return m(i);}
+inline const char *coldOriginPolicy(){return "receiver-clock-starting-guess-excluded-v2";}
 struct Ledger {
-  bool signal;Bytes chart,unchanged;std::vector<double*> bindings;std::vector<std::string> keys;std::set<std::string> unique;std::set<const void*> signalOwners;
-  explicit Ledger(bool signal):signal(signal){}
+  bool signal;Bytes chart,unchanged;std::vector<double*> bindings;std::vector<bool> initialReceiverClock;std::vector<std::string> keys;std::set<std::string> unique;std::set<const void*> signalOwners;
+  explicit Ledger(bool signal):signal(signal){id("cold_origin_policy",std::string(coldOriginPolicy()));}
   void id(const std::string &key,const std::string &v){text(chart,key);text(chart,v);}
   void id(const std::string &key,std::uint64_t v){text(chart,key);number(chart,v);}
   void id(const std::string &key,double v){text(chart,key);real(chart,v);}
   void fixed(const std::string &key,double v){text(unchanged,key);real(unchanged,v);}
-  void value(const std::string &key,double &v){require(unique.insert(key).second,"duplicate coordinate: "+key);require(std::isfinite(v),"nonfinite current coordinate");id("coordinate",key);keys.push_back(key);bindings.push_back(&v);}
+  void value(const std::string &key,double &v){require(unique.insert(key).second,"duplicate coordinate: "+key);require(std::isfinite(v),"nonfinite current coordinate");id("coordinate",key);keys.push_back(key);bindings.push_back(&v);initialReceiverClock.push_back(false);}
+  // Receiver clk is an estimable starting guess, not its separately hashed x0
+  // prior anchor. Only this typed binding is excluded from cold-origin equality.
+  // Every imported/refresh value still participates in exact values() checks.
+  void receiverClockGuess(const std::string &key,double &v){value(key,v);initialReceiverClock.back()=true;id("receiver_clock_initial_guess",key);}
+  Bytes coldOrigin() const {require(initialReceiverClock.size()==bindings.size(),"cold-origin binding shape mismatch");Bytes result;for(std::size_t i=0;i<bindings.size();i++){require(std::isfinite(*bindings[i]),"nonfinite current coordinate");if(!initialReceiverClock[i])real(result,*bindings[i]);}return result;}
   template<class Matrix> void matrix(const std::string &key,const Matrix &m){id(key+".rows",std::uint64_t(m.rows()));id(key+".columns",std::uint64_t(m.columns()));for(std::size_t i=0;i<m.rows();i++)for(std::size_t j=0;j<m.columns();j++)id(key+".entry",double(entry(m,i,j,0)));}
   template<class Vector> void values(const std::string &key,Vector &v){id(key+".size",std::uint64_t(v.rows()));for(std::size_t i=0;i<v.rows();i++)value(key+"/"+std::to_string(i),v(i));}
   template<class Matrix> void unchangedMatrix(const std::string &key,const Matrix &m){id(key+".rows",std::uint64_t(m.rows()));id(key+".columns",std::uint64_t(m.columns()));for(std::size_t i=0;i<m.rows();i++)for(std::size_t j=0;j<m.columns();j++)fixed(key+".entry",double(entry(m,i,j,0)));}
@@ -98,7 +104,7 @@ struct Session {
   // One native profile per fresh process. Keep the chart locked after export:
   // later parameter reinitialization must not reset imported full coordinates.
   ~Session()=default;
-  void begin(Ledger &l){if(!enabled)return;require(!l.bindings.empty(),"no eligible coordinates");chart=sha256(l.chart);origin=sha256(l.values());coldInvariant=l.unchanged;
+  void begin(Ledger &l){if(!enabled)return;require(!l.bindings.empty(),"no eligible coordinates");chart=sha256(l.chart);origin=sha256(l.coldOrigin());coldInvariant=l.unchanged;
     if(!input.empty()){const auto b=read(input);require(sha256(b)==inputSha,"input digest mismatch");const auto s=Snapshot::decode(b);require(s.mode==mode&&s.context==context&&s.chart==chart&&s.origin==origin,"mode/context/chart/cold-origin mismatch");require(s.keys==l.keys&&s.values.size()==l.bindings.size(),"coordinate chart mismatch");
       // Every parse, digest, finite and identity check completes before this loop.
       for(std::size_t i=0;i<s.values.size();i++)*l.bindings[i]=s.values[i];imported=true;}
