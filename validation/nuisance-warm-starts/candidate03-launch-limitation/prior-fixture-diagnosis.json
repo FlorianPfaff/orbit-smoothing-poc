@@ -1,0 +1,121 @@
+{
+  "schema": "orbit-poc-warm-prior-fixture-diagnosis-v1",
+  "utc": "2026-10-20T03:16:11.788009+00:00",
+  "scope": "Read-only completed small-profile evidence and native source; no source/config change or native workload",
+  "observations": [
+    {
+      "job": "pulses--disabled_source",
+      "profile": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--disabled_source/qr.profile.json",
+        "sha256": "e1aacf889c15e9c56b4cbf57f305b05df27f6353c7f3264011d868b5eaabd688"
+      },
+      "rows": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--disabled_source/qr.7.rows.tsv",
+        "sha256": "85fe41be1583325ade029e57d82d80e1d30fcaceb92a696ab42477d500a3222a",
+        "bytes": 969766
+      },
+      "row_sources": {
+        "weighted_observation": {
+          "count": 8064,
+          "rhs_squared": 8869.805142508794
+        },
+        "constraint.pulses": {
+          "count": 6,
+          "rhs_squared": 0.10785861134783109
+        }
+      },
+      "final_bias_coordinates": [
+        {
+          "index": "252",
+          "name": "GRACEC:codeBias01(+0.71C1CG**-0.71C1WG**)::",
+          "full_native_coordinate": "-0.022650857736463421"
+        },
+        {
+          "index": "253",
+          "name": "GRACEC:tecBias01(-0.33C1CG**-0.33C1WG**-0.54C2WG**+0.33L1CG**+0.33L1WG**+0.54L2WG**)::",
+          "full_native_coordinate": "0.85929648449033913"
+        }
+      ],
+      "coordinate_pin": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--disabled_source/qr.7.bias_coordinates.tsv",
+        "sha256": "1de45327b28ec0e313564a30b2c89694920ca7ea9c1191bc6c27f32f82c65f87"
+      },
+      "log": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--disabled_source/profile.log",
+        "sha256": "94d022a6bf3fe0bd4a380045461f943fab3dbf1766c1b831254520636150c1ff"
+      },
+      "configuration": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--disabled_source/config.xml",
+        "sha256": "2b43173326f637e01dcef1dcf869ca93299fae1c05b94a591e890b9f60912184"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--disabled_source",
+      "profile": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--disabled_source/qr.profile.json",
+        "sha256": "e1aacf889c15e9c56b4cbf57f305b05df27f6353c7f3264011d868b5eaabd688"
+      },
+      "rows": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--disabled_source/qr.7.rows.tsv",
+        "sha256": "85fe41be1583325ade029e57d82d80e1d30fcaceb92a696ab42477d500a3222a",
+        "bytes": 969766
+      },
+      "row_sources": {
+        "weighted_observation": {
+          "count": 8064,
+          "rhs_squared": 8869.805142508794
+        },
+        "constraint.pulses": {
+          "count": 6,
+          "rhs_squared": 0.10785861134783109
+        }
+      },
+      "final_bias_coordinates": [
+        {
+          "index": "252",
+          "name": "GRACEC:codeBias01(+0.71C1CG**-0.71C1WG**)::",
+          "full_native_coordinate": "-0.022650857736463421"
+        },
+        {
+          "index": "253",
+          "name": "GRACEC:tecBias01(-0.33C1CG**-0.33C1WG**-0.54C2WG**+0.33L1CG**+0.33L1WG**+0.54L2WG**)::",
+          "full_native_coordinate": "0.85929648449033913"
+        }
+      ],
+      "coordinate_pin": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--disabled_source/qr.7.bias_coordinates.tsv",
+        "sha256": "1de45327b28ec0e313564a30b2c89694920ca7ea9c1191bc6c27f32f82c65f87"
+      },
+      "log": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--disabled_source/profile.log",
+        "sha256": "404493d95e99f29b77054c2d9637765665d1e9f51b4238f5b1167aa56c7e02ab"
+      },
+      "configuration": {
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--disabled_source/config.xml",
+        "sha256": "c48087833485fb19425ff402d816160e4a4bda6aaa0c77195213b7a7088aef4c"
+      }
+    }
+  ],
+  "measured_cause": "Both native zeroMeanDesign matrices have zero rows (logs explicitly apply0). sigmaZeroMeanConstraint=1 changes only weight; it cannot create null-space datum rows. Final private code/TEC coordinates are nonzero but no corresponding prior rows exist.",
+  "source_evidence": [
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/native-source-03/source/gnss/gnssParametrization/gnssParametrizationCodeBiases.cpp",
+      "sha256": "24038f3b9b818893428378d478f437bfc48d3fdbbd6762e5f73ea425be7af6ac"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/native-source-03/source/gnss/gnssParametrization/gnssParametrizationTecBiases.cpp",
+      "sha256": "51756de39b6e368344d8c95f759b049d664ada9489a37c8820e356176beda5f5"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/native-source-03/source/gnss/gnssParametrization/gnssParametrizationConstraints.h",
+      "sha256": "b01daac2855dfb03d8c89b45c56c140f2a5e2bae76a18b8dfa98bda3947de29b"
+    }
+  ],
+  "recommendation": {
+    "fixture_version": "New separately frozen explicit-full-bias-prior fixture; retain failed profiles01 unchanged",
+    "implementation": "Use two native Gaussian constraints selecting codeBias* and tecBias* with relativeToApriori=0 and sigma=1m, distinct honest constraint.warmFixtureCodeBias/constraint.warmFixtureTecBias contexts. The existing native generic constraint path reads private accumulated full coordinates via gnss.aprioriParameter and adds (bias-full_coordinate)/sigma weighted rows.",
+    "validation": "Before including in next27gate, require actual rows for both selected coordinate sets and positive prior energy, verify native parameter identities/units and row RHS/coefficient against full coordinates; keep all existing strict convergence, objective-floor, prediction and covariance limits. Record explicit fixture prior settings; do not masquerade generic rows as native null-space zero-mean rows.",
+    "qualification": "This validates full code/TEC coordinate penalties in a deliberately augmented test fixture. Native network datum zero-mean row machinery is a different gate; exercising that would require a different network/observation chart, not changing sigma alone."
+  },
+  "acceptance": "Current nonzero-bias-prior gate FAILED; no threshold relaxation or retrospective substitution."
+}

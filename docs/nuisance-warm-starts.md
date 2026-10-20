@@ -12,6 +12,10 @@ failed: three disabled cold profiles completed, 15 enabled cold-export profiles
 failed their exact refresh checks, and nine dependent warm profiles were blocked.
 The independent audit accepts the failure attribution only. This candidate is
 not validated for use; no whole-fit warm experiment has been admitted.
+The later [launch audit](../validation/nuisance-warm-starts/candidate03-launch-limitation/index.html)
+also found that the isolated launcher omitted prelaunch QR controls required for
+the production datum path. The original failures remain recorded; they do not
+establish behavior under the production backend's initialization.
 
 A separately controlled worker enables the candidate with
 `ORBIT_POC_NUISANCE_WARM_STARTS=1`. The default enabled mode is
