@@ -19,6 +19,7 @@ from orbit_poc.comparison.groops_config import build_fit_configs
 from orbit_poc.comparison.initialization import _field, _standalone
 from orbit_poc.comparison.protocol import artifact_record, canonical_hash, file_hash, read_json, write_json
 from .config import Controls
+from .nuisance_warm_start import WarmStartLifecycle, without_inherited_warm_environment
 from .optimizer import Linearization, NumericalFailure, certify_rank, minimize, proposal
 from .retention import (compact_closed_closures, compact_closed_proposal,
                         compress_closed_row_provenance, discard_inactive_factors)
@@ -148,11 +149,19 @@ class NativeModel:
                             else "flight_gravity_drag_v1")
         self.input_support = canonical_hash({key: job[key] for key in (
             "force_model_hash", "measurement_model_hash", "preprocessing_hash", "mask_hash")})
+        self.warm_start = WarmStartLifecycle(job, self.prepared, self.binary, self.root)
 
     def accept(self, point):
         """Protect the installed factor until a verified successor is accepted."""
-        self.protected_factor = Path(point.metadata["factor_prefix"] + ".R.bin")
-        discard_inactive_factors(self.root, protected=[self.protected_factor])
+        warm = getattr(self, "warm_start", None)
+        seed = warm.prepare_accept(point) if warm is not None else None
+        if warm is not None and warm.enabled and seed is not None:
+            certify_rank(point)  # A strict receipt alone cannot certify the accepted factor.
+        protected = Path(point.metadata["factor_prefix"] + ".R.bin")
+        discard_inactive_factors(self.root, protected=[protected])
+        self.protected_factor = protected
+        if warm is not None:
+            warm.commit_accept(seed)
 
     def execute(self, tree, folder, label, environment=None):
         folder = Path(folder)
@@ -162,8 +171,9 @@ class NativeModel:
         if remaining <= 0:
             raise NumericalFailure("timeout", "Per-fit wall time exhausted")
         try:
-            result = native.run_native(self.binary, path, folder, label, timeout=remaining,
-                                       environment_overrides=environment)
+            with without_inherited_warm_environment():
+                result = native.run_native(self.binary, path, folder, label, timeout=remaining,
+                                           environment_overrides=environment)
             self.executions.append(result)
         except native.NativeExecutionError as error:
             if error.execution:
@@ -305,6 +315,11 @@ class NativeModel:
         (self.root / "row-spool").mkdir(exist_ok=True)
         if not self.density:
             environment["ORBIT_POC_NUMERICS_PULSE_REFERENCE"] = str(pulse_reference)
+        warm = getattr(self, "warm_start", None)
+        warm_plan = None
+        if warm is not None:
+            warm_environment, warm_plan = warm.profile(folder, label, tighter=tighter, covariance=covariance)
+            environment.update(warm_environment)
         try:
             configuration = self.execute(_standalone(source, [processing], config["date"]), folder, "profile", environment)
         finally:
@@ -339,7 +354,10 @@ class NativeModel:
                       "nuisance_floor_limited": floor_limited,
                       "nuisance_objective_resolution": resolution,
                       "factor_prefix": base, "diagnostics": diagnostics})
-        return result.validate()
+        result.validate()
+        if warm is not None:
+            warm.capture(result, warm_plan, receipt, diagnostics)
+        return result
 
     def trial(self, point, step):
         delta = np.asarray(step)[point.dynamic]

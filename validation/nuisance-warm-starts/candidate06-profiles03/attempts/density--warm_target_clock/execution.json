@@ -1,0 +1,1609 @@
+{
+  "blocked_reason": null,
+  "command": [
+    "/usr/bin/taskset",
+    "-c",
+    "0",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "-s",
+    "-B",
+    "/home/emper/orbit-nuisance-warmstarts/source-candidate06/scripts/nuisance_profile_launch.py",
+    "--binding",
+    "/home/emper/orbit-nuisance-warmstarts/profiles03/density--warm_target_clock/launch-binding.json",
+    "--binding-sha256",
+    "72327047580c84008abb23b0bd1afca718e7d647ed39018a32b039e5add907e2"
+  ],
+  "config_sha256": "025ebdf529308e5232490f8daca4c3f331a408208ba2fdae224808fab92e9d29",
+  "context_sha256": "36d6852a2a8563b85c72407cadcce13e203f822c7a09c4ddafc8f63cef4ed97c",
+  "controller_elapsed_seconds": 35.08954090499901,
+  "effective_environment": {
+    "BLIS_NUM_THREADS": "1",
+    "GOTO_NUM_THREADS": "1",
+    "LD_LIBRARY_PATH": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE": "1",
+    "ORBIT_POC_NUISANCE_PERFORMANCE": "1",
+    "ORBIT_POC_NUISANCE_WARM_CONTEXT_SHA256": "36d6852a2a8563b85c72407cadcce13e203f822c7a09c4ddafc8f63cef4ed97c",
+    "ORBIT_POC_NUISANCE_WARM_INPUT": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--cold_source_clock/seed.bin",
+    "ORBIT_POC_NUISANCE_WARM_INPUT_SHA256": "aad9f6ecec629b6c56462da3ce865cbc67d55af61e8afda8310ad538297b9d24",
+    "ORBIT_POC_NUISANCE_WARM_MODE": "receiver_clock_v1",
+    "ORBIT_POC_NUISANCE_WARM_OUTPUT": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--warm_target_clock/seed.bin",
+    "ORBIT_POC_NUISANCE_WARM_STARTS": "1",
+    "ORBIT_POC_NUMERICS_COMPRESS_ROW_PROVENANCE": "0",
+    "ORBIT_POC_NUMERICS_KEEP_INTERMEDIATE_FACTORS": "1",
+    "ORBIT_POC_NUMERICS_LAMBDA": "0",
+    "ORBIT_POC_NUMERICS_MODE": "profile_step",
+    "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--warm_target_clock/qr",
+    "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONNOUSERSITE": "1"
+  },
+  "elapsed_seconds": 33.85287596299895,
+  "finished_at": "2026-10-20T04:51:42.675103+00:00",
+  "freeze": {
+    "bytes": 1879968,
+    "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/freeze.json",
+    "sha256": "805cae9647073882e8fdc5aa102420da08dfa6b0784b846ae6a1607dc5b5dd55"
+  },
+  "group": "density",
+  "identity_error": null,
+  "input_inventory": [
+    {
+      "bytes": 10622,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverOrbit_2024-04-24.dat",
+      "sha256": "f49503abf2d74b573d9fa5a107c5eb537415105ee91de06b4ab3c9faf590e768"
+    },
+    {
+      "bytes": 5822,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverStarCamera_2024-04-24.dat",
+      "sha256": "65e7941e6219ad0c8b1959a1bd857d5261ee125123121b9357944d75bf16bfff"
+    },
+    {
+      "bytes": 46014862,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat",
+      "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d"
+    },
+    {
+      "bytes": 9501446,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_antennaDefinition.xml",
+      "sha256": "112c7fe40b8da06a1c296df6e61b0837240b4fdc9cb2ae8dd4e0966b8fb28394"
+    },
+    {
+      "bytes": 470,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_receiverDefinition.xml",
+      "sha256": "e667e34be415352b9f1216776abf0233e842a72fe3f96b2a863da4cd3cf81482"
+    },
+    {
+      "bytes": 1391,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_satelliteInfo.xml",
+      "sha256": "d4f56c2cb5ff566b0447181d9b9302798a811b09f90ea13b8bd3ab6d17510704"
+    },
+    {
+      "bytes": 4232201,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/antennaDefinition/igs/igs20/antennaDefinition_igs20.dat",
+      "sha256": "bcd1006903cd9ad67c7b667e5ed28ea6c3fabb3bc90008dae56f050e40a07fdc"
+    },
+    {
+      "bytes": 61772,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/signalDefinition/signalDefinition.xml",
+      "sha256": "5461c95d39a6458965fe83d2d22f83fa6881d0d7f340bb0a538ea36c81b357e9"
+    },
+    {
+      "bytes": 8456,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G01.xml",
+      "sha256": "1da7f7cfffd28fdcc0a59b2e5dafd3f5bc52982f1668c86255e28f1945efc43c"
+    },
+    {
+      "bytes": 2690,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G02.xml",
+      "sha256": "847387b0c6a90b4bf22584c500ca38d0e679ec2bf3545f723df13e995eca5373"
+    },
+    {
+      "bytes": 4943,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G03.xml",
+      "sha256": "27ae3d08a56ae68e34ae8325b876487a2426aaa77e4b188a1e0c99a3e549f87c"
+    },
+    {
+      "bytes": 14190,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G04.xml",
+      "sha256": "0e6e3366089fc74ab7c45e26d758d1dbc1bd5d6373177f0700a1fcd1076e33bb"
+    },
+    {
+      "bytes": 2693,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G05.xml",
+      "sha256": "06cb25e3e7ace2c6fc45ba008885c83c46a2c8b44afa0253bea12f252d77faf7"
+    },
+    {
+      "bytes": 3821,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G06.xml",
+      "sha256": "962a3b439c45ff8dd6d88fe56e82befe0a5edc52f87fd9554ab248c4b37d0946"
+    },
+    {
+      "bytes": 2692,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G07.xml",
+      "sha256": "46d8f7519d85a7c37d0d07e0af114c615771d474c90d3c978c2827a445e7e8e4"
+    },
+    {
+      "bytes": 3821,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G08.xml",
+      "sha256": "f190492abda44047258883af618adc8c6113907bf950f5fae4775aad71588b78"
+    },
+    {
+      "bytes": 2687,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G09.xml",
+      "sha256": "2d041777531c4e5c45e441b6f61bbd2853ad698e5b4ff505ee51583f7de26b08"
+    },
+    {
+      "bytes": 3817,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G10.xml",
+      "sha256": "9b6b8515e40d4f642b7a69e72d61d1173aaef3a76e23e8f60f42501b9201d06a"
+    },
+    {
+      "bytes": 2805,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G11.xml",
+      "sha256": "d91a49dc34754f7ad99006079bd63f0d13f688fa4ea2038b6fbed2487afef62f"
+    },
+    {
+      "bytes": 2688,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G12.xml",
+      "sha256": "86bab84437ddaa8cbd61fddb7182022a3b61f9d9881d6ee0d76230414478dc18"
+    },
+    {
+      "bytes": 3929,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G13.xml",
+      "sha256": "dc63826b13a9aaad15d86c1a2795836baa7f307633db46bdc3d73ec53c81c887"
+    },
+    {
+      "bytes": 3933,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G14.xml",
+      "sha256": "6bc43ee26e7f20337a516e2edfd9823d310a8ec012786a33b5c8f425546139f9"
+    },
+    {
+      "bytes": 2689,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G15.xml",
+      "sha256": "ba2ed617c6fa8b399fd9e9199223a642c144aacbdb47c00ecebc375365d8aed7"
+    },
+    {
+      "bytes": 2690,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G16.xml",
+      "sha256": "f313cabd94a672cdbf58337d3e09e06440c143749b047f00b1b4a69618f316cd"
+    },
+    {
+      "bytes": 2689,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G17.xml",
+      "sha256": "bc0e92202be4205da9f16739a49fb46f284f6259bc98920da994825dbfc1bf54"
+    },
+    {
+      "bytes": 5061,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G18.xml",
+      "sha256": "1c41e13b453a7691dd72dcc2b940914650060b52227acaa7287a61b918cf5291"
+    },
+    {
+      "bytes": 2690,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G19.xml",
+      "sha256": "2e2515b4a7a4d8b28078cd9c9b10b23e53f35dd8aa3d3d2df47a1d727bc03a0a"
+    },
+    {
+      "bytes": 3930,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G20.xml",
+      "sha256": "aed4afef6a61259156c1e2c7dd2cd1e8edcff6fc4b9da86925f873f4e053e700"
+    },
+    {
+      "bytes": 3880,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G21.xml",
+      "sha256": "d236961998dc5746f61e14443b2c134bbf493871a8a592da3c9170d035faf25c"
+    },
+    {
+      "bytes": 4962,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G22.xml",
+      "sha256": "6eeb4b7555d616f14cbc914c6ab300f5ca38d453d5e60a375339d8dc8a1d6210"
+    },
+    {
+      "bytes": 3933,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G23.xml",
+      "sha256": "47cf7878a5f8973caa6ae0682c38cbda14ab4d68a752e53e36410b41028a3279"
+    },
+    {
+      "bytes": 7216,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G24.xml",
+      "sha256": "a7b008b47556f476a9fdb61e81e7a4f13cf0772e696ea2c81a57784bf4a0a06f"
+    },
+    {
+      "bytes": 3817,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G25.xml",
+      "sha256": "bedd47e3deb0a827d015553d37729f6c8865bcaf0288f8a419af9385b887dcf6"
+    },
+    {
+      "bytes": 4947,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G26.xml",
+      "sha256": "701d3149f65c86e1e6de7ceb40ae09bd682e3699ae7aba627cb14e23fd87e660"
+    },
+    {
+      "bytes": 3821,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G27.xml",
+      "sha256": "bad025954ddfe191e9e82e12033a73b10c74456766d78d667f8ecfddd8408c7f"
+    },
+    {
+      "bytes": 5067,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G28.xml",
+      "sha256": "adf62757825ffaf36b739e9ec014b81f73cb40db94bbf1add055c9f27fdcd47d"
+    },
+    {
+      "bytes": 2692,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G29.xml",
+      "sha256": "02b4d6e3377991c279beaf668bcaf130e243dd2219025f67ff44c45f571a1e1d"
+    },
+    {
+      "bytes": 9476,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G30.xml",
+      "sha256": "17281698c16f1d87fffc843677731d0df1652382eec0a0bda69a0f0d21441be2"
+    },
+    {
+      "bytes": 2692,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G31.xml",
+      "sha256": "36811325287cacbf052aff28f77b0e06b687ef47f4f9c3a6cb18fe8f979b309c"
+    },
+    {
+      "bytes": 2687,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.G32.xml",
+      "sha256": "806ef0ce5ddd2c32de14503620136ea3e162871adfb45362776dee6a6896d41b"
+    },
+    {
+      "bytes": 128,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterList.gps.txt",
+      "sha256": "6afadc2451df02be80f86457e5d68a3c7a10493fc76aa493d3f1440c6fabdeee"
+    },
+    {
+      "bytes": 1216,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/magnetosphere/magneticNorthPole.txt",
+      "sha256": "7c6019275108686f3ee464617ac4c9d53ba93c7bd4cc7170674560851ef849ce"
+    },
+    {
+      "bytes": 102256504,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/tides/ephemerides_JPL_DE432.dat",
+      "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+    },
+    {
+      "bytes": 1858,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/closure-02/reference.txt",
+      "sha256": "9a5097487adf1b142cffa5d6509a39621ef10934b64dfc10d1d6574eb88de9ce"
+    },
+    {
+      "bytes": 304248,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/closure-02/variational.dat",
+      "sha256": "c78c1d38f7b516f17b0c3217d1e0edf977cf41e6eddfc7c213848d12a7ed81a7"
+    },
+    {
+      "bytes": 1656,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/fixed_force.txt",
+      "sha256": "485ab1202f7e6e09b29a480f34b8232d9a7ed6015a83ac638aeb13f7535167d3"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G01.dat",
+      "sha256": "83f30b18156cdcdf20415d072026ff813963a75f09f9b4562a56960185361521"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G02.dat",
+      "sha256": "03bacf8a2380bdb8b9294bc2ebbcbbd08db73b4e53f4a2323e840034c46eba83"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G03.dat",
+      "sha256": "266b5595e19e8529423257d66b95dd7676fde6e5d9663a34d5d0568df6d976ff"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G04.dat",
+      "sha256": "f555032019c226d6f52c389a89db4ac6e017ff6b17c5f29e3a96ce5df5b7cffc"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G05.dat",
+      "sha256": "bf5869513e9e1b4ab4d0b3da261af1b8471ace518ec339d1fa80d13b54e4c1ee"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G06.dat",
+      "sha256": "ecafff109a0d0cdaf129fc9d3325015831c3abae29fe96719ed51812031b62b7"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G07.dat",
+      "sha256": "9f83aae4e7cca5bb67a605be3bacc337322bdbcbb23ccf08a469a7204634ce9f"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G08.dat",
+      "sha256": "218b840f265c81ade1f284b977f96c6c7e7232ca2fe340292ba857ca64e28ac2"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G09.dat",
+      "sha256": "1d895fc9e0edafeb645cdab160f7a15408979be341f056eb6dae2443345bd018"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G10.dat",
+      "sha256": "2ba871f57d7f0e15e79c800181db4bd0f2f3899aeee3ba25bdcc80828dc01d09"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G11.dat",
+      "sha256": "f767865187188503fb3dd80e51c22bcacfcdd06aca4f15c8bb09a57dddf3a3c3"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G12.dat",
+      "sha256": "0d1a6b8d9203eaa4e204ccf071672fa33e36a4b181d63eea9dd6f71392668d72"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G13.dat",
+      "sha256": "288025a9fb88ad134f75d67aa231351b0c610fd20a18e900231fc66af89f74a3"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G14.dat",
+      "sha256": "94abc8d370080fe73a3268b15682661704e39d6489cabd47a9545e316ac8acf2"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G15.dat",
+      "sha256": "155ccdd3cef8f8a7bf8507d7e6452d37163abb78b8625ffb0b1789930eaf6267"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G16.dat",
+      "sha256": "ff38cddfbca7d07c645df8694a55a84cc7330d0aa3cb5f4b032a123cd49adf59"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G17.dat",
+      "sha256": "cb3b0b24b90fdd3f54fc1e8aa48139f79bd6aedfd93acf6c4b1a12f546302fba"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G18.dat",
+      "sha256": "d4bb18b73c2b4af186bc63ec3de5e9c2dc27fe38574367fd1ea6e50d354b9487"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G19.dat",
+      "sha256": "702e344b626761d2e79334ec0cb1c32d371703be61c6c143685fcc1bab59180f"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G20.dat",
+      "sha256": "503ca32861e01b9b265f6dd74c8fd0f4cf9a6e7e7f39092d4b71f63acf2fb9a9"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G21.dat",
+      "sha256": "e9b4f883d5e12896bd338dbcde184fb843997a2eb5685b654e612500349e8c3e"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G22.dat",
+      "sha256": "3f01b0de581585345e63e12b3507ced4fff55225c03ac5dee8d172b38d25de9e"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G23.dat",
+      "sha256": "28dd834d62c40c1ad1a8f8cc1bb7a9c723e7a03c8d50ac75c61b7fd52bab0629"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G24.dat",
+      "sha256": "4850a52df52d89b2ed7451206aad943867c51acb6e38e039fb9b400fda469160"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G25.dat",
+      "sha256": "62262e548bd357bef33a6e15b9cd30dc85a2ac2a7dad323f4124bdfc7622fc26"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G26.dat",
+      "sha256": "1c66c796d46eadc75390d12da865a656d971c1e57521ce3ee0503b17c07f0911"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G27.dat",
+      "sha256": "27c4c118fc0c8de5160e36c0544911bde0305e3489a2d1dce59bb0e33882c3db"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G28.dat",
+      "sha256": "6bbd2d318ac78404460463906c94646549dfd7c06d4260f2317e37532877fa3c"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G29.dat",
+      "sha256": "76eda7cdc84b0938f81e7669923fea08272cbf9a77dcd7c7aac2913d7d2bdcd5"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G30.dat",
+      "sha256": "c6a6a9440042775ec51a9ce971c026fe025ef51295a159df5e9dbd83e859f552"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G31.dat",
+      "sha256": "0d7e0a65fe9ac98493eb2a3e5ab843b4e6e4324387f98ee6e2257257dfc47910"
+    },
+    {
+      "bytes": 138350,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/attitude/attitude_2024-04-24.G32.dat",
+      "sha256": "7e8f511c870e134cf787628bdf83f20b84eabe794106a8be8cbba5c342cde87f"
+    },
+    {
+      "bytes": 24014,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G01.dat",
+      "sha256": "70bdb690a085f504f223949800a1c6fdc40adf2d6713228b3bc09eb3ce7cef39"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G02.dat",
+      "sha256": "fe47840a584026dddd99eaad3b6e9951a512f5bf08002a99feb105da84843e01"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G03.dat",
+      "sha256": "6ca2a0dbea421c8f550ee4c6185f2ca98108947846e7a64b9587ab6028d3d9dd"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G04.dat",
+      "sha256": "36e61fe18297749d29fb7ce1d1d2dc59aaa95883437c9820573adcef083f6dac"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G05.dat",
+      "sha256": "e7017031aa1d7b92a8aa6429e2b0cc9ae86b8f006577012e345666a6281c094e"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G06.dat",
+      "sha256": "7b7051a0eb23eb96fec39cf7026c24bab74e68fe497ced92f596bfe9461827fc"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G07.dat",
+      "sha256": "2275e664e186d3c90e4a61009635b8ba6de17240a0caf312cca35204f32e920b"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G08.dat",
+      "sha256": "aa9325cddbb742a1b6c034c4ac93f0d35fc884c349e5bb3b65931b952a8159c2"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G09.dat",
+      "sha256": "55a92a703b55a372faeea893eaaf1d38b057fd1486e4637bc47f286f11a5dc42"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G10.dat",
+      "sha256": "2f5b6a98157b888e80c0e1d971a5a054de2636411a31427990e4c65595e7d432"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G11.dat",
+      "sha256": "21aed7a7d3fb4a79914f7d1597da101b89e2b869a5b49bfd40253eaea519b534"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G12.dat",
+      "sha256": "97799852dcf58f6271322351109dfd5493e6b0c82cfcfbbf28b0023027dec342"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G13.dat",
+      "sha256": "127e228643607f48556c626536b177658793ec483176b3abe254596f30f2513e"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G14.dat",
+      "sha256": "fecc987bccea08a7ecc41af968b9df6b59f095c90cc1f34df09d4216b991df12"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G15.dat",
+      "sha256": "b2862fc264bb139e6a407f4691788e7b1b78ccc9fc275f67c5ae9c42f20e0353"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G16.dat",
+      "sha256": "8c2ee01d60d80860cea14f98498b45c2046e6a6420ed22e466900de512800e64"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G17.dat",
+      "sha256": "80ecb5659e62423bc796ffdaaf2a92b354f80d124fd8417eaf6053d108f25538"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G18.dat",
+      "sha256": "1e17dc4d486a505a45d29911d36ca774fcb8072a0420c0e9a27efedb97b69a86"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G19.dat",
+      "sha256": "6dae65c708d422919befd6d3e2dd44efa9855cca8c5d0a1eb7c879518695aae4"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G20.dat",
+      "sha256": "dd5e329e3b6da672c9e9cccab1c7b8d24c96ce8c9e3190efa403766fe208d09a"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G21.dat",
+      "sha256": "073b20eea281af52cda02d38c73f1c622a43c6dcbb0a627bac39ee15f71befd8"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G22.dat",
+      "sha256": "0150f5aab020d417d161e3ea015454ae6a67b99179a9cc71f521d64b047031c9"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G23.dat",
+      "sha256": "7de173086c494b13fac326c7757993c3c16687d06afe4831da972a03c77d2059"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G24.dat",
+      "sha256": "5a86f24a50af48b3590024590035adf406dfda9543de227f8985ea048a35b376"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G25.dat",
+      "sha256": "33a0e3dab2146495298cbb58d62d555f262aaa368a15efc9bd5d1f0d49712bbb"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G26.dat",
+      "sha256": "7feedf2283d3adc3ef03500a0424489a4899cb3e321c342386f1713f2982c96a"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G27.dat",
+      "sha256": "b59bdedd065b8fe06179a2c2b995b50ddaf0c1f01c2c3ff4c357efb998d0fc09"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G28.dat",
+      "sha256": "bf7e6518f19040f5eff0152b806a0944e182e6fac8be89692c2cd4b6a3a16c2b"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G29.dat",
+      "sha256": "6fea43380d6f9446bf62711ed3bd367f868657eb268d27718fdefc1eef350745"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G30.dat",
+      "sha256": "03e33070bfb2f9ab6fc1b0e19df04f485ba6df4013cbefd0fd6ce85d1d7b9738"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G31.dat",
+      "sha256": "381edcef945fb5c737f707402fd2e8317e84a89b158fcc11cdafb7220d06abbf"
+    },
+    {
+      "bytes": 69182,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/clock/clock_2024-04-24.G32.dat",
+      "sha256": "d07a068d9d011ae676ec43bfeacd1f7fa8a3bf69246b1a922e25a43e1bfaa3f3"
+    },
+    {
+      "bytes": 122542,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat",
+      "sha256": "dee0d9a40cc21255f11b4a2120904b5b79df2528f990896e33b8b89725a6bdb1"
+    },
+    {
+      "bytes": 34622,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat",
+      "sha256": "02d9c75d487b87edb62754ae1f02ca2615c927dd25ce8ed7d2f498bfc6caab93"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G01.dat",
+      "sha256": "b449709efb7002042e621fe0f5f97221d34f38565c07970390c51cbb36b37c4f"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G02.dat",
+      "sha256": "ad5003d2fc8de192db67085d466115101c624a2999e8a847c24eac1164faed76"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G03.dat",
+      "sha256": "d7a0177b70160934e2f27aef3df17f758bddce9aba5ae0b5726babd480597ea7"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G04.dat",
+      "sha256": "87d016d3b912a9ff9c361f6b1bfd82cd26d7674c55a9cc81b75b4c0ba791101a"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G05.dat",
+      "sha256": "a9ea77c118fd5cab11fd08fbf1d2cc286a039b46594bc5231134ff53b9e577fd"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G06.dat",
+      "sha256": "1affdae9274e7d3bea198fd52bf0f28100cd660a93df02f09155882191f364d0"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G07.dat",
+      "sha256": "d1613df97f7511f0519eb0b9984731546c36cfc395ca17deb494c187a4fc5fc2"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G08.dat",
+      "sha256": "265bc706ec3da2f751782a45f0201d021aaeb52b109ec13fd038e116adfe6dcd"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G09.dat",
+      "sha256": "4c05c3a2526cb5560ea65b85ce9b6c5f32db5fffdff32e1fef517bad649a94ba"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G10.dat",
+      "sha256": "6d3354e7d168955274c84b6e51493495fb4b0e9a9e0bf64a994186ca407a278e"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G11.dat",
+      "sha256": "a8f97ea2a39b3ddbffef97861864b344aec82c1fdc2f9ffa79e74de00ca9c175"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G12.dat",
+      "sha256": "8d396eeff4700ca3db020f19fee2a9e69d78d37db9e01f91363ce548bbe513d3"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G13.dat",
+      "sha256": "7125c17d5209e93e8388a8c992c47239977bea5da368eec78e81c3dae13c558e"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G14.dat",
+      "sha256": "ed79152093c9216d1765ca634218b90afba3bdba2b93d9e8d090e849c8a09485"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G15.dat",
+      "sha256": "706b2bfe33c71d2ed8974a70ee23d869bdf5da3576c047f1cec34dc2ec91c8e3"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G16.dat",
+      "sha256": "4303319ac48c71b3001fd36db64322a0f77b405b595b8540005728d3c5bc32a1"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G17.dat",
+      "sha256": "b17ec1e42d84eeedb94ac9d13ce40e5a7e5cddfab1c7c0127f489770bb0bdec9"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G18.dat",
+      "sha256": "176f5e834b35ee4075504146deb8c59d93613a17c664c997183dfb19e5b5c7f5"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G19.dat",
+      "sha256": "a3bbf7771c87047b7b16f2513264603f807c74a9724d58d300989ce5f8c74f9f"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G20.dat",
+      "sha256": "355a301953ec27bdd13cf2c838e01b98e96741ca7e7fbc8dde21f94b1ef4632d"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G21.dat",
+      "sha256": "af699c78ac35c7a5a99fd8929e511e79371d971f17fe35e7c024bd4efcdac968"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G22.dat",
+      "sha256": "1881687515cf8c1ce8b01aebe6cf4e404da36d66dda04df2a17f5b89e4b5dad2"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G23.dat",
+      "sha256": "41d5de9abed0327ef97085a069d6be02d2cc5bcdfa3ca05fb297a3cf07c1131b"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G24.dat",
+      "sha256": "2791e84cacd6629eda266d644d84b774642689008bb2526b685ba960de4f7892"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G25.dat",
+      "sha256": "f3eadf91a95d2ea47e324050a6d70c36ddd7163d7b78feaa11183c269370b990"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G26.dat",
+      "sha256": "bfcd2d41fca5fe9a47b15dc3b9180547b4a457923e1a6821c26e9c38ad8a7c4c"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G27.dat",
+      "sha256": "438fd8a436a6675192f2cd0df9fa31cbc25b2ec806f10792eec4bd9da671946a"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G28.dat",
+      "sha256": "1f20a8e2c25bcc65d9c2b030bfc5475a93443692f0c80c0477c80ac474f33784"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G29.dat",
+      "sha256": "03a4587c03c7bb6ed807bfdd03646a9dc539885279017d0f870f665b502e52a1"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G30.dat",
+      "sha256": "59f7517db6dc406613fae3f2f8cdd5e506411ce8d7aa46efca44e916411bd117"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G31.dat",
+      "sha256": "ac6ae9fb412879a40c8d2c61969696f935ad8304ec4a84ec6a9507e9c34015cc"
+    },
+    {
+      "bytes": 25494,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/orbit/orbit_2024-04-24.G32.dat",
+      "sha256": "258985d54b8cce3df7dac92e6563b4bb5256a3496baeb27e9a40242157b5bf7a"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G01.txt",
+      "sha256": "26850cee1a6e375c7a55a70b23b079b2ec543e87d60880d1afa98762886a3739"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G02.txt",
+      "sha256": "8130e57cc4f1f58016b61f249aef8ea65c17f9dad7138c3fb4d74a0e46daf312"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G03.txt",
+      "sha256": "32e23116240e63d44273bff716fab21c4904baab63ec8eff54318172ff7a4515"
+    },
+    {
+      "bytes": 408,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G04.txt",
+      "sha256": "58c03adc84d844c78dbf30cdbc1907b9f398a5e85097df1ac98b6e50df0db766"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G05.txt",
+      "sha256": "5b9c3153f7c680e61d4edafc0265ff8b61c2b2e45ca8941ac2e04b65c9a2ddc0"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G06.txt",
+      "sha256": "64e9e753fea19a6f07ec848d30eeb1f7c683292601934e1ba13598a052561f46"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G07.txt",
+      "sha256": "dd5bdb1055ecff160cb57f0dbdaebde73860decc0e2074eb4c7e2841e0618edc"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G08.txt",
+      "sha256": "9904072b0dbd9c03205539d5b9817f7cbfe23b1af10e5445d3882a82352965d6"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G09.txt",
+      "sha256": "9e035ee994d704c196f4f337aa3a58bed711ae6cbedd92f62992ef416b193696"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G10.txt",
+      "sha256": "70cdff7ad5fae561233d29ebf163e4df884d5c568979d626d07e1f1ad23bae97"
+    },
+    {
+      "bytes": 408,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G11.txt",
+      "sha256": "eda3db271973135954b799d399be0de61234f53040010c51f553175345e947b3"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G12.txt",
+      "sha256": "453e560d904cb1350a738de23fc4c621af628943fb2e0d5b2036c349537a3cf6"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G13.txt",
+      "sha256": "ff4e43cbe74954bfff6ef352198a5926d55a80604949be391f88e8b20fac6e94"
+    },
+    {
+      "bytes": 408,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G14.txt",
+      "sha256": "6ba8bd1d8102caadd13a8011300c70f5115d35b230d7d0c2fbbf3d4835131285"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G15.txt",
+      "sha256": "b66e3d2588922c3bed141f912042638ab37981ad13412cc86391132a639bccdc"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G16.txt",
+      "sha256": "b64f75819a4cf00fe51acb228c8b3a049f781c85ee4e4fecc2718422412d0388"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G17.txt",
+      "sha256": "f9ebf406f139eac64f47f5acc1857ab61bf6a23da0c6158fd3b0bb5a5c15b84d"
+    },
+    {
+      "bytes": 408,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G18.txt",
+      "sha256": "289267ba87f6723f4b13f5a508f9f324d4f8e3590eea834734203266db3e8609"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G19.txt",
+      "sha256": "ee78e215dc2bc74579fb61ee3281680b68c1d0bf6159470109d600f0dc1d747a"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G20.txt",
+      "sha256": "8fa4cf9c012592236392925371e21dc427e4075401e4a8333909e59f8bcf717d"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G21.txt",
+      "sha256": "f546115a326c64f390ac50d4879a8ac8aa010cc060908121f13d186f7f381da4"
+    },
+    {
+      "bytes": 272,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G22.txt",
+      "sha256": "b3d23b0f7f63a909bfa58ffe1314b3a1482d9476807424caad2ad17564490846"
+    },
+    {
+      "bytes": 408,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G23.txt",
+      "sha256": "e14dabd5ec5631ca9edc4552190a8595300be82ac22fd069608827f22d5b154b"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G24.txt",
+      "sha256": "2ff88f2e4bc32146a5caef09ea45288ccd3a178e4c253c815854e5be39547dd8"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G25.txt",
+      "sha256": "a55ac22bd8bf5030ebab172e23de6c64e5a0dcf8a1184e3b5fbff5ea26d06f09"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G26.txt",
+      "sha256": "63df4e5f088e95e0875677e1ba4c676670054da013321f0d4162bcbecdcb9ecf"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G27.txt",
+      "sha256": "ff0a31035618e6ed5ee26e76da12ba073f4376e0ac5b21554d1ca1fd8fcaa75a"
+    },
+    {
+      "bytes": 408,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G28.txt",
+      "sha256": "55862e6da1522869a479ad72c238fed899e40234b0177268cdf7505065415fea"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G29.txt",
+      "sha256": "dab8cfe6f88c9f721713e6eeb367cdc3768171d9cba9dac4c9e6716b9e290079"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G30.txt",
+      "sha256": "fe1c67caca3612f4d7080fcc9cef63cd8d54cb2410b7f457bce8624ddbe0aae2"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G31.txt",
+      "sha256": "e51da24509fe01bfe057da202cb0732012dcddf0225a36e956f70c0d62e71419"
+    },
+    {
+      "bytes": 340,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G32.txt",
+      "sha256": "ab49174f6009cd347fccf237285885fa38f5983a1951db0981042ac5d2205fd9"
+    },
+    {
+      "bytes": 2906,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/synthetic_accuracy.xml",
+      "sha256": "e58e04008615bea9e065ab655a13367f51063deffe872f383e6e122a876033b7"
+    },
+    {
+      "bytes": 3015,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/log_density.txt",
+      "sha256": "7fa07ff5527e095c914aa9f84484e47b0f65310c2aa642cde5082a3613c5de13"
+    },
+    {
+      "bytes": 193,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/physical_initial.txt",
+      "sha256": "4f52c72cb7b967f35c650913a19956c414d55f50268f34890bc496ae73fc0ae7"
+    }
+  ],
+  "inputs_unchanged": true,
+  "job_id": "density--warm_target_clock",
+  "launch_binding": {
+    "bytes": 2491,
+    "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--warm_target_clock/launch-binding.json",
+    "sha256": "72327047580c84008abb23b0bd1afca718e7d647ed39018a32b039e5add907e2"
+  },
+  "mode": "receiver_clock_v1",
+  "native_binary_sha256": "ecb012d745fe3fc758c7fc032fc01bffab37431ca75b80115d2e03938d85e4ce",
+  "native_launch_mode": "preinit_scaled_qr_v1",
+  "output_inventory": [
+    {
+      "bytes": 208,
+      "path": "admission.json",
+      "sha256": "ee204c35e479776f77ff956e7cb48069178b830313335bebff02067ac60a5a2c"
+    },
+    {
+      "bytes": 14312,
+      "path": "config.xml",
+      "sha256": "025ebdf529308e5232490f8daca4c3f331a408208ba2fdae224808fab92e9d29"
+    },
+    {
+      "bytes": 1265344,
+      "path": "diagnostic/residuals.GRACEC.xml",
+      "sha256": "e6b4f5dfe76b279bb675e7df36c4cf73fa4bf92074a39c9bc1be0648f655aefe"
+    },
+    {
+      "bytes": 2491,
+      "path": "launch-binding.json",
+      "sha256": "72327047580c84008abb23b0bd1afca718e7d647ed39018a32b039e5add907e2"
+    },
+    {
+      "bytes": 1969,
+      "path": "native-launch.json",
+      "sha256": "6670d8fdc9777b0ed868e63f59b91902d71eb565833b38c397478ca5fa2f786c"
+    },
+    {
+      "bytes": 6426,
+      "path": "output/outputfileClockReceiver/receiver_clock.txt",
+      "sha256": "7966446520549c063d445abcdf137cc6784d1d1f07e3b9ab26be85e8ea957b92"
+    },
+    {
+      "bytes": 187798,
+      "path": "output/outputfileOrbit/gracefo1_orbit_2024-04-24.txt",
+      "sha256": "b2d8b10f7262e2c6921121a707fc769d1cac908f53f7f3e506130b6445db16e8"
+    },
+    {
+      "bytes": 63422,
+      "path": "output/outputfileOrbitNative/gracefo1_orbit_2024-04-24.dat",
+      "sha256": "c2ea8bfba24b6a515c232fffd302cd1c7728001e0cd3aa2f5d3af285a059ff80"
+    },
+    {
+      "bytes": 999587,
+      "path": "output/outputfileOrbitPocPreprocessingAudit/preprocessing_audit.txt",
+      "sha256": "780882fc2305de07f8214fb037da6dce1d54f937e81521013b4782be9b513fe7"
+    },
+    {
+      "bytes": 1858,
+      "path": "output/outputfileParameters/orbit_parameters.txt",
+      "sha256": "ede277b73f1ae568ca1f8085bf015c5817700cde35a42225154c81209cebfdda"
+    },
+    {
+      "bytes": 306,
+      "path": "output/outputfileSignalBiasReceiver/signalBias_2024-04-24.GRACEC.txt",
+      "sha256": "44344f84919f39016ebe4590957d1b79a959b5b06d97f111ca068f26ec7535c9"
+    },
+    {
+      "bytes": 50370,
+      "path": "profile.log",
+      "sha256": "63819bf564a1f5573212ca0b1e29ffe332a1739ec9f72eba7b2a090a6251d01b"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.1.R.bin",
+      "sha256": "e9d1e3d077f9f25696155b7b54c6431c5dfdf5e25b10e0d5aef7dd43b428119c"
+    },
+    {
+      "bytes": 177,
+      "path": "qr.1.bias_coordinates.tsv",
+      "sha256": "dd352c894595f8f4e6976e4cb554afd097afe9f43b37b967bb0ac5a8863c97ff"
+    },
+    {
+      "bytes": 16415,
+      "path": "qr.1.delta.tsv",
+      "sha256": "5a8d7f634dd9c42a22db7341682b90d8fa2051f1127f56d2c2a6914790040499"
+    },
+    {
+      "bytes": 444,
+      "path": "qr.1.diagnostics.json",
+      "sha256": "f5ce46fcbe74094a99833fe4a9f276aa0599f16dcc7e7f60c201bb5f3218410d"
+    },
+    {
+      "bytes": 11575,
+      "path": "qr.1.factor.json",
+      "sha256": "afe8f5b4eb6ce36c2f3d8bd134726b137d3fe7ff943bf735c95ec672409df4b1"
+    },
+    {
+      "bytes": 17507,
+      "path": "qr.1.nuisance_coordinates.tsv",
+      "sha256": "4c1d7369ddec60ea53c19d9f59ff52179e2a3c758233e62ff5b4a5cdf3b77f15"
+    },
+    {
+      "bytes": 1266,
+      "path": "qr.1.nuisance_line_search.json",
+      "sha256": "9bd685c32d37eb29b743293f99d33801130f3b81e23a035f35cd6f063da8ce05"
+    },
+    {
+      "bytes": 1880,
+      "path": "qr.1.nuisance_performance.json",
+      "sha256": "38b4cb15e51649bf17b8ec4291a604d2d5b0d3f1a18d8d058e7d05ac1f7e9123"
+    },
+    {
+      "bytes": 41215,
+      "path": "qr.1.parameters.tsv",
+      "sha256": "97b24c4add3690536cc846a94ae39f0e4360d09204ba2aa826676fa210a828bf"
+    },
+    {
+      "bytes": 739,
+      "path": "qr.1.profile.json",
+      "sha256": "e0c1f35b091939f9b6edc824b052b3a6c75ed209a5d12ca46eef73fa137198ac"
+    },
+    {
+      "bytes": 9999,
+      "path": "qr.1.receiver_times.tsv",
+      "sha256": "0742297f66244cdf78055f214a7611c0021c124f515323e002747834378a0547"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.1.rhs.bin",
+      "sha256": "d6a9dbe1d211cb2c32d99bb1cd6a58510f7b2ef4b06fc483b74409bdf5627f3c"
+    },
+    {
+      "bytes": 1904355,
+      "path": "qr.1.rows.tsv",
+      "sha256": "67cb1a989c459b046a0eced3f44be751a2728cf8cfa9e06239b167c9886a233a"
+    },
+    {
+      "bytes": 2866,
+      "path": "qr.1.singular_values.txt",
+      "sha256": "820aa40883fee80fb61e7f151c00c8cd7bfcfca3488a8a97e8321a935fabeabf"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.1.z.bin",
+      "sha256": "d6a9dbe1d211cb2c32d99bb1cd6a58510f7b2ef4b06fc483b74409bdf5627f3c"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.2.R.bin",
+      "sha256": "94e0265f0682929d27d57157681230a98c6bb683c2d117b8e1f2a3b8edc38bb7"
+    },
+    {
+      "bytes": 214,
+      "path": "qr.2.bias_coordinates.tsv",
+      "sha256": "665be2c200053da241b60c3e0a7e5da14226165c5e59243524f58ae9f29dd56d"
+    },
+    {
+      "bytes": 16989,
+      "path": "qr.2.delta.tsv",
+      "sha256": "b4421aa8ac27b282dfd6487789e01e8dd41ad587db87b75b43e5add3e5812e69"
+    },
+    {
+      "bytes": 442,
+      "path": "qr.2.diagnostics.json",
+      "sha256": "3a35ccd0f9b9ec7407516a6e1fd698baa6862f2076fb5cd1eebf8e0e2dcfe59a"
+    },
+    {
+      "bytes": 11578,
+      "path": "qr.2.factor.json",
+      "sha256": "a9a5dec57fdb6ec7462f79a40c65612acbc0c0953242c61c5e73631d7eed793d"
+    },
+    {
+      "bytes": 21073,
+      "path": "qr.2.nuisance_coordinates.tsv",
+      "sha256": "f94e2fcbbcf234e2cd30a3081887fa7dadf0dd044a93601afd65ac1cccdee727"
+    },
+    {
+      "bytes": 1299,
+      "path": "qr.2.nuisance_line_search.json",
+      "sha256": "d6c13c6d209a150942e0f66ab5a315ff0cae1b1f9709fa9d1f57c32b125c5d73"
+    },
+    {
+      "bytes": 1880,
+      "path": "qr.2.nuisance_performance.json",
+      "sha256": "18b17d46391e378ce539eac8b3a58241fe88d0091daab6f749c5df0b123de516"
+    },
+    {
+      "bytes": 41218,
+      "path": "qr.2.parameters.tsv",
+      "sha256": "cfc42ba3a8d2378e24c357b2d5bb90bf405322dceaf95d958b3873ada11ab645"
+    },
+    {
+      "bytes": 766,
+      "path": "qr.2.profile.json",
+      "sha256": "edd72be676fe8ba47c3ac02f64c7b548916e5ff50b0b09a9d96513d8c555efa8"
+    },
+    {
+      "bytes": 10001,
+      "path": "qr.2.receiver_times.tsv",
+      "sha256": "60cce948a1b6092e00b485e1609d7025c90aa3bf581424ba78cbe379e15608ad"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.2.rhs.bin",
+      "sha256": "0de61d333e54916a9b0ed50f933679b59a830e3d7afabe01cfc82215a65122e7"
+    },
+    {
+      "bytes": 1906973,
+      "path": "qr.2.rows.tsv",
+      "sha256": "edafe1873547920050f95db79f6318da5312ba1ded7f9f8f609eaa8f6bf7219b"
+    },
+    {
+      "bytes": 2863,
+      "path": "qr.2.singular_values.txt",
+      "sha256": "129ed1c009877361e6b7b137b6cbf769436b8b6fb21a7e35251e61ebccbf3b7a"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.2.z.bin",
+      "sha256": "0de61d333e54916a9b0ed50f933679b59a830e3d7afabe01cfc82215a65122e7"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.3.R.bin",
+      "sha256": "dcb5392efdd8de8834a762bc98020f506cd82dd06068a1a26272f54763572cfc"
+    },
+    {
+      "bytes": 214,
+      "path": "qr.3.bias_coordinates.tsv",
+      "sha256": "13808e8654f6b37929b678280b9ea31caf31250853c0ab117b8798becd7f1159"
+    },
+    {
+      "bytes": 17155,
+      "path": "qr.3.delta.tsv",
+      "sha256": "9b86923ddb0ff1871e40991e198fe03be8bd5b4716a1964a494caed6118418bc"
+    },
+    {
+      "bytes": 443,
+      "path": "qr.3.diagnostics.json",
+      "sha256": "33eebcf280ea03e64107906aad8d658d6460cac40749637e213d7ad00bd8cae7"
+    },
+    {
+      "bytes": 11574,
+      "path": "qr.3.factor.json",
+      "sha256": "cb7472c307dfd35c4bb6e13a48c485a2686637664c9740555a2a13f89ad94ef3"
+    },
+    {
+      "bytes": 21070,
+      "path": "qr.3.nuisance_coordinates.tsv",
+      "sha256": "4b4e39f8af9ab8381e9c9d7386638b8db72951ee12590f1d55b98abb77ab36f6"
+    },
+    {
+      "bytes": 1293,
+      "path": "qr.3.nuisance_line_search.json",
+      "sha256": "9f2601ab5a910a436f3ceb95271064a5b888ae5e98ffa7659ec5791725d22856"
+    },
+    {
+      "bytes": 1908,
+      "path": "qr.3.nuisance_performance.json",
+      "sha256": "7eb49fae5198070b5ee9d11ca1103f335dc6eb6ada14fec82e913bb103ece327"
+    },
+    {
+      "bytes": 41214,
+      "path": "qr.3.parameters.tsv",
+      "sha256": "1494ee0bb6af2595523444eb3efcff1f407525cf96bfd1e5f588411bb815abc0"
+    },
+    {
+      "bytes": 768,
+      "path": "qr.3.profile.json",
+      "sha256": "b7522a82f30935406d6a96b5513757b53df2579b41ea4262e6b047ee9fdb60e3"
+    },
+    {
+      "bytes": 9999,
+      "path": "qr.3.receiver_times.tsv",
+      "sha256": "86b74647141e323a715cd1372225800107f5de7be067f25d6c66d70bd9c2f88a"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.3.rhs.bin",
+      "sha256": "5d27f02caa024567d07746a0e078d20c4601d9b053ef64a1c1fee6173755de22"
+    },
+    {
+      "bytes": 1907044,
+      "path": "qr.3.rows.tsv",
+      "sha256": "8b8951844247bcf5f95961ac269151f2fc38f6637da06bb85bce3f0411de2712"
+    },
+    {
+      "bytes": 2875,
+      "path": "qr.3.singular_values.txt",
+      "sha256": "12bb192d6265dc8c22d36e3921b72f11c8a218f572f6906757b1275aac3270d4"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.3.z.bin",
+      "sha256": "5d27f02caa024567d07746a0e078d20c4601d9b053ef64a1c1fee6173755de22"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.4.R.bin",
+      "sha256": "e5b0f22b86533a609278e797a009a935f59dfaac521ca29f12c958dd37c2dc5b"
+    },
+    {
+      "bytes": 214,
+      "path": "qr.4.bias_coordinates.tsv",
+      "sha256": "b4ca4980379bbd7ca1b651d46d7336f48d47bc71ae8aa5d4b631c68baf4a677b"
+    },
+    {
+      "bytes": 17165,
+      "path": "qr.4.delta.tsv",
+      "sha256": "be3793ca47d0fe9c4a6c61ad5bf3af770b62152f26921229d60ea6f4fbc9e80a"
+    },
+    {
+      "bytes": 443,
+      "path": "qr.4.diagnostics.json",
+      "sha256": "ef99ec33a3b4720632c425d40d6bdf4733cfc3d5aa98dc200c0924ecfe73e36c"
+    },
+    {
+      "bytes": 11561,
+      "path": "qr.4.factor.json",
+      "sha256": "8da15bc00abf6f5f38bc5f787cc0a8b473255be6d72eb636c0ba2a2ea0c8996a"
+    },
+    {
+      "bytes": 21076,
+      "path": "qr.4.nuisance_coordinates.tsv",
+      "sha256": "d7a1ce019e01459ce1f73fce3a6f42cccdc3174696464106bad7c04d4cfc2925"
+    },
+    {
+      "bytes": 1278,
+      "path": "qr.4.nuisance_line_search.json",
+      "sha256": "84ee86b4e8a838801d87b9e7e677a9a14a52ce671db74417b0f07ca9b28cabf2"
+    },
+    {
+      "bytes": 1890,
+      "path": "qr.4.nuisance_performance.json",
+      "sha256": "128ef496b68ea691f0d6c5d4824acf7d2e062cfa247075217f5d7d3f60bda60d"
+    },
+    {
+      "bytes": 41201,
+      "path": "qr.4.parameters.tsv",
+      "sha256": "4a87b7ec6f7752a003e4a6dad39242c4d2adf012e518679600a20e76cdffccd7"
+    },
+    {
+      "bytes": 767,
+      "path": "qr.4.profile.json",
+      "sha256": "9012f0503bf86811fe3b7bebc179e221cc90afe88cf163b80b79cd9b47f93a16"
+    },
+    {
+      "bytes": 10002,
+      "path": "qr.4.receiver_times.tsv",
+      "sha256": "5fa39945c1c29bb9fdfb4e1fbd3576fd994cad188978e6d28f3c99d5bde3630a"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.4.rhs.bin",
+      "sha256": "4531cd9699dee78fb7b3b094b1554f9704083f7c549da6741943d11e9f923060"
+    },
+    {
+      "bytes": 1906950,
+      "path": "qr.4.rows.tsv",
+      "sha256": "7344957c5c251c46e8c15384ebfc4a1613acad1dab107cb18d32fc01a0017e16"
+    },
+    {
+      "bytes": 2870,
+      "path": "qr.4.singular_values.txt",
+      "sha256": "870accaece9abfe717b83e00afc4719310e8c3cc1103c1c2b696751518a43369"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.4.z.bin",
+      "sha256": "4531cd9699dee78fb7b3b094b1554f9704083f7c549da6741943d11e9f923060"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.5.R.bin",
+      "sha256": "63db20bcb8f11ee51b3ee607b81d0d52f78f6f651ef72628961e632e16a2705b"
+    },
+    {
+      "bytes": 214,
+      "path": "qr.5.bias_coordinates.tsv",
+      "sha256": "3b7892f08c2888c2e549e5e88b7c847e4fe6d474a053cafe7e8587804c50a32c"
+    },
+    {
+      "bytes": 17164,
+      "path": "qr.5.delta.tsv",
+      "sha256": "c0bd68053c0bf4be13cfe9b59f3965152a1e88214e3f01e55ae126bcf526cda0"
+    },
+    {
+      "bytes": 443,
+      "path": "qr.5.diagnostics.json",
+      "sha256": "69c1c4aed728bb1d773c559e65ca043e9f9b72f1e064e810618d9a59ed6cb17f"
+    },
+    {
+      "bytes": 11576,
+      "path": "qr.5.factor.json",
+      "sha256": "a991927744d91690445014d111a76edbe4deb7e1f1e404fd51d298338c52d436"
+    },
+    {
+      "bytes": 21070,
+      "path": "qr.5.nuisance_coordinates.tsv",
+      "sha256": "5f52a6607c0655ac8449ebf1b7cadb47c6ade4267ca46d7289ced9e2c3f63082"
+    },
+    {
+      "bytes": 1290,
+      "path": "qr.5.nuisance_line_search.json",
+      "sha256": "5b7bf9f27be967eafb228969a1981d46c9d6ecbed761aae45f15ff3dffc1b026"
+    },
+    {
+      "bytes": 1878,
+      "path": "qr.5.nuisance_performance.json",
+      "sha256": "f17856722043e705d798abd1a738d1adfbf754f724c67747163a15217addc66d"
+    },
+    {
+      "bytes": 41216,
+      "path": "qr.5.parameters.tsv",
+      "sha256": "daa5a420220c38ae0f3b9b1b27befa3908c8197378ac1c676ae0c1de3d25559a"
+    },
+    {
+      "bytes": 767,
+      "path": "qr.5.profile.json",
+      "sha256": "2491b57ab520fb349fd1764e59e1d2b8f643ea10095639aaaa4ad7ca92ea2c46"
+    },
+    {
+      "bytes": 9997,
+      "path": "qr.5.receiver_times.tsv",
+      "sha256": "edc72ce4ecd863a9daa901f338baf58f85aae3e92dbe35ba64df10715f1ae124"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.5.rhs.bin",
+      "sha256": "217f068a3db9632c6094a363efb619cab836d7d576af3d35e2efca13bd299ffc"
+    },
+    {
+      "bytes": 1906919,
+      "path": "qr.5.rows.tsv",
+      "sha256": "8a30329fd854c53fdc67699ba06167932209827edfbfccaad036f19ebb423b86"
+    },
+    {
+      "bytes": 2870,
+      "path": "qr.5.singular_values.txt",
+      "sha256": "eab80a106461fe8156e0de86e05737c9929eb32dd87499947ef6e51714651e71"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.5.z.bin",
+      "sha256": "217f068a3db9632c6094a363efb619cab836d7d576af3d35e2efca13bd299ffc"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.6.R.bin",
+      "sha256": "63db20bcb8f11ee51b3ee607b81d0d52f78f6f651ef72628961e632e16a2705b"
+    },
+    {
+      "bytes": 214,
+      "path": "qr.6.bias_coordinates.tsv",
+      "sha256": "3b7892f08c2888c2e549e5e88b7c847e4fe6d474a053cafe7e8587804c50a32c"
+    },
+    {
+      "bytes": 17164,
+      "path": "qr.6.delta.tsv",
+      "sha256": "c0bd68053c0bf4be13cfe9b59f3965152a1e88214e3f01e55ae126bcf526cda0"
+    },
+    {
+      "bytes": 443,
+      "path": "qr.6.diagnostics.json",
+      "sha256": "69c1c4aed728bb1d773c559e65ca043e9f9b72f1e064e810618d9a59ed6cb17f"
+    },
+    {
+      "bytes": 11576,
+      "path": "qr.6.factor.json",
+      "sha256": "a991927744d91690445014d111a76edbe4deb7e1f1e404fd51d298338c52d436"
+    },
+    {
+      "bytes": 21070,
+      "path": "qr.6.nuisance_coordinates.tsv",
+      "sha256": "5f52a6607c0655ac8449ebf1b7cadb47c6ade4267ca46d7289ced9e2c3f63082"
+    },
+    {
+      "bytes": 1271,
+      "path": "qr.6.nuisance_line_search.json",
+      "sha256": "d9192c1e05485ec580fc469b37fb63db7e6084216a8c039b7cf8f03faa69ca7a"
+    },
+    {
+      "bytes": 1870,
+      "path": "qr.6.nuisance_performance.json",
+      "sha256": "8bdd84e0d9f343fb5492733bf66f70edc181186e44f2b775c2c2bc6f10190b9e"
+    },
+    {
+      "bytes": 41216,
+      "path": "qr.6.parameters.tsv",
+      "sha256": "daa5a420220c38ae0f3b9b1b27befa3908c8197378ac1c676ae0c1de3d25559a"
+    },
+    {
+      "bytes": 767,
+      "path": "qr.6.profile.json",
+      "sha256": "2491b57ab520fb349fd1764e59e1d2b8f643ea10095639aaaa4ad7ca92ea2c46"
+    },
+    {
+      "bytes": 9997,
+      "path": "qr.6.receiver_times.tsv",
+      "sha256": "edc72ce4ecd863a9daa901f338baf58f85aae3e92dbe35ba64df10715f1ae124"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.6.rhs.bin",
+      "sha256": "217f068a3db9632c6094a363efb619cab836d7d576af3d35e2efca13bd299ffc"
+    },
+    {
+      "bytes": 1906919,
+      "path": "qr.6.rows.tsv",
+      "sha256": "8a30329fd854c53fdc67699ba06167932209827edfbfccaad036f19ebb423b86"
+    },
+    {
+      "bytes": 2870,
+      "path": "qr.6.singular_values.txt",
+      "sha256": "eab80a106461fe8156e0de86e05737c9929eb32dd87499947ef6e51714651e71"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.6.z.bin",
+      "sha256": "217f068a3db9632c6094a363efb619cab836d7d576af3d35e2efca13bd299ffc"
+    },
+    {
+      "bytes": 170544,
+      "path": "qr.7.R.bin",
+      "sha256": "63db20bcb8f11ee51b3ee607b81d0d52f78f6f651ef72628961e632e16a2705b"
+    },
+    {
+      "bytes": 214,
+      "path": "qr.7.bias_coordinates.tsv",
+      "sha256": "3b7892f08c2888c2e549e5e88b7c847e4fe6d474a053cafe7e8587804c50a32c"
+    },
+    {
+      "bytes": 17664,
+      "path": "qr.7.delta.tsv",
+      "sha256": "6300f9dc396cd20deca05b6d87eeab78230914ffbd09a75e318ad59a46252957"
+    },
+    {
+      "bytes": 443,
+      "path": "qr.7.diagnostics.json",
+      "sha256": "d2f581f59c37215f4e1613d6c4155ad227388695dfd174d6686a5c33d38dfd26"
+    },
+    {
+      "bytes": 11576,
+      "path": "qr.7.factor.json",
+      "sha256": "a991927744d91690445014d111a76edbe4deb7e1f1e404fd51d298338c52d436"
+    },
+    {
+      "bytes": 21070,
+      "path": "qr.7.nuisance_coordinates.tsv",
+      "sha256": "5f52a6607c0655ac8449ebf1b7cadb47c6ade4267ca46d7289ced9e2c3f63082"
+    },
+    {
+      "bytes": 41216,
+      "path": "qr.7.parameters.tsv",
+      "sha256": "daa5a420220c38ae0f3b9b1b27befa3908c8197378ac1c676ae0c1de3d25559a"
+    },
+    {
+      "bytes": 767,
+      "path": "qr.7.profile.json",
+      "sha256": "2491b57ab520fb349fd1764e59e1d2b8f643ea10095639aaaa4ad7ca92ea2c46"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.7.rhs.bin",
+      "sha256": "217f068a3db9632c6094a363efb619cab836d7d576af3d35e2efca13bd299ffc"
+    },
+    {
+      "bytes": 1906919,
+      "path": "qr.7.rows.tsv",
+      "sha256": "8a30329fd854c53fdc67699ba06167932209827edfbfccaad036f19ebb423b86"
+    },
+    {
+      "bytes": 2870,
+      "path": "qr.7.singular_values.txt",
+      "sha256": "eab80a106461fe8156e0de86e05737c9929eb32dd87499947ef6e51714651e71"
+    },
+    {
+      "bytes": 1184,
+      "path": "qr.7.z.bin",
+      "sha256": "217f068a3db9632c6094a363efb619cab836d7d576af3d35e2efca13bd299ffc"
+    },
+    {
+      "bytes": 49,
+      "path": "qr.datum.1.codeBias.tsv",
+      "sha256": "4ad5df742650b8a05f619966957e956954f8cdeeaff30b5d1dcccd554bc7c90f"
+    },
+    {
+      "bytes": 123,
+      "path": "qr.datum.2.tecBias.tsv",
+      "sha256": "86b21ffbf3a0bf3aeb85bbf22bc9db6830b318666cfa055b5f6e15c542485dde"
+    },
+    {
+      "bytes": 60,
+      "path": "qr.datum.3.ambiguitySelection.tsv",
+      "sha256": "78f48deb00318e8decb6fb6753dbd086799f45b2312063f1d47fc53796b43aca"
+    },
+    {
+      "bytes": 58,
+      "path": "qr.datum.4.ambiguitySelection.tsv",
+      "sha256": "3e522c58cc9a3187e389cb646f751d903a2cdcd6f689b105f744a439947637fb"
+    },
+    {
+      "bytes": 1324,
+      "path": "qr.profile.json",
+      "sha256": "88011bbb1f2ca45c02a2127ab569b507bcdadaee4898567159dde0ea4d9d1a56"
+    },
+    {
+      "bytes": 8528,
+      "path": "seed.bin",
+      "sha256": "82587352ba520ae41f73297335a52d7d3952b114414380389b78764b0209e098"
+    },
+    {
+      "bytes": 1084,
+      "path": "seed.bin.json",
+      "sha256": "bbd3fef93653f668c192fc8550094f5ccdc1be866ad8b552c9809d8b973eab46"
+    },
+    {
+      "bytes": 1462,
+      "path": "supervisor.json",
+      "sha256": "344b2156d6982bc0266877f48c01e661f5b7ddf48fcc4b3f64cc571e714aea79"
+    },
+    {
+      "bytes": 0,
+      "path": "supervisor.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1204,
+      "path": "supervisor.plan.json",
+      "sha256": "e58daca2b3ccf1a860cdaf9edc4b974fef0e6d00897b3d1999e5f26d094b232e"
+    }
+  ],
+  "owned_process_group_cleaned": true,
+  "point": "target",
+  "preparation": {
+    "bytes": 1622173,
+    "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared02/preparation.json",
+    "sha256": "0bcc26ecececf4e0b6e455cb84234298adef1f1df438c6070ca3cc378f92a4d9"
+  },
+  "returncode": 0,
+  "schema": "orbit-poc-nuisance-warm-profile-execution-v1",
+  "source_donor": {
+    "companion": {
+      "bytes": 937,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--cold_source_clock/seed.bin.json",
+      "sha256": "0aa2a167752704e4e4615f870ec320d7063d1f40410d331b9acfd4fbcc8afb23"
+    },
+    "payload": {
+      "bytes": 8528,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--cold_source_clock/seed.bin",
+      "sha256": "aad9f6ecec629b6c56462da3ce865cbc67d55af61e8afda8310ad538297b9d24"
+    },
+    "root": "/home/emper/orbit-nuisance-warmstarts/profiles03/density--cold_source_clock"
+  },
+  "started_at": "2026-10-20T04:51:07.585547+00:00",
+  "status": "complete",
+  "supervisor_sha256": "344b2156d6982bc0266877f48c01e661f5b7ddf48fcc4b3f64cc571e714aea79",
+  "timed_out": false,
+  "treatment": "warm"
+}

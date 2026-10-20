@@ -1,0 +1,101 @@
+{
+  "absent_prediction_slots": 0,
+  "accepted_orbit_covariance": false,
+  "checker_sha256": "14820c4f6a944ad11950a8d3f8dbac4b295a7185d566a8dc3492f5c9714e3022",
+  "checks": {
+    "code_prediction_below_one_percent_noise": true,
+    "objective_within_cold_floor": true,
+    "phase_prediction_below_one_percent_noise": true,
+    "strict_support_and_weights": true,
+    "unit_normalized_dynamic_covariance_relative_below_1e8": true,
+    "unit_normalized_retained_covariance_relative_below_1e8": true
+  },
+  "cold_iterations": 10,
+  "cold_objective_floor": 0.0008752606299822219,
+  "covariance_scope": "Diagnostic undamped local linearization marginal blocks only; no accepted orbit covariance",
+  "diagnostic_redundancy_policy": "Unused native all-NaN triples remain explicit absent support; NaN redundancy is ignored only when physical residual and sigma are valid",
+  "dynamic_correction_difference_posterior_sd_diagnostic": 4.856212808593338e-13,
+  "execution_receipts": [
+    {
+      "classification": "strict_nuisance_convergence",
+      "freeze": {
+        "bytes": 1879968,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/freeze.json",
+        "sha256": "805cae9647073882e8fdc5aa102420da08dfa6b0784b846ae6a1607dc5b5dd55"
+      },
+      "root": "/home/emper/orbit-nuisance-warmstarts/profiles03/pulses-bias-priors--cold_source_full",
+      "sha256": "db6ecf83866e76dfeae2978489a31f747d3a2556bffb24a168b5a1fe41cae789"
+    },
+    {
+      "classification": "strict_nuisance_convergence",
+      "freeze": {
+        "bytes": 1879968,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/freeze.json",
+        "sha256": "805cae9647073882e8fdc5aa102420da08dfa6b0784b846ae6a1607dc5b5dd55"
+      },
+      "root": "/home/emper/orbit-nuisance-warmstarts/profiles03/pulses-bias-priors--warm_source_full",
+      "sha256": "1e793328527e7321a7ff0ac49e4bd2ab747c4654fbe58f2b70c9f4772f4dcd13"
+    },
+    {
+      "classification": "strict_nuisance_convergence",
+      "freeze": {
+        "bytes": 1879968,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles03/freeze.json",
+        "sha256": "805cae9647073882e8fdc5aa102420da08dfa6b0784b846ae6a1607dc5b5dd55"
+      },
+      "root": "/home/emper/orbit-nuisance-warmstarts/profiles03/pulses-bias-priors--cold_source_repeat_full",
+      "sha256": "a8f21d7086f53a95aa60478a03bb26e43ebc0d3f0f4ebbac2fc5c3a63a71e1a1"
+    }
+  ],
+  "maximum_prediction_difference_m": {
+    "code": 8.731071421408387e-13,
+    "phase": 3.69114461218345e-14
+  },
+  "nonzero_prior_evidence": {
+    "cold": {
+      "code_bias_full_constraint": {
+        "rhs_squared": 0.0024903083694332675,
+        "rows": 1
+      },
+      "tec_bias_full_constraint": {
+        "rhs_squared": 2.627066251824912e-26,
+        "rows": 22
+      }
+    },
+    "repeat": {
+      "code_bias_full_constraint": {
+        "rhs_squared": 0.0024903093476952216,
+        "rows": 1
+      },
+      "tec_bias_full_constraint": {
+        "rhs_squared": 2.97867428687583e-27,
+        "rows": 22
+      }
+    },
+    "warm": {
+      "code_bias_full_constraint": {
+        "rhs_squared": 0.0024903083695851347,
+        "rows": 1
+      },
+      "tec_bias_full_constraint": {
+        "rhs_squared": 3.43950186693072e-26,
+        "rows": 22
+      }
+    }
+  },
+  "objective_difference": 0.0,
+  "objective_floor_policy": "max(10*abs(same-point independently closed cold repeat difference),8*eps*abs(cold objective)); source/warm never supply target floor",
+  "passed": true,
+  "prediction_slots": 8064,
+  "relative_dynamic_covariance_difference": 1.9971683456853574e-14,
+  "relative_retained_covariance_difference": 4.961054780818901e-12,
+  "release_authority": false,
+  "roots": [
+    "/home/emper/orbit-nuisance-warmstarts/profiles03/pulses-bias-priors--cold_source_full",
+    "/home/emper/orbit-nuisance-warmstarts/profiles03/pulses-bias-priors--warm_source_full",
+    "/home/emper/orbit-nuisance-warmstarts/profiles03/pulses-bias-priors--cold_source_repeat_full"
+  ],
+  "same_linearization_map_gate": "Not applied to distinct nuisance linearizations; native QR correctness suite is separate",
+  "schema": "orbit-poc-nuisance-warm-fixed-profile-check-v1",
+  "warm_iterations": 8
+}

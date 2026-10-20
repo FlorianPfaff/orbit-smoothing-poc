@@ -1,0 +1,90 @@
+{
+  "command": [
+    "/usr/bin/taskset",
+    "-c",
+    "0",
+    "/home/emper/orbit-nuisance-warmstarts/binaries/groops-nuisance-warm-3c7fd57192b6ad11",
+    "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/config.xml"
+  ],
+  "execution": {
+    "argv": [
+      "/usr/bin/taskset",
+      "-c",
+      "0",
+      "/home/emper/orbit-nuisance-warmstarts/binaries/groops-nuisance-warm-3c7fd57192b6ad11",
+      "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/config.xml"
+    ],
+    "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    },
+    "elapsed_seconds": 0.6877484989963705,
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "owned_process_group_cleaned": true,
+    "peak_process_tree_rss_bytes": 170614784,
+    "plan_sha256": "cdc6f8c3917d91d93fb6e2bb99542754096fdbed1cf5aad4f7919f5ef63ce788",
+    "returncode": 1,
+    "schema": "orbit-poc-segmented-supervision-v1",
+    "signals_received": [],
+    "status": "failed",
+    "supervisor": {
+      "parent": 52497,
+      "pid": 52498,
+      "start_ticks": 5427419,
+      "state": "R"
+    },
+    "tracked_owned_processes": [
+      {
+        "parent": 52498,
+        "pid": 52499,
+        "start_ticks": 5427538,
+        "state": "Z"
+      }
+    ],
+    "worker": {
+      "parent": 52498,
+      "pid": 52499,
+      "start_ticks": 5427538,
+      "state": "R"
+    }
+  },
+  "extraction": {
+    "covariance_authority": false,
+    "issues": [
+      "FileNotFoundError: [Errno 2] No such file or directory: '/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/qr.profile.json'"
+    ],
+    "passed": false,
+    "release_authority": false,
+    "scope": "native prior-fixture feasibility only"
+  },
+  "identity_error": null,
+  "inputs_unchanged": true,
+  "passed": false,
+  "plan": {
+    "bytes": 369505,
+    "path": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/freeze.json",
+    "sha256": "9c6670abda221d843c4d3cf3b74ae2090e69e01ce7aaf2193bcb8606e29f68ca"
+  },
+  "release_authority": false,
+  "thin_output_inventory": [
+    {
+      "bytes": 13752,
+      "path": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/config.xml",
+      "sha256": "9a3272dfcb352f2d73a26785907f597dad45bbc423f1605a65a31f974f863cb6"
+    },
+    {
+      "bytes": 3284,
+      "path": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/profile.log",
+      "sha256": "a804c51de28826af2d3cf282cb95166eaa8bbaf65fad67afc152ee10d832ec63"
+    },
+    {
+      "bytes": 1200,
+      "path": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/supervisor.json",
+      "sha256": "1137fdfbd1c41896af722787ac672966c7da7949aa8b7cf77c9cb1d3b302c5d8"
+    }
+  ]
+}

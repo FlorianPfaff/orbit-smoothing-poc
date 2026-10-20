@@ -1,0 +1,141 @@
+{
+  "audit_script": {
+    "bytes": 8322,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate06-runtime/audit01.py",
+    "sha256": "e7ce164a2dde10e791e6ccc0e57ae99a0451fbc9985c64297db05284578bdcfe"
+  },
+  "build_plan": {
+    "bytes": 165038,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-plan06.json",
+    "sha256": "8b5ba9ff9586d636ebbd6e09d05a5e6cabaa38be6b1e4c39c1f57587757d0513"
+  },
+  "build_result": {
+    "bytes": 150615,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-result06.json",
+    "sha256": "6257a871cc5478bc62f4f38799bb456c4f5ea86d8256471e53e235dba37e5f4b"
+  },
+  "changed_native_source_vs_candidate05": [
+    "source/gnss/gnssParametrization/gnssParametrizationClocks.cpp",
+    "source/misc/orbitPoc/nuisanceWarmState.h"
+  ],
+  "created_at": "2026-10-20T04:33:01.708267+00:00",
+  "findings": [
+    "Actual build06 completed with unchanged boot, protected originals and patch inputs; owned processes closed cleanly without signals.",
+    "The only native source differences from05 are the reviewed nuisanceWarmState header and exactly one receiver-clock collector binding. Full source inventory and runtime libraries remain pinned.",
+    "Build output, published binary and manifest agree. Warm default stays off and scientific models/thresholds are recorded unchanged.",
+    "Actual unchanged106+51cases allpass with zero failures/errors/skips and clean owned-process closure."
+  ],
+  "limitations": [
+    "Build/regression acceptance only; fresh27profile outcomes and15comparisons remain mandatory.",
+    "No perturbed-target equivalence, useful performance, accepted orbit covariance or whole-fit admission follows."
+  ],
+  "manifest": {
+    "bytes": 164159,
+    "path": "/home/emper/orbit-nuisance-warmstarts/build-06/build-manifest.json",
+    "sha256": "d139f2020f4fd06d3f3b2941e014816ac32f652d95686d8aec1d99cd3f1ca52a"
+  },
+  "native": {
+    "bytes": 24248512,
+    "path": "/home/emper/orbit-nuisance-warmstarts/binaries/groops-nuisance-warm-ecb012d745fe3fc7",
+    "sha256": "ecb012d745fe3fc758c7fc032fc01bffab37431ca75b80115d2e03938d85e4ce"
+  },
+  "native_test_freeze": {
+    "bytes": 158047,
+    "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/freeze.json",
+    "sha256": "420568189a5f0f9a61ac8de3a089ef0b4a3289466513ea099359540e78d5a200"
+  },
+  "native_test_result": {
+    "bytes": 4519,
+    "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/result.json",
+    "sha256": "ceff42c81c78e7f94b863d9e5cad86e33d721d45601def774e4d4156681d7a32"
+  },
+  "release_authority": false,
+  "review_execution": {
+    "compiler_runs": 0,
+    "cpu": 4,
+    "native_runs": 0,
+    "signals": 0,
+    "threads": 1
+  },
+  "schema": "independent-warm-candidate06-build-native-suite-review-v1",
+  "scientific_accepted": false,
+  "source_review": {
+    "bytes": 62973,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate06-source/independent-review.json",
+    "sha256": "ad33e28658ddad1f86286b7f5e5d9cab01c3e26aa114cba882f7c993bc5ef840"
+  },
+  "status": "accepted_build_and_157_native_regression_cases",
+  "suite_control_review": {
+    "bytes": 4176,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate06-controls/independent-review.json",
+    "sha256": "2eef4ea75633ef286f6e0aaac9cd4cb09ec054088aeddafa128aa14063a56751"
+  },
+  "suites": [
+    {
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "counts": {
+        "error": 0,
+        "failure": 0,
+        "skipped": 0,
+        "tests": 106
+      },
+      "junit": {
+        "bytes": 17279,
+        "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/native/tests.xml",
+        "sha256": "9a00a6be740755007f3892694ac8b2469b5b65e4483dd320d30b894485b6ac57"
+      },
+      "log": {
+        "bytes": 1456,
+        "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/native/pytest.log",
+        "sha256": "035fca60d6a3e5489b24d34de1dc64af142031d572a44e48b4524e62c98c6e05"
+      },
+      "name": "native",
+      "result": {
+        "bytes": 1972,
+        "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/native/result.json",
+        "sha256": "8b0d57534b75ef7e6df54acf38563d37e46648d2891f36848bb8b8d52500f0a5"
+      }
+    },
+    {
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "counts": {
+        "error": 0,
+        "failure": 0,
+        "skipped": 0,
+        "tests": 51
+      },
+      "junit": {
+        "bytes": 7897,
+        "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/correction/tests.xml",
+        "sha256": "f07f154cf4f554aaa18713aaa4bebe7c83943224562845e067cd39cd10dfdbd8"
+      },
+      "log": {
+        "bytes": 169,
+        "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/correction/pytest.log",
+        "sha256": "a61a82e74cb8aee87cc0870075f9880c79152b3bdd5cb315684aef9687b3ac9d"
+      },
+      "name": "correction",
+      "result": {
+        "bytes": 1941,
+        "path": "/home/emper/orbit-nuisance-warmstarts/native-tests03/correction/result.json",
+        "sha256": "33c574baba410c189cff7c53cce745d64fd7b50446e936f5995816f6618a052d"
+      }
+    }
+  ],
+  "verified_native_source_files": 1137,
+  "verified_patch_inputs": 78,
+  "verified_runtime_libraries": 14,
+  "wholefit_admission": false
+}

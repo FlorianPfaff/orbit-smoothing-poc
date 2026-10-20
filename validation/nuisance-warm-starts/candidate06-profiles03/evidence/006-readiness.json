@@ -1,0 +1,101 @@
+{
+  "schema": "orbit-poc-nuisance-warm-candidate06-readiness-v1",
+  "created_utc": "2026-10-20T04:20:22.294621+00:00",
+  "status": "source_and_focused_tests_ready_for_independent_review_and_separate_native_build",
+  "source_root": "/home/emper/orbit-nuisance-warmstarts/source-candidate06",
+  "source_inventory": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate06-ready01/source-inventory.json",
+    "sha256": "d26440d3f85ee9e633e451b5dc001a2d8ca8f407e08c8a009731228274746640"
+  },
+  "baseline_root": "/home/emper/orbit-nuisance-warmstarts/source-candidate05",
+  "delta": {
+    "changed": [
+      "docs/native-nuisance-warm-state.md",
+      "groops/extension/native_nuisance_warm.py",
+      "groops/extension/nuisanceWarmState.h"
+    ],
+    "added": [
+      "tests/nuisance_warm_clock_origin_fixture.cpp",
+      "tests/test_nuisance_warm_clock_origin.py"
+    ],
+    "removed": [],
+    "diff_sha256": "31eba0d67b622e76a7adf1bf70d289eeb7adba713113c7d9ad1ef96c39fd515f"
+  },
+  "counts": {
+    "tests": 128,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "policy": "receiver-clock-starting-guess-excluded-v2",
+  "semantics": [
+    "Only typed receiver-clock starting guesses are excluded from cross-point cold-origin fingerprint.",
+    "Exact native chart includes new policy and binding classification; old-policy seeds reject even when numeric origin happens to match.",
+    "All actual x0 clock anchors, non-clock cold baseline coordinates, support, weights, gauge basis, finite values, imported coordinate equality and post-import refresh checks stay exact.",
+    "No ionosphere warm initialization, solver change, numerical threshold, model, prior or physical parameter change.",
+    "Payload and companion schema stay v1; serialization unchanged."
+  ],
+  "validation_scope": "Focused compiled codec/collector and installer tests only; no native GROOPS build/profile executed for candidate06. Original frozen experiments and profiles01/02 remain unmodified.",
+  "tests": [
+    {
+      "directory": "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused02",
+      "passed": 128,
+      "failed": 0,
+      "skipped": 0,
+      "final_source": true
+    },
+    {
+      "directory": "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused01",
+      "passed": 128,
+      "failed": 0,
+      "skipped": 0,
+      "final_source": false,
+      "difference": "Old-policy negative test tightened to hold origin equal; documentation precise one-to-five ULP wording."
+    }
+  ],
+  "references": {
+    "/home/emper/orbit-nuisance-warmstarts/control/cold-origin-diagnosis05/receipt.json": {
+      "sha256": "39cbacc10a280a8879c5b598343b32ac2c351ea8d674c2ea05011fb0b299e746",
+      "bytes": 59260
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/cold-origin-diagnosis05/ulp-clarification.json": {
+      "sha256": "fee314bee3a425029b88b7777c023d84f988953ffef196850a5eadba782300c4",
+      "bytes": 830
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/ionosphere-proposal05/proposal.json": {
+      "sha256": "7ed8735e1f280651447dbe3882e24464dea0e6d3665e446a922fec28fa54ddc4",
+      "bytes": 2874
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-copy01.json": {
+      "sha256": "1bca9d7f4b57f816d30cccd55ce4b161aa85b7fd1e05ecfec7c2506eec363a6b",
+      "bytes": 85806
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused01/pytest.log": {
+      "sha256": "8c726ab725345535384a51e068a330a565c5fa16489af991107093622e187087",
+      "bytes": 283
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused01/tests.xml": {
+      "sha256": "ee92ff814da10616156880bffe018b6e19587fb0f1b4bb8e1dc210682067c6b3",
+      "bytes": 16895
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused01/execution.json": {
+      "sha256": "241f9ba0031e4fd03eeeaa2eceb79c389fab0fb74dbbbae1f249aefdda4302b8",
+      "bytes": 690
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused02/pytest.log": {
+      "sha256": "75bac2783e66cd570b2081178663b7a5ea469aec4efcdeaa5f5b902df3631625",
+      "bytes": 283
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused02/tests.xml": {
+      "sha256": "a856d8ffe5a408eb1933ca5350c88d624caebbda042bbcc29067bfab73cde982",
+      "bytes": 16895
+    },
+    "/home/emper/orbit-nuisance-warmstarts/control/candidate06-focused02/execution.json": {
+      "sha256": "4d0e1ad8419531f13bf9990a1f12e562c64ddaa533ae0c0194afd61be6b7a316",
+      "bytes": 690
+    }
+  },
+  "independent_review": "pending",
+  "actual_native_validation": "pending",
+  "release_authority": false
+}

@@ -1,0 +1,58 @@
+=== Starting GROOPS ===
+Config file: </home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_full/config.xml>
+--- GnssProcessing ---
+[1;31mDEPRECATED (please update the config file in the GUI): In 'groops.program(GnssProcessing).transmitter(GNSS)': config element 'inputfileAntennaDefintion' has new name 'inputfileAntennaDefinition' since 2026-05-27[0m
+[1;31mDEPRECATED (please update the config file in the GUI): In 'groops.program(GnssProcessing).transmitter(GNSS)': config element 'inputfileSignalDefintion' has new name 'inputfileSignalDefinition' since 2026-05-27[0m
+Init GNSS
+init transmitters
+[1;31mGPS.G01: No usable epochs, disabling transmitter.[0m
+init Low Earth Orbiter
+read observations
+init observations
+GRACEC: preprocessing statistics after each step
+     120 epochs,      0 observations,   0 tracks: init()
+     120 epochs,   1351 observations,   0 tracks: in file </home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-003-direction-1.0--1/native/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat>
+     120 epochs,   1351 observations,   0 tracks: readObservations()
+     120 epochs,   1351 observations,  28 tracks: createTracks()
+     120 epochs,   1351 observations,  28 tracks: estimateInitialClockErrorFromCodeObservations()
+     120 epochs,   1351 observations,  28 tracks: disableEpochsWithGrossCodeObservationOutliers()
+     120 epochs,   1344 observations,  38 tracks: cycleSlipsDetection()
+  transmitter: 31
+  receiver:    1
+types and number of observations:
+  C1CG**:      1344
+  C1WG**:      1344
+  C2WG**:      1344
+  L1CG**:      1344
+  L1WG**:      1344
+  L2WG**:      1344
+        + =========
+  total:       8064
+  number of tracks: 38
+=== select block structure ==================================
+  blockSizeEpoch              = 0
+  blockSizeInterval           = 64
+  blockSizeAmbiguity          = 64
+  blockReceiverCount          = 0
+  blockCountReduction         = 32
+  keepEpochNormalsInMemory    = yes
+  accumulateEpochObservations = no
+setup parameters
+     1344 constrained STEC parameters (preeliminated)
+      120 VTEC epoch parameters
+      120 receiver clock error parameters
+       67 dynamic orbit parameters
+        1 receiver code bias parameters
+        1 receiver TEC bias parameters
+        3 receiver phase bias parameters
+       74 ambiguity parameters
++ =======
+      386 parameters in 123 normal equation matrix blocks
+  rms =    0.0 tec,  max =     0.0 tec,   (total: 0.00 +- 0.00 [0.00 -- 0.00])
+  rms =    0.8 mm,   max =     2.6 mm,   position receiver (GRACEC, 2024-04-24_00-04-00)
+[1;31m****** Error ******[0m
+[1;31min /home/emper/orbit-nuisance-warmstarts/native-source-03/source/config/config.cpp:742 (run)[0m
+[1;31min /home/emper/orbit-nuisance-warmstarts/native-source-03/source/programs/gnss/gnssProcessing.cpp:168 (run)[0m
+[1;31min /home/emper/orbit-nuisance-warmstarts/native-source-03/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp:159 (process)[0m
+[1;31mNuisance warm state: zero refresh changed imported chart/coordinates[0m
+=== Finished GROOPS with error ===

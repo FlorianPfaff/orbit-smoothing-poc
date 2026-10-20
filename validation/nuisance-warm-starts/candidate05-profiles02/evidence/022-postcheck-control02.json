@@ -1,0 +1,41 @@
+{
+  "checks_per_group": [
+    "inert-full",
+    "inert-clock",
+    "warm-source-full",
+    "warm-target-full",
+    "warm-target-clock"
+  ],
+  "controller": {
+    "bytes": 2142,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/check_profiles02.py",
+    "sha256": "a917db49ecdc52187c18c54a9146c9ca16f06d99972333c0777d15998140b64e"
+  },
+  "created_at": "2026-10-20T03:46:56.412087+00:00",
+  "expected_checks": 15,
+  "findings": [
+    "Only profile/output/index labels 01\u219202 and SOURCE source\u2192source-candidate05 changed; all command selections and flags remain exact.",
+    "Uses the frozen checker SHA, requires a terminal campaign result, creates fresh output, and preserves every checker returncode/JSON/log in an exclusive execution index.",
+    "No threshold override or checker criterion was added or weakened."
+  ],
+  "groups": [
+    "pulses",
+    "density",
+    "pulses-bias-priors"
+  ],
+  "harness_review": {
+    "bytes": 27321,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/profile-launch05/independent-review.json",
+    "sha256": "7e447f19feb30563ed46b281a7c8cf4b0e7c354dbc337517285ed6c700b3822c"
+  },
+  "native_runs": 0,
+  "predecessor": {
+    "bytes": 2130,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/check_profiles01.py",
+    "sha256": "fa4e0806d4aeb9bf7196a8c65feabcd69efaccc01c0d2a10f5e6ec3a4a90bfd4"
+  },
+  "release_authority": false,
+  "schema": "independent-warm-profile02-postcheck-wrapper-review-v1",
+  "status": "accepted_control_only_pending_profile02_results",
+  "wholefit_admission": false
+}

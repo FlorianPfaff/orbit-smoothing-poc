@@ -1,0 +1,69 @@
+{
+  "actual_header_api_replay": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native03/api-replay.json",
+    "sha256": "b8e0dcc12abcd865d5277f8f541e3270cab0eb4ad8016a1628bfd01871ae01fc"
+  },
+  "actual_source_reconstruction": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native03/reconstruction.json",
+    "sha256": "03165c073cd4f6571d28c7b3a790e651f2c2f5c8727a558f8e8884c5081e795e"
+  },
+  "candidate": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/native-candidate03.json",
+    "sha256": "3152fced6a1e237c8570c979247ca772167885adb41859323238c009ec15aca0"
+  },
+  "core_delta": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native03/core-delta.diff",
+    "sha256": "739040e148596c21aebe3b69eb788c664a593b51a7b29a1c933c9ccad73cfe20"
+  },
+  "created_at": "2026-10-20T02:47:11.375963+00:00",
+  "findings": [
+    "Confirmed preserved candidate02 fails the exact actual GROOPS Matrix/Vector syntax fixture and candidate03 passes.",
+    "Only entry accessor selection changed; two-index Matrix is preferred, one-index Vector requires column zero. Shape and row-major ledger traversal remain unchanged.",
+    "New fixture proves byte equality for single-index vector and equivalent two-index column matrix.",
+    "All source candidate pins unchanged after independent fixtures and reconstruction."
+  ],
+  "focused_tests": {
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 65
+    },
+    "cpu": 0,
+    "junit": {
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native03/tests.xml",
+      "sha256": "fbede27bdb36f8a2a4bfb55db9c35617057b2e6d9650571955bab4adb5da4d04"
+    },
+    "log": {
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native03/tests.log",
+      "sha256": "81f22272f493f10ff331c7cd91ddd5a3f2ee57b5a8777bc36f80499673dc686e"
+    },
+    "threads": 1
+  },
+  "preserved_failed_build": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-result02.json",
+    "sha256": "f612263f6b192e8dff7df45ab95c2baaab04a2fd08359d238b7bb20046f2adfb"
+  },
+  "prior_source_review": {
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native02/independent-review.json",
+    "sha256": "32b30204835a537a84aa1e2076287b92fb405afb5b2f3fa1cfd507225b0e255f"
+  },
+  "schema": "orbit-poc-independent-warm-native-source-review-v2",
+  "scope_limits": [
+    "Actual-header syntax and codec/collector fixtures do not establish completed whole native build or real GNSS equivalence.",
+    "Existing native regression suites and fixed-profile cold/warm experiments remain pending.",
+    "No full nonlinear convergence, covariance acceptance or speedup claim."
+  ],
+  "source_files": {
+    "docs/native-nuisance-warm-state.md": "ebf1f7a73037b76ae860c96da1a22ef035a7ae83151e7dcdd73d422a56ce6992",
+    "groops/extension/native_nuisance_warm.py": "7b0ed472a344629c8a89ec4c324391d019bd4fc9dd2d76031a91adb8fc1d2b51",
+    "groops/extension/nuisanceWarmGnss.h": "9e258d4fae178df30a3b3f7af8f74ba49665b04625da869eb0b418723d063d7c",
+    "groops/extension/nuisanceWarmState.h": "ea3d57cdd1becce2b52255b0df8e373bdfb8fee64c18cc63da55d19c0c8a4aa5",
+    "scripts/build_groops.py": "11b3436353667847532fac6629a5f962bf8d6348052b1ea382b414dac26d42c0",
+    "tests/nuisance_warm_fixture.cpp": "77073fc4827aee4bc4271818b32a2248dd970f7d0791f1d7b7f3508d7cd4e375",
+    "tests/nuisance_warm_gnss_fixture.cpp": "5aef9ffcc83d875dd6270cd936e7f3d129b8b3d42132bf06693c8bc10feeaae3",
+    "tests/nuisance_warm_native_matrix_fixture.cpp": "c60583c1cde329dd3f596abfb4ecc1311f9bde2dbf4b3602bc0e36c3b41101d7",
+    "tests/test_native_nuisance_warm.py": "81b8996854751f3508ff7477cd14dad046a1dacb25dab57fbd61f3e9965f1953"
+  },
+  "status": "accepted_narrow_native_matrix_vector_api_repair"
+}

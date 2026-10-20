@@ -1,0 +1,157 @@
+{
+  "actual_profiles02_launched": false,
+  "actual_warm_behavior_success": false,
+  "audit_script": {
+    "bytes": 10035,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-policy-audit05/check.py",
+    "sha256": "6bee342357f58542c509f2bb4fb02d72afb1c600658a1ea92ea722acb0ffffa0"
+  },
+  "audited_source": "/home/emper/orbit-nuisance-warmstarts/source-candidate05",
+  "created_at": "2026-10-20T03:51:47.409142+00:00",
+  "frozen_profiles01": {
+    "bytes": 1866628,
+    "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/freeze.json",
+    "sha256": "1488a5d4fc88be3b2c53101b7c610ba239eb7080b28f76204d6ea901cc2edff9"
+  },
+  "limitations": [
+    "Static policy/source audit; not empirical warm equivalence or independent scientific outcome acceptance.",
+    "449file candidate inventory predates six reviewed harness/test replacements and two new launch files; all deployed deltas match separate repair receipt. Core src/native bytes match pins.",
+    "Original R Git is clean; published documentation addendum differs from prior copy inventory, while126 frozen profile source files and27 original configs still match.",
+    "No dataset, row spool, active fit output or production campaign control was modified or fully rehashed."
+  ],
+  "mutated_paths": [
+    "/home/emper/orbit-nuisance-warmstarts/control/warm-policy-audit05"
+  ],
+  "new_native_runs": 0,
+  "new_test_runs": 0,
+  "policy_checks": [
+    {
+      "evidence": [
+        "src/orbit_poc/numerics/nuisance_warm_start.py:145",
+        "groops/extension/nuisanceWarmState.h:96",
+        "groops/extension/native_nuisance_warm.py:159"
+      ],
+      "finding": "Missing switch defaults to0; native enables only literal1, and rejects warm options while disabled. Installer declares runtime_default0.",
+      "id": "default_off",
+      "status": "verified_static"
+    },
+    {
+      "evidence": [
+        "src/orbit_poc/numerics/nuisance_warm_start.py:213",
+        "src/orbit_poc/numerics/nuisance_warm_start.py:281",
+        "src/orbit_poc/numerics/backend.py:154",
+        "src/orbit_poc/numerics/optimizer.py:331"
+      ],
+      "finding": "capture only registers pending exports. prepare_accept verifies accepted state/support/generation and seed hashes; NativeModel.accept certifies rank before commit_accept. Rejected trials cannot promote a seed. Accepted floor-limited points clear the donor.",
+      "id": "accepted_donor_only",
+      "status": "verified_static"
+    },
+    {
+      "evidence": [
+        "src/orbit_poc/numerics/nuisance_warm_start.py:247",
+        "groops/extension/nuisanceWarmState.h:109",
+        "groops/extension/native_nuisance_warm.py:127",
+        "groops/extension/gnssProcessingStepOrbitPocNumerics.h:69"
+      ],
+      "finding": "Native payload export requires strict&&!floor&&fresh&&rank==full after fresh linearization. Python validates exact boolean eligibility, undamped full-rank final diagnostics, strict final profile, source generation, support and invariant flags. Floor-limited profiles have no payload.",
+      "id": "strict_fresh_full_rank",
+      "status": "verified_static"
+    },
+    {
+      "evidence": [
+        "src/orbit_poc/numerics/nuisance_warm_start.py:26",
+        "src/orbit_poc/numerics/backend.py:174",
+        "src/orbit_poc/numerics/backend.py:309",
+        "src/orbit_poc/segmented/backend.py:190"
+      ],
+      "finding": "Every model.execute removes inherited warm controls while native child environment is built and restores the parent afterward. Only profile installs explicit overrides. Direct dense covariance export is wrapped; propagation/initialization/proposals have no warm overrides.",
+      "id": "inherited_environment_stripped",
+      "status": "verified_static"
+    },
+    {
+      "evidence": [
+        "src/orbit_poc/numerics/nuisance_warm_start.py:204",
+        "src/orbit_poc/numerics/optimizer.py:207",
+        "src/orbit_poc/numerics/optimizer.py:221",
+        "src/orbit_poc/numerics/optimizer.py:261",
+        "src/orbit_poc/numerics/backend.py:395"
+      ],
+      "finding": "Import requires positive trial-NNN, not tighter, and not covariance. initial,repeat,closure-refinement,repeat-floor,refine-floor,confirmation and final-covariance therefore stay cold. Strict cold calls may export candidates; that is not import or automatic promotion.",
+      "id": "cold_boundaries",
+      "status": "verified_static"
+    },
+    {
+      "evidence": [
+        "src/orbit_poc/numerics/config.py:48",
+        "src/orbit_poc/numerics/optimizer.py:82",
+        "groops/extension/scaledRowQr.h:109",
+        "groops/extension/gnssProcessingStepOrbitPocNumerics.h:26"
+      ],
+      "finding": "Threshold-containing profile/QR/line-search/optimizer/config files match original bytes. Native nuisance1e-8m for2consecutive updates; rank epsilon*max(m,n)*sigma_max and10x unresolved band. Outer32accepted/96trials/7200s, gain1e-4, position3e-5m,density1e-4,pulse1e-8m/s,gradient1e-8 unchanged. Candidate05 native delta only canonicalizes exact signed zero during serialization.",
+      "id": "unchanged_limits",
+      "status": "verified_static"
+    }
+  ],
+  "release_authority": false,
+  "remote_campaign_evidence": {
+    "candidate_path_seen_in_native_argv": false,
+    "captured_at": "2026-10-20T03:47:05.353774+00:00",
+    "driver_identity_matches": true,
+    "driver_live": true,
+    "expected_original_native_pins": {
+      "dense": {
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+        "sha256": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625"
+      },
+      "segmented": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+      }
+    },
+    "receipt": {
+      "bytes": 518,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/campaign-preservation04/receipt.json",
+      "sha256": "35796eb978b630b937230a37fbf36ebe327fc7ddb7ee56a3e1ebe5b131512473"
+    },
+    "scope": "Reused root-provided read-only snapshot; no new remote call. Original executable paths/inodes and frozen manifest pins are observed. Snapshot explicitly does not rehash remote source/executable bytes during the timed fit.",
+    "snapshot": {
+      "bytes": 2372943,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/campaign-preservation04/snapshot.json",
+      "sha256": "ef7f55ba099424eab64191587099fe57d6d8a165de337642b8409a5b7dc48cc5"
+    }
+  },
+  "schema": "orbit-poc-warm-policy-readonly-audit-v1",
+  "source_identity_checks": {
+    "bytes": 6634,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-policy-audit05/source-checks.json",
+    "sha256": "6ab7b7d67348800ad54d87cd004532cd45c15529d14cec5129d69c88f937d9ba"
+  },
+  "source_inventories": [
+    {
+      "bytes": 82260,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-source-inventory.json",
+      "sha256": "bfde8e1c19f77f33f8b36c66d717036e552e31ccd292ef6d2a87295fd92062aa"
+    },
+    {
+      "bytes": 80755,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-clean-copy.json",
+      "sha256": "d205716e6fcd4aa3e8ccf7460c3a067159e4999de466d744bd2a0aa823bb0dce"
+    },
+    {
+      "bytes": 630,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-clean-lock-copy.json",
+      "sha256": "9ea421b5062109a265eb91ef8a76c99ec1eb583a7e4976ef7b5a451ad701c2d5"
+    },
+    {
+      "bytes": 164034,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-plan05.json",
+      "sha256": "4cea3968c5c02ac9b3175eb9d00f42b1b021d3cb66365853400a9c3da5855995"
+    },
+    {
+      "bytes": 150615,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-result05.json",
+      "sha256": "4eb79c057522b6171ce6f349ae604fb277624b2ecbb40b75e4a10475edb25755"
+    }
+  ],
+  "status": "policy_verified_static_with_inventory_scope_limits"
+}

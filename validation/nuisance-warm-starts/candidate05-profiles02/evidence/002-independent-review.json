@@ -1,0 +1,101 @@
+{
+  "audit_script": {
+    "bytes": 7902,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate05-source/audit.py",
+    "sha256": "9718f612a8151b55ff446820e2022ce7ecfc3efbfca1d2342e7c3b80051adb50"
+  },
+  "baseline_files": 447,
+  "changed_files": [
+    {
+      "candidate_sha256": "10d484a59b14b0e8b897540121e4bc425bc70b04e2ae9f739ffd5790f68f037c",
+      "original_sha256": "ebf1f7a73037b76ae860c96da1a22ef035a7ae83151e7dcdd73d422a56ce6992",
+      "path": "docs/native-nuisance-warm-state.md"
+    },
+    {
+      "candidate_sha256": "4e9a8aea737702d8daf02fc05a37e4b64caeec52a3c85bb7257688b285ae3a46",
+      "original_sha256": "ea3d57cdd1becce2b52255b0df8e373bdfb8fee64c18cc63da55d19c0c8a4aa5",
+      "path": "groops/extension/nuisanceWarmState.h"
+    },
+    {
+      "candidate_sha256": "77cb0f03d94bd9152f51e924a6a02a007f1ee1f521c637b157223b577f77abc0",
+      "original_sha256": "77073fc4827aee4bc4271818b32a2248dd970f7d0791f1d7b7f3508d7cd4e375",
+      "path": "tests/nuisance_warm_fixture.cpp"
+    }
+  ],
+  "created_at": "2026-10-20T03:33:59.268591+00:00",
+  "existing_author_tests": {
+    "actual_counts": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 113
+    },
+    "existing_suite_cases": 65,
+    "independently_replayed": false,
+    "junit": {
+      "bytes": 15053,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-focused01.xml",
+      "sha256": "386258be7c63b39489965b54722d686086fd47db9b148fc040ebea7d61f00a20"
+    },
+    "new_zero_suite_cases": 48
+  },
+  "harness_limitation": {
+    "bytes": 26805,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/harness-env01/independent-review.json",
+    "sha256": "c9b6d4c7eb061a687137d2ebb1b46b52c4708fe3223ecff8c50b34c6b1c49c6b"
+  },
+  "header_diff": {
+    "bytes": 1367,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate05-source/header.diff",
+    "sha256": "d588fa10d2dd348323d21a15f6d1ed35067cfc362771e7d1e92b51ecdd8fbc17"
+  },
+  "inventory": {
+    "bytes": 82260,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-source-inventory.json",
+    "sha256": "bfde8e1c19f77f33f8b36c66d717036e552e31ccd292ef6d2a87295fd92062aa"
+  },
+  "limitations": [
+    "This source review does not admit native profiles or whole fits; build05 verification, unchanged native regression suites, corrected launch controls, real fixed-profile comparisons, nonzero-prior row evidence, and independent outcomes remain required.",
+    "The motivating diagnostic04 first signed-zero difference was measured under a harness missing prelaunch QR enablement. The independent harness limitation receipt remains mandatory context; canonicalization is not evidence that corrected production-path profiles pass.",
+    "Canonical zero encoding changes encoded identity/snapshot bytes when negative zero is present. Candidate/build context and payload hashes still isolate seeds; cross-build seed compatibility is not established.",
+    "No native or compiler tests were launched for this review; the existing 113 author test result is distinguished from independent replay."
+  ],
+  "native_profile_admission": false,
+  "new_files": [
+    "tests/nuisance_warm_zero_fixture.cpp",
+    "tests/test_nuisance_warm_zero.py"
+  ],
+  "prior_source_review": {
+    "bytes": 3833,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/native03/independent-review.json",
+    "sha256": "3e878eac47b5aabc26b0679d34d7685a132996b5dffc752e6301d6c113c80bfb"
+  },
+  "readiness": {
+    "bytes": 3305,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-ready.json",
+    "sha256": "7d8f7f1677ba0ac1ef31c095abe79a34c281770e86bc2f10a9882f8a8ca1868e"
+  },
+  "review_execution": {
+    "compiler_runs": 0,
+    "cpu": 4,
+    "native_runs": 0,
+    "signals": 0,
+    "source_changes": 0,
+    "tests_replayed": 0,
+    "threads": 1
+  },
+  "schema": "independent-warm-candidate05-source-review-v1",
+  "scientific_accepted": false,
+  "source_findings": [
+    "The only production source change is a bit mask in real(Bytes&, double): after finite/IEEE checks and memcpy, the local integer becomes zero iff its 63 non-sign bits are zero.",
+    "This condition admits exactly the positive-zero and negative-zero IEEE binary64 patterns. Every finite nonzero pattern, including signed subnormals and one-ULP differences, reaches the existing serializer unchanged.",
+    "The encoder accepts the double by value and mutates only a local uint64_t. Existing caller state and all non-encoder production source bytes remain unchanged.",
+    "Every existing require expression is byte-identical. Context, chart, cold-origin, input hash, finite-value, lifecycle, strict convergence, floor, fresh undamped rank, and invariant checks remain enabled.",
+    "The single existing fixture update changes negative-zero roundtrip expectation to canonical positive zero and adds an assertion that the source negative-zero sign remains intact. The other 64 existing case names and all 65 existing Python cases remain present.",
+    "New tests cover both zero sign directions across coordinate/chart/invariant categories and both warm modes, exact codec preservation of finite nonzero examples, smallest signed subnormal and normal one-ULP rejection, changed nonzero origin/chart before import, and NaN/infinity rejection without state mutation.",
+    "Actual author JUnit contains 113 testcases and zero failures/errors/skips; this reviewer only read and hashed that result while build05 was running."
+  ],
+  "status": "accepted_narrow_exact_zero_encoding_source_change",
+  "verified_source_files": 449,
+  "wholefit_admission": false
+}

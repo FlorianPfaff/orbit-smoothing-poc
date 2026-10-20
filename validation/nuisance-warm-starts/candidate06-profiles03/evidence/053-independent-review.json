@@ -1,0 +1,1745 @@
+{
+  "candidate06_source_review": {
+    "bytes": 62973,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate06-source/independent-review.json",
+    "sha256": "ad33e28658ddad1f86286b7f5e5d9cab01c3e26aa114cba882f7c993bc5ef840"
+  },
+  "created_at": "2026-10-20T04:45:40.465143+00:00",
+  "findings": [
+    {
+      "assessment": "capture only stores pending evidence. prepare_accept rechecks source physical/support/generation identity and immutable seed/companion bytes. NativeModel.accept certifies rank and completes retention before commit_accept. A floor-limited accepted point deliberately clears the donor.",
+      "claim": "Promotion requires explicit acceptance after a strict, fresh undamped, full-rank export and accepted-factor rank verification",
+      "recorded_passed_cases": [
+        {
+          "case": "tests.test_nuisance_warm_start::test_only_accept_promotes_and_rejected_candidate_cannot_replace",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_accepted_floor_limited_point_revokes_donor",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>0]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>1]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>2]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>3]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>4]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>5]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>6]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>7]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>8]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>9]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>10]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>11]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>12]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>13]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[missing-payload]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[missing-companion]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[changed-payload]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[changed-companion]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[symlink-payload]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[symlink-companion]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[same_bytes_new_identity-payload]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[same_bytes_new_identity-companion]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_rank_failure_in_accept_preserves_old_donor",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_unresolved_candidate_rank_cannot_be_accepted",
+          "suite": "compatibility"
+        }
+      ],
+      "source_trace": [
+        {
+          "line": 220,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 280,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 154,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/backend.py"
+        },
+        {
+          "line": 332,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py"
+        }
+      ]
+    },
+    {
+      "assessment": "Lifecycle fixtures show a rejected pending export leaves the old donor selected for the next trial. Separate optimizer tests exercise rejection and retry without installing the candidate; rank, retention, and post-native graph exceptions preserve the old donor.",
+      "claim": "Rejected or failed trial candidates do not replace the accepted donor/reference",
+      "recorded_passed_cases": [
+        {
+          "case": "tests.test_nuisance_warm_start::test_only_accept_promotes_and_rejected_candidate_cannot_replace",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_rank_failure_in_accept_preserves_old_donor",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_retention_failure_in_accept_preserves_old_donor",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_post_native_segmented_graph_failure_does_not_install_candidate",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_nonlinear_trial_rejection_preserves_the_accepted_reference",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_only_accepted_state_factors_receive_storage_protection",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_failed_trial_is_rolled_back_before_retrying[closure_failed]",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_failed_trial_is_rolled_back_before_retrying[nuisance_failure]",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_failed_trial_is_rolled_back_before_retrying[unresolved_rank]",
+          "suite": "compatibility"
+        }
+      ],
+      "source_trace": [
+        {
+          "line": 274,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 294,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 154,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/backend.py"
+        },
+        {
+          "line": 297,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py"
+        },
+        {
+          "line": 331,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py"
+        }
+      ]
+    },
+    {
+      "assessment": "The 12 protected-evaluation parameter cases contain all seven actual cold labels plus tighter/covariance trial and malformed-label adversaries. profile imports only positive exact trial-NNN labels with both tighter and covariance false. Actual optimizer/backend labels match the covered policy cases; all fresh final scientific checks remain present.",
+      "claim": "Initial, repeat, closure refinement, floor checks, confirmation, and final covariance do not import seeds",
+      "recorded_passed_cases": [
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[initial-False-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[repeat-False-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[closure-refinement-True-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[repeat-floor-False-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[refine-floor-True-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[confirmation-True-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[final-covariance-True-True]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-001-True-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-001-False-True]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-1-False-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-000-False-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-001-extra-False-False]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_inexact_profile_rejects_unresolved_progress_and_never_declares_convergence",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_failed_fresh_stationarity_continues_bounded_trials_without_covariance",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_final_verification_cannot_exceed_the_wall_budget[confirmation]",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_final_verification_cannot_exceed_the_wall_budget[finish]",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_initial_objective_floor_is_remeasured_near_the_solution",
+          "suite": "compatibility"
+        },
+        {
+          "case": "tests.test_numerics_optimizer::test_floor_refinement_refreshes_the_undamped_stationarity_factor",
+          "suite": "compatibility"
+        }
+      ],
+      "source_trace": [
+        {
+          "line": 194,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 207,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py"
+        },
+        {
+          "line": 221,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py"
+        },
+        {
+          "line": 261,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py"
+        },
+        {
+          "line": 387,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/backend.py"
+        },
+        {
+          "line": 217,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/backend.py"
+        }
+      ]
+    },
+    {
+      "assessment": "The absent STARTS flag is 0; explicit STARTS=1 enables the lifecycle. Every inherited ORBIT_POC_NUISANCE_WARM-prefixed field is removed around serial native invocation and restored in finally; only controlled overrides are passed. This is unit evidence using mocked native calls, with process-global suppression restricted to the existing serial-worker contract.",
+      "claim": "Warm starts default off and inherited warm fields are suppressed at serial native call boundaries",
+      "recorded_passed_cases": [
+        {
+          "case": "tests.test_nuisance_warm_start::test_disabled_is_compatible_without_inputs_or_native",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[true]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[2]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[1]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[True]",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_unsupported_mode_fails_only_when_enabled",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_environment_guard_clears_all_fields_and_restores_after_failure",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_native_execute_does_not_pass_inherited_seed",
+          "suite": "tests"
+        },
+        {
+          "case": "tests.test_nuisance_warm_start::test_direct_segmented_exporter_clears_inherited_seed",
+          "suite": "tests"
+        }
+      ],
+      "source_trace": [
+        {
+          "line": 26,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 143,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py"
+        },
+        {
+          "line": 166,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/backend.py"
+        },
+        {
+          "line": 190,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/backend.py"
+        }
+      ]
+    }
+  ],
+  "fullfit_admission": false,
+  "limitations": [
+    "The 57 lifecycle cases and 40 compatibility cases are offline fixtures. No completed warm optimizer/native end-to-end donor lineage has been established by this evidence.",
+    "Fixed-trajectory profiles01/02/03 do not exercise accepted/rejected optimizer trial promotion or optimizer cold-label sequencing; their outcomes are not used as proof of these lifecycle properties.",
+    "No existing single test composes minimize with WarmStartLifecycle and records the full native launch environment through initial/repeat/refinement/floor/confirmation/final covariance. Policy and optimizer behavior are tested separately and joined here by source trace.",
+    "The historical review preserved and pinned the lifecycle test and three changed Python modules, but did not individually preserve/pin the three compatibility test files or optimizer/config in that review receipt. Current copies match the initial candidate and C05; the historical 40-case XML/log results are intact.",
+    "The live initial candidate documentation differs from its historical review pin; the preserved review documentation copy still matches. No Python source or lifecycle-test drift was found."
+  ],
+  "missing_recorded_results_for_existing_relevant_cases": [],
+  "native_execution": false,
+  "new_composed_fixture_note": "If stronger integration evidence is required, author a separate reviewed source revision; rerunning existing tests cannot create the absent composed lifecycle fixture. Do not edit the frozen candidate.",
+  "new_tests_run": false,
+  "optional_after_profiles_fully_pinned_replay_files": [
+    "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_nuisance_warm_start.py",
+    "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_numerics_optimizer.py",
+    "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_numerics_backend.py",
+    "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_segmented_backend.py"
+  ],
+  "optional_new_composed_fixture_location": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_nuisance_warm_start.py",
+  "prior_input_pins": {
+    "bytes": 1549,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/input-pins.json",
+    "sha256": "6d976ddd7d282bf5af1500b089489160823abf445ead1130e24a4c20ce665316"
+  },
+  "prior_review": {
+    "bytes": 4234,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/independent-review.json",
+    "sha256": "30d79ea3bfc42ae58acacdd02bfa6eb1beeb776934d46169c4e2e70b0380b398"
+  },
+  "python_source_parity": {
+    "count_per_tree": 52,
+    "entries": [
+      {
+        "copies": [
+          {
+            "bytes": 100,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/__init__.py",
+            "sha256": "2a71f94402bd80a470e3bd369b68d2cb7e2c826f890312077bf287c93e79f813"
+          },
+          {
+            "bytes": 100,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/__init__.py",
+            "sha256": "2a71f94402bd80a470e3bd369b68d2cb7e2c826f890312077bf287c93e79f813"
+          },
+          {
+            "bytes": 100,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/__init__.py",
+            "sha256": "2a71f94402bd80a470e3bd369b68d2cb7e2c826f890312077bf287c93e79f813"
+          }
+        ],
+        "relative_path": "src/orbit_poc/__init__.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 71489,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/benchmark.py",
+            "sha256": "3c5731ac6bbee71f3ac72d6a56243f5bb9fff1d9ce6e7d65d118b6e35a47c309"
+          },
+          {
+            "bytes": 71489,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/benchmark.py",
+            "sha256": "3c5731ac6bbee71f3ac72d6a56243f5bb9fff1d9ce6e7d65d118b6e35a47c309"
+          },
+          {
+            "bytes": 71489,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/benchmark.py",
+            "sha256": "3c5731ac6bbee71f3ac72d6a56243f5bb9fff1d9ce6e7d65d118b6e35a47c309"
+          }
+        ],
+        "relative_path": "src/orbit_poc/benchmark.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 9051,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/cli.py",
+            "sha256": "f41fd59dd409b0acd88b1fd04b1c5de3123cdaeb94eeb2484041686b28953622"
+          },
+          {
+            "bytes": 9051,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/cli.py",
+            "sha256": "f41fd59dd409b0acd88b1fd04b1c5de3123cdaeb94eeb2484041686b28953622"
+          },
+          {
+            "bytes": 9051,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/cli.py",
+            "sha256": "f41fd59dd409b0acd88b1fd04b1c5de3123cdaeb94eeb2484041686b28953622"
+          }
+        ],
+        "relative_path": "src/orbit_poc/cli.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 179,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/__init__.py",
+            "sha256": "ec32def0222df29c5ff021bc5ee87b7a94afd1326d1e03a5f8fd7c0534ab33f7"
+          },
+          {
+            "bytes": 179,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/__init__.py",
+            "sha256": "ec32def0222df29c5ff021bc5ee87b7a94afd1326d1e03a5f8fd7c0534ab33f7"
+          },
+          {
+            "bytes": 179,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/__init__.py",
+            "sha256": "ec32def0222df29c5ff021bc5ee87b7a94afd1326d1e03a5f8fd7c0534ab33f7"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/__init__.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 63970,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/backend.py",
+            "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+          },
+          {
+            "bytes": 63970,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/backend.py",
+            "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+          },
+          {
+            "bytes": 63970,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/backend.py",
+            "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/backend.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 2369,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/cli.py",
+            "sha256": "741357205d100568186caed6f1acdf2d1f053973f1bacc708ca72a3081a9d0f5"
+          },
+          {
+            "bytes": 2369,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/cli.py",
+            "sha256": "741357205d100568186caed6f1acdf2d1f053973f1bacc708ca72a3081a9d0f5"
+          },
+          {
+            "bytes": 2369,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/cli.py",
+            "sha256": "741357205d100568186caed6f1acdf2d1f053973f1bacc708ca72a3081a9d0f5"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/cli.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 10441,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/config.py",
+            "sha256": "283f241bc5e7793492db8959c7ae728dcb0082f92ad28203e15a15992466142b"
+          },
+          {
+            "bytes": 10441,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/config.py",
+            "sha256": "283f241bc5e7793492db8959c7ae728dcb0082f92ad28203e15a15992466142b"
+          },
+          {
+            "bytes": 10441,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/config.py",
+            "sha256": "283f241bc5e7793492db8959c7ae728dcb0082f92ad28203e15a15992466142b"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/config.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 46770,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/data.py",
+            "sha256": "566dc07200df3e26d24ab1baef9c7b6b925710435299b67d40836ed4b74d3449"
+          },
+          {
+            "bytes": 46770,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/data.py",
+            "sha256": "566dc07200df3e26d24ab1baef9c7b6b925710435299b67d40836ed4b74d3449"
+          },
+          {
+            "bytes": 46770,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/data.py",
+            "sha256": "566dc07200df3e26d24ab1baef9c7b6b925710435299b67d40836ed4b74d3449"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/data.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 21833,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/density.py",
+            "sha256": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e"
+          },
+          {
+            "bytes": 21833,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/density.py",
+            "sha256": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e"
+          },
+          {
+            "bytes": 21833,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/density.py",
+            "sha256": "45091af9d586f31a3bdf5802b9bc2484692432b911ccc3eb97f539811d4eaf0e"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/density.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 5028,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/density_step.py",
+            "sha256": "9afa2c8993e63398d32de9f36be6cc190150ad76314745c65b91b6c5ce8bfe24"
+          },
+          {
+            "bytes": 5028,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/density_step.py",
+            "sha256": "9afa2c8993e63398d32de9f36be6cc190150ad76314745c65b91b6c5ce8bfe24"
+          },
+          {
+            "bytes": 5028,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/density_step.py",
+            "sha256": "9afa2c8993e63398d32de9f36be6cc190150ad76314745c65b91b6c5ce8bfe24"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/density_step.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 2508,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/gates.py",
+            "sha256": "da962bbd12fea560f7a93f6c8a992b3adb96080e4e8da79154f5e2356473ce73"
+          },
+          {
+            "bytes": 2508,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/gates.py",
+            "sha256": "da962bbd12fea560f7a93f6c8a992b3adb96080e4e8da79154f5e2356473ce73"
+          },
+          {
+            "bytes": 2508,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/gates.py",
+            "sha256": "da962bbd12fea560f7a93f6c8a992b3adb96080e4e8da79154f5e2356473ce73"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/gates.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 47937,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/groops_config.py",
+            "sha256": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63"
+          },
+          {
+            "bytes": 47937,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/groops_config.py",
+            "sha256": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63"
+          },
+          {
+            "bytes": 47937,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/groops_config.py",
+            "sha256": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/groops_config.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 11443,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/initialization.py",
+            "sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655"
+          },
+          {
+            "bytes": 11443,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/initialization.py",
+            "sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655"
+          },
+          {
+            "bytes": 11443,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/initialization.py",
+            "sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/initialization.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 21661,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/metrics.py",
+            "sha256": "dddc4380191ba3226326529945d263be4071993c749f79a9d4480b8705a1612e"
+          },
+          {
+            "bytes": 21661,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/metrics.py",
+            "sha256": "dddc4380191ba3226326529945d263be4071993c749f79a9d4480b8705a1612e"
+          },
+          {
+            "bytes": 21661,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/metrics.py",
+            "sha256": "dddc4380191ba3226326529945d263be4071993c749f79a9d4480b8705a1612e"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/metrics.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 43771,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/protocol.py",
+            "sha256": "b4ed6109d295a45b98596abf756bc74b52ebcef9397ce7872275f2061c58b5b5"
+          },
+          {
+            "bytes": 43771,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/protocol.py",
+            "sha256": "b4ed6109d295a45b98596abf756bc74b52ebcef9397ce7872275f2061c58b5b5"
+          },
+          {
+            "bytes": 43771,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/protocol.py",
+            "sha256": "b4ed6109d295a45b98596abf756bc74b52ebcef9397ce7872275f2061c58b5b5"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/protocol.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 23341,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/report.py",
+            "sha256": "a6e4124b2949533c3de40181f918c2452648cdc953fc552e9b0deef689bf2cbe"
+          },
+          {
+            "bytes": 23341,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/report.py",
+            "sha256": "a6e4124b2949533c3de40181f918c2452648cdc953fc552e9b0deef689bf2cbe"
+          },
+          {
+            "bytes": 23341,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/report.py",
+            "sha256": "a6e4124b2949533c3de40181f918c2452648cdc953fc552e9b0deef689bf2cbe"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/report.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 39035,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/slr.py",
+            "sha256": "f6fab7c06bed4deab3d0773da6052e4102968bfdafb8989f7adef9880da736a4"
+          },
+          {
+            "bytes": 39035,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/slr.py",
+            "sha256": "f6fab7c06bed4deab3d0773da6052e4102968bfdafb8989f7adef9880da736a4"
+          },
+          {
+            "bytes": 39035,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/slr.py",
+            "sha256": "f6fab7c06bed4deab3d0773da6052e4102968bfdafb8989f7adef9880da736a4"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/slr.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 27670,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/comparison/synthetic.py",
+            "sha256": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9"
+          },
+          {
+            "bytes": 27670,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/comparison/synthetic.py",
+            "sha256": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9"
+          },
+          {
+            "bytes": 27670,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/comparison/synthetic.py",
+            "sha256": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9"
+          }
+        ],
+        "relative_path": "src/orbit_poc/comparison/synthetic.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 1494,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/config.py",
+            "sha256": "8fce436eda03f2185d6a616e618eae55d24e534a4c74876eebbdcaf14ecbcb3f"
+          },
+          {
+            "bytes": 1494,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/config.py",
+            "sha256": "8fce436eda03f2185d6a616e618eae55d24e534a4c74876eebbdcaf14ecbcb3f"
+          },
+          {
+            "bytes": 1494,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/config.py",
+            "sha256": "8fce436eda03f2185d6a616e618eae55d24e534a4c74876eebbdcaf14ecbcb3f"
+          }
+        ],
+        "relative_path": "src/orbit_poc/config.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 3353,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/data.py",
+            "sha256": "bc0bfa7dff49b326996c81c30cabcf3cc2502e52de79ebf959efa8447ad8df8a"
+          },
+          {
+            "bytes": 3353,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/data.py",
+            "sha256": "bc0bfa7dff49b326996c81c30cabcf3cc2502e52de79ebf959efa8447ad8df8a"
+          },
+          {
+            "bytes": 3353,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/data.py",
+            "sha256": "bc0bfa7dff49b326996c81c30cabcf3cc2502e52de79ebf959efa8447ad8df8a"
+          }
+        ],
+        "relative_path": "src/orbit_poc/data.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 5227,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/dynamics.py",
+            "sha256": "b584b0ddb1e9232eac906e1f529d645f4f7ce9bb382dd56c01ccc93ea78d6502"
+          },
+          {
+            "bytes": 5227,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/dynamics.py",
+            "sha256": "b584b0ddb1e9232eac906e1f529d645f4f7ce9bb382dd56c01ccc93ea78d6502"
+          },
+          {
+            "bytes": 5227,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/dynamics.py",
+            "sha256": "b584b0ddb1e9232eac906e1f529d645f4f7ce9bb382dd56c01ccc93ea78d6502"
+          }
+        ],
+        "relative_path": "src/orbit_poc/dynamics.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 82,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/__init__.py",
+            "sha256": "f4f024b05cf964c69b24bc46a0f02c6dfeeace98d5b904e142d013b5e8b7579e"
+          },
+          {
+            "bytes": 82,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/__init__.py",
+            "sha256": "f4f024b05cf964c69b24bc46a0f02c6dfeeace98d5b904e142d013b5e8b7579e"
+          },
+          {
+            "bytes": 82,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/__init__.py",
+            "sha256": "f4f024b05cf964c69b24bc46a0f02c6dfeeace98d5b904e142d013b5e8b7579e"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/__init__.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 32726,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/backend.py",
+            "sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb"
+          },
+          {
+            "bytes": 32726,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/backend.py",
+            "sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb"
+          },
+          {
+            "bytes": 32726,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/backend.py",
+            "sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/backend.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 7690,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/campaign.py",
+            "sha256": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae"
+          },
+          {
+            "bytes": 7690,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/campaign.py",
+            "sha256": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae"
+          },
+          {
+            "bytes": 7690,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/campaign.py",
+            "sha256": "f48f497a1af55c084f6b8104e2c5d000710b7e98f08254172c7f6f9ea89b48ae"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/campaign.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 1635,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/cli.py",
+            "sha256": "eebe1b35c75d1b29b2729034b4cf8f661e2ba30d4a77e3cd5b238bc26e94491b"
+          },
+          {
+            "bytes": 1635,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/cli.py",
+            "sha256": "eebe1b35c75d1b29b2729034b4cf8f661e2ba30d4a77e3cd5b238bc26e94491b"
+          },
+          {
+            "bytes": 1635,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/cli.py",
+            "sha256": "eebe1b35c75d1b29b2729034b4cf8f661e2ba30d4a77e3cd5b238bc26e94491b"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/cli.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 5420,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/config.py",
+            "sha256": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9"
+          },
+          {
+            "bytes": 5420,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/config.py",
+            "sha256": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9"
+          },
+          {
+            "bytes": 5420,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/config.py",
+            "sha256": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/config.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 15070,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/nuisance_warm_start.py",
+            "sha256": "3949ad65cbcbda5f340892b9a898ac3f820d361dcc4b5bd03b539c26b9788e6b"
+          },
+          {
+            "bytes": 15070,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/nuisance_warm_start.py",
+            "sha256": "3949ad65cbcbda5f340892b9a898ac3f820d361dcc4b5bd03b539c26b9788e6b"
+          },
+          {
+            "bytes": 15070,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/nuisance_warm_start.py",
+            "sha256": "3949ad65cbcbda5f340892b9a898ac3f820d361dcc4b5bd03b539c26b9788e6b"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/nuisance_warm_start.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 18214,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/optimizer.py",
+            "sha256": "a1a086e6f5e93ec8982ccad78746ff9d352b7719f01e0af422d2f26797c5506c"
+          },
+          {
+            "bytes": 18214,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/optimizer.py",
+            "sha256": "a1a086e6f5e93ec8982ccad78746ff9d352b7719f01e0af422d2f26797c5506c"
+          },
+          {
+            "bytes": 18214,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/optimizer.py",
+            "sha256": "a1a086e6f5e93ec8982ccad78746ff9d352b7719f01e0af422d2f26797c5506c"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/optimizer.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 50527,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/protocol.py",
+            "sha256": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769"
+          },
+          {
+            "bytes": 50527,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/protocol.py",
+            "sha256": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769"
+          },
+          {
+            "bytes": 50527,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/protocol.py",
+            "sha256": "1435ad9cf8b4fecc81c688ec5fed9182ed630365d9db75e22846dc4badd36769"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/protocol.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 33670,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/report.py",
+            "sha256": "d1624a3c208effc10935c8c68ac8079f2d1a575c670f5cbdc567b4cc91c1a9de"
+          },
+          {
+            "bytes": 33670,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/report.py",
+            "sha256": "d1624a3c208effc10935c8c68ac8079f2d1a575c670f5cbdc567b4cc91c1a9de"
+          },
+          {
+            "bytes": 33670,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/report.py",
+            "sha256": "d1624a3c208effc10935c8c68ac8079f2d1a575c670f5cbdc567b4cc91c1a9de"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/report.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 26363,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/retention.py",
+            "sha256": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2"
+          },
+          {
+            "bytes": 26363,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/retention.py",
+            "sha256": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2"
+          },
+          {
+            "bytes": 26363,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/retention.py",
+            "sha256": "79ed4b866cae2144af811a6e596396643ca08fdebac110592a42388fa57792c2"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/retention.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 7633,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/storage.py",
+            "sha256": "4051138d5ecd0e0b71f1a322df0a3f1e7d54c7f5410e80badf06a78ff0187d0b"
+          },
+          {
+            "bytes": 7633,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numerics/storage.py",
+            "sha256": "4051138d5ecd0e0b71f1a322df0a3f1e7d54c7f5410e80badf06a78ff0187d0b"
+          },
+          {
+            "bytes": 7633,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numerics/storage.py",
+            "sha256": "4051138d5ecd0e0b71f1a322df0a3f1e7d54c7f5410e80badf06a78ff0187d0b"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numerics/storage.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 4900,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numpyro_backend.py",
+            "sha256": "914a7723d00acb0f6eec76be9ffa40ec8d7b7237b82347a1e04f3fae3d00e871"
+          },
+          {
+            "bytes": 4900,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/numpyro_backend.py",
+            "sha256": "914a7723d00acb0f6eec76be9ffa40ec8d7b7237b82347a1e04f3fae3d00e871"
+          },
+          {
+            "bytes": 4900,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/numpyro_backend.py",
+            "sha256": "914a7723d00acb0f6eec76be9ffa40ec8d7b7237b82347a1e04f3fae3d00e871"
+          }
+        ],
+        "relative_path": "src/orbit_poc/numpyro_backend.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 15151,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/report.py",
+            "sha256": "1fb166c269067fc0c3fae83b11397e1488f1ae4d13c88cc28f6ffb5af9104efe"
+          },
+          {
+            "bytes": 15151,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/report.py",
+            "sha256": "1fb166c269067fc0c3fae83b11397e1488f1ae4d13c88cc28f6ffb5af9104efe"
+          },
+          {
+            "bytes": 15151,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/report.py",
+            "sha256": "1fb166c269067fc0c3fae83b11397e1488f1ae4d13c88cc28f6ffb5af9104efe"
+          }
+        ],
+        "relative_path": "src/orbit_poc/report.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 84,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/__init__.py",
+            "sha256": "17ab0bd5b113164e732142f1d83f999d3040d1dd7990925f496baf305f6f9729"
+          },
+          {
+            "bytes": 84,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/__init__.py",
+            "sha256": "17ab0bd5b113164e732142f1d83f999d3040d1dd7990925f496baf305f6f9729"
+          },
+          {
+            "bytes": 84,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/__init__.py",
+            "sha256": "17ab0bd5b113164e732142f1d83f999d3040d1dd7990925f496baf305f6f9729"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/__init__.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 22186,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/backend.py",
+            "sha256": "1694222bf783909e97aa90a7d44154d3d917c264ae0fed03cee801acff53bc1d"
+          },
+          {
+            "bytes": 22186,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/backend.py",
+            "sha256": "1694222bf783909e97aa90a7d44154d3d917c264ae0fed03cee801acff53bc1d"
+          },
+          {
+            "bytes": 22186,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/backend.py",
+            "sha256": "1694222bf783909e97aa90a7d44154d3d917c264ae0fed03cee801acff53bc1d"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/backend.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 1289,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/cli.py",
+            "sha256": "83b78c7fe4a4dd720d4c5dd8d129429afa513b7d2be15ef252d83a100c4dcece"
+          },
+          {
+            "bytes": 1289,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/cli.py",
+            "sha256": "83b78c7fe4a4dd720d4c5dd8d129429afa513b7d2be15ef252d83a100c4dcece"
+          },
+          {
+            "bytes": 1289,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/cli.py",
+            "sha256": "83b78c7fe4a4dd720d4c5dd8d129429afa513b7d2be15ef252d83a100c4dcece"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/cli.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 6384,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/config.py",
+            "sha256": "036dd41c576c4016ea86cb60a899eaacef1a7baf06aa586c7c50a0c32b72eca9"
+          },
+          {
+            "bytes": 6384,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/config.py",
+            "sha256": "036dd41c576c4016ea86cb60a899eaacef1a7baf06aa586c7c50a0c32b72eca9"
+          },
+          {
+            "bytes": 6384,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/config.py",
+            "sha256": "036dd41c576c4016ea86cb60a899eaacef1a7baf06aa586c7c50a0c32b72eca9"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/config.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 15325,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/diagnostics.py",
+            "sha256": "fe2ce9f2cebe1a15d8b5cd044964c0ab0928921373c95fd1c9e8594651ed4611"
+          },
+          {
+            "bytes": 15325,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/diagnostics.py",
+            "sha256": "fe2ce9f2cebe1a15d8b5cd044964c0ab0928921373c95fd1c9e8594651ed4611"
+          },
+          {
+            "bytes": 15325,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/diagnostics.py",
+            "sha256": "fe2ce9f2cebe1a15d8b5cd044964c0ab0928921373c95fd1c9e8594651ed4611"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/diagnostics.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 24478,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/graph.py",
+            "sha256": "5519decbf16f95d56067b3528f25ba8ffdaad6a3951689c5dadb76a041745152"
+          },
+          {
+            "bytes": 24478,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/graph.py",
+            "sha256": "5519decbf16f95d56067b3528f25ba8ffdaad6a3951689c5dadb76a041745152"
+          },
+          {
+            "bytes": 24478,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/graph.py",
+            "sha256": "5519decbf16f95d56067b3528f25ba8ffdaad6a3951689c5dadb76a041745152"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/graph.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 54856,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/multiday.py",
+            "sha256": "5a9f34a41ad6e301a82f347127669ceb1ce21c6f76a73747b239552438e889d8"
+          },
+          {
+            "bytes": 54856,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/multiday.py",
+            "sha256": "5a9f34a41ad6e301a82f347127669ceb1ce21c6f76a73747b239552438e889d8"
+          },
+          {
+            "bytes": 54856,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/multiday.py",
+            "sha256": "5a9f34a41ad6e301a82f347127669ceb1ce21c6f76a73747b239552438e889d8"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/multiday.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 4965,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/preparation.py",
+            "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+          },
+          {
+            "bytes": 4965,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/preparation.py",
+            "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+          },
+          {
+            "bytes": 4965,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/preparation.py",
+            "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/preparation.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 10075,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/products.py",
+            "sha256": "1a7934ebfb8268b9e127ab7887e2fa981db2fe82882f1a3ed400ff14e1c1f8db"
+          },
+          {
+            "bytes": 10075,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/products.py",
+            "sha256": "1a7934ebfb8268b9e127ab7887e2fa981db2fe82882f1a3ed400ff14e1c1f8db"
+          },
+          {
+            "bytes": 10075,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/products.py",
+            "sha256": "1a7934ebfb8268b9e127ab7887e2fa981db2fe82882f1a3ed400ff14e1c1f8db"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/products.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 35092,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/protocol.py",
+            "sha256": "43254fe92571a7febe9eec19f9133bfb8f2be9ececec17bcb81e71808dca18ea"
+          },
+          {
+            "bytes": 35092,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/protocol.py",
+            "sha256": "43254fe92571a7febe9eec19f9133bfb8f2be9ececec17bcb81e71808dca18ea"
+          },
+          {
+            "bytes": 35092,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/protocol.py",
+            "sha256": "43254fe92571a7febe9eec19f9133bfb8f2be9ececec17bcb81e71808dca18ea"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/protocol.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 33937,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/report.py",
+            "sha256": "b0d200e37e9c90419cb13a9a67217d966c50e130aeec169198098dec81d6a0d2"
+          },
+          {
+            "bytes": 33937,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/report.py",
+            "sha256": "b0d200e37e9c90419cb13a9a67217d966c50e130aeec169198098dec81d6a0d2"
+          },
+          {
+            "bytes": 33937,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/report.py",
+            "sha256": "b0d200e37e9c90419cb13a9a67217d966c50e130aeec169198098dec81d6a0d2"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/report.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 16136,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/solver.py",
+            "sha256": "7a7e708faee646ee67c1480afc60c2245ac15f73d83f19676055fdd5b70a0ae2"
+          },
+          {
+            "bytes": 16136,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/solver.py",
+            "sha256": "7a7e708faee646ee67c1480afc60c2245ac15f73d83f19676055fdd5b70a0ae2"
+          },
+          {
+            "bytes": 16136,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/solver.py",
+            "sha256": "7a7e708faee646ee67c1480afc60c2245ac15f73d83f19676055fdd5b70a0ae2"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/solver.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 14990,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/supervisor.py",
+            "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+          },
+          {
+            "bytes": 14990,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/supervisor.py",
+            "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+          },
+          {
+            "bytes": 14990,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/supervisor.py",
+            "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/supervisor.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 12421,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/tangent_export.py",
+            "sha256": "54941e22a74e79b316961b77ba58d18666708355b586acabcd7ecc1e0785d4ed"
+          },
+          {
+            "bytes": 12421,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/tangent_export.py",
+            "sha256": "54941e22a74e79b316961b77ba58d18666708355b586acabcd7ecc1e0785d4ed"
+          },
+          {
+            "bytes": 12421,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/tangent_export.py",
+            "sha256": "54941e22a74e79b316961b77ba58d18666708355b586acabcd7ecc1e0785d4ed"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/tangent_export.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 25993,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/validation.py",
+            "sha256": "e49352fdbec0aac3ee99bcebaf0222d7ded6fdb2497d4b8a198e8a546029da0c"
+          },
+          {
+            "bytes": 25993,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/validation.py",
+            "sha256": "e49352fdbec0aac3ee99bcebaf0222d7ded6fdb2497d4b8a198e8a546029da0c"
+          },
+          {
+            "bytes": 25993,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/validation.py",
+            "sha256": "e49352fdbec0aac3ee99bcebaf0222d7ded6fdb2497d4b8a198e8a546029da0c"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/validation.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 23754,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/validation_reference.py",
+            "sha256": "9115f72e6f33f44e246b44f97cabef51e98e47462ebc6ce0f8cd6778b20b68cb"
+          },
+          {
+            "bytes": 23754,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/segmented/validation_reference.py",
+            "sha256": "9115f72e6f33f44e246b44f97cabef51e98e47462ebc6ce0f8cd6778b20b68cb"
+          },
+          {
+            "bytes": 23754,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/segmented/validation_reference.py",
+            "sha256": "9115f72e6f33f44e246b44f97cabef51e98e47462ebc6ce0f8cd6778b20b68cb"
+          }
+        ],
+        "relative_path": "src/orbit_poc/segmented/validation_reference.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 10913,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/simulator.py",
+            "sha256": "a8e74b3a30ba1c0386de34bd5894f848d36d7538dc6a79abd33d117dc95ca75e"
+          },
+          {
+            "bytes": 10913,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/simulator.py",
+            "sha256": "a8e74b3a30ba1c0386de34bd5894f848d36d7538dc6a79abd33d117dc95ca75e"
+          },
+          {
+            "bytes": 10913,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/simulator.py",
+            "sha256": "a8e74b3a30ba1c0386de34bd5894f848d36d7538dc6a79abd33d117dc95ca75e"
+          }
+        ],
+        "relative_path": "src/orbit_poc/simulator.py"
+      },
+      {
+        "copies": [
+          {
+            "bytes": 30778,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/solvers.py",
+            "sha256": "a2cd18324b65a42a3ef73d2025615fd3d6c251acb397ca9c48d67ac1ae61f841"
+          },
+          {
+            "bytes": 30778,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/src/orbit_poc/solvers.py",
+            "sha256": "a2cd18324b65a42a3ef73d2025615fd3d6c251acb397ca9c48d67ac1ae61f841"
+          },
+          {
+            "bytes": 30778,
+            "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/src/orbit_poc/solvers.py",
+            "sha256": "a2cd18324b65a42a3ef73d2025615fd3d6c251acb397ca9c48d67ac1ae61f841"
+          }
+        ],
+        "relative_path": "src/orbit_poc/solvers.py"
+      }
+    ],
+    "identical": true
+  },
+  "recorded_test_results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "junit": {
+        "bytes": 7737,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/tests.xml",
+        "sha256": "d15022c505282cc9df0cb6a30b6d3e52454a67ce384293faba4aba34167622f5"
+      },
+      "log": {
+        "bytes": 197,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/tests.log",
+        "sha256": "1d3840b4c20195728476711cc4fe8022ed109ec2d78157d846850eee2fdfdfdf"
+      },
+      "name": "tests",
+      "passed_case_ids": [
+        "tests.test_nuisance_warm_start::test_disabled_is_compatible_without_inputs_or_native",
+        "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[true]",
+        "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[2]",
+        "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[]",
+        "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[1]",
+        "tests.test_nuisance_warm_start::test_invalid_feature_flags_fail[True]",
+        "tests.test_nuisance_warm_start::test_unsupported_mode_fails_only_when_enabled",
+        "tests.test_nuisance_warm_start::test_only_accept_promotes_and_rejected_candidate_cannot_replace",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[initial-False-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[repeat-False-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[closure-refinement-True-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[repeat-floor-False-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[refine-floor-True-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[confirmation-True-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[final-covariance-True-True]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-001-True-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-001-False-True]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-1-False-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-000-False-False]",
+        "tests.test_nuisance_warm_start::test_protected_evaluations_never_import[trial-001-extra-False-False]",
+        "tests.test_nuisance_warm_start::test_accepted_floor_limited_point_revokes_donor",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>0]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>1]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>2]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>3]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>4]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>5]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>6]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>7]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>8]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>9]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>10]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>11]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>12]",
+        "tests.test_nuisance_warm_start::test_invalid_export_is_not_promoted[<lambda>13]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[missing-payload]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[missing-companion]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[changed-payload]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[changed-companion]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[symlink-payload]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[symlink-companion]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[same_bytes_new_identity-payload]",
+        "tests.test_nuisance_warm_start::test_seed_identity_is_rechecked_at_accept_and_load[same_bytes_new_identity-companion]",
+        "tests.test_nuisance_warm_start::test_candidate_with_changed_support_cannot_change_donor",
+        "tests.test_nuisance_warm_start::test_changed_accepted_physical_values_rejected",
+        "tests.test_nuisance_warm_start::test_unregistered_point_cannot_be_accepted",
+        "tests.test_nuisance_warm_start::test_base_input_mutation_blocks_seed_use",
+        "tests.test_nuisance_warm_start::test_scientific_context_changes_with_weights_settings",
+        "tests.test_nuisance_warm_start::test_context_excludes_output_paths_and_transient_job_id",
+        "tests.test_nuisance_warm_start::test_output_collision_is_not_overwritten",
+        "tests.test_nuisance_warm_start::test_environment_guard_clears_all_fields_and_restores_after_failure",
+        "tests.test_nuisance_warm_start::test_native_execute_does_not_pass_inherited_seed",
+        "tests.test_nuisance_warm_start::test_rank_failure_in_accept_preserves_old_donor",
+        "tests.test_nuisance_warm_start::test_retention_failure_in_accept_preserves_old_donor",
+        "tests.test_nuisance_warm_start::test_direct_segmented_exporter_clears_inherited_seed",
+        "tests.test_nuisance_warm_start::test_scientific_job_mutation_blocks_next_profile",
+        "tests.test_nuisance_warm_start::test_post_native_segmented_graph_failure_does_not_install_candidate"
+      ],
+      "skipped": 0,
+      "tests": 57
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "junit": {
+        "bytes": 6093,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/compatibility.xml",
+        "sha256": "4bb7c80c9226b3d793ee80f82d198bef4844c8d37272086c3a22de6d8949464a"
+      },
+      "log": {
+        "bytes": 205,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/compatibility.log",
+        "sha256": "967daece986f43433bb1c71e4d0d02c55331a89d449e8102e58b6f204acf1076"
+      },
+      "name": "compatibility",
+      "passed_case_ids": [
+        "tests.test_numerics_backend::test_parameter_support_excludes_only_named_scale",
+        "tests.test_numerics_backend::test_malformed_parameter_metadata_fails_closed[index\\tname\\tdynamic\\tunit\\n0\\tpulse\\t1\\tum/s\\n]",
+        "tests.test_numerics_backend::test_malformed_parameter_metadata_fails_closed[index\\tname\\tdynamic\\tunit\\tscale\\n0\\tpulse\\t1\\tum/s\\n]",
+        "tests.test_numerics_backend::test_malformed_parameter_metadata_fails_closed[index\\tname\\tdynamic\\tunit\\tscale\\n0\\tpulse\\t1\\tum/s\\t1\\textra\\n]",
+        "tests.test_numerics_backend::test_nuisance_line_search_failure_is_a_rejectable_proposal",
+        "tests.test_numerics_backend::test_inexact_profile_is_explicit_and_cannot_supply_covariance",
+        "tests.test_numerics_backend::test_invalid_physical_trial_is_rejected_without_masking_configuration_errors[nonfinite tangent right-hand side, solve_role=physical_correction, column=0]",
+        "tests.test_numerics_backend::test_invalid_physical_trial_is_rejected_without_masking_configuration_errors[six-state tangent did not meet its true residual tolerance: relative_residual=0.01]",
+        "tests.test_numerics_backend::test_invalid_physical_trial_is_rejected_without_masking_configuration_errors[nonfinite position force Jacobian]",
+        "tests.test_numerics_backend::test_invalid_physical_trial_is_rejected_without_masking_configuration_errors[singular local six-state tangent preconditioner]",
+        "tests.test_numerics_optimizer::test_affine_map_and_covariance_match_full_rows",
+        "tests.test_numerics_optimizer::test_nonlinear_trial_rejection_preserves_the_accepted_reference",
+        "tests.test_numerics_optimizer::test_changed_weights_or_support_fails_without_covariance",
+        "tests.test_numerics_optimizer::test_inexact_profile_allows_only_resolved_progress_to_a_strict_final_fit",
+        "tests.test_numerics_optimizer::test_inexact_profile_rejects_unresolved_progress_and_never_declares_convergence",
+        "tests.test_numerics_optimizer::test_only_accepted_state_factors_receive_storage_protection",
+        "tests.test_numerics_optimizer::test_failed_fresh_stationarity_continues_bounded_trials_without_covariance",
+        "tests.test_numerics_optimizer::test_failed_trial_is_rolled_back_before_retrying[closure_failed]",
+        "tests.test_numerics_optimizer::test_failed_trial_is_rolled_back_before_retrying[nuisance_failure]",
+        "tests.test_numerics_optimizer::test_failed_trial_is_rolled_back_before_retrying[unresolved_rank]",
+        "tests.test_numerics_optimizer::test_unresolved_candidate_rank_cannot_be_accepted",
+        "tests.test_numerics_optimizer::test_tiny_damped_step_does_not_pass_raw_convergence",
+        "tests.test_numerics_optimizer::test_final_verification_cannot_exceed_the_wall_budget[confirmation]",
+        "tests.test_numerics_optimizer::test_final_verification_cannot_exceed_the_wall_budget[finish]",
+        "tests.test_numerics_optimizer::test_initialization_and_finalization_share_one_wall_budget",
+        "tests.test_numerics_optimizer::test_initial_objective_floor_is_remeasured_near_the_solution",
+        "tests.test_numerics_optimizer::test_floor_refinement_refreshes_the_undamped_stationarity_factor",
+        "tests.test_numerics_optimizer::test_unresolved_objective_improvement_is_flagged_without_replacing_acceptance_rule",
+        "tests.test_numerics_optimizer::test_rank_classification_and_no_pseudoinverse_covariance",
+        "tests.test_numerics_optimizer::test_dynamic_only_damping_and_undamped_covariance",
+        "tests.test_numerics_optimizer::test_selected_cross_covariance_matches_global_elimination",
+        "tests.test_segmented_backend::test_backend_requires_an_explicit_supported_profile[None]",
+        "tests.test_segmented_backend::test_backend_requires_an_explicit_supported_profile[unknown]",
+        "tests.test_segmented_backend::test_backend_requires_an_explicit_supported_profile[legacy_v3]",
+        "tests.test_segmented_backend::test_backend_requires_an_explicit_supported_profile[segmented_2h]",
+        "tests.test_segmented_backend::test_segmented_profile_uses_native_queries_without_dense_covariance",
+        "tests.test_segmented_backend::test_dense_execution_tree_and_environment_are_unchanged",
+        "tests.test_segmented_backend::test_postfit_dense_map_uses_same_export_without_whole_arc_dense_storage",
+        "tests.test_segmented_backend::test_cross_covariance_pairs_do_not_depend_on_segment_layout",
+        "tests.test_segmented_backend::test_dense_adapter_preserves_exact_arithmetic_and_counts_cost"
+      ],
+      "skipped": 0,
+      "tests": 40
+    }
+  ],
+  "recorded_tests_total": 97,
+  "release_authority": false,
+  "relevant_test_source_parity": [
+    {
+      "copies": [
+        {
+          "bytes": 15569,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_nuisance_warm_start.py",
+          "sha256": "6cc269ab7cbb2de944c1db881b47bc697f1469d3d5c35eda683ed25c8f9df2c6"
+        },
+        {
+          "bytes": 15569,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/test_nuisance_warm_start.py",
+          "sha256": "6cc269ab7cbb2de944c1db881b47bc697f1469d3d5c35eda683ed25c8f9df2c6"
+        },
+        {
+          "bytes": 15569,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_nuisance_warm_start.py",
+          "sha256": "6cc269ab7cbb2de944c1db881b47bc697f1469d3d5c35eda683ed25c8f9df2c6"
+        }
+      ],
+      "relative_path": "tests/test_nuisance_warm_start.py"
+    },
+    {
+      "copies": [
+        {
+          "bytes": 14807,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_numerics_optimizer.py",
+          "sha256": "9569921f72596c971f05fe27b60e317b9daf71c2765e8a47c2980613d77f2e33"
+        },
+        {
+          "bytes": 14807,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/test_numerics_optimizer.py",
+          "sha256": "9569921f72596c971f05fe27b60e317b9daf71c2765e8a47c2980613d77f2e33"
+        },
+        {
+          "bytes": 14807,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_numerics_optimizer.py",
+          "sha256": "9569921f72596c971f05fe27b60e317b9daf71c2765e8a47c2980613d77f2e33"
+        }
+      ],
+      "relative_path": "tests/test_numerics_optimizer.py"
+    },
+    {
+      "copies": [
+        {
+          "bytes": 5163,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_numerics_backend.py",
+          "sha256": "734b808ee2eb7982bda6d066e3bd58f81c889ab06b6f7015c915c24d32009588"
+        },
+        {
+          "bytes": 5163,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/test_numerics_backend.py",
+          "sha256": "734b808ee2eb7982bda6d066e3bd58f81c889ab06b6f7015c915c24d32009588"
+        },
+        {
+          "bytes": 5163,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_numerics_backend.py",
+          "sha256": "734b808ee2eb7982bda6d066e3bd58f81c889ab06b6f7015c915c24d32009588"
+        }
+      ],
+      "relative_path": "tests/test_numerics_backend.py"
+    },
+    {
+      "copies": [
+        {
+          "bytes": 4230,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_segmented_backend.py",
+          "sha256": "64ee0b8c7d1b5fcac39575fd66e16a17185835b9af56a14087546c328f75766e"
+        },
+        {
+          "bytes": 4230,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/test_segmented_backend.py",
+          "sha256": "64ee0b8c7d1b5fcac39575fd66e16a17185835b9af56a14087546c328f75766e"
+        },
+        {
+          "bytes": 4230,
+          "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate06/tests/test_segmented_backend.py",
+          "sha256": "64ee0b8c7d1b5fcac39575fd66e16a17185835b9af56a14087546c328f75766e"
+        }
+      ],
+      "relative_path": "tests/test_segmented_backend.py"
+    }
+  ],
+  "reviewed_source_pin_revalidation": [
+    {
+      "expected_sha256": "3949ad65cbcbda5f340892b9a898ac3f820d361dcc4b5bd03b539c26b9788e6b",
+      "original_current": {
+        "bytes": 15070,
+        "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/nuisance_warm_start.py",
+        "sha256": "3949ad65cbcbda5f340892b9a898ac3f820d361dcc4b5bd03b539c26b9788e6b"
+      },
+      "original_current_matches": true,
+      "preserved_review_copy": {
+        "bytes": 15070,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/source/src/orbit_poc/numerics/nuisance_warm_start.py",
+        "sha256": "3949ad65cbcbda5f340892b9a898ac3f820d361dcc4b5bd03b539c26b9788e6b"
+      }
+    },
+    {
+      "expected_sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb",
+      "original_current": {
+        "bytes": 32726,
+        "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/backend.py",
+        "sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb"
+      },
+      "original_current_matches": true,
+      "preserved_review_copy": {
+        "bytes": 32726,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/source/src/orbit_poc/numerics/backend.py",
+        "sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb"
+      }
+    },
+    {
+      "expected_sha256": "1694222bf783909e97aa90a7d44154d3d917c264ae0fed03cee801acff53bc1d",
+      "original_current": {
+        "bytes": 22186,
+        "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/segmented/backend.py",
+        "sha256": "1694222bf783909e97aa90a7d44154d3d917c264ae0fed03cee801acff53bc1d"
+      },
+      "original_current_matches": true,
+      "preserved_review_copy": {
+        "bytes": 22186,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/source/src/orbit_poc/segmented/backend.py",
+        "sha256": "1694222bf783909e97aa90a7d44154d3d917c264ae0fed03cee801acff53bc1d"
+      }
+    },
+    {
+      "expected_sha256": "6cc269ab7cbb2de944c1db881b47bc697f1469d3d5c35eda683ed25c8f9df2c6",
+      "original_current": {
+        "bytes": 15569,
+        "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_nuisance_warm_start.py",
+        "sha256": "6cc269ab7cbb2de944c1db881b47bc697f1469d3d5c35eda683ed25c8f9df2c6"
+      },
+      "original_current_matches": true,
+      "preserved_review_copy": {
+        "bytes": 15569,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/source/tests/test_nuisance_warm_start.py",
+        "sha256": "6cc269ab7cbb2de944c1db881b47bc697f1469d3d5c35eda683ed25c8f9df2c6"
+      }
+    },
+    {
+      "expected_sha256": "087e4d6b1f1b6feb3faea94e29821992933f93c0010d248eeea112e5971f4bf0",
+      "original_current": {
+        "bytes": 8859,
+        "path": "/home/emper/orbit-nuisance-warmstarts/source/docs/nuisance-warm-starts.md",
+        "sha256": "ea6e89a3f0ec8f34326177498467f2d7069c247d8b2c7eb3740316dc09cd2aef"
+      },
+      "original_current_matches": false,
+      "preserved_review_copy": {
+        "bytes": 5676,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review01/python01/source/docs/nuisance-warm-starts.md",
+        "sha256": "087e4d6b1f1b6feb3faea94e29821992933f93c0010d248eeea112e5971f4bf0"
+      }
+    }
+  ],
+  "reviewer_task": "/root/wholefit_controls_repair",
+  "schema": "independent-python-warm-lifecycle-existing-evidence-review-v1",
+  "scope": "Read-only evidence verification and source trace; no tests or native work executed",
+  "source_files_modified": false,
+  "speedup_claim": null,
+  "status": "accepted_existing_offline_policy_evidence_with_explicit_integration_limitations",
+  "wholefit_admission": false
+}

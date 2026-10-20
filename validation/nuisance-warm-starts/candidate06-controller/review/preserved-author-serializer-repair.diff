@@ -1,0 +1,27 @@
+--- author-tests01
++++ author-tests02
+@@ -33,8 +33,14 @@
+     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+ 
+ 
++def numpy_scalar(value):
++    if isinstance(value, np.generic):
++        return value.item()
++    raise TypeError('Unexpected trace value: ' + type(value).__name__)
++
++
+ def write_json(path, value):
+-    Path(path).write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
++    Path(path).write_text(json.dumps(value, indent=2, sort_keys=True, default=numpy_scalar) + '\n')
+ 
+ 
+ def write_factor(path, values):
+@@ -285,7 +291,7 @@
+     def run(self):
+         initial = backend.PhysicalState(np.zeros(6), np.zeros(0), self.root / 'original-orbit')
+         def emit(value):
+-            self.trace['optimizer_emissions'].append(json.loads(json.dumps(value)))
++            self.trace['optimizer_emissions'].append(json.loads(json.dumps(value, default=numpy_scalar)))
+             self.persist()
+         try:
+             result = minimize(self.model, initial, controls=self.model.controls, emit=emit)

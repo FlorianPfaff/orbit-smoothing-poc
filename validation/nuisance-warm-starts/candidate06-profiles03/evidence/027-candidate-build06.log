@@ -1,0 +1,782 @@
+{
+  "cache_default": "0",
+  "cache_environment": "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE",
+  "cache_scope": "one_exact_native_matrix_within_one_buildNormals_generation",
+  "cache_values": [
+    "0",
+    "1"
+  ],
+  "installed_files": {
+    "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp": "500009850df4330338a8a7513133197dd3f48801f853e81f9f787bf2358e05b2",
+    "source/gnss/gnssProcessingStep/gnssProcessingStep.cpp": "ea1d84361d652450912e2b335cd49abcaa6e1077f35d536f6ce0f1e8e7c8ca9e",
+    "source/misc/orbitPoc/nuisanceLineSearch.h": "0a8fa6cc0c65cf94b48cbc2ab53c4fc1f4bdfd3c63a0a0ce599d7198daf04fcf",
+    "source/misc/orbitPoc/nuisancePerformance.h": "0925d8858ee2937ab87bbefbf5fddd6e8d1bcd69e5e886021b91ba376da52e00"
+  },
+  "installer_inputs": {
+    "native_nuisance_performance.py": "832a5cbfd5cc9100d86cd7d37350e4e5c7f7f86ae76d30ff0e203e23815105a8",
+    "nuisancePerformance.h": "0925d8858ee2937ab87bbefbf5fddd6e8d1bcd69e5e886021b91ba376da52e00"
+  },
+  "previous_files": {
+    "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp": "2a270a0668871c068ece61d17eab4e28d36d2fc57cf7f777f303cb87b6929e39",
+    "source/gnss/gnssProcessingStep/gnssProcessingStep.cpp": "68356005501d3f98f7164e63ab302406bc3810d5dda53d2ff41904bdfdc110e2",
+    "source/misc/orbitPoc/nuisanceLineSearch.h": "e4adf2eb666bd33abf85e5da68ba501c57566033b56236f201ce7a3984a6831c"
+  },
+  "runtime_default": "0",
+  "runtime_environment": "ORBIT_POC_NUISANCE_PERFORMANCE",
+  "runtime_values": [
+    "0",
+    "1"
+  ],
+  "schema": "orbit-poc-nuisance-performance-extension-v1",
+  "scientific_models_and_thresholds": "unchanged"
+}
+{
+  "default_mode": "receiver_clock_signal_float_v1",
+  "import_scope": "initialization_only_non_ionosphere",
+  "installed_files": {
+    "source/gnss/gnssParametrization/gnssParametrization.cpp": "b2e624aa07b5538a0aae54917df4f1d0c6e7a90cdc998595b011018bfb94b324",
+    "source/gnss/gnssParametrization/gnssParametrization.h": "79f38e96396a9336d1692a7a5e5f7a77b1142721004ab2410afb2d0c1d267b44",
+    "source/gnss/gnssParametrization/gnssParametrizationAmbiguities.cpp": "ae2ed64718e9e92b9a9ad81c38440c7760f4904bec8fa49951b5b962f308d01a",
+    "source/gnss/gnssParametrization/gnssParametrizationAmbiguities.h": "4519992d355ee23a66b9437627ef45a6cce6b8c8933cf0f3bc996ffb9c991355",
+    "source/gnss/gnssParametrization/gnssParametrizationClocks.cpp": "404e5bd1d1ab13d40a1b3fac15806e0b30d99c7bdd38be576cd21a0923d8c67f",
+    "source/gnss/gnssParametrization/gnssParametrizationClocks.h": "c19afb7350939bd569430f647a74fba8c6ed7743531bde3081b34b3e18203802",
+    "source/gnss/gnssParametrization/gnssParametrizationCodeBiases.cpp": "24038f3b9b818893428378d478f437bfc48d3fdbbd6762e5f73ea425be7af6ac",
+    "source/gnss/gnssParametrization/gnssParametrizationCodeBiases.h": "73267959c82d5a3d7a36d3e49975663f9dc65c2d6907d003ea2895d09af4b851",
+    "source/gnss/gnssParametrization/gnssParametrizationConstraints.h": "b01daac2855dfb03d8c89b45c56c140f2a5e2bae76a18b8dfa98bda3947de29b",
+    "source/gnss/gnssParametrization/gnssParametrizationGroup.h": "3ac4a0880983de6fa9e0f45e863452621d4402265e823380009cc9ae74c8e2a4",
+    "source/gnss/gnssParametrization/gnssParametrizationIonosphereSTEC.h": "ca88095b3af3c525ca478c4b78fe48c968f0ca7f87e149911389343832c649b0",
+    "source/gnss/gnssParametrization/gnssParametrizationIonosphereVTEC.cpp": "27dcef2951e564c4323d765dbf553eec08831d661261e686162b264714c1cbd0",
+    "source/gnss/gnssParametrization/gnssParametrizationIonosphereVTEC.h": "52aede4444025cd80c0e41383089db3d245d04ce611e138c05deecaf500a4951",
+    "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.h": "eecd7bf8a2cedb2c678082535cebdb7539e7b8abad1c37708a5957adb9b0bb40",
+    "source/gnss/gnssParametrization/gnssParametrizationLogDensityOu.h": "883fb44864675f6f1ec4572d91abd342ad2217ea2ce895dc47a138466c84ef71",
+    "source/gnss/gnssParametrization/gnssParametrizationSignalBiases.h": "7f82a18cc63a7a82b01a8545712ce4a962aaddceecde24bde4af72879995b092",
+    "source/gnss/gnssParametrization/gnssParametrizationTecBiases.cpp": "51756de39b6e368344d8c95f759b049d664ada9489a37c8820e356176beda5f5",
+    "source/gnss/gnssParametrization/gnssParametrizationTecBiases.h": "c97806cc9385b8b2217334ae67a8bf22f2a1d90c084f4dc1b859d6c33cce2364",
+    "source/gnss/gnssProcessingStep/gnssProcessingStepOrbitPocNumerics.h": "0bca37d99eeca538aa031f4789ce0b5a6e14a0ec3dd14ed0604197fb82af5f12",
+    "source/misc/orbitPoc/nuisanceWarmGnss.h": "9e258d4fae178df30a3b3f7af8f74ba49665b04625da869eb0b418723d063d7c",
+    "source/misc/orbitPoc/nuisanceWarmState.h": "3b11b1524f3ff51b20a58b4df557782a718a735ee2809800663add14f0c54758"
+  },
+  "installer_inputs": {
+    "native_nuisance_warm.py": "879957f0f84bffed57a860f39c64cb9f70212bbc2f05535c9953c474191d776d",
+    "nuisanceWarmGnss.h": "9e258d4fae178df30a3b3f7af8f74ba49665b04625da869eb0b418723d063d7c",
+    "nuisanceWarmState.h": "3b11b1524f3ff51b20a58b4df557782a718a735ee2809800663add14f0c54758"
+  },
+  "modes": [
+    "receiver_clock_v1",
+    "receiver_clock_signal_float_v1"
+  ],
+  "previous_files": {
+    "source/gnss/gnssParametrization/gnssParametrization.cpp": "e9e97be455509aebdf576c01a25ca9acd2af8373b35561fe9ab2156201b0f8c9",
+    "source/gnss/gnssParametrization/gnssParametrization.h": "c5a0e2e34779e1045e453312c407b93a835787468f862239f485f6ce6ce88f3b",
+    "source/gnss/gnssParametrization/gnssParametrizationAmbiguities.cpp": "5eab27d2c90d16bd30bbb19b82a3ae95a1056eddda510b3365e231cb45446c2d",
+    "source/gnss/gnssParametrization/gnssParametrizationAmbiguities.h": "4ef252bfe8f24ef596d0e6654f23ef3a9ac973d8b525f910ae8cb60830489dfc",
+    "source/gnss/gnssParametrization/gnssParametrizationClocks.cpp": "9d451afc08d770b32915558c1a0ed44d763bc9bb6a1ac2b57ad6106c945a720a",
+    "source/gnss/gnssParametrization/gnssParametrizationClocks.h": "06efac4cd829e8c04484331eb6da8452cd09c7ae3538a2457dafcb7d7c181d0d",
+    "source/gnss/gnssParametrization/gnssParametrizationCodeBiases.cpp": "e68e5f1965aaf06009d3fa6d5746c7df6fc592ef1f9c0d111c605436d2df14ea",
+    "source/gnss/gnssParametrization/gnssParametrizationCodeBiases.h": "5d0b5039f55d6241f7264375d4b1575812f4b3d97adbfee1eb8911d5042cc334",
+    "source/gnss/gnssParametrization/gnssParametrizationConstraints.h": "b6db1500d4abfbb5e56fd6a8bdf511981a9ba22ccef5f7aa52ce59c31fbe2f74",
+    "source/gnss/gnssParametrization/gnssParametrizationGroup.h": "b19e9d7246f3e8baa322c6b59daac0ab373cd50cd9d7fc1f3055d92249891460",
+    "source/gnss/gnssParametrization/gnssParametrizationIonosphereSTEC.h": "a647b91394aedfa06f737f47170f8eb6bfafba210332ae4991d90596f967f0bc",
+    "source/gnss/gnssParametrization/gnssParametrizationIonosphereVTEC.cpp": "04d8b04a330d87105fed05e341b087a39803d03b64e0ed2b2e1ac6189497cc1d",
+    "source/gnss/gnssParametrization/gnssParametrizationIonosphereVTEC.h": "76b8fecd9b7d6616abb6bd52e6569adc054dc7792b1418be4dc342e75275cdf4",
+    "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.h": "a7b2a53bd4f5ae9422dfd4afb30b34e763b149202ceaf2fa93d0a5ff4541e6ec",
+    "source/gnss/gnssParametrization/gnssParametrizationLogDensityOu.h": "6038771afda74bebaaea3d36a03d1118b45497f1fdd1bca4ec210e131365a2fb",
+    "source/gnss/gnssParametrization/gnssParametrizationSignalBiases.h": "e8d5626e259b601068fa9f43ede0875382efb39ee314516fd69df2d04bca39b7",
+    "source/gnss/gnssParametrization/gnssParametrizationTecBiases.cpp": "14de4ef831c884aae694c3c66cdc24f636f46415c4faa688cd3c505b4f8bb53f",
+    "source/gnss/gnssParametrization/gnssParametrizationTecBiases.h": "bf0719a8335898b0ba7f646c32dacd878652060f7199c825857eaccd15f01858",
+    "source/gnss/gnssProcessingStep/gnssProcessingStepOrbitPocNumerics.h": "638f81dc6a9ad1942acdbbfa4353a688317083f889df945e27bc45ec48130463"
+  },
+  "runtime_default": "0",
+  "runtime_environment": "ORBIT_POC_NUISANCE_WARM_STARTS",
+  "runtime_values": [
+    "0",
+    "1"
+  ],
+  "schema": "orbit-poc-nuisance-warm-extension-v1",
+  "scientific_models_and_thresholds": "unchanged"
+}
+-- The CXX compiler identification is GNU 15.3.0
+-- The Fortran compiler identification is GNU 15.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/emper/orbit-nuisance-warmstarts/toolchain-01/bin/x86_64-conda-linux-gnu-c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Check for working Fortran compiler: /home/emper/orbit-nuisance-warmstarts/toolchain-01/bin/x86_64-conda-linux-gnu-gfortran - skipped
+-- Found BLAS: /home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libblas.so
+-- Found LAPACK: /home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/liblapack.so
+-- Found EXPAT: /home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libexpat.so (found version "2.8.5")
+CMake Warning at CMakeLists.txt:67 (message):
+  netCDF library *NOT* found (https://www.unidata.ucar.edu/software/netcdf).
+  GROOPS is not able to convert netCDF *.grd files.
+
+
+CMake Warning at CMakeLists.txt:118 (message):
+  A GROOPS executable for MPI parallel computing will *NOT* be created.
+
+
+-- Configuring done (17.6s)
+-- Generating done (0.6s)
+-- Build files have been written to: /home/emper/orbit-nuisance-warmstarts/build-06
+[1/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/pmsdnut.f-pp.f
+[2/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/lapack/blasWrapper.f-pp.f
+[3/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/lapack/lapackWrapper.f-pp.f
+[4/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/ray.f-pp.f
+[5/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/CNMTX.F-pp.f
+[6/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/PMSDNUT2.F-pp.f
+[7/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/FUNDARG.f-pp.f
+[8/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/ORTHO_EOP.F-pp.f
+[9/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/jb2008/JB2008.f-pp.f
+[10/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/igrf/igrf14.f-pp.f
+[11/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/hwm/hwm14.f90-pp.f90
+[12/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/iers/UTLIBR.F-pp.f
+[13/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/alt2gph.F90-pp.f90
+[14/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/msis_constants.F90-pp.f90
+[15/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/msis_init.F90-pp.f90
+[16/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/msis_gfn.F90-pp.f90
+[17/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/msis_tfn.F90-pp.f90
+[18/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/msis_calc.F90-pp.f90
+[19/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/msis_dfn.F90-pp.f90
+[20/633] Building Fortran preprocessed CMakeFiles/groopscore.dir/external/nrlmsis2/nrlmsis2Wrapper.F90-pp.f90
+[21/633] Generating Fortran dyndep file CMakeFiles/groopscore.dir/Fortran.dd
+[22/633] Building CXX object CMakeFiles/groopscore.dir/base/ellipsoid.cpp.o
+[23/633] Building CXX object CMakeFiles/groopscore.dir/base/constants.cpp.o
+[24/633] Building CXX object CMakeFiles/groopscore.dir/base/equinoctial.cpp.o
+[25/633] Building CXX object CMakeFiles/groopscore.dir/base/doodson.cpp.o
+[26/633] Building CXX object CMakeFiles/groopscore.dir/base/fourier.cpp.o
+[27/633] Building CXX object CMakeFiles/groopscore.dir/base/gnssType.cpp.o
+[28/633] Building CXX object CMakeFiles/groopscore.dir/base/kepler.cpp.o
+[29/633] Building CXX object CMakeFiles/groopscore.dir/base/griddedData.cpp.o
+[30/633] Building CXX object CMakeFiles/groopscore.dir/base/format.cpp.o
+[31/633] Building CXX object CMakeFiles/groopscore.dir/base/legendreFunction.cpp.o
+[32/633] Building CXX object CMakeFiles/groopscore.dir/base/legendrePolynomial.cpp.o
+[33/633] Building CXX object CMakeFiles/groopscore.dir/base/parameterName.cpp.o
+[34/633] Building CXX object CMakeFiles/groopscore.dir/base/planets.cpp.o
+[35/633] Building CXX object CMakeFiles/groopscore.dir/base/rotary3d.cpp.o
+[36/633] Building CXX object CMakeFiles/groopscore.dir/base/polynomial.cpp.o
+[37/633] Building CXX object CMakeFiles/groopscore.dir/base/matrix.cpp.o
+[38/633] Building CXX object CMakeFiles/groopscore.dir/base/sphericalHarmonics.cpp.o
+[39/633] Building CXX object CMakeFiles/groopscore.dir/base/time.cpp.o
+[40/633] Building CXX object CMakeFiles/groopscore.dir/base/transform3d.cpp.o
+[41/633] Building CXX object CMakeFiles/groopscore.dir/external/sgp4/SGP4.cpp.o
+[42/633] Building CXX object CMakeFiles/groopscore.dir/base/wavelets.cpp.o
+[43/633] Building CXX object CMakeFiles/groopscore.dir/base/string.cpp.o
+[44/633] Building CXX object CMakeFiles/groopscore.dir/parser/dataVariables.cpp.o
+[45/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/archive.cpp.o
+[46/633] Building CXX object CMakeFiles/groopscore.dir/parser/xml.cpp.o
+[47/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/archiveBinary.cpp.o
+[48/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/archiveAscii.cpp.o
+[49/633] Building CXX object CMakeFiles/groopscore.dir/parser/expressionParser.cpp.o
+[50/633] Building CXX object CMakeFiles/groopscore.dir/parser/stringParser.cpp.o
+[51/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/fileArchive.cpp.o
+[52/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/file.cpp.o
+[53/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/fileNetCdf.cpp.o
+[54/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/archiveXml.cpp.o
+[55/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/archiveJson.cpp.o
+[56/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/fileName.cpp.o
+[57/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/settings.cpp.o
+[58/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/fileSinex.cpp.o
+[59/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/logging.cpp.o
+[60/633] Building CXX object CMakeFiles/groopscore.dir/inputOutput/system.cpp.o
+[61/633] Building CXX object CMakeFiles/groopscore.dir/files/fileAdmittance.cpp.o
+[62/633] Building CXX object CMakeFiles/groopscore.dir/files/fileArcList.cpp.o
+[63/633] Building CXX object CMakeFiles/groopscore.dir/files/fileDoodsonEarthOrientationParameter.cpp.o
+[64/633] Building CXX object CMakeFiles/groopscore.dir/files/fileDoodsonHarmonic.cpp.o
+[65/633] Building CXX object CMakeFiles/groopscore.dir/files/fileEarthOrientationParameter.cpp.o
+[66/633] Building CXX object CMakeFiles/groopscore.dir/parallel/matrixDistributed.cpp.o
+[67/633] Building CXX object CMakeFiles/groopscore.dir/files/fileEarthTide.cpp.o
+[68/633] Building CXX object CMakeFiles/groopscore.dir/files/fileEphemerides.cpp.o
+[69/633] Building CXX object CMakeFiles/groopscore.dir/files/fileGnssReceiverDefinition.cpp.o
+[70/633] Building CXX object CMakeFiles/groopscore.dir/files/fileGnssAntennaDefinition.cpp.o
+[71/633] Building CXX object CMakeFiles/groopscore.dir/files/fileGnssSignalBias.cpp.o
+[72/633] Building CXX object CMakeFiles/groopscore.dir/files/fileGriddedDataTimeSeries.cpp.o
+[73/633] Building CXX object CMakeFiles/groopscore.dir/files/fileGriddedData.cpp.o
+[74/633] Building CXX object CMakeFiles/groopscore.dir/files/fileMatrix.cpp.o
+[75/633] Building CXX object CMakeFiles/groopscore.dir/files/fileOceanPoleTide.cpp.o
+[76/633] Building CXX object CMakeFiles/groopscore.dir/files/fileMeanPolarMotion.cpp.o
+[77/633] Building CXX object CMakeFiles/groopscore.dir/files/fileNormalEquation.cpp.o
+[78/633] Building CXX object CMakeFiles/groopscore.dir/files/fileInstrument.cpp.o
+[79/633] Building CXX object CMakeFiles/groopscore.dir/files/fileParameterName.cpp.o
+[80/633] Building CXX object CMakeFiles/groopscore.dir/files/filePolygon.cpp.o
+[81/633] Building CXX object CMakeFiles/groopscore.dir/files/filePlatform.cpp.o
+[82/633] Building CXX object CMakeFiles/groopscore.dir/files/fileSphericalHarmonics.cpp.o
+[83/633] Building CXX object CMakeFiles/groopscore.dir/files/fileSatelliteModel.cpp.o
+[84/633] Building CXX object CMakeFiles/groopscore.dir/files/fileStringTable.cpp.o
+[85/633] Building CXX object CMakeFiles/groopscore.dir/files/fileTideGeneratingPotential.cpp.o
+[86/633] Building CXX object CMakeFiles/groopscore.dir/files/fileVariationalEquation.cpp.o
+[87/633] Building CXX object CMakeFiles/groopscore.dir/files/fileTimeSplinesGravityfield.cpp.o
+[88/633] Building CXX object CMakeFiles/groopscore.dir/config/config.cpp.o
+[89/633] Building CXX object CMakeFiles/groopscore.dir/classes/border/border.cpp.o
+[90/633] Building CXX object CMakeFiles/groopscore.dir/config/generateDocumentation.cpp.o
+[91/633] Building CXX object CMakeFiles/groopscore.dir/classes/digitalFilter/digitalFilterButterworth.cpp.o
+[92/633] Building CXX object CMakeFiles/groopscore.dir/classes/digitalFilter/digitalFilterNotch.cpp.o
+[93/633] Building CXX object CMakeFiles/groopscore.dir/classes/digitalFilter/digitalFilter.cpp.o
+[94/633] Building CXX object CMakeFiles/groopscore.dir/classes/condition/condition.cpp.o
+[95/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotation.cpp.o
+[96/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotationFile.cpp.o
+[97/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotationIers1996.cpp.o
+[98/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotationIers2003.cpp.o
+[99/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotationIers2010.cpp.o
+[100/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotationIers2010b.cpp.o
+[101/633] Building CXX object CMakeFiles/groopscore.dir/classes/earthRotation/earthRotationStarCamera.cpp.o
+[102/633] Building CXX object CMakeFiles/groopscore.dir/classes/eclipse/eclipse.cpp.o
+[103/633] Building CXX object CMakeFiles/groopscore.dir/classes/forces/forces.cpp.o
+[104/633] Building CXX object CMakeFiles/groopscore.dir/classes/ephemerides/ephemerides.cpp.o
+[105/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldEarthquakeOscillation.cpp.o
+[106/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfield.cpp.o
+[107/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldFilter.cpp.o
+[108/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldFromParametrization.cpp.o
+[109/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldGroup.cpp.o
+[110/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldInInterval.cpp.o
+[111/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldOscillation.cpp.o
+[112/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldPotentialCoefficients.cpp.o
+[113/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldPotentialCoefficientsInterior.cpp.o
+[114/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldTides.cpp.o
+[115/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldTimeSplines.cpp.o
+[116/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldTopography.cpp.o
+[117/633] Building CXX object CMakeFiles/groopscore.dir/classes/gravityfield/gravityfieldTrend.cpp.o
+[118/633] Building CXX object CMakeFiles/groopscore.dir/classes/instrumentType/instrumentType.cpp.o
+[119/633] Building CXX object CMakeFiles/groopscore.dir/classes/grid/grid.cpp.o
+[120/633] Building CXX object CMakeFiles/groopscore.dir/classes/interpolatorTimeSeries/interpolatorTimeSeries.cpp.o
+[121/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernel.cpp.o
+[122/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelBlackmanLowPass.cpp.o
+[123/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelBottomPressure.cpp.o
+[124/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelCoefficients.cpp.o
+[125/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelDeformation.cpp.o
+[126/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelHotine.cpp.o
+[127/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelGeoid.cpp.o
+[128/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelFilterGauss.cpp.o
+[129/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelRadialGradient.cpp.o
+[130/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelSelenoid.cpp.o
+[131/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelPoisson.cpp.o
+[132/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelSingleLayer.cpp.o
+[133/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelStokes.cpp.o
+[134/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelTruncation.cpp.o
+[135/633] Building CXX object CMakeFiles/groopscore.dir/classes/kernel/kernelWaterHeight.cpp.o
+[136/633] Building CXX object CMakeFiles/groopscore.dir/classes/magnetosphere/magnetosphere.cpp.o
+[137/633] Building CXX object CMakeFiles/groopscore.dir/classes/matrixGenerator/matrixGenerator.cpp.o
+[138/633] Building CXX object CMakeFiles/groopscore.dir/classes/miscAccelerations/miscAccelerationsAlbedo.cpp.o
+[139/633] Building CXX object CMakeFiles/groopscore.dir/classes/miscAccelerations/miscAccelerations.cpp.o
+[140/633] Building CXX object CMakeFiles/groopscore.dir/classes/noiseGenerator/noiseGenerator.cpp.o
+[141/633] Building CXX object CMakeFiles/groopscore.dir/classes/normalEquation/normalEquationDesign.cpp.o
+[142/633] Building CXX object CMakeFiles/groopscore.dir/classes/normalEquation/normalEquation.cpp.o
+[143/633] Building CXX object CMakeFiles/groopscore.dir/classes/loop/loop.cpp.o
+[144/633] Building CXX object CMakeFiles/groopscore.dir/classes/normalEquation/normalEquationRegularization.cpp.o
+[145/633] Building CXX object CMakeFiles/groopscore.dir/classes/normalEquation/normalEquationDesignVCE.cpp.o
+[146/633] Building CXX object CMakeFiles/groopscore.dir/classes/normalEquation/normalEquationFile.cpp.o
+[147/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationDeflections.cpp.o
+[148/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationDualSstVariational.cpp.o
+[149/633] Building CXX object CMakeFiles/groopscore.dir/classes/normalEquation/normalEquationRegularizationGeneralized.cpp.o
+[150/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observation.cpp.o
+[151/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationGradiometer.cpp.o
+[152/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationPodAcceleration.cpp.o
+[153/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationPodIntegral.cpp.o
+[154/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationPodEnergy.cpp.o
+[155/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationPodVariational.cpp.o
+[156/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationSstIntegral.cpp.o
+[157/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationSstVariational.cpp.o
+[158/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationStationLoading.cpp.o
+[159/633] Building CXX object CMakeFiles/groopscore.dir/classes/observation/observationTerrestrial.cpp.o
+[160/633] Building CXX object CMakeFiles/groopscore.dir/classes/orbitPropagator/orbitPropagator.cpp.o
+[161/633] Building CXX object CMakeFiles/groopscore.dir/classes/orbitPropagator/orbitPropagatorGaussJackson.cpp.o
+[162/633] Building CXX object CMakeFiles/groopscore.dir/classes/parameterNames/parameterNames.cpp.o
+[163/633] Building CXX object CMakeFiles/groopscore.dir/classes/parameterSelector/parameterSelector.cpp.o
+[164/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGnssAntenna/parametrizationGnssAntenna.cpp.o
+[165/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGravity/parametrizationGravity.cpp.o
+[166/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationAcceleration/parametrizationAcceleration.cpp.o
+[167/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGravity/parametrizationGravityLinearTransformation.cpp.o
+[168/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGravity/parametrizationGravityEarthquakeOscillation.cpp.o
+[169/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGravity/parametrizationGravityRadialBasis.cpp.o
+[170/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGravity/parametrizationGravityTemporal.cpp.o
+[171/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationGravity/parametrizationGravitySphericalHarmonics.cpp.o
+[172/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporalConstant.cpp.o
+[173/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationSatelliteTracking/parametrizationSatelliteTracking.cpp.o
+[174/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporal.cpp.o
+[175/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporalDoodsonHarmonic.cpp.o
+[176/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporalFourier.cpp.o
+[177/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporalOscillation.cpp.o
+[178/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporalPolynomial.cpp.o
+[179/633] Building CXX object CMakeFiles/groopscore.dir/classes/parametrizationTemporal/parametrizationTemporalSplines.cpp.o
+[180/633] Building CXX object CMakeFiles/groopscore.dir/classes/sphericalHarmonicsFilter/sphericalHarmonicsFilter.cpp.o
+[181/633] Building CXX object CMakeFiles/groopscore.dir/classes/platformSelector/platformSelector.cpp.o
+[182/633] Building CXX object CMakeFiles/groopscore.dir/classes/sphericalHarmonicsNumbering/sphericalHarmonicsNumbering.cpp.o
+[183/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesCentrifugal.cpp.o
+[184/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesAstronomical.cpp.o
+[185/633] Building CXX object CMakeFiles/groopscore.dir/classes/thermosphere/thermosphere.cpp.o
+[186/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tides.cpp.o
+[187/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesEarth.cpp.o
+[188/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesGroup.cpp.o
+[189/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesDoodsonHarmonic.cpp.o
+[190/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesOceanPole.cpp.o
+[191/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesSolidMoon.cpp.o
+[192/633] Building CXX object CMakeFiles/groopscore.dir/classes/tides/tidesPole.cpp.o
+[193/633] Building CXX object CMakeFiles/groopscore.dir/classes/troposphere/troposphereGpt.cpp.o
+[194/633] Building CXX object CMakeFiles/groopscore.dir/classes/timeSeries/timeSeries.cpp.o
+[195/633] Building CXX object CMakeFiles/groopscore.dir/classes/troposphere/troposphere.cpp.o
+[196/633] Building CXX object CMakeFiles/groopscore.dir/classes/troposphere/troposphereViennaMapping.cpp.o
+[197/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationClocks.cpp.o
+[198/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrization.cpp.o
+[199/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationClocksModel.cpp.o
+[200/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationAmbiguities.cpp.o
+[201/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationEarthRotation.cpp.o
+[202/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationIonosphereMap.cpp.o
+[203/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationCodeBiases.cpp.o
+[204/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationIonosphereSTEC.cpp.o
+[205/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationReceiverAntennas.cpp.o
+[206/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationIonosphereVTEC.cpp.o
+[207/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationKinematicPositions.cpp.o
+[208/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationSignalBiases.cpp.o
+[209/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp.o
+[210/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationStaticPositions.cpp.o
+[211/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationTecBiases.cpp.o
+[212/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationTemporalBias.cpp.o
+[213/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationTransmitterAntennas.cpp.o
+[214/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationTransmitterDynamicOrbits.cpp.o
+[215/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssParametrization/gnssParametrizationTroposphere.cpp.o
+[216/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssReceiverGenerator/gnssReceiverGenerator.cpp.o
+[217/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssReceiverGenerator/gnssReceiverGeneratorLowEarthOrbiter.cpp.o
+[218/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssTransmitterGenerator/gnssTransmitterGenerator.cpp.o
+[219/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssReceiverGenerator/gnssReceiverGeneratorStationNetwork.cpp.o
+[220/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssTransmitterGenerator/gnssTransmitterGeneratorGnss.cpp.o
+[221/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnss.cpp.o
+[222/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssDesignMatrix.cpp.o
+[223/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssLambda.cpp.o
+[224/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssNormalEquationInfo.cpp.o
+[225/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssObservation.cpp.o
+[226/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssProcessingStep/gnssProcessingStep.cpp.o
+[227/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrizationEarthRotation.cpp.o
+[228/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrizationDynamicOrbits.cpp.o
+[229/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrization.cpp.o
+[230/633] Building CXX object CMakeFiles/groopscore.dir/gnss/gnssReceiver.cpp.o
+[231/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrizationGravityField.cpp.o
+[232/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrizationTimeBias.cpp.o
+[233/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrizationStaticPositions.cpp.o
+[234/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrParametrization/slrParametrizationTroposphere.cpp.o
+[235/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrSatelliteGenerator/slrSatelliteGenerator.cpp.o
+[236/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrSatelliteGenerator/slrSatelliteGeneratorSatellites.cpp.o
+[237/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrStationGenerator/slrStationGenerator.cpp.o
+[238/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrProcessingStep/slrProcessingStep.cpp.o
+[239/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrStationGenerator/slrStationGeneratorStations.cpp.o
+[240/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrDesignMatrix.cpp.o
+[241/633] Building CXX object CMakeFiles/groopscore.dir/slr/slr.cpp.o
+[242/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrNormalEquationInfo.cpp.o
+[243/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrStation.cpp.o
+[244/633] Building CXX object CMakeFiles/groopscore.dir/slr/slrObservation.cpp.o
+[245/633] Building CXX object CMakeFiles/groopscore.dir/misc/grace/graceKBandGeometry.cpp.o
+[246/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/covariancePod.cpp.o
+[247/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/covarianceSst.cpp.o
+[248/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/integralEquation.cpp.o
+[249/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMisc.cpp.o
+[250/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscPod.cpp.o
+[251/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscPodIntegral.cpp.o
+[252/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscDualSstVariational.cpp.o
+[253/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscPodVariational.cpp.o
+[254/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscSst.cpp.o
+[255/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscSstVariational.cpp.o
+[256/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/observationMiscSstIntegral.cpp.o
+[257/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/variationalEquationFromFile.cpp.o
+[258/633] Building CXX object CMakeFiles/groopscore.dir/misc/observation/variationalEquation.cpp.o
+[259/633] Building CXX object CMakeFiles/groopscore.dir/misc/kalmanProcessing.cpp.o
+[260/633] Building CXX object CMakeFiles/groopscore.dir/misc/miscGriddedData.cpp.o
+[261/633] Building CXX object CMakeFiles/groopscore.dir/misc/normalsShortTimeStaticLongTime.cpp.o
+[262/633] Building CXX object CMakeFiles/groopscore.dir/misc/varianceComponentEstimation.cpp.o
+[263/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotColorbar.cpp.o
+[264/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotAxis.cpp.o
+[265/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotLegend.cpp.o
+[266/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotMapProjection.cpp.o
+[267/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotGraphLayer.cpp.o
+[268/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotMapLayer.cpp.o
+[269/633] Building CXX object CMakeFiles/groopscore.dir/programs/program.cpp.o
+[270/633] Building CXX object CMakeFiles/groopscore.dir/programs/covariance/autoregressiveModel2CovarianceMatrix.cpp.o
+[271/633] Building CXX object CMakeFiles/groopscore.dir/plot/plotMisc.cpp.o
+[272/633] Building CXX object CMakeFiles/groopscore.dir/programs/covariance/covarianceFunction2DigitalFilter.cpp.o
+[273/633] Building CXX object CMakeFiles/groopscore.dir/programs/covariance/covarianceFunction2PowerSpectralDensity.cpp.o
+[274/633] Building CXX object CMakeFiles/groopscore.dir/programs/covariance/covarianceMatrix2Correlation.cpp.o
+[275/633] Building CXX object CMakeFiles/groopscore.dir/programs/covariance/covarianceMatrix2AutoregressiveModel.cpp.o
+[276/633] Building CXX object CMakeFiles/groopscore.dir/programs/covariance/powerSpectralDensity2CovarianceFunction.cpp.o
+[277/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonAdmittanceInterpolation.cpp.o
+[278/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonHarmonics2GriddedAmplitudeAndPhase.cpp.o
+[279/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonArguments2TimeSeries.cpp.o
+[280/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonAdmittanceTimeSeries.cpp.o
+[281/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonHarmonics2PotentialCoefficients.cpp.o
+[282/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonHarmonicsChangePartialTides.cpp.o
+[283/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/doodsonHarmonicsCalculateAdmittance.cpp.o
+[284/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/modelEquilibriumTide.cpp.o
+[285/633] Building CXX object CMakeFiles/groopscore.dir/programs/doodsonHarmonics/potentialCoefficients2DoodsonHarmonics.cpp.o
+[286/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssAntennaDefinition2Skyplot.cpp.o
+[287/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssAntennaDefinition2ParameterVector.cpp.o
+[288/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssAttitudeInfoCreate.cpp.o
+[289/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssAntennaDefinitionCreate.cpp.o
+[290/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssBiasClockAlignment.cpp.o
+[291/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssAntennaNormalsConstraint.cpp.o
+[292/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssEstimateClockShift.cpp.o
+[293/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssGlonassFrequencyNumberUpdate.cpp.o
+[294/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssProcessing.cpp.o
+[295/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssReceiverDefinitionCreate.cpp.o
+[296/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssSignalBias2Matrix.cpp.o
+[297/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssResiduals2AccuracyDefinition.cpp.o
+[298/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssResiduals2TransmitterAccuracyDefinition.cpp.o
+[299/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssResiduals2Skyplot.cpp.o
+[300/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocStateDerivatives.cpp.o
+[301/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/gnssSimulateReceiver.cpp.o
+[302/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocPredictCode.cpp.o
+[303/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocPredictSignals.cpp.o
+[304/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocForceDesign.cpp.o
+[305/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocPredictSlr.cpp.o
+[306/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocEvaluateVariational.cpp.o
+[307/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/orbitPocResampleOrbit.cpp.o
+[308/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/instrumentGnssReceiver2TimeSeries.cpp.o
+[309/633] Building CXX object CMakeFiles/groopscore.dir/programs/gnss/parameterVector2GnssAntennaDefinition.cpp.o
+[310/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/ensembleAveragingScaleModel.cpp.o
+[311/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/graceSstResidualAnalysis.cpp.o
+[312/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/graceAntennaCenterCorrectionArcCovariance.cpp.o
+[313/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/graceOrbit2TransplantTimeOffset.cpp.o
+[314/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/graceSstScaleModel.cpp.o
+[315/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/graceSstSpecialEvents.cpp.o
+[316/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/graceThrusterResponse2Accelerometer.cpp.o
+[317/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/instrumentSatelliteTrackingAntennaCenterCorrection.cpp.o
+[318/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2AbsoluteGravity.cpp.o
+[319/633] Building CXX object CMakeFiles/groopscore.dir/programs/grace/instrumentStarCameraAngularAccelerometerFusion.cpp.o
+[320/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2Deflections.cpp.o
+[321/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2AreaMeanTimeSeries.cpp.o
+[322/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2DegreeAmplitudes.cpp.o
+[323/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2DegreeAmplitudesPlotGrid.cpp.o
+[324/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2DisplacementTimeSeries.cpp.o
+[325/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2EmpiricalCovariance.cpp.o
+[326/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2Gradients.cpp.o
+[327/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2GridCovarianceMatrix.cpp.o
+[328/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2GravityVector.cpp.o
+[329/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2GriddedData.cpp.o
+[330/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2PotentialCoefficients.cpp.o
+[331/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2PotentialCoefficientsTimeSeries.cpp.o
+[332/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2GriddedDataTimeSeries.cpp.o
+[333/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2SphericalHarmonicsVector.cpp.o
+[334/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2TimeSplines.cpp.o
+[335/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfield2TrendPotentialCoefficients.cpp.o
+[336/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfieldCovariancesPropagation2GriddedData.cpp.o
+[337/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfieldReplacePotentialCoefficients.cpp.o
+[338/633] Building CXX object CMakeFiles/groopscore.dir/programs/gravityfield/gravityfieldVariancesPropagation2GriddedData.cpp.o
+[339/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2AreaMeanTimeSeries.cpp.o
+[340/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2GriddedDataStatistics.cpp.o
+[341/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2GriddedDataTimeSeries.cpp.o
+[342/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2Matrix.cpp.o
+[343/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2SphericalDistance.cpp.o
+[344/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2PotentialCoefficients.cpp.o
+[345/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedData2TimeSeries.cpp.o
+[346/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataConcatenate.cpp.o
+[347/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataCalculate.cpp.o
+[348/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataCreate.cpp.o
+[349/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataInterpolate.cpp.o
+[350/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataTimeSeries2GriddedData.cpp.o
+[351/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataReduceSampling.cpp.o
+[352/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedDataTimeSeries2PotentialCoefficients.cpp.o
+[353/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedTopography2AtmospherePotentialCoefficients.cpp.o
+[354/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedTopographyEllipsoidal2Radial.cpp.o
+[355/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/griddedTopography2PotentialCoefficients.cpp.o
+[356/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/matrix2GriddedData.cpp.o
+[357/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/matrixRectangular2GriddedData.cpp.o
+[358/633] Building CXX object CMakeFiles/groopscore.dir/programs/griddedData/timeSeries2GriddedData.cpp.o
+[359/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2AllanVariance.cpp.o
+[360/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2CrossCorrelationFunction.cpp.o
+[361/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2CovarianceFunctionVCE.cpp.o
+[362/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2Histogram.cpp.o
+[363/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2PowerSpectralDensity.cpp.o
+[364/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2RmsPlotGrid.cpp.o
+[365/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2Scaleogram.cpp.o
+[366/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2SpectralCoherence.cpp.o
+[367/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrument2Spectrogram.cpp.o
+[368/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentAccelerometerApplyEstimatedParameters.cpp.o
+[369/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentAccelerometer2ThermosphericDensity.cpp.o
+[370/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentAccelerometerEstimateBiasScale.cpp.o
+[371/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentApplyTimeOffset.cpp.o
+[372/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentArcCalculate.cpp.o
+[373/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentAccelerometerEstimateParameters.cpp.o
+[374/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentArcCrossStatistics.cpp.o
+[375/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentArcStatistics.cpp.o
+[376/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentConcatenate.cpp.o
+[377/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentCovarianceCheck.cpp.o
+[378/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentEarthRotation.cpp.o
+[379/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentDetrend.cpp.o
+[380/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentEstimateEmpiricalCovariance.cpp.o
+[381/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentEstimateHelmertTransformation.cpp.o
+[382/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentFilter.cpp.o
+[383/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentInsertNAN.cpp.o
+[384/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentMultiplyAdd.cpp.o
+[385/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentReduceSampling.cpp.o
+[386/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentRemoveEpochsByCriteria.cpp.o
+[387/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentRemoveEpochsByTimes.cpp.o
+[388/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentRemoveEpochsThruster.cpp.o
+[389/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentResample.cpp.o
+[390/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentSetType.cpp.o
+[391/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentRotate.cpp.o
+[392/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentStarCamera2AccAngularRate.cpp.o
+[393/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentStarCamera2RollPitchYaw.cpp.o
+[394/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentStarCamera2RotaryMatrix.cpp.o
+[395/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentStarCameraMultiply.cpp.o
+[396/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentStatisticsTimeSeries.cpp.o
+[397/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentWaveletDecomposition.cpp.o
+[398/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/instrumentSynchronize.cpp.o
+[399/633] Building CXX object CMakeFiles/groopscore.dir/programs/instruments/localLevelFrame2StarCamera.cpp.o
+[400/633] Building CXX object CMakeFiles/groopscore.dir/programs/kalmanFilter/kalmanFilter.cpp.o
+[401/633] Building CXX object CMakeFiles/groopscore.dir/programs/kalmanFilter/kalmanBuildNormals.cpp.o
+[402/633] Building CXX object CMakeFiles/groopscore.dir/programs/kalmanFilter/kalmanSmoother.cpp.o
+[403/633] Building CXX object CMakeFiles/groopscore.dir/programs/kalmanFilter/kalmanSmootherLeastSquares.cpp.o
+[404/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/digitalFilter2ImpulseResponse.cpp.o
+[405/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/digitalFilter2FrequencyResponse.cpp.o
+[406/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/earthOrientationParameterTimeSeries.cpp.o
+[407/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/earthRotaryVectorTimeSeries.cpp.o
+[408/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/eclipseFactor2GriddedData.cpp.o
+[409/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/filterMatrixWindowedPotentialCoefficients.cpp.o
+[410/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/grs2PotentialCoefficients.cpp.o
+[411/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/functionsCalculate.cpp.o
+[412/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/kaula2SigmaPotentialCoefficients.cpp.o
+[413/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/kernel2SigmaPotentialCoefficients.cpp.o
+[414/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/kernelEvaluate.cpp.o
+[415/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/kernel2Coefficients.cpp.o
+[416/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/magneticField2GriddedData.cpp.o
+[417/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/matrixCalculate.cpp.o
+[418/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/observationEquations2Files.cpp.o
+[419/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/platformCreate.cpp.o
+[420/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/potentialCoefficients2BlockMeanTimeSplines.cpp.o
+[421/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/potentialCoefficients2DegreeAmplitudes.cpp.o
+[422/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/radialBasisSplines2KernelCoefficients.cpp.o
+[423/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/temporalRepresentation2TimeSeries.cpp.o
+[424/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/satelliteModelCreate.cpp.o
+[425/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/synthesisSphericalHarmonicsMatrix.cpp.o
+[426/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/thermosphericState2GriddedData.cpp.o
+[427/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/timeSeries2PotentialCoefficients.cpp.o
+[428/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/timeSeriesCreate.cpp.o
+[429/633] Building CXX object CMakeFiles/groopscore.dir/programs/misc/variational2OrbitAndStarCamera.cpp.o
+[430/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsBuild.cpp.o
+[431/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsAccumulate.cpp.o
+[432/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsCreate.cpp.o
+[433/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsBuildShortTimeStaticLongTime.cpp.o
+[434/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsEliminate.cpp.o
+[435/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsMultiplyAdd.cpp.o
+[436/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsRegularizationBorders.cpp.o
+[437/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsRegularizationSphericalHarmonics.cpp.o
+[438/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsReorder.cpp.o
+[439/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsScale.cpp.o
+[440/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsSolverVCE.cpp.o
+[441/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/parameterNamesCreate.cpp.o
+[442/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsReorderAndAccumulate.cpp.o
+[443/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/parameterSelection2IndexVector.cpp.o
+[444/633] Building CXX object CMakeFiles/groopscore.dir/programs/normals/normalsTemporalCombination.cpp.o
+[445/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2ArgumentOfLatitude.cpp.o
+[446/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2EarthFixedOrbit.cpp.o
+[447/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2BetaPrimeAngle.cpp.o
+[448/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2EclipseFactor.cpp.o
+[449/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2Groundtracks.cpp.o
+[450/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2Kepler.cpp.o
+[451/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2MagneticField.cpp.o
+[452/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbit2ThermosphericState.cpp.o
+[453/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/planetOrbit.cpp.o
+[454/633] Building CXX object CMakeFiles/groopscore.dir/programs/orbit/orbitAddVelocityAndAcceleration.cpp.o
+[455/633] Building CXX object CMakeFiles/groopscore.dir/programs/plot/plotDegreeAmplitudes.cpp.o
+[456/633] Building CXX object CMakeFiles/groopscore.dir/programs/plot/plotMap.cpp.o
+[457/633] Building CXX object CMakeFiles/groopscore.dir/programs/plot/plotGraph.cpp.o
+[458/633] Building CXX object CMakeFiles/groopscore.dir/programs/plot/plotMatrix.cpp.o
+[459/633] Building CXX object CMakeFiles/groopscore.dir/programs/plot/plotSphericalHarmonicsTriangle.cpp.o
+[460/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingGradiometer.cpp.o
+[461/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingPod.cpp.o
+[462/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingDualSst.cpp.o
+[463/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingSst.cpp.o
+[464/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingVariationalEquationOrbitFit.cpp.o
+[465/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseAccelerometer.cpp.o
+[466/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingVariationalEquationSstFit.cpp.o
+[467/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseGriddedData.cpp.o
+[468/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseNormalsSolution.cpp.o
+[469/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseInstrument.cpp.o
+[470/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseOrbit.cpp.o
+[471/633] Building CXX object CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingVariationalEquation.cpp.o
+In file included from /home/emper/orbit-nuisance-warmstarts/native-source-06/source/programs/preprocessing/preprocessingVariationalEquation.cpp:506:
+/home/emper/orbit-nuisance-warmstarts/native-source-06/source/misc/orbitPoc/stagedVariationalBody.h: In member function 'VariationalEquationArc PreprocessingVariationalEquation::computeArc(UInt)':
+/home/emper/orbit-nuisance-warmstarts/native-source-06/source/misc/orbitPoc/stagedVariationalBody.h:97:36: warning: narrowing conversion of '((i + k) - evaluationPoint)' from 'UInt' {aka 'long unsigned int'} to 'unsigned int' [-Wnarrowing]
+   97 |       mainWeights[i].push_back({i+k-evaluationPoint,deltaT*coeff_g.at(coefficientIndex)(k),
+      |                                 ~~~^~~~~~~~~~~~~~~~
+[472/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseSatelliteTracking.cpp.o
+[473/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseStarCamera.cpp.o
+[474/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/noiseTimeSeries.cpp.o
+[475/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateAccelerometerCoMOffset.cpp.o
+[476/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateKeplerOrbit.cpp.o
+[477/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateAccelerometer.cpp.o
+[478/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateGradiometer.cpp.o
+[479/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateOrbit.cpp.o
+[480/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateSatelliteTracking.cpp.o
+[481/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateStarCamera.cpp.o
+[482/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateStarCameraGnss.cpp.o
+[483/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateStarCameraGrace.cpp.o
+[484/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateStarCameraSentinel1.cpp.o
+[485/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/simulateStarCameraTerrasar.cpp.o
+[486/633] Building CXX object CMakeFiles/groopscore.dir/programs/slr/slrProcessing.cpp.o
+[487/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/fileCreateDirectories.cpp.o
+[488/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/fileMove.cpp.o
+[489/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/fileConvert.cpp.o
+[490/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/fileRemove.cpp.o
+[491/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/fileTextCreate.cpp.o
+[492/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/groupPrograms.cpp.o
+[493/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/ifPrograms.cpp.o
+[494/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/loopPrograms.cpp.o
+[495/633] Building CXX object CMakeFiles/groopscore.dir/programs/system/runCommand.cpp.o
+[496/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/doodsonHarmonics/doodsonAdmittance2SupplementaryFiles.cpp.o
+[497/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/doodsonHarmonics/doodsonHarmonics2IersPotential.cpp.o
+[498/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/doodsonHarmonics/doodsonHarmonics2IersWaterHeight.cpp.o
+[499/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/doodsonHarmonics/graceAod2DoodsonHarmonics.cpp.o
+[500/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/doodsonHarmonics/iersWaterHeight2DoodsonHarmonics.cpp.o
+[501/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/doodsonHarmonics/iersPotential2DoodsonHarmonics.cpp.o
+[502/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/eop/iersC04IAU2000EarthOrientationParameter.cpp.o
+[503/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/eop/iersHighFrequentEop2DoodsonEop.cpp.o
+[504/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/eop/iersRapidIAU2000EarthOrientationParameter.cpp.o
+[505/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/eop/igs2EarthOrientationParameter.cpp.o
+[506/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssClockRinex2InstrumentClock.cpp.o
+[507/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssAntex2AntennaDefinition.cpp.o
+[508/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssClock2ClockRinex.cpp.o
+[509/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssEop2IgsErp.cpp.o
+[510/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssGriddedDataTimeSeries2Ionex.cpp.o
+[511/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssIonex2GriddedDataTimeSeries.cpp.o
+[512/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssOrbex2StarCamera.cpp.o
+[513/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssNormals2Sinex.cpp.o
+[514/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssReceiver2RinexObservation.cpp.o
+[515/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssRinexNavigation2OrbitClock.cpp.o
+[516/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssSignalBias2SinexBias.cpp.o
+[517/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssSinexBias2SignalBias.cpp.o
+[518/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssStationLog2Platform.cpp.o
+[519/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/sinex2StationDiscontinuities.cpp.o
+[520/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/gnssTroposphere2TropoSinex.cpp.o
+[521/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/rinexObservation2GnssReceiver.cpp.o
+[522/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/sinexMetadata2GlonassFrequencyNumber.cpp.o
+[523/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/sinexMetadata2SatelliteModel.cpp.o
+[524/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/gnss/sinex2StationPositions.cpp.o
+[525/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/goce/goceXml2Gradiometer.cpp.o
+[526/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/goce/goceXml2Orbit.cpp.o
+[527/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/goce/goceXml2StarCamera.cpp.o
+[528/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/fileGrace.cpp.o
+[529/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/goce/goceXmlEggNom1b.cpp.o
+[530/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/grace2PotentialCoefficients.cpp.o
+[531/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/accelerometer2GraceL1b.cpp.o
+[532/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceAccelerometer2L1bAscii.cpp.o
+[533/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1a2Accelerometer.cpp.o
+[534/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceCoefficients2BlockMeanTimeSplines.cpp.o
+[535/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1a2SatelliteTracking.cpp.o
+[536/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1a2StarCamera.cpp.o
+[537/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1a2Temperature.cpp.o
+[538/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Accelerometer.cpp.o
+[539/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2AccHousekeeping.cpp.o
+[540/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2ClockOffset.cpp.o
+[541/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2GnssReceiver.cpp.o
+[542/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Magnetometer.cpp.o
+[543/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Mass.cpp.o
+[544/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Orbit.cpp.o
+[545/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2SatelliteTracking.cpp.o
+[546/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2StarCameraCovariance.cpp.o
+[547/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2StarCamera.cpp.o
+[548/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2SteeringMirror.cpp.o
+[549/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Thruster.cpp.o
+[550/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2TimeOffset.cpp.o
+[551/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Vector.cpp.o
+[552/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceL1b2Uso.cpp.o
+[553/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/graceSequenceOfEvents.cpp.o
+[554/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/orbit2GraceL1b.cpp.o
+[555/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/satelliteTracking2GraceL1b.cpp.o
+[556/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grace/starCamera2GraceL1b.cpp.o
+[557/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grail/grailCdr2Orbit.cpp.o
+[558/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grid/griddedData2NetCdf.cpp.o
+[559/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grail/grailCdr2SatelliteTracking.cpp.o
+[560/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grail/grailCdr2StarCamera.cpp.o
+[561/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grid/netCdf2GriddedData.cpp.o
+[562/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grid/griddedDataTimeSeries2NetCdf.cpp.o
+[563/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grid/netCdf2GriddedDataTimeSeries.cpp.o
+[564/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grid/netCdfInfo.cpp.o
+[565/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/grid/oceanTidesDTU2GriddedData.cpp.o
+[566/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/champ2AccStar.cpp.o
+[567/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/champ2Orbit.cpp.o
+[568/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/cosmic2OrbitStar.cpp.o
+[569/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/jason2Starcamera.cpp.o
+[570/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/sacc2Orbit.cpp.o
+[571/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/sentinel2Orbit.cpp.o
+[572/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/sentinel2StarCamera.cpp.o
+[573/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/swarm2Starcamera.cpp.o
+[574/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/terraSarTandem2Orbit.cpp.o
+[575/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/satellites/terraSarTandem2StarCamera.cpp.o
+[576/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/cpf2Orbit.cpp.o
+[577/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/crd2NormalPoints.cpp.o
+[578/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/cstg2NormalPoints.cpp.o
+[579/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/merit2FullRate.cpp.o
+[580/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/merit2NormalPoints.cpp.o
+[581/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/orbit2Cpf.cpp.o
+[582/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/sinexEccentricties2SlrPlatform.cpp.o
+[583/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/berneseKinematic2Orbit.cpp.o
+[584/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/slrComModel2RangeBiasStationSatellite.cpp.o
+[585/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/slr/slrSinexDataHandling2Files.cpp.o
+[586/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/graceAod2TimeSplines.cpp.o
+[587/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/groopsAscii2Orbit.cpp.o
+[588/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/hw2TideGeneratingPotential.cpp.o
+[589/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/iers2OceanPoleTide.cpp.o
+[590/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/icgem2PotentialCoefficients.cpp.o
+[591/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/normalsSphericalHarmonics2Sinex.cpp.o
+[592/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/jplAscii2Ephemerides.cpp.o
+[593/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/orbit2GroopsAscii.cpp.o
+[594/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/psmslOceanBottomPressure2TimeSeries.cpp.o
+[595/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/orbit2Sp3Format.cpp.o
+[596/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/potentialCoefficients2Icgem.cpp.o
+[597/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/sinex2Normals.cpp.o
+[598/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/starCamera2Orbex.cpp.o
+[599/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/sp3Format2Orbit.cpp.o
+[600/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/tle2Orbit.cpp.o
+[601/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/viennaMappingFunctionGrid2File.cpp.o
+[602/633] Building CXX object CMakeFiles/groopscore.dir/programs/conversion/viennaMappingFunctionStation2File.cpp.o
+[603/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/gnssPrn2SvnBlockVariables.cpp.o
+[604/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/gnssAttitude2Orbex.cpp.o
+[605/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/netCdf2GridRectangular.cpp.o
+[606/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/gnssStationInfoCreate.cpp.o
+[607/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/gridRectangular2NetCdf.cpp.o
+[608/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/sinex2StationPostSeismicDeformation.cpp.o
+[609/633] Building Fortran object CMakeFiles/groopscore.dir/external/lapack/blasWrapper.f.o
+[610/633] Building Fortran object CMakeFiles/groopscore.dir/external/lapack/lapackWrapper.f.o
+[611/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/pmsdnut.f.o
+[612/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/ray.f.o
+[613/633] Building CXX object CMakeFiles/groopscore.dir/groops.cpp.o
+[614/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/CNMTX.F.o
+[615/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/FUNDARG.f.o
+[616/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/ORTHO_EOP.F.o
+[617/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/PMSDNUT2.F.o
+[618/633] Building Fortran object CMakeFiles/groopscore.dir/external/iers/UTLIBR.F.o
+[619/633] Building Fortran object CMakeFiles/groopscore.dir/external/igrf/igrf14.f.o
+[620/633] Building Fortran object CMakeFiles/groopscore.dir/external/jb2008/JB2008.f.o
+[621/633] Building CXX object CMakeFiles/groopscore.dir/programs/deprecated/sinex2StationPosition.cpp.o
+[622/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/msis_constants.F90.o
+[623/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/alt2gph.F90.o
+[624/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/msis_init.F90.o
+[625/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/msis_gfn.F90.o
+[626/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/msis_tfn.F90.o
+[627/633] Building Fortran object CMakeFiles/groopscore.dir/external/hwm/hwm14.f90.o
+[628/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/msis_dfn.F90.o
+[629/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/msis_calc.F90.o
+/home/emper/orbit-nuisance-warmstarts/native-source-06/source/external/nrlmsis2/msis_calc.F90:177:26:
+
+  177 |         call bspline(zeta,nodesTN,nd+2,kmax,etaTN,Sz,iz)
+      |                          1
+Warning: Actual argument contains too few elements for dummy argument 'nodes' (30/31) at (1)
+[630/633] Building Fortran object CMakeFiles/groopscore.dir/external/nrlmsis2/nrlmsis2Wrapper.F90.o
+[631/633] Building CXX object CMakeFiles/groops.dir/parallel/parallelSingle.cpp.o
+[632/633] Building CXX object CMakeFiles/groopscore.dir/programs/simulation/orbitPocQrSolve.cpp.o
+[633/633] Linking CXX executable groops
+Gravity Recovery Object Oriented Programming System (GROOPS)
+Usage: /home/emper/orbit-nuisance-warmstarts/build-06/groops [--log <logfile.txt>] [--settings <groopsDefaults.xml>] [--silent] [--global name=value] <configfile.xml>
+       /home/emper/orbit-nuisance-warmstarts/build-06/groops --write-settings <groopsDefaults.xml>
+       /home/emper/orbit-nuisance-warmstarts/build-06/groops --xsd <schemafile.xsd>
+       /home/emper/orbit-nuisance-warmstarts/build-06/groops --doc <documentation/>
+
+ -h, --help           this text
+ -l, --log            append messages to logfile. If a directory is given, one time-stamped logfile will be created inside for each groops script.
+ -g, --global         pass a global variable to config files as name=value pair
+ -c, --settings       read constants from file (default search: groopsDefaults.xml)
+ -s, --silent         runs silently
+ -d, --doc            generate documentation files (latex/html/...)
+ -x, --xsd            write xsd-schema of xml-configfile options
+ -C, --write-settings write the users current settings to file
+
+GitHub repository: https://github.com/groops-devs/groops
+(Compiled: Oct 20 2026 06:31:53)

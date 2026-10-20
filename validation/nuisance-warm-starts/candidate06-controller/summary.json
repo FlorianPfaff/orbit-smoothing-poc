@@ -1,0 +1,801 @@
+{
+  "attempts": [
+    {
+      "cases": [
+        {
+          "failure_message": "TypeError: Object of type bool_ is not JSON serializable",
+          "name": "test_optimizer_rejection_and_all_cold_checks_use_actual_backend_boundaries",
+          "outcome": "failed"
+        },
+        {
+          "failure_message": "TypeError: Object of type bool_ is not JSON serializable",
+          "name": "test_accepted_floor_limited_trial_revokes_donor_before_next_real_trial",
+          "outcome": "failed"
+        },
+        {
+          "failure_message": "TypeError: Object of type bool_ is not JSON serializable",
+          "name": "test_default_off_suppresses_poisoned_inherited_seeds_through_complete_optimizer",
+          "outcome": "failed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[fresh]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[damped]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[strict]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": "TypeError: Object of type bool_ is not JSON serializable",
+          "name": "test_actual_deficient_factor_rejects_trial_despite_full_rank_native_claim",
+          "outcome": "failed"
+        }
+      ],
+      "errors": 0,
+      "failures": 4,
+      "mock_call_boundary_records": 118,
+      "name": "author-tests01",
+      "passed": 3,
+      "skipped": 0,
+      "tests": 7,
+      "traces": [
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 23,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_accepted_floor_limited_tr0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003"
+          ],
+          "raised": "TypeError: Object of type bool_ is not JSON serializable",
+          "scenario": {
+            "corrupt": null,
+            "enabled": true,
+            "limited_first": true,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 23,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_actual_deficient_factor_r0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003"
+          ],
+          "raised": "TypeError: Object of type bool_ is not JSON serializable",
+          "scenario": {
+            "corrupt": "actual_rank",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_bad_native_export_cannot_0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export eligibility differs from native final status",
+          "scenario": {
+            "corrupt": "fresh",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_bad_native_export_cannot_1.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export is not a fresh undamped full-rank factor",
+          "scenario": {
+            "corrupt": "damped",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_bad_native_export_cannot_2.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export eligibility differs from native final status",
+          "scenario": {
+            "corrupt": "strict",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-001",
+            "refine-floor",
+            "trial-002"
+          ],
+          "mock_call_boundary_records": 19,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_default_off_suppresses_po0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "repeat-floor",
+            "refine-floor",
+            "trial-002"
+          ],
+          "raised": "TypeError: Object of type bool_ is not JSON serializable",
+          "scenario": {
+            "corrupt": null,
+            "enabled": false,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 23,
+          "optimizer_status": null,
+          "path": "attempts/author-tests01/traces/test_optimizer_rejection_and_a0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003"
+          ],
+          "raised": "TypeError: Object of type bool_ is not JSON serializable",
+          "scenario": {
+            "corrupt": null,
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": true
+          }
+        }
+      ]
+    },
+    {
+      "cases": [
+        {
+          "failure_message": null,
+          "name": "test_optimizer_rejection_and_all_cold_checks_use_actual_backend_boundaries",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_accepted_floor_limited_trial_revokes_donor_before_next_real_trial",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_default_off_suppresses_poisoned_inherited_seeds_through_complete_optimizer",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[fresh]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[damped]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[strict]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_actual_deficient_factor_rejects_trial_despite_full_rank_native_claim",
+          "outcome": "passed"
+        }
+      ],
+      "errors": 0,
+      "failures": 0,
+      "mock_call_boundary_records": 173,
+      "name": "author-tests02",
+      "passed": 7,
+      "skipped": 0,
+      "tests": 7,
+      "traces": [
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 30,
+          "optimizer_status": "complete",
+          "path": "attempts/author-tests02/traces/test_accepted_floor_limited_tr0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": null,
+            "enabled": true,
+            "limited_first": true,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-002",
+            "refine-floor",
+            "trial-003",
+            "refine-floor",
+            "trial-004"
+          ],
+          "mock_call_boundary_records": 39,
+          "optimizer_status": "complete",
+          "path": "attempts/author-tests02/traces/test_actual_deficient_factor_r0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "repeat-floor",
+            "refine-floor",
+            "trial-004",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": "actual_rank",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/author-tests02/traces/test_bad_native_export_cannot_0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export eligibility differs from native final status",
+          "scenario": {
+            "corrupt": "fresh",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/author-tests02/traces/test_bad_native_export_cannot_1.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export is not a fresh undamped full-rank factor",
+          "scenario": {
+            "corrupt": "damped",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/author-tests02/traces/test_bad_native_export_cannot_2.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export eligibility differs from native final status",
+          "scenario": {
+            "corrupt": "strict",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-001",
+            "refine-floor",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 35,
+          "optimizer_status": "complete",
+          "path": "attempts/author-tests02/traces/test_default_off_suppresses_po0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "repeat-floor",
+            "refine-floor",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": null,
+            "enabled": false,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-002",
+            "refine-floor",
+            "trial-003",
+            "refine-floor",
+            "trial-004"
+          ],
+          "mock_call_boundary_records": 39,
+          "optimizer_status": "complete",
+          "path": "attempts/author-tests02/traces/test_optimizer_rejection_and_a0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "repeat-floor",
+            "refine-floor",
+            "trial-004",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": null,
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": true
+          }
+        }
+      ]
+    },
+    {
+      "cases": [
+        {
+          "failure_message": null,
+          "name": "test_optimizer_rejection_and_all_cold_checks_use_actual_backend_boundaries",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_accepted_floor_limited_trial_revokes_donor_before_next_real_trial",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_default_off_suppresses_poisoned_inherited_seeds_through_complete_optimizer",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[fresh]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[damped]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_bad_native_export_cannot_be_promoted_in_composed_optimizer[strict]",
+          "outcome": "passed"
+        },
+        {
+          "failure_message": null,
+          "name": "test_actual_deficient_factor_rejects_trial_despite_full_rank_native_claim",
+          "outcome": "passed"
+        }
+      ],
+      "errors": 0,
+      "failures": 0,
+      "mock_call_boundary_records": 173,
+      "name": "independent-tests01",
+      "passed": 7,
+      "skipped": 0,
+      "tests": 7,
+      "traces": [
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 30,
+          "optimizer_status": "complete",
+          "path": "attempts/independent-tests01/traces/test_accepted_floor_limited_tr0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": null,
+            "enabled": true,
+            "limited_first": true,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-002",
+            "refine-floor",
+            "trial-003",
+            "refine-floor",
+            "trial-004"
+          ],
+          "mock_call_boundary_records": 39,
+          "optimizer_status": "complete",
+          "path": "attempts/independent-tests01/traces/test_actual_deficient_factor_r0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "repeat-floor",
+            "refine-floor",
+            "trial-004",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": "actual_rank",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/independent-tests01/traces/test_bad_native_export_cannot_0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export eligibility differs from native final status",
+          "scenario": {
+            "corrupt": "fresh",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/independent-tests01/traces/test_bad_native_export_cannot_1.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export is not a fresh undamped full-rank factor",
+          "scenario": {
+            "corrupt": "damped",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement"
+          ],
+          "mock_call_boundary_records": 10,
+          "optimizer_status": null,
+          "path": "attempts/independent-tests01/traces/test_bad_native_export_cannot_2.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001"
+          ],
+          "raised": "ValueError: Nuisance warm start: export eligibility differs from native final status",
+          "scenario": {
+            "corrupt": "strict",
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": false,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-001",
+            "refine-floor",
+            "trial-002",
+            "refine-floor",
+            "trial-003"
+          ],
+          "mock_call_boundary_records": 35,
+          "optimizer_status": "complete",
+          "path": "attempts/independent-tests01/traces/test_default_off_suppresses_po0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "repeat-floor",
+            "refine-floor",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": null,
+            "enabled": false,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": false
+          }
+        },
+        {
+          "acceptance_labels": [
+            "initial",
+            "closure-refinement",
+            "trial-002",
+            "refine-floor",
+            "trial-003",
+            "refine-floor",
+            "trial-004"
+          ],
+          "mock_call_boundary_records": 39,
+          "optimizer_status": "complete",
+          "path": "attempts/independent-tests01/traces/test_optimizer_rejection_and_a0.json",
+          "profile_labels": [
+            "initial",
+            "repeat",
+            "closure-refinement",
+            "trial-001",
+            "trial-002",
+            "repeat-floor",
+            "refine-floor",
+            "trial-003",
+            "repeat-floor",
+            "refine-floor",
+            "trial-004",
+            "confirmation",
+            "final-covariance"
+          ],
+          "raised": null,
+          "scenario": {
+            "corrupt": null,
+            "enabled": true,
+            "limited_first": false,
+            "measure_floor": true,
+            "reject_first": true
+          }
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-10-20T04:58:03.662772+00:00",
+  "final_author_tests": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 7,
+    "skipped": 0,
+    "tests": 7
+  },
+  "fullfit_admission": false,
+  "independent_review": {
+    "mock_call_boundary_records": 173,
+    "passed": 7,
+    "receipt": "review/independent-review.json",
+    "reported_schema": "independent-composed-python-warm-lifecycle-review-v1",
+    "reported_status": "accepted_composed_python_unit_evidence_only",
+    "source_pin": {
+      "bytes": 25305,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/lifecycle-composition06/independent-review01/independent-review.json",
+      "sha256": "a3bbb442599586ab8c45b3ad8d3323207da1b9e07835844c93b1f6799108e50e"
+    },
+    "status": "accepted_composed_python_unit_evidence_only",
+    "tests": 7
+  },
+  "initial_author_tests": {
+    "errors": 0,
+    "failures": 4,
+    "passed": 3,
+    "skipped": 0,
+    "tests": 7
+  },
+  "native_execution": false,
+  "omitted": "Synthetic factor/trajectory/seed/covariance files and pytest temporary trees; exact traces retain their provenance references.",
+  "physical_closure_mocked": true,
+  "python_source_files_bound": 52,
+  "release_authority": false,
+  "repair": "Fixture trace JSON serialization only: numpy.generic is encoded via item(). Production code, thresholds and controls were not changed.",
+  "schema": "thin-composed-warm-lifecycle-unit-publication-v1",
+  "scope": "Mock composed Python unit evidence; not a native fit or orbit-dynamics validation",
+  "speedup_claim": null,
+  "wholefit_admission": false
+}
