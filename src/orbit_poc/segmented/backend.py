@@ -16,6 +16,7 @@ from orbit_poc.comparison import backend as native
 from orbit_poc.comparison.initialization import _field,_standalone
 from orbit_poc.comparison.protocol import artifact_record,file_hash,write_json
 from orbit_poc.numerics.backend import NativeModel
+from orbit_poc.numerics.nuisance_warm_start import without_inherited_warm_environment
 from orbit_poc.numerics.optimizer import DenseLinearSystem,NumericalFailure,certify_rank,minimize,proposal,selected_covariance
 from .graph import build_graph
 from .solver import SegmentedLinearSystem
@@ -186,9 +187,10 @@ class V4Model(NativeModel):
         path = native._save_xml(tree,folder/"export.xml")
         remaining = self.controls.wall_time_seconds-(time.monotonic()-self.start)
         if remaining <= 0:raise NumericalFailure("timeout","Per-fit deadline reached before selected dense diagnostics")
-        execution = native.run_native(pin["path"],path,folder,"export",timeout=remaining,
-            environment_overrides={"ORBIT_POC_NUMERICS_QR_PREFIX":str(folder/"precise"),
-                                   "ORBIT_POC_NUMERICS_SOLVER":"scaled_qr_v1"})
+        with without_inherited_warm_environment():
+            execution = native.run_native(pin["path"],path,folder,"export",timeout=remaining,
+                environment_overrides={"ORBIT_POC_NUMERICS_QR_PREFIX":str(folder/"precise"),
+                                       "ORBIT_POC_NUMERICS_SOLVER":"scaled_qr_v1"})
         execution["diagnostic_only_native_sha256"] = pin["sha256"]
         execution["scope"] = "Read-only native operator export; no estimation, propagation or modification of archived dense result"
         self.executions.append(execution)

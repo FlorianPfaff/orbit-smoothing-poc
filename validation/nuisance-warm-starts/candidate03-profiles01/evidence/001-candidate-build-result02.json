@@ -1,0 +1,76 @@
+{
+  "boot_unchanged": true,
+  "build_plan": {
+    "bytes": 163254,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-plan02.json",
+    "sha256": "84ff260b3511d9e9a358d39554bcde865d7270eec09d14a4d6d3f1a1b22131ca"
+  },
+  "elapsed_monotonic_seconds": 429.3363488440009,
+  "execution": {
+    "argv": [
+      "/usr/bin/taskset",
+      "-c",
+      "0",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-s",
+      "-B",
+      "/home/emper/orbit-nuisance-warmstarts/source/scripts/build_groops.py",
+      "--source-dir",
+      "/home/emper/orbit-nuisance-warmstarts/native-source-02",
+      "--build-dir",
+      "/home/emper/orbit-nuisance-warmstarts/build-02",
+      "--prefix",
+      "/home/emper/orbit-nuisance-warmstarts/toolchain-01",
+      "--jobs",
+      "1",
+      "--numerics",
+      "--segmented",
+      "--wide-tangent-candidate",
+      "--nuisance-performance",
+      "--nuisance-warm-starts",
+      "--cmake-executable",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/lib/python3.11/site-packages/cmake/data/bin/cmake"
+    ],
+    "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    },
+    "elapsed_seconds": 427.9454937479968,
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "owned_process_group_cleaned": true,
+    "peak_process_tree_rss_bytes": 434622464,
+    "plan_sha256": "d925546b1ec07906da38f2c85a5668a3ad43f0a69c9a888b9a850e4970c607e8",
+    "returncode": 1,
+    "schema": "orbit-poc-segmented-supervision-v1",
+    "signals_received": [],
+    "status": "failed",
+    "supervisor": {
+      "parent": 41018,
+      "pid": 41029,
+      "start_ticks": 5097186,
+      "state": "R"
+    },
+    "tracked_owned_processes": [
+      {
+        "parent": 41029,
+        "pid": 41030,
+        "start_ticks": 5097245,
+        "state": "Z"
+      }
+    ],
+    "worker": {
+      "parent": 41029,
+      "pid": 41030,
+      "start_ticks": 5097245,
+      "state": "R"
+    }
+  },
+  "finished_at": "2026-10-20T02:38:40.298929+00:00",
+  "inputs_and_originals_unchanged": true,
+  "schema": "orbit-poc-warm-candidate-build-result-v1",
+  "started_at": "2026-10-20T02:31:30.962000+00:00"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "orbit-poc-native-vector-api-repair-v1",
+  "created_utc": "2026-10-20T02:43:50.696367+00:00",
+  "scope": "Syntax-only actual GROOPS Matrix/Vector API; no linking or orbit fit",
+  "fixture_sha256": "c60583c1cde329dd3f596abfb4ecc1311f9bde2dbf4b3602bc0e36c3b41101d7",
+  "native_matrix_header_sha256": "a8d2b5b5afa7c2750edd42d149ea6e6b17bfe7f770c7a8905b820c55f7c2c19d",
+  "checks": [
+    {
+      "name": "preserved02",
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-I",
+        "/home/emper/orbit-nuisance-warmstarts/native-source-02/source/misc/orbitPoc",
+        "-I",
+        "/home/emper/orbit-nuisance-warmstarts/native-source-02/source",
+        "/home/emper/orbit-nuisance-warmstarts/source/tests/nuisance_warm_native_matrix_fixture.cpp"
+      ],
+      "returncode": 1,
+      "header_sha256": "357fc33d3205d2defaa90bb420d02eb05308a1e1b10cdb97186edf02202f32b5"
+    },
+    {
+      "name": "repaired03",
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-I",
+        "/home/emper/orbit-nuisance-warmstarts/source/groops/extension",
+        "-I",
+        "/home/emper/orbit-nuisance-warmstarts/native-source-02/source",
+        "/home/emper/orbit-nuisance-warmstarts/source/tests/nuisance_warm_native_matrix_fixture.cpp"
+      ],
+      "returncode": 0,
+      "header_sha256": "ea3d57cdd1becce2b52255b0df8e373bdfb8fee64c18cc63da55d19c0c8a4aa5"
+    }
+  ]
+}

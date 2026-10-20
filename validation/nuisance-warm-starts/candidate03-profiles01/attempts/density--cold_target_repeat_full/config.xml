@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60424</time>
+    <time label="timeEnd">timeStart+3600.0/86400</time>
+    <filename label="tmpDir">/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/tmp</filename>
+    <filename label="groopsDataDir">/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data</filename>
+    <filename label="orbitPocCanonicalAttitude">/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat</filename>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program>
+    <GnssProcessing>
+      <timeSeries>
+        <uniformSampling>
+          <timeStart>timeStart</timeStart>
+          <timeEnd>timeEnd-15.0/86400</timeEnd>
+          <sampling>30/86400</sampling>
+        </uniformSampling>
+      </timeSeries>
+      <timeMargin>0.1</timeMargin>
+      <transmitter>
+        <GNSS>
+          <inputfileTransmitterList>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterList.gps.txt</inputfileTransmitterList>
+          <inputfileTransmitterInfo>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.{prn}.xml</inputfileTransmitterInfo>
+          <inputfileAntennaDefintion>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/antennaDefinition/igs/igs20/antennaDefinition_igs20.dat</inputfileAntennaDefintion>
+          <noAntennaPatternFound>
+            <useNearestFrequency />
+          </noAntennaPatternFound>
+          <inputfileSignalDefintion>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/transmitter/signalDefinition/signalDefinition.xml</inputfileSignalDefintion>
+          <inputfileOrbit>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/2024-04-24/orbit/orbit_2024-04-24.{prn}.dat</inputfileOrbit>
+          <inputfileAttitude>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/2024-04-24/attitude/attitude_2024-04-24.{prn}.dat</inputfileAttitude>
+          <inputfileClock>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/2024-04-24/clock/clock_2024-04-24.{prn}.dat</inputfileClock>
+          <interpolationDegree>7</interpolationDegree>
+        </GNSS>
+      </transmitter>
+      <receiver>
+        <lowEarthOrbiter>
+          <inputfileStationInfo>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_satelliteInfo.xml</inputfileStationInfo>
+          <inputfileAntennaDefinition>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_antennaDefinition.xml</inputfileAntennaDefinition>
+          <noAntennaPatternFound>
+            <ignoreObservation />
+          </noAntennaPatternFound>
+          <inputfileReceiverDefinition>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_receiverDefinition.xml</inputfileReceiverDefinition>
+          <inputfileAccuracyDefinition>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/synthetic_accuracy.xml</inputfileAccuracyDefinition>
+          <inputfileObservations>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat</inputfileObservations>
+          <inputfileOrbit>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverOrbit_2024-04-24.dat</inputfileOrbit>
+          <inputfileStarCamera>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverStarCamera_2024-04-24.dat</inputfileStarCamera>
+          <supportsIntegerAmbiguities>0</supportsIntegerAmbiguities>
+          <wavelengthFactor>0.5</wavelengthFactor>
+          <elevationCutOff>0</elevationCutOff>
+          <minObsCountPerTrack>5</minObsCountPerTrack>
+          <preprocessing>
+            <printStatistics>1</printStatistics>
+            <huber>2.5</huber>
+            <huberPower>1.5</huberPower>
+            <codeMaxPositionDiff>300</codeMaxPositionDiff>
+            <denoisingLambda>5</denoisingLambda>
+            <tecWindowSize>15</tecWindowSize>
+            <tecSigmaFactor>3.5</tecSigmaFactor>
+          </preprocessing>
+          <orbitPocPreprocessFromInputOrbit>1</orbitPocPreprocessFromInputOrbit>
+          <outputfileOrbitPocPreprocessingAudit>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/output/outputfileOrbitPocPreprocessingAudit/preprocessing_audit.txt</outputfileOrbitPocPreprocessingAudit>
+        </lowEarthOrbiter>
+      </receiver>
+      <earthRotation>
+        <file>
+          <inputfileEOP>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+          <interpolationDegree>3</interpolationDegree>
+        </file>
+      </earthRotation>
+      <parametrization>
+        <ionosphereSTEC>
+          <name>parameter.STEC</name>
+          <apply2ndOrderCorrection>1</apply2ndOrderCorrection>
+          <apply3rdOrderCorrection>1</apply3rdOrderCorrection>
+          <applyBendingCorrection>1</applyBendingCorrection>
+          <magnetosphere>
+            <igrf>
+              <inputfileMagneticNorthPole>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/magnetosphere/magneticNorthPole.txt</inputfileMagneticNorthPole>
+            </igrf>
+          </magnetosphere>
+          <nameConstraint>constraint.STEC</nameConstraint>
+          <sigmaSTEC>40</sigmaSTEC>
+        </ionosphereSTEC>
+      </parametrization>
+      <parametrization>
+        <ionosphereVTEC>
+          <name>parameter.VTEC</name>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <mapR>6371e3+450e3</mapR>
+          <mapH>50e3</mapH>
+          <mapAlpha>0.9782</mapAlpha>
+        </ionosphereVTEC>
+      </parametrization>
+      <parametrization>
+        <clocks>
+          <name>parameter.clocks</name>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <nameConstraint>constraintEpoch.clocks</nameConstraint>
+          <selectTransmittersZeroMean>
+            <all />
+          </selectTransmittersZeroMean>
+          <sigmaZeroMeanConstraint>0.0001</sigmaZeroMeanConstraint>
+          <outputfileClockReceiver>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/output/outputfileClockReceiver/receiver_clock.txt</outputfileClockReceiver>
+        </clocks>
+      </parametrization>
+      <parametrization>
+        <leoDynamicOrbits>
+          <name>parameter.dynamicOrbits</name>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <outputfileOrbit>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/output/outputfileOrbit/gracefo1_orbit_2024-04-24.txt</outputfileOrbit>
+          <inputfileVariational>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/closure-02/variational.dat</inputfileVariational>
+          <ephemerides>
+            <jpl>
+              <inputfileEphemerides>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/groops-data/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+              <origin>
+                <earth />
+              </origin>
+            </jpl>
+          </ephemerides>
+          <minEstimableEpochsRatio>0.75</minEstimableEpochsRatio>
+          <integrationDegree>7</integrationDegree>
+          <interpolationDegree>7</interpolationDegree>
+          <outputfileParameters>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/output/outputfileParameters/orbit_parameters.txt</outputfileParameters>
+          <outputfileOrbitNative>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/output/outputfileOrbitNative/gracefo1_orbit_2024-04-24.dat</outputfileOrbitNative>
+          <parametrizationAcceleration>
+            <logDensity>
+              <nominalDrag>
+                <syntheticDrag>
+                  <ballisticCoefficient>0.022</ballisticCoefficient>
+                  <referenceDensity>5e-13</referenceDensity>
+                  <referenceAltitude>500000.0</referenceAltitude>
+                  <scaleHeight>60000.0</scaleHeight>
+                  <earthRadius>6378137.0</earthRadius>
+                  <earthRotationRate>7.292115e-05</earthRotationRate>
+                </syntheticDrag>
+              </nominalDrag>
+              <inputfileLogDensity>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/log_density.txt</inputfileLogDensity>
+            </logDensity>
+          </parametrizationAcceleration>
+          <inputfileNumericsReferenceParameters>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/closure-02/reference.txt</inputfileNumericsReferenceParameters>
+        </leoDynamicOrbits>
+      </parametrization>
+      <parametrization>
+        <signalBiases>
+          <name>parameter.signalBiases</name>
+          <selectTransmitters>
+            <all />
+          </selectTransmitters>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <outputfileSignalBiasReceiver>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/output/outputfileSignalBiasReceiver/signalBias_2024-04-24.{station}.txt</outputfileSignalBiasReceiver>
+          <inputfileSignalBiasTransmitter>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/data/2024-04-24/signalBias/signalBias_2024-04-24.{prn}.txt</inputfileSignalBiasTransmitter>
+        </signalBiases>
+      </parametrization>
+      <parametrization>
+        <codeBiases>
+          <name>parameter.codeBiases</name>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <linearGlonassBias>0</linearGlonassBias>
+          <nameConstraint>constraint.codeBiases</nameConstraint>
+          <sigmaZeroMeanConstraint>0</sigmaZeroMeanConstraint>
+        </codeBiases>
+      </parametrization>
+      <parametrization>
+        <tecBiases>
+          <name>parameter.tecBiases</name>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <linearGlonassBias>0</linearGlonassBias>
+          <nameConstraint>constraint.tecBiases</nameConstraint>
+          <sigmaZeroMeanConstraint>0</sigmaZeroMeanConstraint>
+        </tecBiases>
+      </parametrization>
+      <parametrization>
+        <ambiguities>
+          <name>parameter.ambiguities</name>
+          <estimateReceiverPhaseBias>
+            <all />
+          </estimateReceiverPhaseBias>
+          <linearGlonassBias>0</linearGlonassBias>
+        </ambiguities>
+      </parametrization>
+      <parametrization>
+        <logDensityOu>
+          <name>constraint.logDensityOu</name>
+          <parameters>
+            <wildcard>
+              <object>*</object>
+              <type>logDensity</type>
+              <temporal>*</temporal>
+              <interval>*</interval>
+            </wildcard>
+          </parameters>
+          <inputfileLogDensity>/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-004-direction-1.0--1-repeat/native/log_density.txt</inputfileLogDensity>
+          <tau>7200.0</tau>
+          <sigma>0.3</sigma>
+        </logDensityOu>
+      </parametrization>
+      <processingStep><selectNormalsBlockStructure><accumulateEpochObservations>0</accumulateEpochObservations></selectNormalsBlockStructure></processingStep><processingStep>
+        <orbitPocNumerics>
+          <outputfilePrefix>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/qr</outputfilePrefix>
+        </orbitPocNumerics>
+      </processingStep>
+      <processingStep>
+        <writeResults />
+      </processingStep>
+    <processingStep><writeResiduals><selectReceivers><all /></selectReceivers><outputfileResiduals>/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/diagnostic/residuals.{station}.xml</outputfileResiduals></writeResiduals></processingStep></GnssProcessing>
+  </program>
+</groops>

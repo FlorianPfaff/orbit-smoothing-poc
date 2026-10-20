@@ -1,0 +1,101 @@
+{
+  "accepted": false,
+  "created_at": "2026-10-20T03:08:41.401805+00:00",
+  "current_scientific_source_parity": "Only independently reviewed backend warm lifecycle edits; original optimizer, objectives, models, strict_result and supervisor currently unchanged. New src module nuisance_warm_start.py is independently reviewed.",
+  "current_source_changes_against_predecessor": [
+    "src/orbit_poc/numerics/backend.py",
+    "src/orbit_poc/segmented/backend.py",
+    "scripts/build_groops.py"
+  ],
+  "design": {
+    "bytes": 4305,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-wholefit-preparation01/design01.json",
+    "sha256": "6e75fea9037d0e9ed717a4dd9ddc540ed7ed059b5c43baf059368e895f4ac2d8"
+  },
+  "findings": [
+    {
+      "counterexample": {
+        "bytes": 1288,
+        "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/wholefit-control01/source-binding-counterexample.json",
+        "sha256": "f315078eae6ee762d8f9929386ada0b0682ee263be450f7a1e23a499dcdd4ba2"
+      },
+      "description": "verify_gates accepts changes to scientific modules outside the four reviewed lifecycle files and checker. The same accepted prerequisite index can admit a modified optimizer, objective or strict_result module, then snapshot copies it. Require full frozen candidate source coverage and unchanged predecessor scientific modules except exact reviewed warm changes, then verify the copied snapshot before writing a final freeze.",
+      "file": "/home/emper/orbit-nuisance-warmstarts/control/warm-wholefit-preparation01/prepare_warm_wholefit01.py",
+      "lines": [
+        97,
+        122,
+        186
+      ],
+      "priority": 1,
+      "title": "Bind all candidate source before snapshotting a whole fit"
+    }
+  ],
+  "independent_offline_tests": {
+    "counts": {
+      "error": 0,
+      "failure": 0,
+      "skipped": 0,
+      "tests": 22
+    },
+    "cpu": 4,
+    "junit": {
+      "bytes": 2967,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/wholefit-control01/tests.xml",
+      "sha256": "69ac5dd8b05908da87a285d46d9f15f2924bb0b984410c338a5b59bdbbeb5e23"
+    },
+    "log": {
+      "bytes": 207,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/wholefit-control01/tests.log",
+      "sha256": "6fa8a2ae1774e0f046799418abc5eed6455146f0105eefe4234873f7ca2807a1"
+    },
+    "threads": 1
+  },
+  "original_bytes_rehashed": 3386026966,
+  "original_freeze": {
+    "bytes": 278983,
+    "path": "/home/emper/orbit-nuisance-performance/wholefit01/freeze.json",
+    "sha256": "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4"
+  },
+  "original_pins_rehashed": 1059,
+  "original_request": {
+    "path": "/home/emper/orbit-nuisance-performance/wholefit01/templates/cache1.request.json",
+    "sha256": "23132d0f75a1acdb6fe2a9a65be19bb636357da5ff8b44b5f53f405dd91a4aad"
+  },
+  "schema": "orbit-poc-independent-warm-wholefit-control-review-v1",
+  "scope_limits": [
+    "Control source review only: no genuine prerequisite index or final whole-fit freeze has been created; no whole-fit launch authorized by this receipt.",
+    "All new tests and the source-drift replay used isolated fake files and stub scientific calls onCPU4; no native run or signals.",
+    "Actual27 profile results and15 checker outcomes still require independent review."
+  ],
+  "source_files": [
+    {
+      "bytes": 18353,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-wholefit-preparation01/prepare_warm_wholefit01.py",
+      "sha256": "a68a9a8bf78e0f6681bb97b1a42cbe20882135ce322d1f6bb090357d24ef4963"
+    },
+    {
+      "bytes": 9853,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-wholefit-preparation01/run_warm_wholefit01.py",
+      "sha256": "f0275a4d090cbd31e42a7f3423efe38183ec696d786191c98519f9ae0eed5f88"
+    },
+    {
+      "bytes": 3987,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-wholefit-preparation01/warm_wholefit_worker01.py",
+      "sha256": "9912f314423de6c56cedd661c3081ecdf0a876290da058eeee315e89f60af52d"
+    },
+    {
+      "bytes": 12671,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/warm-wholefit-preparation01/test_warm_wholefit_controls01.py",
+      "sha256": "fd490737ab7375457716f252c2b4a095d3ea39c30d7d837ee02b4988244ab181"
+    }
+  ],
+  "status": "changes_required_source_binding",
+  "verified_controls": [
+    "Exactly one warm1/full-mode/cache1 attempt; no existing output or automatic resume; source is copied to readonly regular files.",
+    "Original pulse request and numerical controls remain exact except declared provenance/native/warm selectors; prior diagnostic exporter retained.",
+    "CPU0, numerical threads1, 7200s, 8GiB process tree, unchanged strict_result classification and resource failures cannot authorize covariance.",
+    "Native157 actual JUnit counts,27 complete profile executions,15 distinct passed comparisons and independent evidence-pinning audit are mandatory prerequisites.",
+    "Parent ORBIT_POC and LD overrides are scrubbed; only frozen STARTS/MODE reach worker and reviewed backend owns donor lifecycle; initial/repeat/refine/confirmation/final covariance calls remain cold.",
+    "Original1059 input/source/runtime files rehashed now, and controller verifies the frozen pin inventory before and after execution."
+  ]
+}
