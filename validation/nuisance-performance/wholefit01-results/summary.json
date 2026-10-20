@@ -1,0 +1,85 @@
+{
+  "accepted_covariance": false,
+  "accuracy_superiority_claim": null,
+  "attempts": [
+    {
+      "accepted_covariance": false,
+      "cache": 1,
+      "converged": false,
+      "last_started_point": "point-006-trial-003",
+      "name": "cache1",
+      "owned_cleanup_verified": true,
+      "peak_process_tree_rss_bytes": 954933248,
+      "post_input_identity_verified": true,
+      "recorded_accepted_lm_steps": 2,
+      "recorded_lm_steps_scope": "Two accepted steps recorded",
+      "recorded_supervisor_seconds": 7200.1342870180015,
+      "result_sha256": "8b52eca3597fa1cacc2af46f375d37a6a74a19a59c870a736461f1c14f070230",
+      "status": "timeout",
+      "strict_nuisance_profiles": 5,
+      "supervisor_sha256": "ad79365f25cf2685ed99008e5b56fe17712970a3f3597497ef0f7ce4219521e5"
+    },
+    {
+      "accepted_covariance": false,
+      "cache": 0,
+      "converged": false,
+      "last_started_point": "point-004-trial-001",
+      "name": "cache0",
+      "owned_cleanup_verified": true,
+      "peak_process_tree_rss_bytes": 910364672,
+      "post_input_identity_verified": true,
+      "recorded_accepted_lm_steps": null,
+      "recorded_lm_steps_scope": "No completed LM-step receipt; first trial unfinished",
+      "recorded_supervisor_seconds": 7200.075965639997,
+      "result_sha256": "444b0aceda3bb5e69659d9798a4dde55820be80036096573935b7b7d5100a08f",
+      "status": "timeout",
+      "strict_nuisance_profiles": 3,
+      "supervisor_sha256": "4188abd423ffef42d6ff1a6183e36c4e4e08d4c4dda142c15c041eb597680564"
+    }
+  ],
+  "audit_scope": "Integrity and attribution of the recorded timeout outcomes only; no convergence or scientific success claim.",
+  "case": "500 km circular, quiet atmosphere, normal tracking, 24 hours, reduced-dynamic pulses",
+  "exact_common_prefix_artifacts": [
+    159,
+    159,
+    159,
+    47
+  ],
+  "exact_common_prefix_total": 524,
+  "execution_order": [
+    "cache1",
+    "cache0"
+  ],
+  "freeze_sha256": "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4",
+  "headline": "Both full fits timed out; the 24-hour case remains unresolved.",
+  "independent_audit": {
+    "original_path": "/home/emper/orbit-nuisance-performance/control/wholefit-outcome-audit01/independent-audit01.json",
+    "relative_path": "independent/independent-audit01.json",
+    "sha256": "15d269e2953ff0fa7fb5cc75b406ccf211290a619bcd7cb1e3be821c39fc7135"
+  },
+  "interpretation": [
+    "The interpolation cache did not resolve the prescribed 24-hour fit within the recorded limit.",
+    "Cache-on recorded more optimizer progress, but a clock discrepancy prevents a clean timing or speedup comparison.",
+    "Strict nuisance profiling at individual points does not establish strict nonlinear convergence.",
+    "No final confirmation, accepted full-fit covariance or complete orbit comparison is available.",
+    "Both failures and the unchanged original automatic report are preserved; no attempts were replaced.",
+    "The frozen v4 campaign, statistical model, tolerances and executable defaults are unchanged."
+  ],
+  "outcome_integrity_audit": "accepted",
+  "pre_release_factor_identity_comparisons": 102,
+  "publication_timestamp_utc": "2026-10-20T01:04:05+00:00",
+  "pulse_settings": {
+    "frame": "CRF",
+    "interval_seconds": 1200.0,
+    "sigma_velocity_m_s": 0.0001
+  },
+  "recorded_monotonic_limit_seconds": 7200,
+  "release_authority": false,
+  "retained_or_canonical_comparisons": 422,
+  "schema": "orbit-poc-audited-wholefit-outcomes-v1",
+  "scientific_equivalence": "not_evaluable",
+  "speedup_claim": null,
+  "timing_comparison": "compromised",
+  "utc_two_hour_budget_compliance": "not_established",
+  "whole_fit_complete_pair": false
+}

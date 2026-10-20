@@ -26,6 +26,16 @@ campaign job. The original initialization, observations, physics, priors and
 weights are retained; path remapping and the six historical runtime-library
 differences are recorded explicitly.
 
+The [audited whole-fit results](../validation/nuisance-performance/wholefit01-results/index.html)
+retain both timeouts: the cache fix did not resolve this 24-hour case within the
+recorded 7,200-second limit, and neither run produced accepted covariance.
+Cache-on recorded two accepted optimizer updates and five strict nuisance
+profiles; cache-off recorded three strict profiles with its first trial
+unfinished. The 524 common-prefix scientific comparisons agree, but complete-fit
+equivalence remains unevaluable. The recorded clock discrepancy prevents a clean
+timing or speedup claim. Independent audit confirms the integrity of these
+outcomes, not successful estimation or release readiness.
+
 `scripts/analyze_nuisance_wholefit.py` analyzes this separate full-fit protocol:
 
 ```bash
