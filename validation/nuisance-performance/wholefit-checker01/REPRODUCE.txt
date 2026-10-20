@@ -1,0 +1,40 @@
+Offline reproduction (no estimator or satellite data)
+
+The source and fixture snapshots are exact copies. Archived JSON reports contain
+historical absolute temporary paths; do not interpret those paths as live inputs.
+New fixture executions naturally use new paths and timings. Compare test outcomes
+and classifications rather than expecting identical newly generated report bytes.
+
+1. Use a disposable checkout of the repository at scientific source commit:
+   6a917783896688f3bbc24f169a31bc9e3a238a63
+   https://github.com/FlorianPfaff/orbit-smoothing-poc
+   Never apply these snapshots to the frozen running fit source.
+2. Copy dependencies/scripts/*.py into checkout/scripts/, and
+   dependencies/tests/test_nuisance_performance_pair.py into checkout/tests/.
+3. Select one archived review round. Copy its analyze_nuisance_wholefit.py into
+   checkout/scripts/ and test_nuisance_wholefit_analysis.py into checkout/tests/.
+4. Use a Python environment matching offline-runtime.json and install this
+   checkout's declared Python requirements. Set OPENBLAS_NUM_THREADS=1 and
+   OMP_NUM_THREADS=1. On an admitted Linux host with CPU4 available, run:
+
+   taskset -c 4 python -B -m pytest -q -p no:cacheprovider \
+     tests/test_nuisance_wholefit_analysis.py \
+     --basetemp=/tmp/new-wholefit-checker-fixtures \
+     --junitxml=/tmp/new-wholefit-checker-tests.xml
+
+   Choose fresh output paths. Run only on reserved resources.
+5. Expected author suite counts are 46, 53 and 56 for rounds 01, 02 and 03,
+   with no failures or skips. Passing the early suites did not make those
+   candidates correct: retain and inspect the independent counterexamples.
+6. reviews/review02/replay_counterexamples.py and review03's corresponding
+   script preserve the independent negative cases. Their SOURCE/OUT constants
+   or hard-coded analysis paths describe the original environment; adapt those
+   locations in a fresh copy before replay, recording the adapted script hash.
+   The original scripts and counterexample outputs must remain unchanged.
+7. The final round rejects stale optimizer records, missing one/both complete
+   point directories and nonpositive completed-run wall durations. Source gate
+   loading uses only pinned frozen module bytes, including lazy dependencies.
+
+Validate the packet's payload identities against manifest.json. The manifest
+lists every other file, including the exact-copy ledger and this instruction.
+No payload claims a result from either actual 24-hour full-fit attempt.

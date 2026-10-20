@@ -1,0 +1,64 @@
+{
+  "accepted_covariance": false,
+  "checked": [
+    "Explicit cache1/cache0 and performance1 survive sanitized environment; unrelated ORBIT_POC/LD/Python overrides removed.",
+    "Worker sets and verifies CPU affinity and rejects treatment, input, source/output, freeze, thread and extra numerical overrides.",
+    "Whole-fit supervisor receives 7200 seconds and 8 GiB per attempt.",
+    "Process completion dispatches to existing strict_result gate; inconsistent complete is failed with raw worker result retained.",
+    "Numerical failures remain failures despite exit zero; harness timeout/memory/disk/interruption override worker success.",
+    "Unverified cleanup, interruption or post-run input mutation prevents second attempt.",
+    "Existing launch and output directories reject reruns; original files preserved.",
+    "Frozen input, request, runner and freeze-digest mismatches reject before simulated native launch."
+  ],
+  "created_at": "2026-10-19T08:08:18.977204+00:00",
+  "failures": 0,
+  "native_runs": 0,
+  "prior_fixture_run": {
+    "attribution": "Two injected requests lacked the newly added nuisance_performance_cache field. A same-process interruption retry retained the exception traceback and lock, correctly refusing at flock before the expected launch check. Only fixture data/expected refusal class changed.",
+    "failed": 3,
+    "log": {
+      "path": "/home/emper/orbit-nuisance-performance/control/wholefit-controller-review01-tests.log",
+      "sha256": "3fb421bfcafd652655d0b322bee7a6eaf7aabdb36f3233cb9e62dae2c3b2d6b0"
+    },
+    "passed": 26,
+    "test_source": {
+      "path": "/home/emper/orbit-nuisance-performance/control/test_wholefit_controller_review01.before-fixture-adaptation.py",
+      "sha256": "8c725f435affb7ec5d67987f398328549261eb69f5a0fef51f3d291486bb4de5"
+    },
+    "xml": {
+      "path": "/home/emper/orbit-nuisance-performance/control/wholefit-controller-review01-tests.xml",
+      "sha256": "46f563d1bfd4e61d6897819a35b11a7f203c983e2ec01f7d6a41f0d433bb5c28"
+    }
+  },
+  "release_authority": false,
+  "review_cpu": 4,
+  "runner": {
+    "path": "/home/emper/orbit-nuisance-performance/control/run_wholefit01.py",
+    "sha256": "cdd47170e77fedea99a12e6ffa3cad7af194cf15e391b048eefc2d62983b4634"
+  },
+  "schema": "orbit-poc-wholefit-controller-independent-review-v1",
+  "scope": "Injected controller tests and static review only. Scientific backend, admission and owned supervisor were mocked in tests; production functions were not executed. The existing strict-result gate implementation was inspected, and dispatch to it was injected, not independently recertified here. Exact concrete freeze, prepared input mapping, source/runtime identities and final launch admission remain to be reviewed.",
+  "skips": 0,
+  "static_gate": {
+    "path": "/home/emper/orbit-nuisance-performance/source/src/orbit_poc/segmented/report.py",
+    "sha256": "b0d200e37e9c90419cb13a9a67217d966c50e130aeec169198098dec81d6a0d2"
+  },
+  "status": "accepted_injected_controller_checks_pending_concrete_freeze",
+  "test_count": 29,
+  "test_log": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-controller-review02-tests.log",
+    "sha256": "32da0b65f72367861411c75e4aa5318bddc23a5b59882c99e7d7b4ed63ff7600"
+  },
+  "test_xml": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-controller-review02-tests.xml",
+    "sha256": "ea10959e2e33dea24dd60f3255e477dcc30bd06b642ef00b0116b4139d9ff8fc"
+  },
+  "tests": {
+    "path": "/home/emper/orbit-nuisance-performance/control/test_wholefit_controller_review01.py",
+    "sha256": "da74b498bf45a2042082363024a2ebe2a30604f2357f80fda85f8d31fd112fec"
+  },
+  "worker": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit_worker01.py",
+    "sha256": "b8d292bfedfd1a35a724c2ea0a9e9b5e0cfcb878d9987a5b57e2de8488286b69"
+  }
+}

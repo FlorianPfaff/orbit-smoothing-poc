@@ -1,0 +1,42 @@
+[
+  {
+    "case": "baseline",
+    "analysis_status": "valid",
+    "scientific_equivalence": "passed",
+    "issues": []
+  },
+  {
+    "case": "both_stale_optimizer",
+    "analysis_status": "invalid",
+    "scientific_equivalence": "not_evaluable",
+    "issues": [
+      "cache1: Complete optimizer record has missing/unknown fields",
+      "cache0: Complete optimizer record has missing/unknown fields"
+    ]
+  },
+  {
+    "case": "one_point_deleted",
+    "analysis_status": "invalid",
+    "scientific_equivalence": "not_evaluable",
+    "issues": [
+      "cache1: [Errno 2] No such file or directory: '/tmp/wholefit-independent-one_point_deleted-_rurh7r0/experiment/cache1/point-001-initial'"
+    ]
+  },
+  {
+    "case": "both_points_deleted",
+    "analysis_status": "invalid",
+    "scientific_equivalence": "not_evaluable",
+    "issues": [
+      "cache1: [Errno 2] No such file or directory: '/tmp/wholefit-independent-both_points_deleted-kxpykhxh/experiment/cache1/point-001-initial'",
+      "cache0: [Errno 2] No such file or directory: '/tmp/wholefit-independent-both_points_deleted-kxpykhxh/experiment/cache0/point-001-initial'"
+    ]
+  },
+  {
+    "case": "zero_complete_wall",
+    "analysis_status": "invalid",
+    "scientific_equivalence": "not_evaluable",
+    "issues": [
+      "cache1: Complete fit has nonpositive supervised wall time"
+    ]
+  }
+]

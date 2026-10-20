@@ -1,0 +1,90 @@
+{
+  "arms": [
+    {
+      "cache": 1,
+      "name": "cache1",
+      "status": "running"
+    },
+    {
+      "cache": 0,
+      "name": "cache0",
+      "status": "pending"
+    }
+  ],
+  "controller": {
+    "argv": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-s",
+      "-B",
+      "/home/emper/orbit-nuisance-performance/control/run_wholefit01.py",
+      "--freeze",
+      "/home/emper/orbit-nuisance-performance/wholefit01/freeze.json",
+      "--freeze-sha256",
+      "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4"
+    ],
+    "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+    "detached": true,
+    "freeze_sha256": "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4",
+    "pid": 18239,
+    "review_sha256": "c17fad1e54656227ae13a3f86ea81e9fef95167e0bd173949aec3230459fed2b",
+    "schema": "orbit-poc-wholefit-controller-launch-v1",
+    "scope": "Separate local cache experiment; no frozen campaign process or path modified",
+    "start_ticks": 1153149,
+    "time": 1792397675.990453
+  },
+  "evidence_scope": "Bounded owned-process metadata and second-arm directory existence only. No live scientific files, logs, rows or results read.",
+  "numerical_outcome_claim": false,
+  "observed_at": "2026-10-19T08:20:20.790910+00:00",
+  "owned_processes": [
+    {
+      "children": [
+        18266
+      ],
+      "comm": "python",
+      "executable": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/python3.11",
+      "parent": 1321,
+      "pid": 18239,
+      "start_ticks": 1153149
+    },
+    {
+      "children": [
+        18267
+      ],
+      "comm": "python",
+      "executable": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/python3.11",
+      "parent": 18239,
+      "pid": 18266,
+      "start_ticks": 1154908
+    },
+    {
+      "children": [
+        18279
+      ],
+      "comm": "python",
+      "executable": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/python3.11",
+      "parent": 18266,
+      "pid": 18267,
+      "start_ticks": 1154947
+    },
+    {
+      "children": [
+        18584
+      ],
+      "comm": "groops",
+      "executable": "/home/emper/orbit-nuisance-performance/build-01/groops",
+      "parent": 18267,
+      "pid": 18279,
+      "start_ticks": 1156083
+    },
+    {
+      "children": [],
+      "comm": "groops",
+      "executable": "/home/emper/orbit-nuisance-performance/build-01/groops",
+      "parent": 18279,
+      "pid": 18584,
+      "start_ticks": 1186359
+    }
+  ],
+  "process_snapshot_atomic": false,
+  "schema": "orbit-poc-wholefit-protocol-publication-status-v1"
+}

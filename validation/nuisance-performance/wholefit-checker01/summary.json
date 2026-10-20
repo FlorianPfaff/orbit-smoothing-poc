@@ -1,0 +1,100 @@
+{
+  "accepted_covariance": false,
+  "actual_fit_outcomes": "unassessed",
+  "checker_sha256": "6316cd37b23edadc678e1a3a083802780488882db37c7ca9d686691f93e74836",
+  "independent_review_sha256": "54189e9d82ec5e13c02de4b5596a61ec165cb2e85b9dba9559d7159b6c5b8944",
+  "limitations": [
+    "Passing fixture tests and checker review do not establish whole-fit convergence, covariance validity, numerical equivalence, cache benefit or release readiness.",
+    "Actual cache-off/on fit outcomes are unassessed in this packet. No native executable, satellite data or live-fit data is included.",
+    "The host clock discrepancy and its timing interpretation are retained separately by the passive result reporter. This packet makes no timing/speedup claim.",
+    "Malformed partial artifacts from a rejected native trial in an ultimately complete fit conservatively invalidate analysis; preserve any first actual invalid analysis before a separately reviewed extension.",
+    "Deleted intermediate factors use recorded pre-release identities, distinguished from retained-byte comparisons.",
+    "All earlier reviews and measured counterexamples are retained. The first two review candidates were not accepted despite passing their existing fixture suites.",
+    "The packet timestamp is a fixed publication label, not elapsed-time evidence."
+  ],
+  "native_runs_for_this_validation": 0,
+  "packet_timestamp_utc": "2026-10-19T09:00:23+00:00",
+  "release_authority": false,
+  "reviews": [
+    {
+      "author_tests": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 46
+      },
+      "checker_sha256": "3f321b7ba4c7d1d8a4372536ab61f86f3c68ab2f31c1d0049267dd7a034004eb",
+      "counterexamples": "reviews/review01/counterexamples.json",
+      "independent_tests": null,
+      "review": "reviews/review01/independent-review01.json",
+      "review_status": "requires_checker_correction",
+      "round": "01",
+      "test_sha256": "9dfa248cea6f8c3860a228aac235e9b0dbc7e9415b4078431c5637a147467830"
+    },
+    {
+      "author_tests": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 53
+      },
+      "checker_sha256": "8874ca4622cf7b194f714c606a3d389d0d835fbe4e987a1b62ed7b81e2915709",
+      "counterexamples": "reviews/review02/counterexamples.json",
+      "independent_tests": {
+        "cpu": 4,
+        "failed": 0,
+        "junit": {
+          "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/tests.xml",
+          "sha256": "78b9f9d99f0808efd3850e4819f4d270140335e9eb71b64a613880eac5689e87"
+        },
+        "log": {
+          "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review02/tests.log",
+          "sha256": "d4757bf8d7863e2d5396781db9f5f718e64e879f3f650a5d5c00e4873d1250fb"
+        },
+        "passed": 53,
+        "skipped": 0,
+        "threads": 1
+      },
+      "review": "reviews/review02/independent-review02.json",
+      "review_status": "prior_correctness_findings_resolved_pending_zero_wall_guard",
+      "round": "02",
+      "test_sha256": "51c8b6d6c678f56704620e0adc97ae9513951f05591644de007d14e5a6cd184a"
+    },
+    {
+      "author_tests": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 56
+      },
+      "checker_sha256": "6316cd37b23edadc678e1a3a083802780488882db37c7ca9d686691f93e74836",
+      "counterexamples": "reviews/review03/counterexamples.json",
+      "independent_tests": {
+        "cpu": 4,
+        "failed": 0,
+        "junit": {
+          "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review03/tests.xml",
+          "sha256": "aab11fd1efe3f79ca711ce8d33c8535bdc49a969f31b522db6906c7cc084de4d"
+        },
+        "log": {
+          "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review03/tests.log",
+          "sha256": "f85faf51c3750f3b21e3e577daabd2061905086adaab16889426bfd40f78f7ae"
+        },
+        "passed": 56,
+        "skipped": 0,
+        "threads": 1
+      },
+      "review": "reviews/review03/independent-review03.json",
+      "review_status": "accepted_offline_wholefit_analysis_checks",
+      "round": "03",
+      "test_sha256": "abf56cbf9e1a1efb254d9fbce289a034213cdc6664cc68cf21b2ebb65bc7646c"
+    }
+  ],
+  "schema": "orbit-poc-wholefit-checker-publication-v1",
+  "scientific_source_commit": "6a917783896688f3bbc24f169a31bc9e3a238a63",
+  "scope": "Offline reporting-tool fixtures and independent review. No actual full-fit results or live output trees were read.",
+  "source_repository": "https://github.com/FlorianPfaff/orbit-smoothing-poc",
+  "status": "offline_checker_validation_accepted",
+  "test_sha256": "abf56cbf9e1a1efb254d9fbce289a034213cdc6664cc68cf21b2ebb65bc7646c",
+  "timing_claims_authorized": false
+}

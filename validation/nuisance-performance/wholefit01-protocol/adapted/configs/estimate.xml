@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60440</time>
+    <time label="timeEnd">timeStart+86400.0/86400</time>
+    <filename label="tmpDir">/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/tmp</filename>
+    <filename label="groopsDataDir">/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary</filename>
+    <filename label="orbitPocCanonicalAttitude">/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat</filename>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program comment="daily">
+    <LoopPrograms>
+      <loop>
+        <timeIntervals>
+          <timeIntervals>
+            <uniformSampling>
+              <timeStart link="timeStart" />
+              <timeEnd link="timeEnd" />
+              <sampling>86400.0/86400</sampling>
+            </uniformSampling>
+          </timeIntervals>
+          <variableLoopTimeStart>loopTime</variableLoopTimeStart>
+          <variableLoopTimeEnd>loopTimeEnd</variableLoopTimeEnd>
+        </timeIntervals>
+      </loop>
+      <continueAfterError>0</continueAfterError>
+      <processCountPerIteration>1</processCountPerIteration>
+      <parallelLog>1</parallelLog>
+      <program comment="output/{loopTime:%D}">
+        <FileCreateDirectories>
+          <directory>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/{loopTime:%D}</directory>
+        </FileCreateDirectories>
+      </program>
+      <program comment="instrument">
+        <GnssProcessing>
+          <timeSeries>
+            <uniformSampling>
+              <timeStart>loopTime</timeStart>
+              <timeEnd>loopTimeEnd-15.0/86400</timeEnd>
+              <sampling>30/86400</sampling>
+            </uniformSampling>
+          </timeSeries>
+          <timeMargin>0.1</timeMargin>
+          <transmitter>
+            <GNSS>
+              <inputfileTransmitterList>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/transmitterList.gps.txt</inputfileTransmitterList>
+              <inputfileTransmitterInfo>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.{prn}.xml</inputfileTransmitterInfo>
+              <inputfileAntennaDefintion>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/antennaDefinition/igs/igs20/antennaDefinition_igs20.dat</inputfileAntennaDefintion>
+              <noAntennaPatternFound>
+                <useNearestFrequency />
+              </noAntennaPatternFound>
+              <inputfileSignalDefintion>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/signalDefinition/signalDefinition.xml</inputfileSignalDefintion>
+              <inputfileOrbit>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/{loopTime:%D}/orbit/orbit_{loopTime:%D}.{prn}.dat</inputfileOrbit>
+              <inputfileAttitude>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/{loopTime:%D}/attitude/attitude_{loopTime:%D}.{prn}.dat</inputfileAttitude>
+              <inputfileClock>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/{loopTime:%D}/clock/clock_{loopTime:%D}.{prn}.dat</inputfileClock>
+              <interpolationDegree>7</interpolationDegree>
+            </GNSS>
+          </transmitter>
+          <receiver>
+            <lowEarthOrbiter>
+              <inputfileStationInfo>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_satelliteInfo.xml</inputfileStationInfo>
+              <inputfileAntennaDefinition>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_antennaDefinition.xml</inputfileAntennaDefinition>
+              <noAntennaPatternFound>
+                <ignoreObservation />
+              </noAntennaPatternFound>
+              <inputfileReceiverDefinition>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_receiverDefinition.xml</inputfileReceiverDefinition>
+              <inputfileAccuracyDefinition>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/synthetic_accuracy.xml</inputfileAccuracyDefinition>
+              <inputfileObservations>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/{loopTime:%D}/gracefo/gracefo1_gnssReceiver_{loopTime:%D}.dat</inputfileObservations>
+              <inputfileOrbit>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/2024-05-10/gracefo/gracefo1_receiverOrbit_2024-05-10.dat</inputfileOrbit>
+              <inputfileStarCamera>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/2024-05-10/gracefo/gracefo1_receiverStarCamera_2024-05-10.dat</inputfileStarCamera>
+              <supportsIntegerAmbiguities>0</supportsIntegerAmbiguities>
+              <wavelengthFactor>0.5</wavelengthFactor>
+              <elevationCutOff>0</elevationCutOff>
+              <minObsCountPerTrack>5</minObsCountPerTrack>
+              <preprocessing>
+                <printStatistics>1</printStatistics>
+                <huber>2.5</huber>
+                <huberPower>1.5</huberPower>
+                <codeMaxPositionDiff>300</codeMaxPositionDiff>
+                <denoisingLambda>5</denoisingLambda>
+                <tecWindowSize>15</tecWindowSize>
+                <tecSigmaFactor>3.5</tecSigmaFactor>
+              </preprocessing>
+              <orbitPocPreprocessFromInputOrbit>1</orbitPocPreprocessFromInputOrbit>
+              <outputfileOrbitPocPreprocessingAudit>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/preprocessing_audit.txt</outputfileOrbitPocPreprocessingAudit>
+            </lowEarthOrbiter>
+          </receiver>
+          <earthRotation>
+            <file>
+              <inputfileEOP>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+              <interpolationDegree>3</interpolationDegree>
+            </file>
+          </earthRotation>
+          <parametrization>
+            <ionosphereSTEC>
+              <name>parameter.STEC</name>
+              <apply2ndOrderCorrection>1</apply2ndOrderCorrection>
+              <apply3rdOrderCorrection>1</apply3rdOrderCorrection>
+              <applyBendingCorrection>1</applyBendingCorrection>
+              <magnetosphere>
+                <igrf>
+                  <inputfileMagneticNorthPole>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/magnetosphere/magneticNorthPole.txt</inputfileMagneticNorthPole>
+                </igrf>
+              </magnetosphere>
+              <nameConstraint>constraint.STEC</nameConstraint>
+              <sigmaSTEC>40</sigmaSTEC>
+            </ionosphereSTEC>
+          </parametrization>
+          <parametrization>
+            <ionosphereVTEC>
+              <name>parameter.VTEC</name>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <mapR>6371e3+450e3</mapR>
+              <mapH>50e3</mapH>
+              <mapAlpha>0.9782</mapAlpha>
+            </ionosphereVTEC>
+          </parametrization>
+          <parametrization>
+            <clocks>
+              <name>parameter.clocks</name>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <nameConstraint>constraintEpoch.clocks</nameConstraint>
+              <selectTransmittersZeroMean>
+                <all />
+              </selectTransmittersZeroMean>
+              <sigmaZeroMeanConstraint>0.0001</sigmaZeroMeanConstraint>
+              <outputfileClockReceiver>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/receiver_clock.txt</outputfileClockReceiver>
+            </clocks>
+          </parametrization>
+          <parametrization>
+            <leoDynamicOrbits>
+              <name>parameter.dynamicOrbits</name>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <outputfileOrbit>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/{loopTime:%D}/gracefo1_orbit_{loopTime:%D}.txt</outputfileOrbit>
+              <inputfileVariational>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/{loopTime:%D}/gracefo/gracefo1_variational_{loopTime:%D}.dat</inputfileVariational>
+              <stochasticPulse>
+                <uniformSampling>
+                  <timeStart>loopTime</timeStart>
+                  <timeEnd>loopTimeEnd-1800.0/86400</timeEnd>
+                  <sampling>1200/86400</sampling>
+                  <offsetSeconds>1200</offsetSeconds>
+                </uniformSampling>
+              </stochasticPulse>
+              <ephemerides>
+                <jpl>
+                  <inputfileEphemerides>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+                  <origin>
+                    <earth />
+                  </origin>
+                </jpl>
+              </ephemerides>
+              <minEstimableEpochsRatio>0.75</minEstimableEpochsRatio>
+              <integrationDegree>7</integrationDegree>
+              <interpolationDegree>7</interpolationDegree>
+              <outputfileParameters>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/orbit_parameters.txt</outputfileParameters>
+              <outputfileCovariance>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/state_covariance.txt</outputfileCovariance>
+              <outputfileOrbitNative>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/gracefo1_orbit_2024-05-10.dat</outputfileOrbitNative>
+              <outputfileParameterCovariance>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/parameter_covariance.txt</outputfileParameterCovariance>
+              <outputfileCovarianceObservationEpochs>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/state_covariance_observations.txt</outputfileCovarianceObservationEpochs>
+            </leoDynamicOrbits>
+          </parametrization>
+          <parametrization>
+            <signalBiases>
+              <name>parameter.signalBiases</name>
+              <selectTransmitters>
+                <all />
+              </selectTransmitters>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <outputfileSignalBiasReceiver>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/{loopTime:%D}/signalBias_{loopTime:%D}.{station}.txt</outputfileSignalBiasReceiver>
+              <inputfileSignalBiasTransmitter>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/data/{loopTime:%D}/signalBias/signalBias_{loopTime:%D}.{prn}.txt</inputfileSignalBiasTransmitter>
+            </signalBiases>
+          </parametrization>
+          <parametrization>
+            <codeBiases>
+              <name>parameter.codeBiases</name>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <linearGlonassBias>0</linearGlonassBias>
+              <nameConstraint>constraint.codeBiases</nameConstraint>
+              <sigmaZeroMeanConstraint>0</sigmaZeroMeanConstraint>
+            </codeBiases>
+          </parametrization>
+          <parametrization>
+            <tecBiases>
+              <name>parameter.tecBiases</name>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <linearGlonassBias>0</linearGlonassBias>
+              <nameConstraint>constraint.tecBiases</nameConstraint>
+              <sigmaZeroMeanConstraint>0</sigmaZeroMeanConstraint>
+            </tecBiases>
+          </parametrization>
+          <parametrization>
+            <ambiguities>
+              <name>parameter.ambiguities</name>
+              <estimateReceiverPhaseBias>
+                <all />
+              </estimateReceiverPhaseBias>
+              <linearGlonassBias>0</linearGlonassBias>
+            </ambiguities>
+          </parametrization>
+          <parametrization>
+            <constraints>
+              <name>constraint.pulses</name>
+              <parameters>
+                <wildcard>
+                  <object>*</object>
+                  <type>stochasticPulse.*</type>
+                  <temporal>*</temporal>
+                  <interval>*</interval>
+                </wildcard>
+              </parameters>
+              <sigma>100.0</sigma>
+              <bias>0</bias>
+              <relativeToApriori>0</relativeToApriori>
+            </constraints>
+          </parametrization>
+          <processingStep>
+            <estimate>
+              <computeResiduals>1</computeResiduals>
+              <adjustSigma0>0</adjustSigma0>
+              <computeWeights>0</computeWeights>
+              <huber>2.5</huber>
+              <huberPower>1.5</huberPower>
+              <convergenceThreshold>0.01</convergenceThreshold>
+              <maxIterationCount>6</maxIterationCount>
+            </estimate>
+          </processingStep>
+          <processingStep>
+            <estimate>
+              <computeResiduals>1</computeResiduals>
+              <adjustSigma0>0</adjustSigma0>
+              <computeWeights>0</computeWeights>
+              <huber>2.5</huber>
+              <huberPower>1.5</huberPower>
+              <convergenceThreshold>0.01</convergenceThreshold>
+              <maxIterationCount>2</maxIterationCount>
+            </estimate>
+          </processingStep>
+          <processingStep>
+            <computeCovarianceMatrix />
+          </processingStep>
+          <processingStep>
+            <writeResults />
+          </processingStep>
+          <processingStep>
+            <writeResiduals>
+              <selectReceivers>
+                <all />
+              </selectReceivers>
+              <outputfileResiduals>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/gnss_residuals.dat</outputfileResiduals>
+              <outputfilePhaseRecovery>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/phase_recovery.txt</outputfilePhaseRecovery>
+            </writeResiduals>
+          </processingStep>
+          <processingStep>
+            <writeAprioriSolution>
+              <outputfileAprioriSolution>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/full_apriori_solution.txt</outputfileAprioriSolution>
+              <outputfileParameterNames>/home/emper/orbit-nuisance-performance/wholefit01/inputs/mirror/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/129f82a9d3590663cf57650eb1a2341bd247332e00b2ce087cb83470186ec68c/native-prepared/output/2024-05-10/full_parameter_names.txt</outputfileParameterNames>
+            </writeAprioriSolution>
+          </processingStep>
+        </GnssProcessing>
+      </program>
+    </LoopPrograms>
+  </program>
+</groops>

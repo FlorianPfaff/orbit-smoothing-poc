@@ -1,0 +1,65 @@
+{
+  "author_validation": {
+    "path": "/home/emper/orbit-nuisance-performance/control/native-nuisance-candidate01-author-validation.json",
+    "sha256": "4f1c79a9cc10506fd5f7b2518c09bded9da4d023964e3676927407c7c2a1aaca"
+  },
+  "candidate": {
+    "groops/extension/native_nuisance_performance.py": {
+      "path": "/home/emper/orbit-nuisance-performance/source/groops/extension/native_nuisance_performance.py",
+      "sha256": "832a5cbfd5cc9100d86cd7d37350e4e5c7f7f86ae76d30ff0e203e23815105a8"
+    },
+    "groops/extension/nuisancePerformance.h": {
+      "path": "/home/emper/orbit-nuisance-performance/source/groops/extension/nuisancePerformance.h",
+      "sha256": "0925d8858ee2937ab87bbefbf5fddd6e8d1bcd69e5e886021b91ba376da52e00"
+    },
+    "scripts/build_groops.py": {
+      "path": "/home/emper/orbit-nuisance-performance/source/scripts/build_groops.py",
+      "sha256": "10f299130cc57f9056991d3022e0d3ea60b5c78f6d230455b4794a986fa70ac8"
+    },
+    "tests/test_native_nuisance_performance.py": {
+      "path": "/home/emper/orbit-nuisance-performance/source/tests/test_native_nuisance_performance.py",
+      "sha256": "82a5fa4ac403d78710947f00757c0797538dde569d02ba683be84c34ea07c780"
+    }
+  },
+  "created_at": "2026-10-19T05:50:59.185565+00:00",
+  "findings": [
+    "Original gnss->designMatrix is unconditionally executed. Cache replaces only the pure dynamic interpolation subexpression; per-observation matMult, column registration, original group/epoch QR, constraints and segmented observation export remain.",
+    "One Matrix entry per template instantiation is usable only in an active QR build generation. Fresh build generation invalidates fork-inherited entries, exception unwinding clears active state, outside-build recovery and parameter updates cannot reuse the entry.",
+    "Key retains owner/polynomial/design identity, receiver, epoch, arc, integer day, exact represented fractional day and long-double sub-Time remainder including signed zero, and arithmetic audit mode. Nonfinite keys and failed interpolation computations are never cached.",
+    "Inspected native Matrix copy implementation makes an independent value copy. Cache reuse does not alias the original matrix or downstream output columns.",
+    "Both ordinary and accumulateEpochObservations build paths initialize design bookkeeping and execute the original per-observation design. Eight prepared jobs cover two methods, both accumulation settings, both cache settings.",
+    "All eight XML trees reconstruct their older source trees exactly after reversing eight output/tmp/prefix remaps and removing the sole selected accumulation processing step. All explicit input XML and all 177-file input ledgers per job remain identical; outputs are fresh, isolated and disjoint from inputs.",
+    "Bounded runner keeps every planned attempt, freezes exact binary/build/runner/supervisor/Python identities, rechecks inputs before and after each fit, uses CPU0 and six numerical thread variables set to one, supervises 8GiB and7200s, and stops on unverified owned cleanup.",
+    "Instrumentation reports nested wall-time separately from child CPU and does not add these overlapping measures. It labels final linearization and parent solves/recovery/update as unmeasured."
+  ],
+  "frozen_campaign_changed": false,
+  "generated_patch_manifest": {
+    "path": "/home/emper/orbit-nuisance-performance/control/native-patch-review01/orbit-poc-nuisance-performance-extension.json",
+    "sha256": "ead0ea8f772030ec74e6f7314d276057f45e9f9131fc60874a2cde81b36ec3a3"
+  },
+  "limitations": [
+    "Actual numerical equivalence, cache-hit coverage and timing remain untested by this static review; compare identical per-pair row/factor data, objective/acceptance/prior/support/signature, nuisance state, covariance and exports, and preserve failures.",
+    "Focused compiled author probe uses simplified return values and import stubs. The scheduled actual GNSS State pairs are necessary; no inference of whole-arc release readiness.",
+    "Older one-hour fixtures use historical physical inputs and nonzero full priors. Same new executable cache-off versus cache-on is an engineering comparison; it cannot replace corrected-v3.1 suite or frozen v4 attempts.",
+    "Initial admission is cooperative local process screening, not an exclusive reserved CPU claim; run serially only after the separate local build finishes.",
+    "Runner build manifest is produced by root-owned build and will be frozen at launch. Successful build plus identity checks are prerequisites to executing the reviewed source."
+  ],
+  "numerical_equivalence_claim": false,
+  "performance_claim": false,
+  "preparation_review": {
+    "path": "/home/emper/orbit-nuisance-performance/control/paired01-independent-preparation-result.json",
+    "sha256": "7830b21fafcbce0b14425f44ca02ef630c7ff8d59e8e3c7e6d37a175cfa57117"
+  },
+  "release_authority": false,
+  "runner": {
+    "path": "/home/emper/orbit-nuisance-performance/control/run_pairs01.py",
+    "sha256": "2f5897f1b2b5104406eaf0462a5fa203d0c4feff8b38fea500fb40701dd18673"
+  },
+  "schema": "orbit-poc-nuisance-performance-independent-static-review-v1",
+  "scope": "Independent source, generated-patch and paired-fixture/control review; no native command or compiled test executed by this reviewer. Author nine-test result inspected and attributed separately.",
+  "status": "accepted_for_isolated_actual_state_pairs",
+  "supervisor": {
+    "path": "/home/emper/orbit-nuisance-performance/source/src/orbit_poc/segmented/supervisor.py",
+    "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+  }
+}

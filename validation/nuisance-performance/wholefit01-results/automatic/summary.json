@@ -1,0 +1,76 @@
+{
+  "analysis_status": "valid",
+  "annotations": [
+    {
+      "kind": "clock_discrepancy",
+      "observation": {
+        "path": "/home/emper/orbit-nuisance-performance/control/wholefit-clock-observation01/observation.json",
+        "sha256": "43397bdfb5a330921e88a6759e768cfc473ba30101261d4b7e13f0df5aa3d567"
+      },
+      "supervisor_snapshot": {
+        "path": "/home/emper/orbit-nuisance-performance/control/wholefit-clock-observation01/supervisor-snapshot.json",
+        "sha256": "db1456c2a5a22396e43884630d6712bcec9108f23698b34d5d713939c80fc91d"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "accepted_covariance": false,
+      "analysis_status": "valid",
+      "cache": 1,
+      "issues": [],
+      "name": "cache1",
+      "outcome": "timeout",
+      "peak_process_tree_rss_bytes": 954933248,
+      "scientific_complete": false,
+      "wall_seconds": 7200.1342870180015
+    },
+    {
+      "accepted_covariance": false,
+      "analysis_status": "valid",
+      "cache": 0,
+      "issues": [],
+      "name": "cache0",
+      "outcome": "timeout",
+      "peak_process_tree_rss_bytes": 910364672,
+      "scientific_complete": false,
+      "wall_seconds": 7200.075965639997
+    }
+  ],
+  "checker_invoked": true,
+  "checker_issues": [],
+  "created_at": "2026-10-19T12:36:11.580060+00:00",
+  "independent_outcome_audit": "pending",
+  "issue": null,
+  "observation": {
+    "attempts": [
+      {
+        "closed": true,
+        "name": "cache1",
+        "outcome": "closed_pending_checker"
+      },
+      {
+        "closed": true,
+        "name": "cache0",
+        "outcome": "closed_pending_checker"
+      }
+    ],
+    "controller_status": "dead",
+    "kind": "execution_complete",
+    "receipt": {
+      "path": "/home/emper/orbit-nuisance-performance/wholefit01/execution-complete.json",
+      "sha256": "a73e94aca25bf2d698fbd39184ceea31d3aea37790deda021eccfc6bfbde81d4"
+    },
+    "safe_to_analyze": true
+  },
+  "release_authority": false,
+  "schema": "orbit-poc-nuisance-wholefit-completion-report-v1",
+  "scientific_equivalence": {
+    "status": "not_evaluable"
+  },
+  "scope": "Passive one-shot reporting. Checker decisions are unchanged; controller death is not fit completion. Missing or uncertain arms remain unestablished.",
+  "speedup_claim": null,
+  "timing_comparison": "compromised",
+  "utc_two_hour_budget_compliance": "not_established",
+  "whole_fit_complete_pair": false
+}
