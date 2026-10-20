@@ -19,7 +19,7 @@ int main(int argc,char **argv)
     if(kind=="sha") {check(sha256({})=="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");const std::string abc="abc";check(sha256(Bytes(abc.begin(),abc.end()))=="ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");check(sha256(Bytes(1000000,'a'))=="cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0");return 0;}
     if(kind=="disabled"){Session s;check(!s.enabled);beforeInitParameter();return 0;}
     settings(output);Target t;auto l=t.ledger();const auto original=l.values();auto s=snapshot(l);
-    if(kind=="roundtrip") {s.values[4]=-0.;const auto b=s.encode();const auto decoded=Snapshot::decode(b);check(decoded.encode()==b);check(std::signbit(decoded.values[4]));return 0;}
+    if(kind=="roundtrip") {s.values[4]=-0.;const auto b=s.encode();const auto decoded=Snapshot::decode(b);check(decoded.encode()==b);check(decoded.values[4]==0.&&!std::signbit(decoded.values[4]));check(std::signbit(s.values[4]));return 0;}
     if(kind=="floor"||kind=="nonfresh"||kind=="rank"||kind=="nonconverged"||kind=="export")
     {Session session;session.begin(l);session.verifyRefresh(t.ledger());t.code=9.;t.ambiguity=1.2;auto final=t.ledger();session.finish(final,kind!="nonconverged"&&kind!="floor",kind=="floor",kind!="nonfresh",kind=="rank"?"unresolved":"full","source/qr","source/qr.010");check(exists(output)==(kind=="export"));check(exists(output+".json"));return 0;}
     if(kind=="unknown_switch")setenv("ORBIT_POC_NUISANCE_WARM_STARTS","yes",1);

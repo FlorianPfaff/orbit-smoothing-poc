@@ -29,8 +29,9 @@ def experiment(tmp_path,monkeypatch):
     # Test-only durability stub: every file is temporary, and no native process runs.
     monkeypatch.setattr(m.os,'fsync',lambda fd:None)
     files={}
-    for name in ['src/orbit_poc/segmented/supervisor.py','src/module.py','groops/extension/example.h','scripts/run_nuisance_warm_profiles.py','scripts/check_nuisance_warm_profiles.py','python','native-bin','lib.so','native-source/example.cpp']:
+    for name in ['src/orbit_poc/segmented/supervisor.py','src/module.py','groops/extension/example.h','scripts/run_nuisance_warm_profiles.py','scripts/check_nuisance_warm_profiles.py','scripts/nuisance_profile_launch.py','python','native-bin','lib.so','native-source/example.cpp']:
         p=repo/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(name+'\n');files[name]=p
+    files['scripts/nuisance_profile_launch.py'].write_bytes(Path(m.launch.__file__).read_bytes())
     monkeypatch.setattr(m,'REPO',repo);monkeypatch.setattr(m,'__file__',str(files['scripts/run_nuisance_warm_profiles.py']))
     monkeypatch.setattr(m,'sys',SimpleNamespace(executable=str(files['python'])))
     admissions=[]
@@ -55,6 +56,10 @@ def experiment(tmp_path,monkeypatch):
     calls=[];behavior={}
     def execute(cmd,**kw):
         d=Path(kw['cwd']);env=kw['env'];name=d.name;calls.append({'command':cmd,'env':dict(env),'kwargs':kw})
+        binding=m.pin(d/'launch-binding.json');b=m.read(binding['path'])
+        m.save(d/'native-launch.json',{'schema':'orbit-poc-nuisance-profile-native-launch-v1','mode':m.launch.MODE,
+               'binding':binding,'environment':{k:env.get(k) for k in b['environment']},'cpu_affinity':[0],
+               'native_command':[b['native']['path'],b['config']['path']],'pid':123})
         status=behavior.get('status',{}).get(name,'complete');clean=behavior.get('clean',{}).get(name,True)
         result={'status':status,'returncode':0 if status=='complete' else 1,'elapsed_seconds':.25,'owned_process_group_cleaned':clean}
         m.save(kw['receipt_path'],result);Path(kw['log_path']).write_text('fixture only\n')
@@ -106,7 +111,7 @@ def test_normal_run_scrubs_environment_keeps_full_limits_and_preserves_inputs(ex
         j=next(x for x in f['jobs'] if x['id']==job_id);env=call['env']
         assert 'ORBIT_POC_UNKNOWN_CONTROL' not in env and 'PYTHONPATH' not in env and 'PYTHONHOME' not in env
         assert env['OPENBLAS_NUM_THREADS']==env['OMP_NUM_THREADS']==env['MKL_NUM_THREADS']=='1'
-        assert call['command']==['/usr/bin/taskset','-c','0',f['native']['path'],str(Path(j['root'])/'config.xml')]
+        assert call['command']==e.m.launch.launch_command(f['python']['path'],f['launch_guard']['path'],e.m.pin(Path(j['root'])/'launch-binding.json'))
         assert call['kwargs']['timeout_seconds']==900 and call['kwargs']['max_process_tree_rss_bytes']==8*1024**3
         assert ('ORBIT_POC_NUISANCE_WARM_INPUT_SHA256' in env)==(j['treatment']=='warm')
         rec=e.m.read(Path(j['root'])/'execution.json');assert rec['inputs_unchanged'] and rec['status']=='complete'
@@ -183,3 +188,46 @@ def test_configure_rejects_parent_path_output_escape(experiment,tmp_path):
     d=tmp_path/'isolated/config.xml';d.parent.mkdir()
     with pytest.raises(ValueError):e.m.configure(template,d)
     assert not (tmp_path/'outside-orbit').exists()
+
+
+@pytest.mark.parametrize('key',['QR_PREFIX','SOLVER','MODE','LAMBDA','PULSE_REFERENCE'])
+@pytest.mark.parametrize('mutation',['missing','wrong'])
+def test_prelaunch_control_cannot_be_missing_or_wrong(experiment,key,mutation):
+    e=experiment;f=e.prepare();job=f['jobs'][0];key='ORBIT_POC_NUMERICS_'+key
+    if key.endswith('PULSE_REFERENCE') and mutation=='missing':
+        # Add a real pulse input, bind the updated XML, then omit its environment control.
+        config=Path(job['root'])/'config.xml';tree=ET.parse(config)
+        ET.SubElement(tree.find('.//orbitPocNumerics'),'inputfilePulseReference').text=str(e.shared);tree.write(config)
+        job['profile_sha256']=e.m.digest(config)
+    elif mutation=='missing':job['environment'].pop(key)
+    else:job['environment'][key]='wrong'
+    dump(e.out/'freeze.json',f)
+    with pytest.raises(ValueError,match='Prelaunch scientific control'):run(e)
+    assert e.calls==[]
+
+
+def test_each_treatment_receives_exact_preinit_controls_despite_parent_overrides(experiment,monkeypatch):
+    e=experiment;f=e.prepare()
+    for key in ('QR_PREFIX','SOLVER','MODE','LAMBDA','PULSE_REFERENCE'):monkeypatch.setenv('ORBIT_POC_NUMERICS_'+key,'parent-wrong')
+    monkeypatch.setenv('LD_PRELOAD','parent-wrong');run(e)
+    assert {j['treatment'] for j in f['jobs']}=={'disabled','cold_export','warm'}
+    for call in e.calls:
+        root=call['kwargs']['cwd'];env=call['env']
+        assert env['ORBIT_POC_NUMERICS_QR_PREFIX']==str(root/'qr')
+        assert env['ORBIT_POC_NUMERICS_SOLVER']=='scaled_qr_v1'
+        assert env['ORBIT_POC_NUMERICS_MODE']=='profile_step' and env['ORBIT_POC_NUMERICS_LAMBDA']=='0'
+        assert 'ORBIT_POC_NUMERICS_PULSE_REFERENCE' not in env and 'LD_PRELOAD' not in env
+
+
+def test_missing_required_launchmode_blocks_old_freeze(experiment):
+    e=experiment;f=e.prepare();f.pop('native_launch_mode');dump(e.out/'freeze.json',f)
+    with pytest.raises(ValueError,match='prelaunch numerics mode'):run(e)
+    assert e.calls==[]
+
+
+def test_tampered_actual_launch_environment_stops_campaign(experiment):
+    e=experiment;e.prepare()
+    def alter(d,env):
+        p=d/'native-launch.json';v=e.m.read(p);v['environment']['ORBIT_POC_NUMERICS_SOLVER']='legacy';dump(p,v)
+    e.behavior['after']={'pulses--disabled_source':alter};run(e)
+    assert execution(e,'disabled_source')['status']=='identity_failure' and len(e.calls)==1

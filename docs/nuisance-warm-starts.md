@@ -17,6 +17,23 @@ also found that the isolated launcher omitted prelaunch QR controls required for
 the production datum path. The original failures remain recorded; they do not
 establish behavior under the production backend's initialization.
 
+The corrected-launch [candidate05 experiment](../validation/nuisance-warm-starts/candidate05-profiles02/index.html)
+completed all 27 planned attempts: 21 strict profiles completed and six
+perturbed-target imports rejected their cold-origin identity check. Independent
+replay accepted nine comparisons (six export-inertness and three same-trajectory
+warm comparisons) and rejected the six perturbed-target comparisons. No whole-fit
+experiment or production use is admitted. Same-trajectory iteration counts were
+6 to 6 for pulses, 6 to 6 for density, and 10 to 8 for the dedicated prior fixture;
+these single attempts do not establish a general speedup.
+
+Candidate05 canonicalizes only exact signed zero in encoded numeric identities.
+The isolated launcher now supplies the production QR settings before native
+parameter initialization and records the actual launch and datum evidence. The
+native test suites passed all 106 tests and 51 correction regressions. The prior
+fixture's original aggregate false status is preserved, alongside an independent
+schema-aware reconciliation of its successful native execution; it is not a
+replacement run or a relaxed scientific gate.
+
 A separately controlled worker enables the candidate with
 `ORBIT_POC_NUISANCE_WARM_STARTS=1`. The default enabled mode is
 `receiver_clock_signal_float_v1`, which transfers receiver clocks, signal-bias

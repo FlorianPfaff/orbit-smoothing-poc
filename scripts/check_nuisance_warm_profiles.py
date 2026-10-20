@@ -17,9 +17,12 @@ import math
 from pathlib import Path
 import re
 import struct
+import sys
 import xml.etree.ElementTree as ET
 import numpy as np
 from scipy.linalg import solve_triangular
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import nuisance_profile_launch as launch
 
 HEX = re.compile(r'[0-9a-f]{64}')
 WARM = 'ORBIT_POC_NUISANCE_WARM'
@@ -172,9 +175,11 @@ def checked_receipts(root):
     require(ex['schema']=='orbit-poc-nuisance-warm-profile-execution-v1','Unknown execution schema')
     freeze_path=pin(ex['freeze']);freeze=strict_json(freeze_path)
     require(freeze['schema']=='orbit-poc-nuisance-warm-profile-freeze-v1','Unknown freeze schema')
-    for key in ('preparation','native','runner','supervisor','build_record','checker','python'):
+    require(freeze.get('native_launch_mode')==launch.MODE,'Required prelaunch numerics mode missing')
+    for key in ('preparation','native','runner','supervisor','build_record','checker','python','launch_guard'):
         pin(freeze[key],allow_symlink=key in ('native','python'))
     require(freeze['checker']['sha256']==digest(__file__),'Checker differs from frozen implementation')
+    require(freeze['launch_guard']['sha256']==digest(launch.__file__),'Launch helper differs from frozen guard')
     for record in freeze['source_files']:pin(record)
     build=strict_json(freeze['build_record']['path']);pin_tree(build)
     require(build['native']==freeze['native'] and build['execution']['status']=='complete' and build['inputs_and_originals_unchanged'] is True,'Build identity/status mismatch')
@@ -213,6 +218,7 @@ def checked_receipts(root):
     expected_environment=dict(job['environment'])
     if job['treatment']=='warm':expected_environment[WARM+'_INPUT_SHA256']=ex['source_donor']['payload']['sha256']
     require(ex['effective_environment']==expected_environment,'Effective controls differ from freeze')
+    launch.validate_environment(expected_environment,root/'config.xml',root)
     env=ex['effective_environment'];require(all(env.get(k)=='1' for k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS')),'Numerical threads changed')
     require(env.get('ORBIT_POC_NUMERICS_KEEP_INTERMEDIATE_FACTORS')=='1','All profile factors must be retained')
     warm_keys={k:v for k,v in env.items() if k.startswith(WARM)}
@@ -223,7 +229,13 @@ def checked_receipts(root):
             d=ex['source_donor'];expected_env.update({WARM+'_INPUT':d['payload']['path'],WARM+'_INPUT_SHA256':d['payload']['sha256']})
     require(warm_keys==expected_env,'Warm controls differ from assigned treatment')
     if job['treatment']!='warm':require(ex['source_donor'] is None and job['source_donor_job_id'] is None,'Cold run contains donor')
-    command=['/usr/bin/taskset','-c',str(freeze['limits']['cpu']),freeze['native']['path'],str(root/'config.xml')]
+    require(ex.get('native_launch_mode')==launch.MODE,'Execution prelaunch mode differs')
+    binding_record=ex['launch_binding'];pin(binding_record)
+    launch_receipt=strict_json(root/'native-launch.json')
+    binding=launch.checked_launch(binding_record,launch_receipt,expected_environment=expected_environment)
+    require(binding['freeze']==ex['freeze'] and binding['native']==freeze['native'] and binding['guard']==freeze['launch_guard']
+            and binding['job_id']==job['id'] and binding['config']['sha256']==job['profile_sha256'],'Native launch attribution differs')
+    command=launch.launch_command(freeze['python']['path'],freeze['launch_guard']['path'],binding_record)
     require(ex['command']==command,'Command differs from frozen native/config/CPU')
     supervisor=strict_json(root/'supervisor.json')
     require(ex['supervisor_sha256']==digest(root/'supervisor.json'),'Supervisor receipt changed')
@@ -244,6 +256,7 @@ def checked_receipts(root):
     actual={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file() and p!=root/'execution.json'}
     require(set(artifacts)==actual,'Output inventory missing/extra files')
     require('config.xml' in artifacts and 'supervisor.json' in artifacts,'Incomplete receipt inventory')
+    datum=launch.datum_evidence(root)
     # Freeze pins the exact run XML. Structural identity to the prepared XML is
     # checked separately; appended residual-export programs may differ only in output paths.
     template=template_signature(point['profile_template']['path'],input_hashes)
@@ -253,7 +266,8 @@ def checked_receipts(root):
         if (e.tag.startswith('outputfile') or e.attrib.get('label')=='tmpDir') and (e.text or '').strip():
             require(Path(e.text.strip()).is_relative_to(root),'Run output escapes isolated directory')
     return dict(root=root,execution=ex,freeze=freeze,job=job,preparation=prep,point=point,group=group,
-                physical=physical,input_hashes=input_hashes,artifacts=artifacts,template=template,config=config)
+                physical=physical,input_hashes=input_hashes,artifacts=artifacts,template=template,config=config,
+                native_datum_evidence=datum)
 
 
 def inspect(root, *, donor=True):

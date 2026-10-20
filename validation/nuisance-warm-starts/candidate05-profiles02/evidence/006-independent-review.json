@@ -1,0 +1,545 @@
+{
+  "audit_script": {
+    "bytes": 8996,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/profile-launch05/audit.py",
+    "sha256": "79168fdb00e31d327cfcfc7ef0edb996aa419100301e10603fc3be0ccaeba4ec"
+  },
+  "candidate_build_and_157_tests": {
+    "bytes": 5595,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/candidate05-runtime/independent-review.json",
+    "sha256": "7b825b2c69e58f1c279e836c83542d77ceda223315dd130e481dca8c7b727acf"
+  },
+  "created_at": "2026-10-20T03:40:41.909078+00:00",
+  "deployment": {
+    "candidate_build_record": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-result05.json",
+    "performed": false,
+    "pilot_controller": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/pilot_prior_fixture05.py",
+    "pilot_launch_guard": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/nuisance_profile_launch.py",
+    "pilot_output": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot05",
+    "relative_files": [
+      "scripts/check_nuisance_warm_profiles.py",
+      "scripts/nuisance_profile_launch.py",
+      "scripts/report_nuisance_warm_profiles.py",
+      "scripts/run_nuisance_warm_profiles.py",
+      "tests/test_nuisance_profile_launch.py",
+      "tests/test_nuisance_warm_profile_report.py",
+      "tests/test_nuisance_warm_profile_runner.py",
+      "tests/test_nuisance_warm_profiles.py"
+    ],
+    "source_tree": "/home/emper/orbit-nuisance-warmstarts/source-candidate05"
+  },
+  "environment_mappings_for_27_existing_configurations": [
+    {
+      "job": "pulses--disabled_source",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--disabled_source/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--cold_source_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--cold_source_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--cold_source_repeat_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-002-repeat/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--cold_source_repeat_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--warm_source_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--warm_source_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--cold_target_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-003-direction-1.0--1/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--cold_target_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--cold_target_repeat_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-004-direction-1.0--1-repeat/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--cold_target_repeat_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--warm_target_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-003-direction-1.0--1/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--warm_target_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--cold_source_clock",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--cold_source_clock/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses--warm_target_clock",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-003-direction-1.0--1/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses--warm_target_clock/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--disabled_source",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--disabled_source/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--cold_source_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_source_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--cold_source_repeat_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_source_repeat_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--warm_source_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--warm_source_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--cold_target_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--cold_target_repeat_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_target_repeat_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--warm_target_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--warm_target_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--cold_source_clock",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--cold_source_clock/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "density--warm_target_clock",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/density--warm_target_clock/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--disabled_source",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--disabled_source/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--cold_source_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--cold_source_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--cold_source_repeat_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-002-repeat/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--cold_source_repeat_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--warm_source_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--warm_source_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--cold_target_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-003-direction-1.0--1/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--cold_target_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--cold_target_repeat_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-004-direction-1.0--1-repeat/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--cold_target_repeat_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--warm_target_full",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-003-direction-1.0--1/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--warm_target_full/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--cold_source_clock",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--cold_source_clock/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    },
+    {
+      "job": "pulses-bias-priors--warm_target_clock",
+      "scientific_controls": {
+        "ORBIT_POC_NUMERICS_LAMBDA": "0",
+        "ORBIT_POC_NUMERICS_MODE": "profile_step",
+        "ORBIT_POC_NUMERICS_PULSE_REFERENCE": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/inputs/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-003-direction-1.0--1/full_pulses_um_s.txt",
+        "ORBIT_POC_NUMERICS_QR_PREFIX": "/home/emper/orbit-nuisance-warmstarts/profiles01/pulses-bias-priors--warm_target_clock/qr",
+        "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+      }
+    }
+  ],
+  "findings": [
+    "All old scientific comparison function bodies are byte-identical; only checked_receipts gains prelaunch/datum attribution. All strict convergence, rank, objective, covariance diagnostic and prediction thresholds remain unchanged.",
+    "Every treatment receives QR_PREFIX/SOLVER/MODE/LAMBDA and the exact XML pulse reference before exec. Density cannot inherit a pulse reference. Inherited ORBIT_POC and LD overrides are removed by controllers and rejected by the guard if unfrozen.",
+    "The pinned guard validates actual inherited environment and CPU0, writes a fresh receipt, and execve passes that same environment to the exact pinned native/config. Checker ties binding to job/freeze/native/config/guard and supervised wrapper command.",
+    "Native datum evidence requires known kinds, contiguous sequence and finite rectangular values, retaining legitimate empty records but requiring at least one substantive record. Datums alone confer no scientific success.",
+    "Pilot transform is byte-identical to the preserved pilot04 transform; extraction retains every old scientific gate and adds mandatory native datum evidence. Native launch receipt and protected pins are rechecked after execution.",
+    "Independent offline replay passed all 193 cases: 47 runner, 85 checker, 19 guard/pilot and 42 reporter. Native exec was intercepted; no compiler or native fit ran.",
+    "Preparation02 now requires the exact two typed positive finite code/TEC prior summaries, clean successful actual execution, QR launch binding/receipt, exact datum evidence and complete equality with rerun pinned pilot extraction before writing.",
+    "Read-only roundtrip audit confirms all 12 actual templates preserve input bytes and all scientific XML outside output relocation plus the two explicit transmitter selections in each of four dedicated prior-fixture points. Failed pilot04 is rejected before any preparation output."
+  ],
+  "offline_tests": {
+    "by_module": {
+      "test_nuisance_profile_launch": 19,
+      "test_nuisance_warm_profile_report": 42,
+      "test_nuisance_warm_profile_runner": 47,
+      "test_nuisance_warm_profiles": 85
+    },
+    "counts": {
+      "error": 0,
+      "failure": 0,
+      "skipped": 0,
+      "tests": 193
+    },
+    "cpu": 4,
+    "junit": {
+      "bytes": 28630,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/profile-launch05/tests.xml",
+      "sha256": "7f263ddd1a4a4a0efcfdd6487126c2ba38bbcb47471862a77095efc967c3be8d"
+    },
+    "log": {
+      "bytes": 367,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/profile-launch05/tests.log",
+      "sha256": "7466c63147c71ec47dc80458f001d0e0ddaa1ae6d1a3994376e9113d7bc3700a"
+    },
+    "threads": 1
+  },
+  "preparation_control": {
+    "bytes": 5900,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/prepare_profiles02.py",
+    "sha256": "3fb906de49b75711c3b7f72fd9b1f05173b0713c8345fbe0516ce280725ac805"
+  },
+  "preserved_failed_pilot_rejected_before_preparation": true,
+  "remaining_admission_requirements": [
+    "Root must deploy exactly the eight reviewed harness/test files into the complete candidate05 source tree, preserving the 449-file baseline and recording exact deltas. Pilot controller/guard remain at their reviewed control paths.",
+    "Verify deployed files, build/native/runtime pins and fresh pilot output absence before the single pilot05 launch. CPU0/thread1/900s/8GiB/16GiB limits and original scientific gates remain mandatory.",
+    "Actual pilot05 must independently pass the new guard/datum/strict prior checks before preparing profiles02. The failed old pilot and profiles stay preserved.",
+    "Future 27 profiles require a separate frozen preparation/execution and actual independent outcome audit. This control review does not authorize whole fits."
+  ],
+  "review_execution": {
+    "compiler_runs": 0,
+    "cpu": 4,
+    "native_runs": 0,
+    "signals": 0,
+    "source_input_benchmark_changes": 0,
+    "threads": 1
+  },
+  "schema": "independent-warm-profile-preinit-harness-and-pilot-control-review-v1",
+  "scientific_accepted": false,
+  "snapshot_receipt": {
+    "bytes": 5178,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/profile-launch05/snapshot-receipt.json",
+    "sha256": "68515f63b4e1ca42d37c720ecc8219a76b1530c56493e037f5eda07d45680dae"
+  },
+  "source_files": [
+    {
+      "bytes": 35230,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/check_nuisance_warm_profiles.py",
+      "sha256": "14820c4f6a944ad11950a8d3f8dbac4b295a7185d566a8dc3492f5c9714e3022"
+    },
+    {
+      "bytes": 6532,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/nuisance_profile_launch.py",
+      "sha256": "a78433e2d7b0353073c9881c999ece6488815bbaa2c2175c5cfebbc9ab476c87"
+    },
+    {
+      "bytes": 29979,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/report_nuisance_warm_profiles.py",
+      "sha256": "849c022025e20ac461f521d1cd50436eb68926498b0aa7a40fd2dcfe1558cfd0"
+    },
+    {
+      "bytes": 18404,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/run_nuisance_warm_profiles.py",
+      "sha256": "038cd48d1be7adb3034a89a9aeee8f0421119b41933c0afc4592dedd7d5f1ae7"
+    },
+    {
+      "bytes": 6959,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_profile_launch.py",
+      "sha256": "66edcb2d6c285dbbd73efdfebfbf86a9e973886f6e18cc2981ac286da09316f3"
+    },
+    {
+      "bytes": 17935,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_warm_profile_report.py",
+      "sha256": "d4f702a7f6ac4e63c06f17a68d9d0a13372975b244a93371a9e9f5469063624d"
+    },
+    {
+      "bytes": 16970,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_warm_profile_runner.py",
+      "sha256": "21eff354d16fbde0ed796e4357d2dde66df47337ea90bb8e471acfed17b02ace"
+    },
+    {
+      "bytes": 29868,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_warm_profiles.py",
+      "sha256": "ecc2181132ebd1407f7b6b7691f7e17880588d990c4cf2ec50fac290c8dbf3d3"
+    },
+    {
+      "bytes": 16419,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/pilot_prior_fixture05.py",
+      "sha256": "a607e289520ad6a87ba66f98b462093eb3770b7fc3bb07d6f813e3a72834379e"
+    }
+  ],
+  "source_readiness": {
+    "bytes": 10960,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/readiness01.json",
+    "sha256": "1c5f3dae62653a0f0eeedc9f09e578c977f4e9322fcda9b52cae5f8000c2a8e2"
+  },
+  "status": "accepted_controls_and_offline_replay_pending_exact_deployment",
+  "twelve_template_transform_proofs": [
+    {
+      "group": "pulses",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13485,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses/source/template.xml",
+        "sha256": "10c4b1ae5152314ca6520448cab42385e568bd2ed526ae3fe44c687e51b2ac1d"
+      },
+      "point": "source",
+      "selector_additions": 0
+    },
+    {
+      "group": "pulses",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13421,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses/source_repeat/template.xml",
+        "sha256": "26773167e17f5dc2cf90954d3d1180dbd88b67da1c7e930a7cfc439805d20918"
+      },
+      "point": "source_repeat",
+      "selector_additions": 0
+    },
+    {
+      "group": "pulses",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13465,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses/target/template.xml",
+        "sha256": "acba0435ea4afe747f08827e6c6ff7124fbfbd3347d403bdaff6c793946ab27c"
+      },
+      "point": "target",
+      "selector_additions": 0
+    },
+    {
+      "group": "pulses",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13591,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses/target_repeat/template.xml",
+        "sha256": "a148231e2f1921fddf95a17da2819b650b2df05564075c10ea6d982bb04dd8b4"
+      },
+      "point": "target_repeat",
+      "selector_additions": 0
+    },
+    {
+      "group": "density",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 14049,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/density/source/template.xml",
+        "sha256": "ecc6c8f68295bc39378c01c9431cb0c095ed482dfc21c373f95378f24ec29054"
+      },
+      "point": "source",
+      "selector_additions": 0
+    },
+    {
+      "group": "density",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13973,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/density/source_repeat/template.xml",
+        "sha256": "e3edaaf5b0073cbe3732bbb1481b3295b8982af2552eb3bd6b7a864844771b23"
+      },
+      "point": "source_repeat",
+      "selector_additions": 0
+    },
+    {
+      "group": "density",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 14027,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/density/target/template.xml",
+        "sha256": "8bfd3aac30b3a8263573ecc819e1fec03c8dca8fb78ad33482c28e0f283a37b8"
+      },
+      "point": "target",
+      "selector_additions": 0
+    },
+    {
+      "group": "density",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 14160,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/density/target_repeat/template.xml",
+        "sha256": "df6ff58c39ffcf660954144ae61855c34a5b50ac3ebf2f6cd0949b652c2a32f9"
+      },
+      "point": "target_repeat",
+      "selector_additions": 0
+    },
+    {
+      "group": "pulses-bias-priors",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13581,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses-bias-priors/source/template.xml",
+        "sha256": "126add6fb41effe453ca802594281e135f5168bb5bed0aa108152c9adad662d0"
+      },
+      "point": "source",
+      "selector_additions": 2
+    },
+    {
+      "group": "pulses-bias-priors",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13517,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses-bias-priors/source_repeat/template.xml",
+        "sha256": "966fd3680b434879b9d9d3de640ed90db4b48b523833bbd6c3c59d5d243f2350"
+      },
+      "point": "source_repeat",
+      "selector_additions": 2
+    },
+    {
+      "group": "pulses-bias-priors",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13561,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses-bias-priors/target/template.xml",
+        "sha256": "8b324f6c05efa5c1fb3e6d9c498d4e1a4a76755ce0e960ca4b8464b586d19db6"
+      },
+      "point": "target",
+      "selector_additions": 2
+    },
+    {
+      "group": "pulses-bias-priors",
+      "inverse_bytes_equal": true,
+      "original": {
+        "bytes": 13687,
+        "path": "/home/emper/orbit-nuisance-warmstarts/profiles-prepared01/pulses-bias-priors/target_repeat/template.xml",
+        "sha256": "9b1dbacacffb68bff695306f6f5e0903ecb575e3efb0ae8f0e396adcd546ac2c"
+      },
+      "point": "target_repeat",
+      "selector_additions": 2
+    }
+  ],
+  "wholefit_admission": false
+}

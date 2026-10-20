@@ -9,6 +9,8 @@ import argparse, datetime, hashlib, json, os, re, socket, sys, time
 import xml.etree.ElementTree as ET
 
 REPO=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import nuisance_profile_launch as launch
 sys.path.insert(0,str(REPO/'src'))
 from orbit_poc.segmented.supervisor import run_owned
 
@@ -81,7 +83,8 @@ def prepare(args):
             if digest(p['profile_template']['path'])!=p['profile_template']['sha256']:raise ValueError('Prepared template changed')
             configure(p['profile_template']['path'],d/'config.xml')
             paths=set(p['input_paths'])|{copies[x['path']]['copy'] for x in p['physical'].values()}
-            env={**common,'ORBIT_POC_NUISANCE_WARM_STARTS':'0' if treatment=='disabled' else '1'}
+            env={**common,**launch.scientific_controls(d/'config.xml',d),
+                 'ORBIT_POC_NUISANCE_WARM_STARTS':'0' if treatment=='disabled' else '1'}
             if treatment!='disabled':env.update(ORBIT_POC_NUISANCE_WARM_MODE=mode,ORBIT_POC_NUISANCE_WARM_CONTEXT_SHA256=context,ORBIT_POC_NUISANCE_WARM_OUTPUT=str(d/'seed.bin'))
             if donor:env['ORBIT_POC_NUISANCE_WARM_INPUT']=str(out/(group['name']+'--'+donor)/'seed.bin')
             jobs.append({'id':job_id,'root':str(d),'profile_sha256':digest(d/'config.xml'),'group':group['name'],'point':point,'treatment':treatment,'mode':mode,'context_sha256':context,'source_donor_job_id':group['name']+'--'+donor if donor else None,'environment':env,'input_inventory':[pin(x) for x in sorted(paths)]})
@@ -92,6 +95,7 @@ def prepare(args):
         order.extend(g['name']+'--'+CASES[k][0] for g in groups)
     frozen_sources=[pin(p) for folder in ['src','groops/extension'] for p in sorted((REPO/folder).rglob('*')) if p.is_file() and p.suffix in ('.py','.h','.cpp','.f','.F90')]
     freeze={'schema':'orbit-poc-nuisance-warm-profile-freeze-v1','created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'native_launch_mode':launch.MODE,'launch_guard':pin(REPO/'scripts/nuisance_profile_launch.py'),
             'preparation':pin(args.preparation),'build_record':pin(args.build_record),'native':build['native'],'runner':pin(__file__),
             'supervisor':pin(REPO/'src/orbit_poc/segmented/supervisor.py'),'checker':pin(REPO/'scripts/check_nuisance_warm_profiles.py'),
             'python':pin(sys.executable),'source_files':frozen_sources,'jobs':jobs,'execution_order':order,'admission':admission(),
@@ -102,7 +106,13 @@ def prepare(args):
     save(out/'freeze.json',freeze);print(json.dumps({'freeze':pin(out/'freeze.json'),'attempts':len(jobs)}),flush=True)
 
 def verify_frozen(freeze):
-    for key in ['preparation','build_record','native','runner','supervisor','checker','python']:verify(freeze[key])
+    if freeze.get('native_launch_mode')!=launch.MODE:raise ValueError('Required prelaunch numerics mode missing')
+    for key in ['preparation','build_record','native','runner','supervisor','checker','python','launch_guard']:verify(freeze[key])
+    if digest(launch.__file__)!=freeze['launch_guard']['sha256']:raise ValueError('Native launch helper differs from frozen guard')
+    for job in freeze['jobs']:
+        config=Path(job['root'])/'config.xml'
+        if digest(config)!=job['profile_sha256']:raise ValueError('Frozen XML changed')
+        launch.validate_environment(job['environment'],config,job['root'])
     for p in freeze['source_files']:verify(p)
     build=read(freeze['build_record']['path']);verify(build['build_manifest'])
     for p in build['libraries']:verify(p)
@@ -151,12 +161,18 @@ def run(args):
                 if digest(seed)!=meta['payload_sha256']:raise ValueError('Donor payload identity changed')
                 donor={'root':str(sd),'payload':pin(seed),'companion':pin(comp)};effective['ORBIT_POC_NUISANCE_WARM_INPUT_SHA256']=digest(seed)
             except (OSError,ValueError,KeyError) as e:blocked=type(e).__name__+': '+str(e)
-        cmd=['/usr/bin/taskset','-c','0',freeze['native']['path'],str(d/'config.xml')]
+        cmd=None;binding_record=None
         start=datetime.datetime.now(datetime.timezone.utc).isoformat();mono=time.monotonic()
         if blocked:
             result={'status':'blocked','returncode':None,'elapsed_seconds':0.,'owned_process_group_cleaned':True,'reason':blocked};save(d/'supervisor.json',result)
         else:
-            env={k:v for k,v in os.environ.items() if not k.startswith('ORBIT_POC_') and k not in ('PYTHONPATH','PYTHONHOME')};env.update(effective)
+            launch.validate_environment(effective,d/'config.xml',d)
+            save(d/'launch-binding.json',{'schema':'orbit-poc-nuisance-profile-launch-binding-v1','mode':launch.MODE,
+                 'freeze':launch_pin,'native':freeze['native'],'config':pin(d/'config.xml'),'guard':freeze['launch_guard'],
+                 'job_id':job_id,'root':str(d),'cpu':0,'environment':effective})
+            binding_record=pin(d/'launch-binding.json')
+            cmd=launch.launch_command(freeze['python']['path'],freeze['launch_guard']['path'],binding_record)
+            env={k:v for k,v in os.environ.items() if not k.startswith(('ORBIT_POC_','LD_')) and k not in ('PYTHONPATH','PYTHONHOME')};env.update(effective)
             lim=freeze['limits'];result=run_owned(cmd,python_executable=freeze['python']['path'],cwd=d,env=env,log_path=d/'profile.log',receipt_path=d/'supervisor.json',timeout_seconds=lim['timeout_seconds'],max_process_tree_rss_bytes=lim['max_process_tree_rss_bytes'],min_free_disk_bytes=lim['min_free_disk_bytes'],working_directory=d)
         stable=True;error=None
         try:
@@ -165,9 +181,13 @@ def run(args):
             if donor:
                 verify(donor['payload']);verify(donor['companion'])
             if digest(d/'config.xml')!=j['profile_sha256']:raise ValueError('Config changed')
+            if not blocked:
+                verify(binding_record)
+                launch.checked_launch(binding_record,read(d/'native-launch.json'),expected_environment=effective)
         except Exception as e:stable=False;error=str(e)
         rec={'schema':'orbit-poc-nuisance-warm-profile-execution-v1','status':result['status'] if stable else 'identity_failure','returncode':result.get('returncode'),'timed_out':result['status']=='timeout','owned_process_group_cleaned':result['owned_process_group_cleaned'],
              'command':cmd,'config_sha256':j['profile_sha256'],'native_binary_sha256':freeze['native']['sha256'],'supervisor_sha256':digest(d/'supervisor.json'),'freeze':launch_pin,'preparation':freeze['preparation'],
+             'native_launch_mode':launch.MODE,'launch_binding':binding_record,
              **{k:j[k] for k in ['group','point','treatment','mode','context_sha256','input_inventory']},'job_id':job_id,'effective_environment':effective,'source_donor':donor,
              'elapsed_seconds':result['elapsed_seconds'],'controller_elapsed_seconds':time.monotonic()-mono,'started_at':start,'finished_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'inputs_unchanged':stable,'identity_error':error,'blocked_reason':blocked}
         rec['output_inventory']=[{**pin(p),'path':str(p.relative_to(d))} for p in sorted(d.rglob('*')) if p.is_file()]

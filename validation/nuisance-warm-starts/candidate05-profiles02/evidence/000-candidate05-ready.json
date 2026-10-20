@@ -1,0 +1,84 @@
+{
+  "actual_native_gates": "pending",
+  "copy_receipts": [
+    {
+      "bytes": 80755,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-clean-copy.json",
+      "sha256": "d205716e6fcd4aa3e8ccf7460c3a067159e4999de466d744bd2a0aa823bb0dce"
+    },
+    {
+      "bytes": 630,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-clean-lock-copy.json",
+      "sha256": "9ea421b5062109a265eb91ef8a76c99ec1eb583a7e4976ef7b5a451ad701c2d5"
+    }
+  ],
+  "created_utc": "2026-10-20T03:29:49.389279+00:00",
+  "diagnostic04_unchanged": true,
+  "focused_tests": {
+    "cpu": 0,
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 15053,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-focused01.xml",
+      "sha256": "386258be7c63b39489965b54722d686086fd47db9b148fc040ebea7d61f00a20"
+    },
+    "passed": 113,
+    "scope": "65 existing focused native/installer cases plus 48 exact-zero cases, not actual GNSS validation",
+    "skipped": 0
+  },
+  "header": {
+    "bytes": 13951,
+    "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/groops/extension/nuisanceWarmState.h",
+    "sha256": "4e9a8aea737702d8daf02fc05a37e4b64caeec52a3c85bb7257688b285ae3a46"
+  },
+  "independent_review": "pending",
+  "native_matrix_api": {
+    "command": [
+      "/usr/bin/taskset",
+      "-c",
+      "0",
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-fsyntax-only",
+      "-I",
+      "/home/emper/orbit-nuisance-warmstarts/source-candidate05/groops/extension",
+      "-I",
+      "/home/emper/orbit-nuisance-warmstarts/native-source-04/source",
+      "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/nuisance_warm_native_matrix_fixture.cpp"
+    ],
+    "exit_code": 0,
+    "fixture": {
+      "bytes": 625,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/nuisance_warm_native_matrix_fixture.cpp",
+      "sha256": "c60583c1cde329dd3f596abfb4ecc1311f9bde2dbf4b3602bc0e36c3b41101d7"
+    },
+    "native_build_record": {
+      "bytes": 150616,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-result04.json",
+      "sha256": "7bdeea970d8c7241eb507bbd7a5d788054116bd2e18eec2227bd0c95cc53813d"
+    }
+  },
+  "original_unchanged": true,
+  "production_change": "Canonicalize only IEEE signed zero in real() serialization. Every finite nonzero bit and all strict scientific checks remain unchanged; no live-state mutation.",
+  "release_authority": false,
+  "schema": "nuisance-warm-candidate05-readiness-v1",
+  "source_inventory": {
+    "bytes": 82260,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/candidate05-source-inventory.json",
+    "sha256": "bfde8e1c19f77f33f8b36c66d717036e552e31ccd292ef6d2a87295fd92062aa"
+  },
+  "source_root": "/home/emper/orbit-nuisance-warmstarts/source-candidate05",
+  "tests": [
+    {
+      "bytes": 4758,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/nuisance_warm_zero_fixture.cpp",
+      "sha256": "4082b76ed4e3290314fd92633fa5aef473aa9e34b5ddf0aa4cef52779c526fe4"
+    },
+    {
+      "bytes": 3768,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source-candidate05/tests/test_nuisance_warm_zero.py",
+      "sha256": "5b21d61f17725faaf48102d8a3d78ddc33c5801b42d661b88393f09da1dd5e7b"
+    }
+  ]
+}

@@ -86,6 +86,42 @@ def result(e):
     return e.m.report(e.args)
 
 
+def launch_fixture(e):
+    freeze=json.loads(e.args.freeze.read_text());freeze.update(native_launch_mode='preinit_scaled_qr_v1',
+        launch_guard=write(e.tmp/'protocol/guard.py','# frozen guard fixture\n'))
+    frozen=write(e.args.freeze,freeze)
+    for job in e.jobs:
+        root=Path(job['root']);binding=write(root/'launch-binding.json',{'fixture':'launch binding'})
+        write(root/'native-launch.json',{'fixture':'actual launch environment'})
+        write(root/'qr.datum.1.codeBias.tsv','1\t0\n0\t1\n');write(root/'qr.datum.2.codeBiasZeroMean.tsv','')
+        ex=json.loads((root/'execution.json').read_text());ex.update(freeze=frozen,native_launch_mode='preinit_scaled_qr_v1',launch_binding=binding)
+        ex['output_inventory']=[{**pin(p),'path':p.name} for p in root.iterdir() if p.is_file() and p.name!='execution.json']
+        write(root/'execution.json',ex)
+    for path in e.checks.glob('*.json'):
+        value=json.loads(path.read_text())
+        for receipt in value['execution_receipts']:
+            receipt.update(freeze=frozen,sha256=pin(Path(receipt['root'])/'execution.json')['sha256'])
+        write(path,value)
+
+
+def test_report_copies_launch_guard_receipts_and_empty_native_datum_exactly(example):
+    e=example;launch_fixture(e);r=result(e)
+    assert r['attempt_counts']=={'complete':27} and r['check_counts']=={'passed':15}
+    assert (e.args.output/'protocol/launch_guard.py').read_bytes()==(e.tmp/'protocol/guard.py').read_bytes()
+    for job in e.jobs:
+        for name in ('launch-binding.json','native-launch.json','qr.datum.1.codeBias.tsv','qr.datum.2.codeBiasZeroMean.tsv'):
+            assert (e.args.output/'attempts'/job['id']/name).read_bytes()==(Path(job['root'])/name).read_bytes()
+    assert not r['release_authority'] and not r['accepted_orbit_covariance']
+
+
+@pytest.mark.parametrize('missing',['launch-binding.json','native-launch.json','qr.datum.1.codeBias.tsv'])
+def test_new_mode_missing_launch_or_substantive_datum_cannot_inherit_pass(example,missing):
+    e=example;launch_fixture(e);root=Path(e.jobs[0]['root']);(root/missing).unlink()
+    ex=json.loads((root/'execution.json').read_text());ex['output_inventory']=[r for r in ex['output_inventory'] if r['path']!=missing];write(root/'execution.json',ex)
+    r=result(e);assert r['attempts'][0]['status']=='invalid_evidence'
+    assert all(c['status']!='passed' for c in r['checks'] if e.jobs[0]['id'] in c['jobs'])
+
+
 def test_all27_attempts15_checker_results_and_no_new_authority(example,monkeypatch):
     e=example;original=e.m.read_bytes
     def bounded(path):

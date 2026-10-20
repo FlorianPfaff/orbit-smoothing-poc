@@ -59,6 +59,7 @@ class Fixture:
             ('clock_warm','target','warm','receiver_clock_v1','clock_source')]:
             self.add_run(name,point,treatment,mode,donor)
         self.freeze=root/'freeze.json';save(self.freeze,{'schema':'orbit-poc-nuisance-warm-profile-freeze-v1','preparation':pin(self.preparation),
+            'native_launch_mode':check.launch.MODE,'launch_guard':pin(SCRIPT.with_name('nuisance_profile_launch.py')),
             'native':pin(self.native),'runner':pin(self.runner),'supervisor':pin(self.supervisor),'build_record':pin(self.build),
             'checker':pin(SCRIPT),'python':pin(self.python),'source_files':[],'jobs':self.jobs,
             'limits':{'cpu':0,'threads':1,'timeout_seconds':900,'max_process_tree_rss_bytes':8*1024**3,'min_free_disk_bytes':16*1024**3},
@@ -74,7 +75,9 @@ class Fixture:
         res=ET.SubElement(ET.SubElement(xml.find('.//GnssProcessing'),'processingStep'),'writeResiduals')
         ET.SubElement(ET.SubElement(res,'selectReceivers'),'all');ET.SubElement(res,'outputfileResiduals').text=str(root/'diagnostic/residuals.{station}.xml')
         ET.ElementTree(xml).write(root/'config.xml')
-        env={'OMP_NUM_THREADS':'1','OPENBLAS_NUM_THREADS':'1','ORBIT_POC_NUMERICS_KEEP_INTERMEDIATE_FACTORS':'1','ORBIT_POC_NUISANCE_WARM_STARTS':'0' if treatment=='disabled' else '1'}
+        env={**{key:'1' for key in check.launch.THREADS},**check.launch.scientific_controls(root/'config.xml',root),
+             'ORBIT_POC_NUMERICS_KEEP_INTERMEDIATE_FACTORS':'1','ORBIT_POC_NUMERICS_COMPRESS_ROW_PROVENANCE':'0',
+             'ORBIT_POC_NUISANCE_WARM_STARTS':'0' if treatment=='disabled' else '1'}
         if treatment!='disabled':env.update(ORBIT_POC_NUISANCE_WARM_MODE=mode,ORBIT_POC_NUISANCE_WARM_CONTEXT_SHA256='a'*64,ORBIT_POC_NUISANCE_WARM_OUTPUT=str(root/'seed.bin'))
         if donor:env['ORBIT_POC_NUISANCE_WARM_INPUT']=str(self.runs[donor]/'seed.bin')
         inputs=[pin(Path(p)) for p in sorted(set(prepared['input_paths'])|{p['path'] for p in prepared['physical'].values()})]
@@ -83,6 +86,8 @@ class Fixture:
         profile={'nuisance_converged':True,'nuisance_floor_limited':False,'threshold_m':1e-8,'required_consecutive_small_updates':2,
                  'fixed_weights':True,'dynamic_updates':False,'iterations':2,'maximum_update_m':1e-10,'history':[{'maximum_update_m':1e-10}]*2}
         save(root/'qr.profile.json',profile)
+        (root/'qr.datum.1.codeBias.tsv').write_text('1\t0\n0\t1\n')
+        (root/'qr.datum.2.tecBias.tsv').write_text('1\n')
         for generation in range(1,4):
             stem=str(root/f'qr.{generation}');table(Path(stem+'.parameters.tsv'),['index','name','dynamic','unit','scale','coordinate_convention'],
                     [[0,'clock',0,'m',1,'native'],[1,'dynamic',1,'m',.5,'native'],[2,'bias',0,'m',2,'native']])
@@ -126,8 +131,17 @@ class Fixture:
             if job['source_donor_job_id']:
                 d=self.runs[job['source_donor_job_id']];donor={'root':str(d),'payload':pin(d/'seed.bin'),'companion':pin(d/'seed.bin.json')}
                 env['ORBIT_POC_NUISANCE_WARM_INPUT_SHA256']=donor['payload']['sha256']
+            save(root/'launch-binding.json',{'schema':'orbit-poc-nuisance-profile-launch-binding-v1','mode':check.launch.MODE,
+                 'freeze':pin(self.freeze),'native':pin(self.native),'config':pin(root/'config.xml'),'guard':frozen['launch_guard'],
+                 'job_id':job['id'],'root':str(root),'cpu':0,'environment':env})
+            binding=pin(root/'launch-binding.json');command=check.launch.launch_command(str(self.python),frozen['launch_guard']['path'],binding)
+            save(root/'native-launch.json',{'schema':'orbit-poc-nuisance-profile-native-launch-v1','mode':check.launch.MODE,
+                 'binding':binding,'environment':env,'cpu_affinity':[0],'native_command':[str(self.native),str(root/'config.xml')],'pid':123})
+            plan=check.strict_json(root/'supervisor.plan.json');plan['argv']=command;save(root/'supervisor.plan.json',plan)
+            supervisor=check.strict_json(root/'supervisor.json');supervisor.update(argv=command,plan_sha256=check.digest(root/'supervisor.plan.json'));save(root/'supervisor.json',supervisor)
             ex={'schema':'orbit-poc-nuisance-warm-profile-execution-v1','status':'complete','returncode':0,'timed_out':False,'owned_process_group_cleaned':True,
-                'command':['/usr/bin/taskset','-c','0',str(self.native),str(root/'config.xml')],'config_sha256':job['profile_sha256'],'native_binary_sha256':check.digest(self.native),
+                'command':command,'native_launch_mode':check.launch.MODE,'launch_binding':binding,
+                'config_sha256':job['profile_sha256'],'native_binary_sha256':check.digest(self.native),
                 'supervisor_sha256':check.digest(root/'supervisor.json'),'freeze':pin(self.freeze),'preparation':pin(self.preparation),'job_id':job['id'],
                 **{k:job[k] for k in ('group','point','treatment','mode','context_sha256','input_inventory')},'effective_environment':env,'source_donor':donor,'elapsed_seconds':1.,'inputs_unchanged':True,'identity_error':None,'blocked_reason':None}
             ex['output_inventory']=[{**pin(p),'path':str(p.relative_to(root))} for p in sorted(root.rglob('*')) if p.is_file() and p.name!='execution.json']
@@ -153,6 +167,45 @@ def test_native_inverse_norm_scale_multiplies_covariance(experiment):
     a=experiment.inspected('cold')
     np.testing.assert_array_equal(a['covariance'],np.diag([.25**2,(2/3)**2]))
     np.testing.assert_array_equal(a['correction'],[.25,2/3])
+
+
+@pytest.mark.parametrize('field',['QR_PREFIX','SOLVER','MODE','LAMBDA'])
+@pytest.mark.parametrize('value',[None,'wrong'])
+def test_resealed_frozen_prelaunch_control_rejected(experiment,field,value):
+    f=experiment;job=next(j for j in f.jobs if j['id']=='warm');key='ORBIT_POC_NUMERICS_'+field
+    if value is None:job['environment'].pop(key)
+    else:job['environment'][key]=value
+    f.seal()
+    with pytest.raises(ValueError,match='Prelaunch scientific control'):f.comparison()
+
+
+def test_actual_launch_environment_cannot_differ_from_frozen_controls(experiment):
+    f=experiment;root=f.runs['warm'];change(root/'native-launch.json',lambda v:v['environment'].update(ORBIT_POC_NUMERICS_SOLVER='legacy'))
+    # Refresh the output pin only; the actual launch receipt must still be checked.
+    change(root/'execution.json',lambda v:v.update(output_inventory=[{**pin(p),'path':str(p.relative_to(root))}
+           for p in root.rglob('*') if p.is_file() and p.name!='execution.json']))
+    with pytest.raises(ValueError,match='Actual native launch environment'):f.comparison()
+
+
+@pytest.mark.parametrize('mutation',['missing','all_empty','nonfinite','ragged','sequence','kind'])
+def test_native_datum_evidence_required_and_checked(experiment,mutation):
+    f=experiment;root=f.runs['warm'];a=root/'qr.datum.1.codeBias.tsv';b=root/'qr.datum.2.tecBias.tsv'
+    if mutation=='missing':a.unlink();b.unlink()
+    elif mutation=='all_empty':a.write_text('');b.write_text('\n\n')
+    elif mutation=='nonfinite':a.write_text('NaN\n')
+    elif mutation=='ragged':a.write_text('1\t0\n1\n')
+    elif mutation=='sequence':b.rename(root/'qr.datum.3.tecBias.tsv')
+    else:b.rename(root/'qr.datum.2.unknown.tsv')
+    f.seal()
+    with pytest.raises(ValueError,match='datum'):f.comparison()
+
+
+def test_empty_native_datum_artifacts_preserved_alongside_substantive_evidence(experiment):
+    f=experiment;root=f.runs['warm'];(root/'qr.datum.3.codeBiasZeroMean.tsv').write_text('')
+    (root/'qr.datum.4.tecBias.tsv').write_text('\n\n');f.seal()
+    result=f.inspected('warm');records=result['native_datum_evidence']
+    assert records[2]['rows']==0 and records[2]['columns'] is None
+    assert records[3]['rows']==2 and records[3]['columns']==0 and f.comparison()['passed']
 
 
 @pytest.mark.parametrize('run',['source','source_warm','warm','cold'])

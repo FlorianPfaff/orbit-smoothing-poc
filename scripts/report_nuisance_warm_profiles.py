@@ -115,7 +115,7 @@ class Packet:
             return None, None
 
 
-def collect_job(packet, job, freeze_pin):
+def collect_job(packet, job, freeze_pin, *, launch_required=False):
     initial_issues = len(packet.issues)
     root = Path(job['root'])
     prefix = 'attempts/' + job['id'] + '/'
@@ -187,20 +187,34 @@ def collect_job(packet, job, freeze_pin):
         if not closed:
             row['issues'].append('Owned-process closure is not certified; profile and log files were not read.')
             return row
-        thin = ['admission.json', 'supervisor.plan.json', 'profile.log', 'qr.profile.json', 'seed.bin.json']
+        thin = ['admission.json', 'supervisor.plan.json', 'profile.log', 'qr.profile.json', 'seed.bin.json',
+                'launch-binding.json','native-launch.json']
+        datum=sorted(name for name in inventory if re.fullmatch(r'qr\.datum\.[1-9][0-9]*\.(codeBias|codeBiasZeroMean|tecBias|ambiguitySelection)\.tsv',name))
+        thin.extend(datum)
+        if launch_required and ex['status']=='complete':
+            require(ex.get('native_launch_mode')=='preinit_scaled_qr_v1' and
+                    {'launch-binding.json','native-launch.json'}<=inventory.keys() and datum,
+                    'Completed profile lacks required native launch/datum evidence')
+            require(ex['launch_binding']['path']==str(root/'launch-binding.json') and
+                    all(ex['launch_binding'][k]==inventory['launch-binding.json'][k] for k in ('sha256','bytes')),
+                    'Native launch binding inventory mismatch')
         profile = None
+        substantive_datum=False
         for name in thin:
             if name not in inventory:
                 continue
             rec, data = packet.copy(root/name, prefix+name, expected=inventory[name])
             if rec:
                 row['evidence'].append(rec['path'])
+            if data is not None and name in datum and data.strip():substantive_datum=True
             if data is not None and name == 'qr.profile.json':
                 profile = decode(data)
                 require(isinstance(profile,dict), 'Profile receipt must be an object')
                 row['strict_nuisance_reported'] = profile.get('nuisance_converged') is True and profile.get('nuisance_floor_limited') is False
                 count = profile.get('iterations')
                 row['profile_iterations'] = count if type(count) is int and count >= 0 else None
+        if launch_required and ex['status']=='complete':
+            require(substantive_datum,'Completed profile lacks substantive native datum evidence')
         if profile is not None and row['profile_iterations'] is not None:
             # Final stem follows the native fresh-pass convention; diagnostics
             # are copied as evidence, never independently accepted as covariance.
@@ -361,12 +375,16 @@ def report(args):
     packet = Packet(out)
     packet.write('protocol/freeze.json', raw, freeze_pin)
     packet.copy(__file__, 'source/report_nuisance_warm_profiles.py')
-    for key in ('preparation','build_record','runner','checker','supervisor'):
+    launch_required=freeze.get('native_launch_mode')=='preinit_scaled_qr_v1'
+    require(not freeze.get('launch_guard') or launch_required,'Unknown/missing native launch mode')
+    require(not launch_required or freeze.get('launch_guard'),'Required native launch guard missing')
+    for key in ('preparation','build_record','runner','checker','supervisor','launch_guard'):
         p = freeze.get(key)
         if p:
-            packet.copy(p['path'], 'protocol/'+key+Path(p['path']).suffix, expected=p)
+            rec,_=packet.copy(p['path'], 'protocol/'+key+Path(p['path']).suffix, expected=p)
+            if key=='launch_guard' and launch_required:require(rec is not None,'Frozen native launch guard unavailable')
     by_id = {j['id']: j for j in jobs}
-    attempts = [collect_job(packet, by_id[key], freeze_pin) for key in freeze['execution_order']]
+    attempts = [collect_job(packet, by_id[key], freeze_pin, launch_required=launch_required) for key in freeze['execution_order']]
     checks = collect_checks(packet,args.checks,jobs,attempts,freeze_pin,freeze['checker'])
     tests_record, tests_raw = packet.copy(args.native_tests, 'native-tests/result.json')
     native_tests = None

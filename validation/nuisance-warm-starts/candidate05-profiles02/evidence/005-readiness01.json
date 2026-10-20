@@ -1,0 +1,205 @@
+{
+  "changes": [
+    "Profile freeze stays v1 with required native_launch_mode=preinit_scaled_qr_v1 and launch_guard pin. All disabled/cold/warm jobs freeze QR_PREFIX=<point>/qr, SOLVER=scaled_qr_v1, MODE=profile_step, LAMBDA=0, and XML pulse reference when present; density forbids ambient pulse reference.",
+    "Fresh runner checks configuration hash and every job launch control before admission. Frozen guard reads actual inherited environment/CPU, rejects undeclared ORBIT_POC and LD overrides, writes native-launch.json, then execve calls exact native/config with the identical inherited environment. Existing supervisor CPU0/thread1/900s/8GiB/16GiB limits remain.",
+    "Checker pins and validates launch-binding.json/native-launch.json/guard, ties the wrapper supervisor command to native/config/freeze/job, and requires native qr.datum evidence with recognized kinds, contiguous sequence and finite rectangular values. Legitimate zero-row/zero-column artifacts are retained, with at least one substantive datum artifact required.",
+    "All prior fixed-profile numerical/rank/objective/prediction/covariance thresholds and accepted donor invariants remain unchanged. No default warm behavior or scientific production module is edited.",
+    "Reporter preserves frozen guard, launch receipts and all recorded known datum files (including empty matrices) in its thin packet. Missing new launch/substantive datum evidence prevents a completed row from inheriting a passed checker result. No bulk rows/matrix/seed payloads are copied.",
+    "Pilot05 preserves the same two selectTransmitters/all XML insertions and byte-roundtrip proof as pilot04, binds the full preinit environment, uses source-candidate05/build05/new output, validates actual launch receipt and requires datum evidence before strict extraction."
+  ],
+  "created_at": "2026-10-20T03:38:19.894169+00:00",
+  "deployment": {
+    "candidate_build_record": "/home/emper/orbit-nuisance-warmstarts/control/candidate-build-result05.json",
+    "performed": false,
+    "pilot_controller": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/pilot_prior_fixture05.py",
+    "pilot_launch_guard": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/nuisance_profile_launch.py",
+    "pilot_output": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot05",
+    "relative_files": [
+      "scripts/check_nuisance_warm_profiles.py",
+      "scripts/nuisance_profile_launch.py",
+      "scripts/report_nuisance_warm_profiles.py",
+      "scripts/run_nuisance_warm_profiles.py",
+      "tests/test_nuisance_profile_launch.py",
+      "tests/test_nuisance_warm_profile_report.py",
+      "tests/test_nuisance_warm_profile_runner.py",
+      "tests/test_nuisance_warm_profiles.py"
+    ],
+    "source_tree": "/home/emper/orbit-nuisance-warmstarts/source-candidate05"
+  },
+  "finding": {
+    "bytes": 26805,
+    "path": "/home/emper/orbit-nuisance-warmstarts/control/review02/harness-env01/independent-review.json",
+    "sha256": "c9b6d4c7eb061a687137d2ebb1b46b52c4708fe3223ecff8c50b34c6b1c49c6b"
+  },
+  "implementation_evidence": [
+    {
+      "bytes": 32726,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "72461b33d904d9a99cde5c9ce500bfb9f44d278e1f032c06d5b7d1f5dfbceefb"
+    },
+    {
+      "bytes": 45387,
+      "path": "/home/emper/orbit-nuisance-warmstarts/native-source-04/source/misc/orbitPoc/scaledRowQr.h",
+      "sha256": "3fc93f4dbd510beb5fb215e693023c0d6a4961452b7e0ba5d3af588c98ddc6d2"
+    },
+    {
+      "bytes": 55652,
+      "path": "/home/emper/orbit-nuisance-warmstarts/native-source-04/source/gnss/gnssProcessingStep/gnssProcessingStep.cpp",
+      "sha256": "ea1d84361d652450912e2b335cd49abcaa6e1077f35d536f6ce0f1e8e7c8ca9e"
+    }
+  ],
+  "offline_tests": {
+    "by_module": {
+      "test_nuisance_profile_launch": 19,
+      "test_nuisance_warm_profile_report": 42,
+      "test_nuisance_warm_profile_runner": 47,
+      "test_nuisance_warm_profiles": 85
+    },
+    "counts": {
+      "error": 0,
+      "failure": 0,
+      "skipped": 0,
+      "tests": 193
+    },
+    "cpu": 4,
+    "junit": {
+      "bytes": 27472,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/author-tests03/tests.xml",
+      "sha256": "63d25d0642fd0e55e5a56eeff2a8b87a1a760266be9327d83fef18c1cf412ad4"
+    },
+    "log": {
+      "bytes": 380,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/author-tests03/tests.log",
+      "sha256": "8797dd7bb5fbac300f8781c4edb840c6188a00f4a9a6d5b714f171d32f1fd360"
+    },
+    "numerical_threads": 1,
+    "python": {
+      "bytes": 25912192,
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+    }
+  },
+  "pilot_output_contract": {
+    "extraction_datum_evidence": "list of path/sha256/bytes/kind/rows/columns; columns=null for zero-row files, zero for blank-only matrices",
+    "extraction_native_prior_rows": {
+      "code_bias_full_constraint": "rows>0 and rhs_squared>0",
+      "tec_bias_full_constraint": "rows>0 and rhs_squared>0"
+    },
+    "limits": "CPU0, thread1, 900 seconds, 8GiB tree; unchanged strict convergence/rank/original objective criteria",
+    "result_launch_binding": "pin of launch-binding.json",
+    "result_native_launch": "pin of actual native-launch.json after validation",
+    "result_native_launch_mode": "preinit_scaled_qr_v1"
+  },
+  "predecessor_and_failed_run_evidence": [
+    {
+      "bytes": 34160,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/scripts/check_nuisance_warm_profiles.py",
+      "sha256": "12f0e301a4030f3f82af6b53043d32505aab9e77719ffaa2c6d1c83ceafa1219"
+    },
+    {
+      "bytes": 28398,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/scripts/report_nuisance_warm_profiles.py",
+      "sha256": "4f15bd6dedfdb972d6194fe98c392307134b9f70698fd1698f3d009e95b7fcfe"
+    },
+    {
+      "bytes": 16858,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/scripts/run_nuisance_warm_profiles.py",
+      "sha256": "d0d3d61054af25636a2a58c081dd746be58df0d3f7983704d2bbd8394e38e2c6"
+    },
+    {
+      "bytes": 15507,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_nuisance_warm_profile_report.py",
+      "sha256": "3b19b34e700ff0c10f73f8df22cb0e4365af1f1134e4708d4b00c555d08cad50"
+    },
+    {
+      "bytes": 14023,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_nuisance_warm_profile_runner.py",
+      "sha256": "45b858b792df8224c10cf1abfdac29edd4d90405a63d9f7cb3c32e0693d0e317"
+    },
+    {
+      "bytes": 26145,
+      "path": "/home/emper/orbit-nuisance-warmstarts/source/tests/test_nuisance_warm_profiles.py",
+      "sha256": "70f333a7eea9a731b55950c1d745df0719e8d106f182c6e1658215b0c95dab60"
+    },
+    {
+      "bytes": 15363,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/pilot_prior_fixture04.py",
+      "sha256": "3038212368abbc25cbd1237cb6a5201723245fea7e66deb30e5b729adb1922f9"
+    },
+    {
+      "bytes": 3284,
+      "path": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/profile.log",
+      "sha256": "a804c51de28826af2d3cf282cb95166eaa8bbaf65fad67afc152ee10d832ec63"
+    },
+    {
+      "bytes": 2834,
+      "path": "/home/emper/orbit-nuisance-warmstarts/prior-fixture-pilot04/result.json",
+      "sha256": "a7bb399c1f24a77bc3aed98024b8ad5fc3018d5325570210f67204499bacb9dc"
+    },
+    {
+      "bytes": 1866628,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/freeze.json",
+      "sha256": "1488a5d4fc88be3b2c53101b7c610ba239eb7080b28f76204d6ea901cc2edff9"
+    },
+    {
+      "bytes": 2782,
+      "path": "/home/emper/orbit-nuisance-warmstarts/profiles01/run-result.json",
+      "sha256": "a025b731bf8c8c7b1ecefed772a90c11d4e1295cc951ec98b6eda8bc8263a8fb"
+    }
+  ],
+  "schema": "orbit-poc-profile-preinit-launch-control-review-request-v1",
+  "scope_limits": [
+    "Only separate control snapshot and offline synthetic fixtures were written. Original source, old controls and frozen runs were not edited.",
+    "No native process, compiler, actual pilot/profile preparation or execution was launched by this task. Guard exec was intercepted in offline tests.",
+    "This is a launch-attribution correction established offline, not a claim that candidate05 native science, zero correction, prior fixture or warm profiles now pass.",
+    "Independent review and actual pilot evidence remain prerequisites; whole-fit admission remains deferred. No speedup, covariance or release authority."
+  ],
+  "source_files": [
+    {
+      "bytes": 35230,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/check_nuisance_warm_profiles.py",
+      "sha256": "14820c4f6a944ad11950a8d3f8dbac4b295a7185d566a8dc3492f5c9714e3022"
+    },
+    {
+      "bytes": 6532,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/nuisance_profile_launch.py",
+      "sha256": "a78433e2d7b0353073c9881c999ece6488815bbaa2c2175c5cfebbc9ab476c87"
+    },
+    {
+      "bytes": 29979,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/report_nuisance_warm_profiles.py",
+      "sha256": "849c022025e20ac461f521d1cd50436eb68926498b0aa7a40fd2dcfe1558cfd0"
+    },
+    {
+      "bytes": 18404,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/scripts/run_nuisance_warm_profiles.py",
+      "sha256": "038cd48d1be7adb3034a89a9aeee8f0421119b41933c0afc4592dedd7d5f1ae7"
+    },
+    {
+      "bytes": 6959,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_profile_launch.py",
+      "sha256": "66edcb2d6c285dbbd73efdfebfbf86a9e973886f6e18cc2981ac286da09316f3"
+    },
+    {
+      "bytes": 17935,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_warm_profile_report.py",
+      "sha256": "d4f702a7f6ac4e63c06f17a68d9d0a13372975b244a93371a9e9f5469063624d"
+    },
+    {
+      "bytes": 16970,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_warm_profile_runner.py",
+      "sha256": "21eff354d16fbde0ed796e4357d2dde66df47337ea90bb8e471acfed17b02ace"
+    },
+    {
+      "bytes": 29868,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/tests/test_nuisance_warm_profiles.py",
+      "sha256": "ecc2181132ebd1407f7b6b7691f7e17880588d990c4cf2ec50fac290c8dbf3d3"
+    },
+    {
+      "bytes": 16419,
+      "path": "/home/emper/orbit-nuisance-warmstarts/control/profile-launch-repair05/pilot_prior_fixture05.py",
+      "sha256": "a607e289520ad6a87ba66f98b462093eb3770b7fc3bb07d6f813e3a72834379e"
+    }
+  ],
+  "status": "193_offline_tests_passed_pending_independent_review_no_native_execution"
+}

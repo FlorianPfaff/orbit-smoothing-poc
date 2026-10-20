@@ -47,7 +47,9 @@ inline std::string sha256(const Bytes &input)
 }
 inline void number(Bytes &out,std::uint64_t value){for(unsigned j=0;j<8;j++)out.push_back((value>>(8*j))&255);}
 inline void text(Bytes &out,const std::string &value){require(value.size()<=1024*1024,"string too large");number(out,value.size());out.insert(out.end(),value.begin(),value.end());}
-inline void real(Bytes &out,double value){static_assert(sizeof(double)==8&&std::numeric_limits<double>::is_iec559,"IEEE binary64 required");require(std::isfinite(value),"nonfinite coordinate/identity");std::uint64_t bits;std::memcpy(&bits,&value,8);number(out,bits);}
+// Exact real-coordinate identity: IEEE -0 and +0 encode as +0. All finite
+// nonzero bits (including subnormals) remain unchanged; no state is modified.
+inline void real(Bytes &out,double value){static_assert(sizeof(double)==8&&std::numeric_limits<double>::is_iec559,"IEEE binary64 required");require(std::isfinite(value),"nonfinite coordinate/identity");std::uint64_t bits;std::memcpy(&bits,&value,8);if((bits&0x7fffffffffffffffULL)==0)bits=0;number(out,bits);}
 struct Reader {
   const Bytes &data;std::size_t offset=0;
   std::uint64_t number(){require(data.size()-offset>=8,"truncated integer");std::uint64_t value=0;for(unsigned j=0;j<8;j++)value|=std::uint64_t(data[offset++])<<(8*j);return value;}
