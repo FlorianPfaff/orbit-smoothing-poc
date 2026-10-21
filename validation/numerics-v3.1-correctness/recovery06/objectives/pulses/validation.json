@@ -1,0 +1,141 @@
+{
+  "derivative_refinement_policy": {
+    "maximum_scales": 9,
+    "physical_repeat_allowance_multiplier": 10,
+    "ratio": 0.5,
+    "required_consecutive_passing_scales": 2
+  },
+  "directional_derivatives": [
+    {
+      "empirical_resolution_fraction": 1.2962412513614825e-06,
+      "endpoint_resolution_checks": [
+        {
+          "empirical_resolution": 0.0006811436560383299,
+          "repeat_cost": 5017.9812027488415,
+          "repeat_difference": 4.765187804878224e-05,
+          "sign": -1
+        },
+        {
+          "empirical_resolution": 0.0006811436560383299,
+          "repeat_cost": 3967.029218924242,
+          "repeat_difference": 1.975103850782034e-05,
+          "sign": 1
+        }
+      ],
+      "finite_difference": -525.4759779618801,
+      "native_derivative": -525.4759909259974,
+      "negative_cost": 5017.981155096963,
+      "passes_unchanged_tolerance": true,
+      "positive_cost": 3967.0291991732033,
+      "relative_difference": 2.4671188704174928e-08,
+      "relative_difference_plus_resolution": 1.3209124400656575e-06,
+      "scale": 1.0
+    }
+  ],
+  "empirical_physical_objective_resolution": 0.0006811436560383299,
+  "error": "NumericalFailure: Native profile exited 1; see private-path-sha256:30aeb755fa8c1a4677543f908c3292f29fc896ce65b53403a2c3e624a9292a88",
+  "initial_direction_scale": 0.21903421410731996,
+  "initialization_policy": "preserved_blind_engineering_initial_state",
+  "native_binary_sha256": "37c0d22c843d2a160e7537086a8440c5c79d550d71fc7c9172ca5994d6f30e2f",
+  "objective_repeat_difference": 6.8114365603833e-05,
+  "passed": false,
+  "prior": {
+    "absolute_tolerance": 1e-12,
+    "cost": 0.053929305673915545,
+    "maximum_residual_difference": 0.0,
+    "objective": 4434.956614024171,
+    "rows": 6,
+    "source": "constraint.pulses"
+  },
+  "profile_evaluations": [
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "nonzero-full-prior",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 7.797360745551881e-17,
+      "objective": 4434.956614024171,
+      "receipt": "private-path-sha256:6f63d2a5f739044de29c71cb4d0b35a45d796ba1ed0eeb88ab2d423e625c5aa5"
+    },
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "repeat",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 7.801168432138256e-17,
+      "objective": 4434.956545909806,
+      "receipt": "private-path-sha256:8f1dd6d2c5fc400f662b84dc847cf9452487314cf2033d153cd23b829102d46e"
+    },
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "direction-1.0--1",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 1.502882815338693e-19,
+      "objective": 5017.981155096963,
+      "receipt": "private-path-sha256:792011c38e50acba28b78eb9f5bb51c571ebd981c27d73203bebc8fc350906b3"
+    },
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "direction-1.0--1-repeat",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 1.4159086205011464e-16,
+      "objective": 5017.9812027488415,
+      "receipt": "private-path-sha256:d232091a1d486ed5cc9f8f88d142d630d8d8772d37755b49f7fa1c10e4072541"
+    },
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "direction-1.0-1",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 6.8599446377233634e-18,
+      "objective": 3967.0291991732033,
+      "receipt": "private-path-sha256:6fc098a183768892ef3c9129aa49fdc3721167bce61d1674120852bb8d9d9807"
+    },
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "direction-1.0-1-repeat",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 3.420107375385221e-18,
+      "objective": 3967.029218924242,
+      "receipt": "private-path-sha256:246ed654274bec861f2c7625724f02a66bcf9f4c8bef2f9a64fa8a6e73de393a"
+    },
+    {
+      "empirical_objective_resolution": 0.0,
+      "label": "direction-0.5--1",
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "nuisance_predicted_reduction": 5.006962854829456e-20,
+      "objective": 4712.081668544711,
+      "receipt": "private-path-sha256:604033092016d8f5833e6ba59a805e94ef8d173e7eaf4e49e84762df3eab14fd"
+    }
+  ],
+  "rank": {
+    "columns": 91,
+    "condition_number": 2172.7878983779133,
+    "effective_rows": 7830,
+    "maximum_singular_value": 3.077461744928103,
+    "minimum_singular_value": 0.0014163654663327105,
+    "rank": 91,
+    "status": "full_rank",
+    "threshold": 5.3505034764505075e-12
+  },
+  "raw_direction_metrics": {
+    "density_update": 0.0,
+    "position_change_m": 0.2282748391787849,
+    "pulse_update_m_s": 5.541686093806811e-05
+  },
+  "relative_derivative_tolerance": 0.0001,
+  "resolution_scope": "empirical arithmetic spread, not a rigorous error bound or nuisance convergence",
+  "schema_version": 1,
+  "scope": "native synthetic correctness gate; no evaluation truth",
+  "source_hash": "bd529c043b939fabda2503a282e14cc6ca1b9f6b46d1a8a9c51713b3bb5fcfe7",
+  "state_input": {
+    "path": "private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a",
+    "role": "blind_engineering_physical_initial",
+    "sha256": "61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea"
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"private-path-sha256:3568e71c60ea9a43fdb7de551a1757d72c5d7cc0ef35e2fa5f88dd5af8f1142b\", line 165, in execute\n    result = native.run_native(self.binary, path, folder, label, timeout=remaining,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"private-path-sha256:bfac319c95e210a3ddf554f6bee99b7aca809e5271bf0d0beaf3a7688db534ef\", line 88, in run_native\n    raise NativeExecutionError(f\"Native {label} {'timed out' if timed_out else 'exited '+str(code)}; see {log}\", execution=record)\norbit_poc.comparison.backend.NativeExecutionError: Native profile exited 1; see private-path-sha256:30aeb755fa8c1a4677543f908c3292f29fc896ce65b53403a2c3e624a9292a88\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"private-path-sha256:6b9a8f3e1cada63ed488bee57a59d295952510ef8eccdc987bdf3c1c181100e5\", line 145, in main\n    repeated_value = model.evaluate(value.state, f\"direction-{scale}-{sign}-repeat\", tighter=True)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"private-path-sha256:3568e71c60ea9a43fdb7de551a1757d72c5d7cc0ef35e2fa5f88dd5af8f1142b\", line 309, in evaluate\n    configuration = self.execute(_standalone(source, [processing], config[\"date\"]), folder, \"profile\", environment)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"private-path-sha256:3568e71c60ea9a43fdb7de551a1757d72c5d7cc0ef35e2fa5f88dd5af8f1142b\", line 173, in execute\n    raise NumericalFailure(reason, str(error)) from error\norbit_poc.numerics.optimizer.NumericalFailure: Native profile exited 1; see private-path-sha256:30aeb755fa8c1a4677543f908c3292f29fc896ce65b53403a2c3e624a9292a88\n"
+}

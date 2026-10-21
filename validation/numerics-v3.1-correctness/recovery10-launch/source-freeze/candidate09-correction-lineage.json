@@ -1,0 +1,73 @@
+{
+  "changes": {
+    "groops/extension/gnssRangeResidual.h": {
+      "after": "3da250d643d491bca9580641574555db29ecb7de4d88d883d44c6975f07efe85",
+      "before": "a55a03fdd3dea9df400ac5b8a0077732702c2a908dadbe34a1fcd48775fe56ea"
+    },
+    "groops/extension/orbitPocQrSolve.cpp": {
+      "after": "009ce7940b696df8ec8ad435269fcf7e4876ee8aa2d5c919faa7cf647970eeec",
+      "before": "dd8ac2fdecd344dea12a3be4a40e219be7c66d3946db46e09b0ad424b77029b3"
+    },
+    "groops/extension/positionRemainder.py": {
+      "after": "7a5da03557facc3a73ff031d0a57a8ba9292ae1afb931730db3419f5652e6926",
+      "before": "39109f60752b17fdadb59bb90aa63423ba32e74b13608330ca6c14c22608f77c"
+    },
+    "groops/extension/scaledRowQr.h": {
+      "after": "fcdf202c98ea3ecdc9bb71311a86b53335294863191d9a0553f9dbfc4d921083",
+      "before": "ba44b334d9c2a7c120303106d9d97fed8c4f12973dc611bbc222a85201599df1"
+    },
+    "tests/test_numerics_light_time_precision.py": {
+      "after": "045181e2b43d38bdd83f0bf5560c6046dddee4febacda4298baa192eac00db4a",
+      "before": null
+    }
+  },
+  "failed_pipeline04": {
+    "path": "@EXECUTION_04_ROOT@/validation-04/pipeline.json",
+    "sha256": "a7e428c7ab5c0efcc372fb7db00af423dcf74421943027716946987e502aaadd"
+  },
+  "failed_pipeline05": {
+    "path": "@EXECUTION_05_ROOT@/validation-05/pipeline.json",
+    "sha256": "1e99ca9d6bb61e8503092facf542e7f668d6354809e12790d313a37893a182bd"
+  },
+  "failed_pipeline06": {
+    "path": "@EXECUTION_06_ROOT@/validation-06/pipeline.json",
+    "sha256": "520bec0ee8502eb01a5917e7bb9245c0a2150a8544c9e6bc4613e8008b94a434"
+  },
+  "failed_pipeline07": {
+    "path": "@EXECUTION_07_ROOT@/validation-07/pipeline.json",
+    "sha256": "359f2ccf6900b2b1150dfc2b2629fcbab1efd0acd2107079b4f18e87d9043157"
+  },
+  "failed_pipeline08": {
+    "path": "@EXECUTION_08_ROOT@/validation-07/pipeline.json",
+    "sha256": "5b6c04dd19707a93da2e8bf2d8e01a9094f7501b1b5a668d0ada640b589be20a"
+  },
+  "measured_defect": {
+    "path": "@EXECUTION_10_ROOT@/control/d03-analysis04-attribution-review-01.json",
+    "sha256": "ccb45608af591fa6b5f1d0d962317801b40bd4740d98b00c4862ec9cba7d6a98"
+  },
+  "new_source_freeze": {
+    "path": "@EXECUTION_10_ROOT@/control/candidate09-source-freeze.json",
+    "sha256": "84bb02f56e3f46f5624f188051670378ba5f5a5a492e2eac50514e7b7149a869"
+  },
+  "new_source_sha256": "365313010e30a086729f21c6a4d7721431395155db590ed92a2bcb37b6d15fe1",
+  "original_source_freeze": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate03-source-freeze.json",
+    "sha256": "1b707694f8a01b3dd528de1e3f8a56cfd33fc4cb0714b91965e03d04da98c47e"
+  },
+  "original_source_sha256": "fb9560e7ea98e8f561034f856e9a977e324da7852325ff73b14bc0ae1125fbb9",
+  "previous_correction_lineage": {
+    "path": "@EXECUTION_08_ROOT@/control/candidate07-correction-lineage.json",
+    "sha256": "205aec0bde6dc39195096522b553e2b9b406cb063f8ea0fb2f4e2dfae73a862d"
+  },
+  "previous_source_freeze": {
+    "path": "@EXECUTION_08_ROOT@/control/candidate07-source-freeze.json",
+    "sha256": "18722c1cdd54b545dfe4e48a45b0c05aa49c39f3738edb39e3bd12a839145676"
+  },
+  "previous_source_sha256": "774d6d777e1f5caf09b5599a8b469e421327f2e1f962eb75a5af17b0bc8bf8c2",
+  "purpose": "Correct the dominant clock-plus-travel duration rounding measured across all8064 GNSS rows, preserving native physical model and every existing acceptance threshold.",
+  "schema": "orbit-poc-correctness-correction-lineage-v3",
+  "supplementary_correction": {
+    "path": "@EXECUTION_10_ROOT@/control/installer-correction10.json",
+    "sha256": "52d6f5ee1cf69cf510257183bfbb573a12f0515825b4968fcc0de2a523f5a272"
+  }
+}

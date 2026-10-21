@@ -1,0 +1,75 @@
+{
+  "actual_native_api_receipt_reviewed": true,
+  "correction": "Diagnostic Vector API mismatch only. A SFINAE accessor selects native two-index Matrix/const_MatrixSlice and falls back to native one-index Vector; fallback rejects nonzero columns. Two logging read sites invoke this accessor. Installer, comparator and trace schema are unchanged.",
+  "created_at": "2026-10-15T08:25:13.552951+00:00",
+  "files": [
+    {
+      "bytes": 7267,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/rowArithmeticTrace.h",
+      "sha256": "7e6c2c2ceea957d11c8205860b8b5d2f75a93ec7d2ec177cf192274cd8480694"
+    },
+    {
+      "bytes": 13921,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/install_row_trace.py",
+      "sha256": "e6aefda04b5fcea1e87952a29a96e7e17841592be2518723e14201e1ac1566d2"
+    },
+    {
+      "bytes": 6497,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/verify_trace_equivalence.py",
+      "sha256": "3ba6b6e22be16bbc96138052ee84b3e1d294191aef933a31506d698b5d43171d"
+    },
+    {
+      "bytes": 13534,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/test_row_trace.py",
+      "sha256": "2b59d29ce33038e94b7b469dc5e85c9fb2487eabbc7f6c18491eadd36c2c7cd2"
+    },
+    {
+      "bytes": 3589,
+      "path": "@CORRECTNESS_ROOT@/control/row-trace-d02/README.md",
+      "sha256": "570fe9d9bf200bc35d763728d90d9a470c0c80ffafdbb18d679a3beb027889e6"
+    },
+    {
+      "bytes": 996,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/receipt.json",
+      "sha256": "eb43be6fa21a3b51ad8b9be9e3ecefccfdedf97fe2cfa35b54c00b1614b60afb"
+    },
+    {
+      "bytes": 549,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/native_api.cpp",
+      "sha256": "7986558ad2d5d46ac8c6671006fb8f052f5a3e2e55f36e684bb985fe37fcd4c1"
+    },
+    {
+      "bytes": 4111,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/original.log",
+      "sha256": "def0999da47f510e73d065f6d9624c3f904d21c7b34e418b3d4482d3fd0e1184"
+    },
+    {
+      "bytes": 0,
+      "path": "@TEMP_ROOT@/row-trace-d02-native-api-0d3q62j0/corrected.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limitations": [
+    "The original 27 diagnostic fixtures did not model GROOPS Vector overload hiding; they did not certify native compilation. The D01 diagnostic build failure is preserved.",
+    "The author-provided syntax-only native API receipt was inspected; this independent review reran the three added focused fixtures but did not build GROOPS.",
+    "Exact candidate06 / D02 trace-off / D02 trace-on numerical equivalence remains mandatory.",
+    "This is a diagnostic-only correction with no scientific source, model, floor, tolerance, covariance or acceptance-gate change."
+  ],
+  "passed": true,
+  "previous_review": {
+    "bytes": 3033,
+    "path": "@CORRECTNESS_ROOT@/control/row-trace07-independent-review-01.json",
+    "sha256": "e5a9356121500103f03c67fa8c1f7d29584f9e0e09a0a821a5a44fb05153215e"
+  },
+  "result": {
+    "deselected_unchanged_tests": 27,
+    "errors": 0,
+    "failed": 0,
+    "passed": 3,
+    "pytest_seconds": 1.07,
+    "skipped": 0
+  },
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-diagnostic-row-trace-d02-independent-review-v1",
+  "test_command": "PYTHONDONTWRITEBYTECODE=1 @WORKSPACE_ROOT@/work/numerics-v3.1/python/bin/python -m pytest test_row_trace.py -q -p no:cacheprovider --basetemp=@TEMP_ROOT@/row-trace-d02-independent-accessors-01 -k \"native_hidden_vector or vector_fallback or original_direct_accessor\""
+}

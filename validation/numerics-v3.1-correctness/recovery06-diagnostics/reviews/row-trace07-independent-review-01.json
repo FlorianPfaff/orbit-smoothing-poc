@@ -1,0 +1,38 @@
+{
+  "diagnostic_only": true,
+  "files": {
+    "README.md": "570fe9d9bf200bc35d763728d90d9a470c0c80ffafdbb18d679a3beb027889e6",
+    "install_row_trace.py": "e6aefda04b5fcea1e87952a29a96e7e17841592be2518723e14201e1ac1566d2",
+    "rowArithmeticTrace.h": "5a273bb31a703408b78da1a19dc51855767df34cc65a3b82ca2e62973a661e4a",
+    "test_row_trace.py": "bb9d99182181ede98ffd727d70a399eb44c51f361c363f9ec7c61cc909ad2c6b",
+    "verify_trace_equivalence.py": "3ba6b6e22be16bbc96138052ee84b3e1d294191aef933a31506d698b5d43171d"
+  },
+  "limitations": [
+    "No native build, GROOPS fit or actual trace equivalence was executed by this review. Exact candidate06 versus trace-off versus trace-on identity is required before interpreting diagnostic data.",
+    "The five selected observation rows are a bounded diagnostic; their cost differences do not constitute the full objective.",
+    "Clock, shared signal-bias and ambiguity snapshots expose exact stored states, but individual ideal old+alpha*delta updates are intentionally not recorded. Their update-rounding attribution must remain unavailable unless additional existing evidence supplies exact deltas and basis operations.",
+    "VTEC coefficients are shadow evaluations; the proof that diagnostic execution preserves numerical outputs is provided by the required three-way equivalence, not by these fixture tests.",
+    "No scientific acceptance gate, covariance status, statistical model, tolerance or arithmetic floor is changed."
+  ],
+  "passed": true,
+  "reviewed_at": "2026-10-15T08:13:09.108250+00:00",
+  "reviewed_properties": [
+    "All modified scalar arithmetic statements remain intact; operand wrappers expose complete vectors by const reference.",
+    "Explicit ambiguity output-to-native-row mapping and signal-composition matrices allow exact operand reconstruction.",
+    "Per-process files, evaluation/event counters and audit-mode labels separate forked and repeated evaluations.",
+    "Floating environment and errno are preserved by formatting and VTEC coefficient shadow evaluation.",
+    "Strict single anchors validate the entire overlay before any source write; repeated installation is refused.",
+    "Equivalence comparator requires every planned factor generation and checks numerical artifacts, decompressed original rows and numerical metadata. Only explicitly enumerated operational fields are excluded.",
+    "Missing intermediate R/z/rhs files require original completed native-retention receipts with matching path, role, byte count and SHA-256; final factor bytes are mandatory."
+  ],
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-diagnostic-row-trace-independent-review-v1",
+  "test_command": "PYTHONDONTWRITEBYTECODE=1 @WORKSPACE_ROOT@/work/numerics-v3.1/python/bin/python -m pytest test_row_trace.py -q -p no:cacheprovider --basetemp=@TEMP_ROOT@/row-trace07-independent-review-01",
+  "test_result": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 27,
+    "pytest_seconds": 1.17,
+    "skipped": 0
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "stage09-independent-tests-01.xml": {
+      "bytes": 5576,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-independent-tests-01.xml",
+      "sha256": "9e8e19ed629631515a082aaa17511306818e063a0f2af124245aa4becca2f781"
+    },
+    "stage_recovery09.py": {
+      "bytes": 10604,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage_recovery09.py",
+      "sha256": "b5a5176391905274b9f4454c19843e1a99a3a53ecbb1ebeb80eb2c9d23de752c"
+    },
+    "test_stage_recovery09.py": {
+      "bytes": 6530,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_stage_recovery09.py",
+      "sha256": "71db03b89aa51f9b0cea41aa696eb7ba64b92d2aa853f2ad2aaf476398ebcf3c"
+    }
+  },
+  "covariance_authorized": false,
+  "not_assessed": [
+    "Actual source09 freeze and staged runtime/source hashes",
+    "Current-host admission at execution time",
+    "Actual namespace smoke and final control freeze"
+  ],
+  "resolved_finding": "The first reviewed stage script pinned prior pins but did not bind its inherited execution map. check_previous_controls now verifies execution against sealed prior pins and actual failed08 pipeline attribution, plus the exact prior driver and wrapper. Added fixtures reject alias-map, attribution and wrapper tampering.",
+  "reviewed_properties": [
+    "Exact old runtime/alias map is checked before loading/admission and inherited unchanged.",
+    "Failed08 validation/postprocessing histories remain pinned and must be terminal with verified cleanup.",
+    "Source archive accepts only an exact regular-file set with per-file hashes; paths, duplicates, links and mismatches are rejected before source paths are created.",
+    "Fresh source/native/build/binary/run/temp/upstream paths are required. Existing staging success or failure cannot silently retry.",
+    "Independent no-hardlink bare clone cannot use alternates; pinned upstream tree and full archive hash are verified.",
+    "Failure is preserved separately; no native build/fit is launched by staging."
+  ],
+  "schema": "orbit-poc-recovery09-staging-independent-review-v1",
+  "scientific_validation_complete": false,
+  "status": "passed_static_and_fabricated_tests",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 34
+  }
+}

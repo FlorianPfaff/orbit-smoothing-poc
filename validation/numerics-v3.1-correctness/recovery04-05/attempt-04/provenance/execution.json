@@ -1,0 +1,122 @@
+{
+  "build_cpus": [
+    24,
+    25,
+    26,
+    27
+  ],
+  "fit_cpu": 24,
+  "host": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "hostname": "workstation1"
+  },
+  "paths": {
+    "binaries": "private-path-sha256:606d3e58de52a56a23ce538c2920607393699892e5dff9022f1dc3f4722bb092",
+    "build": "private-path-sha256:35a23a476b66a9320fb6f76ad8499608e62bc85c6dc9e7f521fff0b787e1522d",
+    "cmake": "private-path-sha256:e8f304869956c56279f2dd6d1a7a037954bf066038c131266fef72e7e44f1bbb",
+    "control": "private-path-sha256:533769cf701bbb9ed0055653d432acf797ae3a28cdd32a15313f800037203fbd",
+    "native_source": "private-path-sha256:ac5a4c43ba339113a7585212db1531aa1d66daf84a03e06fc10552d01db4a4ee",
+    "prefix": "private-path-sha256:1131a9fa2a8ee5aed85499d8f81e36c9f48e7c52f94acbc9af58bf9abbb4fb8b",
+    "python": "private-path-sha256:8b6ccc54212195763a01ed2fcc41bbd29bfb3213d85aa9ab1c2e13dbdfc2914d",
+    "root": "private-path-sha256:32930847d51947b606180b1cc5d00cdd96a60872b9d172a8b27ebcb378e98826",
+    "run": "private-path-sha256:ff3fc6d5fddaabf7541082d4393967d1830878e31154419aff84f1c00cef6d71",
+    "source": "private-path-sha256:9e27d238c8d587e0826afe035dd7db3d44d3002d73856ead0569ed2af1591bf6",
+    "temporary": "private-path-sha256:85b432347f3ba5a70f2a4fba4541f6db110d92c8da43939f234b4ce55fec7c9f",
+    "upstream_repository": "private-path-sha256:b56199ae8726808548eb27c8e98bf1f271df16672e6ed5a6b7ae3fcb5f44be0a",
+    "wrapper": "private-path-sha256:3e94ab0f7ae81ecb3c84a6774e3c200413c705ba42ac2ade23fcdf7004947a03"
+  },
+  "read_only_bindings": [
+    {
+      "source": "private-path-sha256:df8cf8e3eaa133d64ac3eb8474f4e931c5f1d8301c53ac96dae6e5ad851b00cc",
+      "target": "private-path-sha256:ce6ce36a75963ce2724bbb645e105ded4bff7d767ac5b949943142f5f40e358a"
+    },
+    {
+      "source": "private-path-sha256:df8cf8e3eaa133d64ac3eb8474f4e931c5f1d8301c53ac96dae6e5ad851b00cc",
+      "target": "private-path-sha256:82a47479a0f1b6bdef1535f8c69226984d5a274a3eaa94804a9bd140f1279fa7"
+    },
+    {
+      "source": "private-path-sha256:39ab5fbf218e7db563d389c713c6a39864e85a4c11c15613837625c4b89e14ca",
+      "target": "private-path-sha256:4a5eb650002979f44fc3e24205f5e8e7ad735b7448de25dff5be462cb9061602"
+    },
+    {
+      "source": "private-path-sha256:2f7f1c240a565e26ca81f612fd5a9ae6ef9f902aa7e9f802fcb466610c6f47c5",
+      "target": "private-path-sha256:81ce99dee4b2717d0e77aab95606d1086df63c27968b950b6ce3815f1baa9577"
+    },
+    {
+      "source": "private-path-sha256:6e909228bcf545d25ad49111ed16e5fbf68b7f18c1320fccd2df76bfaef2a14a",
+      "target": "private-path-sha256:d2d86245b1a55c1ca8f043e4bb35d4dfd60c447019a30b377603edb71ee3ffe5"
+    },
+    {
+      "source": "private-path-sha256:92e2ee7201dba7922ac067a70d475b709069e8463770dffe81bec5f57fb03ccd",
+      "target": "private-path-sha256:8338a3ab9d914ba93d2ea213ccaf750a7c3101def1ff7793d90549b83a583851"
+    }
+  ],
+  "reserved_cpu_note": "Four sampled-idle distinct physical cores24-27 for build; CPU24 for serial validation, taskset affinity plus host-local exclusive validation lock and native/orbit workload admission. No administrative exclusive CPU allocation is claimed; unrelated GPU workloads and host load about9 on128logicalCPUs were observed. No competing originalv3campaign onthishost; originalv3 continues onworkstation2.",
+  "runtime_artifacts": {
+    "blas": {
+      "path": "private-path-sha256:2db36410fcb39d4efec26ec0bf627c6c86556e650f2f0d33b3c312f71f5f86c6",
+      "sha256": "f1424288e9ac125331102c0150b66fbd244560987779552e0e97d5cfd9de572b"
+    },
+    "bubblewrap": {
+      "path": "private-path-sha256:235933d0788fd9f7dfb93031234c1348b9db421ba80a63646e0fe87d2f86b851",
+      "sha256": "bf6cf3d4456665f5d80c14eb79a76e0ce87b39a0883e614a161658b4ec33492c"
+    },
+    "c_compiler": {
+      "path": "private-path-sha256:f657b4af91153aada4de2ca8eb19b153d32d367e020cf55b124733b64e2e4682",
+      "sha256": "3ac7d6a8d1b68701f4f32695d0f017bff4e6d9c6444580351ff85f9c4aa23a3c"
+    },
+    "cmake": {
+      "path": "private-path-sha256:e8f304869956c56279f2dd6d1a7a037954bf066038c131266fef72e7e44f1bbb",
+      "sha256": "0d8f4790ae6746b54a2f54d742cb06db4d3fdb8ee5858191cbd233a392322165"
+    },
+    "control_python": {
+      "path": "private-path-sha256:31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6",
+      "sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae"
+    },
+    "cxx_compiler": {
+      "path": "private-path-sha256:b0296da6dd260cbb3e408b3de2fb8e4775bed9491c030ce054afb2a51970114e",
+      "sha256": "e802ef021bccd09d2ae1dae3f9400e53ab2c2c7bc2b4e47dc29a81c7ec3bcd31"
+    },
+    "fortran_compiler": {
+      "path": "private-path-sha256:ba751d7ece92ce5841e24ffc929eb922188024684df81cb3e1e35486cb83f992",
+      "sha256": "00aa0600343d423d8bec4361a830a7f39f845d2e8cae420fa8026ed8a1400959"
+    },
+    "host_libc": {
+      "path": "private-path-sha256:b34bc81d64a5100cdb5f72123fdcdb456adaee463c44d1c4ff35a0733be9cc4a",
+      "sha256": "b2cf6c33b74d2f22543b7a469a75b538911e690f769d0b238843a49465b83793"
+    },
+    "host_libm": {
+      "path": "private-path-sha256:6fa99cd4526094620ba30cfc807855bc4e56eb40ac132c2cd302af5b857a1b49",
+      "sha256": "3dd5511ae94785c9f921429b0f2b2f7aabb461b6f0e6de6dfdbef15f24bdfee6"
+    },
+    "host_loader": {
+      "path": "private-path-sha256:8136534e86f949863d6df7874f55a23d239d3aecd1092383827c63f901730bfd",
+      "sha256": "41daf7836f7fce21a40ca63a00c5caf21b05a35a76ccc075d86f1716212cdf01"
+    },
+    "host_runtime_provenance": {
+      "path": "private-path-sha256:ea4d169a25d26efb392bed8a67d1454a6105cb18b0fc0284b035e0cf919f9e12",
+      "sha256": "61c5cd54d52a4fd7050a334e49f4812844287b9ba3f98723e770e491caf03a43"
+    },
+    "lapack": {
+      "path": "private-path-sha256:4cf8def6af442bc7a2804fe89ddc9ecee434780312d417cf862cf3891ddf8676",
+      "sha256": "f1424288e9ac125331102c0150b66fbd244560987779552e0e97d5cfd9de572b"
+    },
+    "python": {
+      "path": "private-path-sha256:8b6ccc54212195763a01ed2fcc41bbd29bfb3213d85aa9ab1c2e13dbdfc2914d",
+      "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+    },
+    "scientific_runtime_inventory": {
+      "path": "private-path-sha256:7ea6e36c13e134c56d23e9ef0bbfcc5949198dcde31f6ecaa2463192d4e7cbf0",
+      "sha256": "ffdb17e3d7093aaa00d2c3ad2445609a693fb61819a0e326a540bc768992bb73"
+    },
+    "staged_runtime_inventory": {
+      "path": "private-path-sha256:2b26087ba9ebc6476f99955493fb2294b9ddead5ad29a33aa50b9e8d8b4c3f7d",
+      "sha256": "ec2a8e73e679dd6b87c573d825e58874e369f0bfb32aa1ae271c2f09705656d5"
+    },
+    "taskset": {
+      "path": "private-path-sha256:a88792586caa361ce9d192d44655c8261a09d35f610b314c4735aca42cb13119",
+      "sha256": "8157dd0973743f6961557ab4d5f625e1fd668880b0912559a6d9edf08c0dd37e"
+    }
+  },
+  "schema": "orbit-poc-correctness-execution-v1"
+}

@@ -45,10 +45,72 @@ profiles. Use `orbit-poc numerics prepare|run|report --config …` with an
 independently pinned deployment configuration. The native build is opt-in;
 existing comparison commands retain their compatibility path.
 
-The native QR, derivative and covariance checks pass, but the density objective
-check remains unaccepted: propagation repeatability limits its derivative check,
-and a subsequent nuisance fit failed stationarity. These failures are preserved
-in the [acceptance evidence](validation/numerics-v3.1/acceptance-gates.json).
+**The prescribed v3.1 correctness recovery passed independent audit. Full v3.1 remains incomplete.**
+The [closed execution10 report](validation/numerics-v3.1-correctness/recovery10/index.html)
+records 106 original native tests and 51 correction regressions passing without
+failures or skips, all four refinements, both full-prior/objective checks, and
+both distinct original failure replays. All 32 objective nuisance profiles and
+both replays reached strict convergence; none required a floor-limited
+classification. The objective checks retained their measured physical repeat
+spread and unchanged numerical-resolution allowance.
+
+This resolves the identified correctness issue for the tested candidate and
+prescribed suite. It does not authorize covariance or establish full release
+readiness. The original 150-attempt benchmark remains separate and unfinished,
+and the legacy solver remains the default. The
+[immutable execution10 launch snapshot](validation/numerics-v3.1-correctness/recovery10-launch/index.html)
+retains its historical pending status. Failed execution09 and every earlier
+attempt remain preserved.
+
+**Execution09 failed its original native test gate.**
+The [closed execution09 report](validation/numerics-v3.1-correctness/recovery09/index.html)
+records 104 tests passing and two installer tests failing. The 51 separate
+regressions, four refinements, both objective checks and both original replays
+were not reached. Reporting completed and retains every unrun check. The
+[frozen launch snapshot](validation/numerics-v3.1-correctness/recovery09-launch/index.html)
+separately preserves preparation and the staging retry. The
+[independent terminal audit](validation/numerics-v3.1-correctness/recovery09-provenance/index.html)
+agrees with the failed outcome. No later scientific outcome or accepted
+covariance is inferred.
+
+**The independently audited attempt08 failed.**
+The [closed recovery report](validation/numerics-v3.1-correctness/recovery07-08/index.html)
+records all 106 original native tests, 40 separate correction regressions and
+four propagation/measurement refinements passing. Both objective checks failed
+before completing a directional-derivative scale. The first original nuisance
+replay reached strict convergence; the second failed at generation14. Complete
+failed iteration histories and the original failed report-collector record are
+preserved. These results cannot authorize covariance or establish release
+readiness. Attempt07 remains a separate infrastructure failure before any
+native build or tests.
+
+The later [D03 diagnostic](validation/numerics-v3.1-correctness/recovery08-diagnostic-d03/index.html)
+reproduces four generations of the failed density profile, verifies 52 exact
+equivalence checks and independently accounts for all 9,469 objective rows. A
+[separate algebraic analysis](validation/numerics-v3.1-correctness/recovery08-diagnostic-d03-analysis04/index.html)
+attributes 99.9935% of the measured distance-clock discrepancy in that captured
+full trial to clock-plus-travel duration addition. This supports testing a
+narrow correction; no corrected native fit or scientific acceptance follows
+from that attribution. The two diagnostic replays deliberately stop incomplete.
+
+The [arithmetic diagnostic](validation/numerics-v3.1-correctness/recovery06-diagnostics/report.html)
+preserves a failed diagnostic build and two failed trace replays, 104 exact
+equivalence checks, and a five-row Decimal analysis. That bounded diagnostic
+motivated the new source change; it does not replace an acceptance gate.
+
+The earlier [attempt06 report](validation/numerics-v3.1-correctness/recovery06/index.html)
+preserves the failed query/reference precision validation.
+All 106 original native tests, 18 added regression tests and four
+propagation/measurement refinements passed. Both exact nuisance-failure replays
+now reached strict convergence. Both objective gates failed: density failed its
+first nonzero-prior profile; pulses passed one derivative scale, then failed the
+negative `h=0.5` repeat before a second consecutive passing scale. The independent
+audit agrees with this failed result. The correctness issue remained open after attempt06; those
+results could not authorize covariance or establish release readiness.
+The earlier [attempt04/05 history](validation/numerics-v3.1-correctness/recovery04-05/index.html)
+remains unchanged, including attempt05's floor-limited second replay.
+See the [reproduction notes](docs/numerics-correctness-recovery.md) and the earlier
+[acceptance evidence](validation/numerics-v3.1/acceptance-gates.json).
 At the implementation freeze, the 150-attempt numerical benchmark had not
 completed. Its finished report will be published under `runs/numerics-v3.1/`;
 execution completion does not resolve a failed correctness gate. No v3.1

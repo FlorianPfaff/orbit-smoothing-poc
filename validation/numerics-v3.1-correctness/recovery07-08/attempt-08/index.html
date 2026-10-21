@@ -1,0 +1,612 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Execution 08 evidence</title><style>body{font:16px system-ui;max-width:1050px;margin:2rem auto;padding:0 1rem}table{border-collapse:collapse}td,th{border:1px solid #ccd;padding:.4rem}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Execution attempt 08 — candidate07 controls</h1><p>Validation: <strong>failed</strong>. Original postprocessing: <strong>failed</strong>. Reported numerical evidence: <strong>failed</strong>.</p><p>This bounded presentation preserves every planned step and the original reporting failure. It changes no numerical gate. Strict nuisance convergence and audited floor-limited progress remain distinct; floor status cannot authorize covariance. Release acceptance and the frozen150-attempt benchmark remain unassessed.</p><table><tr><th>Planned step</th><th>Actual status</th><th>Exit</th></tr><tr><td>clone</td><td>passed</td><td>0 </td></tr><tr><td>checkout</td><td>passed</td><td>0 </td></tr><tr><td>build</td><td>passed</td><td>0 </td></tr><tr><td>native-tests</td><td>passed</td><td>0 </td></tr><tr><td>correction-regression-tests</td><td>passed</td><td>0 </td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>passed</td><td>0 </td></tr><tr><td>synthetic-refinement-pulses</td><td>passed</td><td>0 </td></tr><tr><td>flight-refinement</td><td>passed</td><td>0 </td></tr><tr><td>eccentric-24h-refinement</td><td>passed</td><td>0 </td></tr><tr><td>objective-log_drag_ou</td><td>failed</td><td>1 </td></tr><tr><td>objective-pulses</td><td>failed</td><td>1 </td></tr><tr><td>nuisance-replay</td><td>passed</td><td>0 </td></tr><tr><td>nuisance-replay-candidate1-point012</td><td>failed</td><td>1 </td></tr></table><h2>Compact reported metrics</h2><pre>{
+  &quot;additional_regressions&quot;: {
+    &quot;counts&quot;: {
+      &quot;errors&quot;: 0,
+      &quot;failed&quot;: 0,
+      &quot;passed&quot;: 40,
+      &quot;skipped&quot;: 0,
+      &quot;total&quot;: 40
+    },
+    &quot;integrity_errors&quot;: [],
+    &quot;status&quot;: &quot;passed&quot;
+  },
+  &quot;candidate_commit&quot;: &quot;8e4d36f7c47d57acdb9fa30d15a6005189bbf221&quot;,
+  &quot;candidate_control_version&quot;: &quot;07&quot;,
+  &quot;covariance_authorized&quot;: false,
+  &quot;execution_attempt&quot;: &quot;08&quot;,
+  &quot;frozen_campaign_reclassified&quot;: false,
+  &quot;independent_audit_errors&quot;: [],
+  &quot;independent_receipt_audit_passed&quot;: false,
+  &quot;native&quot;: {
+    &quot;build_manifest_sha256&quot;: &quot;8218ea268e5dd5f5adf11c26ff6d63c82505bc76bfe43d0fae9ff870be242bf7&quot;,
+    &quot;path&quot;: &quot;@EXECUTION_08_ROOT@/binaries/groops-dba44217a63c655c&quot;,
+    &quot;sha256&quot;: &quot;dba44217a63c655cafebee130ffb6f81ab23e3e72ad82d9ba68dd09784d60f6c&quot;
+  },
+  &quot;objectives&quot;: {
+    &quot;log_drag_ou&quot;: {
+      &quot;accepted_derivative_scales&quot;: [],
+      &quot;directional_scales&quot;: [
+        {
+          &quot;completed_profile_labels&quot;: [
+            &quot;direction-1.0--1&quot;,
+            &quot;direction-1.0--1-repeat&quot;,
+            &quot;direction-1.0-1&quot;
+          ],
+          &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see @EXECUTION_08_ROOT@/validation-07/objective-log_drag_ou/point-006-direction-1.0-1-repeat/profile.log&quot;,
+          &quot;failure_label_from_error&quot;: &quot;direction-1.0-1-repeat&quot;,
+          &quot;scale&quot;: 1.0,
+          &quot;status&quot;: &quot;incomplete&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.5,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.25,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.125,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.0625,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.03125,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.015625,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.0078125,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.00390625,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        }
+      ],
+      &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see @EXECUTION_08_ROOT@/validation-07/objective-log_drag_ou/point-006-direction-1.0-1-repeat/profile.log&quot;,
+      &quot;integrity_errors&quot;: [],
+      &quot;prior&quot;: {
+        &quot;absolute_tolerance&quot;: 2e-08,
+        &quot;cost&quot;: 4.848917841373497,
+        &quot;maximum_residual_difference&quot;: 2.0548241996820593e-09,
+        &quot;objective&quot;: 4093.99640620035,
+        &quot;rows&quot;: 61,
+        &quot;source&quot;: &quot;constraint.logDensityOu&quot;
+      },
+      &quot;prior_status&quot;: &quot;passed&quot;,
+      &quot;profile_resolution_counts&quot;: {
+        &quot;audited_floor_only&quot;: 0,
+        &quot;strict&quot;: 5,
+        &quot;unresolved&quot;: 0
+      },
+      &quot;reported_passed&quot;: false,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    &quot;pulses&quot;: {
+      &quot;accepted_derivative_scales&quot;: [],
+      &quot;directional_scales&quot;: [
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see @EXECUTION_08_ROOT@/validation-07/objective-pulses/point-003-direction-1.0--1/profile.log&quot;,
+          &quot;failure_label_from_error&quot;: &quot;direction-1.0--1&quot;,
+          &quot;scale&quot;: 1.0,
+          &quot;status&quot;: &quot;incomplete&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.5,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.25,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.125,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.0625,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.03125,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.015625,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.0078125,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        },
+        {
+          &quot;completed_profile_labels&quot;: [],
+          &quot;scale&quot;: 0.00390625,
+          &quot;status&quot;: &quot;not_attempted&quot;
+        }
+      ],
+      &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see @EXECUTION_08_ROOT@/validation-07/objective-pulses/point-003-direction-1.0--1/profile.log&quot;,
+      &quot;integrity_errors&quot;: [],
+      &quot;prior&quot;: {
+        &quot;absolute_tolerance&quot;: 1e-12,
+        &quot;cost&quot;: 0.053929305673915545,
+        &quot;maximum_residual_difference&quot;: 0.0,
+        &quot;objective&quot;: 4434.956614024171,
+        &quot;rows&quot;: 6,
+        &quot;source&quot;: &quot;constraint.pulses&quot;
+      },
+      &quot;prior_status&quot;: &quot;passed&quot;,
+      &quot;profile_resolution_counts&quot;: {
+        &quot;audited_floor_only&quot;: 0,
+        &quot;strict&quot;: 2,
+        &quot;unresolved&quot;: 0
+      },
+      &quot;reported_passed&quot;: false,
+      &quot;status&quot;: &quot;failed&quot;
+    }
+  },
+  &quot;original_nuisance_replays&quot;: {
+    &quot;nuisance-replay&quot;: {
+      &quot;elapsed_seconds&quot;: 56.36541833099909,
+      &quot;error&quot;: null,
+      &quot;final_search&quot;: {
+        &quot;floor_rejection&quot;: &quot;&quot;,
+        &quot;nuisance_floor_limited&quot;: false,
+        &quot;nuisance_objective_resolution&quot;: 0,
+        &quot;undamped_maximum_update_m&quot;: 2.9905617201629343e-10
+      },
+      &quot;integrity_errors&quot;: [],
+      &quot;passed&quot;: true,
+      &quot;profile&quot;: {
+        &quot;maximum_update_m&quot;: 2.9905617201629343e-10,
+        &quot;nuisance_converged&quot;: true,
+        &quot;nuisance_floor_limited&quot;: false,
+        &quot;nuisance_gradient_scaled&quot;: 5.234312749167781e-12,
+        &quot;nuisance_objective_resolution&quot;: 0,
+        &quot;nuisance_predicted_reduction&quot;: 1.2185150361273976e-19,
+        &quot;required_consecutive_small_updates&quot;: 2,
+        &quot;threshold_m&quot;: 1e-08
+      },
+      &quot;progress_only_floor_validated&quot;: false,
+      &quot;replay_profile_sha256&quot;: &quot;5c635f928b04badd5efc348767f4f58a6e7e8aba3e453b6019cc578c9a71e213&quot;,
+      &quot;resolution_status&quot;: &quot;strict_convergence&quot;,
+      &quot;source_profile_sha256&quot;: &quot;902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;strict_nuisance_converged&quot;: true
+    },
+    &quot;nuisance-replay-candidate1-point012&quot;: {
+      &quot;elapsed_seconds&quot;: 386.34780016203877,
+      &quot;error&quot;: null,
+      &quot;final_search&quot;: {
+        &quot;floor_rejection&quot;: &quot;potential_not_within_positive_measured_resolution&quot;,
+        &quot;nuisance_floor_limited&quot;: false,
+        &quot;nuisance_objective_resolution&quot;: 3.4019726342354358e-28,
+        &quot;undamped_maximum_update_m&quot;: 3.2511868781483534e-08
+      },
+      &quot;integrity_errors&quot;: [],
+      &quot;passed&quot;: false,
+      &quot;profile&quot;: {},
+      &quot;progress_only_floor_validated&quot;: false,
+      &quot;replay_profile_sha256&quot;: &quot;fb346c2f03872e53efc0d2801bd6c8771192b68c57b9e450181733cae1379b64&quot;,
+      &quot;resolution_status&quot;: &quot;unresolved_or_invalid&quot;,
+      &quot;source_profile_sha256&quot;: &quot;3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8&quot;,
+      &quot;status&quot;: &quot;failed&quot;,
+      &quot;strict_nuisance_converged&quot;: false
+    }
+  },
+  &quot;original_tests&quot;: {
+    &quot;counts&quot;: {
+      &quot;errors&quot;: 0,
+      &quot;failed&quot;: 0,
+      &quot;passed&quot;: 106,
+      &quot;skipped&quot;: 0,
+      &quot;total&quot;: 106
+    },
+    &quot;integrity_errors&quot;: [],
+    &quot;status&quot;: &quot;passed&quot;
+  },
+  &quot;postprocess_status&quot;: &quot;failed&quot;,
+  &quot;presentation_only&quot;: true,
+  &quot;refinements&quot;: {
+    &quot;density_24h&quot;: {
+      &quot;error&quot;: null,
+      &quot;integrity_errors&quot;: [],
+      &quot;metrics&quot;: {
+        &quot;aligned_position_maximum_m&quot;: 1.7423449953896652e-09,
+        &quot;offgrid_position_maximum_m&quot;: 5.584682031119349e-06
+      },
+      &quot;native_signals&quot;: {
+        &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+        &quot;comparison_weights_frozen&quot;: true,
+        &quot;fixed_nuisance_values_identical&quot;: true,
+        &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+        &quot;passed&quot;: true,
+        &quot;raw_native_sigma_maximum_relative_change&quot;: 4.336808689942018e-16,
+        &quot;raw_native_sigmas_identical&quot;: false,
+        &quot;receiver_clock_values_seconds&quot;: [
+          -2e-05,
+          -5e-06,
+          -5e-08,
+          5e-08,
+          5e-06,
+          2e-05
+        ],
+        &quot;signals&quot;: [
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 1.7319052858510986e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 5.773017619503662e-09,
+            &quot;minimum_native_sigma_m&quot;: 0.2999999999999999,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 65018
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 1.7316779121756554e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 5.772259707252185e-09,
+            &quot;minimum_native_sigma_m&quot;: 0.2999999999999999,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 32509
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 1.7321326595265418e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 5.77377553175514e-07,
+            &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 65018
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 1.7321326595265418e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 5.77377553175514e-07,
+            &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 32509
+          }
+        ]
+      },
+      &quot;passed&quot;: true,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    &quot;flight_april24&quot;: {
+      &quot;error&quot;: null,
+      &quot;integrity_errors&quot;: [],
+      &quot;metrics&quot;: {
+        &quot;aligned_position_maximum_m&quot;: 2.094944070391797e-06,
+        &quot;offgrid_position_maximum_m&quot;: 1.1789941775955e-05
+      },
+      &quot;native_signals&quot;: {
+        &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+        &quot;comparison_weights_frozen&quot;: true,
+        &quot;fixed_nuisance_values_identical&quot;: true,
+        &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+        &quot;passed&quot;: true,
+        &quot;raw_native_sigma_maximum_relative_change&quot;: 8.918505153368854e-12,
+        &quot;raw_native_sigmas_identical&quot;: false,
+        &quot;receiver_clock_values_seconds&quot;: [
+          -2e-05,
+          -5e-06,
+          -5e-08,
+          5e-08,
+          5e-06,
+          2e-05
+        ],
+        &quot;signals&quot;: [
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+            &quot;maximum_fraction_of_sigma&quot;: 1.3955851183532094e-05,
+            &quot;minimum_native_sigma_m&quot;: 0.05744091083620496,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 960
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+            &quot;maximum_fraction_of_sigma&quot;: 1.8630257430262548e-05,
+            &quot;minimum_native_sigma_m&quot;: 0.04633023750726588,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 480
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+            &quot;maximum_fraction_of_sigma&quot;: 0.0022019718410824394,
+            &quot;minimum_native_sigma_m&quot;: 0.0003333034886558371,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 960
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 9.407749530510046e-07,
+            &quot;maximum_fraction_of_sigma&quot;: 0.000713018539525509,
+            &quot;minimum_native_sigma_m&quot;: 0.0010948069715336307,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 480
+          }
+        ]
+      },
+      &quot;passed&quot;: true,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    &quot;log_drag_ou&quot;: {
+      &quot;error&quot;: null,
+      &quot;integrity_errors&quot;: [],
+      &quot;metrics&quot;: {
+        &quot;aligned_position_maximum_m&quot;: 7.303611906877776e-09,
+        &quot;offgrid_position_maximum_m&quot;: 5.54304497667047e-06
+      },
+      &quot;native_signals&quot;: {
+        &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+        &quot;comparison_weights_frozen&quot;: true,
+        &quot;fixed_nuisance_values_identical&quot;: true,
+        &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+        &quot;passed&quot;: true,
+        &quot;raw_native_sigma_maximum_relative_change&quot;: 3.700743415417189e-16,
+        &quot;raw_native_sigmas_identical&quot;: false,
+        &quot;receiver_clock_values_seconds&quot;: [
+          -2e-05,
+          -5e-06,
+          -5e-08,
+          5e-08,
+          5e-06,
+          2e-05
+        ],
+        &quot;signals&quot;: [
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 6.151822162792087e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 2.0506073875973623e-08,
+            &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 2702
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 6.151822162792087e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 2.0506073875973623e-08,
+            &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 1351
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 6.150912668090314e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 2.0503042226967714e-06,
+            &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 2702
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 6.151822162792087e-09,
+            &quot;maximum_fraction_of_sigma&quot;: 2.050607387597362e-06,
+            &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 1351
+          }
+        ]
+      },
+      &quot;passed&quot;: true,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    &quot;pulses&quot;: {
+      &quot;error&quot;: null,
+      &quot;integrity_errors&quot;: [],
+      &quot;metrics&quot;: {
+        &quot;aligned_position_maximum_m&quot;: 1.742967150380174e-08,
+        &quot;offgrid_position_maximum_m&quot;: 5.543041475485635e-06
+      },
+      &quot;native_signals&quot;: {
+        &quot;comparison_weight_source&quot;: &quot;coarse native sigma shared by both predictions&quot;,
+        &quot;comparison_weights_frozen&quot;: true,
+        &quot;fixed_nuisance_values_identical&quot;: true,
+        &quot;limitation&quot;: &quot;Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.&quot;,
+        &quot;passed&quot;: true,
+        &quot;raw_native_sigma_maximum_relative_change&quot;: 3.700743415417189e-16,
+        &quot;raw_native_sigmas_identical&quot;: false,
+        &quot;receiver_clock_values_seconds&quot;: [
+          -2e-05,
+          -5e-06,
+          -5e-08,
+          5e-08,
+          5e-06,
+          2e-05
+        ],
+        &quot;signals&quot;: [
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+            &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-08,
+            &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 2702
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.3,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+            &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-08,
+            &quot;minimum_native_sigma_m&quot;: 0.29999999999999993,
+            &quot;observable&quot;: &quot;code&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 1351
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1575420000.0,
+            &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+            &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-06,
+            &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 2702
+          },
+          {
+            &quot;assumed_sigma_m&quot;: 0.003,
+            &quot;frequency_hz&quot;: 1227600000.0,
+            &quot;maximum_difference_m&quot;: 1.6024387150537223e-08,
+            &quot;maximum_fraction_of_sigma&quot;: 5.3414623835124075e-06,
+            &quot;minimum_native_sigma_m&quot;: 0.002999999999999999,
+            &quot;observable&quot;: &quot;carrier&quot;,
+            &quot;passed&quot;: true,
+            &quot;rows&quot;: 1351
+          }
+        ]
+      },
+      &quot;passed&quot;: true,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  },
+  &quot;release_acceptance&quot;: &quot;not_assessed&quot;,
+  &quot;reported_evidence_status&quot;: &quot;failed&quot;,
+  &quot;schema&quot;: &quot;orbit-poc-bounded-execution-summary-v1&quot;,
+  &quot;scope&quot;: &quot;Summary of existing unchanged numerical audits. Full original reports are retained separately as gzip; no gate is rerun, relaxed or replaced. Floor-limited progress is not strict convergence and cannot authorize covariance.&quot;,
+  &quot;source_sha256&quot;: &quot;774d6d777e1f5caf09b5599a8b469e421327f2e1f962eb75a5af17b0bc8bf8c2&quot;,
+  &quot;steps&quot;: [
+    {
+      &quot;elapsed_seconds&quot;: 0.9401682099560276,
+      &quot;name&quot;: &quot;clone&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 600
+    },
+    {
+      &quot;elapsed_seconds&quot;: 0.31578824599273503,
+      &quot;name&quot;: &quot;checkout&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 600
+    },
+    {
+      &quot;elapsed_seconds&quot;: 198.89181346807163,
+      &quot;name&quot;: &quot;build&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 19.394856221973896,
+      &quot;name&quot;: &quot;native-tests&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 3600
+    },
+    {
+      &quot;elapsed_seconds&quot;: 1.9659988780040294,
+      &quot;name&quot;: &quot;correction-regression-tests&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 3600
+    },
+    {
+      &quot;elapsed_seconds&quot;: 11.111362600931898,
+      &quot;name&quot;: &quot;synthetic-refinement-log_drag_ou&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 10.71208474400919,
+      &quot;name&quot;: &quot;synthetic-refinement-pulses&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 39.970869036973454,
+      &quot;name&quot;: &quot;flight-refinement&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 154.44833268295042,
+      &quot;name&quot;: &quot;eccentric-24h-refinement&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 1761.0350345759653,
+      &quot;name&quot;: &quot;objective-log_drag_ou&quot;,
+      &quot;returncode&quot;: 1,
+      &quot;status&quot;: &quot;failed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 2123.7564583420753,
+      &quot;name&quot;: &quot;objective-pulses&quot;,
+      &quot;returncode&quot;: 1,
+      &quot;status&quot;: &quot;failed&quot;,
+      &quot;timeout_seconds&quot;: 7200
+    },
+    {
+      &quot;elapsed_seconds&quot;: 57.78194411506411,
+      &quot;name&quot;: &quot;nuisance-replay&quot;,
+      &quot;returncode&quot;: 0,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;timeout_seconds&quot;: 7500
+    },
+    {
+      &quot;elapsed_seconds&quot;: 387.41667773900554,
+      &quot;name&quot;: &quot;nuisance-replay-candidate1-point012&quot;,
+      &quot;returncode&quot;: 1,
+      &quot;status&quot;: &quot;failed&quot;,
+      &quot;timeout_seconds&quot;: 7500
+    }
+  ],
+  &quot;summary_integrity_errors&quot;: [],
+  &quot;validation_status&quot;: &quot;failed&quot;
+}
+</pre><h2>Complete preserved artifacts</h2><ul><li><a href="full/audit.json.gz">full/audit.json.gz</a></li><li><a href="full/execution.json.gz">full/execution.json.gz</a></li><li><a href="full/html.html.gz">full/html.html.gz</a></li><li><a href="full/independent_review.json.gz">full/independent_review.json.gz</a></li><li><a href="full/launch.json.gz">full/launch.json.gz</a></li><li><a href="full/pins.json.gz">full/pins.json.gz</a></li><li><a href="full/pipeline.json.gz">full/pipeline.json.gz</a></li><li><a href="full/postprocess.json.gz">full/postprocess.json.gz</a></li><li><a href="full/postprocess_launch.json.gz">full/postprocess_launch.json.gz</a></li><li><a href="full/postprocess_plan.json.gz">full/postprocess_plan.json.gz</a></li><li><a href="full/source_freeze.json.gz">full/source_freeze.json.gz</a></li><li><a href="full/summary.json.gz">full/summary.json.gz</a></li><li><a href="full/transfer_inventory.json.gz">full/transfer_inventory.json.gz</a></li><li><a href="attachments/run/build.log.gz">attachments/run/build.log.gz</a></li><li><a href="attachments/run/checkout.log.gz">attachments/run/checkout.log.gz</a></li><li><a href="attachments/run/clone.log.gz">attachments/run/clone.log.gz</a></li><li><a href="attachments/run/correction-regression-tests.log.gz">attachments/run/correction-regression-tests.log.gz</a></li><li><a href="attachments/run/correction-regression-tests.xml.gz">attachments/run/correction-regression-tests.xml.gz</a></li><li><a href="attachments/run/eccentric-24h-refinement/result.json.gz">attachments/run/eccentric-24h-refinement/result.json.gz</a></li><li><a href="attachments/run/eccentric-24h-refinement.log.gz">attachments/run/eccentric-24h-refinement.log.gz</a></li><li><a href="attachments/run/flight-refinement/result.json.gz">attachments/run/flight-refinement/result.json.gz</a></li><li><a href="attachments/run/flight-refinement.log.gz">attachments/run/flight-refinement.log.gz</a></li><li><a href="attachments/run/native-tests.log.gz">attachments/run/native-tests.log.gz</a></li><li><a href="attachments/run/native-tests.xml.gz">attachments/run/native-tests.xml.gz</a></li><li><a href="attachments/run/nuisance-replay/receipt.json.gz">attachments/run/nuisance-replay/receipt.json.gz</a></li><li><a href="attachments/run/nuisance-replay-candidate1-point012/receipt.json.gz">attachments/run/nuisance-replay-candidate1-point012/receipt.json.gz</a></li><li><a href="attachments/run/nuisance-replay-candidate1-point012.log.gz">attachments/run/nuisance-replay-candidate1-point012.log.gz</a></li><li><a href="attachments/run/nuisance-replay.log.gz">attachments/run/nuisance-replay.log.gz</a></li><li><a href="attachments/run/objective-log_drag_ou/validation.json.gz">attachments/run/objective-log_drag_ou/validation.json.gz</a></li><li><a href="attachments/run/objective-log_drag_ou.log.gz">attachments/run/objective-log_drag_ou.log.gz</a></li><li><a href="attachments/run/objective-pulses/validation.json.gz">attachments/run/objective-pulses/validation.json.gz</a></li><li><a href="attachments/run/objective-pulses.log.gz">attachments/run/objective-pulses.log.gz</a></li><li><a href="attachments/run/synthetic-refinement-log_drag_ou/result.json.gz">attachments/run/synthetic-refinement-log_drag_ou/result.json.gz</a></li><li><a href="attachments/run/synthetic-refinement-log_drag_ou.log.gz">attachments/run/synthetic-refinement-log_drag_ou.log.gz</a></li><li><a href="attachments/run/synthetic-refinement-pulses/result.json.gz">attachments/run/synthetic-refinement-pulses/result.json.gz</a></li><li><a href="attachments/run/synthetic-refinement-pulses.log.gz">attachments/run/synthetic-refinement-pulses.log.gz</a></li><li><a href="attachments/provenance/candidate07-controls-independent-review-01.json.gz">attachments/provenance/candidate07-controls-independent-review-01.json.gz</a></li><li><a href="attachments/provenance/candidate07-control-validation.json.gz">attachments/provenance/candidate07-control-validation.json.gz</a></li><li><a href="attachments/provenance/candidate07-preparation-independent-review-01.json.gz">attachments/provenance/candidate07-preparation-independent-review-01.json.gz</a></li><li><a href="attachments/provenance/candidate07-source-independent-review-01.json.gz">attachments/provenance/candidate07-source-independent-review-01.json.gz</a></li><li><a href="attachments/provenance/candidate07-publication-source-equivalence.json.gz">attachments/provenance/candidate07-publication-source-equivalence.json.gz</a></li><li><a href="attachments/provenance/candidate07-control-publication-copy.json.gz">attachments/provenance/candidate07-control-publication-copy.json.gz</a></li><li><a href="attachments/provenance/candidate07-correction-lineage.json.gz">attachments/provenance/candidate07-correction-lineage.json.gz</a></li><li><a href="attachments/provenance/candidate07-independent-control-review.json.gz">attachments/provenance/candidate07-independent-control-review.json.gz</a></li><li><a href="attachments/provenance/bounded-publication-adapter-validation-03.json.gz">attachments/provenance/bounded-publication-adapter-validation-03.json.gz</a></li><li><a href="attachments/provenance/bounded-publication-adapter-independent-review-02.json.gz">attachments/provenance/bounded-publication-adapter-independent-review-02.json.gz</a></li><li><a href="attachments/control/candidate07-driver.log.gz">attachments/control/candidate07-driver.log.gz</a></li><li><a href="attachments/control/candidate07-postprocess.log.gz">attachments/control/candidate07-postprocess.log.gz</a></li><li><a href="attachments/postprocess/audit.log.gz">attachments/postprocess/audit.log.gz</a></li><li><a href="attachments/postprocess/report.log.gz">attachments/postprocess/report.log.gz</a></li><li><a href="attachments/postprocess/collect.log.gz">attachments/postprocess/collect.log.gz</a></li><li><a href="attachments/preflight/candidate08-final-control-readback.json.gz">attachments/preflight/candidate08-final-control-readback.json.gz</a></li><li><a href="attachments/preflight/candidate08-independent-control-review.json.gz">attachments/preflight/candidate08-independent-control-review.json.gz</a></li><li><a href="attachments/preflight/candidate08-independent-namespace-smoke-01-failed.json.gz">attachments/preflight/candidate08-independent-namespace-smoke-01-failed.json.gz</a></li><li><a href="attachments/preflight/candidate08-independent-namespace-smoke-02.json.gz">attachments/preflight/candidate08-independent-namespace-smoke-02.json.gz</a></li><li><a href="attachments/preflight/candidate08-independent-review-upload.json.gz">attachments/preflight/candidate08-independent-review-upload.json.gz</a></li><li><a href="attachments/preflight/candidate08_namespace_smoke.py.gz">attachments/preflight/candidate08_namespace_smoke.py.gz</a></li><li><a href="attachments/preflight/candidate08_namespace_smoke_02.py.gz">attachments/preflight/candidate08_namespace_smoke_02.py.gz</a></li><li><a href="attachments/preflight/fixture-tests-01.xml.gz">attachments/preflight/fixture-tests-01.xml.gz</a></li><li><a href="attachments/preflight/fixture-tests-02.xml.gz">attachments/preflight/fixture-tests-02.xml.gz</a></li><li><a href="attachments/preflight/manifest.json.gz">attachments/preflight/manifest.json.gz</a></li><li><a href="attachments/preflight/test_verify_upstream_namespace.py.gz">attachments/preflight/test_verify_upstream_namespace.py.gz</a></li><li><a href="attachments/preflight/test_verify_upstream_namespace_02.py.gz">attachments/preflight/test_verify_upstream_namespace_02.py.gz</a></li><li><a href="attachments/preflight/upstream-namespace-preflight-validation-02.json.gz">attachments/preflight/upstream-namespace-preflight-validation-02.json.gz</a></li><li><a href="attachments/preflight/upstream-namespace-preflight-validation.json.gz">attachments/preflight/upstream-namespace-preflight-validation.json.gz</a></li><li><a href="attachments/preflight/upstream-pinned-tree-archive-reference.json.gz">attachments/preflight/upstream-pinned-tree-archive-reference.json.gz</a></li><li><a href="attachments/preflight/verify_upstream_namespace.py.gz">attachments/preflight/verify_upstream_namespace.py.gz</a></li><li><a href="attachments/preflight/verify_upstream_namespace_02.py.gz">attachments/preflight/verify_upstream_namespace_02.py.gz</a></li><li><a href="attachments/provenance/failed-point-appendix-independent-review-01.json.gz">attachments/provenance/failed-point-appendix-independent-review-01.json.gz</a></li><li><a href="attachments/provenance/failed-point-appendix-validation-02.json.gz">attachments/provenance/failed-point-appendix-validation-02.json.gz</a></li><li><a href="attachments/provenance/publish_failed_points08.py.gz">attachments/provenance/publish_failed_points08.py.gz</a></li><li><a href="attachments/provenance/test_publish_failed_points08.py.gz">attachments/provenance/test_publish_failed_points08.py.gz</a></li><li><a href="attachments/provenance/transfer_terminal08_compact.py.gz">attachments/provenance/transfer_terminal08_compact.py.gz</a></li></ul><p>Full files are gzip-compressed, with private paths sanitized. The manifest records both original and published hashes and sizes. This adapter does not modify or replace the original collector, its limit, or its failed journal.</p></html>

@@ -1,0 +1,57 @@
+{
+  "changes": [
+    "New validation-02, pause-02 and resume-02 paths",
+    "No clone, checkout or build commands; verify/reuse exact completed candidate build",
+    "pytest -s disables problematic FD capture; original test list retained",
+    "Two original synthetic refinements and both objective checks and nuisance replay retained",
+    "Add prescribed Apr24 flight and eccentric full24h refinements with original scripts, limits7200s and required=False outcomes",
+    "Pin two new top-level refinement inputs before work and at every step guard"
+  ],
+  "created_at": "2026-10-14T17:09:10.808127+00:00",
+  "delta": {
+    "bytes": 8799,
+    "path": "private-path-sha256:39646cf6a76c91f6985c525eb066e4a0edf2507c7200c4e2de6630d011275f82",
+    "sha256": "f560dd20de0f69a262c52ae24b89eff3b5b857b08dc9aca100c97f2e68926544"
+  },
+  "driver": {
+    "bytes": 22154,
+    "path": "private-path-sha256:c95400510f1c0aa4798dbfed76733e2f59aac6c1726d8ca0e2aee87654fc118c",
+    "sha256": "a977a3d13ff988adcb00e2e8267dc669f4ced7effa9c52e6b2ed07a10966c16a"
+  },
+  "independent_review": "requested_from_qr_agent",
+  "launch": "PYTHONDONTWRITEBYTECODE=1 private-path-sha256:31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6 private-path-sha256:c95400510f1c0aa4798dbfed76733e2f59aac6c1726d8ca0e2aee87654fc118c",
+  "launch_condition": "Root reviews helper and confirms new paused boundary; this receipt does not authorize signalling or launching by this subagent.",
+  "prior_driver": {
+    "bytes": 19475,
+    "path": "private-path-sha256:1123425abc50f2122c7ab33cd9ccbad5fd135af0ef153f56e3f96f45f6670686",
+    "sha256": "97abe0620436f5e58a374261704f92985e1b48eb12df60e0957937435bccbe6b"
+  },
+  "reuse_pins": {
+    "build_manifest_sha256": "6402408d9190c9de9f50d98ad58ff12df6f350e7d69e08594e5e60c92db1696c",
+    "native_sha256": "fcfbc385917227084d11e3330c1e6da4d0d6df82f0e683ead2276ce70e16d2b8",
+    "prior_pipeline": {
+      "bytes": 899162,
+      "path": "private-path-sha256:63c053efe3562845c88649a4b3e219995d6f8331edf58eb15aff61bbbaeb7c3e",
+      "sha256": "4e7ea95cf5fc7bd23a6947f8c7ad17423fb839461f02c658741f3aceaae37ddf"
+    },
+    "source_inventory_sha256": "88dd09357de8b525f3267d400065091e49671f17a336c59abcf26e35455bc560"
+  },
+  "schema": "correctness-validation-retry-control-review-v1",
+  "scope": "Standalone control retry only. No source, threshold, frozen campaign, native binary or original failed attempt was changed. No real campaign signals or native workload launched by these tests.",
+  "status": "automated_checks_passed",
+  "tests": {
+    "elapsed_seconds": 1.29,
+    "log": {
+      "bytes": 1843,
+      "path": "private-path-sha256:ea34ab090f4520bbeca634954686af85513586fec6be3f8e8f2c6568483418bd",
+      "sha256": "59db1df3cadee7404044fe240da2bf469c6f51191454888827102f04800a276f"
+    },
+    "passed": 14,
+    "source": {
+      "bytes": 6694,
+      "path": "private-path-sha256:3465e4228a969f3d71cc018492c132b893607bc16c55f276c5e05f37870dd49c",
+      "sha256": "6cc1f2a4e627e017784fd7852d6bd72bdf5877498c3b0e31bf387b5aca58df42"
+    }
+  },
+  "unchanged_supervision": "AST equality verified for all existing process ownership, namespace cleanup, interruption, JSON writing, source inventory and supervisor helpers. Main guard, run wrapper and final cleanup/resume structure retain prior behavior; new input pins are checked at each step."
+}

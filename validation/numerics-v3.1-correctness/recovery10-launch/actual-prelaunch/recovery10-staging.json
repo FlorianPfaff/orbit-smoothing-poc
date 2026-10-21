@@ -1,0 +1,69 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "@EXECUTION_10_ROOT@/control/stage_recovery10.py",
+        "--source-archive",
+        "@EXECUTION_10_ROOT@/candidate09-source.tar",
+        "--source-archive-sha256",
+        "1a8eb3fa97450baeff5e48e08ea1f1b92f9dcb44ed17df42af553a307e091b05",
+        "--source-freeze-sha256",
+        "84bb02f56e3f46f5624f188051670378ba5f5a5a492e2eac50514e7b7149a869",
+        "--supplementary-verifier-sha256",
+        "6d12c697291f52ba0fe60d4c3212c3619d59c041c275d954fd1a8d6d9a0c2819"
+      ],
+      "command_sha256": "7fb1cf63b9f88e8f308c3391176b66fcb3b8df6bd2c38e356596324c28f500c5",
+      "parent": 1926053,
+      "pid": 1926054,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 105268459,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T12:57:42.110543+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Attempt09: fresh source/build/binary/output directories; build CPUs24-27, serial scientific fits on CPU24 with verified current-host admission and owned-process cleanup. No administrative exclusive allocation is claimed. Original v3 campaign on workstation2 remains untouched. Scientific runtime and isolated glibc2.39 are unchanged from08.",
+    "status": "admitted"
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:57:42.052041+00:00",
+  "execution": {
+    "path": "@EXECUTION_10_ROOT@/control/candidate09-execution.json",
+    "sha256": "f127aa87f65b0a555fd1fe019609a98ce154ec49fbbcc0f6de14017c8b888bff"
+  },
+  "native_launched": false,
+  "previous_postprocessor": {
+    "path": "@EXECUTION_09_ROOT@/postprocess-09-01/pipeline.json",
+    "sha256": "726e3d744d921dfe7ababd849cc78b824c4b1e0f53e789bdb578dad6867e01e2"
+  },
+  "previous_validation": {
+    "path": "@EXECUTION_09_ROOT@/validation-09/pipeline.json",
+    "sha256": "c66d830ce7c8ca98e916706e6d30a0724b54efeb7d65f678702193fbeb30731e"
+  },
+  "schema": "orbit-poc-recovery10-staging-v1",
+  "source_archive": {
+    "path": "@EXECUTION_10_ROOT@/candidate09-source.tar",
+    "sha256": "1a8eb3fa97450baeff5e48e08ea1f1b92f9dcb44ed17df42af553a307e091b05"
+  },
+  "source_files": 772,
+  "source_freeze": {
+    "path": "@EXECUTION_10_ROOT@/control/candidate09-source-freeze.json",
+    "sha256": "84bb02f56e3f46f5624f188051670378ba5f5a5a492e2eac50514e7b7149a869"
+  },
+  "source_sha256": "365313010e30a086729f21c6a4d7721431395155db590ed92a2bcb37b6d15fe1",
+  "status": "passed",
+  "upstream": {
+    "path": "@EXECUTION_10_ROOT@/control/recovery10-upstream.json",
+    "sha256": "66965e5e1e7a9f17e61c7a029ac7d2f730a1a893bbb18e4926c8c8b2b22afb30"
+  }
+}

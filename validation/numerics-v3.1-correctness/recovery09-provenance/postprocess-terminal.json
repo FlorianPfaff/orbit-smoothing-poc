@@ -1,0 +1,148 @@
+{
+  "finished_at": "2026-10-15T12:40:21.985320+00:00",
+  "phase": "collect",
+  "plan": {
+    "bytes": 1874,
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-postprocess-plan.json",
+    "sha256": "1ee46a2c16be25b4ee5f40a9b4f039772b019af47efb85f547b5e105183e8e10"
+  },
+  "reporting_interpreter": {
+    "path": "@REMOTE_HOME@/codex-runs/orbit-poc-20261013/env/bin/python",
+    "sha256": "6759dcc6aa5a3fe3377349092f92f6700f1f79017294c1d0085009eb8802cb1e",
+    "versions": {
+      "gtsam": "4.2",
+      "numpy": "1.26.4",
+      "psutil": "7.2.2",
+      "pytest": "9.1.1",
+      "python": "3.11.15",
+      "scipy": "1.15.3"
+    }
+  },
+  "reporting_version_provenance": "Observed versions supplied in reviewed plan; interpreter bytes checked before every helper. Scientific validation runtime is recorded independently in the execution configuration.",
+  "schema": "orbit-poc-correctness-postprocess09-run-v1",
+  "scientific_status": "failed",
+  "scope": "Finite evidence processing only; no gate status upgrades, native fits, source changes, campaign signals or Git publication.",
+  "source": {
+    "commit": "7e232423566a9d608ada0bcc88af8a86dd914db3",
+    "file_count": 772,
+    "sha256": "029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498"
+  },
+  "started_at": "2026-10-15T12:37:37.766135+00:00",
+  "status": "completed",
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "@REMOTE_HOME@/codex-runs/orbit-poc-20261013/env/bin/python",
+        "@EXECUTION_09_ROOT@/control/verify_correctness_results_09.py",
+        "--run",
+        "@EXECUTION_09_ROOT@/validation-09",
+        "--source",
+        "@EXECUTION_09_ROOT@/source",
+        "--pins",
+        "@EXECUTION_09_ROOT@/control/candidate09-pins.json",
+        "--output",
+        "@EXECUTION_09_ROOT@/postprocess-09-01/independent-audit.json"
+      ],
+      "cleanup_verified": true,
+      "elapsed_seconds": 0.34766017692163587,
+      "finished_at": "2026-10-15T12:40:14.297722+00:00",
+      "name": "audit",
+      "pid": 1920230,
+      "reported_outcome": false,
+      "result": {
+        "bytes": 6649261,
+        "path": "@EXECUTION_09_ROOT@/postprocess-09-01/independent-audit.json",
+        "sha256": "7e4a292dfda25c4d9fb9091d14882da1d9ee17d3593693c1975278dc75c4710d"
+      },
+      "returncode": 1,
+      "started_at": "2026-10-15T12:40:13.907801+00:00",
+      "status": "exited",
+      "timeout_seconds": 600.0
+    },
+    {
+      "argv": [
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "@REMOTE_HOME@/codex-runs/orbit-poc-20261013/env/bin/python",
+        "@EXECUTION_09_ROOT@/control/render_correctness_report_09.py",
+        "--run",
+        "@EXECUTION_09_ROOT@/validation-09",
+        "--previous",
+        "@EXECUTION_04_ROOT@/readonly@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03",
+        "--control",
+        "@EXECUTION_09_ROOT@/control",
+        "--audit",
+        "@EXECUTION_09_ROOT@/postprocess-09-01/independent-audit.json",
+        "--output",
+        "@EXECUTION_09_ROOT@/postprocess-09-01/report"
+      ],
+      "cleanup_verified": true,
+      "elapsed_seconds": 0.9990735528990626,
+      "finished_at": "2026-10-15T12:40:15.466477+00:00",
+      "name": "report",
+      "pid": 1920242,
+      "reported_outcome": "failed",
+      "result": {
+        "bytes": 21852597,
+        "path": "@EXECUTION_09_ROOT@/postprocess-09-01/report/summary.json",
+        "sha256": "49dfd4409dc494b71edf346249c7c87602c1d1e49d3fab7d4c30bb68ed892fff"
+      },
+      "returncode": 0,
+      "started_at": "2026-10-15T12:40:14.429161+00:00",
+      "status": "exited",
+      "timeout_seconds": 600.0
+    },
+    {
+      "argv": [
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "@REMOTE_HOME@/codex-runs/orbit-poc-20261013/env/bin/python",
+        "@EXECUTION_09_ROOT@/control/collect_correctness_publication_09.py",
+        "--root",
+        "@EXECUTION_09_ROOT@",
+        "--run",
+        "@EXECUTION_09_ROOT@/validation-09",
+        "--control",
+        "@EXECUTION_09_ROOT@/control",
+        "--source",
+        "@EXECUTION_09_ROOT@/source",
+        "--binaries",
+        "@EXECUTION_09_ROOT@/binaries",
+        "--previous",
+        "@EXECUTION_04_ROOT@/readonly@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03",
+        "--audit",
+        "@EXECUTION_09_ROOT@/postprocess-09-01/independent-audit.json",
+        "--report",
+        "@EXECUTION_09_ROOT@/postprocess-09-01/report",
+        "--output",
+        "@EXECUTION_09_ROOT@/postprocess-09-01/publication"
+      ],
+      "cleanup_verified": true,
+      "elapsed_seconds": 6.10424231714569,
+      "finished_at": "2026-10-15T12:40:21.814128+00:00",
+      "name": "collect",
+      "pid": 1920257,
+      "reported_outcome": "failed",
+      "result": {
+        "bytes": 40072,
+        "path": "@EXECUTION_09_ROOT@/postprocess-09-01/publication/manifest.json",
+        "sha256": "2644e069aa4f67da71109c0ae44d66ea0692914f29424587af72992465ef3174"
+      },
+      "returncode": 0,
+      "started_at": "2026-10-15T12:40:15.663317+00:00",
+      "status": "exited",
+      "timeout_seconds": 600.0
+    }
+  ],
+  "validation_pipeline": {
+    "bytes": 829390,
+    "path": "@EXECUTION_09_ROOT@/validation-09/pipeline.json",
+    "sha256": "c66d830ce7c8ca98e916706e6d30a0724b54efeb7d65f678702193fbeb30731e"
+  },
+  "validation_status": "failed"
+}

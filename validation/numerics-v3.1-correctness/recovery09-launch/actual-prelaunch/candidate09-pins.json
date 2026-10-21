@@ -1,0 +1,117 @@
+{
+  "additional_native_tests": [
+    "tests/test_numerics_geometry_precision.py",
+    "tests/test_numerics_synthetic_force_arithmetic.py"
+  ],
+  "allowed_correction_paths": [
+    "groops/extension/gnssRangeResidual.h",
+    "groops/extension/orbitPocQrSolve.cpp",
+    "groops/extension/positionRemainder.py",
+    "groops/extension/scaledRowQr.h",
+    "tests/test_numerics_light_time_precision.py"
+  ],
+  "candidate03_pins": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate03-pins.json",
+    "sha256": "2b6a982e765a5fd963c807126fbcdb9a783b48b54ea505b8cd11866c516bc258"
+  },
+  "correction_lineage": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-correction-lineage.json",
+    "sha256": "8bcde16de77c9630a986f73781bcf0a511719c060db46c9b472c575be6337b3b"
+  },
+  "driver_sha256": "72ac591a4c0b1d18b67b2739d694be40e271ec09d7b0f9b3dcad4287cb88fdcd",
+  "execution_sha256": "875f7e10dd1726363699478fa7891fabf40869bb288e11fb4f70730749555b6c",
+  "expected_native_test_count": 106,
+  "input_artifacts": {
+    "candidate1_nuisance_replay": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/profile.xml",
+      "sha256": "3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8"
+    },
+    "density_request": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json",
+      "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd"
+    },
+    "flight_prepared": {
+      "path": "@WORKSPACE_ROOT@/work/v3/utc-receiver-epoch-check/normal/preparation_manifest.json",
+      "sha256": "07ca66ce4c82179f98bbba18a28d47ad49f84b7eaa351f24beecc0c691daa554"
+    },
+    "full_day_request": {
+      "path": "@WORKSPACE_ROOT@/work/numerics-v3.1/resource-preflight-24h-request.json",
+      "sha256": "8c1af6352f555f3b25d619d81899c28459321cea8204ae97a418e614f072c666"
+    },
+    "initial_state": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/engineering-archive/development-fits-07/pulses-staged/point-029-confirmation/physical_initial.txt",
+      "sha256": "61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea"
+    },
+    "new_replay_density": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/native/log_density.txt",
+      "sha256": "1c554b9450d5d7d3204886cdea63aead22b9965c986524ddfac44db75f665772"
+    },
+    "new_replay_reference": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/closure-02/reference.txt",
+      "sha256": "bfcbabb09dc288aa939b68191150250e887e1ca535dcdbca1f8640350b7b94b7"
+    },
+    "new_replay_variational": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/closure-02/variational.dat",
+      "sha256": "10a8304c8f999fa61d84939eeadb16db4ab109bf8982f85b7ab2f9de24aa07f6"
+    },
+    "old_nuisance_replay": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/profile.xml",
+      "sha256": "902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0"
+    },
+    "old_replay_density": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/native/log_density.txt",
+      "sha256": "04423d3a829d790f38f5d5c3befc6c28cc3d95b590ec89530653b47169806129"
+    },
+    "old_replay_reference": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/closure-02/reference.txt",
+      "sha256": "2d9e49252da986843035ed0e78df9fb217069a04426cfab1621ec571ba5744a8"
+    },
+    "old_replay_variational": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/closure-02/variational.dat",
+      "sha256": "a2f39bb67f756f013a2b47bb9e5c8e8863a2dc100243a0682eda65a71020cf5d"
+    },
+    "prior_validation": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/validation-02/pipeline.json",
+      "sha256": "7b22601bafb88789c3e33d417178129e6ee0a7ee84fc6cebeef7aa371622e0cb"
+    },
+    "pulse_request": {
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/request.json",
+      "sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5"
+    }
+  },
+  "interruption_record": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/interruption-recovery-04-controls.json",
+    "sha256": "3a0e9c630e202ecb1d5b63a646d15a3316d7be16f3eb22b977b31023d6fd1bba"
+  },
+  "new_source_freeze": {
+    "path": "@EXECUTION_09_ROOT@/control/candidate09-source-freeze.json",
+    "sha256": "149f55da9ae92ee0d6c6c529125b1268c327f6ba0904b09898ddcc0cd57a4f1b"
+  },
+  "previous_correction_lineage": {
+    "path": "@EXECUTION_08_ROOT@/control/candidate07-correction-lineage.json",
+    "sha256": "205aec0bde6dc39195096522b553e2b9b406cb063f8ea0fb2f4e2dfae73a862d"
+  },
+  "previous_source_freeze": {
+    "path": "@EXECUTION_08_ROOT@/control/candidate07-source-freeze.json",
+    "sha256": "18722c1cdd54b545dfe4e48a45b0c05aa49c39f3738edb39e3bd12a839145676"
+  },
+  "recovery_verifier_sha256": "a711756aa643f14f46f9d90725748728f43a82daabe9ba34d27a00513ca9f590",
+  "regression_suite": {
+    "expected_count": 51,
+    "files": [
+      "tests/test_numerics_query_precision.py",
+      "tests/test_numerics_reference_precision.py",
+      "tests/test_numerics_precise_residual.py",
+      "tests/test_numerics_precise_objective.py",
+      "tests/test_numerics_light_time_precision.py"
+    ]
+  },
+  "schema": "orbit-poc-correctness-candidate09-pins-v1",
+  "source_file_count": 772,
+  "source_freeze": {
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/candidate03-source-freeze.json",
+    "sha256": "1b707694f8a01b3dd528de1e3f8a56cfd33fc4cb0714b91965e03d04da98c47e"
+  },
+  "source_sha256": "029864cfbb2140007d0767505e0f4a655912a9ff053e135fd2bc0f434415b498",
+  "wrapper_sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+}

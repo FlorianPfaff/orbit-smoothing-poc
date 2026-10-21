@@ -1,0 +1,1585 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>Orbit v3.1 correction evidence</title><style>body{font:16px system-ui;max-width:1180px;margin:2rem auto;padding:0 1rem;color:#19212a}table{border-collapse:collapse;width:100%;font-size:13px;margin:1rem 0}th,td{border:1px solid #ccd2d8;padding:.4rem;text-align:left;overflow-wrap:anywhere}th{background:#eef2f6}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}details{margin:1rem 0}h2{margin-top:2rem}.scope{border-left:4px solid #b36d00;padding:1rem;background:#fff7e8}</style>
+<h1>Orbit v3.1 correction evidence</h1><p><strong>failed</strong> · 2026-10-15T12:40:14.500332+00:00</p>
+<p class="scope">This is a bounded numerical engineering correctness check, including selected synthetic and flight refinement fixtures. It does not replace, reclassify or certify the frozen 150-attempt campaign, establish flight accuracy, or accept a v3.1 release. Audited numerical-floor status is not nuisance convergence and cannot authorize accepted covariance. Repeated-evaluation spread is empirical, not a rigorous error bound.</p>
+<p>Unchanged objective rule: relative derivative discrepancy plus empirical resolution ≤ 10⁻⁴ at two consecutive step halvings; at most nine scales, ratio ½, repeated physical-cost allowance ×10. Refinement uses 5 s and 2.5 s grids: position differences &lt;30 µm and code/carrier differences &lt;1% of the smaller assumed/native noise, with fixed nuisance values and common weights.</p>
+<h2>Candidate sequence</h2>
+<table><thead><tr><th>Step</th><th>Status</th><th>Return code</th><th>Seconds</th></tr></thead><tbody><tr><td>clone</td><td>passed</td><td>0</td><td>0.9021386459935457</td></tr><tr><td>checkout</td><td>passed</td><td>0</td><td>0.9383376140613109</td></tr><tr><td>build</td><td>passed</td><td>0</td><td>191.58623552811332</td></tr><tr><td>native-tests</td><td>failed</td><td>1</td><td>19.039518861100078</td></tr><tr><td>correction-regression-tests</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>synthetic-refinement-pulses</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>flight-refinement</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>eccentric-24h-refinement</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>objective-log_drag_ou</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>objective-pulses</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>nuisance-replay</td><td>not_run</td><td>—</td><td>—</td></tr><tr><td>nuisance-replay-candidate1-point012</td><td>not_run</td><td>—</td><td>—</td></tr></tbody></table>
+<details><summary>Pipeline identities, source inventory, admitted execution and cleanup</summary><p>Complete structured evidence (468444 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Preserved previous validation attempt</h2><p>This candidate uses a new build. The previous candidate and every failed check remain preserved; a new run does not erase them.</p>
+<table><thead><tr><th>Prior step</th><th>Status</th><th>Return code</th><th>Seconds</th></tr></thead><tbody><tr><td>native-tests</td><td>passed</td><td>0</td><td>36.780421837000176</td></tr><tr><td>synthetic-refinement-log_drag_ou</td><td>passed</td><td>0</td><td>70.04143816999567</td></tr><tr><td>synthetic-refinement-pulses</td><td>passed</td><td>0</td><td>48.873938327997166</td></tr><tr><td>flight-refinement</td><td>passed</td><td>0</td><td>124.33835549400101</td></tr><tr><td>eccentric-24h-refinement</td><td>passed</td><td>0</td><td>501.74237121499755</td></tr><tr><td>objective-log_drag_ou</td><td>failed</td><td>1</td><td>362.0467976729997</td></tr><tr><td>objective-pulses</td><td>passed</td><td>0</td><td>299.7358965739986</td></tr><tr><td>nuisance-replay</td><td>failed</td><td>1</td><td>25.216197488000034</td></tr></tbody></table>
+<details><summary>Complete prior attempt and pinned build reuse evidence</summary><p>Complete structured evidence (696043 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Preserved interrupted validation03</h2><p>The earlier host restart interrupted the build before a native executable or native test results were produced. This is incomplete infrastructure evidence, distinct from validation02 scientific failures.</p>
+<details><summary>Interrupted attempt and restart evidence</summary><p>Complete structured evidence (125732 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Explicit correction lineage</h2><p>The original758-file, historical06 and immediate previous07 source freezes and failed attempts04/05/06/07/08 are retained. Only the reviewed, hash-pinned source paths changed; the original106 tests and prescribed numerical gate scripts remain unchanged.</p>
+<details><summary>Correction source inventories, path differences and prior failures</summary><p>Complete structured evidence (5886454 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Separate correction regression tests</h2><p>These new tests are additional to the unchanged106-test inventory.</p>
+<details><summary>Separate regression JUnit evidence</summary><pre>{
+  &quot;cases&quot;: [],
+  &quot;counts&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:978e2920f23b7ea31f9b7d1f9838459fe618a965e5556fd598afa32be162096a&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h2>Native tests</h2><p>Status: failed. Skipped checks remain incomplete evidence.</p>
+<table><thead><tr><th>Passed</th><th>Failed</th><th>Errors</th><th>Skipped</th><th>Total</th></tr></thead><tbody><tr><td>104</td><td>2</td><td>0</td><td>0</td><td>106</td></tr></tbody></table>
+<details><summary>All JUnit cases and evidence identity</summary><pre>{
+  &quot;cases&quot;: [
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_row_qr_map_covariance_and_profile&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_row_order_and_block_size[1]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_row_order_and_block_size[7]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_row_order_and_block_size[1000]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[1]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[17]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[128]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_triangular_merge_across_lapack_reflector_blocks[1000]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_local_global_and_unit_invariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_profile_holds_dynamics_fixed&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_potential_resolves_objective_subtraction_floor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_full_bias_coordinates_survive_overlapping_phase_updates&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_lm_excluded_from_covariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_rank_failure_has_no_covariance[unused]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_rank_failure_has_no_covariance[duplicate]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_rank_failure_has_no_covariance[unresolved]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_matches_independent_gtsam_nuisance_elimination&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_restores_eliminated_group_energy_to_direct_objective&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_ambiguity_datum_distinguishes_gauges_from_unresolved_rank[False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_ambiguity_datum_distinguishes_gauges_from_unresolved_rank[True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_factor_retention_and_secure_spool_do_not_change_arithmetic[False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_factor_retention_and_secure_spool_do_not_change_arithmetic[True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_failed_successor_preserves_previous_factor_and_cleans_spool&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[accept]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[reject]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[stationary]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[support]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_nuisance_search_is_transactional[exception]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_cost_only_objective_has_no_factor_exports[False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_cost_only_objective_has_no_factor_exports[True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_vtec_clock_stec_map_covariance_and_profile&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_vtec_clock_units_rows_damping_invariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_local_rank_failures_reject_covariance[missing]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_local_rank_failures_reject_covariance[dependent]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_joint_epoch_local_rank_failures_reject_covariance[near]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_continuous_interpolation_preserves_exact_grid_and_clock_derivative&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_lossless_rows_survive_intermediate_factor_cleanup&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_lossless_rows_preserve_previous_generation_on_successor_failure&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_corrected_range_preserves_subnanometre_clock_updates&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_receiver_clock_shift_avoids_negative_duration_loss_and_records_intrinsic_floor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_relative_clock_queries_preserve_exact_pulse_side&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_subdouble_coordinate_remainders_preserve_range_changes&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_accept-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_refine-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_small_direction-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_influence_cap-required_probe_influence_exceeds_limit]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_actual_influence-actual_probe_influence_exceeds_limit]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_derived_nonfinite-nonfinite_symmetric_probe_diagnostics]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_numeric_cap-required_probe_amplitude_exceeds_numeric_limit]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_exception-fixed_parameter_arithmetic_audit_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_nonfinite-fixed_parameter_arithmetic_audit_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_nonfinite-symmetric_probe_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_allowance-empirical_quadratic_potential_with_allowance_exceeds_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_audit_support-fixed_parameter_arithmetic_audit_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_resolution-potential_not_within_positive_measured_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_small_resolution-potential_not_within_positive_measured_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_support-symmetric_probe_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_probe_exception-symmetric_probe_failed]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_wrong_slope-symmetric_slope_disagrees_with_undamped_gradient]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_negative_curvature-negative_or_unresolved_symmetric_curvature]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_unresolved_curvature-negative_or_unresolved_symmetric_curvature]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_amplitude-amplitude_dependent_symmetric_curvature]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_empirical_nuisance_floor_requires_independent_audits[floor_weak_curvature-empirical_quadratic_potential_exceeds_resolution]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_native_qr&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_floor_limited_profile_cannot_export_covariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_objective_hook_precedes_empty_group_and_is_idempotent[]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_objective_hook_precedes_empty_group_and_is_idempotent[// ORBIT_POC_SCALED_ROW_QR_V31\\n]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_original_objective_hook_rejects_changed_upstream_anchor&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_is_invariant_to_changing_group_qr_basis&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_keeps_tiny_reduction_and_all_priors_once&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_row_order_and_group_units_invariance&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[missing_capture-Group QR lacks its original objective block-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[missing_capture-Group QR lacks its original objective block-_cost_only]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[misclassified_prior-Original objective row accounting differs-]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_original_objective&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_original_objective_rejects_incomplete_ledger[misclassified_prior-Original objective row accounting differs-_cost_only]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_residual_retains_sub_ulp_signal&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_residual_is_translation_invariant&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_absolute_restore_rounds_once&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_mean_residual&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_residual_coordinates_match_exact_coupled_mean_problem&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[forces]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[finite_difference]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[oscillator]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[day_oscillator]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_derivative_kernel[day_kepler]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_synthetic_force_instances&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_complete_synthetic_transition[synthetic_complete_v1-False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_complete_synthetic_transition[synthetic_complete_v1-True]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_derivatives&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_native_complete_synthetic_transition[flight_gravity_drag_v1-False]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [
+        {
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;message&quot;: &quot;ValueError: Relative query patch anchor mismatch: twofold light-time duration&quot;,
+          &quot;text&quot;: &quot;tmp_path = PosixPath(&#x27;private-path-sha256:4e2fd7fda01902c21b4c50481ea343def1bf1e6e76538b1387763258608207e2&#x27;)\nmonkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7c3b6ab1a710&gt;\n\n    def test_installer_is_idempotent_and_preserves_compatibility_output(tmp_path,monkeypatch):\n        installer=module(&#x27;positionRemainder&#x27;,monkeypatch);prestage(tmp_path)\n&gt;       installer.apply(tmp_path);first=snapshot(tmp_path);installer.apply(tmp_path)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_numerics_geometry_precision.py:73: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ngroops/extension/positionRemainder.py:117: in apply\n    text=replace_one(text,\&quot;auto query=[&amp;](long double travel)\\n      {\\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;\&quot;,\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntext = &#x27;Vector3d &amp;k, Vector3d &amp;kRecv, Vector3d &amp;kTrans, Vector3d *receiverRemainder=nullptr, Vector3d *transmitterRemainder=n...              k, kRecvAnt, kTrans);\\ntransmitter-&gt;clockError(idEpoch),transmitter-&gt;scaleFactor(idEpoch)) : l(i)-r12;\\n&#x27;\nold = &#x27;auto query=[&amp;](long double travel)\\n      {\\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;&#x27;\nnew = &#x27;// ORBIT_POC_TWOFOLD_LIGHT_TIME_V31\\n      auto query=[&amp;](const orbitPocQr::TwofoldGeometry &amp;travel)\\n      {\\n        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;&#x27;\nlabel = &#x27;twofold light-time duration&#x27;\n\n    def replace_one(text, old, new, label):\n        if text.count(old) != 1:\n&gt;           raise ValueError(f\&quot;Relative query patch anchor mismatch: {label}\&quot;)\nE           ValueError: Relative query patch anchor mismatch: twofold light-time duration\n\ngroops/extension/relativeQueryInterpolation.py:7: ValueError&quot;
+        }
+      ],
+      &quot;name&quot;: &quot;test_installer_is_idempotent_and_preserves_compatibility_output&quot;,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [
+        {
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;message&quot;: &quot;ValueError: Relative query patch anchor mismatch: twofold light-time duration&quot;,
+          &quot;text&quot;: &quot;tmp_path = PosixPath(&#x27;private-path-sha256:2fd39ca90a657c595ac7852ca9e07357ad1a0a7c69d01dcc16f378054f606351&#x27;)\nmonkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7c3b6957a750&gt;\n\n    def test_piecewise_exact_legacy_batch_and_both_receiver_caches(tmp_path,monkeypatch):\n&gt;       installer=module(&#x27;positionRemainder&#x27;,monkeypatch);prestage(tmp_path);installer.apply(tmp_path)\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_numerics_geometry_precision.py:87: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ngroops/extension/positionRemainder.py:117: in apply\n    text=replace_one(text,\&quot;auto query=[&amp;](long double travel)\\n      {\\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;\&quot;,\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntext = &#x27;Vector3d &amp;k, Vector3d &amp;kRecv, Vector3d &amp;kTrans, Vector3d *receiverRemainder=nullptr, Vector3d *transmitterRemainder=n...              k, kRecvAnt, kTrans);\\ntransmitter-&gt;clockError(idEpoch),transmitter-&gt;scaleFactor(idEpoch)) : l(i)-r12;\\n&#x27;\nold = &#x27;auto query=[&amp;](long double travel)\\n      {\\n        const long double duration=static_cast&lt;long double&gt;(receiver.clockError(idEpoch))+travel;&#x27;\nnew = &#x27;// ORBIT_POC_TWOFOLD_LIGHT_TIME_V31\\n      auto query=[&amp;](const orbitPocQr::TwofoldGeometry &amp;travel)\\n      {\\n        const auto duration=orbitPocQr::TwofoldGeometry(receiver.clockError(idEpoch))+travel;&#x27;\nlabel = &#x27;twofold light-time duration&#x27;\n\n    def replace_one(text, old, new, label):\n        if text.count(old) != 1:\n&gt;           raise ValueError(f\&quot;Relative query patch anchor mismatch: {label}\&quot;)\nE           ValueError: Relative query patch anchor mismatch: twofold light-time duration\n\ngroops/extension/relativeQueryInterpolation.py:7: ValueError&quot;
+        }
+      ],
+      &quot;name&quot;: &quot;test_piecewise_exact_legacy_batch_and_both_receiver_caches&quot;,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_old_marker_refused_before_any_installation_write[base/polynomial.h]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_old_marker_refused_before_any_installation_write[base/polynomial.cpp]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_old_marker_refused_before_any_installation_write[gnss/gnssObservation.cpp]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_qr_stage_installer_preflights_before_copy_or_patch&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_full_extension_entry_refuses_old_tree_before_any_write&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_full_extension_legacy_entry_does_not_apply_numerics_guard&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_new_header_copy_and_factor_version_are_explicit&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_geometry_precision&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_native_twofold_helper_against_independent_decimal&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_patcher_preserves_other_profiles_and_is_idempotent&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_dispatch_is_actual_configured_components_and_fails_closed&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_stable_residual_matches_decimal_for_equal_and_unequal_GM&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_exact_coincident_equal_GM_and_required_unequal_term&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_recursive_scaled_component_accumulation&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_reference_is_rejected[reference0-398600441500000.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_invalid_reference_is_rejected[reference1-0.0]&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;class&quot;: &quot;tests.test_numerics_synthetic_force_arithmetic&quot;,
+      &quot;details&quot;: [],
+      &quot;name&quot;: &quot;test_actual_configured_headers_preserve_legacy_force_bits&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;counts&quot;: {
+    &quot;errors&quot;: 0,
+    &quot;failed&quot;: 2,
+    &quot;passed&quot;: 104,
+    &quot;skipped&quot;: 0,
+    &quot;total&quot;: 106
+  },
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 21430,
+    &quot;path&quot;: &quot;private-path-sha256:e5a3575a82f166aa3a8ead25acd845cce38f66e79847c132a0d98237d213b06c&quot;,
+    &quot;sha256&quot;: &quot;ccfa291a3024393543b212f2dd2e46dbbec3960422bc7012a58a16738dbb9cb0&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;integrity_errors&quot;: [],
+  &quot;status&quot;: &quot;failed&quot;
+}</pre></details>
+<h2>Candidate objective checks</h2>
+<h3>log_drag_ou — missing</h3>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody></tbody></table>
+<p>Base repeat spread: —; empirical physical allowance: —. Prior check: —.</p>
+<p>Profile resolution counts: —. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;directional_scales&quot;: [],
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:b616889d95eea40efc5a234be20f7d0fb0fb007dd3dafb2c89c83db7e6b8ce22&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h3>pulses — missing</h3>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody></tbody></table>
+<p>Base repeat spread: —; empirical physical allowance: —. Prior check: —.</p>
+<p>Profile resolution counts: —. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;directional_scales&quot;: [],
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:561ed5bd3886c1695c51c7a06317bd1c627b14c507957645b654e780532646bb&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h2>Preserved earlier objective checks</h2>
+<h3>log_drag_ou — failed</h3>
+<p>NumericalFailure: Native profile exited 1; see private-path-sha256:4a993793c87b3f2ded3c6aed70b3bb7832277e716623fd0c8b11308de8bf422f</p>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody><tr><td>1.0</td><td>failed</td><td>-399.4825810357286</td><td>-397.01275351488505</td><td>0.006182566244665945</td><td>2.94236511326854e-06</td><td>0.006185508609779213</td><td>[&quot;direction-1.0--1&quot;, &quot;direction-1.0--1-repeat&quot;, &quot;direction-1.0-1&quot;, &quot;direction-1.0-1-repeat&quot;]</td></tr><tr><td>0.5</td><td>failed</td><td>-397.63050058527233</td><td>-397.01275351488505</td><td>0.0015535706377604824</td><td>6.687535261532285e-06</td><td>0.0015602581730220148</td><td>[&quot;direction-0.5--1&quot;, &quot;direction-0.5--1-repeat&quot;, &quot;direction-0.5-1&quot;, &quot;direction-0.5-1-repeat&quot;]</td></tr><tr><td>0.25</td><td>failed</td><td>-397.1665175378921</td><td>-397.01275351488505</td><td>0.00038715253229367825</td><td>2.5751645268978845e-05</td><td>0.0004129041775626571</td><td>[&quot;direction-0.25--1&quot;, &quot;direction-0.25--1-repeat&quot;, &quot;direction-0.25-1&quot;, &quot;direction-0.25-1-repeat&quot;]</td></tr><tr><td>0.125</td><td>failed</td><td>-397.0514534371705</td><td>-397.01275351488505</td><td>9.746828011944173e-05</td><td>1.4795048695892423e-05</td><td>0.00011226332881533415</td><td>[&quot;direction-0.125--1&quot;, &quot;direction-0.125--1-repeat&quot;, &quot;direction-0.125-1&quot;, &quot;direction-0.125-1-repeat&quot;]</td></tr><tr><td>0.0625</td><td>failed</td><td>-397.0223630892724</td><td>-397.01275351488505</td><td>2.4204113623680208e-05</td><td>7.977955719477012e-05</td><td>0.00010398367081845033</td><td>[&quot;direction-0.0625--1&quot;, &quot;direction-0.0625--1-repeat&quot;, &quot;direction-0.0625-1&quot;, &quot;direction-0.0625-1-repeat&quot;]</td></tr><tr><td>0.03125</td><td>failed</td><td>-397.02147103579773</td><td>-397.01275351488505</td><td>2.1957303442404023e-05</td><td>0.00010528831752831306</td><td>0.00012724562097071707</td><td>[&quot;direction-0.03125--1&quot;, &quot;direction-0.03125--1-repeat&quot;, &quot;direction-0.03125-1&quot;, &quot;direction-0.03125-1-repeat&quot;]</td></tr><tr><td>0.015625</td><td>incomplete</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[&quot;direction-0.015625--1&quot;, &quot;direction-0.015625--1-repeat&quot;, &quot;direction-0.015625-1&quot;]</td></tr><tr><td>0.0078125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.00390625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr></tbody></table>
+<p>Base repeat spread: 7.3427769166301e-05; empirical physical allowance: 0.00073427769166301. Prior check: passed.</p>
+<p>Profile resolution counts: {&quot;audited_floor_only&quot;: 22, &quot;strict&quot;: 7, &quot;unresolved&quot;: 0}. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;accepted_derivative_scales&quot;: [],
+  &quot;derivative_refinement_policy&quot;: {
+    &quot;maximum_scales&quot;: 9,
+    &quot;physical_repeat_allowance_multiplier&quot;: 10,
+    &quot;ratio&quot;: 0.5,
+    &quot;required_consecutive_passing_scales&quot;: 2
+  },
+  &quot;directional_scales&quot;: [
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-1.0--1&quot;,
+        &quot;direction-1.0--1-repeat&quot;,
+        &quot;direction-1.0-1&quot;,
+        &quot;direction-1.0-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 2.94236511326854e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0013620968348465631,
+          &quot;repeat_cost&quot;: 4549.608342291305,
+          &quot;repeat_difference&quot;: 0.00013620633399114013,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0009887503847494372,
+          &quot;repeat_cost&quot;: 3750.6429451384756,
+          &quot;repeat_difference&quot;: 9.887503847494372e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -399.4825810357286,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4549.608206084971,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3750.643044013514,
+      &quot;relative_difference&quot;: 0.006182566244665945,
+      &quot;relative_difference_plus_resolution&quot;: 0.006185508609779213,
+      &quot;scale&quot;: 1.0,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.5--1&quot;,
+        &quot;direction-0.5--1-repeat&quot;,
+        &quot;direction-0.5-1&quot;,
+        &quot;direction-0.5-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 6.687535261532285e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0007343048333110343,
+          &quot;repeat_cost&quot;: 4306.831998237093,
+          &quot;repeat_difference&quot;: 5.011563189327717e-06,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.001924863160413708,
+          &quot;repeat_cost&quot;: 3909.2016951486235,
+          &quot;repeat_difference&quot;: 0.0001924852394949994,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.63050058527233,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4306.832003248656,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3909.201502663384,
+      &quot;relative_difference&quot;: 0.0015535706377604824,
+      &quot;relative_difference_plus_resolution&quot;: 0.0015602581730220148,
+      &quot;scale&quot;: 0.5,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.25--1&quot;,
+        &quot;direction-0.25--1-repeat&quot;,
+        &quot;direction-0.25-1&quot;,
+        &quot;direction-0.25-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 2.5751645268978845e-05,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0025382149211752884,
+          &quot;repeat_cost&quot;: 4196.792258846705,
+          &quot;repeat_difference&quot;: 0.0002538196658861125,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.002575630715000443,
+          &quot;repeat_cost&quot;: 3998.209003821165,
+          &quot;repeat_difference&quot;: 0.0002575630715000443,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.1665175378921,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4196.7920050270395,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 3998.2087462580935,
+      &quot;relative_difference&quot;: 0.00038715253229367825,
+      &quot;relative_difference_plus_resolution&quot;: 0.0004129041775626571,
+      &quot;scale&quot;: 0.25,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.125--1&quot;,
+        &quot;direction-0.125--1-repeat&quot;,
+        &quot;direction-0.125-1&quot;,
+        &quot;direction-0.125-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 1.4795048695892423e-05,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.000734306943892703,
+          &quot;repeat_cost&quot;: 4144.503968211815,
+          &quot;repeat_difference&quot;: 5.6992053032445256e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0007342919532017472,
+          &quot;repeat_cost&quot;: 4045.241173306131,
+          &quot;repeat_difference&quot;: 1.1461555459391093e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.0514534371705,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4144.504025203868,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 4045.2411618445753,
+      &quot;relative_difference&quot;: 9.746828011944173e-05,
+      &quot;relative_difference_plus_resolution&quot;: 0.00011226332881533415,
+      &quot;scale&quot;: 0.125,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.0625--1&quot;,
+        &quot;direction-0.0625--1-repeat&quot;,
+        &quot;direction-0.0625-1&quot;,
+        &quot;direction-0.0625-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 7.977955719477012e-05,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0007342883337402934,
+          &quot;repeat_cost&quot;: 4119.02930773662,
+          &quot;repeat_difference&quot;: 3.271913828939432e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0032249952067201315,
+          &quot;repeat_cost&quot;: 4069.401222573056,
+          &quot;repeat_difference&quot;: 0.00032249654259430827,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.0223630892724,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4119.029340455758,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 4069.401545069599,
+      &quot;relative_difference&quot;: 2.4204113623680208e-05,
+      &quot;relative_difference_plus_resolution&quot;: 0.00010398367081845033,
+      &quot;scale&quot;: 0.0625,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.03125--1&quot;,
+        &quot;direction-0.03125--1-repeat&quot;,
+        &quot;direction-0.03125-1&quot;,
+        &quot;direction-0.03125-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 0.00010528831752831306,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0007342984806985395,
+          &quot;repeat_cost&quot;: 4106.4579583717305,
+          &quot;repeat_difference&quot;: 1.8166911104344763e-06,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.001878309188549899,
+          &quot;repeat_cost&quot;: 4081.643930420064,
+          &quot;repeat_difference&quot;: 0.0001878286202554591,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -397.02147103579773,
+      &quot;native_derivative&quot;: -397.01275351488505,
+      &quot;negative_cost&quot;: 4106.457960188422,
+      &quot;passes_unchanged_tolerance&quot;: false,
+      &quot;positive_cost&quot;: 4081.644118248684,
+      &quot;relative_difference&quot;: 2.1957303442404023e-05,
+      &quot;relative_difference_plus_resolution&quot;: 0.00012724562097071707,
+      &quot;scale&quot;: 0.03125,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.015625--1&quot;,
+        &quot;direction-0.015625--1-repeat&quot;,
+        &quot;direction-0.015625-1&quot;
+      ],
+      &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see private-path-sha256:4a993793c87b3f2ded3c6aed70b3bb7832277e716623fd0c8b11308de8bf422f&quot;,
+      &quot;failure_label_from_error&quot;: &quot;direction-0.015625-1-repeat&quot;,
+      &quot;scale&quot;: 0.015625,
+      &quot;status&quot;: &quot;incomplete&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0078125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.00390625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 0.00073427769166301,
+  &quot;error&quot;: &quot;NumericalFailure: Native profile exited 1; see private-path-sha256:4a993793c87b3f2ded3c6aed70b3bb7832277e716623fd0c8b11308de8bf422f&quot;,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 22518,
+    &quot;path&quot;: &quot;private-path-sha256:14b8b71c602cf4fb6101ad924adb27217db4bd0658e8b8176325a7de1976e66e&quot;,
+    &quot;sha256&quot;: &quot;84aa40b03b76a5a071e182c71306b3de2f085189d536503ecf9f5aacaf09832d&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;initialization_policy&quot;: &quot;preserved_blind_engineering_initial_state&quot;,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_binary_sha256&quot;: &quot;7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c&quot;,
+  &quot;objective_repeat_difference&quot;: 7.3427769166301e-05,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 2e-08,
+    &quot;cost&quot;: 4.848917841373498,
+    &quot;maximum_residual_difference&quot;: 2.054824088659757e-09,
+    &quot;objective&quot;: 4093.9963568720195,
+    &quot;rows&quot;: 61,
+    &quot;source&quot;: &quot;constraint.logDensityOu&quot;
+  },
+  &quot;prior_status&quot;: &quot;passed&quot;,
+  &quot;profile_evaluations&quot;: [
+    {
+      &quot;empirical_objective_resolution&quot;: 2.4615150922682824e-08,
+      &quot;label&quot;: &quot;nonzero-full-prior&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.499670906253023e-10,
+      &quot;objective&quot;: 4093.9963568720195,
+      &quot;receipt&quot;: &quot;private-path-sha256:1ee9b7ba9f688bd237c5338fd774c1465d442197cbe73d61b67b6de16cf26ce0&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 8.36314055784286e-09,
+      &quot;label&quot;: &quot;repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.0159566424034316e-11,
+      &quot;objective&quot;: 4093.9962834442504,
+      &quot;receipt&quot;: &quot;private-path-sha256:8bfa5f9776d90c97c384e05b0731bef429271576754cb005499bb01cc49870e2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.6262175158822003e-08,
+      &quot;label&quot;: &quot;direction-1.0--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.1494001817950867e-10,
+      &quot;objective&quot;: 4549.608206084971,
+      &quot;receipt&quot;: &quot;private-path-sha256:67a14f30b479dbffc2fbbc94889c6154cb6582fb8a1abc70a8f7112fb4c21486&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.349493516181592e-08,
+      &quot;label&quot;: &quot;direction-1.0--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.7555006976745543e-10,
+      &quot;objective&quot;: 4549.608342291305,
+      &quot;receipt&quot;: &quot;private-path-sha256:0c5384f1ba625d7bf1cd1a36b0e1067f25bbc5261f6d7858e74ca5eb2f7e828d&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 1.5542398567824152e-16,
+      &quot;objective&quot;: 3750.643044013514,
+      &quot;receipt&quot;: &quot;private-path-sha256:14e1e543c640b64908e8f0e13f588e5e79731969986c771280edd31cf0beb456&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-1.0-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.359566653455527e-19,
+      &quot;objective&quot;: 3750.6429451384756,
+      &quot;receipt&quot;: &quot;private-path-sha256:638e7bce55b37ef3fe57df6f15fb2a470624e4e7f52863a7422538f8b7b9db4c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.714164802428358e-08,
+      &quot;label&quot;: &quot;direction-0.5--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.401032621707542e-10,
+      &quot;objective&quot;: 4306.832003248656,
+      &quot;receipt&quot;: &quot;private-path-sha256:91c180f9dcadcd97b59b443c4aafef3b9f078a514da8c167122363c2a38329b2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.790550350828056e-08,
+      &quot;label&quot;: &quot;direction-0.5--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.1382088625198063e-10,
+      &quot;objective&quot;: 4306.831998237093,
+      &quot;receipt&quot;: &quot;private-path-sha256:35fb550597ea56534ac04187357106d363c3ffaf98581591e0b044e002a149c6&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.0765463714132359e-08,
+      &quot;label&quot;: &quot;direction-0.5-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 7.458648968670664e-11,
+      &quot;objective&quot;: 3909.201502663384,
+      &quot;receipt&quot;: &quot;private-path-sha256:b0ca18c297ef64937ec65cf274c686bb48b7741a761e7ac5a257829cb4c99c5c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.67353413048158e-19,
+      &quot;objective&quot;: 3909.2016951486235,
+      &quot;receipt&quot;: &quot;private-path-sha256:627075e601ad36b8ef3c6e1afce2fc416a730cd7ddce9fb764a6a36e6a11a833&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.8287628565317075e-18,
+      &quot;objective&quot;: 4196.7920050270395,
+      &quot;receipt&quot;: &quot;private-path-sha256:285688cde69743a768a15238abf1b32e81211ca97e575a5a24edd3086f82073c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.8262314163669823e-08,
+      &quot;label&quot;: &quot;direction-0.25--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.3287757456007945e-11,
+      &quot;objective&quot;: 4196.792258846705,
+      &quot;receipt&quot;: &quot;private-path-sha256:d8332e18d539b1f6e969ae708f8b8fd6888fcb2f6cb0b5abb29c4a69215aa0fa&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.996842695008722e-19,
+      &quot;objective&quot;: 3998.2087462580935,
+      &quot;receipt&quot;: &quot;private-path-sha256:d941c46576706855152158232ea9c3bed3b3dfc370bf6cee54ab5771d68c1bcb&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.25-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 7.73234044478321e-20,
+      &quot;objective&quot;: 3998.209003821165,
+      &quot;receipt&quot;: &quot;private-path-sha256:105ad4e65440731aea39f99c961b536f87eb86b40e7d18cb261ec483fd0fed98&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.9252229692985384e-08,
+      &quot;label&quot;: &quot;direction-0.125--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.8913135873505034e-10,
+      &quot;objective&quot;: 4144.504025203868,
+      &quot;receipt&quot;: &quot;private-path-sha256:0e8fcc6662dc65b8666145872ae56ee644f7dca84eee14c689b93d95e1cd6c2e&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 9.315370073285267e-09,
+      &quot;label&quot;: &quot;direction-0.125--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.6768993952143177e-10,
+      &quot;objective&quot;: 4144.503968211815,
+      &quot;receipt&quot;: &quot;private-path-sha256:62e59b7cc75fab306d0906ba6aafd13eb7e22e3481076e0b6f9162ffbedf9c4a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.0490398229309804e-08,
+      &quot;label&quot;: &quot;direction-0.125-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.5508948523686053e-11,
+      &quot;objective&quot;: 4045.2411618445753,
+      &quot;receipt&quot;: &quot;private-path-sha256:6eda14254a7bfafe91c1065fa2e9446cdc058639ed1bc2ad8f5bc89bfe18982c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.4261538737128489e-08,
+      &quot;label&quot;: &quot;direction-0.125-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.501661976619159e-15,
+      &quot;objective&quot;: 4045.241173306131,
+      &quot;receipt&quot;: &quot;private-path-sha256:3f6783ab089c529842e59447361b21a914a2339c7cfce404ebf3796670b6be33&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.0642077283282897e-08,
+      &quot;label&quot;: &quot;direction-0.0625--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.894883021007215e-15,
+      &quot;objective&quot;: 4119.029340455758,
+      &quot;receipt&quot;: &quot;private-path-sha256:56e5f86ce664d38e2e7d9a553ca1fcd38aa859af799e24a80150a7d35e801e7d&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 5.286114126104067e-09,
+      &quot;label&quot;: &quot;direction-0.0625--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.1252478804020517e-16,
+      &quot;objective&quot;: 4119.02930773662,
+      &quot;receipt&quot;: &quot;private-path-sha256:d32276b5d9b7c27b8c106f1a7df47a97e380177e5b699e5ab3baabfc21771a0f&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.5899568062823118e-08,
+      &quot;label&quot;: &quot;direction-0.0625-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.065058993769235e-15,
+      &quot;objective&quot;: 4069.401545069599,
+      &quot;receipt&quot;: &quot;private-path-sha256:ed5e39bee616c8799a052dd45c6092b9867ce80133e3a9af250da220628bac8e&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.9780777048694017e-08,
+      &quot;label&quot;: &quot;direction-0.0625-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.785712238667898e-11,
+      &quot;objective&quot;: 4069.401222573056,
+      &quot;receipt&quot;: &quot;private-path-sha256:2c5be3c30517ede5f71fbc22a4f38ad933f614cb7e2f9895872d63236c21ede1&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.12170217921311e-08,
+      &quot;label&quot;: &quot;direction-0.03125--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.269939454378826e-15,
+      &quot;objective&quot;: 4106.457960188422,
+      &quot;receipt&quot;: &quot;private-path-sha256:7dd5917c0984f401185b3370566367e53e6756f34b2f40c203374c4c5c684b6a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.0789035529453676e-08,
+      &quot;label&quot;: &quot;direction-0.03125--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.6707548825626323e-10,
+      &quot;objective&quot;: 4106.4579583717305,
+      &quot;receipt&quot;: &quot;private-path-sha256:ab18657993b1d6f632fd242696ed780eb9175825ff755a9dbc82e59bdab9e5fc&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.410849421451148e-08,
+      &quot;label&quot;: &quot;direction-0.03125-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.1716780997666088e-10,
+      &quot;objective&quot;: 4081.644118248684,
+      &quot;receipt&quot;: &quot;private-path-sha256:6e93652e52b2e591dd5ba6b3959e0669eb673d5e78f2eadf53f1858cd74a601a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.298599530802281e-08,
+      &quot;label&quot;: &quot;direction-0.03125-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 1.4345335761964573e-10,
+      &quot;objective&quot;: 4081.643930420064,
+      &quot;receipt&quot;: &quot;private-path-sha256:159a7902f69e4b7115b846357c47fe5d90f91214fd49ed5437a2be870b8b635c&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.4825881246558045e-08,
+      &quot;label&quot;: &quot;direction-0.015625--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.503456959033158e-11,
+      &quot;objective&quot;: 4100.213178487907,
+      &quot;receipt&quot;: &quot;private-path-sha256:3a5b02c447ce5d32399e62991106d42afb65f1980335f2c8b8765f7159d8f023&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 9.95631418362778e-09,
+      &quot;label&quot;: &quot;direction-0.015625--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.5371656273279394e-15,
+      &quot;objective&quot;: 4100.213186580594,
+      &quot;receipt&quot;: &quot;private-path-sha256:e44310d3260f7d067fbc68474b882832c0b5bb369854b5808e5366ddc0a8a9e2&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.015625-1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.367859734959716e-18,
+      &quot;objective&quot;: 4087.8064218103023,
+      &quot;receipt&quot;: &quot;private-path-sha256:aa60c2b7714962045e9084e78ab5e7eaca03264b8cdfbc197519a02e7c06de9a&quot;
+    }
+  ],
+  &quot;profile_resolution_counts&quot;: {
+    &quot;audited_floor_only&quot;: 22,
+    &quot;strict&quot;: 7,
+    &quot;unresolved&quot;: 0
+  },
+  &quot;rank&quot;: {
+    &quot;columns&quot;: 146,
+    &quot;condition_number&quot;: 3839.977887101887,
+    &quot;effective_rows&quot;: 7885,
+    &quot;maximum_singular_value&quot;: 5.506421438331463,
+    &quot;minimum_singular_value&quot;: 0.0014339721738573022,
+    &quot;rank&quot;: 146,
+    &quot;status&quot;: &quot;full_rank&quot;,
+    &quot;threshold&quot;: 9.64076219772538e-12
+  },
+  &quot;relative_derivative_tolerance&quot;: 0.0001,
+  &quot;reported_passed&quot;: false,
+  &quot;source_hash&quot;: &quot;adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8&quot;,
+  &quot;state_input&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a&quot;,
+    &quot;role&quot;: &quot;blind_engineering_physical_initial&quot;,
+    &quot;sha256&quot;: &quot;61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea&quot;
+  },
+  &quot;status&quot;: &quot;failed&quot;
+}</pre></details>
+<h3>pulses — passed</h3>
+<table><thead><tr><th>Scale</th><th>Status</th><th>Finite difference</th><th>Native derivative</th><th>Relative error</th><th>Resolution fraction</th><th>Combined</th><th>Completed profiles</th></tr></thead><tbody><tr><td>1.0</td><td>passed</td><td>-525.476004384941</td><td>-525.4759739466639</td><td>5.7925151420624593e-08</td><td>5.224364683949524e-06</td><td>5.282289835370149e-06</td><td>[&quot;direction-1.0--1&quot;, &quot;direction-1.0--1-repeat&quot;, &quot;direction-1.0-1&quot;, &quot;direction-1.0-1-repeat&quot;]</td></tr><tr><td>0.5</td><td>passed</td><td>-525.47553161427</td><td>-525.4759739466639</td><td>8.417747257275885e-07</td><td>9.905361197005085e-06</td><td>1.0747135922732673e-05</td><td>[&quot;direction-0.5--1&quot;, &quot;direction-0.5--1-repeat&quot;, &quot;direction-0.5-1&quot;, &quot;direction-0.5-1-repeat&quot;]</td></tr><tr><td>0.25</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.03125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.015625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.0078125</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr><tr><td>0.00390625</td><td>not_attempted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[]</td></tr></tbody></table>
+<p>Base repeat spread: 0.0002602488311822526; empirical physical allowance: 0.002602488311822526. Prior check: passed.</p>
+<p>Profile resolution counts: {&quot;audited_floor_only&quot;: 7, &quot;strict&quot;: 3, &quot;unresolved&quot;: 0}. Audited floor-only counts are not converged profiles.</p>
+<details><summary>Prior, endpoint repeat spreads, profile qualifications and complete evidence</summary><pre>{
+  &quot;accepted_derivative_scales&quot;: [
+    1.0,
+    0.5
+  ],
+  &quot;derivative_refinement_policy&quot;: {
+    &quot;maximum_scales&quot;: 9,
+    &quot;physical_repeat_allowance_multiplier&quot;: 10,
+    &quot;ratio&quot;: 0.5,
+    &quot;required_consecutive_passing_scales&quot;: 2
+  },
+  &quot;directional_scales&quot;: [
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-1.0--1&quot;,
+        &quot;direction-1.0--1-repeat&quot;,
+        &quot;direction-1.0-1&quot;,
+        &quot;direction-1.0-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 5.224364683949524e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.002888049955164352,
+          &quot;repeat_cost&quot;: 5017.9812962121605,
+          &quot;repeat_difference&quot;: 0.0002888034478019108,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0026025066039788306,
+          &quot;repeat_cost&quot;: 3967.0289923696355,
+          &quot;repeat_difference&quot;: 6.269195182539988e-06,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -525.476004384941,
+      &quot;native_derivative&quot;: -525.4759739466639,
+      &quot;negative_cost&quot;: 5017.981007408713,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 3967.0289986388307,
+      &quot;relative_difference&quot;: 5.7925151420624593e-08,
+      &quot;relative_difference_plus_resolution&quot;: 5.282289835370149e-06,
+      &quot;scale&quot;: 1.0,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [
+        &quot;direction-0.5--1&quot;,
+        &quot;direction-0.5--1-repeat&quot;,
+        &quot;direction-0.5-1&quot;,
+        &quot;direction-0.5-1-repeat&quot;
+      ],
+      &quot;empirical_resolution_fraction&quot;: 9.905361197005085e-06,
+      &quot;endpoint_resolution_checks&quot;: [
+        {
+          &quot;empirical_resolution&quot;: 0.0026025095888875917,
+          &quot;repeat_cost&quot;: 4712.081516894709,
+          &quot;repeat_difference&quot;: 2.9426682885969058e-05,
+          &quot;sign&quot;: -1
+        },
+        {
+          &quot;empirical_resolution&quot;: 0.0026025197334021474,
+          &quot;repeat_cost&quot;: 4186.605943922342,
+          &quot;repeat_difference&quot;: 1.1931414519494865e-05,
+          &quot;sign&quot;: 1
+        }
+      ],
+      &quot;finite_difference&quot;: -525.47553161427,
+      &quot;native_derivative&quot;: -525.4759739466639,
+      &quot;negative_cost&quot;: 4712.081487468026,
+      &quot;passes_unchanged_tolerance&quot;: true,
+      &quot;positive_cost&quot;: 4186.605955853756,
+      &quot;relative_difference&quot;: 8.417747257275885e-07,
+      &quot;relative_difference_plus_resolution&quot;: 1.0747135922732673e-05,
+      &quot;scale&quot;: 0.5,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.25,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.03125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.015625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.0078125,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    },
+    {
+      &quot;completed_profile_labels&quot;: [],
+      &quot;scale&quot;: 0.00390625,
+      &quot;status&quot;: &quot;not_attempted&quot;
+    }
+  ],
+  &quot;empirical_physical_objective_resolution&quot;: 0.002602488311822526,
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;bytes&quot;: 8039,
+    &quot;path&quot;: &quot;private-path-sha256:6a2e5a1041191c13063831d09c28d6814afbdba739d6dbfac19b44f9915f259f&quot;,
+    &quot;sha256&quot;: &quot;44133151719a742c922fd3254f28170769553a032f6f74bf76ac92f96d36aa17&quot;,
+    &quot;status&quot;: &quot;available&quot;
+  },
+  &quot;initialization_policy&quot;: &quot;preserved_blind_engineering_initial_state&quot;,
+  &quot;integrity_errors&quot;: [],
+  &quot;native_binary_sha256&quot;: &quot;7fa70502fb091199af52715786f965650c78f2254f71824f777b6091363a081c&quot;,
+  &quot;objective_repeat_difference&quot;: 0.0002602488311822526,
+  &quot;prior&quot;: {
+    &quot;absolute_tolerance&quot;: 1e-12,
+    &quot;cost&quot;: 0.053929305673915545,
+    &quot;maximum_residual_difference&quot;: 0.0,
+    &quot;objective&quot;: 4434.956511330055,
+    &quot;rows&quot;: 6,
+    &quot;source&quot;: &quot;constraint.pulses&quot;
+  },
+  &quot;prior_status&quot;: &quot;passed&quot;,
+  &quot;profile_evaluations&quot;: [
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;nonzero-full-prior&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 8.06591285084399e-17,
+      &quot;objective&quot;: 4434.956511330055,
+      &quot;receipt&quot;: &quot;private-path-sha256:8cde7909a200f623f12cea93135fc9c8efc1d3a808fd735dd2706d7891e959e9&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.113089309385663e-08,
+      &quot;label&quot;: &quot;repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.3020325570558396e-09,
+      &quot;objective&quot;: 4434.956771578886,
+      &quot;receipt&quot;: &quot;private-path-sha256:a0e388ef34c306bd6e66b8afbe04ea094b34804160faef3cea95c38486c66203&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.5477145243884638e-08,
+      &quot;label&quot;: &quot;direction-1.0--1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.034418952394404e-16,
+      &quot;objective&quot;: 5017.981007408713,
+      &quot;receipt&quot;: &quot;private-path-sha256:582c41f80e00c63b4edbe3a24fa27ccac0598d3dbc8ece75e7c084024841eef7&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.357923632483113e-08,
+      &quot;label&quot;: &quot;direction-1.0--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 4.020612087445318e-13,
+      &quot;objective&quot;: 5017.9812962121605,
+      &quot;receipt&quot;: &quot;private-path-sha256:f04b85680b44feadd6cd2f53fb34b5e4e5fe1d957399b24d1860db7787870664&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 9.190263607584685e-09,
+      &quot;label&quot;: &quot;direction-1.0-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 3.6403654311837233e-14,
+      &quot;objective&quot;: 3967.0289986388307,
+      &quot;receipt&quot;: &quot;private-path-sha256:d6765062ae776c14db54f301fb3391d3313fa00153fc278bff7f535ad66cdd04&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 1.8292156304607156e-08,
+      &quot;label&quot;: &quot;direction-1.0-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 5.974375060612792e-14,
+      &quot;objective&quot;: 3967.0289923696355,
+      &quot;receipt&quot;: &quot;private-path-sha256:7141d97a5cc2b8dfdef095910468433fc690bfa335247ea02ea06da87c0cfd5a&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5--1&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 5.714271811927101e-17,
+      &quot;objective&quot;: 4712.081487468026,
+      &quot;receipt&quot;: &quot;private-path-sha256:59ee6ec6ee72f3413d1737eb6db54e3ba880a9f4046ad6565935ceeb0927e802&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 2.1277065065730733e-08,
+      &quot;label&quot;: &quot;direction-0.5--1-repeat&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 2.9779739253949147e-14,
+      &quot;objective&quot;: 4712.081516894709,
+      &quot;receipt&quot;: &quot;private-path-sha256:878caedba39413d3659599b30f6449780ceba7463f7ff5c70e48a83050462236&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 3.142157962105949e-08,
+      &quot;label&quot;: &quot;direction-0.5-1&quot;,
+      &quot;nuisance_converged&quot;: false,
+      &quot;nuisance_floor_limited&quot;: true,
+      &quot;nuisance_predicted_reduction&quot;: 5.188146752776449e-10,
+      &quot;objective&quot;: 4186.605955853756,
+      &quot;receipt&quot;: &quot;private-path-sha256:3bae4ec30f8ae1aef1f13ce08d25f0ec25a7cf06ee880d7fd86fd29e22529399&quot;
+    },
+    {
+      &quot;empirical_objective_resolution&quot;: 0.0,
+      &quot;label&quot;: &quot;direction-0.5-1-repeat&quot;,
+      &quot;nuisance_converged&quot;: true,
+      &quot;nuisance_floor_limited&quot;: false,
+      &quot;nuisance_predicted_reduction&quot;: 2.599698217263535e-17,
+      &quot;objective&quot;: 4186.605943922342,
+      &quot;receipt&quot;: &quot;private-path-sha256:26abe07cfaa79ca27ea24c9a197ce212d7e2f4efccb5372e3cd7e89c03093c0e&quot;
+    }
+  ],
+  &quot;profile_resolution_counts&quot;: {
+    &quot;audited_floor_only&quot;: 7,
+    &quot;strict&quot;: 3,
+    &quot;unresolved&quot;: 0
+  },
+  &quot;rank&quot;: {
+    &quot;columns&quot;: 91,
+    &quot;condition_number&quot;: 2172.787898376266,
+    &quot;effective_rows&quot;: 7830,
+    &quot;maximum_singular_value&quot;: 3.0774617449258117,
+    &quot;minimum_singular_value&quot;: 0.0014163654663327295,
+    &quot;rank&quot;: 91,
+    &quot;status&quot;: &quot;full_rank&quot;,
+    &quot;threshold&quot;: 5.3505034764465235e-12
+  },
+  &quot;relative_derivative_tolerance&quot;: 0.0001,
+  &quot;reported_passed&quot;: true,
+  &quot;source_hash&quot;: &quot;adcda9357ed8aa6ac6d9faf9c676a18942cd0e2ea3e7f964643af0d3ca6b0ed8&quot;,
+  &quot;state_input&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:5851d901a4ec42add43907895a0f445c2f58835c232ab5cabb1f1801956c6f8a&quot;,
+    &quot;role&quot;: &quot;blind_engineering_physical_initial&quot;,
+    &quot;sha256&quot;: &quot;61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea&quot;
+  },
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details>
+<h2>Synthetic propagation and measurement refinement</h2>
+<h3>log_drag_ou — missing</h3>
+<table><thead><tr><th>Observable</th><th>Frequency Hz</th><th>Maximum difference m</th><th>Fraction of noise</th><th>Passed</th></tr></thead><tbody></tbody></table>
+<details><summary>Refinement metrics, fixed settings and evidence identity</summary><pre>{
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:fb36665a3eda73b04707629622a4dd88a8759e73ffed534345ccc09836f6b6e2&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h3>pulses — missing</h3>
+<table><thead><tr><th>Observable</th><th>Frequency Hz</th><th>Maximum difference m</th><th>Fraction of noise</th><th>Passed</th></tr></thead><tbody></tbody></table>
+<details><summary>Refinement metrics, fixed settings and evidence identity</summary><pre>{
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:6d0033813a23e9310795ed3dab98dec76111886bfae2a40d77582bd86f90e544&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h2>Full-day synthetic and selected flight refinement</h2><p>These are fixed-parameter numerical checks. They do not establish flight orbit accuracy.</p>
+<h3>density_24h — missing</h3>
+<details><summary>Unchanged refinement criteria, measured differences and full evidence</summary><pre>{
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:92da53e2923547653d5646fe2537c7dedffee5e78c4444fd1df7caf0c3b32336&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h3>flight_april24 — missing</h3>
+<details><summary>Unchanged refinement criteria, measured differences and full evidence</summary><pre>{
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:428c4d6a5065a0b441ba52c8e482e48085b37de158eef49e844d26fcee50a611&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h2>nuisance-replay</h2><p>Exact failed location: original near03 density point-030-direction-0.015625-1-repeat.</p><p>Validation: missing; resolution: <strong>unavailable</strong>.</p>
+<p>Audited floor-only evidence does not establish stationarity or convergence and cannot authorize accepted covariance.</p>
+<details><summary>Nuisance transaction checks and profile audit</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:c5ce5c552c981ea48f1e68b2b06e8f347069bb0b9777f13f3075f7bb41790499&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;final_search&quot;: null,
+  &quot;replay_profile_sha256&quot;: null,
+  &quot;resolution_status&quot;: &quot;unavailable&quot;,
+  &quot;source_failure&quot;: &quot;original near03 density point-030-direction-0.015625-1-repeat&quot;,
+  &quot;source_profile_sha256&quot;: null,
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h2>nuisance-replay-candidate1-point012</h2><p>Exact failed location: validation02 density point-012-direction-0.25--1-repeat.</p><p>Validation: missing; resolution: <strong>unavailable</strong>.</p>
+<p>Audited floor-only evidence does not establish stationarity or convergence and cannot authorize accepted covariance.</p>
+<details><summary>Nuisance transaction checks and profile audit</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;evidence&quot;: {
+    &quot;path&quot;: &quot;private-path-sha256:ecb8e2724273e3a6cdf426b28dc855a8a3c0bdb9c38d44c3d6c9a11f740cdfb5&quot;,
+    &quot;status&quot;: &quot;missing&quot;
+  },
+  &quot;final_search&quot;: null,
+  &quot;replay_profile_sha256&quot;: null,
+  &quot;resolution_status&quot;: &quot;unavailable&quot;,
+  &quot;source_failure&quot;: &quot;validation02 density point-012-direction-0.25--1-repeat&quot;,
+  &quot;source_profile_sha256&quot;: null,
+  &quot;status&quot;: &quot;missing&quot;
+}</pre></details>
+<h2>Independent evidence audit</h2><p>Status: failed.</p>
+<details><summary>Independent calculations and matched input identities</summary><p>Complete structured evidence (6958781 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<h2>Execution and restart provenance</h2><p>Fresh serial validation of an explicitly versioned numerical correction. The original 106-test suite, physical inputs and numerical criteria remain unchanged. Interrupted03 and failed04/05/06/07/08 remain distinct. No campaign pause or resume is claimed.</p>
+<details><summary>Recovery classification</summary><p>Complete structured evidence (6337148 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<details><summary>Exact external control records</summary><p>Complete structured evidence (5978311 bytes) is retained in <a href="summary.json.gz">the full machine-readable summary</a>. This presentation omits the repeated payload only.</p></details>
+<details><summary>Report integrity errors</summary><pre>[]</pre></details>
+<p>Machine-readable companion: <a href="summary.json.gz">summary.json.gz</a>. Missing and failed evidence has not been replaced or removed.</p></html>

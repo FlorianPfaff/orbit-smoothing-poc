@@ -1,0 +1,51 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "25",
+    "private-path-sha256:31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6",
+    "private-path-sha256:d2fe4b0f65a84c3a4b0d9df64b13ce39e3ecb6c7785aa55012af10bc6749140d"
+  ],
+  "coverage": [
+    "fixed106nativeinventory and758source requirement",
+    "original14canonicalinputs and previouscandidate03pins",
+    "actualinputchange and rehashedreplacement rejection",
+    "canonical absolute/relative/nested symlinks, cycles and traversal bound",
+    "currenthost boot, CPUaffinity and externalnativeworkload rejection",
+    "owned PIDnamespace exception and PIDreuse rejection",
+    "sameboot/falseinterruption claims rejection",
+    "serial12command lifecycle and distinctreplay inputs",
+    "interruption finalcleanup and no campaignresume",
+    "narrow namespace writablepaths and sourceisolation",
+    "owned supervision ASTequivalence with reviewed03"
+  ],
+  "created_at": "2026-10-15T05:32:27.524047+00:00",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "errors": 0,
+  "failures": 0,
+  "files": {
+    "candidate04-control-tests-01.log": {
+      "path": "private-path-sha256:2604422dfef32b23a1383b9dc43fdd88b62b1f2d0223b546224998d5c8ab544b",
+      "sha256": "7f03f8e4a3979f41025238b4474ffb7a568eabec7f8d799b8e403e66f96e9ca0"
+    },
+    "test_validate_candidate_04.py": {
+      "path": "private-path-sha256:d2fe4b0f65a84c3a4b0d9df64b13ce39e3ecb6c7785aa55012af10bc6749140d",
+      "sha256": "5a9675138b42a4f8462db879799bdd82f7eb3ddb9a181b9f85ee38eff219cfa3"
+    },
+    "validate_candidate_04.py": {
+      "path": "private-path-sha256:a9d79929e05de037285952f77e296e708e1857e4af1a85f13358296c6324ca6e",
+      "sha256": "8db719ce6ae487ed9cfefb57eb1397bbe7c6b19ba516caab5e0c19802fe6ad57"
+    },
+    "with_correctness_namespace_04.py": {
+      "path": "private-path-sha256:923e087cf81c1b85820acd1d87e31e6211e334714f8e913c45a006ad3e4e6d3b",
+      "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+    }
+  },
+  "result": "passed",
+  "schema": "orbit-poc-candidate04-control-validation-v1",
+  "scope": "Fabricated control tests only; no GROOPS build, native validation or scientific acceptance claim. Small fixture file count is mocked; production source count remains exactly758.",
+  "skipped": 0,
+  "tests": 52
+}

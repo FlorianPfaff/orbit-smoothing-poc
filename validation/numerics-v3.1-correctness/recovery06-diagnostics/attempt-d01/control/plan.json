@@ -1,0 +1,735 @@
+{
+  "driver": {
+    "path": "@RECOVERY06_ROOT@/control/validate_candidate_06.py",
+    "sha256": "f53817eaa4cfabc8d09599ca91b68f210624f61382e606984d5c1b00ecf58f61"
+  },
+  "execution": {
+    "path": "@DIAGNOSTIC_D01_ROOT@/control/diagnostic-execution.json",
+    "sha256": "2ca1620ab0fcec97dd100c6d5ece7e31ffe399e41a07288adc631c825f4d77b7"
+  },
+  "helpers": {
+    "build": {
+      "path": "@DIAGNOSTIC_D01_ROOT@/control/build_row_trace_d01.py",
+      "sha256": "c99f02cffeee8c78e59f2d3c898e64b983c5b1c85ee1dfb734f6a1a3156003fa"
+    },
+    "compare": {
+      "path": "@DIAGNOSTIC_D01_ROOT@/control/verify_trace_equivalence.py",
+      "sha256": "3ba6b6e22be16bbc96138052ee84b3e1d294191aef933a31506d698b5d43171d"
+    },
+    "header": {
+      "path": "@DIAGNOSTIC_D01_ROOT@/control/rowArithmeticTrace.h",
+      "sha256": "5a273bb31a703408b78da1a19dc51855767df34cc65a3b82ca2e62973a661e4a"
+    },
+    "install": {
+      "path": "@DIAGNOSTIC_D01_ROOT@/control/install_row_trace.py",
+      "sha256": "e6aefda04b5fcea1e87952a29a96e7e17841592be2518723e14201e1ac1566d2"
+    },
+    "wrapper": {
+      "path": "@DIAGNOSTIC_D01_ROOT@/control/with_correctness_namespace_04.py",
+      "sha256": "aa678b5f49241f3eb327d364556637ce7998fba423770b588dbec609bee97472"
+    }
+  },
+  "input_links": {
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G01.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G01.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G02.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G02.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G03.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G03.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G04.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G04.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G05.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G05.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G06.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G06.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G07.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G07.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G08.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G08.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G09.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G09.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G10.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G10.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G11.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G11.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G12.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G12.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G13.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G13.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G14.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G14.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G15.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G15.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G16.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G16.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G17.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G17.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G18.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G18.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G19.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G19.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G20.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G20.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G21.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G21.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G22.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G22.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G23.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G23.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G25.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G25.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G26.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G26.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G27.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G27.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G28.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G28.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G29.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G29.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G30.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G30.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G31.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G31.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/attitude/attitude_2024-04-24.G32.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G32.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G01.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G01.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G02.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G02.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G03.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G03.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G04.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G04.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G05.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G05.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G06.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G06.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G07.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G07.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G08.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G08.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G09.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G09.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G10.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G10.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G11.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G11.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G12.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G12.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G13.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G13.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G14.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G14.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G15.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G15.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G16.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G16.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G17.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G17.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G18.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G18.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G19.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G19.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G20.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G20.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G21.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G21.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G22.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G22.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G23.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G23.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G25.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G25.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G26.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G26.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G27.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G27.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G28.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G28.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G29.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G29.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G30.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G30.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G31.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G31.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/clock/clock_2024-04-24.G32.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G32.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/gracefo/gracefo1_receiverOrbit_2024-04-24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverOrbit_2024-04-24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/gracefo/gracefo1_receiverStarCamera_2024-04-24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverStarCamera_2024-04-24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G01.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G01.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G02.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G02.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G03.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G03.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G04.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G04.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G05.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G05.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G06.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G06.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G07.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G07.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G08.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G08.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G09.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G09.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G10.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G10.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G11.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G11.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G12.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G12.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G13.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G13.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G14.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G14.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G15.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G15.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G16.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G16.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G17.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G17.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G18.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G18.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G19.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G19.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G20.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G20.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G21.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G21.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G22.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G22.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G23.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G23.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G24.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G24.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G25.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G25.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G26.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G26.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G27.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G27.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G28.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G28.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G29.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G29.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G30.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G30.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G31.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G31.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/orbit/orbit_2024-04-24.G32.dat": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G32.dat",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G01.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G01.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G02.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G02.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G03.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G03.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G04.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G04.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G05.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G05.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G06.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G06.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G07.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G07.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G08.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G08.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G09.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G09.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G10.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G10.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G11.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G11.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G12.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G12.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G13.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G13.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G14.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G14.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G15.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G15.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G16.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G16.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G17.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G17.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G18.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G18.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G19.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G19.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G20.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G20.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G21.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G21.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G22.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G22.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G23.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G23.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G24.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G24.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G25.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G25.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G26.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G26.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G27.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G27.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G28.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G28.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G29.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G29.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G30.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G30.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G31.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G31.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/signalBias/signalBias_2024-04-24.G32.txt": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G32.txt",
+    "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/synthetic_accuracy.xml": "@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/synthetic_accuracy.xml"
+  },
+  "inputs": {
+    "density": {
+      "path": "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/log_density.txt",
+      "sha256": "6a5a9bfb57f63970ce70e044071723d5081aa3b05f15eb56ad38f76c1031a5d3"
+    },
+    "observation_metadata_10": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G09.dat",
+      "sha256": "1d895fc9e0edafeb645cdab160f7a15408979be341f056eb6dae2443345bd018"
+    },
+    "observation_metadata_100": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G27.dat",
+      "sha256": "438fd8a436a6675192f2cd0df9fa31cbc25b2ec806f10792eec4bd9da671946a"
+    },
+    "observation_metadata_101": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G28.dat",
+      "sha256": "1f20a8e2c25bcc65d9c2b030bfc5475a93443692f0c80c0477c80ac474f33784"
+    },
+    "observation_metadata_102": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G29.dat",
+      "sha256": "03a4587c03c7bb6ed807bfdd03646a9dc539885279017d0f870f665b502e52a1"
+    },
+    "observation_metadata_103": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G30.dat",
+      "sha256": "59f7517db6dc406613fae3f2f8cdd5e506411ce8d7aa46efca44e916411bd117"
+    },
+    "observation_metadata_104": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G31.dat",
+      "sha256": "ac6ae9fb412879a40c8d2c61969696f935ad8304ec4a84ec6a9507e9c34015cc"
+    },
+    "observation_metadata_105": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G32.dat",
+      "sha256": "258985d54b8cce3df7dac92e6563b4bb5256a3496baeb27e9a40242157b5bf7a"
+    },
+    "observation_metadata_107": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G01.txt",
+      "sha256": "26850cee1a6e375c7a55a70b23b079b2ec543e87d60880d1afa98762886a3739"
+    },
+    "observation_metadata_108": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G02.txt",
+      "sha256": "8130e57cc4f1f58016b61f249aef8ea65c17f9dad7138c3fb4d74a0e46daf312"
+    },
+    "observation_metadata_109": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G03.txt",
+      "sha256": "32e23116240e63d44273bff716fab21c4904baab63ec8eff54318172ff7a4515"
+    },
+    "observation_metadata_11": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G10.dat",
+      "sha256": "2ba871f57d7f0e15e79c800181db4bd0f2f3899aeee3ba25bdcc80828dc01d09"
+    },
+    "observation_metadata_110": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G04.txt",
+      "sha256": "58c03adc84d844c78dbf30cdbc1907b9f398a5e85097df1ac98b6e50df0db766"
+    },
+    "observation_metadata_111": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G05.txt",
+      "sha256": "5b9c3153f7c680e61d4edafc0265ff8b61c2b2e45ca8941ac2e04b65c9a2ddc0"
+    },
+    "observation_metadata_112": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G06.txt",
+      "sha256": "64e9e753fea19a6f07ec848d30eeb1f7c683292601934e1ba13598a052561f46"
+    },
+    "observation_metadata_113": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G07.txt",
+      "sha256": "dd5bdb1055ecff160cb57f0dbdaebde73860decc0e2074eb4c7e2841e0618edc"
+    },
+    "observation_metadata_114": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G08.txt",
+      "sha256": "9904072b0dbd9c03205539d5b9817f7cbfe23b1af10e5445d3882a82352965d6"
+    },
+    "observation_metadata_115": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G09.txt",
+      "sha256": "9e035ee994d704c196f4f337aa3a58bed711ae6cbedd92f62992ef416b193696"
+    },
+    "observation_metadata_116": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G10.txt",
+      "sha256": "70cdff7ad5fae561233d29ebf163e4df884d5c568979d626d07e1f1ad23bae97"
+    },
+    "observation_metadata_117": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G11.txt",
+      "sha256": "eda3db271973135954b799d399be0de61234f53040010c51f553175345e947b3"
+    },
+    "observation_metadata_118": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G12.txt",
+      "sha256": "453e560d904cb1350a738de23fc4c621af628943fb2e0d5b2036c349537a3cf6"
+    },
+    "observation_metadata_119": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G13.txt",
+      "sha256": "ff4e43cbe74954bfff6ef352198a5926d55a80604949be391f88e8b20fac6e94"
+    },
+    "observation_metadata_12": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G11.dat",
+      "sha256": "f767865187188503fb3dd80e51c22bcacfcdd06aca4f15c8bb09a57dddf3a3c3"
+    },
+    "observation_metadata_120": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G14.txt",
+      "sha256": "6ba8bd1d8102caadd13a8011300c70f5115d35b230d7d0c2fbbf3d4835131285"
+    },
+    "observation_metadata_121": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G15.txt",
+      "sha256": "b66e3d2588922c3bed141f912042638ab37981ad13412cc86391132a639bccdc"
+    },
+    "observation_metadata_122": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G16.txt",
+      "sha256": "b64f75819a4cf00fe51acb228c8b3a049f781c85ee4e4fecc2718422412d0388"
+    },
+    "observation_metadata_123": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G17.txt",
+      "sha256": "f9ebf406f139eac64f47f5acc1857ab61bf6a23da0c6158fd3b0bb5a5c15b84d"
+    },
+    "observation_metadata_124": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G18.txt",
+      "sha256": "289267ba87f6723f4b13f5a508f9f324d4f8e3590eea834734203266db3e8609"
+    },
+    "observation_metadata_125": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G19.txt",
+      "sha256": "ee78e215dc2bc74579fb61ee3281680b68c1d0bf6159470109d600f0dc1d747a"
+    },
+    "observation_metadata_126": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G20.txt",
+      "sha256": "8fa4cf9c012592236392925371e21dc427e4075401e4a8333909e59f8bcf717d"
+    },
+    "observation_metadata_127": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G21.txt",
+      "sha256": "f546115a326c64f390ac50d4879a8ac8aa010cc060908121f13d186f7f381da4"
+    },
+    "observation_metadata_128": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G22.txt",
+      "sha256": "b3d23b0f7f63a909bfa58ffe1314b3a1482d9476807424caad2ad17564490846"
+    },
+    "observation_metadata_129": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G23.txt",
+      "sha256": "e14dabd5ec5631ca9edc4552190a8595300be82ac22fd069608827f22d5b154b"
+    },
+    "observation_metadata_13": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G12.dat",
+      "sha256": "0d1a6b8d9203eaa4e204ccf071672fa33e36a4b181d63eea9dd6f71392668d72"
+    },
+    "observation_metadata_130": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G24.txt",
+      "sha256": "2ff88f2e4bc32146a5caef09ea45288ccd3a178e4c253c815854e5be39547dd8"
+    },
+    "observation_metadata_131": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G25.txt",
+      "sha256": "a55ac22bd8bf5030ebab172e23de6c64e5a0dcf8a1184e3b5fbff5ea26d06f09"
+    },
+    "observation_metadata_132": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G26.txt",
+      "sha256": "63df4e5f088e95e0875677e1ba4c676670054da013321f0d4162bcbecdcb9ecf"
+    },
+    "observation_metadata_133": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G27.txt",
+      "sha256": "ff0a31035618e6ed5ee26e76da12ba073f4376e0ac5b21554d1ca1fd8fcaa75a"
+    },
+    "observation_metadata_134": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G28.txt",
+      "sha256": "55862e6da1522869a479ad72c238fed899e40234b0177268cdf7505065415fea"
+    },
+    "observation_metadata_135": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G29.txt",
+      "sha256": "dab8cfe6f88c9f721713e6eeb367cdc3768171d9cba9dac4c9e6716b9e290079"
+    },
+    "observation_metadata_136": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G30.txt",
+      "sha256": "fe1c67caca3612f4d7080fcc9cef63cd8d54cb2410b7f457bce8624ddbe0aae2"
+    },
+    "observation_metadata_137": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G31.txt",
+      "sha256": "e51da24509fe01bfe057da202cb0732012dcddf0225a36e956f70c0d62e71419"
+    },
+    "observation_metadata_138": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/signalBias/signalBias_2024-04-24.G32.txt",
+      "sha256": "ab49174f6009cd347fccf237285885fa38f5983a1951db0981042ac5d2205fd9"
+    },
+    "observation_metadata_139": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/synthetic_accuracy.xml",
+      "sha256": "e58e04008615bea9e065ab655a13367f51063deffe872f383e6e122a876033b7"
+    },
+    "observation_metadata_14": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G13.dat",
+      "sha256": "288025a9fb88ad134f75d67aa231351b0c610fd20a18e900231fc66af89f74a3"
+    },
+    "observation_metadata_15": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G14.dat",
+      "sha256": "94abc8d370080fe73a3268b15682661704e39d6489cabd47a9545e316ac8acf2"
+    },
+    "observation_metadata_16": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G15.dat",
+      "sha256": "155ccdd3cef8f8a7bf8507d7e6452d37163abb78b8625ffb0b1789930eaf6267"
+    },
+    "observation_metadata_17": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G16.dat",
+      "sha256": "ff38cddfbca7d07c645df8694a55a84cc7330d0aa3cb5f4b032a123cd49adf59"
+    },
+    "observation_metadata_18": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G17.dat",
+      "sha256": "cb3b0b24b90fdd3f54fc1e8aa48139f79bd6aedfd93acf6c4b1a12f546302fba"
+    },
+    "observation_metadata_19": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G18.dat",
+      "sha256": "d4bb18b73c2b4af186bc63ec3de5e9c2dc27fe38574367fd1ea6e50d354b9487"
+    },
+    "observation_metadata_2": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G01.dat",
+      "sha256": "83f30b18156cdcdf20415d072026ff813963a75f09f9b4562a56960185361521"
+    },
+    "observation_metadata_20": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G19.dat",
+      "sha256": "702e344b626761d2e79334ec0cb1c32d371703be61c6c143685fcc1bab59180f"
+    },
+    "observation_metadata_21": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G20.dat",
+      "sha256": "503ca32861e01b9b265f6dd74c8fd0f4cf9a6e7e7f39092d4b71f63acf2fb9a9"
+    },
+    "observation_metadata_22": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G21.dat",
+      "sha256": "e9b4f883d5e12896bd338dbcde184fb843997a2eb5685b654e612500349e8c3e"
+    },
+    "observation_metadata_23": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G22.dat",
+      "sha256": "3f01b0de581585345e63e12b3507ced4fff55225c03ac5dee8d172b38d25de9e"
+    },
+    "observation_metadata_24": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G23.dat",
+      "sha256": "28dd834d62c40c1ad1a8f8cc1bb7a9c723e7a03c8d50ac75c61b7fd52bab0629"
+    },
+    "observation_metadata_25": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G24.dat",
+      "sha256": "4850a52df52d89b2ed7451206aad943867c51acb6e38e039fb9b400fda469160"
+    },
+    "observation_metadata_26": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G25.dat",
+      "sha256": "62262e548bd357bef33a6e15b9cd30dc85a2ac2a7dad323f4124bdfc7622fc26"
+    },
+    "observation_metadata_27": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G26.dat",
+      "sha256": "1c66c796d46eadc75390d12da865a656d971c1e57521ce3ee0503b17c07f0911"
+    },
+    "observation_metadata_28": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G27.dat",
+      "sha256": "27c4c118fc0c8de5160e36c0544911bde0305e3489a2d1dce59bb0e33882c3db"
+    },
+    "observation_metadata_29": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G28.dat",
+      "sha256": "6bbd2d318ac78404460463906c94646549dfd7c06d4260f2317e37532877fa3c"
+    },
+    "observation_metadata_3": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G02.dat",
+      "sha256": "03bacf8a2380bdb8b9294bc2ebbcbbd08db73b4e53f4a2323e840034c46eba83"
+    },
+    "observation_metadata_30": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G29.dat",
+      "sha256": "76eda7cdc84b0938f81e7669923fea08272cbf9a77dcd7c7aac2913d7d2bdcd5"
+    },
+    "observation_metadata_31": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G30.dat",
+      "sha256": "c6a6a9440042775ec51a9ce971c026fe025ef51295a159df5e9dbd83e859f552"
+    },
+    "observation_metadata_32": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G31.dat",
+      "sha256": "0d7e0a65fe9ac98493eb2a3e5ab843b4e6e4324387f98ee6e2257257dfc47910"
+    },
+    "observation_metadata_33": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G32.dat",
+      "sha256": "7e8f511c870e134cf787628bdf83f20b84eabe794106a8be8cbba5c342cde87f"
+    },
+    "observation_metadata_35": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G01.dat",
+      "sha256": "70bdb690a085f504f223949800a1c6fdc40adf2d6713228b3bc09eb3ce7cef39"
+    },
+    "observation_metadata_36": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G02.dat",
+      "sha256": "fe47840a584026dddd99eaad3b6e9951a512f5bf08002a99feb105da84843e01"
+    },
+    "observation_metadata_37": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G03.dat",
+      "sha256": "6ca2a0dbea421c8f550ee4c6185f2ca98108947846e7a64b9587ab6028d3d9dd"
+    },
+    "observation_metadata_38": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G04.dat",
+      "sha256": "36e61fe18297749d29fb7ce1d1d2dc59aaa95883437c9820573adcef083f6dac"
+    },
+    "observation_metadata_39": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G05.dat",
+      "sha256": "e7017031aa1d7b92a8aa6429e2b0cc9ae86b8f006577012e345666a6281c094e"
+    },
+    "observation_metadata_4": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G03.dat",
+      "sha256": "266b5595e19e8529423257d66b95dd7676fde6e5d9663a34d5d0568df6d976ff"
+    },
+    "observation_metadata_40": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G06.dat",
+      "sha256": "7b7051a0eb23eb96fec39cf7026c24bab74e68fe497ced92f596bfe9461827fc"
+    },
+    "observation_metadata_41": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G07.dat",
+      "sha256": "2275e664e186d3c90e4a61009635b8ba6de17240a0caf312cca35204f32e920b"
+    },
+    "observation_metadata_42": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G08.dat",
+      "sha256": "aa9325cddbb742a1b6c034c4ac93f0d35fc884c349e5bb3b65931b952a8159c2"
+    },
+    "observation_metadata_43": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G09.dat",
+      "sha256": "55a92a703b55a372faeea893eaaf1d38b057fd1486e4637bc47f286f11a5dc42"
+    },
+    "observation_metadata_44": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G10.dat",
+      "sha256": "2f5b6a98157b888e80c0e1d971a5a054de2636411a31427990e4c65595e7d432"
+    },
+    "observation_metadata_45": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G11.dat",
+      "sha256": "21aed7a7d3fb4a79914f7d1597da101b89e2b869a5b49bfd40253eaea519b534"
+    },
+    "observation_metadata_46": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G12.dat",
+      "sha256": "97799852dcf58f6271322351109dfd5493e6b0c82cfcfbbf28b0023027dec342"
+    },
+    "observation_metadata_47": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G13.dat",
+      "sha256": "127e228643607f48556c626536b177658793ec483176b3abe254596f30f2513e"
+    },
+    "observation_metadata_48": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G14.dat",
+      "sha256": "fecc987bccea08a7ecc41af968b9df6b59f095c90cc1f34df09d4216b991df12"
+    },
+    "observation_metadata_49": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G15.dat",
+      "sha256": "b2862fc264bb139e6a407f4691788e7b1b78ccc9fc275f67c5ae9c42f20e0353"
+    },
+    "observation_metadata_5": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G04.dat",
+      "sha256": "f555032019c226d6f52c389a89db4ac6e017ff6b17c5f29e3a96ce5df5b7cffc"
+    },
+    "observation_metadata_50": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G16.dat",
+      "sha256": "8c2ee01d60d80860cea14f98498b45c2046e6a6420ed22e466900de512800e64"
+    },
+    "observation_metadata_51": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G17.dat",
+      "sha256": "80ecb5659e62423bc796ffdaaf2a92b354f80d124fd8417eaf6053d108f25538"
+    },
+    "observation_metadata_52": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G18.dat",
+      "sha256": "1e17dc4d486a505a45d29911d36ca774fcb8072a0420c0e9a27efedb97b69a86"
+    },
+    "observation_metadata_53": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G19.dat",
+      "sha256": "6dae65c708d422919befd6d3e2dd44efa9855cca8c5d0a1eb7c879518695aae4"
+    },
+    "observation_metadata_54": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G20.dat",
+      "sha256": "dd5e329e3b6da672c9e9cccab1c7b8d24c96ce8c9e3190efa403766fe208d09a"
+    },
+    "observation_metadata_55": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G21.dat",
+      "sha256": "073b20eea281af52cda02d38c73f1c622a43c6dcbb0a627bac39ee15f71befd8"
+    },
+    "observation_metadata_56": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G22.dat",
+      "sha256": "0150f5aab020d417d161e3ea015454ae6a67b99179a9cc71f521d64b047031c9"
+    },
+    "observation_metadata_57": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G23.dat",
+      "sha256": "7de173086c494b13fac326c7757993c3c16687d06afe4831da972a03c77d2059"
+    },
+    "observation_metadata_58": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G24.dat",
+      "sha256": "5a86f24a50af48b3590024590035adf406dfda9543de227f8985ea048a35b376"
+    },
+    "observation_metadata_59": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G25.dat",
+      "sha256": "33a0e3dab2146495298cbb58d62d555f262aaa368a15efc9bd5d1f0d49712bbb"
+    },
+    "observation_metadata_6": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G05.dat",
+      "sha256": "bf5869513e9e1b4ab4d0b3da261af1b8471ace518ec339d1fa80d13b54e4c1ee"
+    },
+    "observation_metadata_60": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G26.dat",
+      "sha256": "7feedf2283d3adc3ef03500a0424489a4899cb3e321c342386f1713f2982c96a"
+    },
+    "observation_metadata_61": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G27.dat",
+      "sha256": "b59bdedd065b8fe06179a2c2b995b50ddaf0c1f01c2c3ff4c357efb998d0fc09"
+    },
+    "observation_metadata_62": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G28.dat",
+      "sha256": "bf7e6518f19040f5eff0152b806a0944e182e6fac8be89692c2cd4b6a3a16c2b"
+    },
+    "observation_metadata_63": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G29.dat",
+      "sha256": "6fea43380d6f9446bf62711ed3bd367f868657eb268d27718fdefc1eef350745"
+    },
+    "observation_metadata_64": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G30.dat",
+      "sha256": "03e33070bfb2f9ab6fc1b0e19df04f485ba6df4013cbefd0fd6ce85d1d7b9738"
+    },
+    "observation_metadata_65": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G31.dat",
+      "sha256": "381edcef945fb5c737f707402fd2e8317e84a89b158fcc11cdafb7220d06abbf"
+    },
+    "observation_metadata_66": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/clock/clock_2024-04-24.G32.dat",
+      "sha256": "d07a068d9d011ae676ec43bfeacd1f7fa8a3bf69246b1a922e25a43e1bfaa3f3"
+    },
+    "observation_metadata_68": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat",
+      "sha256": "dee0d9a40cc21255f11b4a2120904b5b79df2528f990896e33b8b89725a6bdb1"
+    },
+    "observation_metadata_69": {
+      "path": "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/native/data/2024-04-24/gracefo/gracefo1_orbit_2024-04-24.dat",
+      "sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1"
+    },
+    "observation_metadata_7": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G06.dat",
+      "sha256": "ecafff109a0d0cdaf129fc9d3325015831c3abae29fe96719ed51812031b62b7"
+    },
+    "observation_metadata_70": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverOrbit_2024-04-24.dat",
+      "sha256": "f49503abf2d74b573d9fa5a107c5eb537415105ee91de06b4ab3c9faf590e768"
+    },
+    "observation_metadata_71": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_receiverStarCamera_2024-04-24.dat",
+      "sha256": "65e7941e6219ad0c8b1959a1bd857d5261ee125123121b9357944d75bf16bfff"
+    },
+    "observation_metadata_72": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_starCamera_2024-04-24.dat",
+      "sha256": "02d9c75d487b87edb62754ae1f02ca2615c927dd25ce8ed7d2f498bfc6caab93"
+    },
+    "observation_metadata_74": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G01.dat",
+      "sha256": "b449709efb7002042e621fe0f5f97221d34f38565c07970390c51cbb36b37c4f"
+    },
+    "observation_metadata_75": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G02.dat",
+      "sha256": "ad5003d2fc8de192db67085d466115101c624a2999e8a847c24eac1164faed76"
+    },
+    "observation_metadata_76": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G03.dat",
+      "sha256": "d7a0177b70160934e2f27aef3df17f758bddce9aba5ae0b5726babd480597ea7"
+    },
+    "observation_metadata_77": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G04.dat",
+      "sha256": "87d016d3b912a9ff9c361f6b1bfd82cd26d7674c55a9cc81b75b4c0ba791101a"
+    },
+    "observation_metadata_78": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G05.dat",
+      "sha256": "a9ea77c118fd5cab11fd08fbf1d2cc286a039b46594bc5231134ff53b9e577fd"
+    },
+    "observation_metadata_79": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G06.dat",
+      "sha256": "1affdae9274e7d3bea198fd52bf0f28100cd660a93df02f09155882191f364d0"
+    },
+    "observation_metadata_8": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G07.dat",
+      "sha256": "9f83aae4e7cca5bb67a605be3bacc337322bdbcbb23ccf08a469a7204634ce9f"
+    },
+    "observation_metadata_80": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G07.dat",
+      "sha256": "d1613df97f7511f0519eb0b9984731546c36cfc395ca17deb494c187a4fc5fc2"
+    },
+    "observation_metadata_81": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G08.dat",
+      "sha256": "265bc706ec3da2f751782a45f0201d021aaeb52b109ec13fd038e116adfe6dcd"
+    },
+    "observation_metadata_82": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G09.dat",
+      "sha256": "4c05c3a2526cb5560ea65b85ce9b6c5f32db5fffdff32e1fef517bad649a94ba"
+    },
+    "observation_metadata_83": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G10.dat",
+      "sha256": "6d3354e7d168955274c84b6e51493495fb4b0e9a9e0bf64a994186ca407a278e"
+    },
+    "observation_metadata_84": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G11.dat",
+      "sha256": "a8f97ea2a39b3ddbffef97861864b344aec82c1fdc2f9ffa79e74de00ca9c175"
+    },
+    "observation_metadata_85": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G12.dat",
+      "sha256": "8d396eeff4700ca3db020f19fee2a9e69d78d37db9e01f91363ce548bbe513d3"
+    },
+    "observation_metadata_86": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G13.dat",
+      "sha256": "7125c17d5209e93e8388a8c992c47239977bea5da368eec78e81c3dae13c558e"
+    },
+    "observation_metadata_87": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G14.dat",
+      "sha256": "ed79152093c9216d1765ca634218b90afba3bdba2b93d9e8d090e849c8a09485"
+    },
+    "observation_metadata_88": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G15.dat",
+      "sha256": "706b2bfe33c71d2ed8974a70ee23d869bdf5da3576c047f1cec34dc2ec91c8e3"
+    },
+    "observation_metadata_89": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G16.dat",
+      "sha256": "4303319ac48c71b3001fd36db64322a0f77b405b595b8540005728d3c5bc32a1"
+    },
+    "observation_metadata_9": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/attitude/attitude_2024-04-24.G08.dat",
+      "sha256": "218b840f265c81ade1f284b977f96c6c7e7232ca2fe340292ba857ca64e28ac2"
+    },
+    "observation_metadata_90": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G17.dat",
+      "sha256": "b17ec1e42d84eeedb94ac9d13ce40e5a7e5cddfab1c7c0127f489770bb0bdec9"
+    },
+    "observation_metadata_91": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G18.dat",
+      "sha256": "176f5e834b35ee4075504146deb8c59d93613a17c664c997183dfb19e5b5c7f5"
+    },
+    "observation_metadata_92": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G19.dat",
+      "sha256": "a3bbf7771c87047b7b16f2513264603f807c74a9724d58d300989ce5f8c74f9f"
+    },
+    "observation_metadata_93": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G20.dat",
+      "sha256": "355a301953ec27bdd13cf2c838e01b98e96741ca7e7fbc8dde21f94b1ef4632d"
+    },
+    "observation_metadata_94": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G21.dat",
+      "sha256": "af699c78ac35c7a5a99fd8929e511e79371d971f17fe35e7c024bd4efcdac968"
+    },
+    "observation_metadata_95": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G22.dat",
+      "sha256": "1881687515cf8c1ce8b01aebe6cf4e404da36d66dda04df2a17f5b89e4b5dad2"
+    },
+    "observation_metadata_96": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G23.dat",
+      "sha256": "41d5de9abed0327ef97085a069d6be02d2cc5bcdfa3ca05fb297a3cf07c1131b"
+    },
+    "observation_metadata_97": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G24.dat",
+      "sha256": "2791e84cacd6629eda266d644d84b774642689008bb2526b685ba960de4f7892"
+    },
+    "observation_metadata_98": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G25.dat",
+      "sha256": "f3eadf91a95d2ea47e324050a6d70c36ddd7163d7b78feaa11183c269370b990"
+    },
+    "observation_metadata_99": {
+      "path": "@RECOVERY04_ROOT@/readonly@WORKSPACE_ROOT@/work/numerics-v3.1/development-02/prepared/data/2024-04-24/orbit/orbit_2024-04-24.G26.dat",
+      "sha256": "bfcd2d41fca5fe9a47b15dc3b9180547b4a457923e1a6821c26e9c38ad8a7c4c"
+    },
+    "profile": {
+      "path": "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/profile.xml",
+      "sha256": "defdc9df4222125970f4eabde2c24cb73156df453a1acab68e9b844319139c83"
+    },
+    "reference": {
+      "path": "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/closure-03/reference.txt",
+      "sha256": "79fbd33bd2b7e61e9d04cc399b07041b4e775f0602f703f14e9d67418118bae2"
+    },
+    "variational": {
+      "path": "@RECOVERY06_ROOT@/validation-06/objective-log_drag_ou/point-001-nonzero-full-prior/closure-03/variational.dat",
+      "sha256": "dd7bc08a18e799ea6a42f0f2b33ac5a4a7904a7e34955bc1a929425ba627c67e"
+    }
+  },
+  "last_generation": 8,
+  "prior_pipeline": {
+    "path": "@RECOVERY06_ROOT@/validation-06/pipeline.json",
+    "sha256": "520bec0ee8502eb01a5917e7bb9245c0a2150a8544c9e6bc4613e8008b94a434"
+  },
+  "runner": {
+    "path": "@DIAGNOSTIC_D01_ROOT@/control/run_row_trace_d01.py",
+    "sha256": "b2cea20b8e1fdc5334a3055f4714792dc73e93576dbdf93974ae5d4d6a9bb6ae"
+  },
+  "schema": "orbit-poc-diagnostic-row-trace-plan-v1",
+  "source_freeze": {
+    "path": "@RECOVERY06_ROOT@/control/candidate06-source-freeze.json",
+    "sha256": "f76df95fcac03a5428954b1b448faa62fd2feee2c0290361e416d145ff092e40"
+  }
+}

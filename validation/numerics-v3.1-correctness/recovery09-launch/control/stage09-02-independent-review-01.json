@@ -1,0 +1,119 @@
+{
+  "actual_read_only_checks": [
+    {
+      "receipt": {
+        "bytes": 1425,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-independent-actual08-check.json",
+        "sha256": "9e446eef84b18ffc2d04cca2f4ad3bc5b1783b8ba37c03736eb41dc803dbe47f"
+      },
+      "result": {
+        "execution_artifact": {
+          "bytes": 15861,
+          "path": "@EXECUTION_08_ROOT@/control/candidate07-execution.json",
+          "sha256": "90bdbc8c0fe67f7af6600834a96d831c688ce02f3d158f3d892bdbd52efe1c3b"
+        },
+        "fresh_outputs_absent": true,
+        "helper_sha256": "37756ca324775098d89119f1ad2740460543e125a8546d21c79484fc47075a0c",
+        "native_launched": false,
+        "original_wrapper": "@EXECUTION_08_ROOT@/control/with_correctness_namespace_04.py",
+        "retry_history": {
+          "original_stager": {
+            "path": "@EXECUTION_09_ROOT@/control/stage_recovery09.py",
+            "sha256": "b5a5176391905274b9f4454c19843e1a99a3a53ecbb1ebeb80eb2c9d23de752c"
+          },
+          "previous_staging_failure": {
+            "path": "@EXECUTION_09_ROOT@/control/recovery09-staging-failed.json",
+            "sha256": "422db38f75638ac8874f4f5157bd5df0e1bf785bbb07cffaa437c0e673d47c46"
+          }
+        },
+        "status": "passed",
+        "verified_execution": "@EXECUTION_08_ROOT@/control/candidate07-execution.json"
+      }
+    },
+    {
+      "receipt": {
+        "bytes": 1079,
+        "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-independent-actual08-check-02.json",
+        "sha256": "6e69500fa16f3187950df6b004192c2a89d721fb4bbbc6f4d2b23d0c38de2c06"
+      },
+      "result": {
+        "helper_sha256": "37756ca324775098d89119f1ad2740460543e125a8546d21c79484fc47075a0c",
+        "native_launched": false,
+        "runtime_artifacts_and_readonly_bindings_preserved": true,
+        "status": "passed",
+        "verified_actual_output_paths_absent": {
+          "binaries": "@EXECUTION_09_ROOT@/binaries",
+          "build": "@EXECUTION_09_ROOT@/build",
+          "native_source": "@EXECUTION_09_ROOT@/groops-source",
+          "run": "@EXECUTION_09_ROOT@/validation-09",
+          "source": "@EXECUTION_09_ROOT@/source",
+          "temporary": "@EXECUTION_09_ROOT@/temporary",
+          "upstream_repository": "@EXECUTION_09_ROOT@/upstream.git"
+        }
+      }
+    }
+  ],
+  "actual_staging_not_yet_executed": true,
+  "author_validation": {
+    "bytes": 2365,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-author-validation.json",
+    "sha256": "ef76d21866a114a761e5232da33ef8735ab495469b3988dd2de054c350163888"
+  },
+  "correctness_resolved": false,
+  "created_at": "2026-10-15T12:31:41.208942+00:00",
+  "findings": [
+    "Actual08 artifact is exactly path/sha256/bytes; new comparison validates all three with no ignored extra field. Actual file hash/size and sealed08 pins passed read-only remote verification.",
+    "Original08 wrapper remains with_correctness_namespace_04.py and its exact sealed hash; next_execution chooses the independently frozen09 wrapper only for the new attempt.",
+    "The new retry guard requires exact first failure and original helper bytes and refuses existing old success/new success/new failure receipts; original failure/helper remain immutable.",
+    "All five actual mutable paths plus source/upstream are absent; runtime artifacts and read-only bindings are preserved.",
+    "Fresh source extraction, archive hashes, independent upstream object store, driver admission, runtime hash checks and no-reuse guards are unchanged.",
+    "Success/failure records have new02 names; execution runtime provenance additionally pins original failure and original helper."
+  ],
+  "fixture_result": {
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "bytes": 5863,
+      "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-02-independent-tests-01.xml",
+      "sha256": "0e05179481f9d2345582796e23e7ba3ec810b3b01263009f25670a40d9f00628"
+    },
+    "passed": 46,
+    "skipped": 0
+  },
+  "helper": {
+    "bytes": 11451,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage_recovery09_02.py",
+    "sha256": "37756ca324775098d89119f1ad2740460543e125a8546d21c79484fc47075a0c"
+  },
+  "native_launched": false,
+  "original_review": {
+    "bytes": 2298,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/stage09-independent-review-01.json",
+    "sha256": "48c98ffc1934c02941318eb93a367481bb0c400bad83ad6e3024bf0f7caf5472"
+  },
+  "passed": true,
+  "preserved_first_failure": {
+    "bytes": 265,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/recovery09-staging-failed-01.json",
+    "sha256": "422db38f75638ac8874f4f5157bd5df0e1bf785bbb07cffaa437c0e673d47c46"
+  },
+  "reviewer": "@AGENT_ROOT@/v31_recovery_review",
+  "schema": "orbit-poc-stage09-02-independent-review-v1",
+  "scope": "Independent source review,46 fabricated tests and bounded read-only actual host checks. No staging, namespace launch, build or native fit by reviewer.",
+  "tests": {
+    "bytes": 9377,
+    "path": "@LOCAL_DATA_ROOT@/orbit-numerics-v3.1/correctness/control/test_stage_recovery09_02.py",
+    "sha256": "b77e6012fdb8bd50eafe3ae277d78809925866981a36dade68028c1f1cd321be"
+  },
+  "unchanged_functions": [
+    "sha",
+    "pin",
+    "require",
+    "save",
+    "digest",
+    "safe_name",
+    "unpack_source",
+    "check_terminal",
+    "next_execution"
+  ]
+}

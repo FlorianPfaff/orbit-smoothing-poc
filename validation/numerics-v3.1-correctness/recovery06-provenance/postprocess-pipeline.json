@@ -1,0 +1,148 @@
+{
+  "finished_at": "2026-10-15T07:27:24.543067+00:00",
+  "phase": "collect",
+  "plan": {
+    "bytes": 1874,
+    "path": "private-path-sha256:5e51cecb052800d9ba93b6adee0b35dd4abe540429f0d12f2502e08300822c93",
+    "sha256": "85c6f856624c27f0dffddafae09133a9da7ba1b8d7f8f732961eb1a068ee39a8"
+  },
+  "reporting_interpreter": {
+    "path": "private-path-sha256:5958d5510d95072cb5b82184f70f07170068aa758ac47eeac815aa708fffa398",
+    "sha256": "6759dcc6aa5a3fe3377349092f92f6700f1f79017294c1d0085009eb8802cb1e",
+    "versions": {
+      "gtsam": "4.2",
+      "numpy": "1.26.4",
+      "psutil": "7.2.2",
+      "pytest": "9.1.1",
+      "python": "3.11.15",
+      "scipy": "1.15.3"
+    }
+  },
+  "reporting_version_provenance": "Observed versions supplied in reviewed plan; interpreter bytes checked before every helper. Scientific validation runtime is recorded independently in the execution configuration.",
+  "schema": "orbit-poc-correctness-postprocess06-run-v1",
+  "scientific_status": "failed",
+  "scope": "Finite evidence processing only; no gate status upgrades, native fits, source changes, campaign signals or Git publication.",
+  "source": {
+    "commit": "163cc929f9e02a5c18da63c17a04724461ebcfb0",
+    "file_count": 764,
+    "sha256": "194b460ab90ed2eb3818af16324086f8cd0fe9aecd77308cd9ff45de23da660a"
+  },
+  "started_at": "2026-10-15T07:11:14.258294+00:00",
+  "status": "completed",
+  "steps": [
+    {
+      "argv": [
+        "private-path-sha256:a88792586caa361ce9d192d44655c8261a09d35f610b314c4735aca42cb13119",
+        "-c",
+        "24",
+        "private-path-sha256:5958d5510d95072cb5b82184f70f07170068aa758ac47eeac815aa708fffa398",
+        "private-path-sha256:5d368fca7d263d59976d0bbf9605b712dd8c4499754088e1d87cfb9e1200e5f1",
+        "--run",
+        "private-path-sha256:38f5a6ba28e3bf1aa44f563f789f3f283e14f0bc67c021578c917fe6e575acf8",
+        "--source",
+        "private-path-sha256:4c2d8af4a6a1290d0afdfc99925f3366374afd209273eb2e79f22ff43637e6e8",
+        "--pins",
+        "private-path-sha256:a13bc264db382c1f07e99e03903e12abc00a240c73d69e08073ece5f9be2b459",
+        "--output",
+        "private-path-sha256:119731a6b19649701dc2daf935ffb894cb92e9c170dbba2e1e173f29a6751382"
+      ],
+      "cleanup_verified": true,
+      "elapsed_seconds": 0.30556799296755344,
+      "finished_at": "2026-10-15T07:27:20.794811+00:00",
+      "name": "audit",
+      "pid": 1783692,
+      "reported_outcome": false,
+      "result": {
+        "bytes": 2709474,
+        "path": "private-path-sha256:119731a6b19649701dc2daf935ffb894cb92e9c170dbba2e1e173f29a6751382",
+        "sha256": "b89b442b446e6917a725de4c59e58acea2b65f2032d33d06a40d3396ede27fe7"
+      },
+      "returncode": 1,
+      "started_at": "2026-10-15T07:27:20.442515+00:00",
+      "status": "exited",
+      "timeout_seconds": 600.0
+    },
+    {
+      "argv": [
+        "private-path-sha256:a88792586caa361ce9d192d44655c8261a09d35f610b314c4735aca42cb13119",
+        "-c",
+        "24",
+        "private-path-sha256:5958d5510d95072cb5b82184f70f07170068aa758ac47eeac815aa708fffa398",
+        "private-path-sha256:ef7a952a212af00e9f1a4344b64a33ce930aebcd0a50c530077ed92ca87a9c75",
+        "--run",
+        "private-path-sha256:38f5a6ba28e3bf1aa44f563f789f3f283e14f0bc67c021578c917fe6e575acf8",
+        "--previous",
+        "private-path-sha256:fe6db91ade8af7f33d3818605078e4ed433022d29b06391d92cc1c5372a411a5",
+        "--control",
+        "private-path-sha256:f28534cd7520410fa28b101f0ffbbb3275b57e60922214b4a4c8a10f9f54cdf4",
+        "--audit",
+        "private-path-sha256:119731a6b19649701dc2daf935ffb894cb92e9c170dbba2e1e173f29a6751382",
+        "--output",
+        "private-path-sha256:bf5bf9f37033699e43e825fb0ab012c7342df15599b7a768619616622ded127a"
+      ],
+      "cleanup_verified": true,
+      "elapsed_seconds": 0.5474658069433644,
+      "finished_at": "2026-10-15T07:27:21.504050+00:00",
+      "name": "report",
+      "pid": 1783700,
+      "reported_outcome": "failed",
+      "result": {
+        "bytes": 10071698,
+        "path": "private-path-sha256:64790a8557084dd5416a62658150e5884378a910e2750f7ea5b5498ed6238f46",
+        "sha256": "dc71cfb1896e845aed72f1705d553f505ee8354d93d5d568b2d96c3d1df96b9c"
+      },
+      "returncode": 0,
+      "started_at": "2026-10-15T07:27:20.919756+00:00",
+      "status": "exited",
+      "timeout_seconds": 600.0
+    },
+    {
+      "argv": [
+        "private-path-sha256:a88792586caa361ce9d192d44655c8261a09d35f610b314c4735aca42cb13119",
+        "-c",
+        "24",
+        "private-path-sha256:5958d5510d95072cb5b82184f70f07170068aa758ac47eeac815aa708fffa398",
+        "private-path-sha256:f12cb7a5b41e99ab523e5976cab1806f32566a0de7466d658d6ace6bf91a6ac8",
+        "--root",
+        "private-path-sha256:9b816fc979c3ef881e2f40b50386d29fa6bddce6dd8c94af8df23044036578d8",
+        "--run",
+        "private-path-sha256:38f5a6ba28e3bf1aa44f563f789f3f283e14f0bc67c021578c917fe6e575acf8",
+        "--control",
+        "private-path-sha256:f28534cd7520410fa28b101f0ffbbb3275b57e60922214b4a4c8a10f9f54cdf4",
+        "--source",
+        "private-path-sha256:4c2d8af4a6a1290d0afdfc99925f3366374afd209273eb2e79f22ff43637e6e8",
+        "--binaries",
+        "private-path-sha256:c56ec8e50e4a8e9c0fe513bcd3ef574703fe8a564dd04e74c445b28dd5f859df",
+        "--previous",
+        "private-path-sha256:fe6db91ade8af7f33d3818605078e4ed433022d29b06391d92cc1c5372a411a5",
+        "--audit",
+        "private-path-sha256:119731a6b19649701dc2daf935ffb894cb92e9c170dbba2e1e173f29a6751382",
+        "--report",
+        "private-path-sha256:bf5bf9f37033699e43e825fb0ab012c7342df15599b7a768619616622ded127a",
+        "--output",
+        "private-path-sha256:e8c48bcd75f6bdf19815df3a8c379a6803325901eceaae4f1a51be3bdc9680e5"
+      ],
+      "cleanup_verified": true,
+      "elapsed_seconds": 2.7053114160662517,
+      "finished_at": "2026-10-15T07:27:24.412565+00:00",
+      "name": "collect",
+      "pid": 1783701,
+      "reported_outcome": "failed",
+      "result": {
+        "bytes": 68146,
+        "path": "private-path-sha256:777056f3c67d7ff3625d8fe100858e6f1c81fd1a66ade9c324e004a6a40fa7c5",
+        "sha256": "84f7945d4101b87c1033be4cdb90b966b869ecf0eb418e67b583786cc2cb9b63"
+      },
+      "returncode": 0,
+      "started_at": "2026-10-15T07:27:21.662497+00:00",
+      "status": "exited",
+      "timeout_seconds": 600.0
+    }
+  ],
+  "validation_pipeline": {
+    "bytes": 973807,
+    "path": "private-path-sha256:50d06b50fff72e8d6c2195025f5d3071ef65573f1b6cdbc621b46717daf244b6",
+    "sha256": "520bec0ee8502eb01a5917e7bb9245c0a2150a8544c9e6bc4613e8008b94a434"
+  },
+  "validation_status": "failed"
+}
