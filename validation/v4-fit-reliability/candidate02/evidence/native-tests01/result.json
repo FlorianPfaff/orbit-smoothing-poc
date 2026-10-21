@@ -1,0 +1,146 @@
+{
+  "passed": false,
+  "results": [
+    {
+      "counts": {
+        "error": 0,
+        "failure": 4,
+        "skipped": 0,
+        "tests": 106
+      },
+      "execution": {
+        "argv": [
+          "/usr/bin/taskset",
+          "-c",
+          "0",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+          "-s",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp=/home/emper/orbit-v4-failure-investigation/native-tests01/native/temp",
+          "--junitxml=/home/emper/orbit-v4-failure-investigation/native-tests01/native/tests.xml",
+          "tests/test_numerics_native_qr.py",
+          "tests/test_numerics_original_objective.py",
+          "tests/test_numerics_mean_residual.py",
+          "tests/test_numerics_derivatives.py",
+          "tests/test_numerics_geometry_precision.py",
+          "tests/test_numerics_synthetic_force_arithmetic.py"
+        ],
+        "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "elapsed_seconds": 52.18183271199814,
+        "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 314916864,
+        "plan_sha256": "3db07d7a52f357e6f73ef42d66af59c4eb256966109589b1243a167a373c9e81",
+        "returncode": 1,
+        "schema": "orbit-poc-segmented-supervision-v1",
+        "signals_received": [],
+        "status": "failed",
+        "supervisor": {
+          "parent": 81105,
+          "pid": 81107,
+          "start_ticks": 7808217,
+          "state": "R"
+        },
+        "tracked_owned_processes": [
+          {
+            "parent": 81107,
+            "pid": 81108,
+            "start_ticks": 7808273,
+            "state": "Z"
+          }
+        ],
+        "worker": {
+          "parent": 81107,
+          "pid": 81108,
+          "start_ticks": 7808273,
+          "state": "R"
+        }
+      },
+      "inputs_and_runtime_unchanged": true,
+      "passed": false,
+      "suite": "native"
+    },
+    {
+      "counts": {
+        "error": 0,
+        "failure": 0,
+        "skipped": 0,
+        "tests": 51
+      },
+      "execution": {
+        "argv": [
+          "/usr/bin/taskset",
+          "-c",
+          "0",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+          "-s",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp=/home/emper/orbit-v4-failure-investigation/native-tests01/correction/temp",
+          "--junitxml=/home/emper/orbit-v4-failure-investigation/native-tests01/correction/tests.xml",
+          "tests/test_numerics_query_precision.py",
+          "tests/test_numerics_reference_precision.py",
+          "tests/test_numerics_precise_residual.py",
+          "tests/test_numerics_precise_objective.py",
+          "tests/test_numerics_light_time_precision.py"
+        ],
+        "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "elapsed_seconds": 10.14782952600217,
+        "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 168517632,
+        "plan_sha256": "b8cdba21eed6eafc8d2b8b0ef4e96940a4a653b70447382edc39732b59a6105f",
+        "returncode": 0,
+        "schema": "orbit-poc-segmented-supervision-v1",
+        "signals_received": [],
+        "status": "complete",
+        "supervisor": {
+          "parent": 81105,
+          "pid": 81790,
+          "start_ticks": 7813534,
+          "state": "R"
+        },
+        "tracked_owned_processes": [
+          {
+            "parent": 81790,
+            "pid": 81791,
+            "start_ticks": 7813608,
+            "state": "Z"
+          }
+        ],
+        "worker": {
+          "parent": 81790,
+          "pid": 81791,
+          "start_ticks": 7813608,
+          "state": "D"
+        }
+      },
+      "inputs_and_runtime_unchanged": true,
+      "passed": true,
+      "suite": "correction"
+    }
+  ]
+}

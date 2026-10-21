@@ -6,6 +6,8 @@ Set ORBIT_POC_NUISANCE_PERFORMANCE=1 for diagnostic sidecars. The default is 0.
 ORBIT_POC_NUISANCE_INTERPOLATION_CACHE=1 enables a one-entry exact-query cache
 inside each row build; default 0. Every native design call and downstream check
 remains in place. No cache entry survives a build/update boundary logically.
+ORBIT_POC_NUISANCE_COST_ONLY_DESIGN=1 omits the unused physical observation
+derivative interpolation only during cost-only child builds; default 0.
 """
 from __future__ import annotations
 
@@ -70,10 +72,12 @@ def _search(text: str) -> str:
 
 def _dynamic(text: str) -> str:
     original = "para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3)"
-    replacement = """orbitPocNuisancePerformance::interpolate(
+    replacement = """orbitPocNuisancePerformance::dynamicDesign(para->PosDesign.at(arcNo).columns(),
+                [&](){para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo).column(0,0), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3);},
+                [&](){return orbitPocNuisancePerformance::interpolate(
                 para,&para->polynomial.at(arcNo),&para->PosDesign.at(arcNo),eqn.receiver->idRecv(),eqn.idEpoch,arcNo,
                 eqn.timeRecv.mjdInt(),eqn.timeRecv.mjdMod(),eqn.receiver->timeRemainder(eqn.idEpoch),
-                [&](){return """ + original + ";})"
+                [&](){return """ + original + ";});})"
     return '// ' + MARKER + '\n#include "misc/orbitPoc/nuisancePerformance.h"\n' + _replace(text, original, replacement)
 
 
@@ -115,6 +119,9 @@ def apply(root: str | Path) -> dict:
                 "cache_environment": "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE",
                 "cache_default": "0", "cache_values": ["0", "1"],
                 "cache_scope": "one_exact_native_matrix_within_one_buildNormals_generation",
+                "cost_only_design_environment": "ORBIT_POC_NUISANCE_COST_ONLY_DESIGN",
+                "cost_only_design_default": "0",
+                "cost_only_design_scope": "unused_dynamic_observation_derivatives_only_no_residual_or_prior_changes",
                 "scientific_models_and_thresholds": "unchanged",
                 "installer_inputs": inputs,
                 "previous_files": {name: _digest(data) for name, data in original.items()},

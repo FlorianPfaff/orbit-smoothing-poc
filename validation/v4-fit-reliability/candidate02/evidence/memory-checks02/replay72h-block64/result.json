@@ -1,0 +1,51 @@
+{
+  "block_epochs": 64,
+  "execution": {
+    "argv": [
+      "/usr/bin/taskset",
+      "-c",
+      "0",
+      "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-89a273a44a8a8e0a",
+      "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/replay.xml"
+    ],
+    "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    },
+    "elapsed_seconds": 35.01444910200371,
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "owned_process_group_cleaned": true,
+    "peak_process_tree_rss_bytes": 89722880,
+    "plan_sha256": "85ebc68f745f84cbb5dc380b1ae26f64112b16cd4088002327a864a8b4bd03b9",
+    "returncode": 0,
+    "schema": "orbit-poc-segmented-supervision-v1",
+    "signals_received": [],
+    "status": "complete",
+    "supervisor": {
+      "parent": 82407,
+      "pid": 82608,
+      "start_ticks": 7862327,
+      "state": "R"
+    },
+    "tracked_owned_processes": [
+      {
+        "parent": 82608,
+        "pid": 82609,
+        "start_ticks": 7862433,
+        "state": "Z"
+      }
+    ],
+    "worker": {
+      "parent": 82608,
+      "pid": 82609,
+      "start_ticks": 7862433,
+      "state": "R"
+    }
+  },
+  "freeze_sha256": "59b9977a7b7d2ac5e2434a227249d1a1d73a53d759c84c0ea8570ddce32d3215",
+  "whole_fit_verified": false
+}

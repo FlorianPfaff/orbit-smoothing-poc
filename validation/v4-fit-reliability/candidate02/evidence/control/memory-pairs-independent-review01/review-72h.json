@@ -1,0 +1,373 @@
+{
+  "schema": "saved-72h-variational-memory-replay-audit-v1",
+  "passed": true,
+  "created_utc": "2026-10-21T02:22:45.900925+00:00",
+  "scope": "Independent terminal receipt/config/hash/table audit of a fixed-parameter evaluation only; reviewer authored component, not independent implementation audit",
+  "native_jobs_run_by_review": 0,
+  "results": [
+    {
+      "block_epochs": 0,
+      "status": "memory_limit",
+      "returncode": -15,
+      "peak_process_tree_rss_bytes": 10851733504,
+      "elapsed_seconds": 11.007349400999374,
+      "owned_cleanup_verified": true
+    },
+    {
+      "block_epochs": 64,
+      "status": "complete",
+      "returncode": 0,
+      "peak_process_tree_rss_bytes": 89722880,
+      "elapsed_seconds": 35.01444910200371,
+      "owned_cleanup_verified": true
+    },
+    {
+      "block_epochs": 256,
+      "status": "complete",
+      "returncode": 0,
+      "peak_process_tree_rss_bytes": 128843776,
+      "elapsed_seconds": 39.63680072799616,
+      "owned_cleanup_verified": true
+    }
+  ],
+  "epochs": 51840,
+  "parameters": 4327,
+  "first_mjd": 60440.0,
+  "last_mjd": 60442.99994212963,
+  "dense_position_velocity_design_formula_bytes": 10766960640,
+  "blocked_pair_orbit_parameters_initial_design_byte_identical": true,
+  "maximum_position_difference_m": 0,
+  "maximum_velocity_difference_m_s": 0,
+  "same_archived_variational_input_fresh_hash": {
+    "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/variational.dat",
+    "bytes": 21570168,
+    "sha256": "76eb02bc2b62d35ce28ecc9b51c67dc2d5967c0542f5ee124d66f526b8779731"
+  },
+  "source_provenance": {
+    "copied_at": "2026-10-21T02:11:24.829391+00:00",
+    "source_manifest_sha256": "4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6",
+    "files": [
+      {
+        "source": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected/point-001-initial/closure-01/propagate.xml",
+        "name": "propagate.xml",
+        "bytes": 7333,
+        "sha256": "9c197f5f49f3974586f951ff179fab0f5cd9a25a6cd822f6418bcf14d7858519"
+      },
+      {
+        "source": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected/point-001-initial/closure-01/variational.dat",
+        "name": "variational.dat",
+        "bytes": 21570168,
+        "sha256": "76eb02bc2b62d35ce28ecc9b51c67dc2d5967c0542f5ee124d66f526b8779731"
+      },
+      {
+        "source": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected/point-001-initial/fixed_force.txt",
+        "name": "fixed_force.txt",
+        "bytes": 103898,
+        "sha256": "6142efc20897b90287bee2de35de44be4cf20f2123694ca84ab803bb7a7e946a"
+      },
+      {
+        "source": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected/point-001-initial/physical_initial.txt",
+        "name": "physical_initial.txt",
+        "bytes": 192,
+        "sha256": "0b4603f54830f18b862a13d372a3f3049283d5d8b594e32abbe065529b140421"
+      },
+      {
+        "source": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected/point-001-initial/native/log_density.txt",
+        "name": "log_density.txt",
+        "bytes": 211729,
+        "sha256": "2f3573dd25d77545d05fd414a43ed97e5844855085611a1c4f48b76a815f8d81"
+      }
+    ]
+  },
+  "freeze": {
+    "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/freeze.json",
+    "bytes": 6431,
+    "sha256": "59b9977a7b7d2ac5e2434a227249d1a1d73a53d759c84c0ea8570ddce32d3215"
+  },
+  "summary": {
+    "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/result.json",
+    "bytes": 6920,
+    "sha256": "8a21cfb2affa4e3ce0cafd4f8c615a1b2d9daf8956dab4d6f7556a6c7e390ae3"
+  },
+  "program": {
+    "path": "/home/emper/orbit-v4-failure-investigation/control/memory-pairs-independent-review01/audit_72h.py",
+    "bytes": 6664,
+    "sha256": "0b534a40f6cf58e68fe670011b42e0e3dced56f08059abdec6313f417cada704"
+  },
+  "pins": [
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/physical_initial.txt",
+      "bytes": 192,
+      "sha256": "0b4603f54830f18b862a13d372a3f3049283d5d8b594e32abbe065529b140421"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/variational.dat",
+      "bytes": 21570168,
+      "sha256": "76eb02bc2b62d35ce28ecc9b51c67dc2d5967c0542f5ee124d66f526b8779731"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/propagate.xml",
+      "bytes": 7333,
+      "sha256": "9c197f5f49f3974586f951ff179fab0f5cd9a25a6cd822f6418bcf14d7858519"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/provenance.json",
+      "bytes": 1903,
+      "sha256": "71103753de0d0f3009634e8efaffc37edbf0464aff140acd22821780da1c32c6"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/fixed_force.txt",
+      "bytes": 103898,
+      "sha256": "6142efc20897b90287bee2de35de44be4cf20f2123694ca84ab803bb7a7e946a"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/log_density.txt",
+      "bytes": 211729,
+      "sha256": "2f3573dd25d77545d05fd414a43ed97e5844855085611a1c4f48b76a815f8d81"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/ephemerides.dat",
+      "bytes": 102256504,
+      "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/ephemerides-copy.json",
+      "bytes": 319,
+      "sha256": "ba739c95ad3f8888833e3e2e613f2ceaba8027c2bff1f1a68473bc22855f0190"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-89a273a44a8a8e0a",
+      "bytes": 24155776,
+      "sha256": "89a273a44a8a8e0a56e9b9f34eccc304a0713d0b4e4e0d9c796ce07ce9aae7cd"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/build-01/build-manifest.json",
+      "bytes": 159169,
+      "sha256": "903f4eb0d1c2c3e7ce439a28b2824bc1ecec144e935fad8c9db5e7e9145ca3a7"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/liberfa.so.1",
+      "bytes": 436112,
+      "sha256": "0b565cccc453d93882a8a84a8639badc71f22f370aeba2040e96c58361fc7857"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libexpat.so.1",
+      "bytes": 195584,
+      "sha256": "8b61b41a8f5bee8d8d336e8bc5318233d6b435d482a7510f4e01788b618a6598"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libgcc_s.so.1",
+      "bytes": 922624,
+      "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libgfortran.so.5",
+      "bytes": 11532656,
+      "sha256": "8b93406aef97f0f39ebac58aed3b63c58c9c26eb246595d8141dde5baeee5b33"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libopenblas.so.0",
+      "bytes": 41542616,
+      "sha256": "f1424288e9ac125331102c0150b66fbd244560987779552e0e97d5cfd9de572b"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libquadmath.so.0",
+      "bytes": 991312,
+      "sha256": "9fa4807097fa47da1815765f0a43177c45e7ec7cc94e44cfa95a4c3a1a341ee6"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libstdc++.so.6",
+      "bytes": 23874544,
+      "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+    },
+    {
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libz.so.1",
+      "bytes": 117168,
+      "sha256": "3c6fd78e248a60e45081bcc77031204a7cb64a88ff2e27fc786ef12ae7e91fca"
+    },
+    {
+      "path": "/lib64/ld-linux-x86-64.so.2",
+      "bytes": 254864,
+      "sha256": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2190608,
+      "sha256": "85e64f97e348786a8fb4d9f3d52fec289e2fb86bba20f0731dfe61990525e0f7"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "bytes": 14408,
+      "sha256": "59d725ca30596a9863f4fa2552a7125f834842abc86b40890231c129358965d2"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "bytes": 1198376,
+      "sha256": "1c488db6f4fe8cecb72456bc018de000b7a9b539c2994864b0416b5e8371b3d8"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libmvec.so.1",
+      "bytes": 1022240,
+      "sha256": "2f2e7f4ad88e1b13f2f8345c826b25f85ba61c93527d91e59dd0d2943eac6e80"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "bytes": 14408,
+      "sha256": "1327fc40710691dbd94e88b6cf4efce27fefe8fbb93f7d1164a75b4dccaea696"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/control/run_memory_checks02.py",
+      "bytes": 6065,
+      "sha256": "2c7711231b4d2e7171755b41dd2c7d707a1ab26b529aee59623e1f5bcbedda8e"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/src/orbit_poc/segmented/supervisor.py",
+      "bytes": 14990,
+      "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/tests/test_native_variational_memory.py",
+      "bytes": 12955,
+      "sha256": "52805863b630d64ddb69639fee7bd5114845e4c992959620ef5f732060e0474f"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/replay.xml",
+      "bytes": 2652,
+      "sha256": "d6b112735103ab7196a5940a9c1dc2fcf3fe21d87b40178fbebeb7e8a8981e97"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/replay.xml",
+      "bytes": 2657,
+      "sha256": "83d43d65ef5a1aa51f835688f08cdba1a15a7d0936a42941ffe146f09e97b1ff"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/replay.xml",
+      "bytes": 2662,
+      "sha256": "0162781ff7b2d5f38812ee55642831c5c46adef6be6b18e892674d49570559b1"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/result.json",
+      "bytes": 2711,
+      "sha256": "0366b23cb622cab5862bdf227887800bf2ba1653cdf1c5e48f07b85106d2e3ad"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/supervisor.plan.json",
+      "bytes": 966,
+      "sha256": "ee203d14714de4b7a4e325324074558e46701a1ca01e4384aca85f39ec7e5ef1"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/supervisor.json",
+      "bytes": 2341,
+      "sha256": "b454ed9117a429442a65a46f4cae912a838c9aa27d95c3f9e9d7aad180cb42ec"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/native.log",
+      "bytes": 162,
+      "sha256": "0e3c2a49cba6f03aa0dc45800ffde1469975b9f32e4cc9dbdb7790deeb02707b"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/replay.xml",
+      "bytes": 2652,
+      "sha256": "d6b112735103ab7196a5940a9c1dc2fcf3fe21d87b40178fbebeb7e8a8981e97"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/result.json",
+      "bytes": 1473,
+      "sha256": "a4daa3f6b93cab65b56f94b80b002c2a747254f51817018aa0665ee51f378390"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/supervisor.plan.json",
+      "bytes": 971,
+      "sha256": "85ebc68f745f84cbb5dc380b1ae26f64112b16cd4088002327a864a8b4bd03b9"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/supervisor.json",
+      "bytes": 1224,
+      "sha256": "0be779beb9874c6faa1ec649585af19251b050f9409d96fbf29fd5781b31d40c"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/native.log",
+      "bytes": 858,
+      "sha256": "bb09f3ca346e1af88f09be3f713ee752fdc860f7824ab19a4d37862d5019ec38"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/replay.xml",
+      "bytes": 2657,
+      "sha256": "83d43d65ef5a1aa51f835688f08cdba1a15a7d0936a42941ffe146f09e97b1ff"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/result.json",
+      "bytes": 1476,
+      "sha256": "fa6ef2f9488196dcfc3e29519a648dfc06c0e77071c1f29163884bf3bfac5689"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/supervisor.plan.json",
+      "bytes": 976,
+      "sha256": "99eee71dfe392150517f47ddf9d102032b6ac480ff383c92a6b2c33e84132b5d"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/supervisor.json",
+      "bytes": 1226,
+      "sha256": "bef065b8554acce85dd91fc3b6c1a6f1aadaad5953c74810e0df19ca559ab322"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/native.log",
+      "bytes": 862,
+      "sha256": "f04b5517472b37ae25dd09532d056b5755cfa6c1ebb9ba3c98ef8397d7cd836d"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/replay.xml",
+      "bytes": 2662,
+      "sha256": "0162781ff7b2d5f38812ee55642831c5c46adef6be6b18e892674d49570559b1"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/orbit.dat",
+      "bytes": 4561982,
+      "sha256": "040cf74cf1669fa41cbedd4984244eb0bf87837e47854bf6c4aa346a1f850788"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/orbit.dat",
+      "bytes": 4561982,
+      "sha256": "040cf74cf1669fa41cbedd4984244eb0bf87837e47854bf6c4aa346a1f850788"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/orbit.txt",
+      "bytes": 13478998,
+      "sha256": "0d246c811fb40233523e7dd50ae7d0b07bb096a6828f80decb3bcdf0711f0db0"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/orbit.txt",
+      "bytes": 13478998,
+      "sha256": "0d246c811fb40233523e7dd50ae7d0b07bb096a6828f80decb3bcdf0711f0db0"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/initial_design.txt",
+      "bytes": 675069,
+      "sha256": "ca6c01770b7eec2472e5edab044fcd2b27d0c6852c4c77b58c655c7e5837d9c4"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/initial_design.txt",
+      "bytes": 675069,
+      "sha256": "ca6c01770b7eec2472e5edab044fcd2b27d0c6852c4c77b58c655c7e5837d9c4"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/reference.txt",
+      "bytes": 116880,
+      "sha256": "5dcd91591b5f91743e924455522a182bdd67b2c8de9dc6883b20a785e1c8cfb7"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/reference.txt",
+      "bytes": 116880,
+      "sha256": "5dcd91591b5f91743e924455522a182bdd67b2c8de9dc6883b20a785e1c8cfb7"
+    }
+  ],
+  "whole_fit_verified": false,
+  "release_authority": false,
+  "limitations": [
+    "Block64/block256 agreement is self-consistency; no 72h dense output exists under the unchanged 8 GiB limit.",
+    "Input propagation archive was reused, so complete nonlinear trajectory closure and propagated sensitivities are not certified by this replay.",
+    "One 500km quiet density linearization; 48h GNSS profile memory, nonlinear fits, rank and covariance remain unverified.",
+    "Peak RSS is sampled supervision evidence, not an allocation trace or hard instantaneous ceiling; the dense case overshot before termination.",
+    "Reported stage timings are single local observations, not a speedup claim."
+  ]
+}

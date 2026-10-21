@@ -1,0 +1,676 @@
+{
+  "analysis": [
+    {
+      "accepted": true,
+      "anchors": [
+        "native-source-01/source/misc/observation/variationalEquationFromFile.h:117",
+        "native-source-01/source/misc/observation/variationalEquationFromFile.cpp:22",
+        "native-source-01/source/misc/observation/variationalEquationFromFile.cpp:157",
+        "native-source-01/source/misc/observation/variationalEquationFromFile.cpp:226",
+        "native-source-01/source/misc/observation/variationalEquation.cpp:312",
+        "native-source-01/source/misc/observation/variationalEquation.cpp:335",
+        "source/groops/extension/blockedVariationalEvaluation.h:66"
+      ],
+      "assessment": "One model owns one VariationalEquation. open/setArc initializes full-arc state; computeIndices invalidates Alpha once before initial evaluation. getArc returns the same arc without setArc for every block. integrateArc allocates requested rows and visits position then velocity at each original epoch. computeAlpha restarts only on backward indices or invalidation. Blocks cover increasing, nonoverlapping consecutive epochs, so each interval advances once and velocity reuses the position accumulator. Alpha, integrand ring/window, quadrature cache and all original parameter columns survive block boundaries.",
+      "topic": "Accumulator and arc lifetime"
+    },
+    {
+      "accepted": true,
+      "anchors": [
+        "native-source-01/source/misc/observation/variationalEquation.cpp:115",
+        "native-source-01/source/misc/observation/variationalEquation.cpp:238",
+        "native-source-01/source/misc/observation/variationalEquation.cpp:283",
+        "native-source-01/source/misc/observation/variationalEquation.cpp:345",
+        "native-source-01/source/misc/observation/variationalEquation.cpp:362",
+        "native-source-01/source/misc/orbitPoc/integrationWindows.h:8",
+        "native-source-01/source/classes/parametrizationAcceleration/parametrizationAccelerationLogDensity.h:31"
+      ],
+      "assessment": "Pulse maps and knot/event integration windows are initialized on the complete arc, not per block. Both position and velocity include initialized pulse columns when epoch >= pulse time; native endpoint pulses at/before first and at/after last remain excluded exactly as in dense evaluation. Density coordinates and boundary lists are unchanged. No new integration cut or state reset is introduced by a storage block.",
+      "topic": "Pulses and density knots"
+    },
+    {
+      "accepted": true,
+      "anchors": [
+        "source/groops/extension/blockedVariationalEvaluation.h:56",
+        "source/groops/extension/blockedVariationalEvaluation.h:82",
+        "source/tests/fixtures/variational_memory_evaluator.cpp:94",
+        "source/tests/fixtures/variational_memory_evaluator.cpp:147",
+        "native-source-01/source/misc/orbitPoc/piecewisePolynomial.h:29",
+        "native-source-01/source/misc/orbitPoc/piecewisePolynomial.h:70"
+      ],
+      "assessment": "The first block writes the same six-row design, zeros only the last six state parameters, solves the same first-epoch 6x6 map against target minus nuisance-evaluated state, and uses the solved global parameter vector for every block. Full evaluated position/velocity arrays are assembled before the byte-identical original interpolation tail. Pulse velocity uses right-side selection at exact boundaries and omits post-pulse endpoints from preceding interpolation stencils; density boundaries remain continuous. No interpolation occurs separately within storage blocks.",
+      "topic": "Initial state and interpolation"
+    },
+    {
+      "accepted": true,
+      "anchors": [
+        "source/groops/extension/blockedVariationalEvaluation.h:64",
+        "source/groops/extension/blockedVariationalEvaluation.h:96",
+        "source/groops/extension/blockedVariationalEvaluation.h:105",
+        "native-source-01/source/misc/observation/variationalEquationFromFile.cpp:175",
+        "native-source-01/source/base/matrix.cpp:203",
+        "native-source-01/source/base/matrix.cpp:237",
+        "native-source-01/source/base/matrix.h:714",
+        "native-source-01/source/base/matrix.cpp:852"
+      ],
+      "assessment": "Two design matrices are 3B by P, plus per-epoch 3 by P temporaries and the native O(P) accumulator/integrand machinery. Only two 3N by 1 evaluated arrays escape the loop. Native Matrix copies separate MatrixBase handles but share the data pointer until field() detaches on write, so matMult does not corrupt equation.pos0/vel0 during reanchoring. copy into result rows copies values and retains no design slice. Block equation and evaluated temporaries leave scope before the next integrateArc allocation. The claim is bounded design-row storage, not constant total memory; the full propagation archive, evaluated trajectory and original native event data remain resident.",
+      "topic": "Allocation, ownership and copy-on-write"
+    },
+    {
+      "accepted": true,
+      "anchors": [
+        "source/groops/extension/blockedVariationalEvaluation.h:14",
+        "source/groops/extension/native_variational_memory.py:43",
+        "source/groops/extension/native_variational_memory.py:75",
+        "native-source-01/source/programs/gnss/orbitPocEvaluateVariational.cpp:59",
+        "native-source-01/source/programs/gnss/orbitPocEvaluateVariational.cpp:68",
+        "native-source-01/source/programs/gnss/orbitPocEvaluateVariational.cpp:75",
+        "source/tests/test_native_variational_memory.py:42"
+      ],
+      "assessment": "Unset/0 selects the original arithmetic body with only declaration hoisting. Canonical integers 1..65536 select blocking; malformed/out-of-range options reject before file/export work after schema generation. The block guard rejects dense reference, covariance query and query reference exports before any block/full design evaluation. Existing segmentedOnly guards reject incompatible outputs before return. Ordinary local segmented export and orbit queries remain supported. The local exporter calls initIntegration before sampling integrands without advancing Alpha, so subsequent blocks start from the same chronological state.",
+      "topic": "Default branch, configuration and exports"
+    }
+  ],
+  "blocking_findings": [],
+  "component_evidence": {
+    "block64_block256_saved_output_bytes_identical": true,
+    "component_test_count": 28,
+    "dense72h_output_exists": false,
+    "dense_design_formula_bytes": 10766960640,
+    "freeze": {
+      "bytes": 6431,
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/freeze.json",
+      "sha256": "59b9977a7b7d2ac5e2434a227249d1a1d73a53d759c84c0ea8570ddce32d3215"
+    },
+    "independent_dense72h_equivalence_established": false,
+    "independently_recomputed_saved_small_comparisons": 40,
+    "limits": {
+      "process_tree_rss_bytes": 8589934592,
+      "timeout_seconds": 7200
+    },
+    "output_pins": [
+      {
+        "bytes": 4561982,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/orbit.dat",
+        "sha256": "040cf74cf1669fa41cbedd4984244eb0bf87837e47854bf6c4aa346a1f850788"
+      },
+      {
+        "bytes": 4561982,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/orbit.dat",
+        "sha256": "040cf74cf1669fa41cbedd4984244eb0bf87837e47854bf6c4aa346a1f850788"
+      },
+      {
+        "bytes": 13478998,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/orbit.txt",
+        "sha256": "0d246c811fb40233523e7dd50ae7d0b07bb096a6828f80decb3bcdf0711f0db0"
+      },
+      {
+        "bytes": 13478998,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/orbit.txt",
+        "sha256": "0d246c811fb40233523e7dd50ae7d0b07bb096a6828f80decb3bcdf0711f0db0"
+      },
+      {
+        "bytes": 675069,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/initial_design.txt",
+        "sha256": "ca6c01770b7eec2472e5edab044fcd2b27d0c6852c4c77b58c655c7e5837d9c4"
+      },
+      {
+        "bytes": 675069,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/initial_design.txt",
+        "sha256": "ca6c01770b7eec2472e5edab044fcd2b27d0c6852c4c77b58c655c7e5837d9c4"
+      },
+      {
+        "bytes": 116880,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/reference.txt",
+        "sha256": "5dcd91591b5f91743e924455522a182bdd67b2c8de9dc6883b20a785e1c8cfb7"
+      },
+      {
+        "bytes": 116880,
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/reference.txt",
+        "sha256": "5dcd91591b5f91743e924455522a182bdd67b2c8de9dc6883b20a785e1c8cfb7"
+      }
+    ],
+    "replay_epochs": 51840,
+    "replay_parameters": 4327,
+    "replays": [
+      {
+        "block_epochs": 0,
+        "elapsed_seconds": 11.007349400999374,
+        "peak_process_tree_rss_bytes": 10851733504,
+        "receipt": {
+          "bytes": 2711,
+          "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/result.json",
+          "sha256": "0366b23cb622cab5862bdf227887800bf2ba1653cdf1c5e48f07b85106d2e3ad"
+        },
+        "returncode": -15,
+        "status": "memory_limit"
+      },
+      {
+        "block_epochs": 64,
+        "elapsed_seconds": 35.01444910200371,
+        "peak_process_tree_rss_bytes": 89722880,
+        "receipt": {
+          "bytes": 1473,
+          "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/result.json",
+          "sha256": "a4daa3f6b93cab65b56f94b80b002c2a747254f51817018aa0665ee51f378390"
+        },
+        "returncode": 0,
+        "status": "complete"
+      },
+      {
+        "block_epochs": 256,
+        "elapsed_seconds": 39.63680072799616,
+        "peak_process_tree_rss_bytes": 128843776,
+        "receipt": {
+          "bytes": 1476,
+          "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/result.json",
+          "sha256": "fa6ef2f9488196dcfc3e29519a648dfc06c0e77071c1f29163884bf3bfac5689"
+        },
+        "returncode": 0,
+        "status": "complete"
+      }
+    ],
+    "small_comparisons": [
+      {
+        "block_epochs": 1,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": false,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": false,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": false,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 1,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 7,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 13,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 64,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      },
+      {
+        "block_epochs": 256,
+        "density": true,
+        "position_difference_m": 0.0,
+        "queries": true,
+        "reanchor": true,
+        "velocity_difference_m_s": 0.0
+      }
+    ],
+    "small_epochs_designs_parameters_identical": true,
+    "small_maximum_position_difference_m": 0.0,
+    "small_maximum_velocity_difference_m_s": 0.0,
+    "test_report": {
+      "bytes": 4002,
+      "path": "/home/emper/orbit-v4-failure-investigation/memory-checks02/native-pairs/tests.xml",
+      "sha256": "c7685d883b169a6f07e602284a9de735c8bf1321e88371f1ace5449f9d61a0b8"
+    }
+  },
+  "created_utc": "2026-10-21T02:30:49.054394+00:00",
+  "decision": "accepted",
+  "execution": {
+    "compiler_jobs": 0,
+    "cpu_affinity": [
+      4
+    ],
+    "native_jobs": 0,
+    "remote_operations": 0,
+    "source_edits": 0,
+    "test_jobs": 0,
+    "writes_confined_to": "/home/emper/orbit-v4-failure-investigation/control/block-memory-independent-source-review01"
+  },
+  "implementation_author": "/root/nuisance_native_analysis",
+  "limitations": [
+    "This reviewer did not author the implementation and performed the source reasoning above independently. The existing author recomputation receipts are supporting evidence, not an independent implementation audit.",
+    "No native execution, compiler invocation, tests, or source modification were performed by this review. Saved numeric tables and hashes were read independently.",
+    "72-hour block64/block256 agreement is self-consistency only. Dense execution failed under the unchanged 8 GiB supervision limit and produced no dense output.",
+    "72-hour replay reused a saved propagation archive and tested one fixed linearization. It does not validate a complete nonlinear fit, rank policy, covariance, 48-hour GNSS profiling memory, or a release.",
+    "RSS values are sampled process-tree evidence, not a hard instantaneous bound or allocation trace; the dense attempt overshot before termination.",
+    "Timing observations do not establish speedup."
+  ],
+  "nonblocking_risks_and_gaps": [
+    {
+      "anchors": [
+        "source/groops/extension/blockedVariationalEvaluation.h:106",
+        "source/groops/extension/native_variational_memory.py:10"
+      ],
+      "assessment": "Changing BLAS row shapes can change rounding. Static preservation does not prove numerical equivalence for all parameter vectors, profiles, long arcs or numerical libraries.",
+      "id": "R1"
+    },
+    {
+      "anchors": [
+        "source/tests/test_native_variational_memory.py:42",
+        "source/tests/test_native_variational_memory.py:151",
+        "source/tests/test_native_variational_memory.py:169",
+        "source/groops/extension/blockedVariationalEvaluation.h:72",
+        "source/groops/extension/native_variational_memory.py:63"
+      ],
+      "assessment": "The 28-test suite tests option parsing and exact default-source preservation but does not execute unsupported export combinations or the shape/epoch failure guards against the native program. Those branches are accepted by source inspection here; dedicated negative runtime tests would improve regression coverage.",
+      "id": "R2"
+    },
+    {
+      "anchors": [
+        "native-source-01/source/programs/gnss/orbitPocEvaluateVariational.cpp:69",
+        "native-source-01/source/programs/gnss/orbitPocEvaluateVariational.cpp:77"
+      ],
+      "assessment": "A requested local segmented export executes before the later block-incompatible-output guard, so an invalid combination can leave that local export file before failing. Forbidden dense designs are still not allocated. This is a nonblocking side-effect observation, not a violation of the documented rejection promise.",
+      "id": "R3"
+    }
+  ],
+  "release_authority": false,
+  "review_program": {
+    "bytes": 18485,
+    "path": "/home/emper/orbit-v4-failure-investigation/control/block-memory-independent-source-review01/audit.py",
+    "sha256": "bac06554e18683b3b415fb31fc71f8826af1c0ca1e584800af8ee1ce7f36c3aa"
+  },
+  "reviewed_file_pins": [
+    {
+      "bytes": 4897,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/blockedVariationalEvaluation.h",
+      "sha256": "fd890e65384e6959bf95dedbc55d8e1891e3090b8a5a061d5e733ffe8f61ca10"
+    },
+    {
+      "bytes": 6869,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/native_variational_memory.py",
+      "sha256": "4b227c6d2a4a8aea768c37f3932a9c2e3862fd6676c91a1b7093498bff7808c3"
+    },
+    {
+      "bytes": 12955,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/tests/test_native_variational_memory.py",
+      "sha256": "52805863b630d64ddb69639fee7bd5114845e4c992959620ef5f732060e0474f"
+    },
+    {
+      "bytes": 13023,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/tests/fixtures/variational_memory_evaluator.cpp",
+      "sha256": "78353a18de1a8795a470316f02430215a102e5d20bc7ff6e772d96c415339c0c"
+    },
+    {
+      "bytes": 3083,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/docs/variational-memory-candidate.md",
+      "sha256": "1625f5c8c637350e9f9fad9b7ed736bc0b76f34d9429b4d042926eec1c83f26e"
+    },
+    {
+      "bytes": 14895,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/tests/test_numerics_derivatives.py",
+      "sha256": "a5795f11a40cd3e50c6607f5bba0e48ee0a7fde4f2053386658da732db6e7e01"
+    },
+    {
+      "bytes": 14087,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/programs/gnss/orbitPocEvaluateVariational.cpp",
+      "sha256": "af2466fde038cb85cd5efc906b13dcb6146a32e103843e86de62f6fd16c227eb"
+    },
+    {
+      "bytes": 4897,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/orbitPoc/blockedVariationalEvaluation.h",
+      "sha256": "fd890e65384e6959bf95dedbc55d8e1891e3090b8a5a061d5e733ffe8f61ca10"
+    },
+    {
+      "bytes": 4594,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/observation/variationalEquationFromFile.h",
+      "sha256": "e154920bec5de09c59a449a155a41fae6b5e3d0612b1b64dcb769f11657321f5"
+    },
+    {
+      "bytes": 9142,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/observation/variationalEquationFromFile.cpp",
+      "sha256": "10f1c3a05765fead2e3b22549f75d2e3ef4dcf236a6c41b8e2b48e36353181cf"
+    },
+    {
+      "bytes": 4841,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/observation/variationalEquation.h",
+      "sha256": "49758cde6c45b9861395d0c42aca9d1df768c8e7a7b02bbdd9b8e35d68aa09d2"
+    },
+    {
+      "bytes": 18636,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/observation/variationalEquation.cpp",
+      "sha256": "fd0111125530fbc0c4c61a41046e232ae26c1ec5c67bb0bf29f1b22069516955"
+    },
+    {
+      "bytes": 36254,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/base/matrix.h",
+      "sha256": "a8d2b5b5afa7c2750edd42d149ea6e6b17bfe7f770c7a8905b820c55f7c2c19d"
+    },
+    {
+      "bytes": 46814,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/base/matrix.cpp",
+      "sha256": "555316e971d6ff62e9e1a2f48824f5156b023483820da8fbf00fae37f03998ae"
+    },
+    {
+      "bytes": 1826,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/orbitPoc/integrationWindows.h",
+      "sha256": "a7215fdaa3f3d3f16a13dbf2afa9301ff88c2979f616af65864474d6bbdaa40f"
+    },
+    {
+      "bytes": 11681,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/misc/orbitPoc/piecewisePolynomial.h",
+      "sha256": "15b95511bd72feaa3ac567fab37636cf87a13d3e453b988a662e576925cc0b76"
+    },
+    {
+      "bytes": 3056,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-01/source/classes/parametrizationAcceleration/parametrizationAccelerationLogDensity.h",
+      "sha256": "4d7f9e1b099aeeca0b44320e3a0c93d13ff83ff960070e91c970592b74978fe5"
+    }
+  ],
+  "reviewer": "/root/nuisance_native_analysis/block_memory_review",
+  "schema": "orbit-poc-independent-block-memory-source-review-v1",
+  "scope": "Independent static implementation review and read-only recomputation from saved component evidence; fixed-parameter evaluator only.",
+  "source_identity": {
+    "actual_program_equals_current_installer_transform_of_pinned_fixture": true,
+    "build_manifest": {
+      "bytes": 159169,
+      "path": "/home/emper/orbit-v4-failure-investigation/build-01/build-manifest.json",
+      "sha256": "903f4eb0d1c2c3e7ce439a28b2824bc1ecec144e935fad8c9db5e7e9145ca3a7"
+    },
+    "default_arithmetic_body_preserved_after_declaration_hoisting": true,
+    "native_source_confirmed_from_build_manifest": "/home/emper/orbit-v4-failure-investigation/native-source-01/source",
+    "post_evaluation_tail_byte_identical": true,
+    "reviewed_native_files_match_build_manifest": true
+  },
+  "supporting_author_recomputation_receipts": [
+    {
+      "bytes": 85267,
+      "path": "/home/emper/orbit-v4-failure-investigation/control/memory-pairs-independent-review01/review.json",
+      "sha256": "463495bcd99325e22a5f2e215c7f837c68bd81ef3be38525f2af1afffdd5180e"
+    },
+    {
+      "bytes": 16337,
+      "path": "/home/emper/orbit-v4-failure-investigation/control/memory-pairs-independent-review01/review-72h.json",
+      "sha256": "72e46ec994acf2190a13b09bfaf560a441664e34a2f4c48eeaf8fa056662f671"
+    }
+  ],
+  "whole_fit_verified": false
+}

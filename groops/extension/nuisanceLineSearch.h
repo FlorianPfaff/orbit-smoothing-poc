@@ -132,6 +132,14 @@ struct NuisanceSearch
   std::string floorRejection;
 };
 inline NuisanceSearch &lastNuisanceSearch(){static NuisanceSearch value;return value;}
+inline Bool nuisanceFailFastReplay()
+{
+  const char *raw=std::getenv("ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY");
+  const std::string value=raw?raw:"0";
+  if(value=="0")return FALSE;
+  if(value=="1")return TRUE;
+  throw(Exception("ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY must be 0 or 1"));
+}
 inline Bool validNuisanceTrial(const NuisanceTrial &trial,std::uint64_t support,std::uint64_t rows)
 {return !trial.status&&std::isfinite(trial.cost)&&std::isfinite(trial.change)&&std::isfinite(trial.reduction)&&trial.change>=0&&trial.support==support&&trial.rows==rows;}
 inline void auditNuisanceFloor(NuisanceSearch &result,Double prediction,std::uint64_t support,std::uint64_t rows,
@@ -229,8 +237,15 @@ inline NuisanceSearch searchNuisance(Double current,Double predicted,Double thre
                                    const std::function<NuisanceTrial(UInt)> &arithmeticAudit={})
 {
   if(!std::isfinite(current)||!std::isfinite(predicted)||threshold<=0)throw(Exception("Invalid nuisance line-search inputs"));
+  const Bool failFast=nuisanceFailFastReplay(); // validate before any fork
   NuisanceSearch result;
   result.zeroUpdateReplay=isolatedNuisanceTrial(0.,evaluate);
+  // A failed identity replay already makes this point inadmissible. Do not
+  // spend up to seventeen further child deadlines on proposals that the
+  // caller must reject. Retain the failure for the unchanged acceptance guard.
+  if(failFast&&(!validNuisanceTrial(result.zeroUpdateReplay,support,rows)||
+     result.zeroUpdateReplay.reduction!=0||result.zeroUpdateReplay.change!=0))
+  {result.floorRejection="zero_update_replay_failed";return result;}
   for(UInt attempt=0;attempt<17;attempt++)
   {
     const Double alpha=std::ldexp(1.,-static_cast<int>(attempt));
@@ -289,7 +304,8 @@ inline void writeNuisanceSearch(const std::string &path,const NuisanceSearch &re
   out<<",\"requested_probe_amplitude\":"<<nuisanceJsonNumber(result.probeAmplitude)<<",\"requested_probe_influence_m\":"<<nuisanceJsonNumber(result.probeAmplitude*result.undampedChange)
     <<",\"maximum_probe_amplitude\":1000000000,\"maximum_probe_influence_m\":1,\"maximum_probe_rounds\":5,\"completed_probe_rounds\":"<<result.probeHistory.size();
   out<<",\"nuisance_floor_limited\":"<<(result.floorLimited?"true":"false")<<",\"nuisance_objective_resolution\":"<<result.objectiveResolution<<",\"floor_rejection\":"<<std::quoted(result.floorRejection)<<",\"nuisance_floor_audit\":";writeNuisanceFloorAudit(out,result);
-  out<<",\"zero_update_replay\":{\"status\":"<<result.zeroUpdateReplay.status<<",\"cost\":"<<nuisanceJsonNumber(result.zeroUpdateReplay.cost)<<",\"actual_reduction\":"<<nuisanceJsonNumber(result.zeroUpdateReplay.reduction)<<",\"maximum_update_m\":"<<nuisanceJsonNumber(result.zeroUpdateReplay.change)<<"}";
+  out<<",\"zero_update_replay\":{\"status\":"<<result.zeroUpdateReplay.status<<",\"cost\":"<<nuisanceJsonNumber(result.zeroUpdateReplay.cost)<<",\"actual_reduction\":"<<nuisanceJsonNumber(result.zeroUpdateReplay.reduction)<<",\"maximum_update_m\":"<<nuisanceJsonNumber(result.zeroUpdateReplay.change)
+     <<",\"error\":"<<std::quoted(nuisanceJsonError(result.zeroUpdateReplay))<<"}";
   out<<",\"objective_before\":"<<objective<<",\"full_step_prediction\":"<<prediction<<",\"memory_scope\":\"child_wait4_peak_rss_only_not_simultaneous_process_tree_peak\",\"trials\":[";
   for(UInt i=0;i<result.trials.size();i++)
   {
