@@ -1,0 +1,103 @@
+{
+  "schema": "orbit-v4-bwrap-recovery-research-v1",
+  "generated_utc": "2026-10-18T22:49:18.138288+00:00",
+  "read_only_remote": true,
+  "remote_changes": false,
+  "scientific_changes": false,
+  "downloads": [
+    {
+      "name": "bubblewrap_0.6.1-1ubuntu0.3.dsc",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.6.1-1ubuntu0.3.dsc",
+      "bytes": 2280,
+      "sha256": "5859fe8b6214d4fe4315641ad72d6ee6c3e714a45f509e5223f7ff0811f80522"
+    },
+    {
+      "name": "bubblewrap_0.6.1.orig.tar.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.6.1.orig.tar.xz",
+      "bytes": 145500,
+      "sha256": "9609c7dc162bc68abc29abfab566934fdca37520a15ed01b675adcf3a4303282"
+    },
+    {
+      "name": "bubblewrap_0.6.1-1ubuntu0.3.debian.tar.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.6.1-1ubuntu0.3.debian.tar.xz",
+      "bytes": 13500,
+      "sha256": "463b0376becac1bb6c0e3068e5a4f5e129715cd29a7d0f585e86d5fa047b81cd"
+    },
+    {
+      "name": "bubblewrap_0.6.1-1ubuntu0.3_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.6.1-1ubuntu0.3_amd64.deb",
+      "bytes": 46314,
+      "sha256": "706763714e5d19fc7ab2572a6418506e3a4a5d5960e99309707b58117e6b40cb"
+    },
+    {
+      "name": "libcap-dev_2.44-1ubuntu0.22.04.3_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libc/libcap2/libcap-dev_2.44-1ubuntu0.22.04.3_amd64.deb",
+      "bytes": 39674,
+      "sha256": "5c733a6f0d9e438763ab123e15b26113efc391ced3a785e20e8723c5b354aefc"
+    }
+  ],
+  "binary_identity": {
+    "installed_remote_sha256": "bf6cf3d4456665f5d80c14eb79a76e0ce87b39a0883e614a161658b4ec33492c",
+    "downloaded_extracted_sha256": "bf6cf3d4456665f5d80c14eb79a76e0ce87b39a0883e614a161658b4ec33492c",
+    "matching": true
+  },
+  "source": {
+    "dsc_hashes_match": true,
+    "dsc_signature_verified": false,
+    "ubuntu_series": [
+      "debian/Change-EPERM-error-message-to-show-Debian-specific-inform.patch",
+      "Add-bind-fd-and-ro-bind-fd-to-let-you-bind-a-O_PATH-fd.patch"
+    ],
+    "patches_applied_without_fuzz": true,
+    "first_patch_context_offset_lines": 135,
+    "patched_ubuntu_bubblewrap_c_sha256": "af4b8474d43d07bdc0701c945ab632f0df41bcde6c25d9453bbdf66f9308615f",
+    "proposed_single_replacement_bubblewrap_c_sha256": "bf28a7eba7fb2d46eeeb1c0b1b530f99ef8e88f09eed791810b62afadbeb975a",
+    "source_line_references": {
+      "MAX_ARGS": 1626,
+      "entry_limit_check": 1628,
+      "expanded_counter_increment": 1682,
+      "expanded_limit_check": 1683,
+      "heap_argument_array": 1690,
+      "shared_counter_recursion": 1705,
+      "initial_count": 2476,
+      "list_node_allocation": 203
+    }
+  },
+  "cap_analysis": {
+    "scope": "one shared counter across all direct and expanded arguments, including command arguments",
+    "split_args_workaround": false,
+    "proposed_value": 16384,
+    "fixed_arrays_dependent_on_cap": false,
+    "argument_array_heap_allocation": true,
+    "setup_operations_heap_linked_list": true,
+    "max_argv_pointer_array_64bit_bytes": 131080,
+    "integer_overflow_at_proposed_cap": false,
+    "remaining_limit_retained": true
+  },
+  "local_split_fd_fixture": {
+    "binary_sha256": "bf6cf3d4456665f5d80c14eb79a76e0ce87b39a0883e614a161658b4ec33492c",
+    "file": "split-fd-results.json",
+    "sha256": "a5e423514fc39dfa628555a2b1916031828ce9599f958b538a87448a7786905d",
+    "cases": 4,
+    "passed": 4,
+    "namespace_started": false,
+    "scope": "real installed-identical parser behavior; no claim of namespace correctness"
+  },
+  "build": {
+    "configure_exists": true,
+    "recommendation": "separate patched binary, original system executable unchanged; configure out of source with --disable-maintainer-mode --disable-man --with-priv-mode=none; use installed SELinux support; preserve Debian hardening flags",
+    "missing_dependency": "private extraction of exact matching libcap-dev; no libseccomp-dev required",
+    "private_CPPFLAGS": "-I<private>/usr/include",
+    "private_LDFLAGS": "-L<private>/usr/lib/x86_64-linux-gnu",
+    "libcap_link": "/lib/x86_64-linux-gnu/libcap.so.2.44",
+    "single_compile_thread": true
+  },
+  "required_validation": [
+    "Record and independently audit exact patched-source one-line diff, source archive/package hashes, compiler/linker/configure flags, generated config, dynamic ELF dependencies and resulting executable hash.",
+    "Candidate parser test at total16384 succeeds and total16385 rejects; count includes direct --args,FD,--help arguments. Old binary total9000 succeeds and9001 rejects.",
+    "Exact11,022 mount_args unchanged byte-for-byte and order-for-order; actual mount-plan hash937e2bf3cb2dae31e459950f912593058cf2f58a30cc77c218794fe295ee6826 unchanged.",
+    "Run original pre-fit namespace probe with all3,317RO+3RW+135symlinks, original source/data denial checks, process namespace/FD/weight/config verification; no simplified topology.",
+    "Verify read-only mounts reject writes, precisely3innerwritable paths retain allowed writes, truth/GNV absent through canonical/backing/proc-root aliases, no host root/no extra FDs/no network.",
+    "Retain failedlaunch unchanged; new versioned control launch pins only executable path/hash/dependency provenance; scientific manifest/native models unchanged."
+  ]
+}

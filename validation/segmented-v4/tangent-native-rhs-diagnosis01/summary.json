@@ -1,0 +1,217 @@
+{
+  "schema": "orbit-poc-native-rhs-diagnosis-publication-v1",
+  "status": "native_failure_reproduced_rhs_only_capture_difference",
+  "audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-capture04-independent-terminal-review01.json",
+    "sha256": "916466d68b82f80980978488ce46b280867f86540b775a2008eff119c1a7fa91",
+    "bytes": 3754
+  },
+  "build_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build06-independent-terminal-review01.json",
+    "sha256": "dd2a836817344e329a29a482c0da066fb34fa4deb603df156fdf4960fb3f2a86",
+    "bytes": 3201
+  },
+  "baseline_native_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+  "capture_native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/groops-capture-a392bd16ce1e1b94",
+    "sha256": "a392bd16ce1e1b942d358901bbd36c81da8459e3b1ece12222a68512fe2925c6"
+  },
+  "reader": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/tangent-replay",
+    "sha256": "4f127662f76b0da5058446dec79ce04caed174f30c8606ecf5123d85c313891f"
+  },
+  "outcome": {
+    "algorithm_delta": null,
+    "capture": {
+      "bytes": 27786112,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/captured-system.bin",
+      "sha256": "b1020102aefcae66220d7af34e12d17b47b8992d1d45c092fbe09a66027214f3"
+    },
+    "current_baseline_replay": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/run/replay/result.json",
+      "sha256": "4527479cf29d68a5a3a4eb52e94ade20b7e70f12dcf5861528783cbf95fc220c"
+    },
+    "error": "NativeExecutionError('Native propagate exited 1; see /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/single-evaluation/propagate.log')",
+    "exact_failure_reproduced": true,
+    "execution": {
+      "blas_openmp_threads": 1,
+      "command": [
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/groops-capture-a392bd16ce1e1b94",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/single-evaluation/propagate.xml"
+      ],
+      "config_sha256": "2ba8b5e77d896db1ab45d637bca982b3150f42a4c078261349cf03b8c64738ec",
+      "elapsed_seconds": 5.542983463965356,
+      "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/single-evaluation/propagate.log",
+      "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+      "native_binary_sha256": "a392bd16ce1e1b942d358901bbd36c81da8459e3b1ece12222a68512fe2925c6",
+      "peak_rss_bytes": 291590144,
+      "pid": 19,
+      "returncode": 1,
+      "timed_out": false
+    },
+    "fit_attempts": 0,
+    "fixed_initial_state_si": [
+      6878126.008098143,
+      -207.02107813112366,
+      -280.69355318934697,
+      0.39154027892910004,
+      4581.389322493885,
+      6079.70443254602
+    ],
+    "fixture_preflight": {
+      "compile_command": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tangent72-diagnostic09/include",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tangent72-diagnostic09/probe.cpp",
+        "-o",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tangent72-diagnostic09/probe"
+      ],
+      "fit_attempts": 0,
+      "junit": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tests.xml",
+        "sha256": "b769f720ba8108d380bea9dea522eea1c89eb6bf66ed19d95106532dbb6086f5"
+      },
+      "nested_original_reader_checks": 8,
+      "status": "passed",
+      "test_command": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tangent72-diagnostic09/test_quad.py",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tangent72-diagnostic09/test_compensation.py",
+        "--junitxml=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/reader-fixtures/tests.xml"
+      ],
+      "tests": 3
+    },
+    "historical_initialization_native_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+    "initialization_criteria": {
+      "maximum_iterations": 10,
+      "position_tolerance_m": 2e-06,
+      "velocity_tolerance_m_s": 3e-09
+    },
+    "native": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/groops-capture-a392bd16ce1e1b94",
+      "sha256": "a392bd16ce1e1b942d358901bbd36c81da8459e3b1ece12222a68512fe2925c6"
+    },
+    "native_evaluations": 1,
+    "original_failure_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=1.2851453361637898e-11, tolerance=2e-12, iterations=120, rhs_norm=3747.3316555805213, solution_norm=6658355.6215919135, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+    "plan_sha256": "a4dd4867dbcc937c4769dafb87109b0812494bc83f14b2082815c7409c03e861",
+    "release_evidence": false,
+    "replay_failure_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=1.2851453361637898e-11, tolerance=2e-12, iterations=120, rhs_norm=3747.3316555805213, solution_norm=6658355.6215919135, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+    "schema": "orbit-poc-fixed-state-tangent-capture-v1",
+    "standalone": {
+      "input": {
+        "dt": 5,
+        "duration": 259195,
+        "epochs": 51840,
+        "extended_digits": 64,
+        "kind": "input",
+        "maximum_iterations": 120,
+        "restart": 20,
+        "tolerance": 2e-12
+      },
+      "record_count": 209,
+      "returncode": 1,
+      "stderr": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/standalone.stderr.log",
+        "sha256": "2478ced1df65eaed14a4f841cbc9d1dab1cb0fe21d68e5820990c36b7ed7b278"
+      },
+      "terminal": {
+        "iterations": 120,
+        "kind": "terminal",
+        "relative_residual": 1.2851453361637898e-11,
+        "status": "failed"
+      },
+      "trace": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/standalone-trace.jsonl",
+        "sha256": "45998ee99c0b1cf843520b495b01ab68330ced3c93c0961686f23fca35de62b9"
+      }
+    },
+    "state_epochs": 51840,
+    "status": "native_failed",
+    "telemetry_delta": "Capture-only insertion before unchanged native solver; separately instrumented standalone reader",
+    "xml_delta": "Only five output/intermediate path fields rebound; original inputs/profile/settings unchanged"
+  },
+  "trace_rows": 209,
+  "cycles": {
+    "5": 1,
+    "2": 32,
+    "1": 51
+  },
+  "best_observed_native_iterate": {
+    "kind": "best_native_iterate_quad_residual",
+    "iteration": 5,
+    "selection": "lowest_observed_native_true_residual",
+    "binary_digits": 113,
+    "native_relative_residual": 2.0663992186504604e-12,
+    "relative_residual_native_velocity_conversion": 2.064444255359571e-12,
+    "relative_residual_exact_velocity_conversion": 2.064443875813683e-12,
+    "native_solution_norm": 6658355.621590736,
+    "epsilon_times_solution_over_rhs_norm": 3.945345860286392e-13
+  },
+  "final_113bit": {
+    "kind": "quad_residual",
+    "iteration": 120,
+    "binary_digits": 113,
+    "relative_residual_native_velocity_conversion": 1.284955101674569e-11,
+    "relative_residual_exact_velocity_conversion": 1.2849551482349099e-11
+  },
+  "capture_comparison": {
+    "schema": "orbit-poc-captured-system-exact-comparison-v1",
+    "observed_at": "2026-10-16T16:38:27.080550+00:00",
+    "inputs": [
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+        "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-04/run/replay/captured-system.bin",
+        "sha256": "b1020102aefcae66220d7af34e12d17b47b8992d1d45c092fbe09a66027214f3"
+      }
+    ],
+    "epochs": 51840,
+    "operator_prefix_bytes": 25297792,
+    "operator_prefix_byte_identical": true,
+    "header_jacobians_quadrature_old_sha256": "ae8bfcd4dc9f72adc49ce314075cc3b4c8eb8861e2d475b2cd04a7990beeec9f",
+    "header_jacobians_quadrature_new_sha256": "ae8bfcd4dc9f72adc49ce314075cc3b4c8eb8861e2d475b2cd04a7990beeec9f",
+    "position_rhs": {
+      "changed_values": 34090,
+      "maximum_absolute_difference": 1.862645149230957e-09,
+      "difference_l2": 9.46872678551124e-08,
+      "old_l2": 3743.960888646344,
+      "new_l2": 3743.9608886445762
+    },
+    "scaled_velocity_rhs": {
+      "changed_values": 53228,
+      "maximum_absolute_difference": 1.1368683772161603e-10,
+      "difference_l2": 1.4047108215248954e-09,
+      "old_l2": 158.90689480182567,
+      "new_l2": 158.9068948018568
+    },
+    "scientific_runs": 0
+  },
+  "guard": {
+    "tolerance": 2e-12,
+    "maximum_iterations": 120,
+    "restart": 20
+  },
+  "fit_attempts": 0,
+  "native_correction_verified": false,
+  "full_closure_claimed": false,
+  "covariance_authorized": false,
+  "release_ready": false,
+  "scope": [
+    "Capture06 is a telemetry-only build from actual candidate25661. Its capture insertion changes only the diagnostic hook; the standalone reader is separately instrumented. The reproduced native failure is distinct from the read-only captured-data comparison.",
+    "The original and new captures have identical stored header, Jacobian and quadrature prefix bytes. Only their RHS data differs. This comparison does not claim identical floating-point integration algorithms across historical executables.",
+    "The best observed iterate is selected by the native true residual, then checked independently at 113 bits. It is not a claim of the globally best solution or every possible higher-precision iterate.",
+    "Both the best observed native iterate and final iterate exceed the unchanged2e-12 guard in the independent113-bit check. No numerical-floor waiver or covariance authorization follows.",
+    "The exact source/control failures and original raw records are retained. This package performs no new propagation, fit, remote capture, source change, Git write or PR mutation.",
+    "Later RHS-variant experiments are excluded; their outcomes are not part of this frozen diagnosis."
+  ]
+}

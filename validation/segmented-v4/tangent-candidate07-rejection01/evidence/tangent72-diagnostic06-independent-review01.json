@@ -1,0 +1,40 @@
+{
+  "schema": "orbit-poc-tangent72-diagnostic06-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T15:29:34.657512+00:00",
+  "generation": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic06/generation.json",
+    "sha256": "76990d5e5f81cc682783046fb250739583a5f2f056d9f496f3ef26c664a473ec",
+    "bytes": 1357
+  },
+  "reader": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic06/replay.cpp",
+    "sha256": "d5a4e875afdf24b662e666a75c31d0f4af87af22ef0f55f5881aed67d2a57db0",
+    "bytes": 10203
+  },
+  "include_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic06/include/manifest.json",
+    "sha256": "c2819b5377a9db0a9af2b3da4a183537440dba4cad31c167ee678f0fdc900972",
+    "bytes": 731
+  },
+  "test_log": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic06-independent-identity01.log",
+    "sha256": "9dabdcf6b3e4315ff8ed8d400646d2c3f771321a9062a87c5b2d06db89ea00b3",
+    "bytes": 206
+  },
+  "test_xml": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic06-independent-identity01.xml",
+    "sha256": "b6ee9649eac60acfade0c674372996684029fde77e97c94366454df0cb5c12fd",
+    "bytes": 410
+  },
+  "checks": [
+    "Removing exactly the three telemetry callbacks reproduces production sixStateTangent.h1590e13f byte-for-byte; supporting headers are unchanged.",
+    "Best state, iteration and native true-residual value are copied together only on a finite strictly smaller observed true residual; ties retain the first observation.",
+    "The best-state quad residual uses that saved state and its own iteration, not the final iterate; it is correctly labeled lowest observed native true residual.",
+    "Projected residual telemetry remains separate and never selects or accepts a solution.",
+    "Native threshold, iteration cap, restart, arithmetic, accepted state and exception behavior are unmodified.",
+    "Final/accepted and best-observed113-bit checks preserve the existing native-vs-exact velocity-conversion distinction.",
+    "The epsilon norm-ratio is a diagnostic scale only, not a certified bound or acceptance condition."
+  ],
+  "scope": "Diagnostic code review for the pinned nonzero captured failure. One independent pure identity test passed. No compilation, native propagation or scientific execution was performed here; compiler/actual captured replay evidence remains controls-owned."
+}

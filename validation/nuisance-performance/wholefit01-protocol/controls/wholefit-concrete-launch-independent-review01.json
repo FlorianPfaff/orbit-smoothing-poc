@@ -1,0 +1,60 @@
+{
+  "accepted_covariance": false,
+  "checks": {
+    "all259_input_file_pin_coverage": true,
+    "all318_source_pin_coverage": true,
+    "all480_python_runtime_files_rehashed": true,
+    "both_templates_match_reviewed_preparation": true,
+    "cache_order": [
+      1,
+      0
+    ],
+    "candidate_exporter_and_same_local_dependency_closure": true,
+    "explicit_single_thread_library_environment": true,
+    "fresh_outputs_and_no_existing_launch": true,
+    "iteration_limits": [
+      32,
+      96
+    ],
+    "original_request_and_controls_preserved": true,
+    "process_tree_limit_bytes": 8589934592,
+    "same_current_host_boot": true,
+    "strict_existing_result_gate": true,
+    "tested_controller_worker_bytes_match": true,
+    "unique_frozen_pins": 1059,
+    "whole_fit_limit_seconds": 7200
+  },
+  "controller_review": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-controller-independent-review01.json",
+    "sha256": "de6f6d3810b3262e4162929fc3486690ad22280f9e1c866fee1f2b89fdcab866"
+  },
+  "created_at": "2026-10-19T08:13:58.123263+00:00",
+  "findings": [],
+  "freeze": {
+    "path": "/home/emper/orbit-nuisance-performance/wholefit01/freeze.json",
+    "sha256": "cb4e4a339361002723cf56053bed27dd521f9f51f097f18b1be148126b78a7e4"
+  },
+  "freeze_generator": {
+    "path": "/home/emper/orbit-nuisance-performance/control/freeze_wholefit01.py",
+    "sha256": "a06404c1101d4414c03c7bbbe9917b81272ff40c15e2bc742cad925ee2edea06"
+  },
+  "input_review": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-preparation-independent-review01.json",
+    "sha256": "5070feaa39cd4e08e2fae3df8a99eff864d40184418de317ddab8b8d3b95a260"
+  },
+  "limitations": [
+    "One same-candidate cache1/cache0 timing pair; no speedup confidence interval.",
+    "Current local dependencies shared across arms, six system libraries differ from historical remote runtime.",
+    "Two-hour failures are preserved and cannot be promoted to full-fit convergence or covariance.",
+    "Host admission remains cooperative; this review does not claim exclusive CPU reservation."
+  ],
+  "native_runs": 0,
+  "python_runtime": {
+    "path": "/home/emper/orbit-nuisance-performance/wholefit01/python-runtime-actual01.json",
+    "sha256": "a5e2ccb4b70afaa500e7e4aeb861ceb7582a131f782d9d45f6153b282b8886a1"
+  },
+  "release_authority": false,
+  "schema": "orbit-poc-wholefit-concrete-launch-independent-review-v1",
+  "scope": "Concrete metadata launch approval for separately frozen original-case experiment. Prior independently verified large input/source hashes are matched to this freeze; Python runtime and control/executable pins are freshly checked. Runner performs all-pin verification and fresh admission immediately before each fit. No native estimation or remote operation performed in this review.",
+  "status": "accepted_concrete_separate_wholefit_launch"
+}

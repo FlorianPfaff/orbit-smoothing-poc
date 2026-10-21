@@ -1,0 +1,109 @@
+{
+  "actual_readback": {
+    "bytes": 7194,
+    "path": "/mnt/d/orbit-segmented-v4/control/validation07-startup-independent-readback01.json",
+    "sha256": "c19bfcc5cff925137c5649bb9cdaf1d363448a754022b31abbc973be5425e231"
+  },
+  "checks": {
+    "54_supplemental_tests_zero_failures_errors_skips_exact_module_counts": true,
+    "current_host_owned_successful_cleanup": true,
+    "distinct_original_replays_and_dense_segmented_binaries": true,
+    "exact_actual_process_result_plan_and_helper_attribution": true,
+    "gnss_linearization_inputs_and_gtsam42": true,
+    "native_three_structural_303_collection_only": true,
+    "only_five_mutable_scratch_directories_rebound": true,
+    "reviewed_candidate_launch_plan_unchanged": true,
+    "source_readonly_and_14_inputs_589_dependencies": true
+  },
+  "elapsed_seconds": 63.13429171591997,
+  "helper": {
+    "bytes": 8059,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_validation07_actual_startup01.py",
+    "sha256": "028a77440a2109031f3411efe1f93a8e67fddfc2c4de88cbe6598265ade88fa5"
+  },
+  "host_precheck_review": {
+    "bytes": 2024,
+    "path": "/mnt/d/orbit-segmented-v4/control/validation07-host-precheck-independent-review01.json",
+    "sha256": "2f99c9166778b3d7881e010d9441025a8ccd0729c1ff49d4373d5bfa732ed264"
+  },
+  "owned_identities_absent": 13,
+  "packet_review": {
+    "bytes": 3131,
+    "path": "/mnt/d/orbit-segmented-v4/control/validation07-independent-concrete-packet-review01.json",
+    "sha256": "65ab7044d94fecfd97490b101ec51e64dbc1c92bcbb70e879f2a714c5ef26e98"
+  },
+  "passed": true,
+  "plan": {
+    "bytes": 1703,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/control/launch-plan.json",
+    "sha256": "7ed449091ce94adabdbf7a5d111f357194bb742e6615e5aa4e64b6e43d84a27f"
+  },
+  "process": {
+    "bytes": 9302,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/process.json",
+    "sha256": "45e91da780773818dfa2d3290a842b816770041f72a548b7afd58376b53d6bcf"
+  },
+  "production_outputs_currently_absent": {
+    "binaries": true,
+    "build": true,
+    "native_source": true,
+    "run": true,
+    "temporary": true
+  },
+  "raw_capture": {
+    "bytes": 664404,
+    "path": "/mnt/d/orbit-segmented-v4/control/validation07-startup01-terminal-capture01.json",
+    "sha256": "4cbc09f72d9d77497f4611421d6725402b76d91902363c65aa850aa46379023b"
+  },
+  "raw_records_verified": 33,
+  "release_ready": false,
+  "result": {
+    "bytes": 19053,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/run/probe-result/result.json",
+    "sha256": "254cd3a24a9215a55d117d1f097fee8abc98b81fb208479d6d7b9f9e663886a2"
+  },
+  "reviewed_at": "2026-10-16T22:52:16.341179+00:00",
+  "schema": "orbit-poc-validation07-actual-startup-independent-review-v1",
+  "scope": "Actual successful owned startup and54 separately counted supplemental source/interpolation/decoder fixtures only. No original14 numerical gate, physical propagation or fit performed by this startup or audit. Fresh full14 launch requires its own current admission/shared lock; actual flight/query-order/shifted-cut supplemental gates remain outstanding.",
+  "subsequent_full_validation_launch_observed": false,
+  "supplemental_module_counts": {
+    "test_segmented_tangent_export.TypedLift": 44,
+    "test_wide_tangent_install.WideTangentInstall": 8,
+    "test_wide_tangent_native": 2
+  },
+  "supplemental_tests": {
+    "command": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-s",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/run/probe-result/supplemental-tests/pytest-temp",
+      "--junitxml=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/run/probe-result/supplemental-tests/tests.xml",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/source/tests/test_wide_tangent_install.py",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/source/tests/test_wide_tangent_native.py",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/source/tests/test_segmented_tangent_export.py"
+    ],
+    "compiler": {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+      "sha256": "e802ef021bccd09d2ae1dae3f9400e53ab2c2c7bc2b4e47dc29a81c7ec3bcd31"
+    },
+    "junit": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/run/probe-result/supplemental-tests/tests.xml",
+      "sha256": "6d14be413c0630031d2895bc9ff5914cefffee6a0d214c747fa51be65794533d"
+    },
+    "returncode": 0,
+    "scope": "Separate source/interpolation/typed-decoder fixtures, excluded from the frozen14 and106/51 counts; no physical propagation",
+    "stderr": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/run/probe-result/supplemental-tests/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/staging/namespace-smoke-01/run/probe-result/supplemental-tests/stdout.log",
+      "sha256": "521eae10d60158e2e39732ee0c5c40edec9b29f780330f6fcd217e911dbaa5dd"
+    },
+    "tests": 54
+  }
+}

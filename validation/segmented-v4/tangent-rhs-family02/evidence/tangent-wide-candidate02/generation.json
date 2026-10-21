@@ -1,0 +1,67 @@
+{
+  "baseline_native_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+  "correction": "Fixture inclusion now excludes only replay main using an explicit compile-time guard; no token-level main renaming. Numerical source, criteria, reader mathematics and generator unchanged.",
+  "diagnostic_family": "3exact anchors \u00d7 original plus \u00b1two scales \u00d7two directions =27; same reader modes baseline/wide =>54 serial calls; order frozen before outcomes",
+  "fixture_tight_threshold": "1e-19 only for explicit rounded-state rejection counterexample; diagnostic family retains2e-12",
+  "independent_certificate": "113-bit evaluation of stored coefficients and returned binary64 physical state",
+  "maximum_iterations": 120,
+  "original_tolerance": 2e-12,
+  "predecessor": {
+    "outcome": "preflight compilation failure in test_wide.cpp; macro renamed Capture.main; no planned diagnostic solves",
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/generation.json",
+    "sha256": "6615014643a2332a9f706c9b3275f07c65b9872d534edbcc661f4320c8ef71f2"
+  },
+  "production_baseline_commit": "8aab780ec5807347c0a45aca94d042457bf77ad8",
+  "production_header_sha256": "9a46f04591de8b8956cb6af0888936ace7f35688cef778861a99a859a65cdef0",
+  "restart": 20,
+  "schema": "orbit-poc-external-wide-candidate-v1",
+  "scope": "diagnostic only, not promoted or executed",
+  "source_files": [
+    {
+      "bytes": 5334,
+      "path": "include/eventQuadrature.h",
+      "sha256": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5"
+    },
+    {
+      "bytes": 2245,
+      "path": "include/syntheticForceDerivatives.h",
+      "sha256": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310"
+    },
+    {
+      "bytes": 10428,
+      "path": "include/sixStateTangent.h",
+      "sha256": "608cc5af8975084d2b39c92939bdfe8a6da4eb87447a38d7f303b91f4ef11a91"
+    },
+    {
+      "bytes": 10202,
+      "path": "include/wideSixStateTangent.h",
+      "sha256": "02f6a9dd200c52468d315dbced839b7c911862e6abb4aa54415213932c33bbdb"
+    },
+    {
+      "bytes": 9679,
+      "path": "replay.cpp",
+      "sha256": "d01ba38ac52afea8888a182c4fe0ca64e7e84e557c72da5b5c7c143d5cfa5bb4"
+    },
+    {
+      "bytes": 4928,
+      "path": "test_wide.cpp",
+      "sha256": "e11c54a05ba420d951fa0966d5b623bf2849390ee2e8943e474422aca68632fd"
+    },
+    {
+      "bytes": 2291,
+      "path": "test_reader.py",
+      "sha256": "15ddaef6fd2a1c38196d40e082e155f6d8594188c16d080ca6fd78fd7ad7ba99"
+    },
+    {
+      "bytes": 6829,
+      "path": "generate_family.py",
+      "sha256": "6b65efb5f327b87bfbf89d0d140c9b5ddde0a559e9995945820ddbf5df2e67b8"
+    },
+    {
+      "bytes": 2363,
+      "path": "test_family.py",
+      "sha256": "f8e32860ee2fc6f00a5b6fdd83dfff216c50324313fdfb441174e2941293c6c3"
+    }
+  ],
+  "wide_algorithm": "Same original real linear problem; compensated extended quadrature, Arnoldi, preconditioner and updates; acceptance certifies rounded physical binary64 output; no change to RHS construction or existing native solver path."
+}

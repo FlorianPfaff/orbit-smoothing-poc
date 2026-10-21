@@ -1,0 +1,93 @@
+{
+  "schema": "orbit-v4-taskset-frozen-libc-compatibility-v1",
+  "capture_sha256": "a08c1f97951666d88d79ceb86090d3b8739e3b9a1b47cd74878ff848b17f5064",
+  "read_only": true,
+  "remote_mutations": false,
+  "affinity": [
+    32
+  ],
+  "mount_plan_sha256": "937e2bf3cb2dae31e459950f912593058cf2f58a30cc77c218794fe295ee6826",
+  "taskset": {
+    "sha256": "8157dd0973743f6961557ab4d5f625e1fd668880b0912559a6d9edf08c0dd37e",
+    "needed_libraries": [
+      "libc.so.6"
+    ],
+    "needed_glibc_versions": [
+      "GLIBC_2.2.5",
+      "GLIBC_2.3",
+      "GLIBC_2.3.4",
+      "GLIBC_2.34",
+      "GLIBC_2.4",
+      "GLIBC_2.7"
+    ]
+  },
+  "libc": {
+    "sha256": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab",
+    "defined_glibc_versions": [
+      "GLIBC_2.10",
+      "GLIBC_2.11",
+      "GLIBC_2.12",
+      "GLIBC_2.13",
+      "GLIBC_2.14",
+      "GLIBC_2.15",
+      "GLIBC_2.16",
+      "GLIBC_2.17",
+      "GLIBC_2.18",
+      "GLIBC_2.2.5",
+      "GLIBC_2.2.6",
+      "GLIBC_2.22",
+      "GLIBC_2.23",
+      "GLIBC_2.24",
+      "GLIBC_2.25",
+      "GLIBC_2.26",
+      "GLIBC_2.27",
+      "GLIBC_2.28",
+      "GLIBC_2.29",
+      "GLIBC_2.3",
+      "GLIBC_2.3.2",
+      "GLIBC_2.3.3",
+      "GLIBC_2.3.4",
+      "GLIBC_2.30",
+      "GLIBC_2.31",
+      "GLIBC_2.32",
+      "GLIBC_2.33",
+      "GLIBC_2.34",
+      "GLIBC_2.35",
+      "GLIBC_2.36",
+      "GLIBC_2.38",
+      "GLIBC_2.39",
+      "GLIBC_2.4",
+      "GLIBC_2.5",
+      "GLIBC_2.6",
+      "GLIBC_2.7",
+      "GLIBC_2.8",
+      "GLIBC_2.9",
+      "GLIBC_ABI_DT_RELR",
+      "GLIBC_ABI_DT_X86_64_PLT",
+      "GLIBC_ABI_GNU2_TLS",
+      "GLIBC_PRIVATE"
+    ],
+    "required_loader_versions": [
+      "GLIBC_2.2.5",
+      "GLIBC_2.3",
+      "GLIBC_2.35",
+      "GLIBC_PRIVATE"
+    ]
+  },
+  "loader": {
+    "sha256": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711",
+    "defined_glibc_versions": [
+      "GLIBC_2.2.5",
+      "GLIBC_2.3",
+      "GLIBC_2.34",
+      "GLIBC_2.35",
+      "GLIBC_2.4",
+      "GLIBC_PRIVATE"
+    ]
+  },
+  "missing_taskset_glibc_versions": [],
+  "missing_libc_loader_versions": [],
+  "compatibility_scope": "Exact pinned ELF version requirements versus version definitions. This is not a full namespace execution test.",
+  "runtime_control_fix_required_by_this_check": false,
+  "full_namespace_probe_still_required": true
+}

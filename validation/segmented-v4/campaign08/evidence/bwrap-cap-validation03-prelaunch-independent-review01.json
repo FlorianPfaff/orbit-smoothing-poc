@@ -1,0 +1,61 @@
+{
+  "actual_binary_accepted": false,
+  "checks": [
+    "All12 captured validation02 files/157,457 bytes independently match their manifest. The binary returns usage before namespace because the command was incorrectly included only inside the args descriptor; verified owned cleanup is retained.",
+    "Exact pinned Ubuntu source confirms parse_args_recurse discards the descriptor-local remaining command; main then reports usage for missing outer command. This is a transport error, not a numerical or scientific defect.",
+    "The new validation keeps all original build/binary/fixture options and checks unchanged, moves only command tail to outer argv, seals options alone, and records both counts/hashes. A small wrong-transport usage regression remains explicit.",
+    "Original build and prior failed validation files are pinned and rechecked before/after; fresh owned output/locks/admission/CPU32/cleanup remain exact. No compile or source/binary mutation occurs.",
+    "All10 identical tests pass under system Python, the target interpreter for these controls. Initial frozen scientific-Python run has9 passes and1 environmental failure because that interpreter lacks os.memfd_create; preserved log/XML are not presented as a pass."
+  ],
+  "fit_execution_authorized": false,
+  "packet": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-validation-packet03/manifest.json",
+    "sha256": "47077bfc77dae5b088ecdf2758f384635e198a29d7d845e79be78e67f5b0569c"
+  },
+  "plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-validation-packet03/validation-plan.json",
+    "sha256": "c150679979915840fa43aaa28c3a0d41f3a9a74c042865e4b1208e25b02b5bc2"
+  },
+  "preserved_failed_validation_capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-validation-terminal02/manifest.json",
+    "sha256": "940ce65fe3b872b8e7249bd2d36742ed0d40f38bd1b04b7cb783111bb4d8b0ad"
+  },
+  "preserved_failed_validation_execution": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-validation-terminal02/validation/execution.json",
+    "sha256": "125925bde2ca2963f8bdfcf21de2061cf39a663276fe65f1c4516a6d6a0783c6"
+  },
+  "release_ready": false,
+  "reviewed_at": "2026-10-18T23:09:25.542628+00:00",
+  "runner": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-validation-packet03/run_owned.py",
+    "sha256": "e593665d3db051bfc1088395a6104bd59cd938b09a1a7e3066b8ca5b025578b7"
+  },
+  "schema": "orbit-poc-bwrap-cap-validation-transport-independent-review-v1",
+  "scope": "Approve exact validation-only corrected-transport tests with the existing compiled binary. Actual results and production wrapper/recovery controls require separate acceptance.",
+  "status": "approved_validation_only_corrected_transport",
+  "tests": {
+    "failures": 0,
+    "interpreter": {
+      "path": "/usr/bin/python3.14",
+      "sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/bwrap-validation03-independent02.log",
+      "sha256": "0146ba60739c18ae5055e7af12112e68fe01b2ed2756fc6302248e0d02f7d2d8"
+    },
+    "passed": 10,
+    "prior_environment_failure_junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/bwrap-validation03-independent01.xml",
+      "sha256": "177a408d9a74fccbb873e769e227bffe25a57a9b36a7ec74826a5db3720030ae"
+    },
+    "prior_environment_failure_log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/bwrap-validation03-independent01.log",
+      "sha256": "78b35b63380ee76d5ce7917e8c115efcfd759d4fa629000a7be9a31e1f32fcfc"
+    },
+    "skips": 0
+  },
+  "worker": {
+    "path": "/mnt/d/orbit-segmented-v4/control/bwrap-cap-validation-packet03/validate_existing.py",
+    "sha256": "0b0b9ce4b6693300db917b5b34cbed175e150574702b1b0f4238b44159031b69"
+  }
+}

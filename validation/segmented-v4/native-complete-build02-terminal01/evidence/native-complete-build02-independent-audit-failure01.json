@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "actual_recipe_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build02-recipe-schema-readback01.json",
+    "sha256": "12130bb5d90484259597c3bb37756241d752ea32e6a5e42608b45022ddbcdfc5"
+  },
+  "auditor": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_native_complete_build_remote02.py",
+    "sha256": "259c8a6e56d2536e56327484f265898f79ecd39b2b4e44e743a4e8ecec7d7baa"
+  },
+  "cause": "Verifier expected draft recipe schema and a recorded_source_root field absent from the actual original frozen inventory. Actual baseline92dc/current25661 matches; original manifest/native pins supply exact historical attribution. No source/native build mutation or repeated compilation.",
+  "correction": "Strictly bind actual frozen10-key recipe-inspection schema, original manifest/native and metadata inspection scope; derive roots from verified original manifest and retain complete633 recipe comparison. Versioned verifier04/auditor03 require independent approval before resumed audit.",
+  "failed_audit_output": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build02-independent-actual01.json",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "failed_audit_stderr": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build02-independent-actual01.stderr",
+    "sha256": "0fec15c5b2a2c13bcea9a43faac7773af4f13c4cf8c47dda6acdcc0908c38a4b"
+  },
+  "observed_at": "2026-10-16T22:10:01.904263+00:00",
+  "remaining_record_shape_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build02-shape-readback01.json",
+    "sha256": "d21c83263c544c75c9bf693bc42eae8e5544356e8adeca91869ec396d7f83e6d"
+  },
+  "schema": "orbit-poc-independent-build-audit-tooling-failure-v1",
+  "verifier": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation07_provenance03.py",
+    "sha256": "67de051729d51fb72f0e4ad16c7493b626636e8985364b0b1b24a71432bc836a"
+  }
+}

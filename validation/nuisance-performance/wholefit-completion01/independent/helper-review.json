@@ -1,0 +1,61 @@
+{
+  "actual_running_outputs_read": false,
+  "checker": {
+    "path": "/home/emper/orbit-nuisance-performance/source/scripts/analyze_nuisance_wholefit.py",
+    "sha256": "6316cd37b23edadc678e1a3a083802780488882db37c7ca9d686691f93e74836"
+  },
+  "checker_review": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review03/independent-review03.json",
+    "sha256": "54189e9d82ec5e13c02de4b5596a61ec165cb2e85b9dba9559d7159b6c5b8944"
+  },
+  "checks": [
+    "Waits only for exact boot/PID/start/argv identity and rejects reuse or changed identity.",
+    "Reads only bounded controller/cleanup metadata before terminal analysis; unclosed outputs block checker invocation.",
+    "At most one checker invocation, with exact pinned sibling dependencies and Python, CPU4 inherited affinity, single numerical threads, stripped unrelated ORBIT_POC/Python/LD environment.",
+    "No process signals, native runs, restarts, retries, Git writes or writes beneath frozen/fit trees. Fresh report root only.",
+    "Timeout/pending/invalid/missing arms are preserved; helper exit status or controller disappearance cannot authorize scientific completion.",
+    "Preserved clock observation and supervisor snapshot are pinned and attributed to exact launch/controller/boot; timing comparison is prominently compromised with cause unverified.",
+    "Scientific checker report remains unchanged. Independent actual-outcome audit remains pending, elapsed-UTC two-hour budget unestablished, no speedup or release authority."
+  ],
+  "clock_observation": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-clock-observation01/observation.json",
+    "sha256": "43397bdfb5a330921e88a6759e768cfc473ba30101261d4b7e13f0df5aa3d567"
+  },
+  "clock_snapshot": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-clock-observation01/supervisor-snapshot.json",
+    "sha256": "db1456c2a5a22396e43884630d6712bcec9108f23698b34d5d713939c80fc91d"
+  },
+  "created_at": "2026-10-19T09:03:31.349921+00:00",
+  "helper": {
+    "path": "/home/emper/orbit-nuisance-performance/source/scripts/complete_nuisance_wholefit.py",
+    "sha256": "b7c9fee28b5fabdee9cb07c3234217fbfd9b66351694f5d70f00cff0dab57c53"
+  },
+  "independent_tests": {
+    "cpu": 4,
+    "failed": 0,
+    "junit": {
+      "path": "/home/emper/orbit-nuisance-performance/control/wholefit-completion-independent-review01/tests.xml",
+      "sha256": "550cb2d07db1961e3d501e3970d146f9792a6e7dd8b48a43808b9327d926776b"
+    },
+    "log": {
+      "path": "/home/emper/orbit-nuisance-performance/control/wholefit-completion-independent-review01/tests.log",
+      "sha256": "197ed6e54e584844a6a6a6e6ef3c17af69bd5239f761cbd72c988cbc4c7ad090"
+    },
+    "passed": 32,
+    "skipped": 0,
+    "threads": 1
+  },
+  "limitations": [
+    "Injected lifecycle/checker tests and source review only; no actual whole-fit output analyzed.",
+    "Concrete plan and actual passive launch remain separate checks.",
+    "The helper never kills a checker process; the checker is read-only and runs only after closure prerequisites."
+  ],
+  "native_runs": 0,
+  "release_authority": false,
+  "schema": "orbit-poc-wholefit-completion-helper-independent-review-v1",
+  "status": "accepted_passive_helper_pending_concrete_plan",
+  "tests": {
+    "path": "/home/emper/orbit-nuisance-performance/source/tests/test_nuisance_wholefit_completion.py",
+    "sha256": "1cb78aee3c67cb3aaec6499bbb444c45bb1aa2a8c434468a25e145bb26e12e89"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schema": "orbit-poc-tangent-capture-build06-terminal-independent-readback-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T16:36:09.628562+00:00",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/control/plan.json",
+    "sha256": "7501b1626e0e96d8462fc50d3ac590b671f681063c6b3d262d5f9fb955b29a90",
+    "bytes": 3740
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/control/execution.json",
+    "sha256": "e05b84bc90c4cd86ef332a5b09318303d7ae82c961cb9625da7d2328812ed901",
+    "bytes": 129080
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/control/pipeline.json",
+    "sha256": "c74df6e2d01d6541b2628cc7ecf07cec4a0219261e14225d014ef594ac498351",
+    "bytes": 8457
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/run/build-result/result.json",
+    "sha256": "7529a9a95e413459194a4f46b4d9851227bc252d40a22a6c80a6853a07b7d520",
+    "bytes": 558845
+  },
+  "baseline_relinked_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/groops-capture-a392bd16ce1e1b94",
+    "sha256": "a392bd16ce1e1b942d358901bbd36c81da8459e3b1ece12222a68512fe2925c6"
+  },
+  "reader": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/tangent-replay",
+    "sha256": "4f127662f76b0da5058446dec79ce04caed174f30c8606ecf5123d85c313891f"
+  },
+  "source_files_verified": 1131,
+  "python_source_files_verified": 384,
+  "only_changed_native_header": "misc/orbitPoc/stagedVariationalBody.h",
+  "installed_original_header_sha256": "1cace042d5deffac657cc68b9be08de4dc607fba2f8028ac1440e4446fb5d500",
+  "candidate_header_sha256": "738aeb343f6f187710298d584044376c59c6300b8ebed336358959bcff71d8f4",
+  "reused_objects": 610,
+  "pinned_link_inputs": 637,
+  "compiler_version": "x86_64-conda-linux-gnu-c++ (conda-forge gcc 15.3.0-7) 15.3.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "native_compile_command": [
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+    "-DGROOPS_DISABLE_NETCDF",
+    "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/native_source/source",
+    "-O3",
+    "-DNDEBUG",
+    "-std=gnu++17",
+    "-MD",
+    "-MT",
+    "CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingVariationalEquation.cpp.o",
+    "-MF",
+    "CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingVariationalEquation.cpp.o.d",
+    "-o",
+    "CMakeFiles/groopscore.dir/programs/preprocessing/preprocessingVariationalEquation.cpp.o",
+    "-c",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/native_source/source/programs/preprocessing/preprocessingVariationalEquation.cpp"
+  ],
+  "reader_compile_command": [
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+    "-O3",
+    "-DNDEBUG",
+    "-std=gnu++17",
+    "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/control/reader/include",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/control/reader/replay.cpp",
+    "-o",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-06/binaries/tangent-replay"
+  ],
+  "reader_libraries": [
+    {
+      "path": "/lib/x86_64-linux-gnu/libc.so.6",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "c4de0f865ef79abebf1111f8e4629de4b1835c3e7d71316092885125959daeab"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libdl.so.2",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "sha256": "7d13eb4345b129fe7572c2eb9a3e120ca02783303c292fe270dd41d5afdb5a72"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libm.so.6",
+      "resolved": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "sha256": "c858d0f5308a1b6ab2fcb4388b34faca06ac6f34ac4db77357a3a91ad8598319"
+    },
+    {
+      "path": "/lib64/ld-linux-x86-64.so.2",
+      "resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "e2e607e0a17ad7c83f5e5db97f476ed31faebbd587321613f5fddcb4220d7711"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+      "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libgcc_s.so.1",
+      "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6",
+      "resolved": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/libstdc++.so.6.0.36",
+      "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+    }
+  ],
+  "owned_identities_non_live": [
+    {
+      "pid": 2711861,
+      "start_ticks": 115201522,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711872,
+      "start_ticks": 115201860,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711873,
+      "start_ticks": 115201863,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711876,
+      "start_ticks": 115201866,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711877,
+      "start_ticks": 115201953,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711878,
+      "start_ticks": 115201954,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711879,
+      "start_ticks": 115201954,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711902,
+      "start_ticks": 115202050,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711903,
+      "start_ticks": 115202050,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711942,
+      "start_ticks": 115202885,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711943,
+      "start_ticks": 115202886,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711944,
+      "start_ticks": 115202886,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711948,
+      "start_ticks": 115203024,
+      "non_live": true,
+      "absent": true
+    },
+    {
+      "pid": 2711949,
+      "start_ticks": 115203024,
+      "non_live": true,
+      "absent": true
+    }
+  ],
+  "elapsed_seconds": 13.756756928982213,
+  "finished_at": "2026-10-16T16:33:33.139815+00:00",
+  "scope": "Diagnostic build attribution only. Exact original baseline relink,installed-hook preservation,reader/compiler provenance and owned cleanup verified. No propagated scientific result or release readiness inferred."
+}

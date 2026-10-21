@@ -1,0 +1,782 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/run_segmented_preparation01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/plan05.json",
+        "--sha256",
+        "6fd40ab3fca6559b5cc927bd46d5114650d0416bcec5799061a40b984d750607"
+      ],
+      "command_sha256": "488024b5a311451157d82343ed61c21684d1dfc2f52b3a8fb7041ac66b48c95c",
+      "parent": 1,
+      "pid": 2349417,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 110668383,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T03:57:43.565677+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Serial validation on CPU24 with host-local exclusive orbit lock and affinity, not administrator-exclusive reservation. Other-user background workloads may exist; this is an untimed correctness validation.",
+    "status": "admitted"
+  },
+  "benchmark_attempts": 0,
+  "checks": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/with_correctness_namespace_09.py",
+        "--execution",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/execution05.json",
+        "--execution-sha256",
+        "c19fc090eb7be49ec5380520d00c31d0114af9c2894fde55685109a3e06e18f8",
+        "--",
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/check_preparation_state01.py",
+        "--config",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/segmented-v4.json",
+        "--config-sha256",
+        "3f085132dc0fb62c090ebbed50dd8865360cd6fcf7d8b8a3c9703b3312ace985",
+        "--source-sha256",
+        "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b",
+        "--phase",
+        "before",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/temporary/preparation-02-checks/before.json"
+      ],
+      "cleanup": {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2349417,
+            "pid": 2349421,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 110668619,
+            "state": "Z"
+          },
+          {
+            "parent": 2349421,
+            "pid": 2349422,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110668621,
+            "state": "S"
+          },
+          {
+            "parent": 2349422,
+            "pid": 2349423,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110668624,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T04:00:02.576355+00:00",
+        "pid_namespaces": [
+          "pid:[4026534167]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      "elapsed_seconds": 138.94265258708037,
+      "interrupted_or_timeout": false,
+      "phase": "before",
+      "process": {
+        "parent": 2349417,
+        "pid": 2349421,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 110668619,
+        "state": "S"
+      },
+      "result": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/temporary/preparation-02-checks/before.json",
+        "sha256": "ba4a61854768f8dc400f1fa3b3adacfe330805796db719b3da40d3a20b1e15df"
+      },
+      "returncode": 0,
+      "status": "complete"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/with_correctness_namespace_09.py",
+        "--execution",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/execution05.json",
+        "--execution-sha256",
+        "c19fc090eb7be49ec5380520d00c31d0114af9c2894fde55685109a3e06e18f8",
+        "--",
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/check_preparation_state01.py",
+        "--config",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/segmented-v4.json",
+        "--config-sha256",
+        "3f085132dc0fb62c090ebbed50dd8865360cd6fcf7d8b8a3c9703b3312ace985",
+        "--source-sha256",
+        "8ee869dd82c86833662fad8985e13197a422f6f0faf3628db83573ee8010cd3b",
+        "--phase",
+        "after",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/temporary/preparation-02-checks/after.json"
+      ],
+      "cleanup": {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2349417,
+            "pid": 2351893,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 110702429,
+            "state": "Z"
+          },
+          {
+            "parent": 2351893,
+            "pid": 2351894,
+            "pid_namespace": "pid:[4026534168]",
+            "start_ticks": 110702431,
+            "state": "S"
+          },
+          {
+            "parent": 2351894,
+            "pid": 2351895,
+            "pid_namespace": "pid:[4026534168]",
+            "start_ticks": 110702434,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T04:03:39.109676+00:00",
+        "pid_namespaces": [
+          "pid:[4026534168]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      "elapsed_seconds": 17.376729669049382,
+      "interrupted_or_timeout": false,
+      "phase": "after",
+      "process": {
+        "parent": 2349417,
+        "pid": 2351893,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 110702429,
+        "state": "S"
+      },
+      "returncode": 1,
+      "status": "failed"
+    }
+  ],
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2349417,
+            "pid": 2349421,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 110668619,
+            "state": "Z"
+          },
+          {
+            "parent": 2349421,
+            "pid": 2349422,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110668621,
+            "state": "S"
+          },
+          {
+            "parent": 2349422,
+            "pid": 2349423,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110668624,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T04:03:42.173140+00:00",
+        "pid_namespaces": [
+          "pid:[4026534167]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2349417,
+            "pid": 2350518,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 110682794,
+            "state": "Z"
+          },
+          {
+            "parent": 2350519,
+            "pid": 2350521,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110682799,
+            "state": "S"
+          },
+          {
+            "parent": 2350518,
+            "pid": 2350519,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110682797,
+            "state": "S"
+          },
+          {
+            "parent": 2350521,
+            "pid": 2350738,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110684898,
+            "state": "S"
+          },
+          {
+            "parent": 2350738,
+            "pid": 2350739,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110684915,
+            "state": "R"
+          },
+          {
+            "parent": 2350739,
+            "pid": 2350814,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110686296,
+            "state": "R"
+          },
+          {
+            "parent": 2350739,
+            "pid": 2350868,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110687279,
+            "state": "R"
+          },
+          {
+            "parent": 2350739,
+            "pid": 2351076,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110690124,
+            "state": "Z"
+          },
+          {
+            "parent": 2350521,
+            "pid": 2351118,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110690911,
+            "state": "S"
+          },
+          {
+            "parent": 2351118,
+            "pid": 2351119,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110690927,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351130,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110691566,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351335,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110694394,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351337,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110694496,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351376,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110694850,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351386,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110695022,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351411,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110695149,
+            "state": "R"
+          },
+          {
+            "parent": 2351119,
+            "pid": 2351434,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110695348,
+            "state": "R"
+          },
+          {
+            "parent": 2350521,
+            "pid": 2351437,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110695532,
+            "state": "S"
+          },
+          {
+            "parent": 2351437,
+            "pid": 2351438,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110695549,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351487,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110696393,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351659,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110699218,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351667,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110699336,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351724,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110699997,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351735,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110700240,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351736,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110700478,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351755,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110700702,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351785,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110700931,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351813,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110701154,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351839,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110701393,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351843,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110701641,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351844,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110701883,
+            "state": "R"
+          },
+          {
+            "parent": 2351438,
+            "pid": 2351883,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 110702122,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T04:03:42.313573+00:00",
+        "pid_namespaces": [
+          "pid:[4026534167]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2349417,
+            "pid": 2351893,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 110702429,
+            "state": "Z"
+          },
+          {
+            "parent": 2351893,
+            "pid": 2351894,
+            "pid_namespace": "pid:[4026534168]",
+            "start_ticks": 110702431,
+            "state": "S"
+          },
+          {
+            "parent": 2351894,
+            "pid": 2351895,
+            "pid_namespace": "pid:[4026534168]",
+            "start_ticks": 110702434,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T04:03:42.449923+00:00",
+        "pid_namespaces": [
+          "pid:[4026534168]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T04:03:42.449966+00:00",
+  "plan": {
+    "bytes": 2386,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/plan05.json",
+    "sha256": "6fd40ab3fca6559b5cc927bd46d5114650d0416bcec5799061a40b984d750607"
+  },
+  "preparation": {
+    "argv": [
+      "/usr/bin/python3",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/with_correctness_namespace_09.py",
+      "--execution",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/execution05.json",
+      "--execution-sha256",
+      "c19fc090eb7be49ec5380520d00c31d0114af9c2894fde55685109a3e06e18f8",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "24",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-m",
+      "orbit_poc.cli",
+      "segmented",
+      "prepare",
+      "--config",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/segmented-v4.json"
+    ],
+    "cleanup": {
+      "forced": false,
+      "identities": [
+        {
+          "parent": 2349417,
+          "pid": 2350518,
+          "pid_namespace": "pid:[4026531836]",
+          "start_ticks": 110682794,
+          "state": "Z"
+        },
+        {
+          "parent": 2350519,
+          "pid": 2350521,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110682799,
+          "state": "S"
+        },
+        {
+          "parent": 2350518,
+          "pid": 2350519,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110682797,
+          "state": "S"
+        },
+        {
+          "parent": 2350521,
+          "pid": 2350738,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110684898,
+          "state": "S"
+        },
+        {
+          "parent": 2350738,
+          "pid": 2350739,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110684915,
+          "state": "R"
+        },
+        {
+          "parent": 2350739,
+          "pid": 2350814,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110686296,
+          "state": "R"
+        },
+        {
+          "parent": 2350739,
+          "pid": 2350868,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110687279,
+          "state": "R"
+        },
+        {
+          "parent": 2350739,
+          "pid": 2351076,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110690124,
+          "state": "Z"
+        },
+        {
+          "parent": 2350521,
+          "pid": 2351118,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110690911,
+          "state": "S"
+        },
+        {
+          "parent": 2351118,
+          "pid": 2351119,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110690927,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351130,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110691566,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351335,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110694394,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351337,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110694496,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351376,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110694850,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351386,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110695022,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351411,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110695149,
+          "state": "R"
+        },
+        {
+          "parent": 2351119,
+          "pid": 2351434,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110695348,
+          "state": "R"
+        },
+        {
+          "parent": 2350521,
+          "pid": 2351437,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110695532,
+          "state": "S"
+        },
+        {
+          "parent": 2351437,
+          "pid": 2351438,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110695549,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351487,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110696393,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351659,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110699218,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351667,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110699336,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351724,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110699997,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351735,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110700240,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351736,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110700478,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351755,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110700702,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351785,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110700931,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351813,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110701154,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351839,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110701393,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351843,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110701641,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351844,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110701883,
+          "state": "R"
+        },
+        {
+          "parent": 2351438,
+          "pid": 2351883,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 110702122,
+          "state": "R"
+        }
+      ],
+      "live_owned_processes": [],
+      "observed_at": "2026-10-16T04:03:21.624825+00:00",
+      "pid_namespaces": [
+        "pid:[4026534167]"
+      ],
+      "returncode": 1,
+      "verified": true,
+      "was_running": false,
+      "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+    },
+    "elapsed_seconds": 196.23944452009164,
+    "interrupted_or_timeout": false,
+    "process": {
+      "parent": 2349417,
+      "pid": 2350518,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 110682794,
+      "state": "S"
+    },
+    "returncode": 1,
+    "status": "failed"
+  },
+  "release_ready": false,
+  "resource_scope": "36h outer data-preparation lifetime; each public component retains its frozen2h/8GiB/one-thread limits",
+  "schema": "orbit-poc-segmented-preparation-owned-run-v1",
+  "started_at": "2026-10-16T03:57:43.565816+00:00",
+  "status": "failed_or_blocked"
+}

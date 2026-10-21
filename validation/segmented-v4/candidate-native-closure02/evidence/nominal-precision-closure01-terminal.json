@@ -1,0 +1,367 @@
+{
+  "control/pipeline.json": {
+    "sha256": "492182d229e1115568bc1b71f697b8cd787b55495e66ff61a13858e7dacc3f1a",
+    "value": {
+      "admission": {
+        "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+        "build_cpus": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "conflicting_processes": [],
+        "driver_identity": {
+          "argv": [
+            "/usr/bin/python3",
+            "-B",
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/run_nominal_precision_closure01.py",
+            "--plan",
+            "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/plan.json",
+            "--sha256",
+            "0d3f2f5e9e6c788e39fdbad5bfc4394c6a77676ce6a91ac58a9c3a82544f092e"
+          ],
+          "command_sha256": "d91dbd34bda339d0e5cbc7df48d61b685ecb170a16b28c0f5b23fb6ed50d5278",
+          "parent": 2462717,
+          "pid": 2462718,
+          "pid_namespace": "pid:[4026531836]",
+          "start_ticks": 112076187,
+          "state": "R"
+        },
+        "fit_cpu": 24,
+        "hostname": "workstation1",
+        "observed_at": "2026-10-16T07:52:22.167855+00:00",
+        "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+        "reserved_cpu_note": "One exact72h fixed-state closure using the separately built precision candidate onCPU24/one thread/8GiB/2h. Original inputs/profile/thresholds; no truth/preprocessing/fits. Protected6000 and original150WSL untouched.",
+        "status": "admitted"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/with_correctness_namespace_09.py",
+        "--execution",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/execution.json",
+        "--execution-sha256",
+        "833cc9c5eb2c238c8c0afebae9d7dbbbec8573b1c894dc0d991cfb95b408f813",
+        "--",
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/replay_nominal_precision_closure01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/plan.json",
+        "--sha256",
+        "0d3f2f5e9e6c788e39fdbad5bfc4394c6a77676ce6a91ac58a9c3a82544f092e"
+      ],
+      "cleanup": {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2462718,
+            "pid": 2462729,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 112076479,
+            "state": "Z"
+          },
+          {
+            "parent": 2462729,
+            "pid": 2462730,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112076482,
+            "state": "S"
+          },
+          {
+            "parent": 2462730,
+            "pid": 2462731,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112076484,
+            "state": "R"
+          },
+          {
+            "parent": 2462731,
+            "pid": 2462741,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112076564,
+            "state": "R"
+          },
+          {
+            "parent": 2462731,
+            "pid": 2462824,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112076776,
+            "state": "R"
+          },
+          {
+            "parent": 2462731,
+            "pid": 2462967,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112076991,
+            "state": "R"
+          },
+          {
+            "parent": 2462731,
+            "pid": 2462983,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112077198,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T07:52:32.181673+00:00",
+        "pid_namespaces": [
+          "pid:[4026534163]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      "elapsed_seconds": 9.945840873988345,
+      "final_cleanup": {
+        "commands": [
+          {
+            "forced": false,
+            "identities": [
+              {
+                "parent": 2462718,
+                "pid": 2462729,
+                "pid_namespace": "pid:[4026531836]",
+                "start_ticks": 112076479,
+                "state": "Z"
+              },
+              {
+                "parent": 2462729,
+                "pid": 2462730,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 112076482,
+                "state": "S"
+              },
+              {
+                "parent": 2462730,
+                "pid": 2462731,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 112076484,
+                "state": "R"
+              },
+              {
+                "parent": 2462731,
+                "pid": 2462741,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 112076564,
+                "state": "R"
+              },
+              {
+                "parent": 2462731,
+                "pid": 2462824,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 112076776,
+                "state": "R"
+              },
+              {
+                "parent": 2462731,
+                "pid": 2462967,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 112076991,
+                "state": "R"
+              },
+              {
+                "parent": 2462731,
+                "pid": 2462983,
+                "pid_namespace": "pid:[4026534163]",
+                "start_ticks": 112077198,
+                "state": "R"
+              }
+            ],
+            "live_owned_processes": [],
+            "observed_at": "2026-10-16T07:52:35.106788+00:00",
+            "pid_namespaces": [
+              "pid:[4026534163]"
+            ],
+            "returncode": 0,
+            "verified": true,
+            "was_running": false,
+            "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+          }
+        ],
+        "errors": [],
+        "verified": true
+      },
+      "finished_at": "2026-10-16T07:52:35.106816+00:00",
+      "fit_attempts": 0,
+      "interrupted_or_timeout": false,
+      "peak_owned_rss_bytes": 392024064,
+      "plan": {
+        "bytes": 5814,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/control/plan.json",
+        "sha256": "0d3f2f5e9e6c788e39fdbad5bfc4394c6a77676ce6a91ac58a9c3a82544f092e"
+      },
+      "process": {
+        "parent": 2462718,
+        "pid": 2462729,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 112076479,
+        "state": "S"
+      },
+      "release_evidence": false,
+      "returncode": 0,
+      "schema": "orbit-poc-owned-nominal-precision-closure-v1",
+      "started_at": "2026-10-16T07:52:22.167928+00:00",
+      "status": "passed_diagnostic"
+    }
+  },
+  "run/replay/result.json": {
+    "sha256": "6faab6b0c6fb854875238c51f3dcc37e8b6fd3728e098021e36412953d2de0d1",
+    "value": {
+      "algorithm_delta": "End-cycle affine update accumulated in long double then stored once to double; native operator, preconditioner, Arnoldi, backsolve and limits unchanged",
+      "converged": true,
+      "fit_attempts": 0,
+      "fixed_initial_state_si": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "initialization_criteria": {
+        "maximum_iterations": 10,
+        "position_tolerance_m": 2e-06,
+        "velocity_tolerance_m_s": 3e-09
+      },
+      "iterations": [
+        {
+          "closed": false,
+          "execution": {
+            "blas_openmp_threads": 1,
+            "command": [
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/binaries/groops-precision-eb41fabb2117fd81",
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-01/propagate.xml"
+            ],
+            "config_sha256": "099aa0905cbcfbbf6842ac8830ebe895eb95b21feaa7d24328873f1137982567",
+            "elapsed_seconds": 1.9631304810754955,
+            "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-01/propagate.log",
+            "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+            "native_binary_sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133",
+            "peak_rss_bytes": 292163584,
+            "pid": 3,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "initial_state_error_si": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "iteration": 1,
+          "maximum_position_change_m": 1266.5932941584308,
+          "maximum_velocity_change_m_s": 1.4039046809266578
+        },
+        {
+          "closed": false,
+          "execution": {
+            "blas_openmp_threads": 1,
+            "command": [
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/binaries/groops-precision-eb41fabb2117fd81",
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-02/propagate.xml"
+            ],
+            "config_sha256": "cbdee9efd225de6e052f5cbdd8847ed82eeaff9da5c72a85108425bf5db40789",
+            "elapsed_seconds": 1.9657397461123765,
+            "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-02/propagate.log",
+            "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+            "native_binary_sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133",
+            "peak_rss_bytes": 291594240,
+            "pid": 4,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "initial_state_error_si": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "iteration": 2,
+          "maximum_position_change_m": 0.1329528152832664,
+          "maximum_velocity_change_m_s": 0.00014708126514038726
+        },
+        {
+          "closed": false,
+          "execution": {
+            "blas_openmp_threads": 1,
+            "command": [
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/binaries/groops-precision-eb41fabb2117fd81",
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-03/propagate.xml"
+            ],
+            "config_sha256": "3090a4d29c156238eb408edacb5306645d9be74f117c59af00e8995b3d949c62",
+            "elapsed_seconds": 1.9131551370956004,
+            "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-03/propagate.log",
+            "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+            "native_binary_sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133",
+            "peak_rss_bytes": 291594240,
+            "pid": 5,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "initial_state_error_si": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "iteration": 3,
+          "maximum_position_change_m": 1.3628761049598042e-05,
+          "maximum_velocity_change_m_s": 1.51007121159229e-08
+        },
+        {
+          "closed": true,
+          "execution": {
+            "blas_openmp_threads": 1,
+            "command": [
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/binaries/groops-precision-eb41fabb2117fd81",
+              "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-04/propagate.xml"
+            ],
+            "config_sha256": "04e906a745a73c99828d0f6e6626b46fc42cca8750d5d22e2b1564f1449bc64d",
+            "elapsed_seconds": 1.9135425370186567,
+            "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-closure-01/run/replay/iteration-04/propagate.log",
+            "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+            "native_binary_sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133",
+            "peak_rss_bytes": 291590144,
+            "pid": 6,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "initial_state_error_si": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "iteration": 4,
+          "maximum_position_change_m": 2.4870890451505247e-07,
+          "maximum_velocity_change_m_s": 2.755874001513291e-10
+        }
+      ],
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-01/binaries/groops-precision-eb41fabb2117fd81",
+        "sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133"
+      },
+      "native_evaluations": 4,
+      "original_failure_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=1.503709478355439e-11, tolerance=2e-12, iterations=120, rhs_norm=3747.3316555822867, solution_norm=6658355.6215952141, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+      "plan_sha256": "0d3f2f5e9e6c788e39fdbad5bfc4394c6a77676ce6a91ac58a9c3a82544f092e",
+      "release_evidence": false,
+      "schema": "orbit-poc-fixed-state-precision-closure-v1",
+      "state_epochs": 51840,
+      "status": "closed",
+      "xml_delta": "First iteration changes only five output paths. Later iterations use preceding exported reference orbit, original physical initial state unchanged."
+    }
+  }
+}

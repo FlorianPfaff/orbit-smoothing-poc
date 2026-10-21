@@ -1,0 +1,13 @@
+{"schema": "orbit-poc-completed-preparation-direct-readonly-view-exec-v1", "plan": {"path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/readonly-view-plan03.json", "sha256": "539c900f2f974ab1306fe42ed698ded3ba1a16e57e14a51cfd443d0000eceaa2"}, "mode": "seal_inputs", "benchmark_fits": 0, "host_pid_namespace": "pid:[4026531836]", "host_net_namespace": "net:[4026531840]"}
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs02.py", line 250, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs02.py", line 249, in main
+    result=seal(read({'path':args.plan,'sha256':args.sha256}));print(json.dumps({k:result[k] for k in ('status','manifest_hash','files','denied_files','native_executions','fit_attempts','fit_execution_authorized')}))
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs02.py", line 203, in seal
+    save('allowlist-core-plan.json',ap);core=a.build(ap);save('allowlist-core.json',core)
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/prepare_segmented_fit_allowlist02.py", line 207, in build
+    need((row['bytes'],row['sha256']) not in denied_contents,'Copy of denied content in read closure: '+path)
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/prepare_segmented_fit_allowlist02.py", line 15, in need
+    if not ok:raise ValueError(message)
+ValueError: Copy of denied content in read closure: /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/9a0a658a3e17641cde3c7f672c13e06b90258fb304fb3681ac95612f0d188d27/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt

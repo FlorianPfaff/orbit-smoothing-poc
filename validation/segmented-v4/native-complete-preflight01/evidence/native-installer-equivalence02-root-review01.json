@@ -1,0 +1,56 @@
+{
+  "schema": "orbit-poc-independent-control-review-v1",
+  "created_at": "2026-10-16T20:48:32.201549+00:00",
+  "status": "approved_for_source_only_preflight_with_frozen_readonly_inputs",
+  "contract": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-installer-equivalence02-contract.json",
+    "sha256": "ce9a34aab21cc95ac99c2acf933cbdb828ac0126f83cb7d9b55227060d58c7bd",
+    "bytes": 4553
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/verify_native_installer_equivalence02.py",
+    "sha256": "ea31f14adbabd7e8aae798ca181e685725e06ef182c08ae455ed68588b2fc8d4",
+    "bytes": 16120
+  },
+  "tests": {
+    "path": "/mnt/d/orbit-segmented-v4/control/test_verify_native_installer_equivalence02.py",
+    "sha256": "86c5f6aa0d4eb2bf931bcb465921b2284c2da0e3b4d867309992c8f538f719f4",
+    "bytes": 13315
+  },
+  "independent_tests": {
+    "count": 35,
+    "passed": 35,
+    "failed": 0,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/native-installer-equivalence02-root-tests02.log",
+      "sha256": "eecfd9f164c6dc9304eed484b645a0fb73eddab28b1cd2c779de2623431c6cb4",
+      "bytes": 135
+    },
+    "command": [
+      "python3",
+      "/mnt/d/orbit-segmented-v4/control/test_verify_native_installer_equivalence02.py"
+    ]
+  },
+  "preserved_environment_startup_failure": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-installer-equivalence02-root-tests01.log",
+    "sha256": "b72695fcb3e2889d64484497e2ea8079822f1532c2505f226cde970957bedf7d",
+    "bytes": 41
+  },
+  "review": [
+    "Strict request and input hashes checked before installation and at completion.",
+    "Full expected1134-file source map reconstructed from exact1131-file baseline plus four replacements/three additions.",
+    "Archive paths/member kinds validated before extraction; full extracted tree compared.",
+    "Only genuine Git reads and three pinned Python patchers executed; failed patcher stops later installers and preserves partial tree/logs.",
+    "Exact complete installed tree required; changed repository, payloads, GitHEAD and other pinned inputs fail."
+  ],
+  "required_execution_conditions": [
+    "Pin resolved actualPython executable, actualGit binary and committed-only repository extraction.",
+    "Expose originalinputs, repositoryextraction and genuineGitmetadata read-only in admittedworker namespace.",
+    "Auditactual installation result before treating nativebuildsource as verified."
+  ],
+  "scope": {
+    "actual_remote_installation": false,
+    "native_compilation": false,
+    "native_correctness_or_release": false
+  }
+}

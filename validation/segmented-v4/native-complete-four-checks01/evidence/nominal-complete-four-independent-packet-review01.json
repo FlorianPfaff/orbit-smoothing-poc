@@ -1,0 +1,420 @@
+{
+  "schema": "orbit-poc-complete-four-native-independent-packet-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T22:26:10.732177+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-four-independent-readback01.json",
+    "sha256": "3a048b18b0b08a8d2fab55292989d5d47e15f6b22ce1b86f31d14c2379e71975"
+  },
+  "staging": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-four-staging01.json",
+    "sha256": "079cf4724c63f2b43378d3b84512215cfbb2dea33f16a5ae1830e3194652d302"
+  },
+  "controls_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-native-independent-code-review02.json",
+    "sha256": "193d73388897d6eff8cabe447805963bb9694bc73911d9b552926269d8b00f77"
+  },
+  "build_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build02-independent-terminal-review01.json",
+    "sha256": "4fcbcd598dd41b4b53466393118d8ff626a88f8a79ff2b95c8b0c6f9eb3dfc6e"
+  },
+  "supplemental_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-complete-supplemental01-independent-terminal-review01.json",
+    "sha256": "89691f1e05c85d0b031668ca193894522004b6cc3b23374866218675480900a1"
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-02/binaries/groops-wide-complete-643a1b6d523a363e",
+    "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+  },
+  "packets": [
+    {
+      "case": "preparation03",
+      "mode": "single",
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-01/control/plan.json",
+        "sha256": "48bee12a8c03d9917e84610087fe03e5ee05f7885d90b1bd1c74d6866ac4a493"
+      },
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-01/control/execution.json",
+        "sha256": "29626118893ba28377016faab451c3994533bc18fbca6c40c801387a3310bdfc"
+      },
+      "launch_pins": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-01/control/native-check-launch-pins.json",
+        "sha256": "23193fb0062f5af0ef57ce7260e2d9893cc29d91a13450c4cbe0ce7f39f9f065"
+      },
+      "physical_inputs": {
+        "attitude": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/native-prepared/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat",
+          "sha256": "174d5240eeb314017c0df96a159ce866587d779a9e44abfb2b1f4228b6436df1"
+        },
+        "bootstrap": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/input_bootstrap.dat",
+          "sha256": "41e6e3f19476cebf29e8c32fa1125b3c46237165e0e4c2770c11216977efbfb8"
+        },
+        "eop": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat",
+          "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d"
+        },
+        "ephemerides": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat",
+          "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+        },
+        "gravityfield": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/potential/goco06s/GOCO06s_static_2010-01-01.gfc",
+          "sha256": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24"
+        },
+        "initial_orbit": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/nominal.dat",
+          "sha256": "14a097317e4c37231dd3401ff87383b829317eb89380287da288cc2ad4e95187"
+        },
+        "initial_state": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial_state.txt",
+          "sha256": "9162207d2fdf8dfbc0b2875ef46844371144669ac20a11ee9d0bf40de60ee880"
+        },
+        "initial_text": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/nominal.txt",
+          "sha256": "2461bb399213603b9d4ac8fef142fe301925566435e9f8a1c1ed2c650c70efe0"
+        },
+        "initialization": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initialization.json",
+          "sha256": "3a60d773639c1ba263acbe3736becc623198e24e3e9f7e10f814107e47b7b3f8"
+        },
+        "original_log": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.log",
+          "sha256": "44bc06cbcacec696852f014d7e8ed3a81713420445b0c55f1ed92919e1087799"
+        },
+        "request": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation-jobs/prefix-753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/request.json",
+          "sha256": "a7a303a4821948d359e2cf56d5b1b023d6dca188d6e7c9c224764bf036b7b7a4"
+        },
+        "satellite_model": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/satelliteModel/gracefo1_satelliteModel.xml",
+          "sha256": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13"
+        },
+        "template": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.xml",
+          "sha256": "0df968c048f62631ab89ebaa90fc3b2ea1cb29b8762f60c58a2ec0031ed4d904"
+        }
+      },
+      "fixed_initial_state_si": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "criteria": {
+        "maximum_iterations": 10,
+        "position_tolerance_m": 2e-06,
+        "velocity_tolerance_m_s": 3e-09
+      },
+      "runtime_declarations": 495,
+      "five_mutable_slots_empty": true,
+      "controls_match_review": true,
+      "prior_exact_physical_packet": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-single01-staging.json",
+        "sha256": "2946813e3846242467ac01f41c76f121ab42348d95aa47ecd389dd9ae3f4b487"
+      }
+    },
+    {
+      "case": "preparation04",
+      "mode": "single",
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/control/plan.json",
+        "sha256": "3bd8b8604f880fdecd8e6e23cbb21bd56c82da0fd05f74a9269f8f7db4b40e0e"
+      },
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/control/execution.json",
+        "sha256": "7efe4538fc9376d691e7726e89c203b14db692ed65d81ec569bfbf5616e66e24"
+      },
+      "launch_pins": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-single-02/control/native-check-launch-pins.json",
+        "sha256": "56dfa897e7b48ff773a874a73ba314fce6f8b9fa79f752641e6e9816c030eb2f"
+      },
+      "physical_inputs": {
+        "attitude": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/native-prepared/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat",
+          "sha256": "174d5240eeb314017c0df96a159ce866587d779a9e44abfb2b1f4228b6436df1"
+        },
+        "bootstrap": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/input_bootstrap.dat",
+          "sha256": "41e6e3f19476cebf29e8c32fa1125b3c46237165e0e4c2770c11216977efbfb8"
+        },
+        "eop": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat",
+          "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d"
+        },
+        "ephemerides": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat",
+          "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+        },
+        "gravityfield": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/potential/goco06s/GOCO06s_static_2010-01-01.gfc",
+          "sha256": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24"
+        },
+        "initial_orbit": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-02/nominal.dat",
+          "sha256": "316d7d669e62d79000080102b2bca8df02c7385c3c9fdf582dfddbd0949ebc41"
+        },
+        "initial_state": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial_state.txt",
+          "sha256": "14ff43a83e2d779e7f5cee86eadecf6c67276a7e3cee95aeb46703fd1f6230df"
+        },
+        "initial_text": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-02/nominal.txt",
+          "sha256": "9b3b6fc9f05f48da621ff200e37c93bf7694b2f176501fe2abdd19f60c8ddd31"
+        },
+        "initialization": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initialization.json",
+          "sha256": "e3c4c344511c90146a171df963831cff98dfc39ced19a522fc9149689ad891b5"
+        },
+        "original_log": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-03/propagate.log",
+          "sha256": "85e70ecb592e4abe75adb4fcb686e40772cc88f5cb66c9e4cfa05b96fd30b5ab"
+        },
+        "request": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation-jobs/prefix-753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/request.json",
+          "sha256": "4e47d0bebf1c02948f47d8d1ed8649b3e85ac8490d26dcd1ddc7937d862b5f16"
+        },
+        "satellite_model": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/satelliteModel/gracefo1_satelliteModel.xml",
+          "sha256": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13"
+        },
+        "template": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-03/propagate.xml",
+          "sha256": "5b3546116812bc1578f47f0358aff3c503d7f5c95b9928bff724370e710b52bc"
+        }
+      },
+      "fixed_initial_state_si": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "criteria": {
+        "maximum_iterations": 10,
+        "position_tolerance_m": 2e-06,
+        "velocity_tolerance_m_s": 3e-09
+      },
+      "runtime_declarations": 495,
+      "five_mutable_slots_empty": true,
+      "controls_match_review": true,
+      "prior_exact_physical_packet": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-single02-staging.json",
+        "sha256": "f0bdf92f396e34a92269643cf0d0cf7c4073669da42587d0698f022083c55454"
+      }
+    },
+    {
+      "case": "preparation03",
+      "mode": "closure",
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/plan.json",
+        "sha256": "8bae8b91c524e54fc8d68ab0fd19e5c804649b4234fe0e5afe89dc1142b1991c"
+      },
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/execution.json",
+        "sha256": "9dc14cbe7c2a87d5963334af19e5892fe8ab853b725c0b7ab7ebb2d62e1e5f96"
+      },
+      "launch_pins": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-01/control/native-check-launch-pins.json",
+        "sha256": "d76f19dfad51068c32d3df2ec0c305e1efeb9df33eb0706711d92ab20ac22bfd"
+      },
+      "physical_inputs": {
+        "attitude": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/native-prepared/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat",
+          "sha256": "174d5240eeb314017c0df96a159ce866587d779a9e44abfb2b1f4228b6436df1"
+        },
+        "bootstrap": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/input_bootstrap.dat",
+          "sha256": "41e6e3f19476cebf29e8c32fa1125b3c46237165e0e4c2770c11216977efbfb8"
+        },
+        "eop": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat",
+          "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d"
+        },
+        "ephemerides": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat",
+          "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+        },
+        "gravityfield": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/potential/goco06s/GOCO06s_static_2010-01-01.gfc",
+          "sha256": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24"
+        },
+        "initial_orbit": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/nominal.dat",
+          "sha256": "14a097317e4c37231dd3401ff87383b829317eb89380287da288cc2ad4e95187"
+        },
+        "initial_state": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial_state.txt",
+          "sha256": "9162207d2fdf8dfbc0b2875ef46844371144669ac20a11ee9d0bf40de60ee880"
+        },
+        "initial_text": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/nominal.txt",
+          "sha256": "2461bb399213603b9d4ac8fef142fe301925566435e9f8a1c1ed2c650c70efe0"
+        },
+        "initialization": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initialization.json",
+          "sha256": "3a60d773639c1ba263acbe3736becc623198e24e3e9f7e10f814107e47b7b3f8"
+        },
+        "original_log": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.log",
+          "sha256": "44bc06cbcacec696852f014d7e8ed3a81713420445b0c55f1ed92919e1087799"
+        },
+        "request": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation-jobs/prefix-753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/request.json",
+          "sha256": "a7a303a4821948d359e2cf56d5b1b023d6dca188d6e7c9c224764bf036b7b7a4"
+        },
+        "satellite_model": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/satelliteModel/gracefo1_satelliteModel.xml",
+          "sha256": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13"
+        },
+        "template": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.xml",
+          "sha256": "0df968c048f62631ab89ebaa90fc3b2ea1cb29b8762f60c58a2ec0031ed4d904"
+        }
+      },
+      "fixed_initial_state_si": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "criteria": {
+        "maximum_iterations": 10,
+        "position_tolerance_m": 2e-06,
+        "velocity_tolerance_m_s": 3e-09
+      },
+      "runtime_declarations": 495,
+      "five_mutable_slots_empty": true,
+      "controls_match_review": true,
+      "prior_exact_physical_packet": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-closure02-staging.json",
+        "sha256": "7e252cd599dcacc9d1b56421d6809763f034c9c722b4e1012c4902664ec30699"
+      }
+    },
+    {
+      "case": "preparation04",
+      "mode": "closure",
+      "plan": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/control/plan.json",
+        "sha256": "e9a87c182c6d8de59a094598328c301c2f5e3ce84c1db92a0f81afd88770bb4d"
+      },
+      "execution": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/control/execution.json",
+        "sha256": "e8babf65533411cb0f34f9dd91c9127e637e50c280c6d0ba79c98ac454b1bfd6"
+      },
+      "launch_pins": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-complete-closure-02/control/native-check-launch-pins.json",
+        "sha256": "0bdf534bd4eafccb230ffbc9de74f6816ce6a7de598c5037e4132f10687fd0b4"
+      },
+      "physical_inputs": {
+        "attitude": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/native-prepared/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat",
+          "sha256": "174d5240eeb314017c0df96a159ce866587d779a9e44abfb2b1f4228b6436df1"
+        },
+        "bootstrap": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/input_bootstrap.dat",
+          "sha256": "41e6e3f19476cebf29e8c32fa1125b3c46237165e0e4c2770c11216977efbfb8"
+        },
+        "eop": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat",
+          "sha256": "2265489cf8dc87a9798e938ac4009976c8dcf981b04a9433523192a3ac54319d"
+        },
+        "ephemerides": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat",
+          "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+        },
+        "gravityfield": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/potential/goco06s/GOCO06s_static_2010-01-01.gfc",
+          "sha256": "c5edc5ae295ad244e45b15c8e53210545ec195e501a412ebff76b05486accd24"
+        },
+        "initial_orbit": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/nominal.dat",
+          "sha256": "5ac0d0ea574ff0292f9483ab56dfb3f8580cb841ff6f6fa6e4dcc6fcf09fe16d"
+        },
+        "initial_state": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial_state.txt",
+          "sha256": "14ff43a83e2d779e7f5cee86eadecf6c67276a7e3cee95aeb46703fd1f6230df"
+        },
+        "initial_text": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initial/nominal.txt",
+          "sha256": "100a564775696340fe225b99bbf4d150591245de001ad4e23347246bd30a6a7b"
+        },
+        "initialization": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/initialization.json",
+          "sha256": "e3c4c344511c90146a171df963831cff98dfc39ced19a522fc9149689ad891b5"
+        },
+        "original_log": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-03/propagate.log",
+          "sha256": "85e70ecb592e4abe75adb4fcb686e40772cc88f5cb66c9e4cfa05b96fd30b5ab"
+        },
+        "request": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation-jobs/prefix-753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/request.json",
+          "sha256": "4e47d0bebf1c02948f47d8d1ed8649b3e85ac8490d26dcd1ddc7937d862b5f16"
+        },
+        "satellite_model": {
+          "path": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/satelliteModel/gracefo1_satelliteModel.xml",
+          "sha256": "82e7734c2e2c2fe54b82bc158ec214cfdb3a07868d0d9c5b4a58a55ba7cf2f13"
+        },
+        "template": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/run/preparation/prefixes/753992c25b8ee35f52468f0d4439501f642bc531685eecd44942eac438ba7769/nominal-initialization/iteration-01/propagate.xml",
+          "sha256": "b93cee09595a68df48c90bbd35578079395d990920824c76c0cc096c75fc8f2f"
+        }
+      },
+      "fixed_initial_state_si": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "criteria": {
+        "maximum_iterations": 10,
+        "position_tolerance_m": 2e-06,
+        "velocity_tolerance_m_s": 3e-09
+      },
+      "runtime_declarations": 495,
+      "five_mutable_slots_empty": true,
+      "controls_match_review": true,
+      "prior_exact_physical_packet": {
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-closure03-staging.json",
+        "sha256": "c030533e2004eb8f6d07e7bc3a4537beeff469e9523476759af5c6474a8818a4"
+      }
+    }
+  ],
+  "first_launch_admission": {
+    "status": "admitted",
+    "hostname": "workstation1",
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "observed_at": "2026-10-16T22:26:10.699565+00:00",
+    "driver_identity": {
+      "pid": 2866193,
+      "start_ticks": 117319306,
+      "parent": 2866192,
+      "state": "R",
+      "pid_namespace": "pid:[4026531836]",
+      "argv": [
+        "/usr/bin/python3",
+        "-"
+      ],
+      "command_sha256": "a06f73fe34c728dbb2ac6653689a3e0306406d711c5333f9cad9bce72fe2dbb2"
+    },
+    "conflicting_processes": [],
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "fit_cpu": 24,
+    "reserved_cpu_note": "One separately attributed archived native check onCPU24/one thread/8GiB/2h. Distinct preparation03 and preparation04 references/fixed states preserved; no fitting or regenerated initialization.",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1"
+  },
+  "scope": "Exact four distinct archived physical problems are staged with original13 inputs, complete643a native and passed analytical supplemental. First P3 single may launch under fresh controller admission/shared lock. Serial next outcomes require actual evidence; no scientific acceptance or fitting/release claim. Prior runtime/source bulk payload checks reused by exact reviewed receipts; no duplicate full scan."
+}

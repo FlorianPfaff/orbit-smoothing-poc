@@ -1,0 +1,74 @@
+{
+  "schema": "orbit-poc-native-complete-preflight-publication-v1",
+  "status": "preflight03_source_and_supplemental_fixtures_passed",
+  "observed_at": "2026-10-16T21:32:52.539677+00:00",
+  "independent_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-preflight03-independent-terminal-review01.json",
+    "sha256": "bf5903c98b8fc54a02fb81520ed787fdceaf97b4b67fd6c1a3fc107313da8ffa",
+    "bytes": 5422
+  },
+  "preflight_result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-03/run/preflight/result.json",
+    "sha256": "4cb2b3019212093dd5068b295d7de64f552c28cd74f5ae9de209aef488af2bfd"
+  },
+  "source": {
+    "additions": 3,
+    "full_actual_tree_hashed": true,
+    "installed_files": 1134,
+    "installed_sha256": "eebb8e0c16775cb44d8bc9d2de853f985daa96e61bf26877b2f23f91da6c532a",
+    "original_files": 1131,
+    "original_preserved": true,
+    "replacements": 4,
+    "repository_files": 79
+  },
+  "baseline": {
+    "copied_objects_hashed": 611,
+    "distinct_inodes": true,
+    "executable_rehashed": true,
+    "native_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+    "original_objects_hashed": 611
+  },
+  "supplemental": {
+    "exact_fraction_roundtrip": true,
+    "flags": [
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17"
+    ],
+    "interpolation": true,
+    "serializer": true
+  },
+  "retained_attempts": [
+    {
+      "attempt": "01",
+      "status": "failed",
+      "scope": "Resolved-path metadata mismatch before command stages; no source or numerical execution.",
+      "audit_sha256": "8a77005ca063a9dd19e823944bd48471dbff7e07dab73c634cf06e167f041667"
+    },
+    {
+      "attempt": "02",
+      "status": "failed",
+      "scope": "Exact baseline relink recorded; installer rejected a Python symlink before patchers. No candidate compilation or fit.",
+      "audit_sha256": "be2bdae00a50ace30ef0bb8a8bcfb537f54fa5612b397c63f3dcff0a21b0cab8"
+    },
+    {
+      "attempt": "03",
+      "status": "passed",
+      "scope": "Exact baseline relink independently rehashed, complete source-only installation equality, two compiled supplemental fixtures and exact decoder roundtrip.",
+      "audit_sha256": "bf5903c98b8fc54a02fb81520ed787fdceaf97b4b67fd6c1a3fc107313da8ffa"
+    }
+  ],
+  "scope": {
+    "native_candidate_full_build_completed": false,
+    "candidate_groops_objects_compiled": 0,
+    "full_validation_suite_completed_for_this_candidate": false,
+    "native_trajectory_closure_claimed": false,
+    "physical_propagations": 0,
+    "v4_fit_attempts": 0,
+    "v4_planned_fits": 68,
+    "release_ready": false
+  },
+  "original_remote_records": 85,
+  "tooling_history": "Prior namespace, interpreter-path, author launch-argument and independent readback/auditor invocation mistakes are retained in their original records. These are not numerical estimator outcomes.",
+  "external_scope": "Full source checkouts, objects, binaries, runtime trees and archive payloads remain external. Original byte identities and full source maps are retained in the captured receipts. No external payload is newly read by this publication."
+}

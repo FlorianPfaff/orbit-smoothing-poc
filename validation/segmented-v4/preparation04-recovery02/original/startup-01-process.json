@@ -1,0 +1,182 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/recover_preparation04_startup03.py",
+        "startup",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/plan03.json",
+        "--sha256",
+        "3aa619222f8c7d59f2b7e980525a65cac6cd992a6fc95cd63c6b8bbdc05cfd79"
+      ],
+      "command_sha256": "ca73cbb4a0e2870117937c673cfc13b9a52cd984d980a76c87bf0806c99b2e56",
+      "parent": 2673711,
+      "pid": 2673715,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 114688113,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T15:07:38.879566+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Fresh serial unchanged14gate validation05 onCPU24; one committed native precision header and fully dependency-rebuilt candidate. Dense reference, original150 and protected6000 unchanged; existing ownership/admission/global lock.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-02/execution.json",
+    "--execution-sha256",
+    "716cfcdb4b5fcdd20f6e392abd47536b0d71b60c4f4566b8a0bc95e20335b887",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/probe_segmented_preparation02.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/probe-plan.json",
+    "--sha256",
+    "0722822d2369d9d95bbe6513ce0c6e97709e888735bd06095c8d0bef0d30625f"
+  ],
+  "benchmark_fits": 0,
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2673715,
+        "pid": 2673716,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 114688153,
+        "state": "Z"
+      },
+      {
+        "parent": 2673716,
+        "pid": 2673717,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 114688157,
+        "state": "S"
+      },
+      {
+        "parent": 2673717,
+        "pid": 2673718,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 114688159,
+        "state": "S"
+      },
+      {
+        "parent": 2673718,
+        "pid": 2674348,
+        "pid_namespace": "pid:[4026534163]",
+        "start_ticks": 114698940,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-16T15:09:29.536869+00:00",
+    "pid_namespaces": [
+      "pid:[4026534163]"
+    ],
+    "returncode": 0,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "derived_execution": {
+    "bytes": 127777,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-02/execution.json",
+    "sha256": "716cfcdb4b5fcdd20f6e392abd47536b0d71b60c4f4566b8a0bc95e20335b887"
+  },
+  "elapsed_seconds": 110.56062515708618,
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/execution.json",
+    "sha256": "98e9ea204c22d176e271141b993338579430df9354bcde5f74a44fb9476efe77"
+  },
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2673715,
+            "pid": 2673716,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 114688153,
+            "state": "Z"
+          },
+          {
+            "parent": 2673716,
+            "pid": 2673717,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 114688157,
+            "state": "S"
+          },
+          {
+            "parent": 2673717,
+            "pid": 2673718,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 114688159,
+            "state": "S"
+          },
+          {
+            "parent": 2673718,
+            "pid": 2674348,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 114698940,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T15:09:29.679060+00:00",
+        "pid_namespaces": [
+          "pid:[4026534163]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T15:09:29.679083+00:00",
+  "interrupted_or_timeout": false,
+  "physical_propagations": 0,
+  "plan": {
+    "bytes": 1141,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/smoke-plan.json",
+    "sha256": "bea097a755d181bbb3bbf2be322a35d84e3b8054c7704356118ade54847a02c3"
+  },
+  "probe_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/probe-plan.json",
+    "sha256": "0722822d2369d9d95bbe6513ce0c6e97709e888735bd06095c8d0bef0d30625f"
+  },
+  "process": {
+    "parent": 2673715,
+    "pid": 2673716,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 114688153,
+    "state": "S"
+  },
+  "result": {
+    "bytes": 102453,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/preparation-04/startup-02/temporary/probe-result/result.json",
+    "sha256": "2a83fd4f94d3f2ae5897fe52608be33560511f106568aa74428bf4b57fe2de6a"
+  },
+  "returncode": 0,
+  "schema": "orbit-poc-preparation-owned-startup-smoke-result-v1",
+  "status": "passed"
+}

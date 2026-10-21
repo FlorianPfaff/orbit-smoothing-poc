@@ -1,0 +1,62 @@
+{
+  "actual_launch_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/host-view-plan.json",
+    "--sha256",
+    "ca7870c1e658626c9abef7319bb80c1de4cadc23b3f4c9bcc36ab814fe801b79"
+  ],
+  "artifacts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/assembly-request05.json",
+      "sha256": "65d23604811c64e2cc7a99da96894e56d9976f5ce24605ee2eba3745a40e5782"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/assembly.json",
+      "sha256": "ad6a3a51dc556bad83ca460bb5354ae6a3bed26b7bbed359d8388598650e180b"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/host-plan.json",
+      "sha256": "c7831380af9a077ba0f29fa9763eea185ff4672a287efa1e7cecaea6765a0768"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/launch-pins.json",
+      "sha256": "0acd2681c58b1a3214aaf40a1274b9a7dfa7c1e233123ebaf6c37bbd1b1ac748"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/host-view-plan.json",
+      "sha256": "ca7870c1e658626c9abef7319bb80c1de4cadc23b3f4c9bcc36ab814fe801b79"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/assembly-execution01.json",
+      "sha256": "c1cb02cfd96b4c24e8bf60b5b609662a0c283693e2c3e79c98d09f9ee833c112"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-assembly07-packet01/actual-readback/evidence-extension-result01.json",
+      "sha256": "7af38339dbc19e6962e7f2e2b2eec25b531a37bec3cdf2c92b4af7793fe20ed8"
+    }
+  ],
+  "fit_attempts_observed": 0,
+  "notes": [
+    "Exact request, staged original evidence, host plan, config, manifest, invocation and helper pins agree.",
+    "The restricted inner namespace retains three writable paths. The outer host view adds only its control directory and pinned global flock.",
+    "Host controller and observer CPU32; numerical CPU24; CPU88 is monitored SMT sibling. No exclusive-core claim.",
+    "Detached host HOME is intentionally host-control; inner numerical HOME is private.",
+    "The preserved assembly preflight failure occurred before assembler execution. Reviewed wrapper02 retains the exact metadata subprocess on CPU32.",
+    "Actual inner positive/denial probe and fresh admission remain mandatory before any fit."
+  ],
+  "outer_environment_home": "/home/florianpfaff",
+  "release_ready": false,
+  "reviewed_at": "2026-10-18T22:32:25.249719+00:00",
+  "schema": "orbit-poc-campaign07-concrete-launch-root-review-v1",
+  "sealed_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing05-terminal-independent-review01.json",
+    "sha256": "c0d6827888602fc856ed1b2c28dbf93dc776262bc7f1ca4e17f12a04fe36ec72"
+  },
+  "status": "accepted_concrete_launch_packet"
+}

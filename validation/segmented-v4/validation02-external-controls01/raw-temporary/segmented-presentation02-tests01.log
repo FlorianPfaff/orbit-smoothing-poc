@@ -1,0 +1,123 @@
+FF..................FF                                                   [100%]
+=================================== FAILURES ===================================
+______________ test_actual_status_and_all_missing_attempts[False] ______________
+
+tmp_path = PosixPath('/tmp/segmented-presentation02-tests01/test_actual_status_and_all_mis0')
+failed = False
+
+    @pytest.mark.parametrize('failed',[False,True])
+    def test_actual_status_and_all_missing_attempts(tmp_path,failed):
+>    p=fixture(tmp_path,failed);out=tmp_path/'published';v=m.publish(p,out);s=load(out/'summary.json')
+                                                           ^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_present_segmented_validation02.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:102: in publish
+    state=inspect(plan);output=Path(output);need(output.is_absolute() and not output.exists() and not output.is_symlink(),'Use a new absolute publication directory')
+          ^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:79: in inspect
+    execution=raw(s['execution']);need(execution.get('harness_execution',{}).get('owned_process_group_cleaned') is True,'Gate cleanup missing')
+              ^^^^^^^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: in raw
+    rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x7edb83126fe0>
+
+>   rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                                               ^^^^^^
+E   KeyError: 'bytes'
+
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: KeyError
+______________ test_actual_status_and_all_missing_attempts[True] _______________
+
+tmp_path = PosixPath('/tmp/segmented-presentation02-tests01/test_actual_status_and_all_mis1')
+failed = True
+
+    @pytest.mark.parametrize('failed',[False,True])
+    def test_actual_status_and_all_missing_attempts(tmp_path,failed):
+>    p=fixture(tmp_path,failed);out=tmp_path/'published';v=m.publish(p,out);s=load(out/'summary.json')
+                                                           ^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_present_segmented_validation02.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:102: in publish
+    state=inspect(plan);output=Path(output);need(output.is_absolute() and not output.exists() and not output.is_symlink(),'Use a new absolute publication directory')
+          ^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:79: in inspect
+    execution=raw(s['execution']);need(execution.get('harness_execution',{}).get('owned_process_group_cleaned') is True,'Gate cleanup missing')
+              ^^^^^^^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: in raw
+    rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x7edb82f21750>
+
+>   rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                                               ^^^^^^
+E   KeyError: 'bytes'
+
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: KeyError
+_________________________ test_existing_output_rejects _________________________
+
+tmp_path = PosixPath('/tmp/segmented-presentation02-tests01/test_existing_output_rejects0')
+
+    def test_existing_output_rejects(tmp_path):
+     p=fixture(tmp_path);o=tmp_path/'pub';o.mkdir()
+>    with pytest.raises(ValueError):m.publish(p,o)
+                                    ^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_present_segmented_validation02.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:102: in publish
+    state=inspect(plan);output=Path(output);need(output.is_absolute() and not output.exists() and not output.is_symlink(),'Use a new absolute publication directory')
+          ^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:79: in inspect
+    execution=raw(s['execution']);need(execution.get('harness_execution',{}).get('owned_process_group_cleaned') is True,'Gate cleanup missing')
+              ^^^^^^^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: in raw
+    rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x7edb831443a0>
+
+>   rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                                               ^^^^^^
+E   KeyError: 'bytes'
+
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: KeyError
+________________ test_failed_raw_xml_artifact_can_be_preserved _________________
+
+tmp_path = PosixPath('/tmp/segmented-presentation02-tests01/test_failed_raw_xml_artifact_c0')
+
+    def test_failed_raw_xml_artifact_can_be_preserved(tmp_path):
+>    p=fixture(tmp_path,True);m.inspect(p)
+                              ^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_present_segmented_validation02.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:79: in inspect
+    execution=raw(s['execution']);need(execution.get('harness_execution',{}).get('owned_process_group_cleaned') is True,'Gate cleanup missing')
+              ^^^^^^^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: in raw
+    rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x7edb83126ce0>
+
+>   rec,b=bysource[pin['path']];need(all(rec['source'].get(k)==pin[k] for k in ('path','sha256','bytes')),'Audit/capture artifact differs');return json.loads(b) if as_json else b
+                                                               ^^^^^^
+E   KeyError: 'bytes'
+
+/mnt/d/orbit-segmented-v4/control/present_segmented_validation02.py:51: KeyError
+-------- generated xml file: /tmp/segmented-presentation02-tests01.xml ---------
+=========================== short test summary info ============================
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_present_segmented_validation02.py::test_actual_status_and_all_missing_attempts[False]
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_present_segmented_validation02.py::test_actual_status_and_all_missing_attempts[True]
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_present_segmented_validation02.py::test_existing_output_rejects
+FAILED ../../../../../../../d/orbit-segmented-v4/control/test_present_segmented_validation02.py::test_failed_raw_xml_artifact_can_be_preserved
+4 failed, 18 passed in 6.09s

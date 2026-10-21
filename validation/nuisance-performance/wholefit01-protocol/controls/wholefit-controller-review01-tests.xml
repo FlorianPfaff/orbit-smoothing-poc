@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="29" time="7.751" timestamp="2026-10-19T10:06:50.863989+02:00" hostname="pfaff"><testcase classname="test_wholefit_controller_review01" name="test_wholefit_environment_cache_order_and_limits" time="0.038" /><testcase classname="test_wholefit_controller_review01" name="test_inconsistent_complete_fails_closed_preserving_raw_result[converged]" time="0.035" /><testcase classname="test_wholefit_controller_review01" name="test_inconsistent_complete_fails_closed_preserving_raw_result[covariance_valid]" time="0.030" /><testcase classname="test_wholefit_controller_review01" name="test_inconsistent_complete_fails_closed_preserving_raw_result[strict_nuisance_converged]" time="0.037" /><testcase classname="test_wholefit_controller_review01" name="test_numerical_failure_not_promoted_by_process_exit_zero[failed]" time="0.035" /><testcase classname="test_wholefit_controller_review01" name="test_numerical_failure_not_promoted_by_process_exit_zero[timeout]" time="0.040" /><testcase classname="test_wholefit_controller_review01" name="test_numerical_failure_not_promoted_by_process_exit_zero[unresolved_rank]" time="0.026" /><testcase classname="test_wholefit_controller_review01" name="test_numerical_failure_not_promoted_by_process_exit_zero[invalid_covariance]" time="0.042" /><testcase classname="test_wholefit_controller_review01" name="test_harness_limit_wins_and_interrupt_stops_next_job[timeout]" time="0.033" /><testcase classname="test_wholefit_controller_review01" name="test_harness_limit_wins_and_interrupt_stops_next_job[memory_limit]" time="0.036" /><testcase classname="test_wholefit_controller_review01" name="test_harness_limit_wins_and_interrupt_stops_next_job[disk_limit]" time="0.038" /><testcase classname="test_wholefit_controller_review01" name="test_harness_limit_wins_and_interrupt_stops_next_job[interrupted]" time="0.039" /><testcase classname="test_wholefit_controller_review01" name="test_unclean_ownership_stops_second_job" time="0.038" /><testcase classname="test_wholefit_controller_review01" name="test_identity_changes_block_before_run[input]" time="0.034" /><testcase classname="test_wholefit_controller_review01" name="test_identity_changes_block_before_run[request]" time="0.027" /><testcase classname="test_wholefit_controller_review01" name="test_identity_changes_block_before_run[runner]" time="0.031" /><testcase classname="test_wholefit_controller_review01" name="test_identity_changes_block_before_run[freeze_digest]" time="0.031" /><testcase classname="test_wholefit_controller_review01" name="test_existing_output_is_preserved_and_rejected" time="0.034" /><testcase classname="test_wholefit_controller_review01" name="test_existing_launch_never_restarts" time="0.035" /><testcase classname="test_wholefit_controller_review01" name="test_input_mutation_after_attempt_preserved_and_stops" time="0.038" /><testcase classname="test_wholefit_controller_review01" name="test_supervisor_interruption_leaves_no_replaceable_output" time="0.068"><failure message="BlockingIOError: [Errno 11] Resource temporarily unavailable">context = namespace(root=PosixPath('/tmp/wholefit-review01/test_supervisor_interruption_l0'), controller=&lt;module 'review_wholefi...e_valid': True, 'strict_nuisance_converged': True, 'strict_final_correction': {'fresh_undamped': True}}, gate_calls=[])
+
+    def test_supervisor_interruption_leaves_no_replaceable_output(context):
+        x=context;x.behavior['raise']=KeyboardInterrupt()
+        with pytest.raises(KeyboardInterrupt):x.run()
+        assert len(x.calls)==1 and (x.root/'launch.json').exists() and (x.root/'cache1'/'request.json').exists()
+&gt;       with pytest.raises(RuntimeError,match='no automatic resume'):x.run()
+                                                                     ^^^^^^^
+
+/home/emper/orbit-nuisance-performance/control/test_wholefit_controller_review01.py:179: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/emper/orbit-nuisance-performance/control/test_wholefit_controller_review01.py:81: in run
+    return controller.main()
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def main():
+        parser = argparse.ArgumentParser(description=__doc__)
+        parser.add_argument('--freeze', required=True, type=Path)
+        parser.add_argument('--freeze-sha256', required=True)
+        args = parser.parse_args()
+        if sha(args.freeze) != args.freeze_sha256:
+            raise RuntimeError('Freeze identity differs')
+        freeze = json.loads(args.freeze.read_text())
+        if freeze['schema'] != 'orbit-poc-nuisance-wholefit-freeze-v1':
+            raise ValueError('Unknown freeze schema')
+        root = Path(freeze['root'])
+        if root != args.freeze.resolve().parent:
+            raise ValueError('Freeze root differs')
+        if sha(__file__) != freeze['runner']['sha256']:
+            raise RuntimeError('Runner differs from frozen code')
+        lock = (root/'controller.lock').open('a')
+&gt;       fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+E       BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+/home/emper/orbit-nuisance-performance/control/run_wholefit01.py:111: BlockingIOError</failure></testcase><testcase classname="test_wholefit_controller_review01" name="test_worker_effective_environment_and_full_backend[0]" time="0.003"><failure message="RuntimeError: Declared request cache treatment differs">context = namespace(root=PosixPath('/tmp/wholefit-review01/test_worker_effective_environm0'), controller=&lt;module 'review_wholefi...e_valid': True, 'strict_nuisance_converged': True, 'strict_final_correction': {'fresh_undamped': True}}, gate_calls=[])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x72d33055db90&gt;
+cache = 0
+
+    @pytest.mark.parametrize('cache',[0,1])
+    def test_worker_effective_environment_and_full_backend(context,monkeypatch,cache):
+        x=context;job=next(j for j in x.frozen['jobs'] if j['cache']==cache)
+        directory=x.root/job['name'];directory.mkdir();request=directory/'request.json';request.write_bytes(Path(job['request']['path']).read_bytes())
+        output=directory/'worker-result.json';observed=[]
+        backend=types.ModuleType('orbit_poc.segmented.backend')
+        backend.fit_job=lambda request,root:observed.append((request,root)) or x.complete
+        monkeypatch.setitem(sys.modules,'orbit_poc.segmented.backend',backend)
+        for key in list(os.environ):
+            if key.startswith('ORBIT_POC_'):monkeypatch.delenv(key)
+        for k,v in x.frozen['environment'].items():monkeypatch.setenv(k,v)
+        monkeypatch.setenv('ORBIT_POC_NUISANCE_INTERPOLATION_CACHE',str(cache))
+        affinity=set()
+        monkeypatch.setattr(os,'sched_setaffinity',lambda pid,cpus:affinity.update(cpus))
+        monkeypatch.setattr(os,'sched_getaffinity',lambda pid:affinity)
+        monkeypatch.setattr(sys,'argv',['worker',str(x.source),str(request),str(output),str(cache),str(x.freeze),digest(x.freeze)])
+&gt;       x.worker.main()
+
+/home/emper/orbit-nuisance-performance/control/test_wholefit_controller_review01.py:199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def main():
+        source, request, output, cache, freeze_path, expected_freeze = sys.argv[1:]
+        data = Path(freeze_path).read_bytes()
+        if hashlib.sha256(data).hexdigest() != expected_freeze:
+            raise RuntimeError('Worker freeze identity changed')
+        freeze = json.loads(data)
+        if cache not in ('0', '1'):
+            raise ValueError('Explicit cache treatment required')
+        selected = [job for job in freeze['jobs'] if job['cache'] == int(cache)]
+        if len(selected) != 1 or hashlib.sha256(Path(request).read_bytes()).hexdigest() != selected[0]['request']['sha256']:
+            raise RuntimeError('Worker request or treatment differs from freeze')
+        if source != freeze['source_root'] or Path(output).parent != Path(freeze['root'])/selected[0]['name']:
+            raise RuntimeError('Worker source or output root differs')
+        os.sched_setaffinity(0, {freeze['cpu']})
+        if os.sched_getaffinity(0) != {freeze['cpu']}:
+            raise RuntimeError('Worker affinity differs')
+        for key, value in freeze['environment'].items():
+            if os.environ.get(key) != value:
+                raise RuntimeError('Worker environment differs: ' + key)
+        if os.environ.get('ORBIT_POC_NUISANCE_INTERPOLATION_CACHE') != cache:
+            raise RuntimeError('Worker cache treatment differs')
+        if {key for key in os.environ if key.startswith('ORBIT_POC_')} != {
+                'ORBIT_POC_NUISANCE_INTERPOLATION_CACHE', 'ORBIT_POC_NUISANCE_PERFORMANCE'}:
+            raise RuntimeError('Unfrozen numerical environment override')
+        root = Path(output).parent
+        with (root/'effective-environment.json').open('x') as stream:
+            json.dump({'schema': 'orbit-poc-nuisance-wholefit-environment-v1',
+                       'cache': int(cache), 'environment': {**freeze['environment'],
+                       'ORBIT_POC_NUISANCE_INTERPOLATION_CACHE': cache},
+                       'cpu_affinity': sorted(os.sched_getaffinity(0)),
+                       'freeze_sha256': expected_freeze, 'pid': os.getpid(),
+                       'boot_id': Path('/proc/sys/kernel/random/boot_id').read_text().strip(),
+                       'source': source, 'request_sha256': hashlib.sha256(Path(request).read_bytes()).hexdigest(),
+                       'storage_policy': 'unchanged NativeModel overrides: intermediate factors=0, compressed row provenance=1'},
+                      stream, indent=2, sort_keys=True)
+            stream.write('\n')
+        sys.path.insert(0, str(Path(source)/'src'))
+        from orbit_poc.segmented.backend import fit_job
+        job = json.loads(Path(request).read_text())
+        if job.get('nuisance_performance_cache') != int(cache):
+&gt;           raise RuntimeError('Declared request cache treatment differs')
+E           RuntimeError: Declared request cache treatment differs
+
+/home/emper/orbit-nuisance-performance/control/wholefit_worker01.py:50: RuntimeError</failure></testcase><testcase classname="test_wholefit_controller_review01" name="test_worker_effective_environment_and_full_backend[1]" time="0.002"><failure message="RuntimeError: Declared request cache treatment differs">context = namespace(root=PosixPath('/tmp/wholefit-review01/test_worker_effective_environm1'), controller=&lt;module 'review_wholefi...e_valid': True, 'strict_nuisance_converged': True, 'strict_final_correction': {'fresh_undamped': True}}, gate_calls=[])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x72d3305b9f90&gt;
+cache = 1
+
+    @pytest.mark.parametrize('cache',[0,1])
+    def test_worker_effective_environment_and_full_backend(context,monkeypatch,cache):
+        x=context;job=next(j for j in x.frozen['jobs'] if j['cache']==cache)
+        directory=x.root/job['name'];directory.mkdir();request=directory/'request.json';request.write_bytes(Path(job['request']['path']).read_bytes())
+        output=directory/'worker-result.json';observed=[]
+        backend=types.ModuleType('orbit_poc.segmented.backend')
+        backend.fit_job=lambda request,root:observed.append((request,root)) or x.complete
+        monkeypatch.setitem(sys.modules,'orbit_poc.segmented.backend',backend)
+        for key in list(os.environ):
+            if key.startswith('ORBIT_POC_'):monkeypatch.delenv(key)
+        for k,v in x.frozen['environment'].items():monkeypatch.setenv(k,v)
+        monkeypatch.setenv('ORBIT_POC_NUISANCE_INTERPOLATION_CACHE',str(cache))
+        affinity=set()
+        monkeypatch.setattr(os,'sched_setaffinity',lambda pid,cpus:affinity.update(cpus))
+        monkeypatch.setattr(os,'sched_getaffinity',lambda pid:affinity)
+        monkeypatch.setattr(sys,'argv',['worker',str(x.source),str(request),str(output),str(cache),str(x.freeze),digest(x.freeze)])
+&gt;       x.worker.main()
+
+/home/emper/orbit-nuisance-performance/control/test_wholefit_controller_review01.py:199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def main():
+        source, request, output, cache, freeze_path, expected_freeze = sys.argv[1:]
+        data = Path(freeze_path).read_bytes()
+        if hashlib.sha256(data).hexdigest() != expected_freeze:
+            raise RuntimeError('Worker freeze identity changed')
+        freeze = json.loads(data)
+        if cache not in ('0', '1'):
+            raise ValueError('Explicit cache treatment required')
+        selected = [job for job in freeze['jobs'] if job['cache'] == int(cache)]
+        if len(selected) != 1 or hashlib.sha256(Path(request).read_bytes()).hexdigest() != selected[0]['request']['sha256']:
+            raise RuntimeError('Worker request or treatment differs from freeze')
+        if source != freeze['source_root'] or Path(output).parent != Path(freeze['root'])/selected[0]['name']:
+            raise RuntimeError('Worker source or output root differs')
+        os.sched_setaffinity(0, {freeze['cpu']})
+        if os.sched_getaffinity(0) != {freeze['cpu']}:
+            raise RuntimeError('Worker affinity differs')
+        for key, value in freeze['environment'].items():
+            if os.environ.get(key) != value:
+                raise RuntimeError('Worker environment differs: ' + key)
+        if os.environ.get('ORBIT_POC_NUISANCE_INTERPOLATION_CACHE') != cache:
+            raise RuntimeError('Worker cache treatment differs')
+        if {key for key in os.environ if key.startswith('ORBIT_POC_')} != {
+                'ORBIT_POC_NUISANCE_INTERPOLATION_CACHE', 'ORBIT_POC_NUISANCE_PERFORMANCE'}:
+            raise RuntimeError('Unfrozen numerical environment override')
+        root = Path(output).parent
+        with (root/'effective-environment.json').open('x') as stream:
+            json.dump({'schema': 'orbit-poc-nuisance-wholefit-environment-v1',
+                       'cache': int(cache), 'environment': {**freeze['environment'],
+                       'ORBIT_POC_NUISANCE_INTERPOLATION_CACHE': cache},
+                       'cpu_affinity': sorted(os.sched_getaffinity(0)),
+                       'freeze_sha256': expected_freeze, 'pid': os.getpid(),
+                       'boot_id': Path('/proc/sys/kernel/random/boot_id').read_text().strip(),
+                       'source': source, 'request_sha256': hashlib.sha256(Path(request).read_bytes()).hexdigest(),
+                       'storage_policy': 'unchanged NativeModel overrides: intermediate factors=0, compressed row provenance=1'},
+                      stream, indent=2, sort_keys=True)
+            stream.write('\n')
+        sys.path.insert(0, str(Path(source)/'src'))
+        from orbit_poc.segmented.backend import fit_job
+        job = json.loads(Path(request).read_text())
+        if job.get('nuisance_performance_cache') != int(cache):
+&gt;           raise RuntimeError('Declared request cache treatment differs')
+E           RuntimeError: Declared request cache treatment differs
+
+/home/emper/orbit-nuisance-performance/control/wholefit_worker01.py:50: RuntimeError</failure></testcase><testcase classname="test_wholefit_controller_review01" name="test_worker_rejects_mismatched_identity_or_env[extra_override]" time="0.002" /><testcase classname="test_wholefit_controller_review01" name="test_worker_rejects_mismatched_identity_or_env[cache]" time="0.002" /><testcase classname="test_wholefit_controller_review01" name="test_worker_rejects_mismatched_identity_or_env[thread]" time="0.002" /><testcase classname="test_wholefit_controller_review01" name="test_worker_rejects_mismatched_identity_or_env[request]" time="0.002" /><testcase classname="test_wholefit_controller_review01" name="test_worker_rejects_mismatched_identity_or_env[freeze]" time="0.002" /><testcase classname="test_wholefit_controller_review01" name="test_worker_rejects_mismatched_identity_or_env[output]" time="0.002" /></testsuite></testsuites>

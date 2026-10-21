@@ -1,0 +1,44 @@
+{
+  "actual_fresh_seal_accepted": false,
+  "actual_namespace_probe_accepted": false,
+  "candidate": {
+    "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/manifest.json",
+    "sha256": "4150c8d15cca4063f5fc2e3fed1ef4e48a9f97a85820773687e013085f0b44a8"
+  },
+  "created_at": "2026-10-19T00:46:25.714114+00:00",
+  "evidence_scope": "Independent source review and 140 local control fixtures only. The running fresh seal has not yet been accepted, no actual full namespace probe has passed, and no fit or campaign launch is authorized by this code review.",
+  "findings": [
+    "Only three census-pinned historical OSB files may be added to the original sealed file set; exact SHA, size, device, inode, backing and reason are checked.",
+    "Every existing nonmetadata file/support/backing row requires raw equality. Only explicitly named generated metadata identities can be normalized. The hash-alias negative test rejects using changed metadata digests to disguise scientific-row changes.",
+    "Safe-tree inventory hashes, original manifest, denials, writable identities, all existing namespace operations and their order remain fixed. New namespace directories are limited to parents of the three additions.",
+    "Fresh sealing plan05 and readonly-view06 are hard pinned and checked against their original controls; only reviewed collector/sealer identities and named output relocation are allowed.",
+    "Actual independent fresh-seal acceptance and an actual passed full public namespace probe with the exact bootstrap are both required before metadata assembly. All four original failed campaign/smoke records remain checked and owned processes must be gone.",
+    "Fresh campaign09 output writes are exclusive; original inner/controller/probe/scientific runtime fields and fit order remain unchanged."
+  ],
+  "fit_attempts": 0,
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py",
+    "sha256": "c123d89ecc93762df9c4e71cbbcec32326b9691b28726c414803faccca47302a"
+  },
+  "native_executions": 0,
+  "reviewer": "supplemental_review",
+  "schema": "orbit-poc-normalization-recovery-independent-review-v1",
+  "source_manifest_members_verified": 12,
+  "status": "accepted_metadata_derivation_adapter",
+  "tests": {
+    "cpu": 1,
+    "errors": 0,
+    "failed": 0,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-independent01.log",
+      "sha256": "d2f617138b9dca7e3eed3c95e0ea57165390f63290017eca541008ee147cb690"
+    },
+    "numerical_threads": 1,
+    "passed": 140,
+    "skipped": 0,
+    "xml": {
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-independent01.xml",
+      "sha256": "13d99e7827853fcda0cfae400528648ae35d1173eba399cf43164814538d8ab1"
+    }
+  }
+}

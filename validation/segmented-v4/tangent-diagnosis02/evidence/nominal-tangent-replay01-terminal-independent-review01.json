@@ -1,0 +1,59 @@
+{
+  "schema": "orbit-poc-nominal-tangent-original-replay-terminal-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:06:42.030903+00:00",
+  "audit_meaning": "Exact failure reproduction and evidence attribution passed audit; the native evaluation itself failed the unchanged numerical guard.",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-replay-01/control/plan.json",
+    "sha256": "cfd13121cb50b19ef2570a84501d10e9efeaf34448f7e493271f7378a32f8d7e",
+    "bytes": 5481
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-replay-01/control/pipeline.json",
+    "sha256": "ad615612edd29225ca91a1aa8d2d403416c91e3ec6564e4a792f2993fb8f967f",
+    "bytes": 5155
+  },
+  "result": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-replay-01/run/replay/result.json",
+    "sha256": "f178d30654a3648a9da232cc835e8406a295362df2222571f97735a8ddc6f810",
+    "bytes": 2612
+  },
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-replay01-terminal-independent-readback01.json",
+    "sha256": "752eb0d32d4e3f372e421cc6fc9e7fad8100285bb700c54d1871a1365ce1232c",
+    "bytes": 7175
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_tangent_replay01_terminal.py",
+    "sha256": "c18ac9d8a92656e59629886a988def3e1568fa688caefc56d5f0acfd130a931d",
+    "bytes": 4487
+  },
+  "prelaunch_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-replay01-packet-independent-review01.json",
+    "sha256": "01ab2c68fdec66c2fd8f00b6cc316def876472654ba51f0a0614d4da0da1242c",
+    "bytes": 4636
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+    "sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+  },
+  "native_status": "native_failed",
+  "exact_failure_reproduced": true,
+  "signature": "six-state tangent did not meet its true residual tolerance: relative_residual=1.503709478355439e-11, tolerance=2e-12, iterations=120, rhs_norm=3747.3316555822867, solution_norm=6658355.6215952141, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+  "native_evaluations": 1,
+  "fit_attempts": 0,
+  "elapsed_native_seconds": 3.5783670521341264,
+  "peak_native_rss_bytes": 291590144,
+  "peak_owned_rss_bytes": 351469568,
+  "owned_identities_non_live": 5,
+  "finished_at": "2026-10-16T07:00:29.598304+00:00",
+  "checks": [
+    "All13 original inputs and the a66 native executable independently rehashed after replay.",
+    "Frozen384-file source remains identical; actual saved XML differs only in the five intended output/intermediate path fields.",
+    "Exact fixed initial state preserved; no initializer or preprocessing rerun and no first-closure trajectory export.",
+    "Every numerical guard field matches the original failure signature at the original logged precision.",
+    "Actual controller admission/cleanup and five current owned process absences checked; no timeout or memory failure."
+  ],
+  "scope": "This establishes reproducibility of the original residual failure. It does not identify its numerical cause, establish numerical-floor convergence or authorize covariance, fitting or release readiness.",
+  "release_ready": false
+}

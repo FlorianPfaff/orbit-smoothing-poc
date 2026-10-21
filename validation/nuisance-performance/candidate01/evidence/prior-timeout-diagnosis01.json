@@ -1,0 +1,159 @@
+{
+  "attempt_id": "leo500-quiet-normal-groops_pulses-24h--dense_corrected",
+  "captures": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout01/manifest.json",
+      "sha256": "7549f400713b83c21e55968432bf400aca56bb55befe262a1c5a6208d1b11afd",
+      "verified_file_count": 3
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/manifest.json",
+      "sha256": "48fbf7970d57f90f85522e8ebe48029543aafa7c1a4bd97b84d31588bfcfd569",
+      "verified_file_count": 62
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout03/manifest.json",
+      "sha256": "48aa8b30b629264d157ef56b9bb9c8bf76387061a571e29fbfb0d86e46e34203",
+      "verified_file_count": 24
+    }
+  ],
+  "completed_profiles": [
+    {
+      "final_maximum_update_m": 9.889017763334896e-09,
+      "floor_limited": false,
+      "last_two_updates_below_threshold": true,
+      "line_search_receipts": 11,
+      "nuisance_iterations": 11,
+      "nuisance_summary": {
+        "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-001-initial/qr.profile.json",
+        "sha256": "4f8a2e50389d84497527eda3f6857a036e1db05afc0d0854953aec6e25197d8a"
+      },
+      "point": "point-001-initial",
+      "profile_execution": {
+        "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-001-initial/profile.execution.json",
+        "sha256": "62fff1fcc055b12779d46cfc0c407a07d974236b98bcaf509a552eea5a4c1c2b"
+      },
+      "recorded_trial_child_system_seconds": 1.349886,
+      "recorded_trial_child_user_seconds": 894.577343,
+      "recorded_trial_children": 13,
+      "strict_nuisance_converged": true,
+      "threshold_m": 1e-08,
+      "wall_seconds": 3129.5335631880444
+    },
+    {
+      "final_maximum_update_m": 5.547277989480632e-09,
+      "floor_limited": false,
+      "last_two_updates_below_threshold": true,
+      "line_search_receipts": 13,
+      "nuisance_iterations": 13,
+      "nuisance_summary": {
+        "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-002-repeat/qr.profile.json",
+        "sha256": "228a36bf5b9bf51ad37a3d0be0cd82ee4cbb92dffee358c96b1a6f7d8da368a7"
+      },
+      "point": "point-002-repeat",
+      "profile_execution": {
+        "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-002-repeat/profile.execution.json",
+        "sha256": "76d96791f232b48714db8101b66e3db78547dd334dc7f83b5b51a30265f34c94"
+      },
+      "recorded_trial_child_system_seconds": 1.965666,
+      "recorded_trial_child_user_seconds": 1306.808118,
+      "recorded_trial_children": 19,
+      "strict_nuisance_converged": true,
+      "threshold_m": 1e-08,
+      "wall_seconds": 3927.8215233329684
+    }
+  ],
+  "conclusion": "The two completed native GNSS profile commands consumed 7057.355086521013 of 7200.426295622019 supervised wall seconds (98.013%). Their nuisance solves converged strictly; this does not establish whole-fit convergence. The measured dominant stage is repeated fixed-state GNSS nuisance profiling before LM, not a demonstrated segmented-elimination defect.",
+  "created_at": "2026-10-19T05:27:37.369583+00:00",
+  "job_sha256": "4f9965c7605dfeb483bddaa8998746ee3f8a3efbb198c7952f9e20a084223db0",
+  "limitations": [
+    "This scoped diagnosis does not certify the entire campaign or prove an exact internal QR/likelihood/I/O breakdown.",
+    "A timeout with verified cleanup is an allowed terminal outcome; these records do not reveal a protocol-blocking defect.",
+    "No whole-fit accuracy, covariance validity, convergence or release readiness follows from the completed nuisance profiles."
+  ],
+  "phase_at_timeout": {
+    "inference": "Initial and repeated fixed-state profiling completed; tighter closure completed, but its third nuisance profile did not finish. Optimizer source places all three evaluations before the LM loop. No LM trial is evidenced.",
+    "iterations_json_present": false,
+    "optimizer_source": {
+      "path": "/mnt/d/orbit-segmented-v4/validation-07-packet/source/src/orbit_poc/numerics/optimizer.py",
+      "sha256": "a1a086e6f5e93ec8982ccad78746ff9d352b7719f01e0af422d2f26797c5506c"
+    },
+    "propagation_count": "No complete total propagation counter was emitted; three closure receipts each report convergence at iteration 2.",
+    "third_nuisance_summary_present": false,
+    "third_profile_execution_receipt_present": false
+  },
+  "profile_wall_fraction_of_supervised_fit": 0.9801301751831004,
+  "profile_wall_seconds_sum": 7057.355086521013,
+  "recommended_next_action": "Continue the unchanged frozen campaign and retain this timeout. In parallel, investigate the cost of repeated nuisance profiling using these retained closed-fit artifacts. Any optimization belongs in a separate version with objective and numerical-equivalence checks; do not extend limits, relax convergence, rerun or replace frozen attempts.",
+  "recorded_line_search_trial_children": {
+    "count": 32,
+    "scope": "Only CPU measurements explicitly recorded for completed line-search trial children; excludes parent QR, zero-update replay timing, other work and unfinished third profile. This is not wall time or exhaustive stage accounting.",
+    "system_cpu_seconds": 3.315552,
+    "total_cpu_seconds": 2204.701013,
+    "user_cpu_seconds": 2201.385461
+  },
+  "result_record": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout01/result-record.json",
+    "sha256": "c1e2ffbfa9b6fa7756f2067e0b310116522f084d69c39e400aaf856c10917b1d"
+  },
+  "schema": "orbit-poc-closed-timeout-independent-diagnosis-v1",
+  "scope": "Offline diagnosis of the already closed first frozen dense_corrected fit; no remote reads, reruns or modifications to the campaign.",
+  "status": "measured_profile_cost_bottleneck_timeout_preserved",
+  "supervisor": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout01/supervisor.json",
+    "sha256": "c383244e1aae43e26e0dcc2e1fe4c0e08c9180de58e1127515e60a5212b070e6"
+  },
+  "trajectory_closures": [
+    {
+      "converged": true,
+      "force_state_reset": "fresh native process at every iteration",
+      "iterations": [
+        {
+          "iteration": 2,
+          "position_change_m": 1.3170890159654386e-09,
+          "velocity_change_m_s": 1.3642420526593924e-12
+        }
+      ],
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-001-initial/closure.json",
+      "sha256": "c344f8c47261301e5355a7f5dd4a07e9a6a613f2c840932900cc7c31ffe3bfea",
+      "tighter": false
+    },
+    {
+      "converged": true,
+      "force_state_reset": "fresh native process at every iteration",
+      "iterations": [
+        {
+          "iteration": 2,
+          "position_change_m": 2.2812650937430355e-09,
+          "velocity_change_m_s": 2.227797943108433e-12
+        }
+      ],
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-002-repeat/closure.json",
+      "sha256": "450116aad9edffee8a04c737294278d67136f214480ef5db6fbd39414b8adc66",
+      "tighter": false
+    },
+    {
+      "converged": true,
+      "force_state_reset": "fresh native process at every iteration",
+      "iterations": [
+        {
+          "iteration": 2,
+          "position_change_m": 2.2812650937430355e-09,
+          "velocity_change_m_s": 2.227797943108433e-12
+        }
+      ],
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-timeout02/point-003-closure-refinement/closure.json",
+      "sha256": "68041b2ce6140e30bc8d9cc6ec58ec392bc80eacc6901ea440a4b6d0440d3378",
+      "tighter": true
+    }
+  ],
+  "whole_fit": {
+    "cleanup_certificate": "kernel_ECHILD",
+    "converged": false,
+    "covariance_valid": false,
+    "owned_cleanup_verified": true,
+    "peak_process_tree_rss_bytes": 896225280,
+    "status": "timeout",
+    "wall_seconds": 7200.426295622019
+  }
+}

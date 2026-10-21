@@ -1,0 +1,69 @@
+{
+  "schema": "orbit-poc-preparation04-home-recovery-independent-packet-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T15:07:13.796221+00:00",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/recovery-startup02/plan03.json",
+    "sha256": "3aa619222f8c7d59f2b7e980525a65cac6cd992a6fc95cd63c6b8bbdc05cfd79"
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/recover_preparation04_startup03.py",
+    "sha256": "b4630b23afde0b9680f51c09adeafb8bc470f507a0d3d372a74fa38d9b9ce2e2",
+    "bytes": 13334
+  },
+  "prior_code_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery02-independent-code-review01.json",
+    "sha256": "f23ab0f1b213f0e9247c47192a09d798608884e1b0e28c5825f0ed7d6120c4b2",
+    "bytes": 2559
+  },
+  "staging": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery03-staging.json",
+    "sha256": "d8ec8708e076a5cae61744232149ea5ee67f6d0188cadbcc5d91c6b1b6e69628",
+    "bytes": 7177
+  },
+  "actual_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery-packet-independent-readback03.json",
+    "sha256": "20e79592d9f97492a4f6e44c4efc5c592b0db9d1059f88904d7faf8d91216da7",
+    "bytes": 6100
+  },
+  "readback_script": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation04_home_recovery_packet03.py",
+    "sha256": "5544a9212dde1f70b7f4e7d47e8b66da58b05623be36e70a31fb23db06af850f",
+    "bytes": 3344
+  },
+  "independent_tests": {
+    "passed": 27,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery03-independent-tests01.log",
+      "sha256": "4311e8540cd7190cc2fa400b5281ca0d81ef407dbe9c48339bc72d508807528c",
+      "bytes": 211
+    },
+    "xml": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery03-independent-tests01.xml",
+      "sha256": "e9d4f7c07155bcb3276491737a05ee176c4b84712ebb71c5f63552822bd2f0f4",
+      "bytes": 4392
+    }
+  },
+  "preserved_prelaunch_failures": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery-packet-independent-readback01.stderr.log",
+      "sha256": "d0ecb8938f6d001a03723964d63244e5f2751b4802b0e2b966f224101c9aa164",
+      "bytes": 925
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery-packet-independent-readback02.stderr.log",
+      "sha256": "b00db90fa403d5587e7bb15ed25d543bbd118b101a4dbf7ad2014f684dd3dfbe",
+      "bytes": 391
+    }
+  ],
+  "checks": [
+    "Only guard metadata changed: resolved same-byte control interpreter and exact absent dense-solver sentinel; scientific source/config/execution/settings unchanged.",
+    "Actual server verifies all384 source hashes, candidate eb41, preserved dense f36 and segmented solver2c848105.",
+    "Current uid1002/passwd home, canonical read-only Tudat resource/sentinel, and original shared lock inode match pinned plan.",
+    "All nine failed-startup/continuation/assembly/cache records retained byte-for-byte; exact previous owned startup identities are non-live.",
+    "Fresh startup02 and all preparation generation/launch markers absent at review.",
+    "Current-host admission passes with no conflicting native process; original numerical gates are not rerun.",
+    "Both startup and launch use reviewed identical environment, and actual startup success is required before durable preparation handoff."
+  ],
+  "scope": "Concrete startup02 recovery approved under root authorization; actual startup result/cleanup must be audited before the separately invoked preparation handoff. No benchmark fitting or release authorization."
+}

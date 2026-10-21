@@ -1,0 +1,88 @@
+{
+  "created_utc": "2026-10-15T15:35:44.933014+00:00",
+  "files": {
+    "groops/extension/segmentedQr.h": {
+      "bytes": 25027,
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/segmentedQr.h",
+      "sha256": "06b042c9936eea726850f3642efe280c534b681d5c35b6c9161f2d61fe84bf35"
+    },
+    "groops/extension/segmentedQrMain.cpp": {
+      "bytes": 6097,
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/segmentedQrMain.cpp",
+      "sha256": "f475f3c39cf5e9a77dfc12f3f5a9749d44f7c9eafe1908410c044ea14b2d03ef"
+    },
+    "src/orbit_poc/segmented/solver.py": {
+      "bytes": 15681,
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/solver.py",
+      "sha256": "12cebbcb0d6128e7626ac3a1de0fa1e296710a79259f7a75bf73203f98a9a93a"
+    },
+    "tests/test_segmented_graph.py": {
+      "bytes": 6080,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_graph.py",
+      "sha256": "5a51de1e7ace0489081400b1eb17d74792c2867c79dad5dd3bcef83650bf0ac8"
+    },
+    "tests/test_segmented_linear_system.py": {
+      "bytes": 2932,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_linear_system.py",
+      "sha256": "49be663998baec0bedf0140258686124841e9297e11223bb1c823f777873dcdc"
+    },
+    "tests/test_segmented_native_qr.py": {
+      "bytes": 20915,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_native_qr.py",
+      "sha256": "0493a24e1d48ba850796a0f118f712c98c8c0d59cf731ab8f0a5430fcf7859fb"
+    },
+    "tests/test_segmented_solver.py": {
+      "bytes": 5587,
+      "path": "/mnt/d/orbit-segmented-v4/source/tests/test_segmented_solver.py",
+      "sha256": "591c97435fe43a8babff15e19f071d14dba233bbf3e397f8a890c838f8311e91"
+    }
+  },
+  "findings": [],
+  "limitations": [
+    "Per-block full conditional sweeps and full row scans may cost quadratic work; speed is measured rather than assumed.",
+    "The new block interface still requires the next pinned native engineering build and actual orbit covariance comparison."
+  ],
+  "passed": true,
+  "preserved_failed_invocation": {
+    "junit": {
+      "bytes": 983,
+      "path": "/tmp/segmented-qr-independent-02.xml",
+      "sha256": "32c87e00be5418ba9208658965fc8a3a8fa41b9d20f60dbdff07d89a09c1eadb"
+    },
+    "reason": "Reviewer invocation omitted PYTHONPATH=src; collection failed before tests, corrected in fresh03."
+  },
+  "reviewed_properties": [
+    "Block covariance applies the unchanged adjoint conditional sweep per positive partition, with no joint all-query covariance allocation.",
+    "Deterministic conditionals contribute no innovation variance; stochastic conditions retain full selected cross covariance.",
+    "Original coordinate scales are applied once to input queries; no optimization damping is used for covariance.",
+    "Native V1 interface remains accepted; BLOCKS V1 validates complete positive query coverage and reports each block offset.",
+    "Independent GTSAM constrained QR and SciPy null-space reference agree on small MAP and zero-noise covariance."
+  ],
+  "reviewer": "v31_recovery_review",
+  "schema": "orbit-poc-independent-segmented-qr-review-v2",
+  "scope": "Independent review of selected block covariance delta and independent small GTSAM4.2 oracle; finite fixtures only, no production orbit run or release approval.",
+  "validation": [
+    {
+      "failed": 0,
+      "junit": {
+        "bytes": 7297,
+        "path": "/tmp/segmented-qr-independent-03.xml",
+        "sha256": "81b7aaf9cd143bf0e169d5ff34b16cf4f09e01d96a6b37e9c6a407434fa299c1"
+      },
+      "passed": 54,
+      "scope": "47 native constrained QR + 7 LinearSystem compatibility tests",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "junit": {
+        "bytes": 6694,
+        "path": "/tmp/segmented-query-review-01.xml",
+        "sha256": "0d2c54539064c2fa11c53940ac51c10d013605697bbccf027317194409f8048e"
+      },
+      "passed": 44,
+      "scope": "26 covariance-query contract + 8 graph + 10 solver tests",
+      "skipped": 0
+    }
+  ]
+}

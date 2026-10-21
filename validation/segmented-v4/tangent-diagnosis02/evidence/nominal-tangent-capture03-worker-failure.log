@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-01/control/replay_nominal_tangent_capture01.py", line 76, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-01/control/replay_nominal_tangent_capture01.py", line 41, in main
+    for item in p['inputs'].values():check(item)
+                                     ^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-01/control/replay_nominal_tangent_capture01.py", line 11, in check
+    if set(pin)!={'path','sha256'} or not p.is_absolute() or '..' in p.parts or sha(p)!=pin['sha256']:raise ValueError('Pinned input changed')
+                                                                                ^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-01/control/replay_nominal_tangent_capture01.py", line 8, in sha
+    def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/binaries/tangent-replay'

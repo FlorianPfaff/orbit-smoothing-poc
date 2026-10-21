@@ -1,0 +1,42 @@
+{
+  "schema": "orbit-poc-segmented-qr-independent-review-v1",
+  "created_at": "2026-10-15T15:10:30.548615+00:00",
+  "reviewer": "v31_recovery_review",
+  "passed": true,
+  "scope": "Standalone native constrained QR kernel and adapter, independent small-problem tests; not full native orbit equivalence or release acceptance",
+  "artifacts": {
+    "groops/extension/segmentedQr.h": {
+      "sha256": "f912db2426a6e1b9d8d1c4c7409ce811b6e3a13d7e56dae9804a58e8ec6b4edc",
+      "bytes": 23594
+    },
+    "groops/extension/segmentedQrMain.cpp": {
+      "sha256": "3b4c3c63f349b67674b00832a008dd80ed3a95751c41687a72835f2ea62f6e8b",
+      "bytes": 5321
+    },
+    "tests/test_segmented_native_qr.py": {
+      "sha256": "80b4d55508151a4eca2a2fd42ca0095c7702d119744130be515a2081835924bd",
+      "bytes": 15604
+    }
+  },
+  "tests": {
+    "passed": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit": "/tmp/v4-segmented-qr-independent-01.xml",
+    "junit_sha256": "69a4a7c2be3746bd15ec9a5b673233bad2a3359b409eff11f2c1767f5102e467",
+    "command": "python -m pytest tests/test_segmented_native_qr.py -q --basetemp=/tmp/v4-segmented-qr-independent-01 --junitxml=/tmp/v4-segmented-qr-independent-01.xml"
+  },
+  "reviewed": [
+    "Separate equality and stochastic ledgers; exact substitution adds no continuity variance.",
+    "Stochastic QR compression retains separator directions and removed residual energy.",
+    "Mixed original/auxiliary pivot roles preserve the same original chart.",
+    "Selected covariance adjoint sweep correctly adds only stochastic conditional innovations.",
+    "Chronological last-use validation and fail-closed rank/shape/finite checks.",
+    "Original-chart rank certification remains explicitly external."
+  ],
+  "limitations": [
+    "Full generated native operator equivalence remains pending fresh GROOPS build.",
+    "The ledger scan per microfront may limit scaling; runtime/memory must be measured."
+  ]
+}

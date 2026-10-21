@@ -1,0 +1,46 @@
+{
+  "blocking_findings": [],
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 38
+  },
+  "created_at": "2026-10-15T23:23:33.787488+00:00",
+  "files": [
+    {
+      "bytes": 6676,
+      "path": "/mnt/d/orbit-segmented-v4/control/run_blinded_segmented_campaign02.py",
+      "sha256": "24b12ce5c08ef5f8d821470736728202b993034bbc337b1191d320e32ea16af0"
+    },
+    {
+      "bytes": 8163,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_run_blinded_segmented_campaign02.py",
+      "sha256": "0ebd64b9ea345fed6962c1cebacd1dd73a94ae0313a93e2ad87401a65712489f"
+    },
+    {
+      "bytes": 6897,
+      "path": "/mnt/d/orbit-segmented-v4/control/blind-inner02-independent.xml",
+      "sha256": "461cf2807b5503e0b1826c442dbf96673be8e9ab0380907b01fe78f2cc123f5b"
+    },
+    {
+      "bytes": 187,
+      "path": "/mnt/d/orbit-segmented-v4/control/blind-inner02-independent.log",
+      "sha256": "8c4e063fef78cbc032b0a2e2f5034129e82dddd0559666857f4e3d72bdb11b0b"
+    },
+    {
+      "bytes": 2673,
+      "path": "/mnt/d/orbit-segmented-v4/control/blind-inner-sigterm-counterexample-02/counterexample.json",
+      "sha256": "e519dbf0d1e7bf90768166a45f2cb14630f08011e8daefdd4dd0f53b9d8919e8"
+    }
+  ],
+  "review": [
+    "Exact01 preserved;02 installs SIGINT/SIGTERM/SIGHUP handler over execute and restores previous handlers.",
+    "Frozen native run_owned remains unchanged and may temporarily replace then restore handlers.",
+    "All12 real signal fixtures and independent reproduction of originalSIGTERM gap pass. Protected post-probe/final evidence ignores repeated ordinary signals.",
+    "Wrapper01 static review unchanged; actual blind namespace and outer ownership cleanup remain pending."
+  ],
+  "schema": "orbit-poc-blind-inner-independent-review-v2",
+  "scientific_success_inferred": false,
+  "status": "passed_control_fixtures"
+}

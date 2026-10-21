@@ -1,0 +1,1512 @@
+{
+  "comparison": {
+    "coverage_adequate": true,
+    "damping": [
+      0.0,
+      0.001,
+      1000.0
+    ],
+    "gradient_scope": "Diagnostic |R.T rhs| infinity norm with unit denominator (the reloaded point uses objective=0). This is not the original objective-normalized nonlinear gradient or a convergence criterion.",
+    "interior_coverage_by_period": {
+      "14400": true,
+      "3600": true
+    },
+    "linearization_sha256": "641662cdb2c6af7690dcf74d1cbb6e59d6a3f35ed461aa3c74e5ac9a37014555",
+    "map_tolerance_posterior_sd": 1e-07,
+    "nuisance_profile_evaluations": 0,
+    "numerically_equivalent": true,
+    "objective_scope": "Only the unchanged linearized weighted residual and optimization damping; no nonlinear physical objective is evaluated.",
+    "physical_evaluations": 0,
+    "profiles": [
+      {
+        "calls": [
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.918107463978231,
+            "equality_max_backward_error": 1.656963748300389e-16,
+            "factor_nonzeros": 27649,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0001.rows",
+            "input_bytes": 16445709,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 6467.933749378047,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0001.json",
+            "output_bytes": 2435446,
+            "residual_energy": 6467.933749378033,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.9119983459822834,
+            "equality_max_backward_error": 1.654677678897076e-16,
+            "factor_nonzeros": 27995,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0002.rows",
+            "input_bytes": 16448083,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 6484.482112609907,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0002.json",
+            "output_bytes": 2444778,
+            "residual_energy": 6484.482112609905,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8942517749965191,
+            "equality_max_backward_error": 1.9501649146109593e-16,
+            "factor_nonzeros": 27940,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0003.rows",
+            "input_bytes": 16448084,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 8185.38199761837,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0003.json",
+            "output_bytes": 2455722,
+            "residual_energy": 8185.38199761837,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 1.0016973291058093,
+            "equality_max_backward_error": 1.656963748300389e-16,
+            "factor_nonzeros": 27649,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0004.rows",
+            "input_bytes": 16446769,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 6467.933749378047,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0004.json",
+            "output_bytes": 2918917,
+            "residual_energy": 6467.933749378033,
+            "returncode": 0
+          }
+        ],
+        "covariance": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/covariance.npz",
+          "role": "shifted_covariance",
+          "sha256": "4d2ec91752994b035235c180ef6913b48d1c696a112ad438c6e3dab10e7fb42a"
+        },
+        "covariance_optimization_damping": 0.0,
+        "covariance_relative_error": 1.2031893687381388e-13,
+        "coverage": {
+          "adequate": true,
+          "changed_original_elimination_ids": 5,
+          "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+          "interior_movement_count": 5,
+          "interior_movements": [
+            {
+              "identifier": 0,
+              "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 1,
+              "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 2,
+              "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 3,
+              "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 4,
+              "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            }
+          ]
+        },
+        "graph": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/graph.json",
+          "role": "shifted_graph",
+          "sha256": "e6c7d60e0e9a1b317e6b1a1d320cf0728f919ee79f014c1de5c1accf25573787"
+        },
+        "ledger_identity": {
+          "equalities": "694820e236122cf2c66ad1173d4ce39defa760cf04a2db0845a10f36de84b3ee",
+          "linearization": "e9b4f43b88f67bf78f2c0649cba3edb14848f74d61e3971c5bed19eddf2dbd22",
+          "retained_ids": "3235d88ba1f1362401081fb4abf26f2bc3a8adf9feb1a647a9bdb2e1cd1df55f",
+          "stochastic": "567602ffbfa8c757277950e9148b4ea67c80749cf4d18a73355bbd4c3ac6d116",
+          "support": "59c723457433b733469c1c96763439595949b52e5105d8435ac7fd0589d8faad",
+          "variables": "c79dca005e68bc52ce164cdd01243ad77b081e848ae9deaec2c839b2fa33d2fe"
+        },
+        "numerically_equivalent": true,
+        "segment_offset_seconds": 300.0,
+        "segment_seconds": 3600,
+        "status": "equivalent_with_interior_movement",
+        "trials": [
+          {
+            "damping": 0.0,
+            "dense_full_residual_energy": 6467.933749378041,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 860.0295315113298,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.656963748300389e-16,
+            "maximum_map_discrepancy_posterior_sd": 3.564957963209857e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0001.json",
+              "role": "shifted_native_result",
+              "sha256": "ebe85f6218964ba97daad48647917ea4496c39ead87a946f9515556a142b04f8"
+            },
+            "normalized_orthogonal_residual_energy_difference": 8.436957492278448e-16,
+            "normalized_residual_energy_difference": 1.265543623841767e-15,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 860.0295315113293
+          },
+          {
+            "damping": 0.001,
+            "dense_full_residual_energy": 6484.482112609912,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 857.2240256025717,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.654677678897076e-16,
+            "maximum_map_discrepancy_posterior_sd": 1.820571752766714e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0002.json",
+              "role": "shifted_native_result",
+              "sha256": "011ade59c97d86b03c02a4c4d8f2a449e477c953cc0b22e1fcfa006d7b65e94b"
+            },
+            "normalized_orthogonal_residual_energy_difference": 8.415426422452135e-16,
+            "normalized_residual_energy_difference": 1.1220568563269513e-15,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 857.224025602572
+          },
+          {
+            "damping": 1000.0,
+            "dense_full_residual_energy": 8185.3819976183695,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 2.6086636807353343,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.9501649146109593e-16,
+            "maximum_map_discrepancy_posterior_sd": 6.333084776721878e-13,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-300/solves/solve-0003.json",
+              "role": "shifted_native_result",
+              "sha256": "acb9e55fae71b4be2646fc4a371081e65f0ac25957a03b06634da5f4d6fca44f"
+            },
+            "normalized_orthogonal_residual_energy_difference": 1.1111206563573405e-16,
+            "normalized_residual_energy_difference": 1.1111206563573405e-16,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 2.6086636807354235
+          }
+        ]
+      },
+      {
+        "calls": [
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8186576748266816,
+            "equality_max_backward_error": 1.5271896489040933e-16,
+            "factor_nonzeros": 25729,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0001.rows",
+            "input_bytes": 16445709,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 6467.9337493780085,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0001.json",
+            "output_bytes": 2100123,
+            "residual_energy": 6467.933749378034,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8086946110706776,
+            "equality_max_backward_error": 1.6359566003352405e-16,
+            "factor_nonzeros": 25757,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0002.rows",
+            "input_bytes": 16448083,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 6484.4821126099005,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0002.json",
+            "output_bytes": 2102084,
+            "residual_energy": 6484.482112609907,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.7992866360582411,
+            "equality_max_backward_error": 1.6064505945660617e-16,
+            "factor_nonzeros": 25654,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0003.rows",
+            "input_bytes": 16448084,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 8185.3819976183695,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0003.json",
+            "output_bytes": 2111372,
+            "residual_energy": 8185.38199761837,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8991147151682526,
+            "equality_max_backward_error": 1.5271896489040933e-16,
+            "factor_nonzeros": 25729,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0004.rows",
+            "input_bytes": 16446769,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 6467.9337493780085,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0004.json",
+            "output_bytes": 2583695,
+            "residual_energy": 6467.933749378034,
+            "returncode": 0
+          }
+        ],
+        "covariance": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/covariance.npz",
+          "role": "shifted_covariance",
+          "sha256": "c18a7ca74a71221c85abcca25c5ccc29382eb446ddd57c932099e38f9c42bedb"
+        },
+        "covariance_optimization_damping": 0.0,
+        "covariance_relative_error": 1.2694575077545504e-13,
+        "coverage": {
+          "adequate": true,
+          "changed_original_elimination_ids": 54,
+          "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+          "interior_movement_count": 54,
+          "interior_movements": [
+            {
+              "identifier": 0,
+              "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 1,
+              "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 2,
+              "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 3,
+              "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 4,
+              "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 5,
+              "name": "GRACEC:logDensity::2024-04-24_00-05-00_2024-04-24_00-05-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 6,
+              "name": "GRACEC:logDensity::2024-04-24_00-06-00_2024-04-24_00-06-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 7,
+              "name": "GRACEC:logDensity::2024-04-24_00-07-00_2024-04-24_00-07-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 8,
+              "name": "GRACEC:logDensity::2024-04-24_00-08-00_2024-04-24_00-08-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 9,
+              "name": "GRACEC:logDensity::2024-04-24_00-09-00_2024-04-24_00-09-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 10,
+              "name": "GRACEC:logDensity::2024-04-24_00-10-00_2024-04-24_00-10-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 11,
+              "name": "GRACEC:logDensity::2024-04-24_00-11-00_2024-04-24_00-11-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 12,
+              "name": "GRACEC:logDensity::2024-04-24_00-12-00_2024-04-24_00-12-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 13,
+              "name": "GRACEC:logDensity::2024-04-24_00-13-00_2024-04-24_00-13-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 14,
+              "name": "GRACEC:logDensity::2024-04-24_00-14-00_2024-04-24_00-14-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 15,
+              "name": "GRACEC:logDensity::2024-04-24_00-15-00_2024-04-24_00-15-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 16,
+              "name": "GRACEC:logDensity::2024-04-24_00-16-00_2024-04-24_00-16-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 17,
+              "name": "GRACEC:logDensity::2024-04-24_00-17-00_2024-04-24_00-17-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 18,
+              "name": "GRACEC:logDensity::2024-04-24_00-18-00_2024-04-24_00-18-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 19,
+              "name": "GRACEC:logDensity::2024-04-24_00-19-00_2024-04-24_00-19-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 20,
+              "name": "GRACEC:logDensity::2024-04-24_00-20-00_2024-04-24_00-20-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 21,
+              "name": "GRACEC:logDensity::2024-04-24_00-21-00_2024-04-24_00-21-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 22,
+              "name": "GRACEC:logDensity::2024-04-24_00-22-00_2024-04-24_00-22-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 23,
+              "name": "GRACEC:logDensity::2024-04-24_00-23-00_2024-04-24_00-23-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 24,
+              "name": "GRACEC:logDensity::2024-04-24_00-24-00_2024-04-24_00-24-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 25,
+              "name": "GRACEC:logDensity::2024-04-24_00-25-00_2024-04-24_00-25-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 26,
+              "name": "GRACEC:logDensity::2024-04-24_00-26-00_2024-04-24_00-26-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 27,
+              "name": "GRACEC:logDensity::2024-04-24_00-27-00_2024-04-24_00-27-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 28,
+              "name": "GRACEC:logDensity::2024-04-24_00-28-00_2024-04-24_00-28-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 29,
+              "name": "GRACEC:logDensity::2024-04-24_00-29-00_2024-04-24_00-29-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 72,
+              "name": "GRACEC.G04:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 73,
+              "name": "GRACEC.G04:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 74,
+              "name": "GRACEC.G02:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 75,
+              "name": "GRACEC.G02:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 76,
+              "name": "GRACEC.G28:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 77,
+              "name": "GRACEC.G28:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 78,
+              "name": "GRACEC.G21:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 79,
+              "name": "GRACEC.G21:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 80,
+              "name": "GRACEC.G31:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 81,
+              "name": "GRACEC.G31:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 82,
+              "name": "GRACEC.G10:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 83,
+              "name": "GRACEC.G10:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 84,
+              "name": "GRACEC.G16:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 85,
+              "name": "GRACEC.G16:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 86,
+              "name": "GRACEC.G08:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 87,
+              "name": "GRACEC.G08:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 88,
+              "name": "GRACEC.G18:ambiguity1of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 89,
+              "name": "GRACEC.G18:ambiguity2of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 96,
+              "name": "GRACEC.G29:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 97,
+              "name": "GRACEC.G29:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 98,
+              "name": "GRACEC.G07:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 99,
+              "name": "GRACEC.G07:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 100,
+              "name": "GRACEC.G13:ambiguity1of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 101,
+              "name": "GRACEC.G13:ambiguity2of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            }
+          ]
+        },
+        "graph": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/graph.json",
+          "role": "shifted_graph",
+          "sha256": "a54b873b8b19d1ca1ac38785fc859c2662e9fb480f70a6d813ea8a1df794ae4e"
+        },
+        "ledger_identity": {
+          "equalities": "694820e236122cf2c66ad1173d4ce39defa760cf04a2db0845a10f36de84b3ee",
+          "linearization": "e9b4f43b88f67bf78f2c0649cba3edb14848f74d61e3971c5bed19eddf2dbd22",
+          "retained_ids": "3235d88ba1f1362401081fb4abf26f2bc3a8adf9feb1a647a9bdb2e1cd1df55f",
+          "stochastic": "567602ffbfa8c757277950e9148b4ea67c80749cf4d18a73355bbd4c3ac6d116",
+          "support": "59c723457433b733469c1c96763439595949b52e5105d8435ac7fd0589d8faad",
+          "variables": "c79dca005e68bc52ce164cdd01243ad77b081e848ae9deaec2c839b2fa33d2fe"
+        },
+        "numerically_equivalent": true,
+        "segment_offset_seconds": 1800.0,
+        "segment_seconds": 3600,
+        "status": "equivalent_with_interior_movement",
+        "trials": [
+          {
+            "damping": 0.0,
+            "dense_full_residual_energy": 6467.933749378041,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 860.0295315113298,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.5271896489040933e-16,
+            "maximum_map_discrepancy_posterior_sd": 3.060715954225405e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0001.json",
+              "role": "shifted_native_result",
+              "sha256": "0f9aae51f9d71a51329327ce33dfa7b02d7b963723dd32f9259b36343e3891db"
+            },
+            "normalized_orthogonal_residual_energy_difference": 5.062174495367068e-15,
+            "normalized_residual_energy_difference": 1.1249276656371262e-15,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 860.0295315113294
+          },
+          {
+            "damping": 0.001,
+            "dense_full_residual_energy": 6484.482112609912,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 857.2240256025717,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.6359566003352405e-16,
+            "maximum_map_discrepancy_posterior_sd": 1.723970042229183e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0002.json",
+              "role": "shifted_native_result",
+              "sha256": "33b11ee3108c50792e8ddc34153e4104d9b68801bfef452450ae1f85eebc7505"
+            },
+            "normalized_orthogonal_residual_energy_difference": 1.823342391531296e-15,
+            "normalized_residual_energy_difference": 8.415426422452135e-16,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 857.2240256025726
+          },
+          {
+            "damping": 1000.0,
+            "dense_full_residual_energy": 8185.3819976183695,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 2.6086636807353343,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.6064505945660617e-16,
+            "maximum_map_discrepancy_posterior_sd": 8.780444330136079e-13,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-3600-offset-1800/solves/solve-0003.json",
+              "role": "shifted_native_result",
+              "sha256": "c852e629d5c09d120c7492625528a0ab5bb6d51a6e685c1e1e47ccd61c1e20f6"
+            },
+            "normalized_orthogonal_residual_energy_difference": 0.0,
+            "normalized_residual_energy_difference": 1.1111206563573405e-16,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 2.608663680735621
+          }
+        ]
+      },
+      {
+        "calls": [
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.9005748271010816,
+            "equality_max_backward_error": 1.656963748300389e-16,
+            "factor_nonzeros": 27649,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0001.rows",
+            "input_bytes": 16445709,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 6467.933749378047,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0001.json",
+            "output_bytes": 2435446,
+            "residual_energy": 6467.933749378033,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8961944370530546,
+            "equality_max_backward_error": 1.654677678897076e-16,
+            "factor_nonzeros": 27995,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0002.rows",
+            "input_bytes": 16448083,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 6484.482112609907,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0002.json",
+            "output_bytes": 2444778,
+            "residual_energy": 6484.482112609905,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8976217499002814,
+            "equality_max_backward_error": 1.9501649146109593e-16,
+            "factor_nonzeros": 27940,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0003.rows",
+            "input_bytes": 16448084,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 8185.38199761837,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0003.json",
+            "output_bytes": 2455722,
+            "residual_energy": 8185.38199761837,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.9995576930232346,
+            "equality_max_backward_error": 1.656963748300389e-16,
+            "factor_nonzeros": 27649,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0004.rows",
+            "input_bytes": 16446769,
+            "max_front_columns": 183,
+            "max_front_rows": 294,
+            "orthogonal_residual_energy": 6467.933749378047,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0004.json",
+            "output_bytes": 2918917,
+            "residual_energy": 6467.933749378033,
+            "returncode": 0
+          }
+        ],
+        "covariance": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/covariance.npz",
+          "role": "shifted_covariance",
+          "sha256": "4d2ec91752994b035235c180ef6913b48d1c696a112ad438c6e3dab10e7fb42a"
+        },
+        "covariance_optimization_damping": 0.0,
+        "covariance_relative_error": 1.2031893687381388e-13,
+        "coverage": {
+          "adequate": true,
+          "changed_original_elimination_ids": 5,
+          "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+          "interior_movement_count": 5,
+          "interior_movements": [
+            {
+              "identifier": 0,
+              "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 1,
+              "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 2,
+              "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 3,
+              "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            },
+            {
+              "identifier": 4,
+              "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+              "new_seconds": 300.0,
+              "new_stage": 60,
+              "old_stage": 719
+            }
+          ]
+        },
+        "graph": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/graph.json",
+          "role": "shifted_graph",
+          "sha256": "68ea536fcf098c0a5b32e33b0de71527b21d051a64b7ff4933b9bafc6d50d446"
+        },
+        "ledger_identity": {
+          "equalities": "694820e236122cf2c66ad1173d4ce39defa760cf04a2db0845a10f36de84b3ee",
+          "linearization": "e9b4f43b88f67bf78f2c0649cba3edb14848f74d61e3971c5bed19eddf2dbd22",
+          "retained_ids": "3235d88ba1f1362401081fb4abf26f2bc3a8adf9feb1a647a9bdb2e1cd1df55f",
+          "stochastic": "567602ffbfa8c757277950e9148b4ea67c80749cf4d18a73355bbd4c3ac6d116",
+          "support": "59c723457433b733469c1c96763439595949b52e5105d8435ac7fd0589d8faad",
+          "variables": "c79dca005e68bc52ce164cdd01243ad77b081e848ae9deaec2c839b2fa33d2fe"
+        },
+        "numerically_equivalent": true,
+        "segment_offset_seconds": 300.0,
+        "segment_seconds": 14400,
+        "status": "equivalent_with_interior_movement",
+        "trials": [
+          {
+            "damping": 0.0,
+            "dense_full_residual_energy": 6467.933749378041,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 860.0295315113298,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.656963748300389e-16,
+            "maximum_map_discrepancy_posterior_sd": 3.564957963209857e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0001.json",
+              "role": "shifted_native_result",
+              "sha256": "ebe85f6218964ba97daad48647917ea4496c39ead87a946f9515556a142b04f8"
+            },
+            "normalized_orthogonal_residual_energy_difference": 8.436957492278448e-16,
+            "normalized_residual_energy_difference": 1.265543623841767e-15,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 860.0295315113293
+          },
+          {
+            "damping": 0.001,
+            "dense_full_residual_energy": 6484.482112609912,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 857.2240256025717,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.654677678897076e-16,
+            "maximum_map_discrepancy_posterior_sd": 1.820571752766714e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0002.json",
+              "role": "shifted_native_result",
+              "sha256": "011ade59c97d86b03c02a4c4d8f2a449e477c953cc0b22e1fcfa006d7b65e94b"
+            },
+            "normalized_orthogonal_residual_energy_difference": 8.415426422452135e-16,
+            "normalized_residual_energy_difference": 1.1220568563269513e-15,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 857.224025602572
+          },
+          {
+            "damping": 1000.0,
+            "dense_full_residual_energy": 8185.3819976183695,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 2.6086636807353343,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.9501649146109593e-16,
+            "maximum_map_discrepancy_posterior_sd": 6.333084776721878e-13,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-300/solves/solve-0003.json",
+              "role": "shifted_native_result",
+              "sha256": "acb9e55fae71b4be2646fc4a371081e65f0ac25957a03b06634da5f4d6fca44f"
+            },
+            "normalized_orthogonal_residual_energy_difference": 1.1111206563573405e-16,
+            "normalized_residual_energy_difference": 1.1111206563573405e-16,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 2.6086636807354235
+          }
+        ]
+      },
+      {
+        "calls": [
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8002827779855579,
+            "equality_max_backward_error": 1.5271896489040933e-16,
+            "factor_nonzeros": 25729,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0001.rows",
+            "input_bytes": 16445709,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 6467.9337493780085,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0001.json",
+            "output_bytes": 2100123,
+            "residual_energy": 6467.933749378034,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8021350561175495,
+            "equality_max_backward_error": 1.6359566003352405e-16,
+            "factor_nonzeros": 25757,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0002.rows",
+            "input_bytes": 16448083,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 6484.4821126099005,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0002.json",
+            "output_bytes": 2102084,
+            "residual_energy": 6484.482112609907,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8014373411424458,
+            "equality_max_backward_error": 1.6064505945660617e-16,
+            "factor_nonzeros": 25654,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0003.rows",
+            "input_bytes": 16448084,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 8185.3819976183695,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0003.json",
+            "output_bytes": 2111372,
+            "residual_energy": 8185.38199761837,
+            "returncode": 0
+          },
+          {
+            "conditional_count": 277,
+            "elapsed_seconds": 0.8849714389070868,
+            "equality_max_backward_error": 1.5271896489040933e-16,
+            "factor_nonzeros": 25729,
+            "input": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0004.rows",
+            "input_bytes": 16446769,
+            "max_front_columns": 135,
+            "max_front_rows": 245,
+            "orthogonal_residual_energy": 6467.9337493780085,
+            "output": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0004.json",
+            "output_bytes": 2583695,
+            "residual_energy": 6467.933749378034,
+            "returncode": 0
+          }
+        ],
+        "covariance": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/covariance.npz",
+          "role": "shifted_covariance",
+          "sha256": "c18a7ca74a71221c85abcca25c5ccc29382eb446ddd57c932099e38f9c42bedb"
+        },
+        "covariance_optimization_damping": 0.0,
+        "covariance_relative_error": 1.2694575077545504e-13,
+        "coverage": {
+          "adequate": true,
+          "changed_original_elimination_ids": 54,
+          "definition": "An original retained parameter changes elimination owner to a strictly interior native-grid epoch; unchanged ownership cannot certify cut coverage.",
+          "interior_movement_count": 54,
+          "interior_movements": [
+            {
+              "identifier": 0,
+              "name": "GRACEC:logDensity::2024-04-24_00-00-00_2024-04-24_00-00-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 1,
+              "name": "GRACEC:logDensity::2024-04-24_00-01-00_2024-04-24_00-01-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 2,
+              "name": "GRACEC:logDensity::2024-04-24_00-02-00_2024-04-24_00-02-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 3,
+              "name": "GRACEC:logDensity::2024-04-24_00-03-00_2024-04-24_00-03-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 4,
+              "name": "GRACEC:logDensity::2024-04-24_00-04-00_2024-04-24_00-04-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 5,
+              "name": "GRACEC:logDensity::2024-04-24_00-05-00_2024-04-24_00-05-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 6,
+              "name": "GRACEC:logDensity::2024-04-24_00-06-00_2024-04-24_00-06-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 7,
+              "name": "GRACEC:logDensity::2024-04-24_00-07-00_2024-04-24_00-07-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 8,
+              "name": "GRACEC:logDensity::2024-04-24_00-08-00_2024-04-24_00-08-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 9,
+              "name": "GRACEC:logDensity::2024-04-24_00-09-00_2024-04-24_00-09-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 10,
+              "name": "GRACEC:logDensity::2024-04-24_00-10-00_2024-04-24_00-10-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 11,
+              "name": "GRACEC:logDensity::2024-04-24_00-11-00_2024-04-24_00-11-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 12,
+              "name": "GRACEC:logDensity::2024-04-24_00-12-00_2024-04-24_00-12-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 13,
+              "name": "GRACEC:logDensity::2024-04-24_00-13-00_2024-04-24_00-13-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 14,
+              "name": "GRACEC:logDensity::2024-04-24_00-14-00_2024-04-24_00-14-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 15,
+              "name": "GRACEC:logDensity::2024-04-24_00-15-00_2024-04-24_00-15-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 16,
+              "name": "GRACEC:logDensity::2024-04-24_00-16-00_2024-04-24_00-16-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 17,
+              "name": "GRACEC:logDensity::2024-04-24_00-17-00_2024-04-24_00-17-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 18,
+              "name": "GRACEC:logDensity::2024-04-24_00-18-00_2024-04-24_00-18-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 19,
+              "name": "GRACEC:logDensity::2024-04-24_00-19-00_2024-04-24_00-19-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 20,
+              "name": "GRACEC:logDensity::2024-04-24_00-20-00_2024-04-24_00-20-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 21,
+              "name": "GRACEC:logDensity::2024-04-24_00-21-00_2024-04-24_00-21-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 22,
+              "name": "GRACEC:logDensity::2024-04-24_00-22-00_2024-04-24_00-22-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 23,
+              "name": "GRACEC:logDensity::2024-04-24_00-23-00_2024-04-24_00-23-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 24,
+              "name": "GRACEC:logDensity::2024-04-24_00-24-00_2024-04-24_00-24-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 25,
+              "name": "GRACEC:logDensity::2024-04-24_00-25-00_2024-04-24_00-25-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 26,
+              "name": "GRACEC:logDensity::2024-04-24_00-26-00_2024-04-24_00-26-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 27,
+              "name": "GRACEC:logDensity::2024-04-24_00-27-00_2024-04-24_00-27-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 28,
+              "name": "GRACEC:logDensity::2024-04-24_00-28-00_2024-04-24_00-28-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 29,
+              "name": "GRACEC:logDensity::2024-04-24_00-29-00_2024-04-24_00-29-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 72,
+              "name": "GRACEC.G04:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 73,
+              "name": "GRACEC.G04:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-07-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 74,
+              "name": "GRACEC.G02:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 75,
+              "name": "GRACEC.G02:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-09-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 76,
+              "name": "GRACEC.G28:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 77,
+              "name": "GRACEC.G28:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-12-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 78,
+              "name": "GRACEC.G21:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 79,
+              "name": "GRACEC.G21:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-13-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 80,
+              "name": "GRACEC.G31:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 81,
+              "name": "GRACEC.G31:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-17-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 82,
+              "name": "GRACEC.G10:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 83,
+              "name": "GRACEC.G10:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 84,
+              "name": "GRACEC.G16:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 85,
+              "name": "GRACEC.G16:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-18-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 86,
+              "name": "GRACEC.G08:ambiguity1of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 87,
+              "name": "GRACEC.G08:ambiguity2of2(L1L2)::2024-04-24_00-00-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 88,
+              "name": "GRACEC.G18:ambiguity1of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 89,
+              "name": "GRACEC.G18:ambiguity2of2(L1L2)::2024-04-24_00-03-00_2024-04-24_00-21-30",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 96,
+              "name": "GRACEC.G29:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 97,
+              "name": "GRACEC.G29:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-22-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 98,
+              "name": "GRACEC.G07:ambiguity1of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 99,
+              "name": "GRACEC.G07:ambiguity2of2(L1L2)::2024-04-24_00-13-30_2024-04-24_00-25-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 100,
+              "name": "GRACEC.G13:ambiguity1of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            },
+            {
+              "identifier": 101,
+              "name": "GRACEC.G13:ambiguity2of2(L1L2)::2024-04-24_00-17-00_2024-04-24_00-29-00",
+              "new_seconds": 1800.0,
+              "new_stage": 360,
+              "old_stage": 719
+            }
+          ]
+        },
+        "graph": {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/graph.json",
+          "role": "shifted_graph",
+          "sha256": "872875f7baf595c18741565aae3eaaad2c0ccd6917beffde29c2367177113fa6"
+        },
+        "ledger_identity": {
+          "equalities": "694820e236122cf2c66ad1173d4ce39defa760cf04a2db0845a10f36de84b3ee",
+          "linearization": "e9b4f43b88f67bf78f2c0649cba3edb14848f74d61e3971c5bed19eddf2dbd22",
+          "retained_ids": "3235d88ba1f1362401081fb4abf26f2bc3a8adf9feb1a647a9bdb2e1cd1df55f",
+          "stochastic": "567602ffbfa8c757277950e9148b4ea67c80749cf4d18a73355bbd4c3ac6d116",
+          "support": "59c723457433b733469c1c96763439595949b52e5105d8435ac7fd0589d8faad",
+          "variables": "c79dca005e68bc52ce164cdd01243ad77b081e848ae9deaec2c839b2fa33d2fe"
+        },
+        "numerically_equivalent": true,
+        "segment_offset_seconds": 1800.0,
+        "segment_seconds": 14400,
+        "status": "equivalent_with_interior_movement",
+        "trials": [
+          {
+            "damping": 0.0,
+            "dense_full_residual_energy": 6467.933749378041,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 860.0295315113298,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.5271896489040933e-16,
+            "maximum_map_discrepancy_posterior_sd": 3.060715954225405e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0001.json",
+              "role": "shifted_native_result",
+              "sha256": "0f9aae51f9d71a51329327ce33dfa7b02d7b963723dd32f9259b36343e3891db"
+            },
+            "normalized_orthogonal_residual_energy_difference": 5.062174495367068e-15,
+            "normalized_residual_energy_difference": 1.1249276656371262e-15,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 860.0295315113294
+          },
+          {
+            "damping": 0.001,
+            "dense_full_residual_energy": 6484.482112609912,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 857.2240256025717,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.6359566003352405e-16,
+            "maximum_map_discrepancy_posterior_sd": 1.723970042229183e-12,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0002.json",
+              "role": "shifted_native_result",
+              "sha256": "33b11ee3108c50792e8ddc34153e4104d9b68801bfef452450ae1f85eebc7505"
+            },
+            "normalized_orthogonal_residual_energy_difference": 1.823342391531296e-15,
+            "normalized_residual_energy_difference": 8.415426422452135e-16,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 857.2240256025726
+          },
+          {
+            "damping": 1000.0,
+            "dense_full_residual_energy": 8185.3819976183695,
+            "dense_gradient_unit_denominator": 9.913888816643583,
+            "dense_predicted_reduction": 2.6086636807353343,
+            "equality_residual_normalization": "max_i |d_i-E_i*x| / (|d_i|+sum_j |E_ij*x_j|); zero denominator gives zero",
+            "maximum_equality_backward_error": 1.6064505945660617e-16,
+            "maximum_map_discrepancy_posterior_sd": 8.780444330136079e-13,
+            "native_result": {
+              "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-03/run/log_drag_ou/comparison/period-14400-offset-1800/solves/solve-0003.json",
+              "role": "shifted_native_result",
+              "sha256": "c852e629d5c09d120c7492625528a0ab5bb6d51a6e685c1e1e47ccd61c1e20f6"
+            },
+            "normalized_orthogonal_residual_energy_difference": 0.0,
+            "normalized_residual_energy_difference": 1.1111206563573405e-16,
+            "segmented_gradient_unit_denominator": 9.913888816643583,
+            "segmented_predicted_reduction": 2.608663680735621
+          }
+        ]
+      }
+    ],
+    "rank": {
+      "columns": 146,
+      "condition_number": 3839.9778870962687,
+      "effective_rows": 7885,
+      "maximum_singular_value": 5.506421438199274,
+      "minimum_singular_value": 0.0014339721738249758,
+      "rank": 146,
+      "status": "full_rank",
+      "threshold": 9.64076219749394e-12
+    },
+    "relative_covariance_tolerance": 1e-08,
+    "residual_tolerance": 2e-12
+  },
+  "fit_covariance_authorized": false,
+  "inputs": {
+    "controller": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/control/validation-controller.json",
+      "sha256": "795034b58bdd85a91396510c3cb474e50d722df34b399b840b5566f94fabb82c"
+    },
+    "pipeline": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/pipeline.json",
+      "sha256": "1f519a348f31c7d1ac0d1bbdad0c9539f836efed9ec0349f8d7462bcb0b0074d"
+    },
+    "solver": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/segmented-qr-2c8481050806ce9d",
+      "sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+    },
+    "validation": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/validation.json",
+      "sha256": "1259aeb8bcf111c26336fc6a97c632a23850c5a86f87d3b4899e4348d3be963a"
+    }
+  },
+  "nuisance_profile_evaluations": 0,
+  "passed": true,
+  "physical_evaluations": 0,
+  "schema": "orbit-poc-shifted-native-cuts-diagnostic-v1",
+  "scope": "Separate post-suite identical captured-linearization cut diagnostic; not a benchmark attempt or extra physical evaluation",
+  "source_sha256": "a838553d4ba9dc394a3f498f46917275b19139d2bb583c401cf71e90f82a9fa6",
+  "status": "passed",
+  "supplementary_input_pins": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.R.bin",
+      "role": "original_native_factor",
+      "sha256": "6a4e8050c1f7cc07a63bb173a950105525e323f20a55b06650c4cbda01dae029"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.rhs.bin",
+      "role": "original_native_rhs",
+      "sha256": "5e7b4c9a6c703de5528dd986f63516b5a0debe6b039167dda5493ebfa012e3ad"
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/linearization-log_drag_ou/result/point-001-identical-linearization/qr.7.parameters.tsv",
+      "role": "original_coordinate_metadata",
+      "sha256": "e692dcf34898e0115a09b7fdf01c1a642cfc57f92e847a1fbe7aa17f5c6b9a6e"
+    }
+  ]
+}

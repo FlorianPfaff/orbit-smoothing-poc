@@ -1,0 +1,61 @@
+{
+  "schema": "orbit-poc-v4-preparation-profile-source-review-v1",
+  "observed_at": "2026-10-16T04:21:09.706142+00:00",
+  "scope": "Read-only source-path audit; no source changes or native execution. Does not demonstrate a correction.",
+  "sources": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/multiday.py",
+      "sha256": "bb010cb51373516b50a557e3b294781b4cd192fa29bcfed2e69313b18a5fe508"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/segmented/preparation.py",
+      "sha256": "942ec8b5296ad533b22e364a2f6e5507b76d646edb31417b06196a795464d8bf"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/comparison/initialization.py",
+      "sha256": "0019b9df924b30f7c1ded518533db1e1a9dc2f1fc8571d6fbe9797bab0fd6655"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/comparison/backend.py",
+      "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/comparison/synthetic.py",
+      "sha256": "aa588b1eeefc5097a652f1bc9fa930146cf5d5afa7e19fec537dc83906bc95c9"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/source/groops/extension/native_derivatives.py",
+      "sha256": "1aeeb5e701529e3433afd869db141203f9d59492ad5eab9fa560116f6b712110"
+    }
+  ],
+  "finding": {
+    "v4_path": "segmented.multiday.prepare_one builds synthetic variational XML, replaces forces, then invokes shared nominal closure without explicit derivative profile.",
+    "native_default": "legacy_v3",
+    "fit_profile": "synthetic_complete_v1 is selected later by numerics.NativeModel, after preparation.",
+    "propagation": "Shared nominal closure deep-copies the original propagation XML into initialization and each fixed-initial iteration.",
+    "failure_attribution": "Actual preparation05 failure was under legacy_v3 according to separate independent output audit; staged arithmetic hypotheses do not establish its cause."
+  },
+  "conditional_proposal": {
+    "condition": "Actual exact 48-hour controlled diagnostic demonstrates required closure with synthetic_complete_v1.",
+    "scope": "Set one explicit profile field in v4 synthetic prepare_one after force configuration and before closure; retain shared v3 defaults and exact flight reuse.",
+    "preserved": [
+      "physical force recipe",
+      "observation support and weights",
+      "priors and hyperparameters",
+      "closure tolerances and iteration limits",
+      "native executable",
+      "original failed outputs"
+    ],
+    "provenance": "Source configuration and all generated configuration XML are already hashed in shared initialization/native-preparation artifacts."
+  },
+  "proposed_regressions": [
+    "Assert explicit synthetic profile in v4 initializer and every nominal closure iteration through the real shared helper with mocked native execution.",
+    "Assert an unprofiled shared/v3 input stays unprofiled.",
+    "Verify fixed flight requests are reused without regeneration or XML mutation."
+  ],
+  "diagnostic_caveat": "A full initialization replay derives a new profile-dependent fixed target from initializer output; report that target or use the archived target to isolate exact fixed-initial closure."
+}

@@ -1,0 +1,168 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "smoke_segmented_preparation01.py",
+        "--plan",
+        "smoke-plan.json",
+        "--sha256",
+        "5f54b4f0d9f583da7ef36663cd8fdea87936e60ee3b55223fe99b58ffc390530"
+      ],
+      "command_sha256": "b871fae9f271ea848fc7926f77631496430892a4805f052741b6dea136ee9a5a",
+      "parent": 2245838,
+      "pid": 2245840,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 109198733,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-15T23:52:44.896235+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Serial validation on CPU24 with host-local exclusive orbit lock and affinity, not administrator-exclusive reservation. Other-user background workloads may exist; this is an untimed correctness validation.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/staging/preparation-startup-01/execution.json",
+    "--execution-sha256",
+    "2ad40633ada1d9677b1c3f2fa5ff4ace750f1e0357cd56eb4fe06df733230a7f",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-01/control/probe_segmented_preparation01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-01/control/probe-plan.json",
+    "--sha256",
+    "9809414e254fbfdeb9d1858266a4dc0a0c17e96410611e51a61fff90d77871c4"
+  ],
+  "benchmark_fits": 0,
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2245840,
+        "pid": 2245842,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 109198757,
+        "state": "Z"
+      },
+      {
+        "parent": 2245842,
+        "pid": 2245843,
+        "pid_namespace": "pid:[4026534145]",
+        "start_ticks": 109198760,
+        "state": "S"
+      },
+      {
+        "parent": 2245843,
+        "pid": 2245844,
+        "pid_namespace": "pid:[4026534145]",
+        "start_ticks": 109198763,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-15T23:53:47.177357+00:00",
+    "pid_namespaces": [
+      "pid:[4026534145]"
+    ],
+    "returncode": 1,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "derived_execution": {
+    "bytes": 27653,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/staging/preparation-startup-01/execution.json",
+    "sha256": "2ad40633ada1d9677b1c3f2fa5ff4ace750f1e0357cd56eb4fe06df733230a7f"
+  },
+  "elapsed_seconds": 62.159782235044986,
+  "error": "RuntimeError('Preparation startup dependency probe failed')",
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-01/control/execution.json",
+    "sha256": "5b4b7883b115195577706596fb5bcfe0bce7e0c74555686a38249190024aa671"
+  },
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2245840,
+            "pid": 2245842,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 109198757,
+            "state": "Z"
+          },
+          {
+            "parent": 2245842,
+            "pid": 2245843,
+            "pid_namespace": "pid:[4026534145]",
+            "start_ticks": 109198760,
+            "state": "S"
+          },
+          {
+            "parent": 2245843,
+            "pid": 2245844,
+            "pid_namespace": "pid:[4026534145]",
+            "start_ticks": 109198763,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-15T23:53:47.372797+00:00",
+        "pid_namespaces": [
+          "pid:[4026534145]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-15T23:53:47.372908+00:00",
+  "interrupted_or_timeout": false,
+  "physical_propagations": 0,
+  "plan": {
+    "bytes": 1119,
+    "path": "smoke-plan.json",
+    "sha256": "5f54b4f0d9f583da7ef36663cd8fdea87936e60ee3b55223fe99b58ffc390530"
+  },
+  "probe_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-01/control/probe-plan.json",
+    "sha256": "9809414e254fbfdeb9d1858266a4dc0a0c17e96410611e51a61fff90d77871c4"
+  },
+  "process": {
+    "parent": 2245840,
+    "pid": 2245842,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 109198757,
+    "state": "S"
+  },
+  "result": {
+    "bytes": 489,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/staging/preparation-startup-01/temporary/probe-result/result.json",
+    "sha256": "a0d42bf0ea17614bbe66472a060da76442b8b8feed24c2f37591602681e9adf2"
+  },
+  "returncode": 1,
+  "schema": "orbit-poc-preparation-owned-startup-smoke-result-v1",
+  "status": "failed"
+}

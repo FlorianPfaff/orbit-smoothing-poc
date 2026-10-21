@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-10-15T23:27:51.095518+00:00",
+  "files": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_shifted_diagnostic01.py",
+      "sha256": "1fd74fd8b4c4412004e52ba6e64536ab4d8f1b818fcaee5b9b7de8d41d513db8"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_stage_shifted_diagnostic01.py",
+      "sha256": "efb3c3ef4fde2329e97875bc8e0dcb566681e45e9ccd62b251f18ff6a3d6cdab"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-staging-independent01.xml",
+      "sha256": "b0a224a567b236c87dda5cdcf6f9160b9fdc1a197ad05da374aa349c5ccd91be"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-staging-lock-counterexample-01/counterexample.json",
+      "sha256": "223b9fc0bf9d7e499086f12da3b0c26887e0868c70e8f3fd54d7999d0b411257"
+    }
+  ],
+  "finding": "The nested controller plan is read by path without checking its SHA256. An actual fabricated changed-lock counterexample stages a changed global lock. Verify nested original launchplan before any writes, after staging, and pin it in derived runtime artifacts.",
+  "fixtures": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 13
+  },
+  "schema": "orbit-poc-shifted-staging-independent-review-v1",
+  "scope": "No scientific code, models or results changed; no actual staging or workload.",
+  "status": "failed_control_review"
+}

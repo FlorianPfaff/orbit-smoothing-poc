@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="5.440" timestamp="2026-10-16T08:56:26.384418+02:00" hostname="pfaff"><testcase classname="d.orbit-segmented-v4.control.test_tangent_capture_writer01" name="test_exact_scalar_roundtrip" time="0.674"><failure message="assert (-0.5, 429496...967290.5, ...) == (-0.5, -1.5, ....5, -5.5, ...)&#10;  &#10;  At index 1 diff: 4294967294.5 != -1.5&#10;  Use -v to get more diff">binary = PosixPath('/tmp/pytest-of-emper/pytest-42/writer0/writer')
+tmp_path = PosixPath('/tmp/pytest-of-emper/pytest-42/test_exact_scalar_roundtrip0')
+
+    def test_exact_scalar_roundtrip(binary,tmp_path):
+     p=tmp_path/'capture';r=run(binary,p);assert r.returncode==0,r.stderr;raw=p.read_bytes();assert raw[:16]==b'OPCTANGENT001\n\0\0';assert struct.unpack_from('&lt;5Q2d',raw,16)==(1,2,1,2,12,5.,5.)
+&gt;    a=struct.unpack_from('&lt;72d',raw,72);assert a[:9]==tuple(i+.25 for i in range(9));assert a[9:18]==tuple(-i-.5 for i in range(9));assert a[36:45]==tuple(i+.75 for i in range(9));at=72+72*8
+                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    assert (-0.5, 429496...967290.5, ...) == (-0.5, -1.5, ....5, -5.5, ...)
+E      
+E      At index 1 diff: 4294967294.5 != -1.5
+E      Use -v to get more diff
+
+/mnt/d/orbit-segmented-v4/control/test_tangent_capture_writer01.py:17: AssertionError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.test_tangent_capture_writer01" name="test_refuse_overwrite" time="0.002" /><testcase classname="d.orbit-segmented-v4.control.test_tangent_capture_writer01" name="test_no_env_no_capture" time="0.001" /><testcase classname="d.orbit-segmented-v4.control.test_tangent_capture_writer01" name="test_other_profile_no_capture" time="0.001" /><testcase classname="d.orbit-segmented-v4.control.test_tangent_capture_writer01" name="test_partial_write_is_failure" time="0.003" /><testcase classname="d.orbit-segmented-v4.control.test_tangent_capture_writer01" name="test_capture_block_only_source_delta" time="0.015" /></testsuite></testsuites>

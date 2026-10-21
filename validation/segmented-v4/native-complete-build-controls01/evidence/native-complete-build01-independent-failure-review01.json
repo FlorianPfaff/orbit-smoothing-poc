@@ -1,0 +1,55 @@
+{
+  "schema": "orbit-poc-native-complete-build-control-failure-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T21:42:14.573925+00:00",
+  "capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build01-terminal-capture01.json",
+    "sha256": "9ba0978ac144a6edda911dc74901ca720e3befedb8734ceec6122b3f7bd4682f"
+  },
+  "ninja_lineage": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build01-ninja-lineage01.json",
+    "sha256": "d0f98c935d31bee94814bbf1837df3eee0cf62c61d1abfaf373a7a45f7faa189"
+  },
+  "toolchain_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build01-toolchain-readback01.json",
+    "sha256": "8f2953e2e8541a8e4cf5b49322b9dcbcebd06773aa9d8245b25104639e73ac41"
+  },
+  "all_cache_fields": {
+    "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build01-all-cache-fields01.json",
+    "sha256": "d0dcef27872ae9bc8811da041d6cfc40222b3e070ce3f5553575427cf5326755"
+  },
+  "failure": {
+    "status": "failed",
+    "error": "ValueError('Configured toolchain differs: CMAKE_MAKE_PROGRAM')",
+    "successful_stages": [
+      "public-installer-0",
+      "public-installer-1",
+      "public-installer-2",
+      "configure"
+    ],
+    "candidate_groops_objects": 0,
+    "fit_attempts": 0,
+    "cmake_compiler_probes_not_excluded": true
+  },
+  "measured_causes": {
+    "configured_ninja_matches_original_cache": true,
+    "configured_ninja_version": "1.13.2",
+    "configured_ninja_sha256": "295d6db0235d00b2dd280f732e108568cc006a49918614db3f719d5a9d2d4ebf",
+    "erroneous_control_ninja_version": "1.10.1",
+    "erroneous_control_ninja_sha256": "a9ddfbf7e365a2e5026ed44f9173e498e37d8b71ec5e259b2c2a684f16cfa862",
+    "project_languages": [
+      "CXX",
+      "Fortran"
+    ],
+    "C_compiler_cache_entry_absent_in_original_and_current": true,
+    "selected_cache_field_differences": 0,
+    "CMakeLists_and_compiler_metadata_unchanged": true
+  },
+  "cleanup": {
+    "controller_verified": true,
+    "captured_owned_nonlive": 9,
+    "captured_at": "2026-10-16T21:40:28.721089+00:00",
+    "fresh_independent_proc_scan": false
+  },
+  "scope": "Actual retained toolchain-guard failure attribution only. Source installers and configure passed; no complete GROOPS build or scientific gate passed. Baseline/reference/native/source settings are not changed by this audit."
+}

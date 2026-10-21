@@ -1,0 +1,30 @@
+{
+  "available_reservation_mechanism": "No Slurm/PBS/LSF commands; systemd user delegation grants memory,pids only. cpuset files are absent or unwritable. No effective capabilities. Existing affinity and advisory host orbit lock are available; no exclusive-core reservation was made.",
+  "capability_discovery": {
+    "path": "/mnt/d/orbit-segmented-v4/control/cpu-reservation-capability-01.json",
+    "sha256": "d3da35466cc455fe6ece9c4582c09d20ef7408e3c13aece7a6db9ca410b68d86"
+  },
+  "corrected_scope": "Approved v4 requires one timed fit at a time on admitted CPU resources; OS-exclusive cores are not an added release criterion. Broad unrelated affinity alone does not prove actual contention.",
+  "cpu24_smt_sibling": 88,
+  "existing_frozen_guard_limit": "Public admission checks known native executables/names at stage boundaries. Continuous generic CPU-contention measurement is not present in the frozen worker supervisor and belongs in a separate outer timing control.",
+  "future_timed_admission": "pending pre-timing live observation and continuous outer monitor; no timed fits authorized by this receipt",
+  "measured_sample": {
+    "cpu24_busy_fraction": 1.0,
+    "cpu24_owner": "current owned correctness GROOPS process",
+    "duration_seconds": 2.662779328180477,
+    "other_user_active_threads_allowed_on_core": 108,
+    "other_user_active_threads_last_sampled_on_core": 0,
+    "sibling88_busy_fraction": 0.0042918454935622075
+  },
+  "mutation_policy": "No global host changes, scheduler reservation, affinity changes to other processes, or source/config changes performed.",
+  "observation": {
+    "path": "/mnt/d/orbit-segmented-v4/control/timing-host-observation-01.json",
+    "sha256": "ecd6ded1fa88a892228473984e26bf817f7526b7de74bc4191f065650d940929"
+  },
+  "schema": "orbit-poc-timing-host-assessment-v2",
+  "shared_host_timing_route": "Retain frozenCPU24, strict serial native work and known-native admission; add separate outer read-only continuous CPU24/88/process contention trace and preserve each fit timing context. Hold or stop own timed work on known competing native work; do not signal or alter unrelated jobs. Report timing as shared-host observations and make no unconditional speedup claim.",
+  "supersedes": {
+    "path": "/mnt/d/orbit-segmented-v4/control/timing-host-assessment-01.json",
+    "sha256": "7a6ac300e84912657877ccafce5cbe41c34f864bb59a84c586b85c13dde56dab"
+  }
+}

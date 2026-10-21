@@ -1,0 +1,54 @@
+{
+  "checks": [
+    "Manually reviewed complete diff against reviewed validation launcher: only separate pinned control_root and preparation names/schema/log targets change",
+    "Control root must be absolute, nonsymlink and equal pinned plan root; existing execution/driver/plan pins remain checked",
+    "Detached owned-process handoff and launch-failure cleanup semantics unchanged",
+    "Independently reran exact-delta fixture; no process launched"
+  ],
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1
+  },
+  "files": [
+    {
+      "bytes": 4843,
+      "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_validation01.py",
+      "sha256": "38ac281ffd03e7ecc44c19354d41bcc464a8b112a2bd9a10189d9d6501dbdfc8"
+    },
+    {
+      "bytes": 5070,
+      "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_preparation01.py",
+      "sha256": "671e177ba7309f18c2b5a0914f75e389d6500b03b7989e85190c75410144e014"
+    },
+    {
+      "bytes": 885,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_launch_segmented_preparation01.py",
+      "sha256": "d19907de2e2550b708f178e7b7fec2a882f514624d8245e3842b38955f3b6b6e"
+    },
+    {
+      "bytes": 422,
+      "path": "/mnt/d/orbit-segmented-v4/control/root-preparation-launcher01-tests.xml",
+      "sha256": "29ba756a678a21062f28615980c2e06ad5875d7e53a8cd019e2ce26d1af858a5"
+    },
+    {
+      "bytes": 798,
+      "path": "/mnt/d/orbit-segmented-v4/control/root-preparation-launcher01-tests.log",
+      "sha256": "9fd900794e1dad615f99becd35d6e7e1b5fa8ba18990bccc57e72583264b267c"
+    }
+  ],
+  "preparation_execution_authorized": false,
+  "release_ready": false,
+  "remaining": [
+    "Successful unchanged full14 suite and independent audit",
+    "Actual new preparation namespace runtime/input smoke",
+    "Concrete preparation plan, pins and current-host admission review"
+  ],
+  "reviewer": "root",
+  "schema": "orbit-poc-segmented-preparation-launcher-independent-review-v1",
+  "scope": "External launcher metadata adaptation; no preparation run authorized by fixture alone.",
+  "status": "passed_scoped_checks",
+  "utc": "2026-10-15T22:10:18.295083+00:00",
+  "warning": "Pytest cache creation under /mnt was denied; the sole test passed and its output was preserved. This did not alter source or runtime."
+}

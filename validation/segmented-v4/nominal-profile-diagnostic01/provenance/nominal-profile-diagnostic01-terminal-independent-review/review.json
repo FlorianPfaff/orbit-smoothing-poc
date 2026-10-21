@@ -1,0 +1,48 @@
+{
+  "all_inputs_native_and_physical_xml_unchanged": true,
+  "conclusion": "The same archived48h initial state/reference closes in two iterations when the existing corrected synthetic profile is selected. All thresholds, input bytes and native executable are unchanged; initial state is restored exactly each time. The tested omission is demonstrated to cause this preparation failure; this diagnostic does not identify which individual staged arithmetic/Jacobian change is necessary.",
+  "created_at": "2026-10-16T04:29:23.921863+00:00",
+  "final_position_change_m": 1.1519824039985408e-08,
+  "final_velocity_change_m_s": 1.247450811601557e-11,
+  "fit_attempts": 0,
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_profile_diagnostic_terminal01.py",
+    "sha256": "da6fe3ad233474abe0eec626e385dd0939889dae357b6af292e71580fbeac383"
+  },
+  "initial_state_exact_every_iteration": true,
+  "iterations": 2,
+  "original_failed_initialization": {
+    "bytes": 15615,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/backings/run/preparation/prefixes/9f71eb67221fe67a092ea4566e05bce837b47c5c4e6a2d917909ced474aa03c4/nominal-initialization/initialization.json",
+    "sha256": "35cdb2ccdc0cb51fe8bedb7664b1d9f5e8a030d324afc000661dca1e231c4540"
+  },
+  "owned_process_cleanup_independently_verified": true,
+  "packet_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-independent-review/review.json",
+    "sha256": "7edaaba6c349a5478773e50d0defae0de499bf6b8d240b2828e3d820a2415218"
+  },
+  "passed": true,
+  "pipeline": {
+    "bytes": 5557,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/pipeline.json",
+    "sha256": "0efc34c0b0ecbd32472e9c934c5675e253b5699e7ff5a42c138cbf5c910dad6a"
+  },
+  "plan": {
+    "bytes": 4482,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/control/plan.json",
+    "sha256": "3c20f3a4c04a3df8bcb68a98ab047f24a87de72a4b2e617ea7508666bf9568dc"
+  },
+  "profile_and_telemetry_deltas_verified": true,
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-profile-diagnostic01-terminal-independent-review/readback.json",
+    "sha256": "90d396f0815c237203e1cb4f7016d47b3262d882e93b395914d82346eba8edb1"
+  },
+  "release_ready": false,
+  "result": {
+    "bytes": 7653,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/result.json",
+    "sha256": "c7e1c7f0c283d9281ccc74f55d938dfb80c2eb243abca14a6f69810da1a23744"
+  },
+  "schema": "orbit-poc-nominal-profile-diagnostic-terminal-independent-audit-v1",
+  "scope": "Read-only independent reconstruction of both saved trajectory changes, exact XML and native attribution, original input preservation and current-owned cleanup. Supports a separately versioned v4 preparation adapter correction; does not constitute a production preparation run or benchmark fit."
+}

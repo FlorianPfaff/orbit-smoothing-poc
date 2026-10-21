@@ -1,0 +1,45 @@
+{
+  "recovery": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-recovery-readback03/control/recovery.json",
+    "sha256": "b1c43fc3dd7985cc01467d331c0f125fc6d2a8a0ef9a56d02ae77ae4c972aa3d"
+  },
+  "reviews": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-root-concrete-launch-review01.json",
+      "sha256": "11006e8b2080cfb03f23b9aba553fa63e2f0b2c3321a9d820b302b09d5043e04"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-concrete-packet-independent-review01.json",
+      "sha256": "2b8f51f71f1ecb794de9f16c13a6d36ebbc33d117e99f969883d4b942f5a9304"
+    }
+  ],
+  "remote_argv": [
+    "env",
+    "PATH=/usr/bin:/bin",
+    "HOME=/home/florianpfaff",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "OMP_NUM_THREADS=1",
+    "MKL_NUM_THREADS=1",
+    "NUMEXPR_NUM_THREADS=1",
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/host-view-plan.json",
+    "--sha256",
+    "0276468ce244308ba8b082f41377bf30a61f371e41639b7e4e40c1eab597efe7"
+  ],
+  "ssh_argv": [
+    "/mnt/c/Windows/System32/OpenSSH/ssh.exe",
+    "-o",
+    "BatchMode=yes",
+    "gpuserver4090",
+    "env PATH=/usr/bin:/bin HOME=/home/florianpfaff PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 /usr/bin/taskset -c 32 /usr/bin/python3 -B /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py --plan /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-09/host-view-plan.json --sha256 0276468ce244308ba8b082f41377bf30a61f371e41639b7e4e40c1eab597efe7"
+  ],
+  "started_at": "2026-10-19T01:25:09.761529+00:00",
+  "scope": "Exact independently reviewed recovery09 launch. The unchanged actual inner positive and denial probes gate fitting."
+}

@@ -1,0 +1,87 @@
+{
+  "algorithm_delta": "Preserved wide affine update and baseline GMRES control; compensated local and chronological sums of unchanged stored quadrature weights, with velocity low part retained in position accumulation. Physical models, solver limits and tolerances unchanged.",
+  "execution": {
+    "blas_openmp_threads": 1,
+    "command": [
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/single-evaluation/propagate.xml"
+    ],
+    "config_sha256": "b56bdd6af1083b41b5fd814b9d9719f3460b0e749505c0b7a18c9d35ce2c4e3b",
+    "elapsed_seconds": 2.88492411095649,
+    "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/single-evaluation/propagate.log",
+    "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+    "native_binary_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+    "peak_rss_bytes": 292130816,
+    "pid": 9,
+    "returncode": 0,
+    "timed_out": false
+  },
+  "fit_attempts": 0,
+  "fixed_initial_state_si": [
+    6878126.008098155,
+    -207.021077880319,
+    -280.6935528494022,
+    0.3915402784536195,
+    4581.389322493871,
+    6079.704432546018
+  ],
+  "initial_state_error_si": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "initialization_criteria": {
+    "maximum_iterations": 10,
+    "position_tolerance_m": 2e-06,
+    "velocity_tolerance_m_s": 3e-09
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+    "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+  },
+  "native_evaluations": 1,
+  "original_failure_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=5.2053902058798312e-12, tolerance=2e-12, iterations=120, rhs_norm=4.8014353984884544e-06, solution_norm=0.0076587054185056243, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+  "plan_sha256": "afaa0c2103b2ab4a161cfe77f54dafd98a7ec191895b92d3c5d0eaf9a476ba59",
+  "release_evidence": false,
+  "schema": "orbit-poc-fixed-state-tangent-replay-v1",
+  "state_epochs": 51840,
+  "status": "native_completed",
+  "supplemental_regression": {
+    "argv": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-I",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/native_source/source/misc/orbitPoc",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/control/tangent_compensated_quadrature.cpp",
+      "-o",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/supplemental-regression/compensated-quadrature"
+    ],
+    "binary": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/supplemental-regression/compensated-quadrature",
+      "sha256": "59302ce21a3ef5fc6c411bc1e5260c859bb48faebc9d3fc0b0ab2e2193edffd5"
+    },
+    "compiler_sha256": "e802ef021bccd09d2ae1dae3f9400e53ab2c2c7bc2b4e47dc29a81c7ec3bcd31",
+    "fit_attempts": 0,
+    "fixture": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/control/tangent_compensated_quadrature.cpp",
+      "sha256": "1e11c286ceeec33bc5f75fc9a2287dbcf76e4bca565a693228eefe32b2037627"
+    },
+    "frozen_suite_counts_changed": false,
+    "header": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/native_source/source/misc/orbitPoc/sixStateTangent.h",
+      "sha256": "9a46f04591de8b8956cb6af0888936ace7f35688cef778861a99a859a65cdef0"
+    },
+    "native": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+      "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+    },
+    "schema": "orbit-poc-compensation-supplemental-native-regression-v1",
+    "status": "passed"
+  },
+  "xml_delta": "Only five output/intermediate path fields rebound; original inputs/profile/settings unchanged"
+}

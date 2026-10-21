@@ -1,0 +1,39 @@
+{
+  "schema": "orbit-poc-campaign08-concrete-packet-root-review-v1",
+  "created_at": "2026-10-18T23:14:39.550561+00:00",
+  "status": "exact_outer_control_recovery_verified",
+  "capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign08-recovery-readback01/manifest.json",
+    "sha256": "080ba7857ffe6c656c2c92f9955656c81a149db443cf25da51d068b7e6ca0779"
+  },
+  "files_checked": 19,
+  "bytes_checked": 63176,
+  "permitted_changes": [
+    "fresh host-control08 directory",
+    "exact accepted separate bubblewrap binary",
+    "exact accepted wrapper03 pin and direct command argv transport",
+    "derived metadata references"
+  ],
+  "scientific_runtime_config_inputs_mount_plan_inner_probe_fit_order_unchanged": true,
+  "metadata_cleanup_verified": true,
+  "launch_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/host-view-plan.json",
+    "--sha256",
+    "bff49d773141a5e5062132beed8ad3c14a8f85fd86a6afd52e851185d1ff0ead"
+  ],
+  "host_plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/host-plan.json",
+    "sha256": "74b108fce0232682a2d76406eb96f584050359ff0def4a4f81a1e7634f5330b0"
+  },
+  "fit_attempts": 0,
+  "actual_inner_proof_pending": true,
+  "actual_native_fit_pending": true,
+  "scope": "Root comparison against exact prior assembly. Independent concrete audit and current host checks also required; no scientific result inferred."
+}

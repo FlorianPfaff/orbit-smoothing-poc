@@ -1,0 +1,153 @@
+{
+  "audit_script": {
+    "bytes": 5321,
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_nominal_compensation_singles01.py",
+    "sha256": "b1f49b0b7ff1f4f53da17dda7ffe50bdbe830e98645e6f6fc82efdde2fbc116c"
+  },
+  "build_review": {
+    "bytes": 3137,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-build02-terminal-independent-review01.json",
+    "sha256": "705dd240d1e0590f7201af6b0dfed5771ba93a8b47c1398ec59e5d0c58c6f142"
+  },
+  "candidate_release_approved": false,
+  "controls_review": {
+    "bytes": 5373,
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-native-controls-independent-review02.json",
+    "sha256": "a2acf5c4747cebe62f1bf69761fd0ac08aed5d29d4e31f01fd6e498fca374dba"
+  },
+  "findings": [
+    "The exact preserved P3 physical input fails at original2e-12 residual guard after120iterations; this is a native regression relative to previously passed wide-affine candidateeb41.",
+    "The exact preserved P4 iteration03 input passes one native propagation with unchanged fixed state and all51840epochs; this is not fullclosure.",
+    "Analytical supplemental fixture passes in both runs under actual compilerflags; neither changes prescribed suitecounts.",
+    "tangentIntegrate is called both by integratedJacobian and integratedForce in stagedVariationalBody.h; compensation can alter floating-point RHS as well as operator. Old captured-system success does not certify this new native system.",
+    "Both fullclosure attempts remain unexecuted at current readback. Candidate25661 cannot be treated as resolving correctness or authorizing fresh fullsuite/benchmark release."
+  ],
+  "fit_attempts": 0,
+  "numerical_fix_verified": false,
+  "observed_at": "2026-10-16T16:29:32.750877+00:00",
+  "outcomes": [
+    {
+      "case": "preparation03",
+      "compact_capture": {
+        "bytes": 223359,
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-single01-terminal-capture01.json",
+        "sha256": "9571a6132ecef97069949d13341f6254ce02b5b7bffe104ce938914146130c6a"
+      },
+      "compact_records_verified": 14,
+      "current_owned_nonlive": 7,
+      "current_readback": {
+        "bytes": 5185,
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-single01-independent-terminal-readback01.json",
+        "sha256": "b2eaf547e616a57c1169e15fc1ac63a2bb94c98c202d9abe35cd7e1c0bf099ec"
+      },
+      "failure": {
+        "actual_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=1.2851453361637898e-11, tolerance=2e-12, iterations=120, rhs_norm=3747.3316555805213, solution_norm=6658355.6215919135, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+        "original_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=1.503709478355439e-11, tolerance=2e-12, iterations=120, rhs_norm=3747.3316555822867, solution_norm=6658355.6215952141, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195"
+      },
+      "fixture_status": "passed",
+      "initial_state": [
+        6878126.008098143,
+        -207.02107813112366,
+        -280.69355318934697,
+        0.39154027892910004,
+        4581.389322493885,
+        6079.70443254602
+      ],
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+        "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+      },
+      "native_execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/run/replay/single-evaluation/propagate.xml"
+        ],
+        "config_sha256": "5a85577e5563d2a10ae5b17ab2f326e6763c0a7f1041b2c9b65d8a0bb43c2ac3",
+        "elapsed_seconds": 6.7796481479890645,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/run/replay/single-evaluation/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+        "peak_rss_bytes": 291840000,
+        "pid": 9,
+        "returncode": 1,
+        "timed_out": false
+      },
+      "plan": {
+        "bytes": 6090,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/control/plan.json",
+        "sha256": "6c48910aac1b3e39b30a1305069e4b32b3cae56e05717f25149d0dae4e1ddb3e"
+      },
+      "result": {
+        "bytes": 4815,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-01/run/replay/result.json",
+        "sha256": "4527479cf29d68a5a3a4eb52e94ade20b7e70f12dcf5861528783cbf95fc220c"
+      },
+      "status": "native_failed"
+    },
+    {
+      "case": "preparation04",
+      "compact_capture": {
+        "bytes": 223603,
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-single02-terminal-capture01.json",
+        "sha256": "9f456fd524d793c8d5bc6b0e2c708cea66a11ad4053addb23a17008c8d95d3fd"
+      },
+      "compact_records_verified": 14,
+      "current_owned_nonlive": 7,
+      "current_readback": {
+        "bytes": 6315,
+        "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-single02-independent-terminal-readback01.json",
+        "sha256": "8d8d6d88b1726eb0eda8ce5990bb58d24809b6110e2885cc2d40d3a0cefb7b09"
+      },
+      "failure": null,
+      "fixture_status": "passed",
+      "initial_state": [
+        6878126.008098155,
+        -207.021077880319,
+        -280.6935528494022,
+        0.3915402784536195,
+        4581.389322493871,
+        6079.704432546018
+      ],
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+        "sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2"
+      },
+      "native_execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-precision-02/binaries/groops-precision-25661fd88779c009",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/single-evaluation/propagate.xml"
+        ],
+        "config_sha256": "b56bdd6af1083b41b5fd814b9d9719f3460b0e749505c0b7a18c9d35ce2c4e3b",
+        "elapsed_seconds": 2.88492411095649,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/single-evaluation/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "25661fd88779c009a84f7479b8fb9639aaeb9a37df3a11dc2d4adff2af94f7c2",
+        "peak_rss_bytes": 292130816,
+        "pid": 9,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "plan": {
+        "bytes": 6100,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/control/plan.json",
+        "sha256": "afaa0c2103b2ab4a161cfe77f54dafd98a7ec191895b92d3c5d0eaf9a476ba59"
+      },
+      "result": {
+        "bytes": 4369,
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-compensation-single-02/run/replay/result.json",
+        "sha256": "d6f87eb32b93df92a566abf31e42653d4defc5b536d823beefbb07770d6826b4"
+      },
+      "status": "native_completed"
+    }
+  ],
+  "packet_review": {
+    "bytes": 6377,
+    "path": "/mnt/d/orbit-segmented-v4/control/nominal-compensation-four-independent-packet-review01.json",
+    "sha256": "53649d283a172c234f9abe79900790eb692efebbdfd427f31d7595fd4ec15978"
+  },
+  "passed": true,
+  "reviewer_native_runs": 0,
+  "schema": "orbit-poc-independent-compensation-native-single-outcomes-v1"
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "orbit-poc-tangent-precision-native-build-controls-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:49:37.051757+00:00",
+  "scripts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/build_tangent_precision01.py",
+      "sha256": "867d3a38757fd91acb88ebc69cfde4f17626fa948b85a042fde46b54d2d4e5b8",
+      "bytes": 9215
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_tangent_precision_build01.py",
+      "sha256": "d4409a50e91da1a470d76f957ee868646af9511e560540d461087f703eb70747",
+      "bytes": 5100
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_tangent_precision_build01.py",
+      "sha256": "a22c173dd17c7414770a7de96f27537598f2517cd3deed1440f14e1aca4dbb6d",
+      "bytes": 4270
+    }
+  ],
+  "candidate_header": {
+    "path": "/mnt/d/orbit-segmented-v4/control/sixStateTangent-precision-native01.h",
+    "sha256": "1590e13ff3f69cb6841af8341737b8d52c4d618592070b61b4ae6516f2ea4c28",
+    "bytes": 9228
+  },
+  "diagnostic_candidate_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-wide-update05-independent-review01.json",
+    "sha256": "d0375e8463d71d614358ef7c041306d9f5cd4b903a03e55fd8488bfab2a40986",
+    "bytes": 2747
+  },
+  "diagnostic_actual_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent02-terminal-independent-review01.json",
+    "sha256": "80a2c846cd8b335ad0b519fd8e6b00525eddbda589e3a757a9dbdb3fca0a027c",
+    "bytes": 4831
+  },
+  "recipe_inspection": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-recipes01.json",
+    "sha256": "baa412eeb97f6183678fbbf2993df807c96e565b92beecb89670daeb6e8697cf",
+    "bytes": 1481723
+  },
+  "fixtures": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_precision_build01.py",
+      "sha256": "4a3b6823e3763b4810a70fe7242cef2783862877fb9e93b6d7569311ff818a43",
+      "bytes": 2016
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-build01-independent-tests.log",
+      "sha256": "3183bfca092ca6d2dcf1f4c8b830ce80b69edb88d32a08a16a72547bd702395a",
+      "bytes": 205
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-precision-build01-independent-tests.xml",
+      "sha256": "f3ddfba3399ffff582606644584dbcfb2768f8abcc22c99872e6fc10321f4e06",
+      "bytes": 1813
+    }
+  },
+  "checks": [
+    "Production candidate removes diagnostic callbacks/capture and changes only the reviewed complete-cycle wide affine update; restoring the old update gives the frozen header byte-for-byte.",
+    "Build enumerates all27 recorded valid dependency targets and requires exact compile/link recipe agreement; source/include roots are the only compile path substitutions.",
+    "Private copied611-object baseline must relink byte-for-byte to originala669 before rebuilding all27 dependents;584 unaffected objects are retained.",
+    "Only native sixStateTangent.h is replaced; original staged export hook and all other source files remain unchanged.",
+    "All637 original link input pins and original source/object/library identities are checked before/after; fresh disjoint output directories and owned serial controller remain."
+  ],
+  "scope": "Separately versioned native correction build controls. Actual build attribution and full required scientific checks are still needed; no release readiness.",
+  "fit_attempts": 0,
+  "release_ready": false
+}

@@ -1,0 +1,236 @@
+{
+  "arrays": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/terminal-linearization-arrays-01/manifest.json",
+    "sha256": "8d3a73e6281ea6863b11e8fe8239a05ce07846da1a6206fcb1980e3fa6d5a89b"
+  },
+  "benchmark_fits": 0,
+  "cache_install": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/cache-install.json",
+    "sha256": "2c0cc45c77226d5f8d14b2b82a35fca1381735a957cbfb0ce9d66aa77f2c8127"
+  },
+  "capture": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/terminal-capture-01/manifest.json",
+    "sha256": "e4f5b2b835def1b92a2cc8e9941e8edc0b16723bd320d2fb391372f7991966bf"
+  },
+  "error": "RuntimeError('Preparation startup dependency probe failed')",
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2483527,
+            "pid": 2494286,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 112428460,
+            "state": "Z"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T08:52:43.006064+00:00",
+        "pid_namespaces": [],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2483527,
+            "pid": 2494287,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 112428507,
+            "state": "Z"
+          },
+          {
+            "parent": 2494287,
+            "pid": 2494288,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112428510,
+            "state": "S"
+          },
+          {
+            "parent": 2494288,
+            "pid": 2494290,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112428513,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T08:52:43.105562+00:00",
+        "pid_namespaces": [
+          "pid:[4026534163]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T08:52:43.105580+00:00",
+  "independent_audit": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/continuation-audit-01/run/independent-review.json",
+    "sha256": "159b9e6298265ef2db60abc4954c79efc301455c66743372eb80aae202e7d4ac"
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/plan.json",
+    "sha256": "66827a32b238424aaa12b1b59e9643208f66fae76a456730adaa84ab07db19bc"
+  },
+  "preparation_assembly": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-04/control/assembly.json",
+    "sha256": "92a3dff41ac6cc5583e9979426843722b76bcde5c42e3887908ef6b618325e77"
+  },
+  "process": {
+    "parent": 2483525,
+    "pid": 2483527,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 112298640,
+    "state": "R"
+  },
+  "release_authorized": false,
+  "schema": "orbit-poc-validation-preparation-continuation-result-v1",
+  "started_at": "2026-10-16T08:29:23.874427+00:00",
+  "status": "failed",
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/check_validation05_owned_cleanup01.py",
+        "--controller",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/validation-controller.json",
+        "--controller-sha256",
+        "ad50283eecae49c7d1dbad21f24ea3f8d49bec14c0819dd13afe7d376dc60388",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/launch-plan.json",
+        "--plan-sha256",
+        "7a67e108c0a914951c3459c02da725c8317db69543f4481bb02df9ab048f7d52",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/cleanup/result.json"
+      ],
+      "cleanup": {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2483527,
+            "pid": 2494286,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 112428460,
+            "state": "Z"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T08:51:02.358888+00:00",
+        "pid_namespaces": [],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      "elapsed_seconds": 0.3173841889947653,
+      "interrupted_or_timeout": false,
+      "name": "independent-cleanup",
+      "process": {
+        "parent": 2483527,
+        "pid": 2494286,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 112428460,
+        "state": "Z"
+      },
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/with_correctness_namespace_09.py",
+        "--execution",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/continuation-audit-01/execution.json",
+        "--execution-sha256",
+        "f71983b1883f2d47a68871067f0b3c7effe3da9fec52f649cb4dc60a00785ea1",
+        "--",
+        "/usr/bin/taskset",
+        "-c",
+        "24",
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/audit_validation05_terminal02.py",
+        "--capture",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/terminal-capture-01",
+        "--arrays",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/terminal-linearization-arrays-01",
+        "--output",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/staging/continuation-audit-01/run/independent-review.json",
+        "--support-root",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/support",
+        "--support-manifest",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/support/support-manifest.json",
+        "--support-manifest-sha256",
+        "c130dc3f9f0dc3b30e661acf00f3026c62a4ba5b5864458cdd2980f013a87bfb",
+        "--source-root",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/source",
+        "--input-inventory",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-inventory-04/output/validation-inputs.json",
+        "--cleanup",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/cleanup/result.json",
+        "--cleanup-sha256",
+        "7c747bc10004cccb8bec477e7e38227563ee430b11afbc04dad7a8c71e27ab9c"
+      ],
+      "cleanup": {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2483527,
+            "pid": 2494287,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 112428507,
+            "state": "Z"
+          },
+          {
+            "parent": 2494287,
+            "pid": 2494288,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112428510,
+            "state": "S"
+          },
+          {
+            "parent": 2494288,
+            "pid": 2494290,
+            "pid_namespace": "pid:[4026534163]",
+            "start_ticks": 112428513,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T08:51:04.904707+00:00",
+        "pid_namespaces": [
+          "pid:[4026534163]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      },
+      "elapsed_seconds": 2.386899719014764,
+      "interrupted_or_timeout": false,
+      "name": "independent-terminal-audit",
+      "process": {
+        "parent": 2483527,
+        "pid": 2494287,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 112428507,
+        "state": "S"
+      },
+      "returncode": 0,
+      "status": "passed"
+    }
+  ],
+  "validation_controller": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/validation-controller.json",
+    "sha256": "ad50283eecae49c7d1dbad21f24ea3f8d49bec14c0819dd13afe7d376dc60388"
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "capture": {
+    "bytes": 27786112,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-02/run/replay/captured-system.bin",
+    "sha256": "b1fd97fe4f004a87d459455f0625d609b8d5f9140d63a5dcdb7448e093bc5fd2"
+  },
+  "capture_dimensions": {
+    "dt": 5.0,
+    "duration": 259195.0,
+    "epochs": 51840,
+    "intervals": 51839,
+    "rhs_count": 311040,
+    "schema": 1,
+    "terms": 414712
+  },
+  "capture_native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-03/binaries/groops-capture-e444cec3fc972fac",
+    "sha256": "e444cec3fc972fac1800ab0d41e223dfc9eaee761c8d85b34588cec1702b897c"
+  },
+  "case": "leo500-disturbed-blackout-groops_pulses-72h",
+  "covariance_authorized": false,
+  "diagnostic_total_groops_evaluations": 2,
+  "evidence_observations_through": "2026-10-16T07:41:34.454935+00:00",
+  "full_native_closure_verified": false,
+  "interpretation": [
+    "A large gap separates the projected Krylov residual from the recomputed true residual; the unchanged guard correctly rejects the original iterates.",
+    "The independent 113-bit calculation also rejects the original iterations six and120. It does not justify accepting a numerical floor.",
+    "Wide cycle-update accumulation passes this one captured system, including the independent accepted-state residual. It does not establish a unique cause, full trajectory closure, fit convergence, covariance or release readiness.",
+    "The update changes product/accumulation precision and subsequent iterates. No claim isolates a single rounding mechanism."
+  ],
+  "maximum_iterations": 120,
+  "original150": "Separate frozen campaign. No new observation or result imported in this report; see the dated prior ten-terminal snapshot.",
+  "original_iterates_quad_check": {
+    "groops_propagations": 0,
+    "preserved_baseline_rows": 198,
+    "records": [
+      {
+        "binary_digits": 113,
+        "iteration": 6,
+        "kind": "quad_residual",
+        "relative_residual_exact_velocity_conversion": 2.1655993640777986e-12,
+        "relative_residual_native_velocity_conversion": 2.1655994428095743e-12
+      },
+      {
+        "binary_digits": 113,
+        "iteration": 120,
+        "kind": "quad_residual",
+        "relative_residual_exact_velocity_conversion": 1.498846190035747e-11,
+        "relative_residual_native_velocity_conversion": 1.49884622244851e-11
+      }
+    ],
+    "terminal": {
+      "iterations": 120,
+      "kind": "terminal",
+      "relative_residual": 1.503709478355439e-11,
+      "status": "failed"
+    }
+  },
+  "original_native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+    "sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+  },
+  "original_replay": {
+    "exact_failure_reproduced": true,
+    "finished_at": "2026-10-16T07:00:29.598304+00:00",
+    "native_evaluations": 1,
+    "native_status": "native_failed",
+    "owned_identities_non_live": 5
+  },
+  "original_trace": {
+    "best_true_record": {
+      "extended_residual_exact_velocity_conversion": 2.0520629646638913e-12,
+      "extended_residual_native_velocity_conversion": 2.0520629646638913e-12,
+      "final": false,
+      "iteration": 6,
+      "kind": "true_residual",
+      "native_relative_residual": 2.0546669696740676e-12,
+      "native_solution_norm": 6658355.621594918
+    },
+    "cycle_lengths": {
+      "1": 33,
+      "2": 41,
+      "5": 1
+    },
+    "iteration5_projected": 1.712331304520431e-14,
+    "iteration5_true": 1.0349379487509937e-11,
+    "maximum_cycle_length": 5,
+    "projected_records": 120,
+    "records": 198,
+    "restart_limit_reached": false,
+    "terminal": {
+      "iterations": 120,
+      "kind": "terminal",
+      "relative_residual": 1.503709478355439e-11,
+      "status": "failed"
+    },
+    "true_records": 76
+  },
+  "packaged_at": "2026-10-16T07:58:09.557060+00:00",
+  "preservation": {
+    "capture_bytes_external": 27786112,
+    "empty_failed_json_preserved_as_raw_text": [
+      "evidence/nominal-tangent-capture02-terminal-independent-readback01.json.raw.txt",
+      "evidence/nominal-tangent-capture02-terminal-independent-readback02.json.raw.txt",
+      "evidence/nominal-tangent-replay01-packet-independent-readback01.json.raw.txt",
+      "evidence/tangent72-quad-independent01.stdout.json.raw.txt"
+    ],
+    "failed_records": 13,
+    "source_text_bytes": 2217365,
+    "source_text_files": 244
+  },
+  "primary_audits": [
+    {
+      "bytes": 3339,
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-replay01-terminal-independent-review01.json",
+      "publication_relative": "evidence/nominal-tangent-replay01-terminal-independent-review01.json",
+      "sha256": "8e165fb71b7b609f9096006798ef16fdbf3e94d535510c53aa4f1057c9131463"
+    },
+    {
+      "bytes": 3326,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build03-terminal-independent-review01.json",
+      "publication_relative": "evidence/tangent-capture-build03-terminal-independent-review01.json",
+      "sha256": "4b6fb9f4c5954a741b6a818f994d118a1cf34aa60b610cb50db1887a1c9c0490"
+    },
+    {
+      "bytes": 8034,
+      "path": "/mnt/d/orbit-segmented-v4/control/nominal-tangent-capture02-terminal-independent-review01.json",
+      "publication_relative": "evidence/nominal-tangent-capture02-terminal-independent-review01.json",
+      "sha256": "849ea378c1d9954536d16bc87e9fe8edfac51ef272097d76be57dc2f487053ea"
+    },
+    {
+      "bytes": 4699,
+      "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent01-terminal-independent-review01.json",
+      "publication_relative": "evidence/captured-tangent01-terminal-independent-review01.json",
+      "sha256": "d7e665e9c15cbd33fbf1dd72efc1401a878778470ce15c981b430ba54267ae33"
+    },
+    {
+      "bytes": 4831,
+      "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent02-terminal-independent-review01.json",
+      "publication_relative": "evidence/captured-tangent02-terminal-independent-review01.json",
+      "sha256": "80a2c846cd8b335ad0b519fd8e6b00525eddbda589e3a757a9dbdb3fca0a027c"
+    },
+    {
+      "bytes": 3402,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-quad-reader03-independent-review01.json",
+      "publication_relative": "evidence/tangent72-quad-reader03-independent-review01.json",
+      "sha256": "714fe279347f8e3fd584b6657f60a611257a224754fde20438b48ec25fb84c25"
+    },
+    {
+      "bytes": 2747,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-wide-update05-independent-review01.json",
+      "publication_relative": "evidence/tangent72-wide-update05-independent-review01.json",
+      "sha256": "d0375e8463d71d614358ef7c041306d9f5cd4b903a03e55fd8488bfab2a40986"
+    }
+  ],
+  "prior_reports": {
+    "full14": "../validation04/index.html",
+    "original150_historical": "../status-preparation-original150-05/index.html",
+    "preparation_failure": "../preparation03-failure01/index.html",
+    "shifted02": "../shifted02/index.html"
+  },
+  "production_fix_verified": false,
+  "publication_native_runs": 0,
+  "publication_remote_scans": 0,
+  "publication_revision": {
+    "change": "Correct external artifact copy/source attribution only; scientific data, results, traces and scope unchanged.",
+    "previous_manifest": {
+      "bytes": 49592,
+      "path": "/mnt/d/orbit-segmented-v4/publication-tangent-diagnosis01/manifest.json",
+      "sha256": "a1201c33f1df4efeb5188422775b89e0807459beac6ba8382936f4fc184d908d"
+    }
+  },
+  "release_ready": false,
+  "restart": 20,
+  "schema": "orbit-poc-tangent-diagnosis-publication-v1",
+  "tolerance": 2e-12,
+  "v4_benchmark_fit_attempts": 0,
+  "v4_benchmark_planned_attempts": 68,
+  "wide_update_experiment": {
+    "groops_propagations": 0,
+    "numerical_delta": "Accumulate each completed Krylov-cycle x + sum(y_j*z_j) in long double and cast once to the original double coordinate.",
+    "preserved_initial_rows": 7,
+    "quad_records": [
+      {
+        "binary_digits": 113,
+        "iteration": 6,
+        "kind": "quad_residual",
+        "relative_residual_exact_velocity_conversion": 5.932965609373973e-12,
+        "relative_residual_native_velocity_conversion": 5.93296563238232e-12
+      },
+      {
+        "binary_digits": 113,
+        "iteration": 7,
+        "kind": "accepted_quad_residual",
+        "relative_residual_exact_velocity_conversion": 1.655848151936809e-12,
+        "relative_residual_native_velocity_conversion": 1.6558481483345173e-12
+      }
+    ],
+    "source_review": "evidence/tangent72-wide-update05-independent-review01.json",
+    "terminal": {
+      "iterations": 7,
+      "kind": "terminal",
+      "relative_residual": 1.7564764459600119e-12,
+      "status": "passed"
+    },
+    "terminal_review": "evidence/captured-tangent02-terminal-independent-review01.json"
+  }
+}

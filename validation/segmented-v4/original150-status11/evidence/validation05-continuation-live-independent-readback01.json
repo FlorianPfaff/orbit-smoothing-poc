@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "observed_at": "2026-10-16T08:30:29.344122+00:00",
+  "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "launch": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/continuation-launch.json",
+    "sha256": "9a0b7cef43ef083c4c291741efe39a91d47fa9059261b0f42cbfea3d7f05168d",
+    "bytes": 2013
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/plan.json",
+    "sha256": "66827a32b238424aaa12b1b59e9643208f66fae76a456730adaa84ab07db19bc",
+    "bytes": 4173
+  },
+  "pipeline": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/pipeline.json",
+    "sha256": "7de7337b630043b452067f68a869e2d8246d73f001ef3bf4b66c4b36b8bbf834",
+    "bytes": 599
+  },
+  "pipeline_snapshot": {
+    "benchmark_fits": 0,
+    "plan": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/plan.json",
+      "sha256": "66827a32b238424aaa12b1b59e9643208f66fae76a456730adaa84ab07db19bc"
+    },
+    "process": {
+      "parent": 2483525,
+      "pid": 2483527,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 112298640,
+      "state": "R"
+    },
+    "release_authorized": false,
+    "schema": "orbit-poc-validation-preparation-continuation-result-v1",
+    "started_at": "2026-10-16T08:29:23.874427+00:00",
+    "status": "waiting_for_exact_validation",
+    "steps": []
+  },
+  "owned_driver": {
+    "pid": 2483527,
+    "start_ticks": 112298640,
+    "parent": 1,
+    "state": "S",
+    "argv": [
+      "/usr/bin/python3",
+      "-B",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/run_validation_prepare_continuation01.py",
+      "--plan",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/plan.json",
+      "--sha256",
+      "66827a32b238424aaa12b1b59e9643208f66fae76a456730adaa84ab07db19bc"
+    ],
+    "command_sha256": "8aabde36bf19921226d6fad3a625037432818c5529c53ce0b2679aa70754e05b",
+    "affinity": "32",
+    "pid_namespace": "pid:[4026531836]"
+  },
+  "held_waiter_locks": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation05-continuation-01/control/continuation.lock",
+      "fd": "3",
+      "fdinfo": "pos:\t0\nflags:\t02102001\nmnt_id:\t647\nino:\t239338795\nlock:\t1: FLOCK  ADVISORY  WRITE 2483527 08:00:239338795 0 EOF\n"
+    }
+  ],
+  "original_validation_driver": {
+    "pid": 2473511,
+    "start_ticks": 112190879,
+    "parent": 1,
+    "state": "R",
+    "argv": [
+      "/usr/bin/python3",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/run_segmented_validation02.py",
+      "--plan",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-05/control/launch-plan.json",
+      "--sha256",
+      "7a67e108c0a914951c3459c02da725c8317db69543f4481bb02df9ab048f7d52"
+    ],
+    "command_sha256": "960969040e468ed20b7adc1318fb1ecb9228ef8739750dbcf0c9d888533b50ca",
+    "affinity": "24-27",
+    "pid_namespace": "pid:[4026531836]"
+  },
+  "global_lock_still_held_by_original_validation": true,
+  "terminal_capture_audit_and_preparation_unstarted": true,
+  "scope": "Actual current-host durable waiter ownership and waiting-only state verified. No terminal result, audit or preparation result claimed; no process launch/signals/native work by reviewer."
+}

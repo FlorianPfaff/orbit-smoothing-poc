@@ -1,0 +1,104 @@
+{
+  "schema": "orbit-poc-segmented-tangent-author-validation-v1",
+  "created_at": "2026-10-15T15:27:39.857194+00:00",
+  "author": "v31_recovery_review",
+  "files": {
+    "groops/extension/segmentedTangent.h": {
+      "sha256": "11042a032ea75acf346b295b48a54a06376f77153c19899170b029563e248c80",
+      "bytes": 7470
+    },
+    "groops/extension/segmentedNativeExport.h": {
+      "sha256": "450f5fd961fe5de7dbbc4ce53b5a5eec762e489ad01c49cf885200ea43e696ba",
+      "bytes": 4499
+    },
+    "groops/extension/native_segmented.py": {
+      "sha256": "b2e8ee5f83f119755e75f68ded89335bcfde83795acdf68147d5cb7f71d382b4",
+      "bytes": 25057
+    },
+    "scripts/build_groops.py": {
+      "sha256": "af1a3bb0f36cb31bd00f4c3adc2f5e83053f665a305ffcf20131cd82c766cf92",
+      "bytes": 6053
+    },
+    "tests/test_segmented_tangent.py": {
+      "sha256": "88087d5aca7217406fbf56b9aa4ea3cc50948c6e80db11b977669be784857ced",
+      "bytes": 11746
+    },
+    "tests/test_segmented_native_tangent.py": {
+      "sha256": "7f58dd3c9881536b5014586890bf02dbff5aabe3a155dbe75f7fa9bda047edd2",
+      "bytes": 8429
+    }
+  },
+  "local_tests": {
+    "passed": 10,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "junit": "/tmp/v4-segmented-tangent-tests-05.xml",
+    "junit_sha256": "e6f0d6ddd917c4f839d7f8a9f1b57d48e0bb2dcac7a212b4eb5f68432348580e"
+  },
+  "generated_checks": {
+    "/tmp/v4-segmented-generated-03/idempotence.json": {
+      "passed": true,
+      "files": 1819,
+      "inventory_sha256": "812887377dcc767ff6082587a641f7a5c284edf42fcbc7d215c3b57b799e6bc6"
+    },
+    "/tmp/v4-segmented-generated-03/syntax.json": [
+      {
+        "path": "base/polynomial.cpp",
+        "argv": [
+          "c++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "-I",
+          "/tmp/v4-segmented-generated-03/groops/source",
+          "-I",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/include",
+          "/tmp/v4-segmented-generated-03/groops/source/base/polynomial.cpp"
+        ],
+        "returncode": 0,
+        "seconds": 1.5600066459955997
+      },
+      {
+        "path": "programs/gnss/orbitPocEvaluateVariational.cpp",
+        "argv": [
+          "c++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "-I",
+          "/tmp/v4-segmented-generated-03/groops/source",
+          "-I",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/include",
+          "/tmp/v4-segmented-generated-03/groops/source/programs/gnss/orbitPocEvaluateVariational.cpp"
+        ],
+        "returncode": 0,
+        "seconds": 1.309295362996636
+      },
+      {
+        "path": "gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp",
+        "argv": [
+          "c++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "-I",
+          "/tmp/v4-segmented-generated-03/groops/source",
+          "-I",
+          "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/include",
+          "/tmp/v4-segmented-generated-03/groops/source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp"
+        ],
+        "returncode": 0,
+        "seconds": 1.7061655840007006
+      }
+    ]
+  },
+  "additive_delta": [
+    "LEO final writeResults exports exact native trajectory/nominal-observation query stencils only when explicitly enabled.",
+    "Position and post-pulse velocity halos remain separate; nominal GNSS epochs include masked observations.",
+    "Production query export contains no dense design or covariance and does not authorize covariance.",
+    "Bounded actual-native gate adds241 native interpolation queries and full Cartesian covariance reconstruction."
+  ],
+  "pending": [
+    "Three actual native export/query equivalence gates need the next segmented GROOPS build.",
+    "Engineering01 frozen files remain unchanged; its older gate does not validate this additive export."
+  ],
+  "compatibility_default": "all query export options are disabled by default"
+}

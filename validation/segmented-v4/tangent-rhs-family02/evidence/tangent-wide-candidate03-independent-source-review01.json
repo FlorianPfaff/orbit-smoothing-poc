@@ -1,0 +1,39 @@
+{
+  "schema": "orbit-poc-wide-candidate03-independent-source-review-v1",
+  "passed": true,
+  "observed_at": "2026-10-16T17:22:56.213656+00:00",
+  "generation": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate03/generation.json",
+    "sha256": "378d430e946fca89e01e56d67467c33a5e7005f1b1744b85abf0f0d4f7e0eada"
+  },
+  "predecessor": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate02/generation.json",
+    "sha256": "fc7f1b604f5c06b9fdd6c5d506c73735730a5468e76e508e2e1f1a783c0903d2"
+  },
+  "actual_predecessor_outcomes": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-rhs-family-run01-independent-terminal-review01.json",
+    "sha256": "192962a052de5e06b754daaa84932a5804a1f585ebead7bf9415b8e55c851d45"
+  },
+  "changed_files": [
+    "include/wideSixStateTangent.h"
+  ],
+  "header": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate03/include/wideSixStateTangent.h",
+    "sha256": "b6910fec1dfe65ce0541d41e6448e2515a72cf94c94232de79d5bcf01aa1d263"
+  },
+  "checks": [
+    "All9 manifest hashes/sizes verified; only wideSixStateTangent.h changed.",
+    "Returned-state residual has sign b - A*x and the same velocity balancing as the original true guard.",
+    "After a rejected check, baseiterate is rebuilt from exactly the physical binary64 result.state whose operator residual was cached; residual and base coordinates match.",
+    "The cached residual norm is the same quantity used by acceptance. Arnoldi therefore corrects actual representable-state error, rather than a smaller residual of the unrounded precursor.",
+    "Preconditioner, Arnoldi/backsolve/update arithmetic,120-step budget,restart20 and2e-12 acceptance remain otherwise unchanged.",
+    "Final exhaustion still calls the same fresh returned-state check; no projected-only success path.",
+    "Eightother sources, reader113-bit oracle and complete27-case generator remain byte-identical."
+  ],
+  "required_execution_conditions": [
+    "Compile unchanged native/CLI/family fixtures first.",
+    "Require all27 generated cases identical by hash and all54 order entries identical to original frozen manifest1dc8e32c; new storage paths alone may differ.",
+    "Run both common-binary profiles serially and retain all failures; independently audit both kernel and returned physical binary64 certificates."
+  ],
+  "scope": "Approved for separately versioned captured-only diagnostic experiment. No production integration or corrected-native claim; no C++ execution performed by this review."
+}

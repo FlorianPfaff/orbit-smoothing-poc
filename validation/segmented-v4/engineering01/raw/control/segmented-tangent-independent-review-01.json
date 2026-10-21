@@ -1,0 +1,31 @@
+{
+  "schema": "orbit-poc-segmented-tangent-independent-review-v1",
+  "files": {
+    "groops/extension/segmentedTangent.h": "11042a032ea75acf346b295b48a54a06376f77153c19899170b029563e248c80",
+    "groops/extension/segmentedNativeExport.h": "99377930baf6a31d96c9d22a420137f6540199e4b174c5d6f6e15148d268f4ee",
+    "groops/extension/native_segmented.py": "345f8c3814565baa5b20de39a591f7a358514e52df94c92ed33b744e55a0c13f",
+    "scripts/build_groops.py": "af1a3bb0f36cb31bd00f4c3adc2f5e83053f665a305ffcf20131cd82c766cf92",
+    "tests/test_segmented_tangent.py": "2520f8abb7a0392079121df821244a212c241e5a0993ae3602b91e8657a6b67c",
+    "tests/test_segmented_native_tangent.py": "c43064b45556e257145a28dd9b639ed3f2dcdd6d7c3e8da9aa9edee2c2b98bb4"
+  },
+  "status": "passed",
+  "static_findings": [],
+  "tests": {
+    "passed": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit": {
+      "path": "/tmp/segmented-tangent-independent-01.xml",
+      "sha256": "8ba0ae8f47e7dbb3791e233a76dded474e1d5f3c1a5eeacfad28df3e89ea9f58"
+    }
+  },
+  "scope": "Static actual-native API/math review and8 local fixtures;3 actual native export gates remain pending.",
+  "checked": [
+    "Native computeAlpha rolling coefficient order and window/event quadrature.",
+    "Native force parameter ordering and stored post-pulse 1e-6 maps.",
+    "Variation-of-constants operator distinct from the Ar/Av integral solve.",
+    "Interpolation stencils captured through the actual polynomial selector.",
+    "No computational cut added to physical forward propagation."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "orbit-poc-preparation04-home-recovery-independent-code-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T15:02:23.229619+00:00",
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/recover_preparation04_startup02.py",
+    "sha256": "d73d5cf7274347dc78baf468f9c80fa1fddfc3757cf80cc338a07eb1669debcf",
+    "bytes": 13134
+  },
+  "tests": {
+    "path": "/mnt/d/orbit-segmented-v4/control/test_preparation04_home_recovery02.py",
+    "sha256": "70923773eff34168662f516cf7425beb8b06e39fbda3801c5a09ca95b7b69b86",
+    "bytes": 8823
+  },
+  "independent_log": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery02-independent-tests01.log",
+    "sha256": "69dfc81144eb7b812ff4dde6616d4db98e02a4da2486467fb619a66ce190cd64",
+    "bytes": 211
+  },
+  "independent_xml": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-home-recovery02-independent-tests01.xml",
+    "sha256": "8482b617ec86a46a023d505902c851eab153ce9f2169ac458081505132fca861",
+    "bytes": 4243
+  },
+  "original_failure_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/preparation04-startup01-failure-readback01.json",
+    "sha256": "f29a1ee09bd070024e6a68a6bf72b6466a0dc4c38aa2d211df5ed2c605a4a278",
+    "bytes": 82966
+  },
+  "checks": [
+    "26 independent pure fixtures passed, including actual unchanged smoke environment construction and unchanged durable launcher child environment from a contaminated parent.",
+    "Pinned current passwd account, canonical user home and exact minimal environment are required for both phases; old environment is restored after each helper invocation.",
+    "Startup02 changes only fresh output paths and the corresponding probe-plan pin; underlying source, execution, physical settings, probe/helper and preparation controls remain unchanged.",
+    "Original source freeze, candidate/dense binary/solver pins, shared lock identity and existing read-only Tudat resource binding are checked.",
+    "Launch requires actual attributed clean successful startup02 process/result and matching environment receipt.",
+    "Post-commit verification failures retain committed/unresolved ownership and explicit no-relaunch inspection policy; valid committed preparation is not killed.",
+    "Original failed startup01 remains immutable and the old owned processes must be non-live."
+  ],
+  "scope": "Code/control approval only; concrete packet/current-host and actual startup/launch evidence remain separate. No numerical gates, source edits, propagation or fit were performed by this review."
+}

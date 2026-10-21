@@ -1,0 +1,57 @@
+{
+  "capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing04-terminal01/manifest.json",
+    "sha256": "f119bf369586f9d984caff6b6d5e312318cdae9e76e31f13f55ab078766ee746"
+  },
+  "capture_audit_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_direct_sealing04_capture01.py",
+    "sha256": "eb00937a254c97d46c6ca670e9e3129a010261e49af0932b00aac5aa577d2937"
+  },
+  "captured_bytes_verified": 98360980,
+  "captured_records_verified": 23,
+  "elapsed_seconds": 631.0843182469252,
+  "execution": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing04-terminal01/execution/execution.json",
+    "sha256": "cb733f6b310b9e1368e7da67e16f9aee383b94b60b9fb7c6078cff16b0a59454"
+  },
+  "failure": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing04-terminal01/sealed/failure.json",
+    "sha256": "b7b6fdbbdfe11f20b9d80e9c391632016f71f2c7d24c9eb818a9981ebf823331"
+  },
+  "findings": [
+    "The parent-scaffold namespace and both observation-copy-aware allowlists completed. The metadata planner then rejected a missing intermediate symlink alias; no limit was relaxed.",
+    "The unchanged planner resolver independently reproduces exactly one topology mismatch across all 44,072 file rows: /lib64/ld-linux-x86-64.so.2 follows parent /lib64 to /usr/lib64, whose loader-child symlink is absent from the declared inventory.",
+    "The partial allowlists, backing map and empty skeleton remain preserved under sealed-inputs-02, together with the original failure receipt. No mount plan or successful sealing result exists.",
+    "A fresh independent remote read verifies all three recorded process identities absent or non-executing, owned cleanup complete, and fit writable directories empty."
+  ],
+  "fit_attempts": 0,
+  "independent_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_direct_sealing04_failure01.py",
+    "sha256": "bda370dc3be3b52fd365a6da15e3b843247afb9a77f76080d632421f3e7cf762"
+  },
+  "independent_remote_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing04-failure-independent-readback01.json",
+    "sha256": "274ae55c7f94f5d55e153bbf02d70abb66927514cce71f8806a9feb3b2d78370"
+  },
+  "native_executions": 0,
+  "next_scope": "Version a narrow complete symlink-inventory and normalized placement correction, preserving exact row/inventory checks and truth-isolation requirements; use fresh helper/output/execution names. No scientific reruns are required for this metadata defect.",
+  "reviewed_at": "2026-10-18T21:53:17.855696+00:00",
+  "schema": "orbit-poc-direct-sealing04-failure-independent-review-v1",
+  "scientific_status": "not_a_numerical_or_scientific_fit_failure",
+  "status": "preserved_symlink_inventory_metadata_failure",
+  "symlink_census": {
+    "declared_links": 2580,
+    "file_rows": 44072,
+    "mismatches": [
+      {
+        "computed_resolved": "/usr/lib64/ld-linux-x86-64.so.2",
+        "declared_resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "path": "/lib64/ld-linux-x86-64.so.2"
+      }
+    ],
+    "planner": {
+      "path": "/mnt/d/orbit-segmented-v4/control/plan_segmented_fit_namespace01.py",
+      "sha256": "d69f59841f4aefe91432de02f1422e41006bc618cb6d7a48b90be0482f0028f7"
+    }
+  }
+}

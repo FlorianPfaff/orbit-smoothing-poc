@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60440</time>
+    <time label="timeEnd">timeStart+86400.0/86400</time>
+    <filename label="tmpDir">/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/tmp</filename>
+    <filename label="groopsDataDir">/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary</filename>
+    <filename label="orbitPocCanonicalAttitude">/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat</filename>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program>
+    <OrbitPocPredictSignals>
+      <outputfilePredictions>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/predictions/signals.txt</outputfilePredictions>
+      <outputfileSupport>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/predictions/signal_support.txt</outputfileSupport>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/predictions/heldout_receiver.dat</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+      <timeMargin>0.1</timeMargin>
+      <transmitter>
+        <GNSS>
+          <inputfileTransmitterList>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/transmitterList.gps.txt</inputfileTransmitterList>
+          <inputfileTransmitterInfo>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/transmitterInfo/igs/igs20/transmitterInfo_igs20.{prn}.xml</inputfileTransmitterInfo>
+          <inputfileAntennaDefintion>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/antennaDefinition/igs/igs20/antennaDefinition_igs20.dat</inputfileAntennaDefintion>
+          <noAntennaPatternFound>
+            <useNearestFrequency />
+          </noAntennaPatternFound>
+          <inputfileSignalDefintion>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/transmitter/signalDefinition/signalDefinition.xml</inputfileSignalDefintion>
+          <inputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/orbit/orbit_2024-05-10.{prn}.dat</inputfileOrbit>
+          <inputfileAttitude>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/attitude/attitude_2024-05-10.{prn}.dat</inputfileAttitude>
+          <inputfileClock>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/clock/clock_2024-05-10.{prn}.dat</inputfileClock>
+          <interpolationDegree>7</interpolationDegree>
+        </GNSS>
+      </transmitter>
+      <receiver>
+        <lowEarthOrbiter>
+          <inputfileStationInfo>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_satelliteInfo.xml</inputfileStationInfo>
+          <inputfileAntennaDefinition>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_antennaDefinition.xml</inputfileAntennaDefinition>
+          <noAntennaPatternFound>
+            <ignoreObservation />
+          </noAntennaPatternFound>
+          <inputfileReceiverDefinition>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/gnss/receiverLowEarthOrbiter/gracefo/gracefo1_receiverDefinition.xml</inputfileReceiverDefinition>
+          <inputfileAccuracyDefinition>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/synthetic_accuracy.xml</inputfileAccuracyDefinition>
+          <inputfileObservations>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/predictions/heldout_receiver.dat</inputfileObservations>
+          <inputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/predictions/heldout_orbit.dat</inputfileOrbit>
+          <inputfileStarCamera>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/predictions/heldout_attitude.dat</inputfileStarCamera>
+          <supportsIntegerAmbiguities>0</supportsIntegerAmbiguities>
+          <wavelengthFactor>0.5</wavelengthFactor>
+          <elevationCutOff>0</elevationCutOff>
+          <minObsCountPerTrack>5</minObsCountPerTrack>
+          <preprocessing>
+            <printStatistics>1</printStatistics>
+            <huber>2.5</huber>
+            <huberPower>1.5</huberPower>
+            <codeMaxPositionDiff>300</codeMaxPositionDiff>
+            <denoisingLambda>5</denoisingLambda>
+            <tecWindowSize>15</tecWindowSize>
+            <tecSigmaFactor>3.5</tecSigmaFactor>
+          </preprocessing>
+          <orbitPocPreprocessFromInputOrbit>1</orbitPocPreprocessFromInputOrbit>
+          <outputfileOrbitPocPreprocessingAudit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/output/2024-05-10/preprocessing_audit.txt</outputfileOrbitPocPreprocessingAudit>
+        </lowEarthOrbiter>
+      </receiver>
+      <earthRotation>
+        <file>
+          <inputfileEOP>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+          <interpolationDegree>3</interpolationDegree>
+        </file>
+      </earthRotation>
+      <parametrization>
+        <ionosphereSTEC>
+          <name>parameter.STEC</name>
+          <apply2ndOrderCorrection>1</apply2ndOrderCorrection>
+          <apply3rdOrderCorrection>1</apply3rdOrderCorrection>
+          <applyBendingCorrection>1</applyBendingCorrection>
+          <magnetosphere>
+            <igrf>
+              <inputfileMagneticNorthPole>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/magnetosphere/magneticNorthPole.txt</inputfileMagneticNorthPole>
+            </igrf>
+          </magnetosphere>
+          <nameConstraint>constraint.STEC</nameConstraint>
+          <sigmaSTEC>40</sigmaSTEC>
+        </ionosphereSTEC>
+      </parametrization>
+      <parametrization>
+        <ionosphereVTEC>
+          <name>parameter.VTEC</name>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <mapR>6371e3+450e3</mapR>
+          <mapH>50e3</mapH>
+          <mapAlpha>0.9782</mapAlpha>
+        </ionosphereVTEC>
+      </parametrization>
+      <parametrization>
+        <signalBiases>
+          <name>parameter.signalBiases</name>
+          <selectTransmitters>
+            <all />
+          </selectTransmitters>
+          <selectReceivers>
+            <all />
+          </selectReceivers>
+          <inputfileSignalBiasTransmitter>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/data/2024-05-10/signalBias/signalBias_2024-05-10.{prn}.txt</inputfileSignalBiasTransmitter>
+        </signalBiases>
+      </parametrization>
+      <fixedReceiverClockOffsetSeconds>4.9999999999999998e-08</fixedReceiverClockOffsetSeconds>
+      <fixedReceiverClockOffsetSeconds>-4.9999999999999998e-08</fixedReceiverClockOffsetSeconds>
+      <fixedReceiverClockOffsetSeconds>5.0000000000000004e-06</fixedReceiverClockOffsetSeconds>
+      <fixedReceiverClockOffsetSeconds>-5.0000000000000004e-06</fixedReceiverClockOffsetSeconds>
+      <fixedReceiverClockOffsetSeconds>2.0000000000000002e-05</fixedReceiverClockOffsetSeconds>
+      <fixedReceiverClockOffsetSeconds>-2.0000000000000002e-05</fixedReceiverClockOffsetSeconds>
+      <inputfileReceiverOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/coarse/closure-03/orbit.dat</inputfileReceiverOrbit>
+      <interpolationDegree>7</interpolationDegree>
+      <inputfileDensityKnots>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/eccentric-24h-refinement/result/native/log_density.txt</inputfileDensityKnots>
+    </OrbitPocPredictSignals>
+  </program>
+</groops>

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-01/control/build_native_complete01.py", line 214, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-01/control/build_native_complete01.py", line 142, in main
+    links=json.loads(check(p['inputs']['link_inventory']).read_text());require(links['baseline_result']==p['inputs']['baseline_result'],'Link baseline differs');link_pins=u.validate_link_inputs(links['inputs'],base,base_build)
+                                                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-inputs-01/build_native_source_delta01.py", line 260, in validate_link_inputs
+    raise ValueError('Changed, incomplete or duplicated link dependency identity')
+ValueError: Changed, incomplete or duplicated link dependency identity

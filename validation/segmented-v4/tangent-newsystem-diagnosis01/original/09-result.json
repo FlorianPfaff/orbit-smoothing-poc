@@ -1,0 +1,113 @@
+{
+  "algorithm_delta": null,
+  "capture": {
+    "bytes": 27786112,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/captured-system.bin",
+    "sha256": "f172b81438d7c5cf0c4d2ada953a2a2f42282c833293a8fbf120c75607bf4044"
+  },
+  "error": "NativeExecutionError('Native propagate exited 1; see /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/single-evaluation/propagate.log')",
+  "exact_failure_reproduced": true,
+  "execution": {
+    "blas_openmp_threads": 1,
+    "command": [
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-05/binaries/groops-capture-7d51262e4635e528",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/single-evaluation/propagate.xml"
+    ],
+    "config_sha256": "894fbff6b570171283fedac6dcb76161f56c85c3f3a6fd047f2121e92cb556f0",
+    "elapsed_seconds": 7.097615878097713,
+    "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/single-evaluation/propagate.log",
+    "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+    "native_binary_sha256": "7d51262e4635e5286c9ba4dd18df0537d4f8d5dc14b2e64543c687a737c12d14",
+    "peak_rss_bytes": 291782656,
+    "pid": 18,
+    "returncode": 1,
+    "timed_out": false
+  },
+  "fit_attempts": 0,
+  "fixed_initial_state_si": [
+    6878126.008098155,
+    -207.021077880319,
+    -280.6935528494022,
+    0.3915402784536195,
+    4581.389322493871,
+    6079.704432546018
+  ],
+  "fixture_preflight": {
+    "compile_command": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/bin/x86_64-conda-linux-gnu-c++",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-I/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tangent72-diagnostic06/include",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tangent72-diagnostic06/probe.cpp",
+      "-o",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tangent72-diagnostic06/probe"
+    ],
+    "fit_attempts": 0,
+    "junit": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tests.xml",
+      "sha256": "c6d51f3357f4450d85b19b47c56238679ba3b7a5159bee81dda7ec2ddbd3ca57"
+    },
+    "nested_original_reader_checks": 8,
+    "status": "passed",
+    "test_command": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tangent72-diagnostic06/test_quad.py",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tangent72-diagnostic06/test_telemetry_identity.py",
+      "--junitxml=/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/reader-fixtures/tests.xml"
+    ],
+    "tests": 3
+  },
+  "initialization_criteria": {
+    "maximum_iterations": 10,
+    "position_tolerance_m": 2e-06,
+    "velocity_tolerance_m_s": 3e-09
+  },
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-05/binaries/groops-capture-7d51262e4635e528",
+    "sha256": "7d51262e4635e5286c9ba4dd18df0537d4f8d5dc14b2e64543c687a737c12d14"
+  },
+  "native_evaluations": 1,
+  "original_failure_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=5.2053902058798312e-12, tolerance=2e-12, iterations=120, rhs_norm=4.8014353984884544e-06, solution_norm=0.0076587054185056243, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+  "plan_sha256": "9b5f6d2d8b63c99984255d40dc9bfa32ecfd25db80349ca67fc57eb610f0e15f",
+  "release_evidence": false,
+  "replay_failure_signature": "six-state tangent did not meet its true residual tolerance: relative_residual=5.2053902058798312e-12, tolerance=2e-12, iterations=120, rhs_norm=4.8014353984884544e-06, solution_norm=0.0076587054185056243, epochs=51840, solve_role=physical_correction, column=0, duration_seconds=259195",
+  "schema": "orbit-poc-fixed-state-tangent-capture-v1",
+  "standalone": {
+    "input": {
+      "dt": 5,
+      "duration": 259195,
+      "epochs": 51840,
+      "extended_digits": 64,
+      "kind": "input",
+      "maximum_iterations": 120,
+      "restart": 20,
+      "tolerance": 2e-12
+    },
+    "record_count": 219,
+    "returncode": 1,
+    "stderr": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/standalone.stderr.log",
+      "sha256": "99ab3d80ac622e724796a7143c5d48dca348ac2c2949a00b611b933225cf7e82"
+    },
+    "terminal": {
+      "iterations": 120,
+      "kind": "terminal",
+      "relative_residual": 5.205390205879831e-12,
+      "status": "failed"
+    },
+    "trace": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-telemetry-03/run/replay/standalone-trace.jsonl",
+      "sha256": "b0efb316934219b6bfda303d15e70629479ea8a5990f582a73a746d1af484101"
+    }
+  },
+  "state_epochs": 51840,
+  "status": "native_failed",
+  "telemetry_delta": "Capture-only insertion before unchanged native solver; separately instrumented standalone reader",
+  "xml_delta": "Only five output/intermediate path fields rebound; original inputs/profile/settings unchanged"
+}

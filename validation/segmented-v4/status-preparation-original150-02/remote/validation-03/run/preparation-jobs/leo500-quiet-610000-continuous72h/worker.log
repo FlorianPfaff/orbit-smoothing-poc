@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<string>", line 12, in <module>
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source/src/orbit_poc/segmented/preparation.py", line 15, in worker
+    value=generate_continuous_case(case,job['output'],options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source/src/orbit_poc/segmented/multiday.py", line 637, in generate_continuous_case
+    fetch_example_auxiliary(backend.get("example_directory"), backend["auxiliary_dir"])
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source/src/orbit_poc/comparison/data.py", line 550, in fetch_example_auxiliary
+    return reuse_auxiliary_manifest(root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source/src/orbit_poc/comparison/data.py", line 534, in reuse_auxiliary_manifest
+    checked=fetch_url(source["url"],target,expected_sha256=source["sha256"],download=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/source/src/orbit_poc/comparison/data.py", line 73, in fetch_url
+    raise ValueError(f"unrecorded cached input: {path}")
+ValueError: unrecorded cached input: /home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/DISCLAIMER.txt

@@ -1,0 +1,203 @@
+{
+  "actual_manifest": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/manifest.json",
+    "sha256": "4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6"
+  },
+  "artifacts": {
+    "host-plan.json": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/host-plan.json",
+      "sha256": "c7831380af9a077ba0f29fa9763eea185ff4672a287efa1e7cecaea6765a0768"
+    },
+    "host-view-plan.json": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/host-view-plan.json",
+      "sha256": "ca7870c1e658626c9abef7319bb80c1de4cadc23b3f4c9bcc36ab814fe801b79"
+    },
+    "launch-pins.json": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/launch-pins.json",
+      "sha256": "0acd2681c58b1a3214aaf40a1274b9a7dfa7c1e233123ebaf6c37bbd1b1ac748"
+    }
+  },
+  "fit_attempts": 0,
+  "fit_execution_authorized": false,
+  "launch_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "32",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/host-view-plan.json",
+    "--sha256",
+    "ca7870c1e658626c9abef7319bb80c1de4cadc23b3f4c9bcc36ab814fe801b79"
+  ],
+  "manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+  "native_executions": 0,
+  "request": {
+    "helper": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_direct_campaign05.py",
+      "sha256": "0f6995c31f8e9a32928cadca5cf23fe6e5864aba5c0af28a2018bd14336cbd65"
+    },
+    "helpers": {
+      "host": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/run_blinded_segmented_host03.py",
+        "sha256": "30fe0add2c5489052f6f353aa66f74dc5425a82e459eb3b06d5bda3037ce680d"
+      },
+      "host_view": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_segmented_campaign_host_direct01.py",
+        "sha256": "aa1255a0826cc61cbcb9abd2997984bf8610f2c21b7d18dbcd6687dc862b3bb6"
+      },
+      "launcher": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/launch_segmented_campaign01.py",
+        "sha256": "9a1d6f83ae99d1abc2c017a7b1ca6b1bbf763fe06a1e7d4e0f2dc6c598f04ad4"
+      },
+      "observer": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/observe_segmented_timing02.py",
+        "sha256": "31707b24977fe7d8884c402dcf478253ae99e7d56fecfb22b692312f92a1405e"
+      },
+      "observer_owner": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/owned_timing_observer01.py",
+        "sha256": "d3327e08445462960a6736de4d7dee61b5b35ab7afe0079c4e29c5c520528310"
+      },
+      "readonly": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/with_completed_preparation_direct02.py",
+        "sha256": "e2d6532cb90e91694aca103e9541e5450ff7c589c62a9982fc6970e3f0f674e1"
+      }
+    },
+    "host_control": {
+      "device": 2048,
+      "inode": 239600119,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07"
+    },
+    "prelaunch_evidence": [
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/validation07-terminal-independent-review01.json",
+        "sha256": "e1004320bbc53a6d8ec803ae576619cae6bcc0e3a8bd12a1cee58b75501825ef"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/shifted03-terminal-independent-review01.json",
+        "sha256": "08e3a6b22d0fb771f305181868a417d70598fa32a32b083b348afea27123f1af"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/wide-native-batch01-terminal-independent-review01.json",
+        "sha256": "b0ee23920acc658a4093e4286443500b036b622b21cedeff3eb83bec15de207d"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/wide-flight-pair01-failure-independent-review01.json",
+        "sha256": "85390a56ddb44cf7361dd64c06b888091888842b05f64495ab3e232ac026d60c"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/wide-native-supplemental-gates03-independent-review01.json",
+        "sha256": "fefb9792333e039a422b314676f0eb0a970230fe67c274da94be30374ee73667"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/preparation07-terminal-independent-review01.json",
+        "sha256": "bda45927f49da24a0b66e43b3f2a0de6c3e45ffeda1d23cc6e269df421c7efb9"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-path-campaign-controls-independent-review01.json",
+        "sha256": "600372c2786ccf46f52c7bf9d878474ed36084a56b2e17ed0b19869adecd704d"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-fit-sealer-independent-review01.json",
+        "sha256": "684d1308b8098d3eb13216b1657497fd6f87400c1e2720c2a3f208b2533ed1a1"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-reference-alias-correction-independent-review01.json",
+        "sha256": "b73f5d5bf0d28970f71c8ea7c1a9396409b4ede6431e3f2e68a457b17e6c0ebf"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-fit-stage-independent-review01.json",
+        "sha256": "a5a5ccd5e0bb0cc28b34c7fae7d6aa0dad65125747d325989c695888169d9a10"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-fit-stage07-packet-independent-review01.json",
+        "sha256": "076eb582095352b430272336aab9fb53f16b5274a58ca2fa2a98e5da57d801b8"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-fit-stage07-outcome-independent-review01.json",
+        "sha256": "82fecc630c26b181c35af1e6e46398ca462b1d1523cb100cebd1e98576c1feaa"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-campaign-plan-independent-review01.json",
+        "sha256": "6383b28b0cb7a7b7d69bd9e9d117b8cf9e56d2b28489c852aa3ff51bf77e023c"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing-request02-independent-review01.json",
+        "sha256": "add058e7bf7bdea7ebc506042a61becb87be3c1b3902a7e5e94df22a52a4c31b"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-fit-support-capture02-independent-review01.json",
+        "sha256": "42363720165b4fc2e6d3054410849178efdaa2ed8e12da09a072a03e1cb3166f"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-parent-scaffold-independent-review01.json",
+        "sha256": "0d20fd26e9c95f12e730524d7a7142d702de54e1b3354288f214f57c6aa5f203"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing02-failure-independent-review01.json",
+        "sha256": "bf7eb13bb627d39aef2792ab80e4d5fef5db0984d1e92a2a1af562344d55190c"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing03-actual-plan-independent-review01.json",
+        "sha256": "02a28cbe383a28808ac4a8d296bfbb06e5e0f68c30dc01bee002d6585f089995"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing03-failure-independent-review01.json",
+        "sha256": "544513cbf45c584501ff2c0a68eebefa6becb72c5f4b8adfedc54544c6c29cc8"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/observation-copy-independent-review01.json",
+        "sha256": "051c01b7dd84a856eb0a95bc455b3379652b592d00fc97f908be2beaf9a676c6"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing04-actual-plan-independent-review01.json",
+        "sha256": "32fa634c0e2e3b7b9745c76df353ee36363131a230ba0854cfbfeb481b6e2b13"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing04-failure-independent-review01.json",
+        "sha256": "4d9d9ae37e521318e75a891975d463a24f0f2b6121961e9b9144d99cc91bb702"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/symlink-closure-independent-review01.json",
+        "sha256": "28ccac83c8a9120ffd34db899a850b32bb525fed5bd9b471c8a7cff0eb7a5c2d"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-fit-helper-install11-independent-review01.json",
+        "sha256": "73d89b4c8f71fd6d6901101f4b09ef74a943aa8ce84e6887ee9585a3482ff2f7"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing05-actual-plan-independent-review01.json",
+        "sha256": "e0c6a94718edd36c46d305e44999d37f9beb0889e3a0087cf23d1f7f06297a18"
+      },
+      {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/direct-sealing05-terminal-independent-review01.json",
+        "sha256": "c0d6827888602fc856ed1b2c28dbf93dc776262bc7f1ca4e17f12a04fe36ec72"
+      }
+    ],
+    "readonly_plan": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/readonly-view-plan05.json",
+      "sha256": "8850d757c9785aa9347252df7ea8958cc98e3b042a35c1551fdf576a9c023eb4"
+    },
+    "schema": "orbit-poc-direct-campaign-assembly-request-v1",
+    "sealed_result": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-03/result.json",
+      "sha256": "d7d83bec057d06020d2ec51d23905026fe7b074967e239898e0b8f42eafcb09a"
+    },
+    "sealing_plan": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealing-plan04.json",
+      "sha256": "ffbe2a45cfd7f273b02658402e2cf810c9bf5cc50fd54fb9dc524c586fb9bc96"
+    },
+    "shifted_audit": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-07/shifted03-terminal-independent-review01.json",
+      "sha256": "08e3a6b22d0fb771f305181868a417d70598fa32a32b083b348afea27123f1af"
+    },
+    "validation_audit": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-07/control/validation07-terminal-independent-review01.json",
+      "sha256": "e1004320bbc53a6d8ec803ae576619cae6bcc0e3a8bd12a1cee58b75501825ef"
+    }
+  },
+  "schema": "orbit-poc-direct-campaign-assembly-result-v1",
+  "scope": "Metadata assembly only. Exact concrete packet review and unchanged inner positive/denial probes remain prerequisites. Owned host controller rechecks current admission and launches only the existing empty-root numerical namespace on CPU24.",
+  "status": "assembled_metadata"
+}

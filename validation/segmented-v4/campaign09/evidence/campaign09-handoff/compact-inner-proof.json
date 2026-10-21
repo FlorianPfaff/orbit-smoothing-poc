@@ -1,0 +1,84 @@
+{
+  "benchmark_attempts_launched_by_probe": 0,
+  "denial_errno_counts": {
+    "2": 1800
+  },
+  "denial_probe_count": 1800,
+  "descriptors": [],
+  "fit_execution_authorized_by_probe": false,
+  "host_verified_final_artifacts": {
+    "allowlist_sha256": "a3be6f52f790ed1b03fd5027f5e3d1d0acee25ef5a0df26391a0988c27ddf026",
+    "expected_completed": 0,
+    "mount_plan_sha256": "b37477b0ead871285a1fef15144281f60d01fe4521a1626a8c70b51671d732ca"
+  },
+  "mount_checks": {
+    "mount_record_count": 3333,
+    "ordinary_writable": [
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/.segmented.lock",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/temporary/fit-private"
+    ],
+    "retained_attempts_readonly": [],
+    "virtual_mount_scope": "Only fresh proc, minimal private dev tmpfs/devpts and declared character devices; no host proc/dev directory or extra ordinary writable storage."
+  },
+  "namespaces": {
+    "net": "net:[4026534168]",
+    "pid": "pid:[4026534167]"
+  },
+  "prefix_before": {
+    "expected_attempts": 68,
+    "manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+    "phase": "before",
+    "schema": "orbit-poc-segmented-fit-state-check-v2",
+    "scientific_success_inferred": false,
+    "scope": "Checkpoint attribution, fixed order and cleanup only; failed scientific fits remain failed.",
+    "starting_terminal_attempts": 0,
+    "status": "passed",
+    "terminal": [],
+    "terminal_attempts": 0
+  },
+  "public_readonly_checks": {
+    "manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+    "terminal_prefix": [],
+    "validation": {
+      "check_names": [
+        "correction-tests",
+        "eccentric-24h-refinement",
+        "flight-refinement",
+        "linearization-log_drag_ou",
+        "linearization-pulses",
+        "native-tests",
+        "nuisance-replay",
+        "nuisance-replay-candidate1-point012",
+        "objective-log_drag_ou",
+        "objective-pulses",
+        "segmented-native-tangent",
+        "segmented-structural",
+        "synthetic-refinement-log_drag_ou",
+        "synthetic-refinement-pulses"
+      ],
+      "pipeline": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/validation/attempt-0001/pipeline.json",
+        "sha256": "1f519a348f31c7d1ac0d1bbdad0c9539f836efed9ec0349f8d7462bcb0b0074d"
+      },
+      "plan_hash": "63990717359b82714eb752c66ea2954c6e7bc54ca5b96ce7607c4950691be90b",
+      "scope": "Executed prebenchmark gates only; paired nonlinear/flight and original150 completion remain separate.",
+      "status": "passed"
+    }
+  },
+  "release_ready": false,
+  "schema": "orbit-poc-campaign09-inner-proof-projection-v1",
+  "scope": "Actual campaign inner proof, distinct from the earlier smoke03 proof. Full proof and prefix inventory remain external. No covariance or convergence claim.",
+  "source_prefix_before": {
+    "bytes": 86645,
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-transition-01/prefix-before.json",
+    "sha256": "db1e178493fd5f7067f6f3a4df09c3721f667560f362c2c41d106c1de4d782e6"
+  },
+  "source_proof": {
+    "bytes": 1997756,
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-transition-01/prelaunch-probe.json",
+    "sha256": "f57f6cbade02b16b6c703a30a6ff2b34f56a079b343d6c6551ea3bb529486bec"
+  },
+  "specification_content_sha256": "2aea53fb30d99b917c2739a6b1e8b9e074edceb91b6f4be1f39acf724557d882",
+  "status": "passed"
+}

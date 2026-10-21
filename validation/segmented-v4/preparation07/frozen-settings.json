@@ -1,0 +1,122 @@
+{
+  "schema": "orbit-poc-preparation07-frozen-settings-v1",
+  "settings": {
+    "controls": {
+      "initial_damping": 0.001,
+      "maximum_accepted_iterations": 32,
+      "maximum_density_update": 0.0001,
+      "maximum_position_change_m": 3e-05,
+      "maximum_pulse_update_m_s": 1e-08,
+      "maximum_trial_evaluations": 96,
+      "minimum_gain_ratio": 0.0001,
+      "normalized_gradient_tolerance": 1e-08,
+      "wall_time_seconds": 7200.0
+    },
+    "corrected_reference": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/corrected-terminal10-independent-audit.json",
+      "sha256": "2c3561ec5f26f594c4962245623caf33f3d7a8e364291813089176b8659c9533"
+    },
+    "dense_runtime": {
+      "build_manifest": {
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f.build-manifest.json",
+        "sha256": "1030f8930e40d0f899529bd39cf5db6dc00bcd675e3c423f845cdbeec6e3c455"
+      },
+      "library_manifest": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/deployment-inventory-04/output/corrected-runtime-closure.json",
+        "sha256": "a2997e53befbd7866d93a5e946ea17c0c2209422a4f247b6aa6ea1866fa84948"
+      },
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+        "sha256": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625"
+      },
+      "python": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+      },
+      "segmented_solver": {
+        "path": "",
+        "sha256": ""
+      },
+      "source_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/source",
+      "source_sha256": "a838553d4ba9dc394a3f498f46917275b19139d2bb583c401cf71e90f82a9fa6"
+    },
+    "preparation": {
+      "auxiliary_dir": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary",
+      "cache_dir": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/cache",
+      "example_directory": "/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/example",
+      "generate_missing": true,
+      "interpolation_margin_seconds": 3600.0,
+      "tudat_python": "/home/florianpfaff/codex-runs/orbit-poc-20261013/tudat-env/bin/python",
+      "tudat_python_sha256": "7e100b56503671d44f2f94b8274121667759b649c6a61211fe4fcbaa777762fb"
+    },
+    "profiles": [
+      "dense_corrected",
+      "segmented_1h",
+      "segmented_4h"
+    ],
+    "resources": {
+      "admission": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/control/admission.json",
+        "sha256": "df1e7a0c3d2d61c242e2b12a00e5997605766832c3d5914c8f97266adce55d50"
+      },
+      "maximum_process_tree_rss_bytes": 8589934592,
+      "minimum_free_output_bytes": 34359738368,
+      "reserve_bytes": 8589934592,
+      "reserved_cpu_ids": [
+        24
+      ],
+      "threads": 1
+    },
+    "seed_inventory": {
+      "checked_protocols": [
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/prior-v3-protocol.json",
+          "sha256": "2e9a70f85f129c23fd637051694a8d744aac194b0ea9636fb928c3aa667e5ef1"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/original150-plan.json",
+          "sha256": "322acf0ddb17ceb80e30fca2868bb92d403e65063df484491ba7d585ab45de8d"
+        },
+        {
+          "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/control/prior-seed-archive-inventory.json",
+          "sha256": "ff4aa468d514f342e7e10abdaacc89b825ff579b8b6ee3c0eaa77808ce8021e5"
+        }
+      ],
+      "fresh_seeds": {
+        "eccentric": 610001,
+        "leo500": 610000
+      },
+      "overlap": [],
+      "scope": "Pinned protocols and published historical ranges; shared prefixes/coverage are not independent trials."
+    },
+    "segmented_runtime": {
+      "build_manifest": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e.build-manifest.json",
+        "sha256": "f4209ee2011d7c566c1d51189745140155ebaf455db32d2999172f542ca15ec8"
+      },
+      "library_manifest": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/runtime-closure.json",
+        "sha256": "3fc4054e08227f266d4c06300b4d653d09d0e33e9a07a4e8cf84c00330027a3b"
+      },
+      "native": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/runtime-complete-01/groops-wide-complete-643a1b6d523a363e",
+        "sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6"
+      },
+      "python": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+      },
+      "segmented_solver": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/segmented-qr-2c8481050806ce9d",
+        "sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+      },
+      "source_root": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/source",
+      "source_sha256": "a838553d4ba9dc394a3f498f46917275b19139d2bb583c401cf71e90f82a9fa6"
+    }
+  },
+  "source_plan": {
+    "bytes": 87474,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/plan.json",
+    "sha256": "14459f1322e11a69fac34c3f1c236f36c8bd57a864929a3b627b04a14bfd17d4"
+  }
+}

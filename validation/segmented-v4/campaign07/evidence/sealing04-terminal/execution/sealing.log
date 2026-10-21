@@ -1,0 +1,15 @@
+{"schema": "orbit-poc-completed-preparation-direct-readonly-view-exec-v1", "plan": {"path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/readonly-view-plan04.json", "sha256": "bbe3ce9d9457257ea880e0364641032d504fbf2618456c68e50d2b6d736ba681"}, "mode": "seal_inputs", "benchmark_fits": 0, "host_pid_namespace": "pid:[4026531836]", "host_net_namespace": "net:[4026531840]"}
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs03.py", line 250, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs03.py", line 249, in main
+    result=seal(read({'path':args.plan,'sha256':args.sha256}));print(json.dumps({k:result[k] for k in ('status','manifest_hash','files','denied_files','native_executions','fit_attempts','fit_execution_authorized')}))
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs03.py", line 221, in seal
+    sr=m.skeleton_spec(mi);save('skeleton-request.json',sr)
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_segmented_fit_namespace01.py", line 215, in skeleton_spec
+    def skeleton_spec(plan):return _build(plan,False)
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_segmented_fit_namespace01.py", line 112, in _build
+    resolved=links_resolve(path,links);need(resolved==row['resolved'],'Canonical parent/file symlink topology differs')
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_segmented_fit_namespace01.py", line 14, in need
+    if not ok:raise ValueError(msg)
+ValueError: Canonical parent/file symlink topology differs

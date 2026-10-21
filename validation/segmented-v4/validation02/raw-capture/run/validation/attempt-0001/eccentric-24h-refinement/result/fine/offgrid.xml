@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60440</time>
+    <time label="timeEnd">timeStart+86400.0/86400</time>
+    <filename label="groopsDataDir">/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary</filename>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program>
+    <OrbitPocEvaluateVariational>
+      <inputfileVariational>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/closure-02/variational.dat</inputfileVariational>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/fixed_orbit.dat</outputfileOrbit>
+      <inputfileParameters>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/closure-02/reference.txt</inputfileParameters>
+      <parametrizationAcceleration>
+        <logDensity>
+          <nominalDrag>
+            <syntheticDrag>
+              <ballisticCoefficient>0.022</ballisticCoefficient>
+              <referenceDensity>5e-13</referenceDensity>
+              <referenceAltitude>500000.0</referenceAltitude>
+              <scaleHeight>60000.0</scaleHeight>
+              <earthRadius>6378137.0</earthRadius>
+              <earthRotationRate>7.292115e-05</earthRotationRate>
+            </syntheticDrag>
+          </nominalDrag>
+          <inputfileLogDensity>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/native/log_density.txt</inputfileLogDensity>
+        </logDensity>
+      </parametrizationAcceleration>
+      <integrationDegree>7</integrationDegree>
+      <interpolationDegree>7</interpolationDegree>
+      <ephemerides>
+        <jpl>
+          <inputfileEphemerides>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+          <origin>
+            <earth />
+          </origin>
+        </jpl>
+      </ephemerides>
+    </OrbitPocEvaluateVariational>
+  </program>
+  <program>
+    <FileConvert>
+      <inputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/fixed_orbit.dat</inputfile>
+      <outputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/fixed_orbit.txt</outputfile>
+    </FileConvert>
+  </program>
+  <program>
+    <OrbitPocEvaluateVariational>
+      <inputfileVariational>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/closure-02/variational.dat</inputfileVariational>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/offgrid_orbit.txt</outputfileOrbit>
+      <inputfileParameters>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/closure-02/reference.txt</inputfileParameters>
+      <parametrizationAcceleration>
+        <logDensity>
+          <nominalDrag>
+            <syntheticDrag>
+              <ballisticCoefficient>0.022</ballisticCoefficient>
+              <referenceDensity>5e-13</referenceDensity>
+              <referenceAltitude>500000.0</referenceAltitude>
+              <scaleHeight>60000.0</scaleHeight>
+              <earthRadius>6378137.0</earthRadius>
+              <earthRotationRate>7.292115e-05</earthRotationRate>
+            </syntheticDrag>
+          </nominalDrag>
+          <inputfileLogDensity>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/native/log_density.txt</inputfileLogDensity>
+        </logDensity>
+      </parametrizationAcceleration>
+      <integrationDegree>7</integrationDegree>
+      <interpolationDegree>7</interpolationDegree>
+      <ephemerides>
+        <jpl>
+          <inputfileEphemerides>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+          <origin>
+            <earth />
+          </origin>
+        </jpl>
+      </ephemerides>
+      <timeSeries>
+        <instrument>
+          <inputfileInstrument>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-02/run/validation/attempt-0001/eccentric-24h-refinement/result/fine/offgrid_epochs.txt</inputfileInstrument>
+        </instrument>
+      </timeSeries>
+      <interpolationBoundaries>
+        <uniformSampling>
+          <timeStart>60440</timeStart>
+          <offsetSeconds>0</offsetSeconds>
+          <timeEnd>60440+86400.0/86400</timeEnd>
+          <sampling>60/86400</sampling>
+        </uniformSampling>
+      </interpolationBoundaries>
+    </OrbitPocEvaluateVariational>
+  </program>
+</groops>

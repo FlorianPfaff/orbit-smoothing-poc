@@ -1,0 +1,113 @@
+{
+  "schema": "orbit-poc-tangent-wide-candidate01-independent-source-review-v1",
+  "passed": true,
+  "files": {
+    "include/wideSixStateTangent.h": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/include/wideSixStateTangent.h",
+      "sha256": "02f6a9dd200c52468d315dbced839b7c911862e6abb4aa54415213932c33bbdb",
+      "bytes": 10202
+    },
+    "include/sixStateTangent.h": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/include/sixStateTangent.h",
+      "sha256": "608cc5af8975084d2b39c92939bdfe8a6da4eb87447a38d7f303b91f4ef11a91",
+      "bytes": 10428
+    },
+    "include/syntheticForceDerivatives.h": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/include/syntheticForceDerivatives.h",
+      "sha256": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310",
+      "bytes": 2245
+    },
+    "include/eventQuadrature.h": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/include/eventQuadrature.h",
+      "sha256": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5",
+      "bytes": 5334
+    },
+    "replay.cpp": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/replay.cpp",
+      "sha256": "d876411f9b7b7eadc335c2904dd2d0fed1703391290f3610e199f4555a1620c4",
+      "bytes": 9594
+    },
+    "test_wide.cpp": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/test_wide.cpp",
+      "sha256": "444e0d27598e8e114c3de0a70b357b1cd3a122aed47f37855b3e33b78cc90c2f",
+      "bytes": 4893
+    },
+    "test_reader.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/test_reader.py",
+      "sha256": "15ddaef6fd2a1c38196d40e082e155f6d8594188c16d080ca6fd78fd7ad7ba99",
+      "bytes": 2291
+    },
+    "generate_family.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/generate_family.py",
+      "sha256": "6b65efb5f327b87bfbf89d0d140c9b5ddde0a559e9995945820ddbf5df2e67b8",
+      "bytes": 6829
+    },
+    "test_family.py": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-candidate01/test_family.py",
+      "sha256": "f8e32860ee2fc6f00a5b6fdd83dfff216c50324313fdfb441174e2941293c6c3",
+      "bytes": 2363
+    }
+  },
+  "scope": "External diagnostic source/fixture/family-generation review only. No native compilation or captured solve executed by this audit. Eligible for separately owned fixture compilation and frozen-family preparation; no production promotion.",
+  "findings_resolved": [
+    "Shared binary64 tolerance cast to extended precision for independent oracle",
+    "Physical returned-double state evaluated directly by113-bit oracle",
+    "Mode-independent best_kernel_checked attribution",
+    "Success oracle reused rather than recomputed",
+    "Nonfinite trace values emitted as null",
+    "Python capture fixture uses exact16-byte magic"
+  ],
+  "baseline_source": "Production9a46 plus exactly three instrumentation calls; base numerical body otherwise unchanged",
+  "wide_changes": [
+    "Explicit long-double operator output and vectors",
+    "Extended preconditioner/dots/Arnoldi/backsolve/update",
+    "Existing stored Jacobian/quadrature coefficients and exact captured RHS unchanged",
+    "Original120/20/2e-12 limits preserved",
+    "Fresh true residual at rounded physical binary64 state required before acceptance"
+  ],
+  "family_design": {
+    "anchors": 3,
+    "cases_per_anchor": 9,
+    "cases": 27,
+    "calls": 54,
+    "directions": [
+      "smooth",
+      "alternating"
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "relative_scales": [
+      1e-12,
+      1e-09
+    ],
+    "unperturbed_anchors_included": true,
+    "final_binary64_bytes_hashed": true,
+    "generator_pure_tests": 4
+  },
+  "test_scope": [
+    "Analytical zero/identity/scalar/coupled-velocity cases",
+    "Exact final-budget and zero-budget acceptance/rejection",
+    "Local deliberately tighter1e-19 counterexample tests returned-state rejection without changing campaign tolerance",
+    "Malformed/nonfinite/shape/singular/Krylov rejection",
+    "Pure family count/order/identity/no-overwrite tests passed independently; C++ tests remain unexecuted"
+  ],
+  "test_evidence": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-family-independent-tests01.log",
+      "sha256": "60fdf534b96bc11c810020049f006bc70283f0cf6ac6f6714d8a2482a26e7265",
+      "bytes": 200
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-family-independent-tests01.xml",
+      "sha256": "bc2c4a2c14dc3de30abbc5ecca7721f88a72ef8e1897bbfa13644cc1901c9219",
+      "bytes": 830
+    }
+  ],
+  "limitations": [
+    "No numerical outcomes have been observed for this wide candidate",
+    "Positive duration retains existing parser semantics; equality to(n-1)dt is not newly required",
+    "Full native propagation, closures, prescribed suite and lifted/segmented equivalence remain outside this source review"
+  ]
+}

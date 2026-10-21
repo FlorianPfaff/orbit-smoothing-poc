@@ -1,0 +1,58 @@
+{
+  "schema": "orbit-poc-segmented-engineering-local-independent-audit-v2",
+  "status": "passed",
+  "created_at": "2026-10-15T16:17:26.461282+00:00",
+  "scope": "engineering_only_not_release_or_frozen_benchmark",
+  "source_file_count": 372,
+  "full_engineering_source_sha256": "d1b33f7851b3ed59f372a7912e24d78aff8b85bf71f20c867f84a8127ef4d417",
+  "comparison_source_file_count": 299,
+  "comparison_source_sha256": "a21d2931404533f79e4b24e200970d50905b74a1460ea8ca48cf89dabe3cf085",
+  "comparison_source_subset_verified": true,
+  "native": {
+    "bytes": 24126560,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+    "sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+  },
+  "solver": {
+    "bytes": 113680,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/segmented-qr-2c8481050806ce9d",
+    "sha256": "2c8481050806ce9d4c89d4c605fd9036bed3cdfb97010efeb359213aa0dbc223"
+  },
+  "test_counts": {
+    "native-tests": 106,
+    "correction-tests": 51,
+    "segmented-qr-tests": 47,
+    "segmented-tangent-tests": 3
+  },
+  "failures": 0,
+  "skips": 0,
+  "linearization_metrics": {
+    "pulses": {
+      "maximum_map_discrepancy_posterior_sd": 2.434862619650685e-12,
+      "maximum_covariance_relative_error": 7.017851193855155e-14,
+      "maximum_normalized_residual_energy_difference": 8.397934927365646e-16
+    },
+    "log_drag_ou": {
+      "maximum_map_discrepancy_posterior_sd": 2.4961178655818953e-12,
+      "maximum_covariance_relative_error": 5.3634322109307905e-14,
+      "maximum_normalized_residual_energy_difference": 1.5467755402510487e-15
+    }
+  },
+  "final_cleanup_verified": true,
+  "artifact_count": 62,
+  "archive": {
+    "path": "/mnt/d/orbit-segmented-v4/engineering-02-results/compact.tar.gz",
+    "sha256": "a0b6b94679e2f279fc77bd072af5a39128162b4a216fc49ce80e6c4ba3527fcc"
+  },
+  "remote_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/engineering-02-results/compact/audit.json",
+    "sha256": "a97f96ec9a6d843d5c526850c28705645c6b555baf52eb42515d6c0b58b3cdba"
+  },
+  "pipeline_sha256": "5b1e8f6b3ca921d9578b08a9ed694af70419e9e304d69311e8af5d98692e5219",
+  "release_ready": false,
+  "limitations": [
+    "Untimed engineering validation; no v4 release or scientific superiority claim.",
+    "One-hour fixture has no interior1h/4h cut; shifted-cut and longer-arc evidence remain separate.",
+    "Snapshot predates the actual-row GTSAM and shifted-cut Python validation additions."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "actual_compile_link_run": {
+    "complete_recipe_matches": true,
+    "new_main_object": 1,
+    "original_objects_reused": 610,
+    "stages": [
+      {
+        "label": "compile",
+        "returncode": 0,
+        "wall_seconds": 1.9579992950893939
+      },
+      {
+        "label": "link",
+        "returncode": 0,
+        "wall_seconds": 0.791065979981795
+      },
+      {
+        "label": "run",
+        "returncode": 0,
+        "wall_seconds": 0.07134412694722414
+      }
+    ]
+  },
+  "actual_plan": {
+    "bytes": 3486,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal01/control/plan.json",
+    "sha256": "4180e67cbd28ee26b9b541673b81b441ede04b0e8e652c60069990200d8b0b83"
+  },
+  "actual_result": {
+    "bytes": 105465,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal01/run/batch/result.json",
+    "sha256": "15c79bb69a9f70878b952a5d35d03df46e4be49340e97a3c307cfaf8ffa0fb7f"
+  },
+  "capture_manifest": {
+    "bytes": 6329,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal01/manifest.json",
+    "sha256": "9b289f054eb394f9d48e040618d2010ddbb4b6a8682a75a58a3401f533f7b5ba"
+  },
+  "created_utc": "2026-10-18T19:54:59.792436+00:00",
+  "external_dependencies_unchanged": 420,
+  "fit_attempts": 0,
+  "fixture_native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/run/batch/native-batch-fixture",
+    "sha256": "4a2b0ac9b3984a7b9fa1949bbf40e3eaa5280d8ec9ea32388672896972f27299"
+  },
+  "fixture_object": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/run/batch/fixture.o",
+    "sha256": "8017a75b50803dbff4dd6aa1e600753f9f05afdf371f047ea5e2d3b07c70acc4"
+  },
+  "independently_recomputed_acceptance": {
+    "actual_native_batch_selection": true,
+    "case_count": 10,
+    "gnss_offset_path_exercised": false,
+    "maximum_absolute_value_bound": 1.8019956769421608e-11,
+    "ordinary_value_error_bound": "64*binary64_epsilon*max(1,sum(abs(exact_coefficient*value)))",
+    "passed": true,
+    "scalar_selection_used_for_acceptance": false
+  },
+  "native_fixture_runs": 1,
+  "native_propagations": 0,
+  "owned_cleanup": {
+    "bytes": 356,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-independent-cleanup01.json",
+    "sha256": "8a6b029dce5bfe8e750d74595eb3b9ec1ca90dbd0ca2b910645c7ad6f51b6ba6"
+  },
+  "passed": true,
+  "payload_bytes": 758692,
+  "payload_records": 21,
+  "pipeline_peak_owned_rss_bytes": 267546624,
+  "release_ready": false,
+  "schema": "orbit-poc-native-batch-terminal-independent-review-v1",
+  "scope": [
+    "Actual installed Polynomial/Time/piecewise batch traversal tested, including near-TIME_EPSILON stateful selection, repeated/shuffled queries, sameTimes low bits, physical pulse/density boundary support.",
+    "GNSS precise-offset path not exercised by this fixture.",
+    "No statistical fit, covariance authorization, speed claim or release readiness established."
+  ],
+  "source_files_unchanged": 1134,
+  "status": "passed_scoped_checks"
+}

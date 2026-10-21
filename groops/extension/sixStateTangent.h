@@ -23,25 +23,49 @@ inline void tangentAxpy(double factor,const TangentVector &x,TangentVector &y)
 // accumulators. Forming t*integral(a)-integral(t*a) over a full orbital day
 // loses the small residual needed by the coupled solve. No weights or physical
 // model are changed: moment is the integral of (time-interval_start)*a.
+// Compensated long-double sums evaluate the existing stored quadrature
+// coefficients; they add no physical state, constraint, or integration weight.
+struct TangentCompensatedSum
+{
+  long double high=0,low=0;
+  void add(long double term)
+  {
+    const long double next=high+term;
+    if(std::abs(high)>=std::abs(term))low+=(high-next)+term;
+    else low+=(term-next)+high;
+    high=next;
+  }
+  long double value() const {return high+low;}
+};
 inline TangentVector tangentIntegrate(const Quadrature &weights,double dt,
     const std::vector<long double> &acceleration)
 {
   if(!(dt>0) || acceleration.size()%3)throw std::runtime_error("invalid tangent quadrature samples");
   const unsigned offset=3*(weights.size()+1);
   TangentVector result(2*offset);
-  long double position[3]{},velocity[3]{};
+  TangentCompensatedSum position[3],velocity[3];
   for(unsigned k=0;k<weights.size();k++)for(unsigned i=0;i<3;i++)
   {
-    long double integral=0,moment=0;
+    TangentCompensatedSum integral,moment;
     for(const auto &term:weights[k])
     {
       if(3*term.index+i>=acceleration.size())throw std::runtime_error("tangent quadrature index out of range");
-      integral+=static_cast<long double>(term.integral)*acceleration[3*term.index+i];
-      moment+=static_cast<long double>(term.moment)*acceleration[3*term.index+i];
+      integral.add(static_cast<long double>(term.integral)*acceleration[3*term.index+i]);
+      moment.add(static_cast<long double>(term.moment)*acceleration[3*term.index+i]);
     }
-    position[i]+=static_cast<long double>(dt)*(velocity[i]+integral)-moment;
-    velocity[i]+=integral;
-    result[3*(k+1)+i]=double(position[i]);result[offset+3*(k+1)+i]=double(velocity[i]);
+    // Carry both parts of the incoming velocity into the position integral.
+    // Combining high+low first would discard the compensation during a long
+    // cancellation-dominated arc.
+    position[i].add(static_cast<long double>(dt)*velocity[i].high);
+    position[i].add(static_cast<long double>(dt)*velocity[i].low);
+    position[i].add(static_cast<long double>(dt)*integral.high);
+    position[i].add(static_cast<long double>(dt)*integral.low);
+    position[i].add(-moment.high);
+    position[i].add(-moment.low);
+    velocity[i].add(integral.high);
+    velocity[i].add(integral.low);
+    result[3*(k+1)+i]=double(position[i].value());
+    result[offset+3*(k+1)+i]=double(velocity[i].value());
   }
   return result;
 }
@@ -146,7 +170,16 @@ inline TangentSolveResult solveSixStateTangent(const std::vector<ForceJacobian> 
     }
     std::vector<double> y(count);
     for(int j=int(count)-1;j>=0;j--){y[j]=g[j];for(unsigned k=j+1;k<count;k++)y[j]-=h[j][k]*y[k];y[j]/=h[j][j];}
-    for(unsigned j=0;j<count;j++)tangentAxpy(y[j],z[j],x);
+    // Accumulate the complete cycle correction before rounding back to the
+    // stored double state. Sequential double AXPY updates can lose cancellation
+    // on long arcs even when the projected Krylov residual is small. Acceptance
+    // still requires the freshly evaluated true residual at this rounded state.
+    for(unsigned i=0;i<x.size();i++)
+    {
+      long double value=x[i];
+      for(unsigned j=0;j<count;j++)value+=static_cast<long double>(y[j])*z[j][i];
+      x[i]=double(value);
+    }
   }
   TangentVector residual=b;tangentAxpy(-1,op(x),residual);result.relativeResidual=tangentNorm(residual)/normB;
   if(!std::isfinite(result.relativeResidual) || result.relativeResidual>tolerance)

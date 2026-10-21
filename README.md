@@ -119,6 +119,44 @@ default. See the [objective/controller](docs/numerics-objective-v3.1.md),
 [QR](docs/numerics-qr-v3.1.md) and [derivative](docs/numerics-derivatives-v3.1.md)
 documentation for the implementation and remaining flight approximations.
 
+## Segmented batch estimation v4 — in development
+
+The opt-in [v4 implementation](docs/segmented-v4.md) lifts the existing native
+discrete trajectory operator into exact deterministic equations and solves the
+weighted rows with constrained Householder QR. It preserves whole-arc physical
+propagation, the corrected objective/LM controller and the original dense rank
+certificate. One-hour and four-hour cuts are computational layouts; they do not
+add independent initial states, process noise or ambiguity resets.
+
+Use `orbit-poc segmented prepare|validate|run|report --config …` with separately
+pinned runtimes and inputs. The fixed benchmark contains 68 attempts, including
+24-, 48- and 72-hour synthetic arcs and preserved April 24 flight inputs.
+The [second native engineering report](validation/segmented-v4/engineering02/index.html)
+records 207 checks passing and dense/segmented agreement on two actual one-hour
+GNSS linearizations. The [first report](validation/segmented-v4/engineering01/index.html)
+remains preserved. The later [validation07 report](validation/segmented-v4/validation07/index.html)
+records all fourteen validation stages passing, including the unchanged 106
+native tests, 51 correction regressions, four refinements, two objective/prior
+checks and both distinct nuisance replays. The
+[preparation report](validation/segmented-v4/preparation07/index.html) records the
+completed 28-case catalog and frozen 68-attempt order. These checks and prepared
+inputs do not establish full-arc fit convergence or authorize fitted covariance.
+
+The [campaign09 handoff report](validation/segmented-v4/campaign09/index.html)
+records the first ordered native fit running at 01:41:13 UTC on 19 October 2026,
+after the actual inner isolation proof passed: one of 68 attempts started and
+zero terminal outcomes at that snapshot. It preserves the earlier setup failures
+and independently reviewed recovery controls; it establishes no fit convergence
+or accepted covariance.
+
+The [04:37:47 UTC status update](validation/segmented-v4/campaign09-status01/index.html)
+records the first dense attempt's reported timeout and the second, `segmented_1h`,
+attempt active: two started, one terminal timeout, 66 unstarted and no successful
+completions. The timeout diagnostics remain outside this narrow status audit.
+
+V4 remains incomplete and explicitly selected; release requires the 68-attempt
+benchmark and the separate original v3.1 benchmark to finish.
+
 ## Completed v2 campaign
 
 Open [results.html](results.html) for the scientific summary and

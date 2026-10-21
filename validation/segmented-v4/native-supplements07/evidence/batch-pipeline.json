@@ -1,0 +1,220 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/run_wide_native_batch01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/plan.json",
+        "--sha256",
+        "4180e67cbd28ee26b9b541673b81b441ede04b0e8e652c60069990200d8b0b83"
+      ],
+      "command_sha256": "9e8d6507ad623fe812c353ba6849174a56d1ee9e9b024701fd8464947bccc5fe",
+      "parent": 1,
+      "pid": 3997500,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 133665206,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-18T19:50:32.113090+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Actual ten-case native batch interpolation fixture; compile one replacement main, link610 audited read-only objects, serialCPU24 one numericalthread8GiB2h; no propagation or benchmark fit.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/execution.json",
+    "--execution-sha256",
+    "7b5822012755b9a656b729a582940e934c4e38942e97db3b1f1ad41248160c23",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/build_wide_native_batch01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/plan.json",
+    "--sha256",
+    "4180e67cbd28ee26b9b541673b81b441ede04b0e8e652c60069990200d8b0b83"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 3997500,
+        "pid": 3997525,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 133665474,
+        "state": "Z"
+      },
+      {
+        "parent": 3997526,
+        "pid": 3997528,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665479,
+        "state": "S"
+      },
+      {
+        "parent": 3997525,
+        "pid": 3997526,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665476,
+        "state": "S"
+      },
+      {
+        "parent": 3997528,
+        "pid": 3997534,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665664,
+        "state": "S"
+      },
+      {
+        "parent": 3997534,
+        "pid": 3997535,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665668,
+        "state": "R"
+      },
+      {
+        "parent": 3997528,
+        "pid": 3997537,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665860,
+        "state": "S"
+      },
+      {
+        "parent": 3997537,
+        "pid": 3997538,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665861,
+        "state": "S"
+      },
+      {
+        "parent": 3997538,
+        "pid": 3997539,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 133665862,
+        "state": "R"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-18T19:50:37.319221+00:00",
+    "pid_namespaces": [
+      "pid:[4026534144]"
+    ],
+    "returncode": 0,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "elapsed_seconds": 5.135572559200227,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 3997500,
+            "pid": 3997525,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 133665474,
+            "state": "Z"
+          },
+          {
+            "parent": 3997526,
+            "pid": 3997528,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665479,
+            "state": "S"
+          },
+          {
+            "parent": 3997525,
+            "pid": 3997526,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665476,
+            "state": "S"
+          },
+          {
+            "parent": 3997528,
+            "pid": 3997534,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665664,
+            "state": "S"
+          },
+          {
+            "parent": 3997534,
+            "pid": 3997535,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665668,
+            "state": "R"
+          },
+          {
+            "parent": 3997528,
+            "pid": 3997537,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665860,
+            "state": "S"
+          },
+          {
+            "parent": 3997537,
+            "pid": 3997538,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665861,
+            "state": "S"
+          },
+          {
+            "parent": 3997538,
+            "pid": 3997539,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 133665862,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-18T19:50:39.833177+00:00",
+        "pid_namespaces": [
+          "pid:[4026534144]"
+        ],
+        "returncode": 0,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-18T19:50:39.833203+00:00",
+  "fit_attempts": 0,
+  "interrupted_or_timeout": false,
+  "peak_owned_rss_bytes": 267546624,
+  "plan": {
+    "bytes": 3486,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/wide-native-batch-01/control/plan.json",
+    "sha256": "4180e67cbd28ee26b9b541673b81b441ede04b0e8e652c60069990200d8b0b83"
+  },
+  "process": {
+    "parent": 3997500,
+    "pid": 3997525,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 133665474,
+    "state": "S"
+  },
+  "release_evidence": false,
+  "returncode": 0,
+  "schema": "orbit-poc-owned-wide-native-batch-v1",
+  "started_at": "2026-10-18T19:50:32.113148+00:00",
+  "status": "passed_diagnostic"
+}

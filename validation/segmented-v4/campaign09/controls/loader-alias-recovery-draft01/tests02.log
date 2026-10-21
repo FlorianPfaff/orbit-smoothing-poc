@@ -1,0 +1,39 @@
+..................................FF..................                   [100%]
+=================================== FAILURES ===================================
+______________ test_reject_unaccepted_or_different_probe[wrapper] ______________
+
+probe_evidence = ({'bubblewrap': {'path': '/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01/binaries/bwrap-0.6.1-ubuntu0.3..._blinded_segmented_campaign02.py', 'sha256': '24b12ce5c08ef5f8d821470736728202b993034bbc337b1191d320e32ea16af0'}, ...})
+key = 'wrapper'
+
+    @pytest.mark.parametrize('key', ['status','wrapper','bubblewrap','mount_plan','allowlist_sha256','probe_spec','probe_status','benchmark_attempts_launched','cleanup_verified','attempts_empty','temporary_empty'])
+    def test_reject_unaccepted_or_different_probe(probe_evidence,key):
+        request,review,inv=copy.deepcopy(probe_evidence)
+        if isinstance(review[key],dict):review[key]['sha256']='0'*64
+        elif isinstance(review[key],bool):review[key]=False
+        elif isinstance(review[key],int):review[key]=1
+        else:review[key]='changed'
+>       with pytest.raises(ValueError):m.accepted_probe(request,review,inv)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+/mnt/d/orbit-segmented-v4/control/loader-alias-recovery-draft01/test_recovery.py:137: Failed
+____________ test_reject_unaccepted_or_different_probe[bubblewrap] _____________
+
+probe_evidence = ({'bubblewrap': {'path': '/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01/binaries/bwrap-0.6.1-ubuntu0.3..._blinded_segmented_campaign02.py', 'sha256': '24b12ce5c08ef5f8d821470736728202b993034bbc337b1191d320e32ea16af0'}, ...})
+key = 'bubblewrap'
+
+    @pytest.mark.parametrize('key', ['status','wrapper','bubblewrap','mount_plan','allowlist_sha256','probe_spec','probe_status','benchmark_attempts_launched','cleanup_verified','attempts_empty','temporary_empty'])
+    def test_reject_unaccepted_or_different_probe(probe_evidence,key):
+        request,review,inv=copy.deepcopy(probe_evidence)
+        if isinstance(review[key],dict):review[key]['sha256']='0'*64
+        elif isinstance(review[key],bool):review[key]=False
+        elif isinstance(review[key],int):review[key]=1
+        else:review[key]='changed'
+>       with pytest.raises(ValueError):m.accepted_probe(request,review,inv)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+/mnt/d/orbit-segmented-v4/control/loader-alias-recovery-draft01/test_recovery.py:137: Failed
+- generated xml file: /mnt/d/orbit-segmented-v4/control/loader-alias-recovery-draft01/tests02.xml -
+=========================== short test summary info ============================
+FAILED ../../../../../../../d/orbit-segmented-v4/control/loader-alias-recovery-draft01/test_recovery.py::test_reject_unaccepted_or_different_probe[wrapper]
+FAILED ../../../../../../../d/orbit-segmented-v4/control/loader-alias-recovery-draft01/test_recovery.py::test_reject_unaccepted_or_different_probe[bubblewrap]
+2 failed, 52 passed in 12.11s

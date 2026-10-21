@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<groops>
+  <global>
+    <time label="timeStart">60440</time>
+    <time label="timeEnd">timeStart+172800.0/86400</time>
+    <filename label="groopsDataDir">/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary</filename>
+    <double label="arcStartOffsetSeconds">0.0</double>
+  </global>
+  <program>
+    <PreprocessingVariationalEquation>
+      <outputfileVariational>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/variational.dat</outputfileVariational>
+      <inputfileSatelliteModel>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/satelliteModel/gracefo1_satelliteModel.xml</inputfileSatelliteModel>
+      <inputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-01/nominal.dat</inputfileOrbit>
+      <inputfileStarCamera>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-03/run/preparation/prefixes/9f71eb67221fe67a092ea4566e05bce837b47c5c4e6a2d917909ced474aa03c4/native-prepared/data/2024-05-10/gracefo/gracefo1_starCamera_2024-05-10.dat</inputfileStarCamera>
+      <forces>
+        <miscAccelerations>
+          <syntheticGravity>
+            <GM>398600441800000.0</GM>
+            <J2>0.00108262668</J2>
+            <R>6378137.0</R>
+          </syntheticGravity>
+        </miscAccelerations>
+        <miscAccelerations>
+          <syntheticDrag>
+            <ballisticCoefficient>0.022</ballisticCoefficient>
+            <referenceDensity>5e-13</referenceDensity>
+            <referenceAltitude>500000.0</referenceAltitude>
+            <scaleHeight>60000.0</scaleHeight>
+            <earthRadius>6378137.0</earthRadius>
+            <earthRotationRate>7.292115e-05</earthRotationRate>
+          </syntheticDrag>
+        </miscAccelerations>
+      </forces>
+      <earthRotation>
+        <file>
+          <inputfileEOP>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/earthRotation/timeSeries_EOP_rapid_IAU2000_desai.dat</inputfileEOP>
+          <interpolationDegree>3</interpolationDegree>
+        </file>
+      </earthRotation>
+      <ephemerides>
+        <jpl>
+          <inputfileEphemerides>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+          <origin>
+            <earth />
+          </origin>
+        </jpl>
+      </ephemerides>
+      <gradientfield>
+        <potentialCoefficients>
+          <inputfilePotentialCoefficients>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/potential/goco06s/GOCO06s_static_2010-01-01.gfc</inputfilePotentialCoefficients>
+          <minDegree>0</minDegree>
+          <maxDegree>2</maxDegree>
+          <factor>1.0</factor>
+          <setSigmasToZero>0</setSigmasToZero>
+        </potentialCoefficients>
+      </gradientfield>
+      <integrationDegree>7</integrationDegree>
+      <useEnke>
+        <GM>3.986004415e+14</GM>
+      </useEnke>
+      <integrationBoundaries>
+        <uniformSampling>
+          <timeStart>timeStart</timeStart>
+          <timeEnd>timeEnd</timeEnd>
+          <sampling>60.0/86400</sampling>
+        </uniformSampling>
+      </integrationBoundaries>
+      <orbitPocDerivativeProfile>synthetic_complete_v1</orbitPocDerivativeProfile>
+      <orbitPocDerivativeDiagnostics>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/derivatives.json</orbitPocDerivativeDiagnostics>
+    </PreprocessingVariationalEquation>
+  </program>
+  <program>
+    <OrbitPocEvaluateVariational>
+      <inputfileVariational>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/variational.dat</inputfileVariational>
+      <outputfileOrbit>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/nominal.dat</outputfileOrbit>
+      <inputfileInitialState>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/inputs/initial_state.txt</inputfileInitialState>
+      <ephemerides>
+        <jpl>
+          <inputfileEphemerides>/home/florianpfaff/codex-runs/orbit-comparison-v3-20261013/inputs/auxiliary/tides/ephemerides_JPL_DE432.dat</inputfileEphemerides>
+          <origin>
+            <earth />
+          </origin>
+        </jpl>
+      </ephemerides>
+    </OrbitPocEvaluateVariational>
+  </program>
+  <program>
+    <FileConvert>
+      <inputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/nominal.dat</inputfile>
+      <outputfile>/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/nominal.txt</outputfile>
+    </FileConvert>
+  </program>
+</groops>

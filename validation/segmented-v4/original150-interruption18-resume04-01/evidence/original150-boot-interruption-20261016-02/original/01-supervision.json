@@ -1,0 +1,43 @@
+{
+  "schema": "original150-resume-supervision-v1",
+  "status": "running",
+  "started_at": "2026-10-16T03:26:28.762045+00:00",
+  "plan_sha256": "68b2ea578af4700165688c04e5b043da330755051006a9718257533bbee7bf80",
+  "process": {
+    "pid": 9877,
+    "parent": 985,
+    "start_ticks": 465866,
+    "state": "R"
+  },
+  "command": [
+    "/usr/bin/taskset",
+    "-c",
+    "30",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/with_local_mirror_d_output.py",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/d/orbit-numerics-v3.1/source-snapshots/runtime-553ad084a7165b045f8f/scripts/verify_numerics_runtime.py",
+    "--config",
+    "/mnt/d/orbit-numerics-v3.1/deployment-final/benchmark-01/config.json",
+    "--receipt",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json",
+    "--",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/d/orbit-segmented-v4/control/original150_retention_recovery02.py",
+    "--plan",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/retention-recovery-plan03.json",
+    "--sha256",
+    "43c3cd865435f5e79391ccba6ee889597ffdd0c4793bb7d1165e815311a2c956",
+    "--mode",
+    "campaign",
+    "--startup-receipt",
+    "/mnt/d/orbit-numerics-v3.1/benchmark-d-volume/recovery-20261016-01/startup-resume-03.json"
+  ],
+  "signals": [],
+  "wrapper_process": {
+    "pid": 9878,
+    "parent": 9877,
+    "start_ticks": 465929,
+    "state": "R"
+  }
+}

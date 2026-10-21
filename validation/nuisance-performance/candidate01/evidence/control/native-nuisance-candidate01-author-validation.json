@@ -1,0 +1,36 @@
+{
+  "candidate_files": {
+    "/home/emper/orbit-nuisance-performance/source/groops/extension/native_nuisance_performance.py": "832a5cbfd5cc9100d86cd7d37350e4e5c7f7f86ae76d30ff0e203e23815105a8",
+    "/home/emper/orbit-nuisance-performance/source/groops/extension/nuisancePerformance.h": "0925d8858ee2937ab87bbefbf5fddd6e8d1bcd69e5e886021b91ba376da52e00",
+    "/home/emper/orbit-nuisance-performance/source/tests/test_native_nuisance_performance.py": "1b0329f6d31761e349c44fbff254bb9367030cda3b92fd8fe9d18c27afd15a3f"
+  },
+  "focused_tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 taskset -c 0 /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python -B -m pytest -q -p no:cacheprovider tests/test_native_nuisance_performance.py --basetemp=/tmp/nuisance-perf-cache-tests01",
+    "failed": 0,
+    "passed": 9,
+    "seconds": 2.65,
+    "skipped": 0
+  },
+  "generated_patch_manifest": {
+    "path": "/home/emper/orbit-nuisance-performance/control/native-patch-review01/orbit-poc-nuisance-performance-extension.json",
+    "sha256": "ead0ea8f772030ec74e6f7314d276057f45e9f9131fc60874a2cde81b36ec3a3"
+  },
+  "not_yet_validated": [
+    "full native State off/on equivalence",
+    "whole-fit performance improvement",
+    "full scientific regression suite"
+  ],
+  "preserved_semantics": [
+    "all gnss designMatrix calls",
+    "per-observation group QR and rank checks",
+    "global coefficient/index/local dependency checks",
+    "original twofold residual and full prior ledgers",
+    "transactional fork rollback and objective replay",
+    "unchanged support/weights/rank/acceptance/convergence thresholds",
+    "per-observation segmented export"
+  ],
+  "production_mutations": 0,
+  "remote_operations": 0,
+  "schema": "orbit-poc-native-nuisance-candidate-author-validation-v1",
+  "scope": "Separate opt-in engineering candidate only."
+}

@@ -1,0 +1,74 @@
+{
+  "allowed_scope": "Serial captured-only experiment on newf172 and oldb1fd systems under owned controls; production remains unchanged.",
+  "checks": [
+    "x remains the cycle base while candidate trials are formed; rejected trial state is never assigned back to x.",
+    "The existing triangular solve and wide affine sum are factored into cycleState without arithmetic-expression changes.",
+    "Only a fresh original true residual on the rounded candidate can authorize early return; projected residual alone never accepts.",
+    "After failed projected crossing, existing h/g/basis/z are retained and Arnoldi continues.",
+    "Exhausted basis breaks before another basis lookup; capacity and global120 limit remain unchanged.",
+    "Cycle-end state is committed once; final undamped true check remains.",
+    "Operator accounting distinguishes extra true-residual evaluations from Arnoldi steps.",
+    "Reader records the same checked candidate before early return, so accepted113-bit residual uses the accepted rounded state."
+  ],
+  "files": {
+    "include/eventQuadrature.h": {
+      "bytes": 5334,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/include/eventQuadrature.h",
+      "sha256": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5"
+    },
+    "include/sixStateTangent.h": {
+      "bytes": 10234,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/include/sixStateTangent.h",
+      "sha256": "def5e4e87080ccd1329f162d10bdecb0320320dbe821087bc794b35021795759"
+    },
+    "include/syntheticForceDerivatives.h": {
+      "bytes": 2245,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/include/syntheticForceDerivatives.h",
+      "sha256": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310"
+    },
+    "probe.cpp": {
+      "bytes": 468,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/probe.cpp",
+      "sha256": "fd62e3c9d0fe650605d018e21e1ffe0dfcb8e9e94fbf95830c28b9ecb1279212"
+    },
+    "replay.cpp": {
+      "bytes": 11257,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/replay.cpp",
+      "sha256": "31c38989c894b816db417f2a8611c23b0cc7175b197af79ab12066bdd588ea6d"
+    },
+    "test_crossing.py": {
+      "bytes": 1328,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/test_crossing.py",
+      "sha256": "5606cbd178d977c4ea742e742ee4b14ad693ad8ff61f2bf312a27b48d7e1a28a"
+    },
+    "test_quad.py": {
+      "bytes": 1482,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/test_quad.py",
+      "sha256": "000b8b745097d65cdae21d16cb1a71bcca1fb1a10e454f37c3faed32b350686d"
+    }
+  },
+  "generation": {
+    "bytes": 1320,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic07/generation.json",
+    "sha256": "cb08e2dffff7bcdcb9eb767db48d8b4a1127d5741b863ba166aaf7d12ce3ec6a"
+  },
+  "limitations": [
+    "The small crossing test checks acceptance/accounting but does not itself force projected-pass/true-fail continuation, capacity or exhaustion branches. Actual captured-system trace and further control-flow tests remain required before production promotion.",
+    "A diagnostic executable exit0 alone is insufficient for promotion: verify the independent113-bit residual is also within unchanged threshold."
+  ],
+  "native_runs": 0,
+  "observed_at": "2026-10-16T15:49:16.404583+00:00",
+  "passed": true,
+  "production_correction_approved": false,
+  "schema": "orbit-poc-independent-crossing-experiment-code-review-v1",
+  "scope": "External diagnostic07 static control-flow/arithmetic review only; no local C++ compile or numerical run.",
+  "unchanged": [
+    "physical/statistical models",
+    "quadrature and preconditioner",
+    "native tolerance2e-12",
+    "maximumArnoldiIterations120",
+    "restartCapacity20",
+    "native velocity scaling1000",
+    "two-pass reorthogonalization"
+  ]
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="6" time="7.009" timestamp="2026-10-16T01:49:10.904675+02:00" hostname="pfaff"><testcase classname="d.orbit-segmented-v4.control.test_audit_shifted_rows01" name="test_independent_original_row_energy_and_equality" time="0.001"><failure message="TypeError: expected str, bytes or os.PathLike object, not int">tmp_path = PosixPath('/tmp/shifted-row-audit-tests-01/test_independent_original_row_0')
+
+    def test_independent_original_row_energy_and_equality(tmp_path):
+&gt;    g=m.read(fixture(tmp_path));e,f=m.evaluate(g,{'variable_ids':[0,1],'step':[3.5,3.5]});assert e==0 and f==.5
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_audit_shifted_rows01.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:26: in read
+    need(pin(p)==before,'row bytes mutated')
+         ^^^^^^
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:9: in pin
+    p=Path(p);b=p.read_bytes();return {'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)}
+      ^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:871: in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:509: in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'pathlib.PosixPath'&gt;, args = (1,)
+
+    @classmethod
+    def _parse_args(cls, args):
+        # This is useful when you don't want to create an instance, just
+        # canonicalize some constructor arguments.
+        parts = []
+        for a in args:
+            if isinstance(a, PurePath):
+                parts += a._parts
+            else:
+&gt;               a = os.fspath(a)
+                    ^^^^^^^^^^^^
+E               TypeError: expected str, bytes or os.PathLike object, not int
+
+work/v3/native-env/lib/python3.11/pathlib.py:493: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.test_audit_shifted_rows01" name="test_ledger_identity_preserves_coefficients_but_not_group_order" time="0.001"><failure message="TypeError: expected str, bytes or os.PathLike object, not int">tmp_path = PosixPath('/tmp/shifted-row-audit-tests-01/test_ledger_identity_preserves0')
+
+    def test_ledger_identity_preserves_coefficients_but_not_group_order(tmp_path):
+&gt;    g=m.read(fixture(tmp_path));i=m.identities(g);g['groups'].reverse();assert m.identities(g)==i;g['stochastic_text'][0]+='0';assert m.identities(g)!=i
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/test_audit_shifted_rows01.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:26: in read
+    need(pin(p)==before,'row bytes mutated')
+         ^^^^^^
+/mnt/d/orbit-segmented-v4/control/audit_shifted_rows01.py:9: in pin
+    p=Path(p);b=p.read_bytes();return {'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)}
+      ^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:871: in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+work/v3/native-env/lib/python3.11/pathlib.py:509: in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'pathlib.PosixPath'&gt;, args = (1,)
+
+    @classmethod
+    def _parse_args(cls, args):
+        # This is useful when you don't want to create an instance, just
+        # canonicalize some constructor arguments.
+        parts = []
+        for a in args:
+            if isinstance(a, PurePath):
+                parts += a._parts
+            else:
+&gt;               a = os.fspath(a)
+                    ^^^^^^^^^^^^
+E               TypeError: expected str, bytes or os.PathLike object, not int
+
+work/v3/native-env/lib/python3.11/pathlib.py:493: TypeError</failure></testcase><testcase classname="d.orbit-segmented-v4.control.test_audit_shifted_rows01" name="test_parser_fail_closed[duplicate]" time="0.001" /><testcase classname="d.orbit-segmented-v4.control.test_audit_shifted_rows01" name="test_parser_fail_closed[missing]" time="0.000" /><testcase classname="d.orbit-segmented-v4.control.test_audit_shifted_rows01" name="test_parser_fail_closed[query]" time="0.000" /><testcase classname="d.orbit-segmented-v4.control.test_audit_shifted_rows01" name="test_variable_order_must_match_native_ids" time="0.000" /></testsuite></testsuites>

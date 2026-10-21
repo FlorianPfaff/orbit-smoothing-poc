@@ -1,0 +1,40 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_exact_three_additions_and_relocated_named_metadata ____________
+
+pair = ({'data': {'allowlist-core-plan.json': {'denied_trees': ['/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-...95156dd4-0d4c-499d-a214-8883a2d650fa', 'captured_at': '2026-10-19T00:29:50.291105+00:00', 'covered_count': 43958, ...})
+
+    def test_exact_three_additions_and_relocated_named_metadata(pair):
+>       before=copy.deepcopy(pair);delta=m.compare_seals(*pair)
+                                         ^^^^^^^^^^^^^^^^^^^^^^
+
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/test_normalization.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py:301: in compare_seals
+    need(normalize(old,a)==normalize(new,b),'Unexpected sealed metadata delta: '+name)
+         ^^^^^^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py:249: in normalize
+    return walk(value)
+           ^^^^^^^^^^^
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py:247: in walk
+    else:out[walk(k)]=walk(x)
+                      ^^^^^^^
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py:247: in walk
+    else:out[walk(k)]=walk(x)
+                      ^^^^^^^
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py:245: in walk
+    need(k in found and found[k]==x, 'Generated metadata identity differs: '+v['path']+' '+k)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = False
+message = 'Generated metadata identity differs: /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-03/allowlist.json bytes'
+
+    def need(value, message):
+        if not value:
+>           raise ValueError(message)
+E           ValueError: Generated metadata identity differs: /mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-03/allowlist.json bytes
+
+/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py:38: ValueError
+=========================== short test summary info ============================
+FAILED ../../../../../../../d/orbit-segmented-v4/control/normalization-recovery-draft01/test_normalization.py::test_exact_three_additions_and_relocated_named_metadata
+1 failed in 9.94s

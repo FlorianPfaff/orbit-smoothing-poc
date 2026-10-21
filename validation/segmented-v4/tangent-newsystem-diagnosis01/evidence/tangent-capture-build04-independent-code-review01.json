@@ -1,0 +1,60 @@
+{
+  "files": {
+    "build_tangent_capture04.py": {
+      "bytes": 11042,
+      "path": "/mnt/d/orbit-segmented-v4/control/build_tangent_capture04.py",
+      "sha256": "320c9c2cf8ee6feed0c37c15fafa59ac63aee1599d3d314925675a49ce4a0b77"
+    },
+    "run_tangent_capture_build04.py": {
+      "bytes": 5178,
+      "path": "/mnt/d/orbit-segmented-v4/control/run_tangent_capture_build04.py",
+      "sha256": "4144307970de888b27a771bb0b2b16d51eba46dee9a25c54803a44f18d72e28f"
+    },
+    "test_tangent_capture_build04.py": {
+      "bytes": 4755,
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent_capture_build04.py",
+      "sha256": "b81f7ba10b5c49f55434052801941e243316469377a0edc3e209cd9f9a249bcf"
+    }
+  },
+  "findings": [
+    "Controller is byte-identical to reviewed03.",
+    "Worker binds current completed precision build receipt, exact source_after inventory and native identity.",
+    "Original build result layout resolves current native_source/build; only capture header may differ in copied source.",
+    "Baseline copied-object relink must reproduce current eb41 byte identity before one-TU capture compilation.",
+    "Only preprocessingVariationalEquation object may change; original objects, libraries, source and all637link inputs remain verified.",
+    "Reader headers must match installed original SHA and exact telemetry hashes."
+  ],
+  "observed_at": "2026-10-16T15:34:30.051218+00:00",
+  "passed": true,
+  "pending": [
+    "Concrete staged input/source/recipe namespace identity and actual build result remain separate checks."
+  ],
+  "reference_controller": {
+    "bytes": 5178,
+    "path": "/mnt/d/orbit-segmented-v4/control/run_tangent_capture_build03.py",
+    "sha256": "4144307970de888b27a771bb0b2b16d51eba46dee9a25c54803a44f18d72e28f"
+  },
+  "reference_worker": {
+    "bytes": 10250,
+    "path": "/mnt/d/orbit-segmented-v4/control/build_tangent_capture03.py",
+    "sha256": "5dc24d6480267e709bb39920118eab7c31d9e33c560a63b4097c6f6f780faef4"
+  },
+  "schema": "orbit-poc-independent-control-code-review-v1",
+  "scientific_workloads": 0,
+  "scope": "Capture build04 code and pure fixtures only; no native build launched or numerical acceptance inferred.",
+  "tests": {
+    "failed": 0,
+    "log": {
+      "bytes": 205,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build04-independent-tests01.log",
+      "sha256": "e3232b006a0cf64ee9f9a1f7b207bc3ae6c8fe53eeea1b5850b874f77d783c31"
+    },
+    "passed": 27,
+    "skipped": 0,
+    "xml": {
+      "bytes": 4338,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build04-independent-tests01.xml",
+      "sha256": "e387a70caf45e007934974c932f1466576acfa3e7dd6e06b8034d77344ddda4a"
+    }
+  }
+}

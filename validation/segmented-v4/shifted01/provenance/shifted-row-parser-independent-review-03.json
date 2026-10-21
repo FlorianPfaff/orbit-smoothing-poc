@@ -1,0 +1,32 @@
+{
+  "blocking_findings": [],
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 7
+  },
+  "created_at": "2026-10-15T23:52:43.042547+00:00",
+  "files": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_shifted_rows03.py",
+      "sha256": "61d461f787adc9171ba9ec0cd5e2e17bcd4abfcd59c9f18bd4928c39b02b4e21"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_audit_shifted_rows03.py",
+      "sha256": "5196af1e9289e39a6a7171cbf4d1bfdc470777b12c7d5198607cba755989fcc1"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-row-parser-independent03.xml",
+      "sha256": "e2f3a2c43a2b04972ad1fb0a628a6bdc5789e595be410515c83e9b8b6b0a8c32"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted-row-parser-independent03.log",
+      "sha256": "1298050e6a59f8ee521d88b60e1a64a34b5b058fee23f494a035742f6d006fff"
+    }
+  ],
+  "review": "Single expression delta defaults missing optional output variable_ids to contiguous native input order. Parser already rejects non-contiguous/out-of-order input IDs; explicit output permutations are honored and duplicates/short solutions rejected. Coefficients, arithmetic, residual limits and physical/numerical output bytes are unchanged.",
+  "schema": "orbit-poc-shifted-row-parser-independent-review-v1",
+  "scope": "Independent narrow parser review and7 fixtures; actual shifted raw-row arithmetic audit remains separate.",
+  "status": "passed_control_fixtures"
+}

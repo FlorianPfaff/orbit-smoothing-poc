@@ -1,0 +1,112 @@
+{
+  "actual_fresh_seal_audited": false,
+  "author_failures_retained": [
+    {
+      "attempt": 1,
+      "cause": "Reduced fixture did not collect generated allowlist size metadata; dictionary mutation attempted list-style pop.",
+      "failed": 2,
+      "passed": 122
+    },
+    {
+      "attempt": 2,
+      "cause": "Diagnostic rerun identified missing generated allowlist size metadata.",
+      "failed": 1,
+      "passed": 0
+    }
+  ],
+  "created_at": "2026-10-19T00:44:37.096800+00:00",
+  "files": [
+    {
+      "bytes": 27224,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/adapter02-to03.diff",
+      "sha256": "8293bf9709fa524dc009a5600ca3f5aa0dcafec29b70c78f6bd94516209c95d9"
+    },
+    {
+      "bytes": 4493,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests01.log",
+      "sha256": "6f676762fd8a6700a656a657825fab3c273fb4a1a2391d2a67f00e5f3c605aea"
+    },
+    {
+      "bytes": 25984,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests01.xml",
+      "sha256": "914b1cd63e63ffb650ade2111e06b75289072b69c591829eddecabed85bedfdd"
+    },
+    {
+      "bytes": 2722,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests02.log",
+      "sha256": "604c534073a170d1daffcf708f55ad975e2293f7633814234233612f1ea35ab3"
+    },
+    {
+      "bytes": 289,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests03.log",
+      "sha256": "91847309da2eaeb878c14fea735a8f4b8a43403a9940a982eee790e01338a24d"
+    },
+    {
+      "bytes": 22265,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests03.xml",
+      "sha256": "8d5d38b3778f2d8433e2e8d66da8fb1bbf86d416bc7e4b70d001e2d667238f63"
+    },
+    {
+      "bytes": 289,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests04.log",
+      "sha256": "8c86a6d766b319842349ad067286df33d58d7f49ffa1898bbb0090c77552c041"
+    },
+    {
+      "bytes": 25307,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests04.xml",
+      "sha256": "e65bd13eeb5f5dad8997b2ce66b67253d45e9d11932698d412872126faf52a5b"
+    },
+    {
+      "bytes": 35188,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py",
+      "sha256": "c123d89ecc93762df9c4e71cbbcec32326b9691b28726c414803faccca47302a"
+    },
+    {
+      "bytes": 14464,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/seal_delta_fragment.txt",
+      "sha256": "a29dd5c484603a1d29af139c705632f555658a54eb2625a29ede2613dff5a450"
+    },
+    {
+      "bytes": 18110,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/test_normalization.py",
+      "sha256": "b58ee148b99f9f7ac37ddfddd9900433fc17fa17d45a423311443f8e66deaea3"
+    },
+    {
+      "bytes": 13511,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/test_recovery.py",
+      "sha256": "e8bc5f8f5f4e184e714af227648d99de363493e038d087e3128b8d973cf7b8a8"
+    }
+  ],
+  "fit_attempts": 0,
+  "fit_execution_authorized": false,
+  "native_executions": 0,
+  "predecessor": {
+    "bytes": 17602,
+    "path": "/mnt/d/orbit-segmented-v4/control/device-bootstrap-recovery-draft01/derive_campaign09_bootstrap02.py",
+    "sha256": "daada55e3ca4a426e3ff1730d6b60b5cdfe935d56f04318fbd0988b79b86d07f"
+  },
+  "schema": "orbit-poc-normalization-recovery-candidate-v1",
+  "scope": "Metadata-only recovery adapter. Exact three census-pinned original OSB dependencies; existing nonmetadata rows require raw equality. Sealer05, collector04, plan05 and readonly-view06 are pinned. No scientific execution, remote mutation, builds or publication. Actual fresh seal and successful actual unchanged public namespace probe still required before assembly.",
+  "source": {
+    "bytes": 35188,
+    "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/derive_campaign09_normalization03.py",
+    "sha256": "c123d89ecc93762df9c4e71cbbcec32326b9691b28726c414803faccca47302a"
+  },
+  "status": "author_tested_control_metadata_candidate",
+  "test_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 taskset -c 0 /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python -B -m pytest test_recovery.py test_normalization.py -q -p no:cacheprovider --basetemp=/tmp/orbit-normalization-recovery-author04 --junitxml=author-tests04.xml",
+  "tests": {
+    "failed": 0,
+    "log": {
+      "bytes": 289,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests04.log",
+      "sha256": "8c86a6d766b319842349ad067286df33d58d7f49ffa1898bbb0090c77552c041"
+    },
+    "passed": 140,
+    "skipped": 0,
+    "xml": {
+      "bytes": 25307,
+      "path": "/mnt/d/orbit-segmented-v4/control/normalization-recovery-draft01/author-tests04.xml",
+      "sha256": "e65bd13eeb5f5dad8997b2ce66b67253d45e9d11932698d412872126faf52a5b"
+    }
+  }
+}

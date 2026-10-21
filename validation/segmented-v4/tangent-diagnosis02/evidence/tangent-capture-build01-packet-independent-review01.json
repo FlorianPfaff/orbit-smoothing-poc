@@ -1,0 +1,86 @@
+{
+  "schema": "orbit-poc-tangent-capture-build-packet-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:11:57.462463+00:00",
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-01/control/plan.json",
+    "sha256": "c7484680b0ffc1958121bf94bc564e50dcb4a75741d5e7ffc2ada3319b2de3ab",
+    "bytes": 3481
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-01/control/execution.json",
+    "sha256": "d9219d2102e8148d0dbf6f8871a5cf6a652326e6135dcde5189f12352e1256c8",
+    "bytes": 123940
+  },
+  "source_freeze": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-01/control/source-freeze.json",
+    "sha256": "87ad55dcd0c4329cb4e37a37adfe3871cb85d3fb88e8a46b3cff388aa17e9f29",
+    "bytes": 87220
+  },
+  "staging": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-01/control/staging.json",
+    "sha256": "4a6ada417bedf233744773f89c17aaa6c80078e2c8a31e03f993dc0bb73a3cbb",
+    "bytes": 3472
+  },
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build01-packet-independent-readback01.json",
+    "sha256": "8d7910ef32efde5c0e4eead24826c9ca4c3bc915d6d7cdab2feae209b89d5aec",
+    "bytes": 8077
+  },
+  "code_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build01-code-independent-review01.json",
+    "sha256": "b32e8b91332c56178323342696bbb221938570adc6541be9bdc7a24c9a5e9950",
+    "bytes": 3419
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_tangent_capture_build01_packet.py",
+    "sha256": "9523134dcf35caa73a9566275c3edbe4e779073bf99c568d96f1caa41495e1bf",
+    "bytes": 5172
+  },
+  "admission": {
+    "status": "admitted",
+    "hostname": "workstation1",
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "observed_at": "2026-10-16T07:10:55.931369+00:00",
+    "driver_identity": {
+      "pid": 2442664,
+      "start_ticks": 111827766,
+      "parent": 2442663,
+      "state": "R",
+      "pid_namespace": "pid:[4026531836]",
+      "argv": [
+        "python3",
+        "-"
+      ],
+      "command_sha256": "1aa9cf5c0bca8df239eca152d65c19745f1607b3f38766e7b7bef5f353d3c116"
+    },
+    "conflicting_processes": [],
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "fit_cpu": 24,
+    "reserved_cpu_note": "One telemetry-only native build onCPU24/one thread/8GiB/2h. Exact reused original link objects; one translation-unit capture-only change in separate native source/build. No numerical corrections/fits. Protected6000 and original150WSL untouched.",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1"
+  },
+  "checks": [
+    "Exact reviewed worker/controller/wrapper/header/reader/build-inspection bytes and fresh direct paths verified.",
+    "All384 frozen Python/source files, unchanged431runtime declarations plus4 control pins and8 build inputs verified.",
+    "Current metadata for all637 pinned original link dependencies matches; worker must rehash them before/after and reproduce exact a66 baseline link.",
+    "Five private mutable directories were empty and controller outputs absent; current host admitted without competing native workloads."
+  ],
+  "approved_argv": [
+    "/usr/bin/taskset",
+    "-c",
+    "24-27",
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-01/control/run_tangent_capture_build01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-01/control/plan.json",
+    "--sha256",
+    "c7484680b0ffc1958121bf94bc564e50dcb4a75741d5e7ffc2ada3319b2de3ab"
+  ],
+  "scope": "Exact diagnostic-only build may proceed under root standing authority and its existing shared lock/current admission. This is not source correction, fitting or release evidence."
+}

@@ -1,0 +1,64 @@
+{
+  "archive": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install11/helpers-and-request.tar",
+    "sha256": "bc0a2171b60a626c4eb38ab44099edfa21b8d595fbd2613180fc5f43b3ec30f3"
+  },
+  "archive_members_checked": 5,
+  "candidate_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/symlink-closure-independent-review01.json",
+    "sha256": "28ccac83c8a9120ffd34db899a850b32bb525fed5bd9b471c8a7cff0eb7a5c2d"
+  },
+  "findings": [
+    "Exactly the four reviewed new helpers plus request04 are installed with exclusive writes; the original35 controls and failed03/04 receipts remain pinned.",
+    "Request changes are restricted to new sealer, new planner, and fresh sealed-inputs-03 output; scientific configuration, preparation, manifest and other helper identities remain exact.",
+    "Both partial output directory identities and all20 metadata files, including the empty failed04 skeleton, are checked before and after installation.",
+    "The unchanged owned admission and global/statistical locks guard mutation. No namespace, sealer, native or fit executes during installation."
+  ],
+  "fit_attempts": 0,
+  "install_plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install11/install-plan.json",
+    "sha256": "c537918f909012c86b54e92e7f409ed1a1b35270f8c156fed935603505d635e6"
+  },
+  "installer": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install11/install_owned01.py",
+    "sha256": "f559f4180151d784d56b6f06ba33a65b7eb4eae352bc1ed2a29e75119e4889e5"
+  },
+  "native_executions": 0,
+  "next_scope": "Install and derive exact new metadata plans; review concrete view and owned execution before sealing.",
+  "preserved_partial_metadata_files": 20,
+  "preserved_top_controls": 35,
+  "request": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-fit-helper-install11/sealing-request04.json",
+    "sha256": "18ad17b2f117b5dbbdd02cfe7f5b631c02f4f6f979adf4bdee6017b63f8881a2"
+  },
+  "request_delta": [
+    {
+      "after": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs04.py",
+      "before": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/seal_direct_fit_inputs03.py",
+      "field": "/helper/path"
+    },
+    {
+      "after": "1dbd357ca0056a380879c8905a787600d573c2731894f5fea091d81e5c5381ac",
+      "before": "4d84a0cbf1f0a053d8b529d0a37f77f4c0de0851b13ab701a8809e1ddbf26c0c",
+      "field": "/helper/sha256"
+    },
+    {
+      "after": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_segmented_fit_namespace02.py",
+      "before": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/plan_segmented_fit_namespace01.py",
+      "field": "/helpers/planner/path"
+    },
+    {
+      "after": "2a00bb3fa57bef3c034e3ab96348c6f720d25af5473e65efb9a5a6dc5a7d68d2",
+      "before": "d69f59841f4aefe91432de02f1422e41006bc618cb6d7a48b90be0482f0028f7",
+      "field": "/helpers/planner/sha256"
+    },
+    {
+      "after": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-03",
+      "before": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-02",
+      "field": "/output_root"
+    }
+  ],
+  "reviewed_at": "2026-10-18T21:58:20.408832+00:00",
+  "schema": "orbit-poc-direct-fit-helper-install11-independent-review-v1",
+  "status": "approved_exact_metadata_install"
+}

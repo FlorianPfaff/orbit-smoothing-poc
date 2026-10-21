@@ -1,0 +1,104 @@
+{
+  "schema": "orbit-poc-rhs-run01-independent-live-readback-v1",
+  "observed_at": "2026-10-16T17:17:28.273462+00:00",
+  "passed": true,
+  "launch": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/tangent-rhs-family-launch.json",
+    "sha256": "a517fe7450ff7f11c388ec640d318cc29252d5c463fb94c3a79097d301b8da6c"
+  },
+  "pipeline_snapshot": {
+    "admission": {
+      "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+      "build_cpus": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "conflicting_processes": [],
+      "driver_identity": {
+        "argv": [
+          "/usr/bin/python3",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/run_tangent_rhs_family01.py",
+          "--plan",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/plan.json",
+          "--sha256",
+          "ca6bf9f36fad1c58d69ce84564688084c67e540c9989777f7f623595945fd85f"
+        ],
+        "command_sha256": "c396072fc5cfefebc888c2a7df614bbb16306b7d6421f9a854b3303fa3e0e4fe",
+        "parent": 1,
+        "pid": 2729426,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 115459071,
+        "state": "R"
+      },
+      "fit_cpu": 24,
+      "hostname": "workstation1",
+      "observed_at": "2026-10-16T17:16:11.293308+00:00",
+      "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+      "reserved_cpu_note": "One frozen54-call captured-system experiment, common preflight binary and27 immutable cases. SerialCPU24/one thread/8GiB/2h. Retain numerical failures. No GROOPS propagation or fits.",
+      "status": "admitted"
+    },
+    "argv": [
+      "/usr/bin/python3",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/with_correctness_namespace_09.py",
+      "--execution",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/execution.json",
+      "--execution-sha256",
+      "c53979375ab0f7405c0c00ad1dd977e6549caaf4f3346411937a5e016d5f600a",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "24",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/replay_tangent_rhs_family02.py",
+      "--plan",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/plan.json",
+      "--sha256",
+      "ca6bf9f36fad1c58d69ce84564688084c67e540c9989777f7f623595945fd85f"
+    ],
+    "fit_attempts": 0,
+    "plan": {
+      "bytes": 2832,
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/plan.json",
+      "sha256": "ca6bf9f36fad1c58d69ce84564688084c67e540c9989777f7f623595945fd85f"
+    },
+    "process": {
+      "parent": 2729426,
+      "pid": 2729455,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 115459392,
+      "state": "S"
+    },
+    "release_evidence": false,
+    "schema": "orbit-poc-owned-tangent-rhs-family-v1",
+    "started_at": "2026-10-16T17:16:11.293435+00:00",
+    "status": "running"
+  },
+  "identity": {
+    "pid": 2729426,
+    "start_ticks": 115459071,
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa"
+  },
+  "current_argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/run_tangent_rhs_family01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-rhs-family-run-01/control/plan.json",
+    "--sha256",
+    "ca6bf9f36fad1c58d69ce84564688084c67e540c9989777f7f623595945fd85f"
+  ],
+  "affinity": [
+    24,
+    25,
+    26,
+    27
+  ],
+  "owned_locks": [
+    "21: FLOCK  ADVISORY  WRITE 2729426 08:00:217252784 0 EOF"
+  ],
+  "observed_recorded_attempts": 42,
+  "worker_status": "running",
+  "fit_attempts": 0,
+  "groops_propagations": 0
+}

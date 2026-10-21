@@ -1,0 +1,55 @@
+--- audited-append02
++++ attempt18-append03
+@@ -2,11 +2,16 @@
+ """Apply one independently approved data-only original150 interruption append."""
+ from pathlib import Path
+ import argparse,fcntl,hashlib,json,os,stat
+-SCHEMA='orbit-poc-original150-interruption-append-plan-v2'
++SCHEMA='orbit-poc-original150-interruption-append-plan-v3'
+ NAMES=('controller-boot-interruption.json','result.json','result-record.json')
+ def need(value,message):
+  if not value: raise ValueError(message)
+ def digest(raw):return hashlib.sha256(raw).hexdigest()
++def file_digest(path):
++ h=hashlib.sha256()
++ with Path(path).open('rb') as f:
++  for block in iter(lambda:f.read(4*1024*1024),b''):h.update(block)
++ return h.hexdigest()
+ def no_symlink(path):
+  p=Path(path); need(p.is_absolute(),'Path must be absolute')
+  for x in [p,*p.parents]:need(not x.is_symlink(),'Symlink path rejected: '+str(x))
+@@ -31,20 +36,20 @@
+  need(proposal['status']=='proposed_not_applied','Wrong proposal state')
+  obs=read(proposal['observation']); need(obs['current_boot_id']==plan['boot_id'] and obs['boot_changed'],'Wrong interruption observation')
+  manifest=read(proposal['manifest']); need(Path(proposal['manifest']['path'])==root/'manifest.json','Wrong frozen root')
+- need(len(manifest['attempts'])==150,'Wrong campaign cardinality'); a=manifest['attempts'][6]
+- need(proposal['attempt']==a==obs['new_attempt_after_sixth'],'Wrong interrupted attempt')
+- need(obs['terminal_checkpoints']==6 and obs['interrupted_without_checkpoint']==1,'Wrong observed prefix')
++ need(len(manifest['attempts'])==150,'Wrong campaign cardinality'); a=manifest['attempts'][17]; need(a['order']==17,'Wrong frozen interrupted order')
++ need(proposal['attempt']==a==obs['interrupted_attempt'],'Wrong interrupted attempt')
++ need(obs['terminal_checkpoints']==17 and obs['interrupted_without_checkpoint']==1,'Wrong observed prefix')
+  checked(proposal['archived_protocol']); config=read(proposal['configuration']); checked(proposal['request'])
+  d=no_symlink(root/'attempts'/a['attempt_id']); need(d.is_dir(),'Missing partial attempt')
+  case=next(x for x in manifest['cases'] if x['case_id']==a['case_id']); rt=manifest['new_runtime']; checked(rt['native'])
+  job={**case['fit_request'],'id':a['attempt_id'],'kind':'fit','split':'numerics','numerics_profile':a['profile'],'numerics_manifest_hash':manifest['manifest_hash'],'input_manifest_hash':case['input_manifest_hash'],'source_hash':rt['source_sha256'],'protocol_hash':manifest['manifest_hash'],'backend':{'groops_executable':rt['native']['path'],'command_timeout_seconds':7200.,'retain_native_diagnostics':True},'expected_native_binary_sha256':rt['native']['sha256'],'numerical_controls':config['controls']}
+  need(json.loads((d/'request.json').read_text())==job==json.loads((d/'worker-request.json').read_text()),'Frozen attempt request changed')
+  need(canonical(job)==proposal['request_hash']==obs['partial_request_hash'],'Wrong canonical request hash')
+- need(len(proposal['expected_six_checkpoint_prefix'])==6,'Wrong preserved prefix length')
+- for i,row in enumerate(proposal['expected_six_checkpoint_prefix']):
++ need(len(proposal['expected_checkpoint_prefix'])==17,'Wrong preserved prefix length')
++ for i,row in enumerate(proposal['expected_checkpoint_prefix']):
+   need(row['attempt_id']==manifest['attempts'][i]['attempt_id'],'Wrong prefix order'); checked(row['result']); checked(row['index'])
+  for copied in obs['copies']:checked(copied['source'])
+- for later in manifest['attempts'][7:]:
++ for later in manifest['attempts'][18:]:
+   path=no_symlink(root/'attempts'/later['attempt_id']); need(not path.exists() or (path.is_dir() and not any(path.iterdir())),'Later work already exists')
+  alias=read(plan['alias_inventory']); alias_review=read(plan['alias_review'])
+  need(alias_review.get('passed') is True,'Alias inventory review did not pass')
+@@ -62,6 +67,7 @@
+  need(set(actual)-set(NAMES)==set(expected),'Partial output membership changed')
+  for rel,item in expected.items():
+   p=no_symlink(actual[rel]); s=p.stat(); need(s.st_size==item['bytes'] and s.st_mtime_ns==item['mtime_ns'],'Partial output stat identity changed')
++  need(file_digest(p)==item['sha256'],'Partial output bytes changed')
+  need(len(proposal['append_files'])==3,'Wrong append cardinality'); candidates=[]; found_absent=False
+  for name,item in zip(NAMES,proposal['append_files']):
+   target=no_symlink(item['destination']); need(target==d/name,'Wrong append destination')

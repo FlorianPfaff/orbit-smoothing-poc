@@ -1,0 +1,179 @@
+{
+  "algorithm_delta": {
+    "orbitPocDerivativeProfile": [
+      "absent(default legacy_v3)",
+      "synthetic_complete_v1"
+    ]
+  },
+  "converged": true,
+  "fit_attempts": 0,
+  "fixed_initial_state_si": [
+    6878137.25003284,
+    19.47539746292239,
+    25.864591329768277,
+    -0.03702861046710235,
+    4581.381803079791,
+    6079.699656214958
+  ],
+  "iterations": [
+    {
+      "closed": false,
+      "derivatives": {
+        "coordinates": "CRF SI",
+        "drag_fd_evaluations": 0,
+        "drag_fd_initial_position_step_m": 0,
+        "drag_fd_initial_velocity_step_m_s": 0,
+        "drag_fd_maximum_position_absolute_difference_s_minus2": 0,
+        "drag_fd_maximum_position_unfloored_relative_difference": 0,
+        "drag_fd_maximum_refinements": 0,
+        "drag_fd_maximum_relative_difference": 0,
+        "drag_fd_maximum_velocity_absolute_difference_s_minus1": 0,
+        "drag_fd_maximum_velocity_unfloored_relative_difference": 0,
+        "drag_fd_position_absolute_tolerance_s_minus2": 0,
+        "drag_fd_position_derivative_floor_s_minus2": 0,
+        "drag_fd_position_floor_applied_columns": 0,
+        "drag_fd_position_step_range_m": [
+          0,
+          0
+        ],
+        "drag_fd_velocity_absolute_tolerance_s_minus1": 0,
+        "drag_fd_velocity_derivative_floor_s_minus1": 0,
+        "drag_fd_velocity_floor_applied_columns": 0,
+        "drag_fd_velocity_step_range_m_s": [
+          0,
+          0
+        ],
+        "gravity_source": "actual_forward_force",
+        "initial_velocity_parameter_scale": 5.787204490870684e-06,
+        "maximum_reference_position_precision_difference_m": 6.47942989168397e-08,
+        "maximum_reference_velocity_precision_difference_m_s": 7.139609635795837e-11,
+        "maximum_tangent_iterations": 4,
+        "maximum_tangent_relative_residual": 1.7981846712415678e-12,
+        "mean_solve_coordinates": "residual_then_single_absolute_restore_v1",
+        "omitted_terms": [],
+        "profile": "synthetic_complete_v1",
+        "pulse_units": "micrometres_per_second",
+        "reference_GM_m3_s2": 398600441500000,
+        "reference_kinematics": "fitted_equinoctial_long_double_low_parts_v1",
+        "remaining_mean_precision_limit": "native_double_coupled_solve_absolute_archive_and_initial_reanchoring",
+        "schema": "orbit-poc-derivatives-3.1",
+        "synthetic_force_arithmetic": "configured_crf_parts_stable_reference_v1",
+        "tangent_accumulator_binary_digits": 64,
+        "tangent_integral_accumulation": "long_double_local_moments"
+      },
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-01/propagate.xml"
+        ],
+        "config_sha256": "e28b7cdde6f138c2cb7d2b686c61099f64ddb4ac50cc7bab7714f26f20579b59",
+        "elapsed_seconds": 1.569408523850143,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+        "peak_rss_bytes": 291590144,
+        "pid": 3,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "iteration": 1,
+      "maximum_initial_state_error_si": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_position_change_m": 0.3735939787113128,
+      "maximum_velocity_change_m_s": 0.00040891062186582236
+    },
+    {
+      "closed": true,
+      "derivatives": {
+        "coordinates": "CRF SI",
+        "drag_fd_evaluations": 0,
+        "drag_fd_initial_position_step_m": 0,
+        "drag_fd_initial_velocity_step_m_s": 0,
+        "drag_fd_maximum_position_absolute_difference_s_minus2": 0,
+        "drag_fd_maximum_position_unfloored_relative_difference": 0,
+        "drag_fd_maximum_refinements": 0,
+        "drag_fd_maximum_relative_difference": 0,
+        "drag_fd_maximum_velocity_absolute_difference_s_minus1": 0,
+        "drag_fd_maximum_velocity_unfloored_relative_difference": 0,
+        "drag_fd_position_absolute_tolerance_s_minus2": 0,
+        "drag_fd_position_derivative_floor_s_minus2": 0,
+        "drag_fd_position_floor_applied_columns": 0,
+        "drag_fd_position_step_range_m": [
+          0,
+          0
+        ],
+        "drag_fd_velocity_absolute_tolerance_s_minus1": 0,
+        "drag_fd_velocity_derivative_floor_s_minus1": 0,
+        "drag_fd_velocity_floor_applied_columns": 0,
+        "drag_fd_velocity_step_range_m_s": [
+          0,
+          0
+        ],
+        "gravity_source": "actual_forward_force",
+        "initial_velocity_parameter_scale": 5.787204490870684e-06,
+        "maximum_reference_position_precision_difference_m": 9.316958699542967e-08,
+        "maximum_reference_velocity_precision_difference_m_s": 1.0350014208734753e-10,
+        "maximum_tangent_iterations": 4,
+        "maximum_tangent_relative_residual": 1.7981677837774493e-12,
+        "mean_solve_coordinates": "residual_then_single_absolute_restore_v1",
+        "omitted_terms": [],
+        "profile": "synthetic_complete_v1",
+        "pulse_units": "micrometres_per_second",
+        "reference_GM_m3_s2": 398600441500000,
+        "reference_kinematics": "fitted_equinoctial_long_double_low_parts_v1",
+        "remaining_mean_precision_limit": "native_double_coupled_solve_absolute_archive_and_initial_reanchoring",
+        "schema": "orbit-poc-derivatives-3.1",
+        "synthetic_force_arithmetic": "configured_crf_parts_stable_reference_v1",
+        "tangent_accumulator_binary_digits": 64,
+        "tangent_integral_accumulation": "long_double_local_moments"
+      },
+      "execution": {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+          "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/propagate.xml"
+        ],
+        "config_sha256": "797c46dcf23fbc53277c6fc3e758162e81f8c5bcc591fca700085a86f4d3ef9d",
+        "elapsed_seconds": 1.6169234858825803,
+        "log": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/closure-diagnostic-01/run/replay/iteration-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22",
+        "peak_rss_bytes": 292151296,
+        "pid": 4,
+        "returncode": 0,
+        "timed_out": false
+      },
+      "iteration": 2,
+      "maximum_initial_state_error_si": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_position_change_m": 1.1519824039985408e-08,
+      "maximum_velocity_change_m_s": 1.247450811601557e-11
+    }
+  ],
+  "maximum_iterations": 10,
+  "native": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-02/binaries/groops-a66949456ad67b81",
+    "sha256": "a66949456ad67b816d09f2f14df792c68c2685f5304139499e4d90092fd75b22"
+  },
+  "plan_sha256": "3c20f3a4c04a3df8bcb68a98ab047f24a87de72a4b2e617ea7508666bf9568dc",
+  "position_tolerance_m": 2e-06,
+  "release_evidence": false,
+  "schema": "orbit-poc-fixed-state-profile-diagnostic-v1",
+  "state_epochs": 34560,
+  "status": "closed",
+  "telemetry_delta": "orbitPocDerivativeDiagnostics per iteration",
+  "velocity_tolerance_m_s": 3e-09
+}

@@ -1,0 +1,178 @@
+{
+  "admission": {
+    "affinity": [
+      32
+    ],
+    "backing_free_bytes": {
+      "attempts": 2356042158080,
+      "temporary": 2356042158080
+    },
+    "checks": 1,
+    "fit_cpu": 24,
+    "known_native_conflicts": [],
+    "minimum_observed_backing_free_bytes": 2356042158080,
+    "observed_at": "2026-10-18T23:22:04.475765+00:00",
+    "reservation": "Shared host; cooperative lock and affinity. No exclusive-core reservation claimed.",
+    "sibling_cpus": [
+      88
+    ],
+    "visibility_errors": []
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-01/controls/with_segmented_fit_namespace03.py",
+    "--invocation",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/invocation.json",
+    "--sha256",
+    "2b0f054b2cae35d8f543d2d9876ddf869ff99569e85cc3798a90b52b0f9bfd4f"
+  ],
+  "error": "FileNotFoundError(2, 'No such file or directory')",
+  "exclusive_core_claim": false,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 4127290,
+            "pid": 4130990,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 134934776,
+            "state": "Z"
+          },
+          {
+            "parent": 4130990,
+            "pid": 4134829,
+            "pid_namespace": "pid:[4026534167]",
+            "start_ticks": 134965825,
+            "state": "R"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-18T23:27:47.361912+00:00",
+        "pid_namespaces": [
+          "pid:[4026534167]"
+        ],
+        "returncode": 127,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-18T23:27:48.973321+00:00",
+  "last_host_guard": {
+    "affinity": [
+      32
+    ],
+    "backing_free_bytes": {
+      "attempts": 2356034781184,
+      "temporary": 2356034781184
+    },
+    "checks": 161,
+    "fit_cpu": 24,
+    "known_native_conflicts": [],
+    "minimum_observed_backing_free_bytes": 2356034781184,
+    "observed_at": "2026-10-18T23:27:47.263606+00:00",
+    "reservation": "Shared host; cooperative lock and affinity. No exclusive-core reservation claimed.",
+    "sibling_cpus": [
+      88
+    ],
+    "visibility_errors": []
+  },
+  "observer_cleanup": {
+    "elapsed_seconds": 1.6111369009595364,
+    "forced": false,
+    "identity": {
+      "parent": 4127290,
+      "pid": 4130989,
+      "start_ticks": 134934739,
+      "state": "R"
+    },
+    "ownership": "Direct child captured by a held pidfd; only this child is signalled.",
+    "returncode": 0,
+    "scope": "Observer code is separately pinned and creates no children. Workload namespace cleanup has its own independent receipt.",
+    "signals": [],
+    "stop_errors": [],
+    "verified": true
+  },
+  "observer_identity": {
+    "parent": 4127290,
+    "pid": 4130989,
+    "start_ticks": 134934739,
+    "state": "R"
+  },
+  "observer_plan": {
+    "bytes": 603,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/observer-plan.json",
+    "sha256": "a4f290251db13bdc8d8d7d31efe5f6bfdc5b2464f409926636e6b1ab63efc216"
+  },
+  "observer_summary": {
+    "bytes": 2131,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/observer/summary.json",
+    "sha256": "4fb6f8115918594fe94c73ecbb69f1e44661170303a8a184ef8bcd86d30b89d6"
+  },
+  "outer_elapsed_seconds": 632.8609476729762,
+  "outer_process_cpu_seconds": 302.411737128,
+  "plan": {
+    "bytes": 2989,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-campaign-control-08/host-plan.json",
+    "sha256": "74b108fce0232682a2d76406eb96f584050359ff0def4a4f81a1e7634f5330b0"
+  },
+  "preserved_inner_evidence": {
+    "files": [],
+    "present": false,
+    "status_promoted": false
+  },
+  "schema": "orbit-poc-segmented-blind-host-run-v3",
+  "scientific_success_inferred": false,
+  "shared_host_timing": true,
+  "started_at": "2026-10-18T23:17:16.112512+00:00",
+  "starting_terminal_prefix": 0,
+  "startup_seconds": 289.02529019187205,
+  "status": "controller_failed",
+  "timing_scope": "Outer verification, observation and postchecks recorded separately. Public per-fit time retains all original work including dense rank certification.",
+  "workload": {
+    "cleanup": {
+      "forced": false,
+      "identities": [
+        {
+          "parent": 4127290,
+          "pid": 4130990,
+          "pid_namespace": "pid:[4026531836]",
+          "start_ticks": 134934776,
+          "state": "Z"
+        },
+        {
+          "parent": 4130990,
+          "pid": 4134829,
+          "pid_namespace": "pid:[4026534167]",
+          "start_ticks": 134965825,
+          "state": "R"
+        }
+      ],
+      "live_owned_processes": [],
+      "observed_at": "2026-10-18T23:27:47.175868+00:00",
+      "pid_namespaces": [
+        "pid:[4026534167]"
+      ],
+      "returncode": 127,
+      "verified": true,
+      "was_running": false,
+      "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+    },
+    "elapsed_seconds": 341.9661722329911,
+    "interrupted_or_timeout": false,
+    "process": {
+      "parent": 4127290,
+      "pid": 4130990,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 134934776,
+      "state": "R"
+    },
+    "returncode": 127
+  }
+}

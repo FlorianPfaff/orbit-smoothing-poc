@@ -1,0 +1,107 @@
+{
+  "schema": "orbit-poc-native-complete-build-controls-publication-v1",
+  "observed_at": "2026-10-16T21:50:52.960784+00:00",
+  "status": "build02_actual_compiler_observed_no_terminal_result",
+  "failed_build01": {
+    "audit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/native-complete-build01-independent-failure-review01.json",
+      "sha256": "e4cfd4a4e98a02cf4ef150fd4ea11a57f5e44c46d926696fdab3b2d5d29ac5c4",
+      "bytes": 2352
+    },
+    "error": {
+      "status": "failed",
+      "error": "ValueError('Configured toolchain differs: CMAKE_MAKE_PROGRAM')",
+      "successful_stages": [
+        "public-installer-0",
+        "public-installer-1",
+        "public-installer-2",
+        "configure"
+      ],
+      "candidate_groops_objects": 0,
+      "fit_attempts": 0,
+      "cmake_compiler_probes_not_excluded": true
+    },
+    "measured_causes": {
+      "configured_ninja_matches_original_cache": true,
+      "configured_ninja_version": "1.13.2",
+      "configured_ninja_sha256": "295d6db0235d00b2dd280f732e108568cc006a49918614db3f719d5a9d2d4ebf",
+      "erroneous_control_ninja_version": "1.10.1",
+      "erroneous_control_ninja_sha256": "a9ddfbf7e365a2e5026ed44f9173e498e37d8b71ec5e259b2c2a684f16cfa862",
+      "project_languages": [
+        "CXX",
+        "Fortran"
+      ],
+      "C_compiler_cache_entry_absent_in_original_and_current": true,
+      "selected_cache_field_differences": 0,
+      "CMakeLists_and_compiler_metadata_unchanged": true
+    },
+    "cleanup": {
+      "controller_verified": true,
+      "captured_owned_nonlive": 9,
+      "captured_at": "2026-10-16T21:40:28.721089+00:00",
+      "fresh_independent_proc_scan": false
+    }
+  },
+  "passed_preflight04": {
+    "audit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/native-complete-preflight04-independent-terminal-review01.json",
+      "sha256": "dce92a17c99639eb27033b000d539184716da6b4db6bcdc45706301ccf2638cf",
+      "bytes": 5538
+    },
+    "source": {
+      "additions": 3,
+      "full_actual_tree_hashed": true,
+      "installed_files": 1134,
+      "installed_sha256": "eebb8e0c16775cb44d8bc9d2de853f985daa96e61bf26877b2f23f91da6c532a",
+      "original_files": 1131,
+      "original_preserved": true,
+      "replacements": 4,
+      "repository_files": 79
+    },
+    "supplemental": {
+      "exact_fraction_roundtrip": true,
+      "flags": [
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17"
+      ],
+      "interpolation": true,
+      "serializer": true
+    },
+    "original_ninja_identity_verified": true,
+    "scope": {
+      "candidate_groops_objects_compiled": 0,
+      "fits": 0,
+      "propagations": 0,
+      "release_ready": false,
+      "scientific_gates": 0
+    }
+  },
+  "actual_build02": {
+    "launch_created_at": "2026-10-16T21:50:21.596117+00:00",
+    "driver": {
+      "pid": 2847170,
+      "start_ticks": 117104415,
+      "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa"
+    },
+    "plan_sha256": "b4893fd49d80c8dd41612c1859d9eb6b5037d4b24c19cc23239e755337fc6045",
+    "execution_sha256": "4791d3c1e82bd4a36d14e909f18bb737e38d58feeb4856c95548997d26d41c00",
+    "observed_build_step": 45,
+    "planned_ninja_steps": 633,
+    "candidate_translation_units_expected": 611,
+    "compiler_cpu": 24,
+    "pinned_toolchain": "GCC 15.3",
+    "completion_claimed": false
+  },
+  "scope": {
+    "candidate_executable_available": false,
+    "full_native_closure_passed": false,
+    "new_complete_correctness_suite_passed": false,
+    "v4_fit_attempts": 0,
+    "v4_planned_fits": 68,
+    "release_ready": false
+  },
+  "raw_original_records": 70,
+  "preservation": "Retain the original Ninja/cache metadata failure, its failed live-probe observation, original namespace/Python path failures referenced by recovery index, exact corrected preflight04 and all control versions. No numerical model or tolerance change is inferred.",
+  "dated_observation_limit": "Current build liveness and later progress are not inferred from this historical observation."
+}

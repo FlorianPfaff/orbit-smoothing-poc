@@ -1,0 +1,56 @@
+{
+  "driver": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-01/control/owned_driver09.py",
+    "sha256": "72ac591a4c0b1d18b67b2739d694be40e271ec09d7b0f9b3dcad4287cb88fdcd"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-01/control/execution.json",
+    "sha256": "4770fc0784c213c4866bf123363aa9f9e5f096820800ecb6bd5bdb1fb299a66c"
+  },
+  "global_lock": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/control/candidate09-validation.lock",
+  "previous_source_freeze": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-01/control/previous-source-freeze.json",
+    "sha256": "84bb02f56e3f46f5624f188051670378ba5f5a5a492e2eac50514e7b7149a869"
+  },
+  "runner": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-01/control/segmented_engineering.py",
+    "sha256": "9da95f087a2c1374572378a6a7df4aa8f2df8f084ca6bc8bb5f32cc31f271652"
+  },
+  "schema": "orbit-poc-segmented-engineering-plan-v1",
+  "source_freeze": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/engineering-01/control/source-freeze.json",
+    "sha256": "390e036f0fe5188929c1a29ea47047651124bdc9ef6a52e7d56eab5022545ddf"
+  },
+  "tests": [
+    {
+      "count": 106,
+      "files": [
+        "tests/test_numerics_native_qr.py",
+        "tests/test_numerics_original_objective.py",
+        "tests/test_numerics_mean_residual.py",
+        "tests/test_numerics_derivatives.py",
+        "tests/test_numerics_geometry_precision.py",
+        "tests/test_numerics_synthetic_force_arithmetic.py"
+      ],
+      "name": "native-tests"
+    },
+    {
+      "count": 51,
+      "files": [
+        "tests/test_numerics_query_precision.py",
+        "tests/test_numerics_reference_precision.py",
+        "tests/test_numerics_precise_residual.py",
+        "tests/test_numerics_precise_objective.py",
+        "tests/test_numerics_light_time_precision.py"
+      ],
+      "name": "correction-tests"
+    },
+    {
+      "count": 3,
+      "files": [
+        "tests/test_segmented_native_tangent.py"
+      ],
+      "name": "segmented-tangent-tests"
+    }
+  ]
+}

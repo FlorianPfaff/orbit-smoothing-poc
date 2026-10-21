@@ -1,0 +1,20 @@
+{
+  "schema": "orbit-poc-signal-refinement-mode-v1",
+  "environment": {
+    "ORBIT_POC_NUMERICS_QR_PREFIX": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-04/run/validation/attempt-0001/synthetic-refinement-pulses/result/fine/predictions/interpolation-audit",
+    "ORBIT_POC_NUMERICS_SOLVER": "scaled_qr_v1"
+  },
+  "native_program": "OrbitPocPredictSignals",
+  "nuisance_fitting": false,
+  "fixed_receiver_clock_offsets_seconds": [
+    5e-08,
+    -5e-08,
+    5e-06,
+    -5e-06,
+    2e-05,
+    -2e-05
+  ],
+  "receiver_cache_refresh": "Exact native OrbitPocPiecewisePolynomial at corrected receive times plus sub-Time remainders, including original pulse/density boundaries",
+  "receiver_position_rounding": "Preserve sub-double interpolation remainders for the native stable range equation",
+  "interpolation_policy": "Same QR-enabled native Polynomial relative-query evaluation and exact boundary sides as the numerical estimator"
+}

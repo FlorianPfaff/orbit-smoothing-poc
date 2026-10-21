@@ -1,0 +1,192 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/run_native_complete01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/plan.json",
+        "--sha256",
+        "cf35f2bbaf810f065d79d4f3f41e007e7fb58cb8c72a4d99ad39d8c54217d150"
+      ],
+      "command_sha256": "5de55627d01f97e8393c9e4688995545ed7e972c9b642f3141a4f8677a467f8f",
+      "parent": 1,
+      "pid": 2834402,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 116933457,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T21:21:54.410828+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "Owned CPU24 serial source/fixture preflight only; copied-object baseline relink, pristine installer equality and two supplemental fixtures. No candidate GROOPS compilation, propagation or fitting.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/execution.json",
+    "--execution-sha256",
+    "f0c20575afe310e36524ee3659f1e117ba9f53fbea177e00a51c8c3051aa0056",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/build_native_complete01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/plan.json",
+    "--sha256",
+    "cf35f2bbaf810f065d79d4f3f41e007e7fb58cb8c72a4d99ad39d8c54217d150"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2834402,
+        "pid": 2834429,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 116933703,
+        "state": "Z"
+      },
+      {
+        "parent": 2834429,
+        "pid": 2834430,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 116933706,
+        "state": "S"
+      },
+      {
+        "parent": 2834430,
+        "pid": 2834431,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 116933708,
+        "state": "S"
+      },
+      {
+        "parent": 2834431,
+        "pid": 2834440,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 116933921,
+        "state": "S"
+      },
+      {
+        "parent": 2834440,
+        "pid": 2834441,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 116933921,
+        "state": "S"
+      },
+      {
+        "parent": 2834441,
+        "pid": 2834442,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 116933921,
+        "state": "D"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-16T21:21:57.812540+00:00",
+    "pid_namespaces": [
+      "pid:[4026534144]"
+    ],
+    "returncode": 1,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "elapsed_seconds": 3.3338899191003293,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2834402,
+            "pid": 2834429,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 116933703,
+            "state": "Z"
+          },
+          {
+            "parent": 2834429,
+            "pid": 2834430,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 116933706,
+            "state": "S"
+          },
+          {
+            "parent": 2834430,
+            "pid": 2834431,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 116933708,
+            "state": "S"
+          },
+          {
+            "parent": 2834431,
+            "pid": 2834440,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 116933921,
+            "state": "S"
+          },
+          {
+            "parent": 2834440,
+            "pid": 2834441,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 116933921,
+            "state": "S"
+          },
+          {
+            "parent": 2834441,
+            "pid": 2834442,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 116933921,
+            "state": "D"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T21:22:00.309787+00:00",
+        "pid_namespaces": [
+          "pid:[4026534144]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T21:22:00.309804+00:00",
+  "fit_attempts": 0,
+  "interrupted_or_timeout": false,
+  "peak_owned_rss_bytes": 275177472,
+  "plan": {
+    "bytes": 4007,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-preflight-02/control/plan.json",
+    "sha256": "cf35f2bbaf810f065d79d4f3f41e007e7fb58cb8c72a4d99ad39d8c54217d150"
+  },
+  "process": {
+    "parent": 2834402,
+    "pid": 2834429,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 116933703,
+    "state": "S"
+  },
+  "release_evidence": false,
+  "returncode": 1,
+  "schema": "orbit-poc-owned-native-complete-build-v1",
+  "started_at": "2026-10-16T21:21:54.410889+00:00",
+  "status": "failed_diagnostic"
+}

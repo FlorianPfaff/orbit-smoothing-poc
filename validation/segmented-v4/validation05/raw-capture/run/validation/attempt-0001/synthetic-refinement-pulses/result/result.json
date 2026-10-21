@@ -1,0 +1,111 @@
+{
+  "binary_sha256": "eb41fabb2117fd81c9d018793ad8e067f6ae65e86d71dae8e6ef8fcca4771133",
+  "case": {
+    "atmosphere": "quiet",
+    "cadence": 30.0,
+    "coverage": "normal",
+    "duration_hours": 1.0,
+    "epoch": "2024-04-24T00:00:00",
+    "mask": {
+      "cadence_seconds": 30,
+      "intervals_seconds": [],
+      "time_scale": "elapsed"
+    },
+    "orbit": "leo500",
+    "seed": 300000,
+    "truth_model": "retained_tudat_engineering_truth_instruments"
+  },
+  "coarse_variational_config_sha256": "1fd7505f5cb36d65768232f05e12338283256fe1a4ec52811c7c57a122255e9e",
+  "diagnostic_source_sha256": "1d53c011b87929874b3663f3743a46f66d63dd45e449b85c5e37ed0012ac08d0",
+  "elapsed_seconds": 9.369774497114122,
+  "fine_variational_config_sha256": "d0a22428b2c603964164ba475caad7d4dabb03fefae776e0e01011e52dcdc2f6",
+  "fixed_force": [
+    40.0,
+    -30.0,
+    20.0,
+    40.0,
+    -30.0,
+    20.0
+  ],
+  "fixed_force_units": "micrometres per second",
+  "initial_state_sha256": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+  "method": "groops_pulses",
+  "metrics": {
+    "aligned_position_maximum_m": 1.742967150380174e-08,
+    "offgrid_position_maximum_m": 5.543041475485635e-06
+  },
+  "native_signals": {
+    "comparison_weight_source": "coarse native sigma shared by both predictions",
+    "comparison_weights_frozen": true,
+    "fixed_nuisance_values_identical": true,
+    "limitation": "Paired numerical differences at fixed nuisance values; absolute residuals, especially unknown carrier ambiguities, are not scored.",
+    "passed": true,
+    "raw_native_sigma_maximum_relative_change": 3.700743415417189e-16,
+    "raw_native_sigmas_identical": false,
+    "receiver_clock_values_seconds": [
+      -2e-05,
+      -5e-06,
+      -5e-08,
+      5e-08,
+      5e-06,
+      2e-05
+    ],
+    "signals": [
+      {
+        "assumed_sigma_m": 0.3,
+        "frequency_hz": 1575420000.0,
+        "maximum_difference_m": 1.6024387150537223e-08,
+        "maximum_fraction_of_sigma": 5.3414623835124075e-08,
+        "minimum_native_sigma_m": 0.29999999999999993,
+        "observable": "code",
+        "passed": true,
+        "rows": 2702
+      },
+      {
+        "assumed_sigma_m": 0.3,
+        "frequency_hz": 1227600000.0,
+        "maximum_difference_m": 1.6024387150537223e-08,
+        "maximum_fraction_of_sigma": 5.3414623835124075e-08,
+        "minimum_native_sigma_m": 0.29999999999999993,
+        "observable": "code",
+        "passed": true,
+        "rows": 1351
+      },
+      {
+        "assumed_sigma_m": 0.003,
+        "frequency_hz": 1575420000.0,
+        "maximum_difference_m": 1.6024387150537223e-08,
+        "maximum_fraction_of_sigma": 5.3414623835124075e-06,
+        "minimum_native_sigma_m": 0.002999999999999999,
+        "observable": "carrier",
+        "passed": true,
+        "rows": 2702
+      },
+      {
+        "assumed_sigma_m": 0.003,
+        "frequency_hz": 1227600000.0,
+        "maximum_difference_m": 1.6024387150537223e-08,
+        "maximum_fraction_of_sigma": 5.3414623835124075e-06,
+        "minimum_native_sigma_m": 0.002999999999999999,
+        "observable": "carrier",
+        "passed": true,
+        "rows": 1351
+      }
+    ]
+  },
+  "observation_sha256": "f8684cba376c7c78e9964deb209f8fd71db115de631b05cdbfa289be9ea5dead",
+  "offgrid_epochs": 899,
+  "passed": true,
+  "profile": "synthetic_complete_v1",
+  "propagations": 4,
+  "request_sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5",
+  "schema": "synthetic-staged-refinement-3.1",
+  "scope": "Engineering synthetic native numerical refinement at fixed initial state, prescribed nonzero disturbances and fixed nuisance values; no accuracy or uncertainty claim",
+  "signal_diagnostic_source_sha256": "a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9",
+  "signal_prediction_mode": "QR-enabled native Polynomial query evaluation; fixed nuisance values",
+  "state_grid_seconds": [
+    5.0,
+    2.5
+  ],
+  "status": "complete"
+}

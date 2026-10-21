@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validate_existing.py", line 66, in <module>
+    try:main()
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validate_existing.py", line 60, in main
+    test('candidate-empty-root',binary,args,True);need((write/'accepted').read_text()=='accepted\n' and allowed.read_text()=='orbit-bwrap-cap-fixture\n' and secret.read_text()=='not-visible\n','Fixture backing changed')
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validate_existing.py", line 56, in test
+    if success:need(r.returncode==0 and 'namespace-fixture-passed' in r.stdout,'Namespace fixture failed')
+  File "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/bwrap-cap-validation-inputs02/validate_existing.py", line 5, in need
+    if not v:raise ValueError(m)
+ValueError: Namespace fixture failed

@@ -1,0 +1,66 @@
+{
+  "audit_helpers": [
+    {
+      "bytes": 8436,
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation05_numerical_failure01.py",
+      "sha256": "431f947123e0035ae96de27cec9da6e457ddc10fac22c9f7079de461c72e1024"
+    },
+    {
+      "bytes": 3302,
+      "path": "/mnt/d/orbit-segmented-v4/control/audit_preparation05_numerical_path01.py",
+      "sha256": "6b6b51fa7343bf6767a9e838c9549b9ce1bdfd901009bb81f945a1897d11b954"
+    }
+  ],
+  "audited_observations": [
+    {
+      "bytes": 22719,
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation05-numerical-failure-independent-review01/readback.json",
+      "sha256": "eb89df6cbcad766b654ad48ab1b0b7be32e8a07fa06e88a181975d80dce549ef"
+    },
+    {
+      "bytes": 7080,
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation05-numerical-failure-independent-review01/numerical-path.json",
+      "sha256": "9497dd0a50d91da19f9e1b9b2b67e15e91afb8ba5ccbb00aebb792a9839a6c8c"
+    }
+  ],
+  "benchmark_fit_attempts": 0,
+  "checks": {
+    "all_archived_trajectory_differences_independently_recomputed": true,
+    "all_native_preparation_calls_normal_exit": true,
+    "complete_eleven_configuration_profile_check": true,
+    "exact_failed_request_and_unchanged_settings": true,
+    "fixed_initial_state_restored_exactly": true,
+    "no_manifest_or_fit_attempts": true,
+    "remote_reviewed_source_matches_local_immutable_source": true,
+    "strict_initialization_helper_identity": true,
+    "terminal_attribution_and_owned_process_cleanup": true
+  },
+  "created_at": "2026-10-16T04:17:24.842349+00:00",
+  "findings": [
+    "The 48-hour preparation exhausted ten iterations at the unchanged 2 micrometre position and 3e-9 m/s velocity limits; it was not killed by time or memory limits.",
+    "Position corrections initially contracted from 0.3694 m to 30.44 micrometres, then fluctuated between 6.448 and 31.15 micrometres. The final change was 20.707 micrometres and 2.308e-8 m/s, dominated by along-track change.",
+    "Every saved 48-hour propagation XML omits orbitPocDerivativeProfile and therefore selects legacy_v3. Corrected synthetic reference and force residual arithmetic and the coupled mean solver are opt-in and were bypassed.",
+    "The completed 24-hour prefix used a separately initialized state and is a preparation regression comparison, not an identical physical initial-state comparison."
+  ],
+  "limitations": [
+    "The arithmetic operation responsible for the numerical floor has not been isolated by an identical-input native perturbation experiment.",
+    "Selecting the already-corrected staged path is a targeted diagnostic hypothesis, not a demonstrated fix.",
+    "No objective-fit, covariance, benchmark completion or release claim is supported.",
+    "Prior generator and 24-hour checkpoint metadata were verified; their full output inventories were not rehashed during this focused diagnostic."
+  ],
+  "passed": true,
+  "pipeline": {
+    "bytes": 23214,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/control05/pipeline.json",
+    "sha256": "ec50547ac0a02d6bf80705350735809e4794e64e564cdf29d25bcc66508c422e"
+  },
+  "release_ready": false,
+  "request": {
+    "bytes": 1118349,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-02/backings/run/preparation-jobs/prefix-9f71eb67221fe67a092ea4566e05bce837b47c5c4e6a2d917909ced474aa03c4/request.json",
+    "sha256": "fa646eee50d30d6db54a51a40411e1bb81e6ca3b72bee6ea29425e2c6bc9e39d"
+  },
+  "schema": "orbit-poc-preparation-failure-independent-audit-v1",
+  "scope": "Independent read-only failure attribution, trajectory postprocessing and source-path review. No source edits, native workloads, threshold changes or failed-case replacement.",
+  "terminal_outcome": "failed_or_blocked"
+}

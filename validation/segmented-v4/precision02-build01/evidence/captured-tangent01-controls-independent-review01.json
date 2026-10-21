@@ -1,0 +1,59 @@
+{
+  "schema": "orbit-poc-captured-tangent-controls-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:35:59.959523+00:00",
+  "scripts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/replay_captured_tangent01.py",
+      "sha256": "d311ee0199e8bcf41809082cdc268f3b6dfea0934da015017bf15b059de72619",
+      "bytes": 4642
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_captured_tangent01.py",
+      "sha256": "88b1fba7c19018a550caf2db6d66bf52c6b0afa85ba3bd35b75be91f5b906c83",
+      "bytes": 5131
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/stage_captured_tangent01.py",
+      "sha256": "15eafdfb4d64c898b529c60bac74c8f799708019aa072553482fb63a1ee10f0f",
+      "bytes": 4586
+    }
+  ],
+  "reader_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-quad-reader03-independent-review01.json",
+    "sha256": "714fe279347f8e3fd584b6657f60a611257a224754fde20438b48ec25fb84c25",
+    "bytes": 3402
+  },
+  "fixture_tests": {
+    "passed": 15,
+    "failed": 0,
+    "skipped": 0,
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent01-independent-tests.log",
+      "sha256": "fad28e15a4f48266e49aa59ed25a49ecc88d240138c83608eb25fcaf7706361c",
+      "bytes": 198
+    },
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/captured-tangent01-independent-tests.xml",
+      "sha256": "dd064eff24359578a75a985541319a156e306e9d29d43108b8c4f9ca44a7e65e",
+      "bytes": 2288
+    },
+    "source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_captured_tangent01.py",
+      "sha256": "7e68e44480f93f66428be1cface35920f64b6809b81f136dbdf605a9a70fdb96",
+      "bytes": 2420
+    }
+  },
+  "checks": [
+    "Exactly eight preserved inputs bind the capture, actual native capture result, build result, reader source and three unchanged header files plus their manifest.",
+    "Compile command retains the recorded compiler and exact O3/NDEBUG/gnu++17 recipe; current compiler hash and resulting dynamic library identities are recorded.",
+    "Native capture result must retain exact original failure reproduction and match the original capture build; no GROOPS call exists in this worker.",
+    "Reader failure remains explicit with complete trace/stderr; unchanged 120 iterations, restart20,2e-12 limits are checked from actual output.",
+    "Owned controller retains identical shared lock, current-host admission, one thread, memory/wall bounds and cleanup behavior.",
+    "Fresh standalone paths add only read-only original capture/build bindings; originals and production source remain unchanged."
+  ],
+  "scope": "Diagnostic-only reader compile/run controls approved under root standing authority after exact packet pins and current admission. No scientific or fit launch authority.",
+  "groops_propagations": 0,
+  "fit_attempts": 0,
+  "release_ready": false
+}

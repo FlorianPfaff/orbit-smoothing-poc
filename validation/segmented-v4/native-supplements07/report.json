@@ -1,0 +1,529 @@
+{
+  "batch": {
+    "audit": "evidence/batch-independent-review.json",
+    "cases": 10,
+    "fixture_runs": 1,
+    "gnss_offset_path_exercised": false,
+    "maximum_absolute_value_bound": 1.8019956769421608e-11,
+    "new_main_object": 1,
+    "passed": true,
+    "unchanged_reused_objects": 610
+  },
+  "benchmark_fit_attempts": 0,
+  "benchmark_planned_attempts": 68,
+  "created_at": "2026-10-18T20:21:27.512686+00:00",
+  "flight": {
+    "audit": "evidence/flight-reinspection-independent-review.json",
+    "binary_and_text_orbits_identical": true,
+    "both_native_returncodes": 0,
+    "initial_checker_failure": "Literal dt == 5 rejected native endpoint-span value 5.000000000000568; failed attempt remains unchanged.",
+    "metrics": {
+      "drag_samples": 3241,
+      "effective_anchored_offgrid_drag_samples": 2880,
+      "epochs": 361,
+      "maximum_stm_absolute_error": 1.3642420526593924e-11,
+      "maximum_stm_tolerance_fraction": 9.086886236947878e-05,
+      "native_relative_residual": 1.602306185512713e-13,
+      "residual_limit": 2e-12,
+      "stm_atol": 2e-09,
+      "stm_rtol": 2e-09,
+      "time_grid": {
+        "all_retained_time_components_identical": true,
+        "checked_epochs": 361,
+        "endpoint_span_seconds": 1800.0000000002046,
+        "inherited_interval_limit_seconds": 2e-06,
+        "inherited_window_limit_seconds": 1e-05,
+        "maximum_nominal_epoch_offset_seconds": 1.609805622138083e-10,
+        "native_dt_seconds": 5.000000000000568,
+        "native_initial_velocity_scale": 0.0005555555555554923,
+        "nominal_duration_seconds": 1800,
+        "nominal_interval_seconds": 5
+      }
+    },
+    "native_legs": 2,
+    "reference_orbit_sha256": "457101e15bab6b632393d44da1d544aae968b3efe29f23a63c7f5b127af52138",
+    "reinspection": "Exact retained binary Time components and native endpoint arithmetic; no threshold relaxation or new native execution.",
+    "status": "preserved_failed_checker_then_separate_passed_reinspection"
+  },
+  "frozen_source_files": 405,
+  "frozen_source_sha256": "9f37ce4fbd8484e1c0f16caa742670b42d9d08a639c036bded66403c2708ec8a",
+  "limitations": [
+    "No benchmark fit has begun. These checks do not establish nonlinear convergence, accepted-fit covariance, speedup or release readiness.",
+    "The batch fixture does not exercise GNSS precise observation-offset interpolation.",
+    "The flight pair uses QR in both legs and retained closure03. It is neither ordinary-to-QR equivalence nor replay of the deleted closure02 input.",
+    "flight_gravity_drag_v1 omits thermal-history sensitivities, other force gradients and atmospheric event-time derivatives.",
+    "Shifted checks use one-hour captured synthetic linearizations, not multi-day fits. Their unit-denominator gradient is not a nonlinear convergence criterion.",
+    "The pulse 300-second shifts move no interior parameter ownership; only the 1800-second shifts provide that coverage.",
+    "Shifted diagnostics inherit an 8 GiB per-process address-space limit; this is not an aggregate process-tree RSS certificate.",
+    "Native output arrays, covariance arrays, orbit binaries and 32 row spools remain external with exact locations and hashes in capture manifests.",
+    "Multi-day preparation and the immutable 68-attempt manifest remain separate. The original v3.1 150-attempt campaign is unchanged and must complete separately."
+  ],
+  "native_sha256": "643a1b6d523a363eae88902f2a2d4807452ea3edbd504bceaad23a94d65fb2f6",
+  "preparation_milestone": {
+    "completed_28_request_catalog": false,
+    "created_at": "2026-10-18T20:19:49.139318+00:00",
+    "independent_live_review": {
+      "bytes": 3170,
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation07-live-launch-independent-review01.json",
+      "sha256": "81da9fa6d5d282579f7dca5992025b42b8f3c975a34f754ef0ffc4a048571a0a"
+    },
+    "launch": {
+      "bytes": 1462,
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation07-full-launch01.stdout.json",
+      "sha256": "7a0182c254358ddd22f70840540ca4c7b3ce94b8e5c8cf9b365309a5e30f7b73"
+    },
+    "numerical_environment": {
+      "bytes": 2117,
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation07-live-numerical-environment01.json",
+      "sha256": "963ae0c6d23741b1951711d283524ac4d9936215b22fa5f6308895ca6980aefe"
+    },
+    "observed_at": "2026-10-18T20:21:14.537636+00:00",
+    "sealed_68_attempt_manifest": false,
+    "status": "verified_running_at_capture"
+  },
+  "published_artifacts": [
+    {
+      "original": {
+        "bytes": 1462,
+        "path": "/mnt/d/orbit-segmented-v4/control/preparation07-full-launch01.stdout.json",
+        "sha256": "7a0182c254358ddd22f70840540ca4c7b3ce94b8e5c8cf9b365309a5e30f7b73"
+      },
+      "published_path": "evidence/preparation07-launch.json"
+    },
+    {
+      "original": {
+        "bytes": 3048,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal-independent-review01.json",
+        "sha256": "b0ee23920acc658a4093e4286443500b036b622b21cedeff3eb83bec15de207d"
+      },
+      "published_path": "evidence/batch-independent-review.json"
+    },
+    {
+      "original": {
+        "bytes": 6329,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal01/manifest.json",
+        "sha256": "9b289f054eb394f9d48e040618d2010ddbb4b6a8682a75a58a3401f533f7b5ba"
+      },
+      "published_path": "evidence/batch-capture-manifest.json"
+    },
+    {
+      "original": {
+        "bytes": 6600,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal01/control/pipeline.json",
+        "sha256": "81edfd0a56c78d68527037f77ee8e3ef3b4f544746a2fcbdc85acfee644891de"
+      },
+      "published_path": "evidence/batch-pipeline.json"
+    },
+    {
+      "original": {
+        "bytes": 3486,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-terminal01/control/plan.json",
+        "sha256": "4180e67cbd28ee26b9b541673b81b441ede04b0e8e652c60069990200d8b0b83"
+      },
+      "published_path": "evidence/batch-plan.json"
+    },
+    {
+      "original": {
+        "bytes": 824,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-batch01-packet/manifest.json",
+        "sha256": "a28698820ae422bd4820b62f781975a1028e675d0ae599de09ce00f0e127f64d"
+      },
+      "published_path": "evidence/batch-control-manifest.json"
+    },
+    {
+      "original": {
+        "bytes": 4168,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-failure-independent-review01.json",
+        "sha256": "85390a56ddb44cf7361dd64c06b888091888842b05f64495ab3e232ac026d60c"
+      },
+      "published_path": "evidence/flight-failed-attempt-review.json"
+    },
+    {
+      "original": {
+        "bytes": 10038,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/manifest.json",
+        "sha256": "e4fa1a31914c325d7cd98cfd6f0c3833dfd537a4b91f1d92d018c5ba34920c8e"
+      },
+      "published_path": "evidence/flight-capture-manifest.json"
+    },
+    {
+      "original": {
+        "bytes": 5500,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/control/pipeline.json",
+        "sha256": "5267b5c71dd5c28d10b25a88ca24005cf238819f9d090f27212864b8e4b2ae6c"
+      },
+      "published_path": "evidence/flight-failed-pipeline.json"
+    },
+    {
+      "original": {
+        "bytes": 13850,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/result/failure.json",
+        "sha256": "c629092e95f0cff6349bca808cf03933350ea723bc1e7e1c4281cf48438a04fd"
+      },
+      "published_path": "evidence/flight-original-checker-failure.json"
+    },
+    {
+      "original": {
+        "bytes": 6165,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/result/no-export-execution.json",
+        "sha256": "697802c18e6fcc8abfa48b9f44d6cc2ba969e7f66fb34060bad5b2941d86d356"
+      },
+      "published_path": "evidence/flight-no-export-execution.json"
+    },
+    {
+      "original": {
+        "bytes": 6148,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/result/export-execution.json",
+        "sha256": "1443d82ddb574b48f609f67d8e98aa9883095a2d48df4324cbc2f0a73630a54b"
+      },
+      "published_path": "evidence/flight-export-execution.json"
+    },
+    {
+      "original": {
+        "bytes": 19778,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/plan.json",
+        "sha256": "72c5beae826aa0114a6d99b76028bfdd8909149c02931827dba5ec33625b7593"
+      },
+      "published_path": "evidence/flight-pair-plan.json"
+    },
+    {
+      "original": {
+        "bytes": 9653,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/no-export/flight.xml",
+        "sha256": "1572f8eed2b38a68c1533121878552582c10d1eba68d3f9b5ec2bb614af6890a"
+      },
+      "published_path": "evidence/flight-no-export.xml"
+    },
+    {
+      "original": {
+        "bytes": 10171,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/export/flight.xml",
+        "sha256": "2a6f195dae567027271d67c3213220ef11dafe98c42ca0321d6814f318523a50"
+      },
+      "published_path": "evidence/flight-export.xml"
+    },
+    {
+      "original": {
+        "bytes": 2035,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/export/derivatives.json",
+        "sha256": "602869f31619ee9800fa918e33eb806ecab3b542e7a488d89a4289f1a5102956"
+      },
+      "published_path": "evidence/flight-derivatives.json"
+    },
+    {
+      "original": {
+        "bytes": 5436,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03-independent-review01.json",
+        "sha256": "fefb9792333e039a422b314676f0eb0a970230fe67c274da94be30374ee73667"
+      },
+      "published_path": "evidence/flight-reinspection-independent-review.json"
+    },
+    {
+      "original": {
+        "bytes": 3146,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/manifest.json",
+        "sha256": "18f56ae01bf1bee02b4e816d47a441380026d99ff99bea19f3150f6dfd2ca378"
+      },
+      "published_path": "evidence/flight-guard03-manifest.json"
+    },
+    {
+      "original": {
+        "bytes": 25726,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-supplemental03-independent01.xml",
+        "sha256": "0189e9e5c4d5168c1d474e50410b6bbc9fb15571c127f43cbc60d27063ce9108"
+      },
+      "published_path": "evidence/flight-guard03-tests.xml"
+    },
+    {
+      "original": {
+        "bytes": 4220,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-native-time-readback01/manifest.json",
+        "sha256": "38b656b3b24665f9ea90f346265c3b3c84899b774c1be76d85a0f0247f151819"
+      },
+      "published_path": "evidence/flight-native-time-source-manifest.json"
+    },
+    {
+      "original": {
+        "bytes": 70015,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-terminal-independent-review01.json",
+        "sha256": "08e3a6b22d0fb771f305181868a417d70598fa32a32b083b348afea27123f1af"
+      },
+      "published_path": "evidence/shifted-independent-review.json"
+    },
+    {
+      "original": {
+        "bytes": 50560,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-terminal01/manifest.json",
+        "sha256": "45f9f07f04aaebf9b9960087f40574df0bdb41bfba7c1ab7e215ee2ab192f68a"
+      },
+      "published_path": "evidence/shifted-capture-manifest.json"
+    },
+    {
+      "original": {
+        "bytes": 39872,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-terminal01/control/pipeline.json",
+        "sha256": "a430a0c06bf4ef3652b43029ab24ecffc74403b55d84d34328d6d52859108bbe"
+      },
+      "published_path": "evidence/shifted-pipeline.json"
+    },
+    {
+      "original": {
+        "bytes": 2923,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-terminal01/control/plan.json",
+        "sha256": "027b46b32ca3631c6f180a803ec3911cd9fd52b9ace42fff653774976942d97a"
+      },
+      "published_path": "evidence/shifted-plan.json"
+    },
+    {
+      "original": {
+        "bytes": 68303,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-terminal01/run/log_drag_ou/validation.json",
+        "sha256": "2915f22939e991f94d4c2ca0ac05fcc8b3edf419e2f7fb1ba1750370e74df077"
+      },
+      "published_path": "evidence/shifted-density.json"
+    },
+    {
+      "original": {
+        "bytes": 52351,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-terminal01/run/pulses/validation.json",
+        "sha256": "de86b646efe9792f7e71fe711b98a0dc12cb72d8835b5ec341bc6da729832a55"
+      },
+      "published_path": "evidence/shifted-pulses.json"
+    },
+    {
+      "original": {
+        "bytes": 17627,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-independent-row-analysis-01/process.json",
+        "sha256": "18f2d7fc460b1d9e62e64d68640df9319005997e55ecde7f06d8f872b46d6bdf"
+      },
+      "published_path": "evidence/shifted-row-audit-process.json"
+    },
+    {
+      "original": {
+        "bytes": 43955,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-independent-row-analysis-01/result.json",
+        "sha256": "ff149910f1e4c47d394885ff5c23d32d30dcf5b17f5b5627dea3895a764d7cdc"
+      },
+      "published_path": "evidence/shifted-row-audit-result.json"
+    },
+    {
+      "original": {
+        "bytes": 23641,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/gates.py",
+        "sha256": "04408988d816e09d6c1d86de9def4104ba2e5ebf12f215cba987ac9db8138016"
+      },
+      "published_path": "controls/gates.py"
+    },
+    {
+      "original": {
+        "bytes": 19673,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/request_adapter.py",
+        "sha256": "7c85c5512dbba25fb2bd981c9849b067acc708d172d1e8fd246407a2d4f251c1"
+      },
+      "published_path": "controls/request_adapter.py"
+    },
+    {
+      "original": {
+        "bytes": 5564,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/native_batch_fixture.cpp",
+        "sha256": "ed86c3c0ba38cddf77d57d96adea65cd7d669f6cd7afe4ae4e7cc45c707552f3"
+      },
+      "published_path": "controls/native_batch_fixture.cpp"
+    },
+    {
+      "original": {
+        "bytes": 16905,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/test_gates.py",
+        "sha256": "76a79406f8c78a6935a28ec2385ed73de028ed4077304e374d40d9ad99d35135"
+      },
+      "published_path": "controls/test_gates.py"
+    },
+    {
+      "original": {
+        "bytes": 12802,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/test_request_adapter.py",
+        "sha256": "9abe7528448d5163c6e46b6220009ce8ca1db0c1486213457f5c1b24e531eba2"
+      },
+      "published_path": "controls/test_request_adapter.py"
+    },
+    {
+      "original": {
+        "bytes": 5582,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/test_time_grid.py",
+        "sha256": "1f199e8e6a97337afff787d63c090ac5b35f00e10680906cc782d06ee2926337"
+      },
+      "published_path": "controls/test_time_grid.py"
+    },
+    {
+      "original": {
+        "bytes": 2424,
+        "path": "/mnt/d/orbit-segmented-v4/control/recheck_wide_flight_preserved_independent03.py",
+        "sha256": "49d02ff62ef2f1ed953d126f19cdec4da42ae50bdf7ec638442ba73368e3e1f5"
+      },
+      "published_path": "controls/recheck_flight_preserved.py"
+    },
+    {
+      "original": {
+        "bytes": 15711,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted-cut-diagnostic-02/validate_shifted_cuts.py",
+        "sha256": "07624cc57a43e09d48b712df6bcbc371ec77549ab9fcc3db37d6587731930c07"
+      },
+      "published_path": "controls/validate_shifted_cuts.py"
+    },
+    {
+      "original": {
+        "bytes": 6785,
+        "path": "/mnt/d/orbit-segmented-v4/control/audit_shifted_rows03.py",
+        "sha256": "61d461f787adc9171ba9ec0cd5e2e17bcd4abfcd59c9f18bd4928c39b02b4e21"
+      },
+      "published_path": "controls/audit_shifted_rows.py"
+    },
+    {
+      "original": {
+        "bytes": 19990,
+        "path": "/mnt/d/orbit-segmented-v4/control/shifted03-independent-row-analysis-01/controller02.py",
+        "sha256": "fe017f82c0b22b409c6c8e9bbd4c8b9924facf9935d00c52414dc435c019b81d"
+      },
+      "published_path": "controls/shifted_row_audit_controller02.py"
+    },
+    {
+      "original": {
+        "bytes": 3170,
+        "path": "/mnt/d/orbit-segmented-v4/control/preparation07-live-launch-independent-review01.json",
+        "sha256": "81da9fa6d5d282579f7dca5992025b42b8f3c975a34f754ef0ffc4a048571a0a"
+      },
+      "published_path": "evidence/preparation07-live-launch-independent-review01.json"
+    },
+    {
+      "original": {
+        "bytes": 53572,
+        "path": "/mnt/d/orbit-segmented-v4/control/preparation07-live-launch-independent-readback01.json",
+        "sha256": "4bb682413d4f1c87fa3b7bfc50d093120605c5c87315c308121de21cf3dcd369"
+      },
+      "published_path": "evidence/preparation07-live-launch-independent-readback01.json"
+    },
+    {
+      "original": {
+        "bytes": 2117,
+        "path": "/mnt/d/orbit-segmented-v4/control/preparation07-live-numerical-environment01.json",
+        "sha256": "963ae0c6d23741b1951711d283524ac4d9936215b22fa5f6308895ca6980aefe"
+      },
+      "published_path": "evidence/preparation07-live-numerical-environment01.json"
+    }
+  ],
+  "reference_context": {
+    "audit": {
+      "bytes": 104274,
+      "path": "/mnt/d/orbit-segmented-v4/control/validation07-terminal-independent-review01.json",
+      "sha256": "e1004320bbc53a6d8ec803ae576619cae6bcc0e3a8bd12a1cee58b75501825ef"
+    },
+    "correction_regressions": 51,
+    "existing_suite": "validation07",
+    "original_native_tests": 106,
+    "rerun_by_this_supplement": false,
+    "unchanged_stages": 14
+  },
+  "release_ready": false,
+  "schema": "orbit-poc-native-supplements07-publication-v1",
+  "shifted": {
+    "audit": "evidence/shifted-independent-review.json",
+    "damping": [
+      0,
+      0.001,
+      1000
+    ],
+    "independent_row_audit": {
+      "bytes": 43955,
+      "path": "/mnt/d/orbit-segmented-v4/control/shifted03-independent-row-analysis-01/result.json",
+      "sha256": "ff149910f1e4c47d394885ff5c23d32d30dcf5b17f5b5627dea3895a764d7cdc"
+    },
+    "methods": [
+      {
+        "independent_maximum_map_discrepancy_posterior_sd": 3.5728392262088464e-12,
+        "independent_maximum_relative_covariance_error": 1.2692125859499928e-13,
+        "layouts": [
+          {
+            "interior_movement_count": 5,
+            "offset_seconds": 300.0,
+            "seconds": 3600,
+            "status": "equivalent_with_interior_movement"
+          },
+          {
+            "interior_movement_count": 54,
+            "offset_seconds": 1800.0,
+            "seconds": 3600,
+            "status": "equivalent_with_interior_movement"
+          },
+          {
+            "interior_movement_count": 5,
+            "offset_seconds": 300.0,
+            "seconds": 14400,
+            "status": "equivalent_with_interior_movement"
+          },
+          {
+            "interior_movement_count": 54,
+            "offset_seconds": 1800.0,
+            "seconds": 14400,
+            "status": "equivalent_with_interior_movement"
+          }
+        ],
+        "maximum_equality_backward_error": 1.9501649146109593e-16,
+        "maximum_map_discrepancy_posterior_sd": 3.564957963209857e-12,
+        "maximum_relative_covariance_error": 1.2694575077545504e-13,
+        "maximum_relative_energy_difference": 5.062174495367068e-15,
+        "method": "log_drag_ou",
+        "metric_source": "native diagnostic report; independent recomputation separately identified below",
+        "native_calls": 16,
+        "passed": true
+      },
+      {
+        "independent_maximum_map_discrepancy_posterior_sd": 2.3832823504260805e-12,
+        "independent_maximum_relative_covariance_error": 1.0201174611535916e-13,
+        "layouts": [
+          {
+            "interior_movement_count": 0,
+            "offset_seconds": 300.0,
+            "seconds": 3600,
+            "status": "equivalent_without_interior_coverage"
+          },
+          {
+            "interior_movement_count": 27,
+            "offset_seconds": 1800.0,
+            "seconds": 3600,
+            "status": "equivalent_with_interior_movement"
+          },
+          {
+            "interior_movement_count": 0,
+            "offset_seconds": 300.0,
+            "seconds": 14400,
+            "status": "equivalent_without_interior_coverage"
+          },
+          {
+            "interior_movement_count": 27,
+            "offset_seconds": 1800.0,
+            "seconds": 14400,
+            "status": "equivalent_with_interior_movement"
+          }
+        ],
+        "maximum_equality_backward_error": 1.5146296092687797e-16,
+        "maximum_map_discrepancy_posterior_sd": 2.383625889955884e-12,
+        "maximum_relative_covariance_error": 1.0193514422192266e-13,
+        "maximum_relative_energy_difference": 1.3996558212276079e-15,
+        "method": "pulses",
+        "metric_source": "native diagnostic report; independent recomputation separately identified below",
+        "native_calls": 16,
+        "passed": true
+      }
+    ],
+    "native_calls": 32,
+    "passed": true
+  },
+  "status": "passed_bounded_supplemental_checks",
+  "unchanged_limits": {
+    "flight_stm_atol": 2e-09,
+    "flight_stm_rtol": 2e-09,
+    "lifted_relative_residual": 2e-12,
+    "map_posterior_sd": 1e-07,
+    "relative_covariance": 1e-08
+  }
+}

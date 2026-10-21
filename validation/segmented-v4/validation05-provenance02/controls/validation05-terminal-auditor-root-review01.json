@@ -1,0 +1,27 @@
+{
+  "schema": "orbit-poc-terminal-auditor-static-review-v1",
+  "reviewer": "/root",
+  "observed_at": "2026-10-16T08:19:22.850157+00:00",
+  "status": "static_adaptation_review_passed",
+  "original": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_validation04_terminal02.py",
+    "sha256": "da5c4a77ee00259cacfb84bb277475384da7f22767b7830f408f58f2a2e5fe55"
+  },
+  "candidate": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_validation05_terminal01.py",
+    "sha256": "248c9d40ef5f064c1030d7085d2d998b3c70c098b6616e0a509885fa63f9f211"
+  },
+  "diff": {
+    "path": "/mnt/d/orbit-segmented-v4/control/validation05-terminal-author-diff01.txt",
+    "sha256": "dbf24fb374c384b5b320a01f0ab4903423be2e6b4850375c3090e1b90c95a43f"
+  },
+  "checks": [
+    "Complete linearization QR/GTSAM/rank/energy/covariance audit function is AST-identical.",
+    "Replay audit is AST-identical after the exact new build-sidecar identity substitution.",
+    "Inspected remaining complete diff: source/runtime/config/launch/cleanup identities change, and additional one-header/rebuilt-native/dense-reference checks are added.",
+    "No numerical gate arithmetic, tolerance, stage inventory or scientific acceptance criterion changes."
+  ],
+  "scientific_gates_executed": false,
+  "release_ready": false,
+  "scope": "Static review only; actual complete capture, eight arrays, preserved distinct inputs and fresh cleanup are still required before any terminal pass receipt."
+}

@@ -1,0 +1,220 @@
+{
+  "admission": {
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "build_cpus": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "conflicting_processes": [],
+    "driver_identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/run_native_complete01.py",
+        "--plan",
+        "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/plan.json",
+        "--sha256",
+        "0b2e9ff4f099cd045548cc99d8c29eb491a030d394a989623c7e011d86bd5d54"
+      ],
+      "command_sha256": "11b27a41c852e11347ffca4e080c5cd4b7f8c7b5dd035c6addd5714b01d147d4",
+      "parent": 1,
+      "pid": 2841563,
+      "pid_namespace": "pid:[4026531836]",
+      "start_ticks": 117029863,
+      "state": "R"
+    },
+    "fit_cpu": 24,
+    "hostname": "workstation1",
+    "observed_at": "2026-10-16T21:37:58.501962+00:00",
+    "policy": "serial_owned_pid_namespace_no_external_native_orbit_workload_v1",
+    "reserved_cpu_note": "One complete serial candidate build onCPU24; empty candidate build, all611 translation units, no reuse,8GiB/2h. Source/fixture preflight separately audited. No propagation or fit.",
+    "status": "admitted"
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/with_correctness_namespace_09.py",
+    "--execution",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/execution.json",
+    "--execution-sha256",
+    "a3538cac0fcb53e9b80ccc950d5840da474fedb7de4332a8d24976f49fe64257",
+    "--",
+    "/usr/bin/taskset",
+    "-c",
+    "24",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/build_native_complete01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/plan.json",
+    "--sha256",
+    "0b2e9ff4f099cd045548cc99d8c29eb491a030d394a989623c7e011d86bd5d54"
+  ],
+  "cleanup": {
+    "forced": false,
+    "identities": [
+      {
+        "parent": 2841563,
+        "pid": 2841573,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 117030113,
+        "state": "Z"
+      },
+      {
+        "parent": 2841574,
+        "pid": 2841576,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030118,
+        "state": "S"
+      },
+      {
+        "parent": 2841573,
+        "pid": 2841574,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030115,
+        "state": "S"
+      },
+      {
+        "parent": 2841576,
+        "pid": 2841599,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030331,
+        "state": "S"
+      },
+      {
+        "parent": 2841599,
+        "pid": 2841606,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030367,
+        "state": "R"
+      },
+      {
+        "parent": 2841576,
+        "pid": 2841623,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030424,
+        "state": "D"
+      },
+      {
+        "parent": 2841576,
+        "pid": 2841624,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030458,
+        "state": "R"
+      },
+      {
+        "parent": 2841624,
+        "pid": 2841646,
+        "pid_namespace": "pid:[4026534144]",
+        "start_ticks": 117030507,
+        "state": "S"
+      }
+    ],
+    "live_owned_processes": [],
+    "observed_at": "2026-10-16T21:38:04.391041+00:00",
+    "pid_namespaces": [
+      "pid:[4026534144]"
+    ],
+    "returncode": 1,
+    "verified": true,
+    "was_running": false,
+    "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+  },
+  "elapsed_seconds": 5.816775906132534,
+  "final_cleanup": {
+    "commands": [
+      {
+        "forced": false,
+        "identities": [
+          {
+            "parent": 2841563,
+            "pid": 2841573,
+            "pid_namespace": "pid:[4026531836]",
+            "start_ticks": 117030113,
+            "state": "Z"
+          },
+          {
+            "parent": 2841574,
+            "pid": 2841576,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030118,
+            "state": "S"
+          },
+          {
+            "parent": 2841573,
+            "pid": 2841574,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030115,
+            "state": "S"
+          },
+          {
+            "parent": 2841576,
+            "pid": 2841599,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030331,
+            "state": "S"
+          },
+          {
+            "parent": 2841599,
+            "pid": 2841606,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030367,
+            "state": "R"
+          },
+          {
+            "parent": 2841576,
+            "pid": 2841623,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030424,
+            "state": "D"
+          },
+          {
+            "parent": 2841576,
+            "pid": 2841624,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030458,
+            "state": "R"
+          },
+          {
+            "parent": 2841624,
+            "pid": 2841646,
+            "pid_namespace": "pid:[4026534144]",
+            "start_ticks": 117030507,
+            "state": "S"
+          }
+        ],
+        "live_owned_processes": [],
+        "observed_at": "2026-10-16T21:38:06.885568+00:00",
+        "pid_namespaces": [
+          "pid:[4026534144]"
+        ],
+        "returncode": 1,
+        "verified": true,
+        "was_running": false,
+        "zombie_policy": "Non-executing zombies are excluded from live workload checks."
+      }
+    ],
+    "errors": [],
+    "verified": true
+  },
+  "finished_at": "2026-10-16T21:38:06.885586+00:00",
+  "fit_attempts": 0,
+  "interrupted_or_timeout": false,
+  "peak_owned_rss_bytes": 112840704,
+  "plan": {
+    "bytes": 4496,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/native-complete-build-01/control/plan.json",
+    "sha256": "0b2e9ff4f099cd045548cc99d8c29eb491a030d394a989623c7e011d86bd5d54"
+  },
+  "process": {
+    "parent": 2841563,
+    "pid": 2841573,
+    "pid_namespace": "pid:[4026531836]",
+    "start_ticks": 117030113,
+    "state": "S"
+  },
+  "release_evidence": false,
+  "returncode": 1,
+  "schema": "orbit-poc-owned-native-complete-build-v1",
+  "started_at": "2026-10-16T21:37:58.502025+00:00",
+  "status": "failed_diagnostic"
+}

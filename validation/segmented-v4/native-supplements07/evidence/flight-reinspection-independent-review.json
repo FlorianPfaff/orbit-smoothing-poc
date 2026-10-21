@@ -1,0 +1,96 @@
+{
+  "schema": "orbit-poc-wide-flight-guard03-independent-review-v1",
+  "reviewed_at": "2026-10-18T20:13:38.531060+00:00",
+  "status": "passed_bounded_preserved_output_reinspection",
+  "consistency_passed": true,
+  "scientific_gate_passed": true,
+  "inputs": {
+    "guard_manifest": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/manifest.json",
+      "sha256": "18f56ae01bf1bee02b4e816d47a441380026d99ff99bea19f3150f6dfd2ca378"
+    },
+    "guard": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/gates.py",
+      "sha256": "04408988d816e09d6c1d86de9def4104ba2e5ebf12f215cba987ac9db8138016"
+    },
+    "adapter": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-native-supplemental-gates03/request_adapter.py",
+      "sha256": "7c85c5512dbba25fb2bd981c9849b067acc708d172d1e8fd246407a2d4f251c1"
+    },
+    "native_time_source": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-native-time-readback01/manifest.json",
+      "sha256": "38b656b3b24665f9ea90f346265c3b3c84899b774c1be76d85a0f0247f151819"
+    },
+    "actual_failed_capture": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/manifest.json",
+      "sha256": "e4fa1a31914c325d7cd98cfd6f0c3833dfd537a4b91f1d92d018c5ba34920c8e"
+    },
+    "independent_tests": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-supplemental03-independent01.xml",
+      "sha256": "0189e9e5c4d5168c1d474e50410b6bbc9fb15571c127f43cbc60d27063ce9108"
+    },
+    "independent_recheck": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-preserved-independent03-result01.json",
+      "sha256": "737ae4bd27f51ffa2ce86e4d67cc1d3ead1996b171095df42ed58f3dc0e81283"
+    },
+    "independent_recheck_script": {
+      "path": "/mnt/d/orbit-segmented-v4/control/recheck_wide_flight_preserved_independent03.py",
+      "sha256": "49d02ff62ef2f1ed953d126f19cdec4da42ae50bdf7ec638442ba73368e3e1f5"
+    },
+    "prior_failed_audit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-failure-independent-review01.json",
+      "sha256": "85390a56ddb44cf7361dd64c06b888091888842b05f64495ab3e232ac026d60c"
+    },
+    "matched_pair_packet_review": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-packet-independent-review01.json",
+      "sha256": "dbddd27f2ebd0289b16fa47810b05b99d637cffd720da9fc64a2fb5d1650cb34"
+    },
+    "matched_pair_staged_review": {
+      "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-staged-independent-review01.json",
+      "sha256": "6151eb584b75cfddac7010416c130d83cf22ea34a853a23895589b3000f2925c"
+    }
+  },
+  "checks": [
+    "All declared guard files, 35 preserved output records and 12 native-source/input records match exact hashes and sizes.",
+    "All ten native source readbacks agree with source_after of audited complete build643a; Time subtraction normalizes day/fraction then seconds uses (day+fraction)*86400.",
+    "Narrow binary reader matches installed single ORBIT arc format, rejects wrong schema/count/length/nonfinite data.",
+    "Every main/drag-grid precise Time component must equal pinned retained input, including low components hidden by summed MJD.",
+    "Metadata dt and initial velocity scale equal native endpoint-span arithmetic exactly; no floating tolerance substituted for this equality.",
+    "Original crop window limits independently identify the fixed April24 window; no residual, STM, force or refinement limit changed.",
+    "136 independently repeated tests pass with zero errors/failures/skips; author initial fixture failures remain archived.",
+    "Exact preserved same-QR pair outputs re-evaluate successfully; both physical binary/text orbits and original fixed-state support already checked in failed-attempt audit.",
+    "Effective anchored offgrid coverage requires nonzero coalesced quadrature and matching nonzero force-Jacobian channel."
+  ],
+  "metrics": {
+    "epochs": 361,
+    "drag_samples": 3241,
+    "effective_anchored_offgrid_drag_samples": 2880,
+    "native_relative_residual": 1.602306185512713e-13,
+    "residual_limit": 2e-12,
+    "stm_rtol": 2e-09,
+    "stm_atol": 2e-09,
+    "maximum_stm_absolute_error": 1.3642420526593924e-11,
+    "maximum_stm_tolerance_fraction": 9.086886236947878e-05,
+    "time_grid": {
+      "all_retained_time_components_identical": true,
+      "checked_epochs": 361,
+      "endpoint_span_seconds": 1800.0000000002046,
+      "native_dt_seconds": 5.000000000000568,
+      "native_initial_velocity_scale": 0.0005555555555554923,
+      "nominal_interval_seconds": 5,
+      "nominal_duration_seconds": 1800,
+      "inherited_window_limit_seconds": 1e-05,
+      "inherited_interval_limit_seconds": 2e-06,
+      "maximum_nominal_epoch_offset_seconds": 1.609805622138083e-10
+    }
+  },
+  "original_attempt_status": "failed_diagnostic_preserved",
+  "new_native_executions": 0,
+  "benchmark_fit_attempts": 0,
+  "limitations": [
+    "Fresh matched same-QR baseline uses retained closure03; not an ordinary-to-QR equivalence claim or deleted closure02 replay.",
+    "Flight approximation omits thermal-history sensitivities, other force gradients and atmospheric event-time derivatives.",
+    "This bounded tangent-output gate does not establish nonlinear flight fit convergence, covariance, density recovery or release readiness.",
+    "Shifted03 actual solver gate and full fresh preparation remain separate."
+  ]
+}

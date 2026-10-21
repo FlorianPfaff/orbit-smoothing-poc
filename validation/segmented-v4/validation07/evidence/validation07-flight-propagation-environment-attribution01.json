@@ -1,0 +1,40 @@
+{
+  "conclusion": "The reviewed enclosing control/source chain does not enable QR_PREFIX for coarse/fine closure propagation. QR_PREFIX is explicitly enabled later for distinct signal-prediction commands. A QR-enabled propagation replay adds a configuration difference and must not be labeled output-path-only equivalent.",
+  "created_at": "2026-10-17T01:11:34.014960+00:00",
+  "full_source_sha256": "9f37ce4fbd8484e1c0f16caa742670b42d9d08a639c036bded66403c2708ec8a",
+  "no_execution": true,
+  "schema": "orbit-poc-validation07-flight-environment-source-attribution-v1",
+  "scope": "Read-only reconstruction from exact sealed controller/source; not a saved /proc environment snapshot. Native execution records omit environment.",
+  "sources": [
+    {
+      "observation": "Scrubs inherited ORBIT_POC_* before public CLI and does not add QR_PREFIX.",
+      "path": "/mnt/d/orbit-segmented-v4/control/run_segmented_validation07_05.py",
+      "sha256": "0188ecb82afb5fa75b59ad1305e7d41f1e6413c30a7e138dea50fba936a42095"
+    },
+    {
+      "observation": "worker adds native/solver identity variables, not QR_PREFIX.",
+      "path": "/mnt/d/orbit-segmented-v4/validation-07-packet/source/src/orbit_poc/segmented/validation.py",
+      "sha256": "e49352fdbec0aac3ee99bcebaf0222d7ded6fdb2497d4b8a198e8a546029da0c"
+    },
+    {
+      "observation": "_close calls execute without environment override; execute passes None to native.run_native.",
+      "path": "/mnt/d/orbit-segmented-v4/validation-07-packet/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "175e6c986504aa8f195f60634d657568b416e04e5c65c9f11aba6d96e93f3648"
+    },
+    {
+      "observation": "run_native copies the enclosing environment and applies only explicit overrides.",
+      "path": "/mnt/d/orbit-segmented-v4/validation-07-packet/source/src/orbit_poc/comparison/backend.py",
+      "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce"
+    },
+    {
+      "observation": "Coarse/fine propagation calls _close; separate prediction later calls predict_signals.",
+      "path": "/mnt/d/orbit-segmented-v4/validation-07-packet/source/scripts/validate_numerics_flight_refinement.py",
+      "sha256": "77ca65a0359ceead4c24082493501e7f6e4c61a4b8de926906531d4023e843d9"
+    },
+    {
+      "observation": "Only predict_signals explicitly supplies QR_PREFIX for separate native signal prediction.",
+      "path": "/mnt/d/orbit-segmented-v4/validation-07-packet/source/scripts/numerics_refinement_helpers.py",
+      "sha256": "a03b06a4966cc0de7dd2538af669b2699027a0239c253c1a0e5b91e3ddb1c4f9"
+    }
+  ]
+}

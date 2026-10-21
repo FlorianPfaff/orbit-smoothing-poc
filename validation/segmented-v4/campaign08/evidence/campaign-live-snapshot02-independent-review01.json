@@ -1,0 +1,47 @@
+{
+  "checks": [
+    "Byte delta is exactly fixed host-control07 to08 and its recorded inode239600119 to239602380; no other code changes.",
+    "All source, observer, manifest, environment-filtering, process/lock observation and no-mutation/no-native behavior remain identical to the reviewed helper.",
+    "Independent8 tests pass without failures/skips; first invocation used a wrong local test filename and ran no tests, with that log/XML preserved separately."
+  ],
+  "fit_execution_authorized": false,
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft02/capture_campaign_live02.py",
+    "sha256": "8430785df77170064cc36d1fd57ed5e979d7c54f874f47828d2dc71ddc58ce66"
+  },
+  "identity_receipt": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign08-control-identity01.json",
+    "sha256": "fd9ae98e77cdec6cd350ead0deb436a866697b2ade4292071188d131c987e8d7"
+  },
+  "manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft02/manifest.json",
+    "sha256": "7024148eb2b33960dfbd4a9931efab7da2e2342e66ed94a86dfd6a5c39ae127e"
+  },
+  "prior_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-independent-review01.json",
+    "sha256": "c04c4ec8b9838837c33d6471a699cc313e312934d6d08aed84e8ff7bda88cc7a"
+  },
+  "release_ready": false,
+  "reviewed_at": "2026-10-18T22:58:18.483600+00:00",
+  "schema": "orbit-poc-campaign08-live-snapshot-independent-review-v1",
+  "scope": "Read-only snapshot after an actual reviewed08 launch, on controllerCPU32. This cannot start a fit or certify scientific success.",
+  "status": "accepted_readonly_one_shot_capture",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "junit": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-live02-independent02.xml",
+      "sha256": "3aea9b1077ecb76147b50f70ac8f8bd0d9f9985d2c128d640edf7e5a4407cb69"
+    },
+    "log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-live02-independent02.log",
+      "sha256": "e11029ad7d31746a8251156f3f06803c25cdc26cd081adc386ab85f438ba9b75"
+    },
+    "passed": 8,
+    "prior_wrong_test_path_log": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign-live02-independent01.log",
+      "sha256": "de30bbfc29afd3ddd6452256a2170022cfc5e598ba3341bd8c003025eab4f580"
+    },
+    "skips": 0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "orbit-poc-independent-control-review-v1",
+  "observed_at": "2026-10-16T22:41:17.512055+00:00",
+  "status": "accepted_for_concrete_packet_preparation",
+  "artifacts": [
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/run_segmented_validation07_05.py",
+      "sha256": "0188ecb82afb5fa75b59ad1305e7d41f1e6413c30a7e138dea50fba936a42095"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/launch_segmented_validation07_05.py",
+      "sha256": "c727aae1aca6b12fee2a18631937a21aa949a3e7a4a39ee785adf232bd120333"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation07_provenance04.py",
+      "sha256": "23e8a0e54de29250a31aeb65f0bb2001614f0e70cd043d54469d9c0e6d5f6bfa"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_validation07_host_alias05.py",
+      "sha256": "f38a140368a9de67ca4d9411d4e72a84176f5786893ba8d26e145ed0797856e1"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation07-host-alias05-root-tests01.log",
+      "sha256": "e0193e3b83ee8b7a9668dcafdecb04489bee479f57b15125bd66ea472510b563"
+    },
+    {
+      "path": "/mnt/d/orbit-segmented-v4/control/validation07-host-alias05-root-tests01.xml",
+      "sha256": "629b6e9de084b668250d25ed89520cedf86ca8ca8d9fa5c55bc98233d19b158a"
+    }
+  ],
+  "tests": 17,
+  "elapsed_seconds": 13.77,
+  "review": [
+    "Read exact04-to05 diff; new host read adapter reuses pinned owned-driver resolver, retains canonical metadata and rejects unbound symlink destinations.",
+    "Verifier04 unchanged; all14 stages, CLI checks, guards and cleanup semantics unchanged. Explicit HOME matches current host.",
+    "Independently executed17 targeted tests, including AST equivalence and alias identity regressions."
+  ],
+  "actual_runtime_verification": false,
+  "scientific_suite_executed": false,
+  "launch_authorized": false
+}

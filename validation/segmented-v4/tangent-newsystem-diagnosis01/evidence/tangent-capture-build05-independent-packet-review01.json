@@ -1,0 +1,74 @@
+{
+  "checks": {
+    "actual_load_execution_passed": true,
+    "all9inputpins_verified": true,
+    "current_host_admission_passed": true,
+    "current_native_eb41_verified": true,
+    "exact_existing_precision_bind_once": true,
+    "fresh_five_outputs": true,
+    "launcher_metadata_names_consistent": true,
+    "only_R5_RO_added": true,
+    "original_RO_bindings_preserved": true,
+    "runtime_declarations_preserved": 448,
+    "runtime_declarations_total": 452,
+    "source_freeze_preserved": true
+  },
+  "code_review": {
+    "bytes": 2699,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build04-independent-code-review01.json",
+    "sha256": "9804786396a013cff55c98a59591ae5eec2d198a49af5362b93b36fed4059135"
+  },
+  "execution": {
+    "bytes": 128890,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-05/control/execution.json",
+    "sha256": "d917652710176b72c864af6d819ffe2bdccab9be43f070f75eece8705a3d7971"
+  },
+  "launcher": {
+    "bytes": 4855,
+    "path": "/mnt/d/orbit-segmented-v4/control/launch_tangent_capture_build01.py",
+    "sha256": "6f02de0600fd4dfae1a3a8f3f69ac7decb7e838224978a558a021dca1520d3ea"
+  },
+  "limitations": [
+    "Full637currentlinkinput checking and exact baseline relink are enforced by the worker; actual outcome remains separately audited.",
+    "The readback preserves unchanged runtime pin declarations; it does not repeat all bulky runtime payload hashing."
+  ],
+  "native_calls": 0,
+  "observed_at": "2026-10-16T15:39:00.993074+00:00",
+  "passed": true,
+  "plan": {
+    "bytes": 3740,
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/tangent-capture-05/control/plan.json",
+    "sha256": "c4896bf4fffc0fdcea286901ace5418353c006310496a87ff4b7ff68a5f86170"
+  },
+  "preserved_rejected_check": {
+    "reason": "Reviewer ran admission check onCPU32; reservedCPU24 was outside that checker affinity. Fresh check on24\u201327 passed; no plan mutation or native launch.",
+    "stderr": {
+      "bytes": 327,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build05-independent-packet-readback01.stderr",
+      "sha256": "99f8d3f92b140b9a7a6ddeae24ae7c654e8f3eb0ef713071fbe05245c4f66ba3"
+    }
+  },
+  "readback": {
+    "bytes": 235339,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build05-independent-packet-readback02.json",
+    "sha256": "34ef6f80adf6b812c9dd59563005a327ebb4a9dc0a1b390e04578ca1a57a1430"
+  },
+  "readback_script": {
+    "bytes": 2261,
+    "path": "/mnt/d/orbit-segmented-v4/control/read_capture_build05_packet01.py",
+    "sha256": "341465a62389768062ae455d53ea5904114ff3f4cfaa6398db709a13c15cc5b3"
+  },
+  "recipe_inspection": {
+    "bytes": 408923,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-capture-build-inspection05.json",
+    "sha256": "4b3cd44dd0a8aa2eaeccea9297c66b3ba7a62b67f78c087184db59dcb2337a0e"
+  },
+  "release_evidence": false,
+  "schema": "orbit-poc-independent-capture-build-packet-review-v1",
+  "scope": "Concrete diagnostic-only capture build05. No scientific run or completed build inferred.",
+  "stager": {
+    "bytes": 4813,
+    "path": "/mnt/d/orbit-segmented-v4/control/stage_tangent_capture_build05.py",
+    "sha256": "164cdd18cfe1dbdb7c8e3a9c82377ed42cb81d792b302cae7c69b0231c5fb4dc"
+  }
+}

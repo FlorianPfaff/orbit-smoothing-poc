@@ -1,0 +1,39 @@
+{
+  "accepted_covariance": false,
+  "actual_running_outputs_read": false,
+  "author_fixtures": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review01/test_nuisance_wholefit_analysis.py",
+    "sha256": "9dfa248cea6f8c3860a228aac235e9b0dbc7e9415b4078431c5637a147467830"
+  },
+  "checker": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review01/analyze_nuisance_wholefit.py",
+    "sha256": "3f321b7ba4c7d1d8a4372536ab61f86f3c68ab2f31c1d0049267dd7a034004eb"
+  },
+  "counterexamples": {
+    "path": "/home/emper/orbit-nuisance-performance/control/wholefit-checker-review01/counterexamples.json",
+    "sha256": "8e27ebd5b0c879fac3a7550b970827a59e7d7e10e74c703e3d7c3aab4920e617"
+  },
+  "created_at": "2026-10-19T08:23:47.464029+00:00",
+  "findings": [
+    {
+      "id": "stale_optimizer",
+      "measured": "Both terminal optimizer records changed to status failed and converged false, yet scientific_equivalence passed.",
+      "required": "Bind each optimizer record to its terminal worker scientific state and confirmation history."
+    },
+    {
+      "id": "missing_complete_point",
+      "measured": "One complete point directory removed from one completed arm, yet scientific_equivalence passed.",
+      "required": "Missing completed-point evidence must prevent exact complete-path equivalence; retain unmatched-progress labeling only for partial/censored runs."
+    },
+    {
+      "id": "scientific_gate_provenance",
+      "measured": "Code imports existing strict/equivalence gates from mutable analysis checkout rather than verifying/loading the actual frozen source modules.",
+      "required": "Bind the actual gate and lazily imported dependency implementations to frozen source hashes during invocation."
+    }
+  ],
+  "native_runs": 0,
+  "release_authority": false,
+  "schema": "orbit-poc-wholefit-checker-independent-review-v1",
+  "scope": "Small synthetic fixture and source review only; these are offline reporting-tool defects, not observed native/scientific failures. Existing running whole-fit experiment remains untouched.",
+  "status": "requires_checker_correction"
+}

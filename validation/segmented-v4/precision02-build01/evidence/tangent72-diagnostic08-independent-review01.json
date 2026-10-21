@@ -1,0 +1,70 @@
+{
+  "approved_scope": "Serial external captured-only diagnostic08 on newf172 and oldb1fd with remote small fixtures under existing owned controls.",
+  "checks": [
+    "Baseline06 preconditioner and complete GMRES/control/telemetry tail are byte-identical.",
+    "Reader cpp is byte-identical to baseline06, retaining independent113-bit residual evaluation.",
+    "Neumaier accumulation uses exact same stored integral/moment weights and sample dependencies.",
+    "Both high and low incoming velocity/integral parts enter the chronological position sum; moment high/low are subtracted once, and velocity integrates both parts once.",
+    "Outputs preserve original double vector dimensions, initial zeros and epoch indexing; each result rounds compensated sum once.",
+    "No dynamic parameter, physical force, prior, constraint, interpolation or quadrature coefficient is added.",
+    "Analytic cancellation fixture independently has finalvelocity1 and finalposition2.5 withA=2^80; explicit exceptions remain enabled under-DNDEBUG."
+  ],
+  "files": {
+    "include/eventQuadrature.h": {
+      "bytes": 5334,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/include/eventQuadrature.h",
+      "sha256": "c1d85d7cbff15d6c024df852e4449df765a2c42e5fd01b9c062f75a3097634d5"
+    },
+    "include/sixStateTangent.h": {
+      "bytes": 10428,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/include/sixStateTangent.h",
+      "sha256": "608cc5af8975084d2b39c92939bdfe8a6da4eb87447a38d7f303b91f4ef11a91"
+    },
+    "include/syntheticForceDerivatives.h": {
+      "bytes": 2245,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/include/syntheticForceDerivatives.h",
+      "sha256": "c2c148dbad3173d0e9b94c749a86b644d792de78bdf338b4402b4d67c4e82310"
+    },
+    "probe.cpp": {
+      "bytes": 1586,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/probe.cpp",
+      "sha256": "22d22ab94bb12998c441aa031065d2f7bef26d178dd4b65edb7961378ed5677b"
+    },
+    "replay.cpp": {
+      "bytes": 10203,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/replay.cpp",
+      "sha256": "d5a4e875afdf24b662e666a75c31d0f4af87af22ef0f55f5881aed67d2a57db0"
+    },
+    "test_compensation.py": {
+      "bytes": 349,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/test_compensation.py",
+      "sha256": "ccf71a5d6c90bfb95b55c872edab370e3a5d202143e7c4cc61237cfb23ac3433"
+    },
+    "test_quad.py": {
+      "bytes": 1482,
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/test_quad.py",
+      "sha256": "000b8b745097d65cdae21d16cb1a71bcca1fb1a10e454f37c3faed32b350686d"
+    }
+  },
+  "generation": {
+    "bytes": 1299,
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic08/generation.json",
+    "sha256": "d67e09baf6cc9465c1ef2a3b5949e4edf181832d613167269d5fcc6f58e63f9e"
+  },
+  "limitations": [
+    "Local/global summation ordering and rounding change deliberately, so bitwise numerical equivalence is not expected.",
+    "The accumulated low component is itself finite precision; this is improved arithmetic, not exact arithmetic.",
+    "Both actual captures and independent113-bit accepted residuals must pass before considering production; full native/validation gates remain outstanding."
+  ],
+  "native_runs": 0,
+  "observed_at": "2026-10-16T16:03:27.910180+00:00",
+  "passed": true,
+  "production_promotion_approved": false,
+  "schema": "orbit-poc-independent-compensated-quadrature-experiment-review-v1",
+  "scope": "External diagnostic08 static mathematical/control review; no production modification or native run.",
+  "unchanged_limits": {
+    "maximum_iterations": 120,
+    "restart": 20,
+    "tolerance": 2e-12
+  }
+}

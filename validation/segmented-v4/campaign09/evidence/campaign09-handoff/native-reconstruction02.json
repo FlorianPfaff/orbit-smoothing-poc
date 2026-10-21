@@ -1,0 +1,218 @@
+{
+  "attempt_id": "leo500-quiet-normal-groops_pulses-24h--dense_corrected",
+  "case_id": "leo500-quiet-normal-groops_pulses-24h",
+  "config": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-attempt-config01/segmented-v4.json",
+    "sha256": "33cf305ada15863e2ee04e57390707344ed045a9fc712efc3f5e6e9247656378"
+  },
+  "created_at": "2026-10-19T01:57:57.245068+00:00",
+  "cutoff": "2026-10-19T01:41:13.968477+00:00",
+  "expected_native_pin": {
+    "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+    "sha256": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625"
+  },
+  "frozen_manifest_hash": "63f3010564c6da76c0f92a007ed1fbe057d610d44cccb6b5e4f509afafbf2251",
+  "inputs": {
+    "attempt_capture": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-attempt01/manifest.json",
+      "sha256": "20589f65d981f68ce00c722778bbe0f67f09d7a3a333b6a1180205d0d0be01a9"
+    },
+    "config_capture": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-attempt-config01/manifest.json",
+      "sha256": "1826768f2ab54b5eddea280503ee9ecd0d94f8d0204b621f03c2051d467b91dc"
+    },
+    "inner_proof_review": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-inner-proof-independent-review01.json",
+      "sha256": "745d577ba5454e4713a6670617b17d54b33a522b1d03342c17fcfbffce799766"
+    },
+    "manifest": {
+      "path": "/mnt/d/orbit-segmented-v4/control/preparation07-terminal01/run/manifest.json",
+      "sha256": "4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6"
+    },
+    "snapshot": {
+      "path": "/mnt/d/orbit-segmented-v4/control/campaign09-live05/snapshot.json",
+      "sha256": "0300e2e13a7edd1fc6b0b1418d1c43391f790be904655ed3219cc59fef3f5803"
+    }
+  },
+  "job_sha256": "4f9965c7605dfeb483bddaa8998746ee3f8a3efbb198c7952f9e20a084223db0",
+  "limits": [
+    "The process snapshot is dated and non-atomic; it proves observed execution, not current liveness indefinitely.",
+    "The profile XML was captured after the cutoff; request and supervisor hashes match cutoff evidence. Its full byte identity is retained, and key pulse/float/cadence conventions were inspected; XML generation was not rerun.",
+    "No convergence, accepted covariance, completed fit, accuracy or release claim follows from this handoff."
+  ],
+  "method": "groops_pulses",
+  "native_bytes_rehashed_during_fit": false,
+  "native_observed": {
+    "affinity": [
+      24
+    ],
+    "argv": [
+      "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+      "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-24h--dense_corrected/point-001-initial/profile.xml"
+    ],
+    "command_sha256": "2e72d5172e7c00a089d4e3eeb371a64eec147c6cfd0ae0613b8d43eb0b9220fe",
+    "executable": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+    "executable_identity": {
+      "bytes": 24071920,
+      "device": 2048,
+      "inode": 217255543
+    },
+    "last_processor": 24,
+    "namespaces": {
+      "mnt": "mnt:[4026534164]",
+      "net": "net:[4026534168]",
+      "pid": "pid:[4026534167]"
+    },
+    "native_workload": true,
+    "parent": 20732,
+    "pid": 20782,
+    "rss_pages": 84518,
+    "selected_environment": {
+      "HOME": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/temporary/fit-private/home",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "start_ticks": 135757891,
+    "state": "R",
+    "system_ticks": 101,
+    "user_ticks": 11448
+  },
+  "numerical_controls": {
+    "initial_damping": 0.001,
+    "maximum_accepted_iterations": 32,
+    "maximum_density_update": 0.0001,
+    "maximum_position_change_m": 3e-05,
+    "maximum_pulse_update_m_s": 1e-08,
+    "maximum_trial_evaluations": 96,
+    "minimum_gain_ratio": 0.0001,
+    "normalized_gradient_tolerance": 1e-08,
+    "wall_time_seconds": 7200.0
+  },
+  "observer_at_cutoff": {
+    "monotonic_seconds": 1357695.395289343,
+    "native_conflict_seen": false,
+    "native_conflicts": [],
+    "observed_at": "2026-10-19T01:41:12.875482+00:00",
+    "owner": {
+      "pid": 12589,
+      "start_ticks": 135673405
+    },
+    "plan_sha256": "c45cd827c18204fe3e10605c28bc65d2db2572be0e97916e4ebe15822b7d422f",
+    "process_read_errors": [],
+    "sampling_incomplete_seen": false,
+    "schema": "orbit-poc-segmented-timing-guard-v2",
+    "status": "clear"
+  },
+  "owned_ancestry": [
+    {
+      "affinity": [
+        24
+      ],
+      "parent": 20732,
+      "pid": 20782,
+      "start_ticks": 135757891
+    },
+    {
+      "affinity": [
+        24
+      ],
+      "parent": 20731,
+      "pid": 20732,
+      "start_ticks": 135757338
+    },
+    {
+      "affinity": [
+        24
+      ],
+      "parent": 19408,
+      "pid": 20731,
+      "start_ticks": 135757332
+    },
+    {
+      "affinity": [
+        24
+      ],
+      "parent": 19132,
+      "pid": 19408,
+      "start_ticks": 135745463
+    },
+    {
+      "affinity": [
+        32
+      ],
+      "parent": 16172,
+      "pid": 19132,
+      "start_ticks": 135742343
+    },
+    {
+      "affinity": [
+        32
+      ],
+      "parent": 12589,
+      "pid": 16172,
+      "start_ticks": 135711368
+    },
+    {
+      "affinity": [
+        32
+      ],
+      "parent": 1,
+      "pid": 12589,
+      "start_ticks": 135673405
+    }
+  ],
+  "parameters": {
+    "frame": "CRF",
+    "interval_seconds": 1200.0,
+    "sigma_velocity_m_s": 0.0001
+  },
+  "planned_attempts": 68,
+  "profile": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-attempt01/point-001-initial/profile.xml",
+    "sha256": "4ee4b2c9161a33812f05e4d8e0bffb512a3e7c5a5e6d061aa670e75ce9654984"
+  },
+  "profile_name": "dense_corrected",
+  "remote_commands_executed": false,
+  "request": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-attempt01/request.json",
+    "sha256": "0fd71929a448587a00574216c3ebc79b9453de314beb989b9c8d4b32d333bbf1"
+  },
+  "request_reconstruction": "Exact dictionary equality across every field; independently reconstructed from frozen case, runtime, manifest, and actual config.",
+  "resource_limits": {
+    "admission": {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/control/admission.json",
+      "sha256": "df1e7a0c3d2d61c242e2b12a00e5997605766832c3d5914c8f97266adce55d50"
+    },
+    "maximum_process_tree_rss_bytes": 8589934592,
+    "minimum_free_output_bytes": 34359738368,
+    "reserve_bytes": 8589934592,
+    "reserved_cpu_ids": [
+      24
+    ],
+    "threads": 1
+  },
+  "schema": "orbit-poc-campaign09-first-native-offline-audit-v1",
+  "scientific_workload_started_by_audit": false,
+  "script": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_campaign09_first_native02.py",
+    "sha256": "895a6cbdfd5d837f24fbaa183cf7ed8fa3a8cfd7e130c6bdd27d6dd943c0c1d4"
+  },
+  "sealed_native_identity": {
+    "bytes": 24071920,
+    "device": 2048,
+    "inode": 217255543,
+    "mode": 365,
+    "path": "/mnt/seagate10tb/orbit-v31-correctness-10-florianpfaff/binaries/groops-f36bb698ea715a7f",
+    "sha256": "f36bb698ea715a7fc3201c71f823315d493d943ecfb8e7ecad8fbb348ba61625"
+  },
+  "started_attempts": 1,
+  "status": "passed",
+  "supervisor_plan": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign09-first-attempt01/supervisor.plan.json",
+    "sha256": "1eff35e3e66653ac42ab80c8c588b34d9ee8055d63627d8202b44d8959af2531"
+  },
+  "supervisor_reconstruction": "Exact dictionary equality including worker source, boot, CPU, timeout, memory and storage limits.",
+  "terminal_attempts": 0
+}

@@ -1,0 +1,103 @@
+{
+  "actual_failure": {
+    "bytes": 13850,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/result/failure.json",
+    "sha256": "c629092e95f0cff6349bca808cf03933350ea723bc1e7e1c4281cf48438a04fd"
+  },
+  "actual_pipeline": {
+    "bytes": 5500,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/control/pipeline.json",
+    "sha256": "5267b5c71dd5c28d10b25a88ca24005cf238819f9d090f27212864b8e4b2ae6c"
+  },
+  "binary_and_text_orbits_equal": true,
+  "capture_manifest": {
+    "bytes": 10038,
+    "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/manifest.json",
+    "sha256": "e4fa1a31914c325d7cd98cfd6f0c3833dfd537a4b91f1d92d018c5ba34920c8e"
+  },
+  "consistency_passed": true,
+  "covariance_authorized": false,
+  "created_utc": "2026-10-18T20:03:47.666318+00:00",
+  "fit_attempts": 0,
+  "fixed_initial_and361_epochs_verified": true,
+  "legs": [
+    {
+      "binary_orbit": {
+        "bytes": 31830,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/no-export/orbit.dat",
+        "sha256": "0588f4be21511a55dfeb5470f8ce1a3306e30ca172d189f5f39cae750554f20b"
+      },
+      "derivatives": {
+        "bytes": 2035,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/no-export/derivatives.json",
+        "sha256": "602869f31619ee9800fa918e33eb806ecab3b542e7a488d89a4289f1a5102956"
+      },
+      "execution": {
+        "bytes": 6165,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/result/no-export-execution.json",
+        "sha256": "697802c18e6fcc8abfa48b9f44d6cc2ba969e7f66fb34060bad5b2941d86d356"
+      },
+      "name": "no-export",
+      "native_residual": 1.602306185512713e-13,
+      "returncode": 0,
+      "text_orbit": {
+        "bytes": 94458,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/no-export/orbit.txt",
+        "sha256": "9011b359bce6c5e5b75d104e60a56d5b7889745bbffa24eb9c8546c8d95d6eb3"
+      }
+    },
+    {
+      "binary_orbit": {
+        "bytes": 31830,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/export/orbit.dat",
+        "sha256": "0588f4be21511a55dfeb5470f8ce1a3306e30ca172d189f5f39cae750554f20b"
+      },
+      "derivatives": {
+        "bytes": 2035,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/export/derivatives.json",
+        "sha256": "602869f31619ee9800fa918e33eb806ecab3b542e7a488d89a4289f1a5102956"
+      },
+      "execution": {
+        "bytes": 6148,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/result/export-execution.json",
+        "sha256": "1443d82ddb574b48f609f67d8e98aa9883095a2d48df4324cbc2f0a73630a54b"
+      },
+      "name": "export",
+      "native_residual": 1.602306185512713e-13,
+      "returncode": 0,
+      "text_orbit": {
+        "bytes": 94458,
+        "path": "/mnt/d/orbit-segmented-v4/control/wide-flight-pair01-terminal01/run/pair/export/orbit.txt",
+        "sha256": "9011b359bce6c5e5b75d104e60a56d5b7889745bbffa24eb9c8546c8d95d6eb3"
+      }
+    }
+  ],
+  "measured_guard_failure": {
+    "check": "metadata dt == literal5.0",
+    "difference_from_literal_seconds": 5.684341886080801e-13,
+    "exact_equality_to_endpoint_definition": true,
+    "first_precise_time": [
+      60424,
+      0.4897916666666653
+    ],
+    "independently_recomputed_endpoint_span_dt": 5.000000000000568,
+    "last_precise_time": [
+      60424,
+      0.510625000000001
+    ],
+    "native_dt_seconds": 5.000000000000568
+  },
+  "native_execution_failures": 0,
+  "native_propagations": 2,
+  "next_requirement": "Separately versioned exact native-grid contract checker and independent reinspection; original failed attempt and native outputs remain immutable.",
+  "raw_records": 35,
+  "release_ready": false,
+  "schema": "orbit-poc-matched-flight-failed-attempt-independent-review-v1",
+  "scientific_gate_passed": false,
+  "status": "failed_checker_preserved",
+  "unchanged_limits": {
+    "native_relative_residual": 2e-12,
+    "stm_atol": 2e-09,
+    "stm_rtol": 2e-09
+  }
+}

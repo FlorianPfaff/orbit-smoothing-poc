@@ -1,0 +1,62 @@
+{
+  "schema": "orbit-poc-tangent-113bit-reader-independent-review-v1",
+  "passed": true,
+  "reviewed_at": "2026-10-16T07:35:42.694537+00:00",
+  "source": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic03/replay.cpp",
+    "sha256": "1360653f2b3226bc578d1dd3e68f3598a0e762c9ab8d3fb345d2dadf46d637c7",
+    "bytes": 8691
+  },
+  "preserved_reader02": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic02/replay.cpp",
+    "sha256": "5de1833079262fd9ea52e9d50860f8ee00a61ab24c6834621df485b08592fa2e",
+    "bytes": 8680
+  },
+  "original_reader": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic01/replay.cpp",
+    "sha256": "e5daf3535ecb2f2160b22a61ad7effdeb1ba34f3b8916c5606a88763cc48cc50",
+    "bytes": 6870
+  },
+  "original_reader_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-telemetry-reader-independent-review01.json",
+    "sha256": "108d9885f88561a160069b794375594e9dc02d7ff6b12575e01456dcfffc75d1",
+    "bytes": 3203
+  },
+  "fixture_result": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent72-diagnostic03-independent01/result.json",
+    "sha256": "56d6303d6983b606b91b98a10c4744d2d44db53ab208346a76db827b3f9affe4",
+    "bytes": 1084
+  },
+  "fixture_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/test_tangent72_quad_independent02.py",
+    "sha256": "ab45fbfd298473af7789bacd7e2eacf516e70dc74e7a1c4cfbdd42981eb7ba36",
+    "bytes": 3399
+  },
+  "passed_tests": 9,
+  "failed_tests": 0,
+  "skipped_tests": 0,
+  "checks": [
+    "Reader03 differs from reader02 only by requesting the same 113-bit residual at iteration six in addition to the final iteration.",
+    "Removing the added quad evaluator and its callback restores reader01 byte-for-byte; solver arithmetic, restart, iteration cap, tolerances, original callbacks and capture parser are unchanged.",
+    "113-bit accumulation acts on the same binary64 iterate and captured coefficients, separately preserving native binary64 velocity conversion or evaluating exact /1000 conversion. Native binary64 scaled RHS construction is retained.",
+    "Only the norm ratio is cast to long double before sqrt/output; no claim of 113 output digits is made.",
+    "Independent separately compiled binaries pass the eight existing reader fixtures, plus a nonzero position/velocity/quadrature residual compared with independent 90-digit Decimal arithmetic."
+  ],
+  "reviewer_fixture_failure": {
+    "helper": {
+      "path": "/mnt/d/orbit-segmented-v4/control/test_tangent72_quad_independent01.py",
+      "sha256": "c29a298f42e6518448dfca65401418d39d28a5a741a2646433c0c77b5f988653",
+      "bytes": 3378
+    },
+    "stderr": {
+      "path": "/mnt/d/orbit-segmented-v4/control/tangent72-quad-independent01.stderr.log",
+      "sha256": "891b12aef602f046a94a40ad709472daf42d5233fe1501ab33f54068b6bace2b",
+      "bytes": 425
+    },
+    "reason": "Initial reviewer bound 1e-20 was smaller than the documented long-double output rounding at residual magnitude 2.26. Preserved failure; corrected bound is 2^-62 times max(1, absolute expected value), with no diagnostic source change."
+  },
+  "scope": "Diagnostic reader source and small fixture correctness only. Actual captured-system execution/compiler attribution is audited separately. No production correction or convergence authority.",
+  "groops_propagations": 0,
+  "fit_attempts": 0,
+  "release_ready": false
+}

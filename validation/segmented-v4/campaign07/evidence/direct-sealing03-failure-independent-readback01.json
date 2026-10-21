@@ -1,0 +1,121 @@
+{
+  "schema": "orbit-poc-direct-sealing03-failure-independent-readback-v1",
+  "observed_at": "2026-10-18T21:26:46.567791+00:00",
+  "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/direct-sealing-execution-03/execution.json",
+    "sha256": "3b6aa4e40a04f2c4036005a5913912c53f2bd012eb804194152812cd5518b0f4",
+    "bytes": 3766,
+    "device": 2048,
+    "inode": 239600156
+  },
+  "failure": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/fit-seal-control-07/sealed-inputs-01/failure.json",
+    "sha256": "8571b72e0987843b0b4e77b62ad7011961700a1d4c4f2401c16e1042fed610e4",
+    "bytes": 1673,
+    "device": 2048,
+    "inode": 239600155
+  },
+  "paired_content": [
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/9a0a658a3e17641cde3c7f672c13e06b90258fb304fb3681ac95612f0d188d27/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt",
+      "sha256": "b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf",
+      "bytes": 16393476,
+      "device": 2048,
+      "inode": 239548917
+    },
+    {
+      "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/generation/leo500-quiet-610000-continuous72h/observations/GPS1B_2024-05-10_C_synthetic.txt",
+      "sha256": "b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf",
+      "bytes": 16393476,
+      "device": 2048,
+      "inode": 239548506
+    }
+  ],
+  "manifest": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/manifest.json",
+    "sha256": "4877f929be8a9eda5d58ff6b4eb0e0fc8b84ea16934a6fbe63fa5a18418fa5c6",
+    "bytes": 5021132,
+    "device": 2048,
+    "inode": 239485546
+  },
+  "lineage": [
+    {
+      "case_id": "leo500-quiet-normal-groops_pulses-72h",
+      "input": {
+        "bytes": 16393476,
+        "mask_hash": "e461c739cdfbdbaf56c231e3564be6858b1030a858540caa1d5fd503822ec69f",
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/9a0a658a3e17641cde3c7f672c13e06b90258fb304fb3681ac95612f0d188d27/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt",
+        "records": 99526,
+        "role": "gnss_observations",
+        "sha256": "b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf",
+        "source_sha256": "b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf"
+      }
+    },
+    {
+      "case_id": "leo500-quiet-normal-groops_log_drag_ou-72h",
+      "input": {
+        "bytes": 16393476,
+        "mask_hash": "e461c739cdfbdbaf56c231e3564be6858b1030a858540caa1d5fd503822ec69f",
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/preparation/prefixes/9a0a658a3e17641cde3c7f672c13e06b90258fb304fb3681ac95612f0d188d27/native-prepared/preprocessing/GPS1B_2024-05-10_C_04.retained.txt",
+        "records": 99526,
+        "role": "gnss_observations",
+        "sha256": "b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf",
+        "source_sha256": "b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf"
+      }
+    }
+  ],
+  "owned_checks": [
+    {
+      "wanted": {
+        "argv": [
+          "/usr/bin/python3",
+          "-"
+        ],
+        "command_sha256": "a06f73fe34c728dbb2ac6653689a3e0306406d711c5333f9cad9bce72fe2dbb2",
+        "parent": 4033016,
+        "pid": 4033017,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 134197837,
+        "state": "R"
+      },
+      "observed": null,
+      "live": false
+    },
+    {
+      "wanted": {
+        "parent": 4033017,
+        "pid": 4033018,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 134197851,
+        "state": "Z"
+      },
+      "observed": null,
+      "live": false
+    },
+    {
+      "wanted": {
+        "parent": 4033018,
+        "pid": 4033019,
+        "pid_namespace": "pid:[4026531836]",
+        "start_ticks": 134197855,
+        "state": "R"
+      },
+      "observed": null,
+      "live": false
+    }
+  ],
+  "partial_files": [
+    "allowlist-core-plan.json",
+    "failure.json",
+    "safe-tree-00.json",
+    "safe-tree-01.json",
+    "safe-tree-02.json",
+    "support-core.json"
+  ],
+  "attempts_empty": true,
+  "temporary_empty": true,
+  "native_executions": 0,
+  "fit_attempts": 0,
+  "status": "preserved_failed_metadata_seal"
+}

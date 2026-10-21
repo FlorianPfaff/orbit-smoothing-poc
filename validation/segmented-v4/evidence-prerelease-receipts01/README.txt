@@ -1,0 +1,1 @@
+These recorded GitHub responses verify publication of the validation04 and shifted02 evidence prereleases, their exact commit targets, asset digests and sizes. They are not a v4.0 release or completed benchmark. No new network request or archive download was performed by this metadata verifier. Later server changes are outside this recorded observation.

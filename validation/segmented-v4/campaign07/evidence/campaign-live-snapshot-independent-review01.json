@@ -1,0 +1,31 @@
+{
+  "candidate": {
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft01/manifest.json",
+    "sha256": "68bb3e8009098831b69de076b6c4d2e7d544e739d9e7ab787dfda976fa53307c"
+  },
+  "conditions": [
+    "The actual reviewed host control must retain inode 239600119 on device 2048 at the hardcoded fit-campaign-control-07 path. A changed allocation requires a separately versioned capture helper.",
+    "Run only after actual campaign launch with its reviewed host-plan hash. This review does not authorize or certify campaign execution or probe success."
+  ],
+  "helper": {
+    "bytes": 8306,
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-draft01/capture_campaign_live01.py",
+    "sha256": "977be51873a9071379b2b5784621a1e6814ff5fb4417327764f7c750f8952a2f"
+  },
+  "review": [
+    "Exact actual host-plan hash, frozen observer hash and manifest identity are required.",
+    "Only owned process HOME and four thread variables are exported; no signal, lock acquisition, service, fit or affinity mutation occurs.",
+    "Non-atomic process and receipt races are disclosed; terminal status is not independent scientific certification."
+  ],
+  "reviewed_at": "2026-10-18T21:14:03.489829+00:00",
+  "schema": "orbit-poc-campaign-live-snapshot-independent-review-v1",
+  "status": "approved_read_only_one_shot_control",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 8,
+    "path": "/mnt/d/orbit-segmented-v4/control/campaign-live-snapshot-independent01.xml",
+    "sha256": "55d3b8542d850f57c068233f8344d10835d8496d034b8430ef968b3b965f51e3",
+    "skipped": 0
+  }
+}

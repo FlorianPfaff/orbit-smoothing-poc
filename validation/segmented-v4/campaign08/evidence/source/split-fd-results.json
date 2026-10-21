@@ -1,0 +1,52 @@
+[
+  {
+    "name": "single_under_limit",
+    "expanded_file_arguments": 8997,
+    "direct_arguments": 3,
+    "total_count": 9000,
+    "per_file_counts": [
+      8997
+    ],
+    "returncode": 0,
+    "expected_returncode": 0,
+    "stderr": ""
+  },
+  {
+    "name": "single_over_limit",
+    "expanded_file_arguments": 8998,
+    "direct_arguments": 3,
+    "total_count": 9001,
+    "per_file_counts": [
+      8998
+    ],
+    "returncode": 1,
+    "expected_returncode": 1,
+    "stderr": "bwrap: Exceeded maximum number of arguments 9000\n"
+  },
+  {
+    "name": "two_under_limit",
+    "expanded_file_arguments": 8800,
+    "direct_arguments": 5,
+    "total_count": 8805,
+    "per_file_counts": [
+      4400,
+      4400
+    ],
+    "returncode": 0,
+    "expected_returncode": 0,
+    "stderr": ""
+  },
+  {
+    "name": "two_files_over_limit",
+    "expanded_file_arguments": 11022,
+    "direct_arguments": 5,
+    "total_count": 11027,
+    "per_file_counts": [
+      5511,
+      5511
+    ],
+    "returncode": 1,
+    "expected_returncode": 1,
+    "stderr": "bwrap: Exceeded maximum number of arguments 9000\n"
+  }
+]

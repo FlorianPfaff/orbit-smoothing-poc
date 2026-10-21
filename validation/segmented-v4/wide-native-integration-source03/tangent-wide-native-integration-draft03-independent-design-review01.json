@@ -1,0 +1,76 @@
+{
+  "schema": "orbit-poc-wide-native-draft-independent-design-review-v1",
+  "passed": true,
+  "status": "source_design_and_pure_fixture_review_passed_native_checks_outstanding",
+  "observed_at": "2026-10-16T20:27:12.582784+00:00",
+  "review_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-integration-draft03/review-manifest.json",
+    "sha256": "104da208203a5aaf467efe8fcbb6d3310c2a837abc191e7d8dfee4480869c7fc"
+  },
+  "source_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-integration-draft03/source-manifest.json",
+    "sha256": "2d4c2bfca1a96e5a45ca580ad6637aa911b45d99725a5dd0b11d118a6cfd694b"
+  },
+  "overlay_manifest": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-integration-draft03/overlay-manifest.json",
+    "sha256": "073306a49af9ac8467f99438cda8b86479202d3e94fe2eecca4c1442fb7d01ba"
+  },
+  "numerical_header": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-integration-draft03/proposed/misc/orbitPoc/wideSixStateTangent.h",
+    "sha256": "b6910fec1dfe65ce0541d41e6448e2515a72cf94c94232de79d5bcf01aa1d263"
+  },
+  "numerical_family_audit": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-integration-draft03/numerical-family-audit.json",
+    "sha256": "11c8714dd4faccc2cc4f6077ab577847b649adf0c00693485b8126940043dfc7"
+  },
+  "independent_test_log": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-draft03-independent-tests02.log",
+    "sha256": "d3e4274c45213a50a8f2bf12b2c12e5d0173a270ef863a1d51b35d96b937c7cb"
+  },
+  "retained_preceding_fixture_selection_log": {
+    "path": "/mnt/d/orbit-segmented-v4/control/tangent-wide-native-draft03-independent-tests01.log",
+    "sha256": "d0d7bd687c6e3254284689f74224800671f9e927d78217cb285ad3401fc31ca8"
+  },
+  "verified": {
+    "frozen_files": 47,
+    "bytes": 603084,
+    "pure_decoder_lift_fixtures": 44,
+    "pure_installer_source_fixtures": 14,
+    "failed_or_skipped_final_tests": 0,
+    "installed_original_bytes_match_exact_prior_capture": true,
+    "repository_original_bytes_match_current_source": true,
+    "actual_force_rhs_restoration_and_archive_region_byte_identical": true,
+    "polynomial_arithmetic_and_search_selection_byte_identical_after_removing_capture_hooks": true,
+    "piecewise_batch_traversal_byte_identical_after_removing_capture_hooks": true,
+    "candidate03_header_exact": true,
+    "typed_anchor_high_low_algebra_reviewed": true,
+    "v1_flat_semantics_retained": true,
+    "unknown_or_mixed_schema_rejected": true,
+    "gnss_query_and_production_variation_rows_unchanged": true,
+    "post_install_overlay_reproduces_exact_seven_files": true
+  },
+  "reviewed_semantics": [
+    "Metadata uses the existing full batch interpolate traversal separately for position and jump-aware velocity; it does not reselect scalar stencils.",
+    "Typed tangent v2 serializes exact/ordinary/anchored-twofold mode, actual local anchor, indices and hexadecimal high/low terms. Grid sample stencils are identities; extra drag samples reuse captured metadata.",
+    "Anchored coefficients are combined exactly as 1 minus the sum of nonanchor weights at the anchor. No weight normalization or coefficient cutoff is introduced.",
+    "The bounded diagnostic lift coalesces dyadic rows exactly then records every nonzero binary64 rounding error; overflow and nonzero underflow fail. This is not a claim of identical finite-precision execution.",
+    "The overlay is an explicitly pinned isolated post-install step. Ordinary repository installers and public defaults remain unchanged. The complete surrounding source/runtime dependencies must still be pinned by native build controls."
+  ],
+  "required_actual_gates": [
+    "Compile and execute native batch interpolation and serializer fixtures with the pinned native compiler; verify serializer-to-decoder roundtrip.",
+    "Demonstrate positive flight extra-time support, actual batch Time/searchStart selection, distinct position/velocity pulse support, sameTimes identity and shifted computational cuts.",
+    "Verify native/lifted tangent equivalence within unchanged tolerances, including anchored nonnormalized high/low weights, and unchanged GNSS query/variation/covariance equivalence.",
+    "Run distinct exact long-arc failures and full fixed-target closures, then the complete unchanged correctness and shifted-cut suite before preparation."
+  ],
+  "scope": {
+    "unbuilt_external_draft": true,
+    "native_execution_by_reviewer": false,
+    "production_source_modified": false,
+    "bounded_diagnostic_lift_maximum_epochs": 1000,
+    "full_multiday_typed_production_lift_claim": false,
+    "native_correction_verified": false,
+    "validation05_inherited": false,
+    "orbit_benchmark_attempts": 0,
+    "release_ready": false
+  }
+}

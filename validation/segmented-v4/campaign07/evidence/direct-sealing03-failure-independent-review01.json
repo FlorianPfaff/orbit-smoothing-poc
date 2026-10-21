@@ -1,0 +1,40 @@
+{
+  "capture": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing03-terminal01/manifest.json",
+    "sha256": "e76c128e94cea0e18e4d7159955316c7ca128a1d0650decd9b6e1ec918ee1c04"
+  },
+  "captured_bytes_verified": 20260569,
+  "captured_records_verified": 14,
+  "elapsed_seconds": 131.76707734796219,
+  "execution": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing03-terminal01/execution/execution.json",
+    "sha256": "3b6aa4e40a04f2c4036005a5913912c53f2bd012eb804194152812cd5518b0f4"
+  },
+  "failure": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing03-terminal01/sealed/failure.json",
+    "sha256": "8571b72e0987843b0b4e77b62ad7011961700a1d4c4f2401c16e1042fed610e4"
+  },
+  "findings": [
+    "The corrected namespace started successfully and invoked the exact unchanged metadata sealer. The prior missing-parent failure did not recur.",
+    "The allowlist rejected a byte-identical copy of generated noisy GPS measurements, not receiver state/clock/ambiguity truth: b7c77a68888b3d212e3b5a1ba647606e3395802dfb4b9af7d6ae78cdee40d0bf, 16,393,476 bytes.",
+    "Both immutable 72h leo500 quiet normal requests explicitly declare the retained file as gnss_observations, with 99,526 records, pinned mask, and identical source_sha256.",
+    "The exact corresponding generation observation path remains subject to denial. A prospective correction must be restricted to proven shared measurement content and leave truth/reference protections intact.",
+    "Five successfully generated metadata artifacts plus the failure receipt remain preserved under sealed-inputs-01. No final allowlist, mount plan, successful seal result, native run or fit was produced.",
+    "Owned cleanup is verified; a fresh independent read found all three recorded PID/start identities absent or non-executing, and both fit writable directories empty."
+  ],
+  "fit_attempts": 0,
+  "independent_helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_direct_sealing03_failure01.py",
+    "sha256": "346f4aeefc95c66200fb26c238d21f23edb499b99a57ee36300bae9f6d30ed72"
+  },
+  "independent_remote_readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/direct-sealing03-failure-independent-readback01.json",
+    "sha256": "9e5637ec55662ef18e8ec2236bb155e0d1df9a46fea4c2aadd211b4cb80f814d"
+  },
+  "native_executions": 0,
+  "next_scope": "Separately version any narrow observation-copy control correction and use a fresh output root. Keep all numerical/source/input/threshold identities unchanged.",
+  "reviewed_at": "2026-10-18T21:27:21.486018+00:00",
+  "schema": "orbit-poc-direct-sealing03-failure-independent-review-v1",
+  "scientific_status": "not_a_numerical_or_scientific_fit_failure",
+  "status": "preserved_input_isolation_metadata_failure"
+}

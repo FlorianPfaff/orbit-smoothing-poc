@@ -1,0 +1,55 @@
+{
+  "schema": "orbit-poc-shifted02-packet-independent-review-v1",
+  "passed": true,
+  "reviewed_utc": "2026-10-16T06:03:34.508143+00:00",
+  "readback": {
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted02-packet-independent-readback01.json",
+    "sha256": "b7884c18afe561cb5afc6123d9ac19a455bc7f0eebee1f669c50e9ac85ab198e"
+  },
+  "helper": {
+    "path": "/mnt/d/orbit-segmented-v4/control/audit_shifted02_packet01.py",
+    "sha256": "6ae9df207e87f1b2d737987effd80a9414dde4f56101617708f1392cc737dfe1"
+  },
+  "full14_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/segmented-validation04-terminal-independent-review-01.json",
+    "sha256": "06fd170a383214cdade87bddcb925d465184825a47281093f4aaad2043e863d0"
+  },
+  "staging_input_review": {
+    "path": "/mnt/d/orbit-segmented-v4/control/shifted02-staging-input-independent-review01.json",
+    "sha256": "ef6b6d23f794527844b0164c7437a85e6c35742816277e186c4e6ef68594326f"
+  },
+  "plan": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-02/control/plan.json",
+    "sha256": "256dc7655b6f6888dae2760d86d62d6b86f4e63662fbc0f1dd24361bbfdc8eb5"
+  },
+  "execution": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-02/control/execution.json",
+    "sha256": "8e9be3c485ae53cec8fb99c2e57bf7a04ce508b64b4dfb87d9d9def2649c7f93"
+  },
+  "pins": {
+    "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-02/control/pins.json",
+    "sha256": "c43abe7cd5b397be2b069881e88526ebb841240eebecc36f3d6050d1d7df6d63"
+  },
+  "source": {
+    "sha256": "1fe0f24166a7983a7c10eaf1712e4b5545f02c61bd38406fa9d07e70cd7d6a4e",
+    "file_count": 384
+  },
+  "base_runtime_pins_unchanged": 371,
+  "new_runtime_pin_count": 12,
+  "startup_smoke_authorized": true,
+  "native_diagnostic_launch_authorized": false,
+  "exact_smoke_command": [
+    "/usr/bin/taskset",
+    "-c",
+    "24-27",
+    "/usr/bin/python3",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/preparation-03/control/smoke_shifted_runtime01.py",
+    "--plan",
+    "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/shifted-diagnostic-02/control/plan.json",
+    "--sha256",
+    "256dc7655b6f6888dae2760d86d62d6b86f4e63662fbc0f1dd24361bbfdc8eb5",
+    "--helper-sha256",
+    "d8bfc99cc66f75a4aa16d681efffc4ca42ad26357fe5f2842e0e68eeab18795b"
+  ],
+  "scope": "Exact separate diagnostic packet and copied source verified. Approved unchanged owned read-only runtime smoke under root standing authority/current admission/shared lock. Actual smoke, cleanup and launch receipt still required before numerical diagnostic; no new physical propagation, fit or release claim."
+}
