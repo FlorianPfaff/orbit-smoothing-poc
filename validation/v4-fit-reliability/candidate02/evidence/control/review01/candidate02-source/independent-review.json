@@ -1,0 +1,105 @@
+{
+  "accepted_covariance": false,
+  "author_component_results": {
+    "errors": 0,
+    "failures": 0,
+    "independently_reexecuted": false,
+    "passed": 26,
+    "receipt": {
+      "bytes": 4042,
+      "path": "/home/emper/orbit-v4-failure-investigation/outputs/component-tests04.xml",
+      "sha256": "65c56105a779e0be7beae9baa385030a861be36f0cbfaba33a009b4d973c89f5"
+    },
+    "skipped": 0
+  },
+  "build_plan": {
+    "bytes": 158659,
+    "path": "/home/emper/orbit-v4-failure-investigation/control/build-plan02.json",
+    "sha256": "edef434215332cb3871cd49d55fde5a5b119e8e2b6f60c0a7cb8a915564edd4b"
+  },
+  "candidate01_source_snapshot": {
+    "build_plan": {
+      "bytes": 158014,
+      "path": "/home/emper/orbit-v4-failure-investigation/control/build-plan01.json",
+      "sha256": "39372e56a20056bb966219f0d60830856ad07de5821881b04303f420216e88c3"
+    },
+    "matched_patch_files": 77,
+    "path": "/home/emper/orbit-v4-failure-investigation/source-candidate01"
+  },
+  "checked_compilation_patch_pins": 77,
+  "compilation_pins_unchanged": true,
+  "created_at": "2026-10-21T02:32:35.857016+00:00",
+  "findings": [],
+  "full_fit_verified": false,
+  "limitations": [
+    "The 26 author cases exercise mocked Matrix/query callback dispatch and real fork isolation. They do not independently execute the native zero-column invalid-query path.",
+    "Candidate01 actual off/on pairs bind a different binary and cannot certify candidate02 runtime.",
+    "No new native process, compilation or test was executed by this reviewer."
+  ],
+  "native_execution_by_reviewer": false,
+  "native_source_traced": [
+    {
+      "bytes": 36254,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-02/source/base/matrix.h",
+      "sha256": "a8d2b5b5afa7c2750edd42d149ea6e6b17bfe7f770c7a8905b820c55f7c2c19d"
+    },
+    {
+      "bytes": 46814,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-02/source/base/matrix.cpp",
+      "sha256": "555316e971d6ff62e9e1a2f48824f5156b023483820da8fbf00fae37f03998ae"
+    },
+    {
+      "bytes": 13430,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-02/source/base/polynomial.cpp",
+      "sha256": "0ebef9ae462366c0c686db16a771e479f69e3f0d436379233101cc14fa6ffd6b"
+    },
+    {
+      "bytes": 11681,
+      "path": "/home/emper/orbit-v4-failure-investigation/native-source-02/source/misc/orbitPoc/piecewisePolynomial.h",
+      "sha256": "15b95511bd72feaa3ac567fab37636cf87a13d3e453b988a662e576925cc0b76"
+    }
+  ],
+  "protected_originals_unchanged": true,
+  "release_authority": false,
+  "remaining_runtime_validation": [
+    "Unchanged 106+51 native suites against candidate02.",
+    "Candidate02 actual cost-only off/on pairs and native query validation cases, including invalid remainder/stencil rejection.",
+    "Focused fail-fast parser cases for unset/0/1 and invalid values; valid/invalid replay behavior remains explicitly scoped."
+  ],
+  "schema": "independent-v4-fit-candidate02-source-review-v1",
+  "source_files": [
+    {
+      "bytes": 8672,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/native_nuisance_performance.py",
+      "sha256": "adc6e387f7d68f78573d28d946257192905721b6b83e7feac5b45d318fc61070"
+    },
+    {
+      "bytes": 38063,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/native_row_qr.py",
+      "sha256": "79c08d409cec100b5a789bf651813247fd8088828051382c46754147d2c4907b"
+    },
+    {
+      "bytes": 10639,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/nuisancePerformance.h",
+      "sha256": "13be8b151ffeabf1105ad5432b32b518a954ca12c1a8ec4e0ecafabc963260c6"
+    },
+    {
+      "bytes": 23465,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/nuisanceLineSearch.h",
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c"
+    },
+    {
+      "bytes": 6078,
+      "path": "/home/emper/orbit-v4-failure-investigation/source/tests/test_nuisance_failure_candidate.py",
+      "sha256": "cef60aecebc3c7144e9579f9708146bf651a2dd791d418153f6d6f30d2a6faa0"
+    }
+  ],
+  "source_findings": [
+    "Fail-fast is unset/0 by default, accepts only canonical 0 or 1, and validates before child creation. Enabled early return retains false accepted/stationary/floor states and the caller still rejects invalid identity replay.",
+    "Default-off proposal search semantics remain; execution failures now retain their specific error before the unchanged scientific guard.",
+    "Cost-only omission validates the same native query through interpolateOffset with original row count and zero data columns before returning a zero-filled 3-by-original-column block. Query/remainder, piecewise shape, segment/stencil/extrapolation and weight selection remain native code.",
+    "Full builds still compute original physical derivative columns; residuals, nuisance columns, full prior rows, rank policy and numeric acceptance thresholds unchanged."
+  ],
+  "status": "source_controls_accepted_pending_runtime_validation",
+  "whole_fit_convergence_established": false
+}

@@ -1,0 +1,161 @@
+{
+  "cpu": 0,
+  "input_pins": [
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/physical_initial.txt",
+      "sha256": "0b4603f54830f18b862a13d372a3f3049283d5d8b594e32abbe065529b140421"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/variational.dat",
+      "sha256": "76eb02bc2b62d35ce28ecc9b51c67dc2d5967c0542f5ee124d66f526b8779731"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/propagate.xml",
+      "sha256": "9c197f5f49f3974586f951ff179fab0f5cd9a25a6cd822f6418bcf14d7858519"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/provenance.json",
+      "sha256": "71103753de0d0f3009634e8efaffc37edbf0464aff140acd22821780da1c32c6"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/fixed_force.txt",
+      "sha256": "6142efc20897b90287bee2de35de44be4cf20f2123694ca84ab803bb7a7e946a"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/log_density.txt",
+      "sha256": "2f3573dd25d77545d05fd414a43ed97e5844855085611a1c4f48b76a815f8d81"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/ephemerides.dat",
+      "sha256": "4414c9d672f61bc9b1123d3acb9fb6e11aa3c1f6a6aabc517b1e8a78649d32f3"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/inputs/memory-replay02/ephemerides-copy.json",
+      "sha256": "ba739c95ad3f8888833e3e2e613f2ceaba8027c2bff1f1a68473bc22855f0190"
+    }
+  ],
+  "jobs": [
+    {
+      "block_epochs": 0,
+      "xml": {
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks03/replay72h-block0/replay.xml",
+        "sha256": "87ea776d32278c5bb22f0e2a8af14b426f5013f3a36909e7a8391f476af4bc08"
+      }
+    },
+    {
+      "block_epochs": 64,
+      "xml": {
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks03/replay72h-block64/replay.xml",
+        "sha256": "983ac5f054bcbf05d926f1f15ead1620c0130cc1f42fe926c292ec1124c95c89"
+      }
+    },
+    {
+      "block_epochs": 256,
+      "xml": {
+        "path": "/home/emper/orbit-v4-failure-investigation/memory-checks03/replay72h-block256/replay.xml",
+        "sha256": "bd5c69bd54015f3b39fbe2f53d0fc736db2eaed24dadd97ca607a2dc93c9da7f"
+      }
+    }
+  ],
+  "limits": {
+    "process_tree_rss_bytes": 8589934592,
+    "timeout_seconds": 7200
+  },
+  "native_test": {
+    "path": "/home/emper/orbit-v4-failure-investigation/source/tests/test_native_variational_memory.py",
+    "sha256": "52805863b630d64ddb69639fee7bd5114845e4c992959620ef5f732060e0474f"
+  },
+  "one_numerical_thread": true,
+  "runtime_pins": [
+    {
+      "bytes": 24159952,
+      "path": "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-9f6f884739fd8a26",
+      "sha256": "9f6f884739fd8a269cc5fb6ea81fe616eabed5903ae7436995c836b43d38056a"
+    },
+    {
+      "bytes": 159169,
+      "path": "/home/emper/orbit-v4-failure-investigation/build-02/build-manifest.json",
+      "sha256": "8fdae085444d2753ffc3d8757e43ede0f80f5c4cc2fc49c222c827d03d782334"
+    },
+    {
+      "bytes": 436112,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/liberfa.so.1",
+      "sha256": "0b565cccc453d93882a8a84a8639badc71f22f370aeba2040e96c58361fc7857"
+    },
+    {
+      "bytes": 195584,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libexpat.so.1",
+      "sha256": "8b61b41a8f5bee8d8d336e8bc5318233d6b435d482a7510f4e01788b618a6598"
+    },
+    {
+      "bytes": 922624,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libgcc_s.so.1",
+      "sha256": "5444fbe71e8cfe3bd05cdf2b44bd8c2e553e6e7e276977089b5e4e1a1ceed531"
+    },
+    {
+      "bytes": 11532656,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libgfortran.so.5",
+      "sha256": "8b93406aef97f0f39ebac58aed3b63c58c9c26eb246595d8141dde5baeee5b33"
+    },
+    {
+      "bytes": 41542616,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libopenblas.so.0",
+      "sha256": "f1424288e9ac125331102c0150b66fbd244560987779552e0e97d5cfd9de572b"
+    },
+    {
+      "bytes": 991312,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libquadmath.so.0",
+      "sha256": "9fa4807097fa47da1815765f0a43177c45e7ec7cc94e44cfa95a4c3a1a341ee6"
+    },
+    {
+      "bytes": 23874544,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libstdc++.so.6",
+      "sha256": "10f0d3c46c070acd4abea2ccf2500ff0ec77e9b90154b82ea2720dba05510cb9"
+    },
+    {
+      "bytes": 117168,
+      "path": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib/libz.so.1",
+      "sha256": "3c6fd78e248a60e45081bcc77031204a7cb64a88ff2e27fc786ef12ae7e91fca"
+    },
+    {
+      "bytes": 254864,
+      "path": "/lib64/ld-linux-x86-64.so.2",
+      "sha256": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14"
+    },
+    {
+      "bytes": 2190608,
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "85e64f97e348786a8fb4d9f3d52fec289e2fb86bba20f0731dfe61990525e0f7"
+    },
+    {
+      "bytes": 14408,
+      "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "sha256": "59d725ca30596a9863f4fa2552a7125f834842abc86b40890231c129358965d2"
+    },
+    {
+      "bytes": 1198376,
+      "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "sha256": "1c488db6f4fe8cecb72456bc018de000b7a9b539c2994864b0416b5e8371b3d8"
+    },
+    {
+      "bytes": 1022240,
+      "path": "/usr/lib/x86_64-linux-gnu/libmvec.so.1",
+      "sha256": "2f2e7f4ad88e1b13f2f8345c826b25f85ba61c93527d91e59dd0d2943eac6e80"
+    },
+    {
+      "bytes": 14408,
+      "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "sha256": "1327fc40710691dbd94e88b6cf4efce27fefe8fbb93f7d1164a75b4dccaea696"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/control/run_memory_checks03.py",
+      "sha256": "a7d542426d36c573e5dcfdeeee344a10cac51c73131d5e173fae76b29b302cff"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/src/orbit_poc/segmented/supervisor.py",
+      "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267"
+    }
+  ],
+  "schema": "orbit-poc-memory-component-freeze-v1",
+  "scope": "failed fixed-parameter evaluator only; propagation archive reused exactly; not whole-fit or covariance validation"
+}

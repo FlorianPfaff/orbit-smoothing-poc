@@ -1,0 +1,62 @@
+{
+  "counts": {
+    "error": 0,
+    "failure": 0,
+    "skipped": 0,
+    "tests": 28
+  },
+  "execution": {
+    "argv": [
+      "/usr/bin/taskset",
+      "-c",
+      "0",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=/home/emper/orbit-v4-failure-investigation/memory-checks03/native-pairs/temp",
+      "--junitxml=/home/emper/orbit-v4-failure-investigation/memory-checks03/native-pairs/tests.xml",
+      "tests/test_native_variational_memory.py"
+    ],
+    "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    },
+    "elapsed_seconds": 17.969893224988482,
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "owned_process_group_cleaned": true,
+    "peak_process_tree_rss_bytes": 237395968,
+    "plan_sha256": "6162215383927d462af5aa4ec7e5ab32ccdad6f35eceab9f858e1341617d86f9",
+    "returncode": 0,
+    "schema": "orbit-poc-segmented-supervision-v1",
+    "signals_received": [],
+    "status": "complete",
+    "supervisor": {
+      "parent": 87897,
+      "pid": 87960,
+      "start_ticks": 8007650,
+      "state": "R"
+    },
+    "tracked_owned_processes": [
+      {
+        "parent": 87960,
+        "pid": 87961,
+        "start_ticks": 8007819,
+        "state": "Z"
+      }
+    ],
+    "worker": {
+      "parent": 87960,
+      "pid": 87961,
+      "start_ticks": 8007819,
+      "state": "R"
+    }
+  }
+}

@@ -373,7 +373,9 @@ def _nuisance_line_search(source):
       const auto search=orbitPocQr::searchNuisance(before,prediction,threshold,signature,rows,evaluate,audit);
       orbitPocQr::lastNuisanceSearch()=search;
       orbitPocQr::writeNuisanceSearch(stem+".nuisance_line_search.json",search,before,prediction);
-      if(search.zeroUpdateReplay.status || search.zeroUpdateReplay.reduction!=0 || search.zeroUpdateReplay.change!=0)
+      if(search.zeroUpdateReplay.status)
+        throw(Exception("Nuisance zero-update replay execution failed: "+std::string(search.zeroUpdateReplay.error)));
+      if(!orbitPocQr::validNuisanceTrial(search.zeroUpdateReplay,signature,rows) || search.zeroUpdateReplay.reduction!=0 || search.zeroUpdateReplay.change!=0)
         throw(Exception("Nuisance zero-update replay changed the objective or cached state"));
       if(search.stationary||search.floorLimited)return search.undampedChange;
       if(!search.accepted)throw(Exception("Nuisance line search rejected every trial without undamped stationarity"));

@@ -1,0 +1,24 @@
+=== Starting GROOPS ===
+Config file: </home/emper/orbit-v4-failure-investigation/cost-pairs01/pulses-accumulate0-cost1/profile.xml>
+--- GnssProcessing ---
+[1;31mDEPRECATED (please update the config file in the GUI): In 'groops.program(GnssProcessing).transmitter(GNSS)': config element 'inputfileAntennaDefintion' has new name 'inputfileAntennaDefinition' since 2026-05-27[0m
+[1;31mDEPRECATED (please update the config file in the GUI): In 'groops.program(GnssProcessing).transmitter(GNSS)': config element 'inputfileSignalDefintion' has new name 'inputfileSignalDefinition' since 2026-05-27[0m
+Init GNSS
+init transmitters
+[1;31mGPS.G01: No usable epochs, disabling transmitter.[0m
+init Low Earth Orbiter
+read observations
+init observations
+GRACEC: preprocessing statistics after each step
+[1;31mGRACEC disabled: Cannot write common preprocessing audit[0m
+     120 epochs,      0 observations,   0 tracks: init()
+     120 epochs,   1351 observations,   0 tracks: in file </mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-pulses/point-001-nonzero-full-prior/native/data/2024-04-24/gracefo/gracefo1_gnssReceiver_2024-04-24.dat>
+     120 epochs,   1351 observations,   0 tracks: readObservations()
+     120 epochs,   1351 observations,  28 tracks: createTracks()
+     120 epochs,   1351 observations,  28 tracks: estimateInitialClockErrorFromCodeObservations()
+     120 epochs,   1351 observations,  28 tracks: disableEpochsWithGrossCodeObservationOutliers()
+     120 epochs,   1344 observations,  38 tracks: cycleSlipsDetection()
+  transmitter: 31
+  receiver:    0
+[1;31m2024-04-24_00-00-00 - 2024-04-24_00-59-30: no useable receivers[0m
+=== Finished GROOPS ===

@@ -1,0 +1,229 @@
+{
+  "blocked_pair": {
+    "epoch_identity": true,
+    "epochs": 51840,
+    "maximum_position_difference_m": 0.0,
+    "maximum_velocity_difference_m_s": 0.0,
+    "passed": true,
+    "position_limit_m": 2e-06,
+    "velocity_limit_m_s": 3e-09
+  },
+  "native_pairs": "/home/emper/orbit-v4-failure-investigation/memory-checks02/native-pairs/result.json",
+  "replays": [
+    {
+      "block_epochs": 0,
+      "execution": {
+        "argv": [
+          "/usr/bin/taskset",
+          "-c",
+          "0",
+          "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-89a273a44a8a8e0a",
+          "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block0/replay.xml"
+        ],
+        "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            },
+            {
+              "pid": 82602,
+              "signal": 15,
+              "start_ticks": 7860900
+            }
+          ],
+          "verified": true
+        },
+        "elapsed_seconds": 11.007349400999374,
+        "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 10851733504,
+        "plan_sha256": "ee203d14714de4b7a4e325324074558e46701a1ca01e4384aca85f39ec7e5ef1",
+        "returncode": -15,
+        "schema": "orbit-poc-segmented-supervision-v1",
+        "signals_received": [],
+        "status": "memory_limit",
+        "supervisor": {
+          "parent": 82407,
+          "pid": 82600,
+          "start_ticks": 7860128,
+          "state": "R"
+        },
+        "tracked_owned_processes": [
+          {
+            "parent": 82600,
+            "pid": 82602,
+            "start_ticks": 7860900,
+            "state": "R"
+          }
+        ],
+        "worker": {
+          "parent": 82600,
+          "pid": 82602,
+          "start_ticks": 7860900,
+          "state": "R"
+        }
+      },
+      "freeze_sha256": "59b9977a7b7d2ac5e2434a227249d1a1d73a53d759c84c0ea8570ddce32d3215",
+      "whole_fit_verified": false
+    },
+    {
+      "block_epochs": 64,
+      "execution": {
+        "argv": [
+          "/usr/bin/taskset",
+          "-c",
+          "0",
+          "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-89a273a44a8a8e0a",
+          "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block64/replay.xml"
+        ],
+        "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "elapsed_seconds": 35.01444910200371,
+        "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 89722880,
+        "plan_sha256": "85ebc68f745f84cbb5dc380b1ae26f64112b16cd4088002327a864a8b4bd03b9",
+        "returncode": 0,
+        "schema": "orbit-poc-segmented-supervision-v1",
+        "signals_received": [],
+        "status": "complete",
+        "supervisor": {
+          "parent": 82407,
+          "pid": 82608,
+          "start_ticks": 7862327,
+          "state": "R"
+        },
+        "tracked_owned_processes": [
+          {
+            "parent": 82608,
+            "pid": 82609,
+            "start_ticks": 7862433,
+            "state": "Z"
+          }
+        ],
+        "worker": {
+          "parent": 82608,
+          "pid": 82609,
+          "start_ticks": 7862433,
+          "state": "R"
+        }
+      },
+      "freeze_sha256": "59b9977a7b7d2ac5e2434a227249d1a1d73a53d759c84c0ea8570ddce32d3215",
+      "whole_fit_verified": false
+    },
+    {
+      "block_epochs": 256,
+      "execution": {
+        "argv": [
+          "/usr/bin/taskset",
+          "-c",
+          "0",
+          "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-89a273a44a8a8e0a",
+          "/home/emper/orbit-v4-failure-investigation/memory-checks02/replay72h-block256/replay.xml"
+        ],
+        "boot_id": "f7440b3b-052f-4809-8240-f8d8aea32be8",
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "elapsed_seconds": 39.63680072799616,
+        "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 128843776,
+        "plan_sha256": "99eee71dfe392150517f47ddf9d102032b6ac480ff383c92a6b2c33e84132b5d",
+        "returncode": 0,
+        "schema": "orbit-poc-segmented-supervision-v1",
+        "signals_received": [],
+        "status": "complete",
+        "supervisor": {
+          "parent": 82407,
+          "pid": 82645,
+          "start_ticks": 7865997,
+          "state": "R"
+        },
+        "tracked_owned_processes": [
+          {
+            "parent": 82645,
+            "pid": 82646,
+            "start_ticks": 7866045,
+            "state": "Z"
+          }
+        ],
+        "worker": {
+          "parent": 82645,
+          "pid": 82646,
+          "start_ticks": 7866045,
+          "state": "R"
+        }
+      },
+      "freeze_sha256": "59b9977a7b7d2ac5e2434a227249d1a1d73a53d759c84c0ea8570ddce32d3215",
+      "whole_fit_verified": false
+    }
+  ],
+  "whole_fit_verified": false
+}
