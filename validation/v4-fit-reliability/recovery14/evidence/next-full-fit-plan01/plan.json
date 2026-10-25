@@ -1,0 +1,292 @@
+{
+  "schema": "orbit-poc-next-full-fit-regression-plan-v1",
+  "created_at": "2026-10-25T05:32:42.148087+01:00",
+  "status": "identified_plan_only_not_execution_freeze",
+  "launch_authorized_by_this_document": false,
+  "native_runs_launched": false,
+  "recommendation": "First complete two existing one-hour synthetic cold full fits using corrected candidate04. Keep exact 72h pulse and 48h density regressions as the next long-case targets, but do not rerun them unchanged merely because fixed-point validation passed.",
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/result.json",
+      "sha256": "34d20805c5dedb9892ae0b56d72c738ee39e095c10d055f749cca050f39682fd",
+      "bytes": 11569
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/timeout-audit/audit.json",
+      "sha256": "14257090ce1ebb436db25d7f01ad2c432769689280600615cf8dcec3aea1e766",
+      "bytes": 65178
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/gnss-timeout-audit01/audit.json",
+      "sha256": "437f5af9767da7af5d2b585533418f33d5586feb26ac6f3503abefa42d1238c5",
+      "bytes": 28340
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate05-gnss-diagnostics02/freeze.json",
+      "sha256": "5137642e06a5180786a0d85b1715afae450eb24e1bcd5adc058e97eb13e780e3",
+      "bytes": 14126650
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-regression04-controls05/contracts.py",
+      "sha256": "bc0804ec48eaa13da4e1cacea258f5e907439f29ad70e4010298eaaa583f539d",
+      "bytes": 14084
+    },
+    {
+      "path": "/mnt/d/orbit-nuisance-warmstarts/publication/candidate06-profiles03/protocol/freeze.json",
+      "sha256": "805cae9647073882e8fdc5aa102420da08dfa6b0784b846ae6a1607dc5b5dd55",
+      "bytes": 1879968
+    }
+  ],
+  "interpretation": {
+    "eight_checks": "Candidate04 four propagation/measurement refinements, two objective/prior checks and two exact nuisance replays passed. This is not whole-fit convergence, candidate05 certification or release readiness.",
+    "known_reference_timeouts": "Both exact long whole fits already used candidate04 and stopped at point-001-initial nuisance fitting, below the memory limit. Recovery14 changed operational validation routing, not that native binary.",
+    "candidate05": "Conditional-design optimization passed matched completed prefix checks, but all four cold long fixed-point diagnostics timed out. No endpoint equivalence, full-fit speedup or covariance authority.",
+    "warm_start": "Earlier warm-profile results are fixed-physical-point experiments on another pinned binary. They do not establish whole-optimizer integration or eliminate the initial cold nuisance bottleneck."
+  },
+  "priority_1_full_fits": [
+    {
+      "id": "one-hour-pulses-cold-full-fit",
+      "source_request": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/request.json",
+        "sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5",
+        "bytes": 75295
+      },
+      "source_case": {
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 1.0,
+        "epoch": "2024-04-24T00:00:00",
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [],
+          "time_scale": "elapsed"
+        },
+        "orbit": "leo500",
+        "seed": 300000,
+        "truth_model": "retained_tudat_engineering_truth_instruments"
+      },
+      "source_parameters": {
+        "interval_seconds": 1200.0,
+        "sigma_velocity_m_s": 0.0001
+      },
+      "source_controls": {
+        "initial_damping": 0.001,
+        "maximum_accepted_iterations": 32,
+        "maximum_density_update": 0.0001,
+        "maximum_position_change_m": 3e-05,
+        "maximum_pulse_update_m_s": 1e-08,
+        "maximum_trial_evaluations": 96,
+        "minimum_gain_ratio": 0.0001,
+        "normalized_gradient_tolerance": 1e-08,
+        "wall_time_seconds": 7200.0
+      },
+      "primary_inputs": [
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/GPS1B_2024-04-24_C_04.retained.txt",
+          "role": "gnss_observations",
+          "sha256": "f8684cba376c7c78e9964deb209f8fd71db115de631b05cdbfa289be9ea5dead"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/bootstrap_trf.txt",
+          "provenance": "gnss_only",
+          "role": "bootstrap_orbit",
+          "sha256": "24e3870fbdedeb31d53edd56e93a0067c12b1444afa44dbc8bda40e70c312226",
+          "usage": "initialization only; not a measurement or accuracy reference"
+        }
+      ],
+      "native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "initialization": "Original retained-observation GNSS-only bootstrap; no state from point-029-confirmation and no imported nuisance state. Original request bytes remain immutable; separately freeze exact runtime-rebinding journal.",
+      "objective": "Complete initial nuisance solve, nonlinear physical updates and fresh undamped confirmation, rather than another fixed-physical-point profile.",
+      "status": "identified_not_prepared_not_launched"
+    },
+    {
+      "id": "one-hour-log_drag_ou-cold-full-fit",
+      "source_request": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json",
+        "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd",
+        "bytes": 75440
+      },
+      "source_case": {
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 1.0,
+        "epoch": "2024-04-24T00:00:00",
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [],
+          "time_scale": "elapsed"
+        },
+        "orbit": "leo500",
+        "seed": 300000,
+        "truth_model": "retained_tudat_engineering_truth_instruments"
+      },
+      "source_parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.3,
+        "tau_seconds": 7200.0
+      },
+      "source_controls": {
+        "initial_damping": 0.001,
+        "maximum_accepted_iterations": 32,
+        "maximum_density_update": 0.0001,
+        "maximum_position_change_m": 3e-05,
+        "maximum_pulse_update_m_s": 1e-08,
+        "maximum_trial_evaluations": 96,
+        "minimum_gain_ratio": 0.0001,
+        "normalized_gradient_tolerance": 1e-08,
+        "wall_time_seconds": 7200.0
+      },
+      "primary_inputs": [
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/GPS1B_2024-04-24_C_04.retained.txt",
+          "role": "gnss_observations",
+          "sha256": "f8684cba376c7c78e9964deb209f8fd71db115de631b05cdbfa289be9ea5dead"
+        },
+        {
+          "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/bootstrap_trf.txt",
+          "provenance": "gnss_only",
+          "role": "bootstrap_orbit",
+          "sha256": "24e3870fbdedeb31d53edd56e93a0067c12b1444afa44dbc8bda40e70c312226",
+          "usage": "initialization only; not a measurement or accuracy reference"
+        }
+      ],
+      "native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "initialization": "Original retained-observation GNSS-only bootstrap; no state from point-029-confirmation and no imported nuisance state. Original request bytes remain immutable; separately freeze exact runtime-rebinding journal.",
+      "objective": "Complete initial nuisance solve, nonlinear physical updates and fresh undamped confirmation, rather than another fixed-physical-point profile.",
+      "status": "identified_not_prepared_not_launched"
+    }
+  ],
+  "priority_2_performance_candidate": {
+    "status": "conditional_not_ready_for_fullfit_claim",
+    "native_sha256": "1a39125aae39d8387f2c05c03fecdc75b301b9bf7d189099c06065a4b3884821",
+    "case_ids": [
+      "one-hour-pulses-cold-full-fit",
+      "one-hour-log_drag_ou-cold-full-fit"
+    ],
+    "proposed_attempts": 4,
+    "design": "Same two one-hour cases, candidate05 conditional-design OFF and ON, all cold initial nuisance states. OFF must reproduce corrected candidate04 on identical linearizations before ON is accepted.",
+    "requirements": [
+      "Candidate05 must pass its own applicable refinement, objective/prior and distinct nuisance replay gates; candidate04 run14 results cannot be relabeled.",
+      "Freeze exact same observations, bootstrap, physical parameters, weights and nonlinear controls before comparing OFF/ON.",
+      "Compare completed endpoints only if strict convergence; preserve failures, partial histories, runtime and RSS.",
+      "At final accepted physical point, independently cold-refit nuisance parameters for both modes; do not issue covariance from conditional-only factors or a stale/damped linearization."
+    ],
+    "purpose": "Obtain complete small nonlinear endpoint equivalence before spending further long-case fit hours."
+  },
+  "priority_3_exact_long_regressions": [
+    {
+      "id": "leo500-quiet-normal-groops_pulses-72h--dense_corrected",
+      "original_request": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_pulses-72h--dense_corrected/request.json",
+        "sha256": "95afc9661d9054a701287d6f8886b29789e3fb382201fe6670fcc7228ee7bf72"
+      },
+      "original_profile_sha256": "079d7353a7bf6e7cd1647b515733f8430b510d9cb422c63ba729a84cd267de4c",
+      "recorded_wholefit_result": {
+        "path": "/mnt/seagate10tb/orbit-v41-florianpfaff/runs05/whole_fit/leo500-quiet-normal-groops_pulses-72h--dense_corrected/result.json",
+        "sha256": "3a74d1680de7e7f27fde4dfd3c5107b236a5a7ce4652ce60b364ffd9f788e9d9"
+      },
+      "reference_native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "case": {
+        "orbit": "leo500",
+        "seed": 610000,
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "duration_hours": 72,
+        "epoch": "2024-05-10T00:00:00",
+        "cadence_seconds": 30
+      },
+      "parameters": {
+        "interval_seconds": 1200,
+        "sigma_velocity_m_s": 0.0001,
+        "frame": "CRF"
+      },
+      "gate_before_new_attempt": "Versioned candidate changes the measured initial cold-nuisance bottleneck, passes its own applicable numerical/equivalence checks, and finishes the exact original fixed-point nuisance case strictly within the unchanged 7200-second budget. Matching completed prefixes alone do not satisfy this gate.",
+      "status": "deferred_known_reference_timeout_no_identical_rerun_scheduled"
+    },
+    {
+      "id": "leo500-quiet-normal-groops_log_drag_ou-48h--dense_corrected",
+      "original_request": {
+        "path": "/mnt/seagate10tb/orbit-segmented-v4-florianpfaff/validation-07/run/attempts/leo500-quiet-normal-groops_log_drag_ou-48h--dense_corrected/request.json",
+        "sha256": "2af6dcabcb82e7cc70bc718b020da2f927a8aa567d6e5a01d0cf7dc1bf85aae6"
+      },
+      "original_profile_sha256": "4705d12b7975c2b70d9d1c1b2c52c0ceaa81b1703e0cb5c09406ff2d7edadfdd",
+      "recorded_wholefit_result": {
+        "path": "/mnt/seagate10tb/orbit-v41-florianpfaff/runs05/whole_fit/leo500-quiet-normal-groops_log_drag_ou-48h--dense_corrected/result.json",
+        "sha256": "65c89178965febbe07eb4c5fc63d3fecc784fd1867bf095d431d81011f845a81"
+      },
+      "reference_native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "case": {
+        "orbit": "leo500",
+        "seed": 610000,
+        "atmosphere": "quiet",
+        "coverage": "normal",
+        "duration_hours": 48,
+        "epoch": "2024-05-10T00:00:00",
+        "cadence_seconds": 30
+      },
+      "parameters": {
+        "knot_seconds": 60,
+        "tau_seconds": 1800,
+        "sigma_log_density": 0.1,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "empirical_acceleration": false
+      },
+      "gate_before_new_attempt": "Versioned candidate changes the measured initial cold-nuisance bottleneck, passes its own applicable numerical/equivalence checks, and finishes the exact original fixed-point nuisance case strictly within the unchanged 7200-second budget. Matching completed prefixes alone do not satisfy this gate.",
+      "status": "deferred_known_reference_timeout_no_identical_rerun_scheduled"
+    }
+  ],
+  "warm_fullfit_rule": {
+    "primary_arms": "Cold; no archived successful nuisance state, original failed-fit cache or truth state may initialize them.",
+    "optional_later_arm": "If a separately versioned whole-fit warm-start integration is selected, pair it with the same cold full-fit controls, allow only accepted-state nuisance donors within that run, verify rollback and support, and cold-refit final nuisance parameters.",
+    "not_in_minimal_next_batch": true,
+    "known_limitation": "Warm starts after accepted physical updates cannot accelerate a first cold solve that has not completed."
+  },
+  "unchanged_limits": {
+    "wall_time_seconds_per_fit": 7200,
+    "process_tree_rss_bytes": 8589934592,
+    "numerical_threads": 1,
+    "maximum_accepted_iterations": 32,
+    "maximum_trial_evaluations": 96,
+    "minimum_gain_ratio": 0.0001,
+    "maximum_position_change_m": 3e-05,
+    "maximum_density_update": 0.0001,
+    "maximum_pulse_update_m_s": 1e-08,
+    "normalized_gradient_tolerance": 1e-08,
+    "strict_nuisance_update_m": 1e-08,
+    "consecutive_small_nuisance_updates": 2,
+    "fresh_full_nuisance_confirmation": true
+  },
+  "equivalence_requirements": {
+    "physical_positions_m": 3e-05,
+    "code_prediction_m": 0.003,
+    "phase_prediction_m": 3e-05,
+    "map_difference_in_posterior_sd_identical_small_linearization": 1e-07,
+    "relative_covariance_error_identical_small_linearization": 1e-08,
+    "full_native_normalized_covariance_block_error": 1e-06,
+    "objective": "Compare actual profiled objective including complete priors and eliminated residual energy against measured numerical floors; do not compare raw penalized objectives of different statistical models.",
+    "covariance": "Only strict full-fit convergence, fresh undamped complete-factor rank certificate and nuisance marginalization authorize an accepted covariance; floor-limited progress does not."
+  },
+  "preparation_required": [
+    "New separate output, scientific input freeze, source/build/native/runtime identities, exact rebinding journal and independent control audit. Source requests still name historical binary/source identities and must not be run unmodified against a different binary.",
+    "Use corrected validation namespace composition/output routing with stage-specific writable outputs; forbid truth/reference access.",
+    "Prove old and reconstructed logical input aliases map to original bytes after workspace relocation; fail closed on missing identities.",
+    "Freeze order before execution; serial admitted CPU-only workload, preferential gpuserver4090 when available, protect production on gpuserver6000, retain owned-process cleanup. No admission check or launch performed by this plan.",
+    "Review new full-fit control adapter: existing long-case runner validates only the two exact long requests and cannot silently be reused for one-hour cases.",
+    "Do not publish source datasets or row spools; publish compact per-attempt records and links/hashes."
+  ],
+  "reporting": [
+    "Both short cases share engineering data and are outcome-selected development regressions, not fresh independent scientific evidence.",
+    "Short density case retains tau7200/sigma0.3. Long density case retains tau1800/sigma0.1; do not silently unify hyperparameters.",
+    "Preserve original v3.1/v4 frozen attempts and binaries; new results never substitute for frozen failures or incomplete attempts.",
+    "No long-case capability, accuracy or flight uncertainty claim follows from a successful one-hour synthetic test.",
+    "Any failure or timeout stays explicit; do not shorten a failing original arc, increase its budget or relax thresholds and call it the same regression."
+  ],
+  "release_authority": false,
+  "accepted_covariance": false
+}

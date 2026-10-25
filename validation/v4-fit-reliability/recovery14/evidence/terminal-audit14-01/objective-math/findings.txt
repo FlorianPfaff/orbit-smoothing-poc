@@ -1,0 +1,66 @@
+Independent run14 objective/prior audit — final attempt03
+
+PASS: 381 independent reader/math checks; no failed checks. The audit performed
+no native execution or nonlinear refit and changed no original run, source,
+controls, frozen protocol, or scientific threshold.
+
+All 32 fixed-physical-state objective profiles satisfy the original strict
+nuisance criterion: the last two corrections and a fresh full-system correction
+are below 1e-8 m. All retain fixed weights and dynamic_updates=false. None is
+numerical-floor limited. Maximum fresh full corrections are 8.540628624412144e-10 m
+for density (22 profiles) and 7.381032565852815e-9 m for pulses (10 profiles).
+This is nuisance convergence only; no full orbital fit convergence or covariance
+permission follows.
+
+All 32 tighter trajectory closures satisfy position <2e-7 m and velocity
+<3e-10 m/s. Maximum final closure differences are 1.3969838619232178e-9 m and
+1.3642420526593924e-12 m/s for density, and 1.550728995850935e-8 m and
+1.5811873391352228e-11 m/s for pulses. Independent sums of saved weighted-row
+squared residuals agree with native direct objectives exactly for density and to
+4.547473508864641e-13 in objective units for pulses. Compressed row evidence
+reproduces its preserved uncompressed hashes. All accessed evidence stayed fixed.
+
+Full accumulated prior penalties were recomputed from saved physical parameters
+at every point. The density base prior has 61 rows (one stationary prior and 60 OU
+transitions), cost 4.848917841373498, and maximum RHS difference 2.054824088659757e-9
+against its unchanged 2e-8 limit. Serialized MJD knot times are used, as in the
+original check. The pulse base prior has six full native micro-metre-per-second
+coordinates, cost 0.053929305673915545, and zero RHS difference against the unchanged
+1e-12 limit. These are nonzero full parameter penalties, not update-only penalties.
+
+Density's original coarse scales 1, 0.5, and 0.25 fail and are preserved in the
+result. The first consecutive passing scales are 0.125 and 0.0625: independently
+recomputed relative derivative error plus empirical resolution fraction is
+9.82620794232755e-5 and 2.4537271255743286e-5, respectively, below unchanged 1e-4.
+The first pass is close to the limit; its margin is only 1.737920576724505e-6.
+Pulse scales 1 and 0.5 pass at 1.3320088375389127e-6 and 2.874560283428208e-6.
+
+Base fixed-state objective repeat differences are 2.623531145218294e-6 (density)
+and 6.858952747279545e-5 (pulses). Their unchanged factor-ten empirical physical
+resolution allowances are 2.623531145218294e-5 and 6.858952747279545e-4. These are
+empirical repeat measurements at tighter closure, not rigorous error bounds.
+The endpoint repeated-state allowance arithmetic was independently recalculated.
+
+Limitations: the base QR matrices were deliberately removed by the original
+retention policy, with their old hashes and deletion receipts preserved. This
+audit compares independently recomputed finite differences/allowances against
+the recorded native directional derivative. It does not claim to reconstruct the
+native tangent a second time. Saved RHS rows are binary64 diagnostics; summing
+these is not rerunning native twofold/long-double observation arithmetic.
+Full runtime/bulk-input identity and the remaining six gates belong to the parent
+terminal audit. These bounded engineering checks do not establish full-fit
+regression success, v4 equivalence, scientific superiority, or release readiness.
+
+Auditor development failures are preserved separately: attempt01 used the wrong
+summary-field spelling; attempt02 compared shorthand folder names with registry
+method names (which correctly have the groops_ prefix). Attempt03 fixes only
+those auditor field/label lookups, with unchanged mathematical checks. These are
+reader bookkeeping errors, not failures of the saved scientific gates.
+
+Final machine-readable result: audit-result.json
+Final reusable script: audit_objectives03.py
+Publication evidence inventory: publication-evidence03.json
+Inventory contains original absolute path, bytes, SHA256, and copy eligibility.
+Eligibility is not an instruction to copy every file; identical repeated support
+files can be published once with all original-path attributions. Runtime binaries
+and external initialization inputs are provenance-only in this focused inventory.

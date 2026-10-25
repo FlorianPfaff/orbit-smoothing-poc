@@ -1,0 +1,24 @@
+{
+  "derivative_refinement_policy": {
+    "maximum_scales": 9,
+    "physical_repeat_allowance_multiplier": 10,
+    "ratio": 0.5,
+    "required_consecutive_passing_scales": 2
+  },
+  "error": "OSError: [Errno 30] Read-only file system: '/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/output'",
+  "initialization_policy": "preserved_blind_engineering_initial_state",
+  "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "passed": false,
+  "profile_evaluations": [],
+  "relative_derivative_tolerance": 0.0001,
+  "resolution_scope": "empirical arithmetic spread, not a rigorous error bound or nuisance convergence",
+  "schema_version": 1,
+  "scope": "native synthetic correctness gate; no evaluation truth",
+  "source_hash": "f7e8e79b7cd8061142504bc9cb94476ad41cb19d6d582a14e4f8bb7fb07ce680",
+  "state_input": {
+    "path": "/mnt/d/orbit-numerics-v3.1/engineering-archive/development-fits-07/pulses-staged/point-029-confirmation/physical_initial.txt",
+    "role": "blind_engineering_physical_initial",
+    "sha256": "61b08f300902d38357b3ea6889711818a3ae590af74de05375121ac05dc403ea"
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/pathlib.py\", line 1116, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/output/2024-04-24'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/mnt/d/orbit-v41-recovery01/candidate04/source/scripts/validate_numerics_objective.py\", line 113, in main\n    point = model.evaluate(replace(initial, force=force), \"nonzero-full-prior\", tighter=True)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/backend.py\", line 300, in evaluate\n    Path(output).parent.mkdir(parents=True, exist_ok=True)\n  File \"/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/pathlib.py\", line 1120, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  File \"/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/pathlib.py\", line 1116, in mkdir\n    os.mkdir(self, mode)\nOSError: [Errno 30] Read-only file system: '/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/output'\n"
+}
