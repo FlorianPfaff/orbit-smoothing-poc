@@ -1,0 +1,124 @@
+{
+  "at": "2026-10-21T13:58:53.756442+00:00",
+  "candidate_native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "controls": {
+    "contract.py": "da4a824fbe9678bf0898f4e81bc2ac3ee67dad0bd48671a5483033f42e76ef75",
+    "controller.py": "d2f73b46108c0c19c05ed8b7bfed969cb015a8d5a9a11fa3e2831ef36b49d034",
+    "supervisor_python": "2a3c8a9550239490fdcd11d772fb1c5bc69eb75622ac01c704ee9fe9b04dacb2",
+    "worker.py": "bd501e34a87b4c4b6f9c1bd84ff9f328ad09acccc66ad83e81e76fa9a042eba3"
+  },
+  "cpu": 62,
+  "expected_core_tests": 338,
+  "expected_extra_tests": 16,
+  "extra_suites": [
+    [
+      "empty_retained",
+      8,
+      [
+        "/supplemental/empty/test_empty_conditional_native.py"
+      ]
+    ],
+    [
+      "rank_unit",
+      8,
+      [
+        "/supplemental/edges/test_conditional_nuisance_edges.py"
+      ]
+    ]
+  ],
+  "inventories": {
+    "candidate": "d8e6b087f3db714764c12bcdf851710770ebb7a83d16aeec26c201ab0241f4ec",
+    "extra": "d0aed2a50aaac2b3f6659742b080e64e315de45c96fed64d8129794a1b7981a9",
+    "inputs": "bc7626e966ad172bf0a0c7a3cfb3ee94592fa4d5078722b084f719060dd4344c",
+    "runtime": "cf1f3a50d992fff547310a0992a70dede5508b3154148e165d952183a3b3b451",
+    "system_cxx": "6d89787339be1600b54ac0a2e0e1d0901ae797c05b562b53ee1b11111a4b2ecd"
+  },
+  "max_process_tree_rss_bytes": 8589934592,
+  "min_free_disk_bytes": 17179869184,
+  "namespace_launcher": {
+    "gid": 0,
+    "mode": 493,
+    "path": "/usr/bin/bwrap",
+    "regular_file": true,
+    "resolved": "/usr/bin/bwrap",
+    "sha256": "52231e1caf55bcbc667b269f49c63599a6f7db4767ae6a039580d0ff853db712",
+    "symlink": false,
+    "uid": 0,
+    "xattrs": {}
+  },
+  "native_execution_authorized": false,
+  "runtime_difference": "Python startup uses copied native-lib; unchanged fixture subprocesses use pinned conda/lib. The eight native library bytes are identical. Six system libraries differ from the local build host.",
+  "schema": "orbit-v41-remote-native338-plan-v2",
+  "scope": "Actual staged remote runtime component validation; no whole-fit or release authority. Host standalone GCC13 is distinct from the local standalone compiler.",
+  "source_snapshot_sha256": "f7e3e8ae35758ea42a607132f873c6fde9b81b6afe8c3389f5c47d9b2af3474f",
+  "startup_timeout_seconds": 120,
+  "suite_timeout_seconds": 3600,
+  "suites": [
+    [
+      "native",
+      106,
+      [
+        "tests/test_numerics_native_qr.py",
+        "tests/test_numerics_original_objective.py",
+        "tests/test_numerics_mean_residual.py",
+        "tests/test_numerics_derivatives.py",
+        "tests/test_numerics_geometry_precision.py",
+        "tests/test_numerics_synthetic_force_arithmetic.py"
+      ]
+    ],
+    [
+      "correction",
+      51,
+      [
+        "tests/test_numerics_query_precision.py",
+        "tests/test_numerics_reference_precision.py",
+        "tests/test_numerics_precise_residual.py",
+        "tests/test_numerics_precise_objective.py",
+        "tests/test_numerics_light_time_precision.py"
+      ]
+    ],
+    [
+      "fail_fast",
+      37,
+      [
+        "tests/test_native_nuisance_fail_fast.py"
+      ]
+    ],
+    [
+      "cost_query",
+      15,
+      [
+        "tests/test_native_cost_only_query.py"
+      ]
+    ],
+    [
+      "storage_v41",
+      56,
+      [
+        "tests/test_native_design_storage_v41.py"
+      ]
+    ],
+    [
+      "nuisance_v41",
+      32,
+      [
+        "tests/test_nuisance_v41.py"
+      ]
+    ],
+    [
+      "blocked_evaluator",
+      28,
+      [
+        "tests/test_native_variational_memory.py"
+      ]
+    ],
+    [
+      "conditional_nuisance",
+      13,
+      [
+        "tests/test_conditional_nuisance_native.py"
+      ]
+    ]
+  ],
+  "threads": 1
+}

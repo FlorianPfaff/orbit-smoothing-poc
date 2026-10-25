@@ -1,0 +1,631 @@
+{
+  "schema": "candidate06-native-failure-history-audit-v1",
+  "created_utc": "2026-10-25T20:10:17.890127+00:00",
+  "passed_history_consistency_checks": true,
+  "conclusion": "The same four tests previously passed with the same executable and identical test/native source. Their original106-test compatibility contract was exercised with fail-fast replay unset(default0). The new correctness control runs that unchanged suite with fail-fast replay1. The four observed zero-trial rejections exactly follow the existing opt-in branch and were separately expected/tested in the archived37-case fail-fast suite. This evidence identifies a validation-environment compatibility mismatch; it does not establish a new candidate06 production-code regression.",
+  "current_gate_remains_failed": true,
+  "current_outcome": {
+    "counts": {
+      "tests": 106,
+      "failures": 4,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suite_metadata": [
+      {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "4",
+        "skipped": "0",
+        "tests": "106",
+        "time": "124.593",
+        "timestamp": "2026-10-25T20:54:44.140323+01:00",
+        "hostname": "pfaff"
+      }
+    ]
+  },
+  "current_terminal": {
+    "stage": "native-tests",
+    "status": "failed",
+    "returncode": 1,
+    "error": "ValueError('Original validation command failed')",
+    "scientific_command_seconds": 136.64229845200134
+  },
+  "failing_cases": [
+    {
+      "classname": "tests.test_numerics_native_qr",
+      "name": "test_native_nuisance_search_is_transactional[reject]",
+      "status": "failed",
+      "failure": "assert 0 == 17\n +  where 0 = len([])"
+    },
+    {
+      "classname": "tests.test_numerics_native_qr",
+      "name": "test_native_nuisance_search_is_transactional[support]",
+      "status": "failed",
+      "failure": "assert 0 == 17\n +  where 0 = len([])"
+    },
+    {
+      "classname": "tests.test_numerics_native_qr",
+      "name": "test_native_nuisance_search_is_transactional[exception]",
+      "status": "failed",
+      "failure": "assert 0 == 17\n +  where 0 = len([])"
+    },
+    {
+      "classname": "tests.test_numerics_native_qr",
+      "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]",
+      "status": "failed",
+      "failure": "assert 0 == 17\n +  where 0 = len([])"
+    }
+  ],
+  "prior_remote106": {
+    "root": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/native",
+    "counts": {
+      "tests": 106,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suite_metadata": [
+      {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "106",
+        "time": "33.016",
+        "timestamp": "2026-10-21T14:15:44.717535+00:00",
+        "hostname": "workstation2"
+      }
+    ],
+    "same_four": [
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_nuisance_search_is_transactional[reject]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_nuisance_search_is_transactional[support]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_nuisance_search_is_transactional[exception]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]",
+        "status": "passed",
+        "failure": null
+      }
+    ],
+    "same_all106_testcase_identities": true,
+    "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "source_snapshot_sha256": "f7e3e8ae35758ea42a607132f873c6fde9b81b6afe8c3389f5c47d9b2af3474f",
+    "cleared_environment": true,
+    "fail_fast_replay": "unset; compiled default0",
+    "ORBIT_flags": {
+      "ORBIT_POC_CORRECTNESS_NATIVE": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_COST_QUERY_NATIVE_BUILD": "/mnt/d/orbit-v41-recovery01/candidate04/build-04",
+      "ORBIT_POC_COST_QUERY_NATIVE_CXX": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/bin/x86_64-conda-linux-gnu-c++",
+      "ORBIT_POC_COST_QUERY_NATIVE_SOURCE": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04",
+      "ORBIT_POC_GROOPS": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_NUISANCE_COST_ONLY_DESIGN": "1",
+      "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE": "1",
+      "ORBIT_POC_NUISANCE_PERFORMANCE": "1",
+      "ORBIT_POC_STORAGE_NATIVE_BUILD": "/mnt/d/orbit-v41-recovery01/candidate04/build-04",
+      "ORBIT_POC_STORAGE_NATIVE_CXX": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/bin/x86_64-conda-linux-gnu-c++",
+      "ORBIT_POC_STORAGE_NATIVE_SOURCE": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04",
+      "ORBIT_POC_V31_NATIVE": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_V41_COMPONENT_TESTS": "1",
+      "ORBIT_POC_V41_CONDITIONAL_NATIVE": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_V41_CONDITIONAL_NATIVE_SHA256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "ORBIT_POC_V41_EMPTY_NATIVE": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_V41_EMPTY_NATIVE_SHA256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "ORBIT_POC_VARIATIONAL_MEMORY_GROOPS": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_VARIATIONAL_NATIVE_SOURCE": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04"
+    },
+    "independent_354_audit_passed": true
+  },
+  "prior_local106": {
+    "root": "/mnt/d/orbit-v41-recovery01/candidate04/native-tests04/native",
+    "counts": {
+      "tests": 106,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suite_metadata": [
+      {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "106",
+        "time": "56.560",
+        "timestamp": "2026-10-21T14:36:34.094221+02:00",
+        "hostname": "pfaff"
+      }
+    ],
+    "same_four": [
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_nuisance_search_is_transactional[reject]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_nuisance_search_is_transactional[support]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_nuisance_search_is_transactional[exception]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_numerics_native_qr",
+        "name": "test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]",
+        "status": "passed",
+        "failure": null
+      }
+    ],
+    "fail_fast_replay": "unset in frozen environment; default0",
+    "source_test_hash": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08",
+    "native_build": {
+      "bytes": 24260648,
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d"
+    }
+  },
+  "prior_explicit_fail_fast37": {
+    "root": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/fail_fast",
+    "counts": {
+      "tests": 37,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "relevant12_cases": [
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[reject-default]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[reject-legacy]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[reject-early]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[support-default]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[support-legacy]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[support-early]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[exception-default]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[exception-legacy]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[exception-early]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[floor_zero_replay-default]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[floor_zero_replay-legacy]",
+        "status": "passed",
+        "failure": null
+      },
+      {
+        "classname": "tests.test_native_nuisance_fail_fast",
+        "name": "test_native_invalid_replay_keeps_legacy_work_unless_opted_in[floor_zero_replay-early]",
+        "status": "passed",
+        "failure": null
+      }
+    ],
+    "test_contract": "test_native_nuisance_fail_fast.py74\u201394: four invalid replay modes \u00d7 default/legacy0/early1;17 trials unless flag1, then0. Accepted/stationary/floor-limited must remain false."
+  },
+  "current_environment": {
+    "plan_sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95",
+    "stage": "native-tests",
+    "fail_fast_replay": "1",
+    "ORBIT_flags": {
+      "ORBIT_POC_CORRECTNESS_NATIVE": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS": "64",
+      "ORBIT_POC_GNSS_DESIGN_SCRATCH": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/scratch",
+      "ORBIT_POC_GNSS_DESIGN_STORAGE": "disk",
+      "ORBIT_POC_GROOPS": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_NUISANCE_CONDITIONAL_QR": "1",
+      "ORBIT_POC_NUISANCE_COST_ONLY_DESIGN": "1",
+      "ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY": "1",
+      "ORBIT_POC_NUISANCE_FIXED_DYNAMICS": "1",
+      "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE": "1",
+      "ORBIT_POC_NUISANCE_PERFORMANCE": "1",
+      "ORBIT_POC_NUMERICS_SPOOL_DIRECTORY": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/row-spool",
+      "ORBIT_POC_V31_NATIVE": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "ORBIT_POC_VARIATIONAL_BLOCK_EPOCHS": "64"
+    },
+    "execution_binding": "reference_gates09.py654\u2013657 verifies environment then subprocess.run(job.argv,env=job.environment); supervised current worker used frozen plan hash."
+  },
+  "source_identity": [
+    {
+      "relative_path": "tests/test_numerics_native_qr.py",
+      "sha256": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08",
+      "candidate04_candidate06_and_snapshots_match": true
+    },
+    {
+      "relative_path": "tests/test_native_nuisance_fail_fast.py",
+      "sha256": "a8ba9ddb0519620e3fa782e24e1b3d7615cfc282e39186665ac18f5b9ada3daa",
+      "candidate04_candidate06_and_snapshots_match": true
+    },
+    {
+      "relative_path": "groops/extension/nuisanceLineSearch.h",
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c",
+      "candidate04_candidate06_and_snapshots_match": true
+    },
+    {
+      "relative_path": "groops/extension/orbitPocQrSolve.cpp",
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864",
+      "candidate04_candidate06_and_snapshots_match": true
+    }
+  ],
+  "actual_native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "compiled_native_matches_frozen_native_source": true,
+  "compiled_flag_parser_and_search_match_overlay": true,
+  "installed_header_note": "Generated native header includes pre-existing performance instrumentation; complete overlay/header bytes differ, while frozen native-source hash and exact flag/search bodies match.",
+  "causal_source_locations": [
+    {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/nuisanceLineSearch.h",
+      "lines": [
+        135,
+        141
+      ],
+      "meaning": "Flag absent defaults0; only0/1 accepted."
+    },
+    {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/nuisanceLineSearch.h",
+      "lines": [
+        235,
+        255
+      ],
+      "meaning": "With flag1 an invalid/nonidentity zero replay returns before pushing any ordinary trial."
+    },
+    {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/orbitPocQrSolve.cpp",
+      "lines": [
+        346,
+        346
+      ],
+      "meaning": "floor_zero_replay injects nonzero reduction at alpha0."
+    },
+    {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/orbitPocQrSolve.cpp",
+      "lines": [
+        381,
+        384
+      ],
+      "meaning": "reject/support/exception deliberately invalidate zero replay too."
+    },
+    {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_numerics_native_qr.py",
+      "lines": [
+        364,
+        638
+      ],
+      "meaning": "Unchanged legacy fixtures require17 ordinary trials."
+    }
+  ],
+  "current_failed_native_receipts": [
+    {
+      "fixture_mode": "reject",
+      "receipt": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1/search.json",
+      "ordinary_trial_count": 0,
+      "accepted": false,
+      "stationary_without_update": false,
+      "nuisance_floor_limited": false,
+      "floor_rejection": "zero_update_replay_failed",
+      "zero_update_replay": {
+        "status": 0,
+        "cost": 0.49005,
+        "actual_reduction": -1,
+        "maximum_update_m": 0,
+        "error": ""
+      }
+    },
+    {
+      "fixture_mode": "support",
+      "receipt": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3/search.json",
+      "ordinary_trial_count": 0,
+      "accepted": false,
+      "stationary_without_update": false,
+      "nuisance_floor_limited": false,
+      "floor_rejection": "zero_update_replay_failed",
+      "zero_update_replay": {
+        "status": 0,
+        "cost": 0.49005,
+        "actual_reduction": 0,
+        "maximum_update_m": 0,
+        "error": ""
+      }
+    },
+    {
+      "fixture_mode": "exception",
+      "receipt": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4/search.json",
+      "ordinary_trial_count": 0,
+      "accepted": false,
+      "stationary_without_update": false,
+      "nuisance_floor_limited": false,
+      "floor_rejection": "zero_update_replay_failed",
+      "zero_update_replay": {
+        "status": 1,
+        "cost": 0,
+        "actual_reduction": 0,
+        "maximum_update_m": 0,
+        "error": "injected child failure"
+      }
+    },
+    {
+      "fixture_mode": "floor_zero_replay",
+      "receipt": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14/search.json",
+      "ordinary_trial_count": 0,
+      "accepted": false,
+      "stationary_without_update": false,
+      "nuisance_floor_limited": false,
+      "floor_rejection": "zero_update_replay_failed",
+      "zero_update_replay": {
+        "status": 0,
+        "cost": 9.9999999999,
+        "actual_reduction": 1e-10,
+        "maximum_update_m": 0,
+        "error": ""
+      }
+    }
+  ],
+  "publication14_scope": {
+    "path": "/mnt/d/orbit-v41-recovery02/publication14-01/packet/report.json",
+    "counts": {
+      "planned": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "stages": [
+      "synthetic-refinement-log_drag_ou",
+      "synthetic-refinement-pulses",
+      "flight-refinement",
+      "eccentric-24h-refinement",
+      "objective-log_drag_ou",
+      "objective-pulses",
+      "nuisance-replay",
+      "nuisance-replay-candidate1-point012"
+    ],
+    "interpretation": "Eight reference-preservation checks only; it did not rerun106/51 and cannot support a106-pass claim under current flag1 environment."
+  },
+  "limits": [
+    "No native replay or environment-toggle experiment was performed in this audit. Source branch and archived explicit flag tests explain the observed behavior.",
+    "Other historical runtime/system-library differences exist; exact executable/test identity is not full runtime identity.",
+    "Current four failures must remain failed in the frozen attempt. Any corrected stage-environment adapter requires separate controls, audit and validation; no in-place test or threshold changes.",
+    "Do not infer whole-fit convergence, covariance or release readiness from this compatibility diagnosis."
+  ],
+  "preservation": {
+    "native_runs": 0,
+    "current_runs_changed": false,
+    "source_or_tests_changed": false,
+    "assertions_or_thresholds_relaxed": false
+  },
+  "evidence_pins": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/tests.xml",
+      "bytes": 27896,
+      "sha256": "12b1f55e6d6236db9c9edf7a09845b62c1fe1e10ff69586689670fadf55b7da0"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/native/tests.xml",
+      "bytes": 17288,
+      "sha256": "e85f97016479811ca1a1aebf18aa865e4f04302ac139bc1ecc4cbbd5bbcb78ad"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-tests04/native/tests.xml",
+      "bytes": 17280,
+      "sha256": "0fe20603d0bd1cb5e9fe8594c80cf488eb6ac6ca6ca575b2a7167fab8f4de27b"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/fail_fast/tests.xml",
+      "bytes": 5763,
+      "sha256": "3ea7acbb4d91f8849997870fad1d638940486c753a443d91421c4d3c63855818"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/plan.json",
+      "bytes": 3687,
+      "sha256": "4e793077be12e7bffd2c6453eb36fc099049b88c3724690d61f6de8c61308d0e"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/native/supervisor.plan.json",
+      "bytes": 509286,
+      "sha256": "9fc3dd82bd65ed2bed15fb56c1dc5cfafcb55ab6828f132742e60fa8e6b800af"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/native/result.json",
+      "bytes": 527458,
+      "sha256": "2a0237ed38be8d2b80e152af39ebf390ef07b2b3518e826d8f616d67b3e943e0"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/native/request.json",
+      "bytes": 558,
+      "sha256": "74c5f8b0722ecbe3a34663e088d49586a7e4fd481dbe92e01081503d3cd326a1"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/native/startup.json",
+      "bytes": 7253,
+      "sha256": "5828872d4a31d91d5ed70a252529705203ab6366e6bf6e9864e2973f82d3e2cd"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-transfer04/full-attempt01/remote-evidence/validation-results04/native338-attempt04/result.json",
+      "bytes": 5623758,
+      "sha256": "ec43a5688eee92f7af6e7f52f18b261dc9c84c0bca75556353f8aa476106dbce"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/remote-native338-review03/audit_full354.json",
+      "bytes": 8149,
+      "sha256": "ca4fad62b78635a172a837eecb9c789be088c4fba0a7b33c460df426d29b8dac"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-tests04/freeze.json",
+      "bytes": 317428,
+      "sha256": "48483ccc0db978e690b1bf0dfafb41cbecb2b006deb513cf877e9925a5be11e4"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-tests04/native/result.json",
+      "bytes": 2160,
+      "sha256": "6e8ef2eadb298e4c885486892ad9e9d9f79f83a6e49a4ac246675b56b3cc2c0c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+      "bytes": 594583,
+      "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/strict-result.json",
+      "bytes": 154298,
+      "sha256": "901ced1abbb4f622c4a5fedb66d884b0f2ab42e947a84b72a00a42d80c2c70a0"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/build-result04.json",
+      "bytes": 151154,
+      "sha256": "f4045c5f75838ea4984ef740c669c372852cd48ea34a026a2e407b0a1707812e"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "bytes": 24260648,
+      "sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source-snapshot.json",
+      "bytes": 92337,
+      "sha256": "f7e3e8ae35758ea42a607132f873c6fde9b81b6afe8c3389f5c47d9b2af3474f"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source-snapshot.json",
+      "bytes": 95861,
+      "sha256": "24c41840ad687aef76111e213b027c8ff613463313ccd7fb8fbf759e253db739"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/tests/test_numerics_native_qr.py",
+      "bytes": 40604,
+      "sha256": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_numerics_native_qr.py",
+      "bytes": 40604,
+      "sha256": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/tests/test_native_nuisance_fail_fast.py",
+      "bytes": 9132,
+      "sha256": "a8ba9ddb0519620e3fa782e24e1b3d7615cfc282e39186665ac18f5b9ada3daa"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "bytes": 9132,
+      "sha256": "a8ba9ddb0519620e3fa782e24e1b3d7615cfc282e39186665ac18f5b9ada3daa"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/nuisanceLineSearch.h",
+      "bytes": 23465,
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/nuisanceLineSearch.h",
+      "bytes": 23465,
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/orbitPocQrSolve.cpp",
+      "bytes": 33930,
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/orbitPocQrSolve.cpp",
+      "bytes": 33930,
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/misc/orbitPoc/nuisanceLineSearch.h",
+      "bytes": 23928,
+      "sha256": "b9418dfbb11bff935f90515dadf500a90ae9a60152f8e8493fd3de2abd65e71c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/simulation/orbitPocQrSolve.cpp",
+      "bytes": 33930,
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/publication14-01/packet/report.json",
+      "bytes": 7192,
+      "sha256": "f281c2c4625a7f69120f87112f591f0a6ae505964d795c106e47ab89892a2a5d"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1/search.json",
+      "bytes": 756,
+      "sha256": "2f54eb319e0e097b2e6c4098a021735260b9b7b22843a8dc69886081c1052528"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3/search.json",
+      "bytes": 755,
+      "sha256": "0544a9878a7361eb6e29a93d1cb3c71a0b1ebfb240b229e3911b8b10125208af"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4/search.json",
+      "bytes": 759,
+      "sha256": "f60dead36fc44cabde134aea2f210b4c45430341ebfe80b369e12adc0ad431fc"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14/search.json",
+      "bytes": 721,
+      "sha256": "5de1196ef9b1be58b32b2d5c3472e47ddeb6c5026cb7b9e3d19bf759882a6594"
+    }
+  ]
+}

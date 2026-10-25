@@ -1,0 +1,188 @@
+........................F.FF............................F.................................................
+=================================== FAILURES ===================================
+_____________ test_native_nuisance_search_is_transactional[reject] _____________
+
+native = '/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470'
+tmp_path = PosixPath('/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1')
+mode = 'reject'
+
+    @pytest.mark.parametrize("mode", ["accept", "reject", "stationary", "support", "exception"])
+    def test_native_nuisance_search_is_transactional(native, tmp_path, mode):
+        np.savetxt(tmp_path / "rows.txt", [[1., 0.]], comments="", header="groops matrix version=20200123\nMatrix( 1 x 2 )")
+        root = ET.Element("groops")
+        program = ET.SubElement(ET.SubElement(root, "program"), "OrbitPocQrSolve")
+        for name, value in {"inputfileRows": tmp_path / "rows.txt", "outputfileSolution": tmp_path / "search.json",
+                            "outputPrefix": tmp_path / "qr", "nuisanceFixture": mode}.items():
+            ET.SubElement(program, name).text = str(value)
+        ET.ElementTree(root).write(tmp_path / "run.xml")
+        result = subprocess.run([native, str(tmp_path / "run.xml")], text=True, capture_output=True,
+                                env=dict(os.environ, OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="1"), timeout=60)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert (tmp_path / "qr.parent.txt").read_text() == "parent\npreserved\n"
+        report = json.loads((tmp_path / "search.json").read_text())
+        if mode in ("accept", "stationary"):
+            assert report["zero_update_replay"]["actual_reduction"] == 0
+            assert report["zero_update_replay"]["maximum_update_m"] == 0
+        if mode == "accept":
+            assert report["accepted"] and report["alpha"] == .25
+            assert len(report["trials"]) == 3
+            assert report["undamped_maximum_update_m"] == 4.95
+            assert report["trials"][-1]["actual_reduction"] > 0
+        elif mode == "stationary":
+            assert report["stationary_without_update"] and not report["accepted"]
+            assert len(report["trials"]) == 1
+        else:
+            assert not report["stationary_without_update"] and not report["accepted"]
+>           assert len(report["trials"]) == 17
+E           assert 0 == 17
+E            +  where 0 = len([])
+
+tests/test_numerics_native_qr.py:364: AssertionError
+____________ test_native_nuisance_search_is_transactional[support] _____________
+
+native = '/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470'
+tmp_path = PosixPath('/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3')
+mode = 'support'
+
+    @pytest.mark.parametrize("mode", ["accept", "reject", "stationary", "support", "exception"])
+    def test_native_nuisance_search_is_transactional(native, tmp_path, mode):
+        np.savetxt(tmp_path / "rows.txt", [[1., 0.]], comments="", header="groops matrix version=20200123\nMatrix( 1 x 2 )")
+        root = ET.Element("groops")
+        program = ET.SubElement(ET.SubElement(root, "program"), "OrbitPocQrSolve")
+        for name, value in {"inputfileRows": tmp_path / "rows.txt", "outputfileSolution": tmp_path / "search.json",
+                            "outputPrefix": tmp_path / "qr", "nuisanceFixture": mode}.items():
+            ET.SubElement(program, name).text = str(value)
+        ET.ElementTree(root).write(tmp_path / "run.xml")
+        result = subprocess.run([native, str(tmp_path / "run.xml")], text=True, capture_output=True,
+                                env=dict(os.environ, OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="1"), timeout=60)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert (tmp_path / "qr.parent.txt").read_text() == "parent\npreserved\n"
+        report = json.loads((tmp_path / "search.json").read_text())
+        if mode in ("accept", "stationary"):
+            assert report["zero_update_replay"]["actual_reduction"] == 0
+            assert report["zero_update_replay"]["maximum_update_m"] == 0
+        if mode == "accept":
+            assert report["accepted"] and report["alpha"] == .25
+            assert len(report["trials"]) == 3
+            assert report["undamped_maximum_update_m"] == 4.95
+            assert report["trials"][-1]["actual_reduction"] > 0
+        elif mode == "stationary":
+            assert report["stationary_without_update"] and not report["accepted"]
+            assert len(report["trials"]) == 1
+        else:
+            assert not report["stationary_without_update"] and not report["accepted"]
+>           assert len(report["trials"]) == 17
+E           assert 0 == 17
+E            +  where 0 = len([])
+
+tests/test_numerics_native_qr.py:364: AssertionError
+___________ test_native_nuisance_search_is_transactional[exception] ____________
+
+native = '/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470'
+tmp_path = PosixPath('/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4')
+mode = 'exception'
+
+    @pytest.mark.parametrize("mode", ["accept", "reject", "stationary", "support", "exception"])
+    def test_native_nuisance_search_is_transactional(native, tmp_path, mode):
+        np.savetxt(tmp_path / "rows.txt", [[1., 0.]], comments="", header="groops matrix version=20200123\nMatrix( 1 x 2 )")
+        root = ET.Element("groops")
+        program = ET.SubElement(ET.SubElement(root, "program"), "OrbitPocQrSolve")
+        for name, value in {"inputfileRows": tmp_path / "rows.txt", "outputfileSolution": tmp_path / "search.json",
+                            "outputPrefix": tmp_path / "qr", "nuisanceFixture": mode}.items():
+            ET.SubElement(program, name).text = str(value)
+        ET.ElementTree(root).write(tmp_path / "run.xml")
+        result = subprocess.run([native, str(tmp_path / "run.xml")], text=True, capture_output=True,
+                                env=dict(os.environ, OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="1"), timeout=60)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert (tmp_path / "qr.parent.txt").read_text() == "parent\npreserved\n"
+        report = json.loads((tmp_path / "search.json").read_text())
+        if mode in ("accept", "stationary"):
+            assert report["zero_update_replay"]["actual_reduction"] == 0
+            assert report["zero_update_replay"]["maximum_update_m"] == 0
+        if mode == "accept":
+            assert report["accepted"] and report["alpha"] == .25
+            assert len(report["trials"]) == 3
+            assert report["undamped_maximum_update_m"] == 4.95
+            assert report["trials"][-1]["actual_reduction"] > 0
+        elif mode == "stationary":
+            assert report["stationary_without_update"] and not report["accepted"]
+            assert len(report["trials"]) == 1
+        else:
+            assert not report["stationary_without_update"] and not report["accepted"]
+>           assert len(report["trials"]) == 17
+E           assert 0 == 17
+E            +  where 0 = len([])
+
+tests/test_numerics_native_qr.py:364: AssertionError
+_ test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed] _
+
+native = '/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470'
+tmp_path = PosixPath('/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14')
+mode = 'floor_zero_replay', expected = 'zero_update_replay_failed'
+
+    @pytest.mark.parametrize("mode,expected", [
+        ("floor_accept", ""),
+        ("floor_refine", ""),
+        ("floor_small_direction", ""),
+        ("floor_influence_cap", "required_probe_influence_exceeds_limit"),
+        ("floor_actual_influence", "actual_probe_influence_exceeds_limit"),
+        ("floor_derived_nonfinite", "nonfinite_symmetric_probe_diagnostics"),
+        ("floor_numeric_cap", "required_probe_amplitude_exceeds_numeric_limit"),
+        ("floor_audit_exception", "fixed_parameter_arithmetic_audit_failed"),
+        ("floor_audit_nonfinite", "fixed_parameter_arithmetic_audit_failed"),
+        ("floor_probe_nonfinite", "symmetric_probe_failed"),
+        ("floor_allowance", "empirical_quadratic_potential_with_allowance_exceeds_resolution"),
+        ("floor_audit_support", "fixed_parameter_arithmetic_audit_failed"),
+        ("floor_zero_resolution", "potential_not_within_positive_measured_resolution"),
+        ("floor_small_resolution", "potential_not_within_positive_measured_resolution"),
+        ("floor_zero_replay", "zero_update_replay_failed"),
+        ("floor_probe_support", "symmetric_probe_failed"),
+        ("floor_probe_exception", "symmetric_probe_failed"),
+        ("floor_wrong_slope", "symmetric_slope_disagrees_with_undamped_gradient"),
+        ("floor_negative_curvature", "negative_or_unresolved_symmetric_curvature"),
+        ("floor_unresolved_curvature", "negative_or_unresolved_symmetric_curvature"),
+        ("floor_amplitude", "amplitude_dependent_symmetric_curvature"),
+        ("floor_weak_curvature", "empirical_quadratic_potential_exceeds_resolution"),
+    ])
+    def test_native_empirical_nuisance_floor_requires_independent_audits(native, tmp_path, mode, expected):
+        np.savetxt(tmp_path / "rows.txt", [[1., 0.]], comments="", header="groops matrix version=20200123\nMatrix( 1 x 2 )")
+        root = ET.Element("groops")
+        program = ET.SubElement(ET.SubElement(root, "program"), "OrbitPocQrSolve")
+        for name, value in {"inputfileRows": tmp_path / "rows.txt", "outputfileSolution": tmp_path / "search.json",
+                            "outputPrefix": tmp_path / "qr", "nuisanceFixture": mode}.items():
+            ET.SubElement(program, name).text = str(value)
+        ET.ElementTree(root).write(tmp_path / "run.xml")
+        result = subprocess.run([native, str(tmp_path / "run.xml")], text=True, capture_output=True,
+                                env=dict(os.environ, OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="1"), timeout=60)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert (tmp_path / "qr.parent.txt").read_text() == "parent\npreserved\n"
+        report = json.loads((tmp_path / "search.json").read_text())
+        assert not report["accepted"] and not report["stationary_without_update"]
+        assert report["floor_rejection"] == expected
+        assert report["nuisance_floor_limited"] == (not expected)
+>       assert len(report["trials"]) == 17
+E       assert 0 == 17
+E        +  where 0 = len([])
+
+tests/test_numerics_native_qr.py:638: AssertionError
+=============================== warnings summary ===============================
+tests/test_numerics_native_qr.py::test_native_original_row_qr_map_covariance_and_profile
+  tests/test_numerics_native_qr.py:81: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_native_original_row_qr_map_covariance_and_profile(native, tmp_path, record_property):
+
+tests/test_numerics_native_qr.py::test_native_matches_independent_gtsam_nuisance_elimination
+  tests/test_numerics_native_qr.py:228: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_native_matches_independent_gtsam_nuisance_elimination(native, tmp_path, record_property):
+
+tests/test_numerics_native_qr.py::test_native_receiver_clock_shift_avoids_negative_duration_loss_and_records_intrinsic_floor
+  tests/test_numerics_native_qr.py:530: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_native_receiver_clock_shift_avoids_negative_duration_loss_and_records_intrinsic_floor(native, tmp_path, record_property):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/tests.xml -
+=========================== short test summary info ============================
+FAILED tests/test_numerics_native_qr.py::test_native_nuisance_search_is_transactional[reject]
+FAILED tests/test_numerics_native_qr.py::test_native_nuisance_search_is_transactional[support]
+FAILED tests/test_numerics_native_qr.py::test_native_nuisance_search_is_transactional[exception]
+FAILED tests/test_numerics_native_qr.py::test_native_empirical_nuisance_floor_requires_independent_audits[floor_zero_replay-zero_update_replay_failed]
+4 failed, 102 passed, 3 warnings in 126.46s (0:02:06)

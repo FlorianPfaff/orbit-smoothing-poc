@@ -1,0 +1,405 @@
+{
+  "schema": "candidate06-independent-native-suite-failure-audit-v1",
+  "created_at": "2026-10-25T20:09:31.890783+00:00",
+  "diagnosis_supported": true,
+  "checks": {
+    "exact106inventory_102pass4fail_noerror_skip": true,
+    "frozen_failed_stage_flag_is1": true,
+    "candidate06_plan_identity_preserved": true,
+    "strict_failure_retained": true,
+    "owned_failed_stage_cleaned": true,
+    "unchanged_from_candidate04:tests/test_numerics_native_qr.py": true,
+    "unchanged_from_candidate04:groops/extension/orbitPocQrSolve.cpp": true,
+    "unchanged_from_candidate04:groops/extension/nuisanceLineSearch.h": true,
+    "unchanged_from_candidate04:tests/test_native_nuisance_fail_fast.py": true,
+    "compiled_fixture_matches_source": true,
+    "compiled_controller_matches:flag_parser": true,
+    "compiled_controller_matches:search_control_flow": true,
+    "invalid_replay_rejected_without_update:reject": true,
+    "parent_transaction_preserved:reject": true,
+    "invalid_replay_rejected_without_update:support": true,
+    "parent_transaction_preserved:support": true,
+    "invalid_replay_rejected_without_update:exception": true,
+    "parent_transaction_preserved:exception": true,
+    "invalid_replay_rejected_without_update:floor_zero_replay": true,
+    "parent_transaction_preserved:floor_zero_replay": true,
+    "reject_actual_replay_nonzero": true,
+    "exception_actual_replay_error": true,
+    "floor_replay_nonzero": true
+  },
+  "check_count": 23,
+  "current_suite_status": "failed;106tests,102passed,4failed,0errors,0skips. No reclassification or waiver.",
+  "classification": "Validation-control environment versus unchanged original fixture contract mismatch. The four observed failures are the existing opt-in fail-fast behavior, not evidence of a candidate06 Python trial-domain change regressing production native acceptance.",
+  "causal_chain": [
+    "Controls derived from the eight production checks put ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY=1 in base_env; newly added native-tests inherited it without an explicit legacy-fixture environment.",
+    "The original test subprocesses copy os.environ; original assertions intentionally demand17searchtrials for these rejection modes.",
+    "Each of the four affected fixtures invalidates alpha0 itself. The already present fail-fast option correctly returns immediately with zero_update_replay_failed, preserving parent state, accepting no update and granting no floor/covariance authority.",
+    "Original testsource, fixture source and search-controller logic are unchanged from candidate04. The actual candidate04 native source has only performance instrumentation around child evaluation relative to the extension header; the flag parser and search function are exact.",
+    "The stage correctly failed and was cleaned. Subsequent correctness stages may continue to provide diagnostics, but this failed aggregate must not open the cold-fit gate."
+  ],
+  "failed_cases": [
+    {
+      "mode": "reject",
+      "directory": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1",
+      "report": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1/search.json",
+        "bytes": 756,
+        "sha256": "2f54eb319e0e097b2e6c4098a021735260b9b7b22843a8dc69886081c1052528"
+      },
+      "observed_zero_replay": {
+        "status": 0,
+        "cost": 0.49005,
+        "actual_reduction": -1,
+        "maximum_update_m": 0,
+        "error": ""
+      },
+      "trials": 0,
+      "source_explanation": "Zero-update callback unconditionally forces reduction=-1, so identity replay fails before any alpha>0 trial."
+    },
+    {
+      "mode": "support",
+      "directory": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3",
+      "report": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3/search.json",
+        "bytes": 755,
+        "sha256": "0544a9878a7361eb6e29a93d1cb3c71a0b1ebfb240b229e3911b8b10125208af"
+      },
+      "observed_zero_replay": {
+        "status": 0,
+        "cost": 0.49005,
+        "actual_reduction": 0,
+        "maximum_update_m": 0,
+        "error": ""
+      },
+      "trials": 0,
+      "source_explanation": "Zero-update callback unconditionally sets support321 instead of123. JSON does not export support itself; the source and floor_rejection establish the path."
+    },
+    {
+      "mode": "exception",
+      "directory": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4",
+      "report": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4/search.json",
+        "bytes": 759,
+        "sha256": "f60dead36fc44cabde134aea2f210b4c45430341ebfe80b369e12adc0ad431fc"
+      },
+      "observed_zero_replay": {
+        "status": 1,
+        "cost": 0,
+        "actual_reduction": 0,
+        "maximum_update_m": 0,
+        "error": "injected child failure"
+      },
+      "trials": 0,
+      "source_explanation": "Zero-update callback unconditionally throws injected child failure; the error is retained."
+    },
+    {
+      "mode": "floor_zero_replay",
+      "directory": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14",
+      "report": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14/search.json",
+        "bytes": 721,
+        "sha256": "5de1196ef9b1be58b32b2d5c3472e47ddeb6c5026cb7b9e3d19bf759882a6594"
+      },
+      "observed_zero_replay": {
+        "status": 0,
+        "cost": 9.9999999999,
+        "actual_reduction": 1e-10,
+        "maximum_update_m": 0,
+        "error": ""
+      },
+      "trials": 0,
+      "source_explanation": "At alpha0 the fixture deliberately sets reduction1e-10; the immutable identity replay must reject."
+    }
+  ],
+  "references": {
+    "original17trial_assertions": [
+      {
+        "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_numerics_native_qr.py",
+        "line": 364,
+        "anchor": "assert len(report[\"trials\"]) == 17"
+      }
+    ],
+    "original_test_inherits_environment": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_numerics_native_qr.py",
+      "line": 179,
+      "anchor": "env=dict(os.environ, OPENBLAS_NUM_THREADS=\"1\", OMP_NUM_THREADS=\"1\")"
+    },
+    "shared_flag": {
+      "file": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/reference_gates09.py",
+      "line": 45,
+      "anchor": "'ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY': '1'"
+    },
+    "stage_environment": {
+      "file": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/reference_gates09.py",
+      "line": 382,
+      "anchor": "def planned_stage_env(root):"
+    },
+    "base_environment": {
+      "file": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/reference_gates09.py",
+      "line": 282,
+      "anchor": "def base_env():"
+    },
+    "default_flag_off": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/nuisanceLineSearch.h",
+      "line": 138,
+      "anchor": "const std::string value=raw?raw:\"0\";"
+    },
+    "zero_replay_before_search": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/nuisanceLineSearch.h",
+      "line": 242,
+      "anchor": "result.zeroUpdateReplay=isolatedNuisanceTrial(0.,evaluate);"
+    },
+    "failfast_guard": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/nuisanceLineSearch.h",
+      "line": 246,
+      "anchor": "if(failFast&&(!validNuisanceTrial"
+    },
+    "17step_search_preserved": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/nuisanceLineSearch.h",
+      "line": 249,
+      "anchor": "for(UInt attempt=0;attempt<17;attempt++)"
+    },
+    "fixture_unconditional_reject": {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/simulation/orbitPocQrSolve.cpp",
+      "line": 381,
+      "anchor": "if(nuisanceFixture==\"reject\")result.reduction=-1;"
+    },
+    "fixture_unconditional_support": {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/simulation/orbitPocQrSolve.cpp",
+      "line": 383,
+      "anchor": "if(nuisanceFixture==\"support\")result.support=321;"
+    },
+    "fixture_unconditional_exception": {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/simulation/orbitPocQrSolve.cpp",
+      "line": 384,
+      "anchor": "if(nuisanceFixture==\"exception\")throw"
+    },
+    "fixture_zero_replay_failure": {
+      "file": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/simulation/orbitPocQrSolve.cpp",
+      "line": 346,
+      "anchor": "if(nuisanceFixture==\"floor_zero_replay\"&&alpha==0)"
+    },
+    "dedicated_environment_sanitization": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "line": 25,
+      "anchor": "def _environment("
+    },
+    "dedicated_invalid_replay_matrix": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "line": 76,
+      "anchor": "def test_native_invalid_replay_keeps_legacy_work_unless_opted_in("
+    },
+    "dedicated_valid_replay_matrix": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "line": 100,
+      "anchor": "def test_native_valid_replay_preserves_acceptance_and_stationarity("
+    },
+    "dedicated_valid_zero_replay_full17": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "line": 176,
+      "anchor": "def test_valid_zero_replay_does_not_shortcut_rejected_proposals("
+    },
+    "dedicated_invalid_flag_before_fork": {
+      "file": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "line": 195,
+      "anchor": "def test_invalid_flag_is_rejected_before_any_child_callback("
+    }
+  },
+  "meaningful_minimum_repair": {
+    "scope": "A separately versioned validation-control repair; no current freeze/result/source mutation and no mathematical/native algorithm change justified by this evidence.",
+    "original106": "Run the unchanged exact106 inventory with explicit ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY=0 for this compatibility test stage. This restores the original17trial test contract rather than reducing assertions. Pin the stage environment and retain all other reviewed limits/options.",
+    "production": "Keep ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY=1 in the eight physical/refinement/objective/replay stages and two full-fit regressions. Do not disable production fail-fast just to green the suite.",
+    "supplementary37": "Require the unchanged existing test_native_nuisance_fail_fast.py as a separate additional native gate:12invalid-replay modes across unset/0/1,6valid-replay equivalence cases,8invalidnativeflag cases,3valid-zero/full17callback cases,8invalidflag-before-callback cases. Its helper explicitly sanitizes then sets the option.",
+    "coverage_extension_if_needed": "If testing reject/support/exception after a valid zero replay under production flag1 is desired, add distinct fixture modes which alter only alpha>0 and retain the full17trial/rollback assertion. Do not repurpose the existing historical fixtures or count them as the original106.",
+    "controls_tests": "Add pure stage-environment separation tests and freeze/argv/environment mismatch negatives. Check the actual namespace environment in preparation. A new sequence must require every original gate plus the separate supplementary opt-in gate before cold fitting.",
+    "publication": "Publish the current failed106attempt and this diagnosis. Any passing replacement is a distinct attempt/control identity. Current failed sequence cannot be retroactively passed."
+  },
+  "review_accountability": "Earlier independent controls/launch reviews verified exact source, argv, inventory, runtime and stage flags but missed that propagating the production fail-fast flag into the newly added unchanged106fixtures changed their intended execution path. Those approvals and their evidence remain preserved; this diagnosis corrects that semantic oversight.",
+  "uncertainty": "This read-only trace does not prove future reruns pass or certify unrelated production behavior. The option equivalence and invalid-replay path already have meaningful dedicated tests, but their fresh execution remains required.",
+  "preservation": {
+    "native_runs": 0,
+    "tests_run": 0,
+    "controls_modified": false,
+    "source_modified": false,
+    "thresholds_changed": false,
+    "current_attempt_modified": false,
+    "cold_gate_must_remain_closed": true
+  },
+  "audit_source": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate06-native-failure-audit01/independent/audit.py",
+    "bytes": 12533,
+    "sha256": "bd793ec6f3d14464dc172c0fa7968624efda6b9723ae98ab3fe72d39d5fbc981"
+  },
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+      "bytes": 594583,
+      "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/freeze.json",
+      "bytes": 715,
+      "sha256": "72dd8ca113b62821ab62562e08653a5a5962d0d7e11dcea0fb92985f052e2c48"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/tests.xml",
+      "bytes": 27896,
+      "sha256": "12b1f55e6d6236db9c9edf7a09845b62c1fe1e10ff69586689670fadf55b7da0"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/strict-result.json",
+      "bytes": 154298,
+      "sha256": "901ced1abbb4f622c4a5fedb66d884b0f2ab42e947a84b72a00a42d80c2c70a0"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/supervisor.json",
+      "bytes": 148768,
+      "sha256": "9d02326bec142a6e24c610f57aca303bf9a09b521f16da44f3d19fe40bba5dcd"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_numerics_native_qr.py",
+      "bytes": 40604,
+      "sha256": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/tests/test_numerics_native_qr.py",
+      "bytes": 40604,
+      "sha256": "da2db1dab2d4a9677b7c6d33889d8bfe549294d2dbdc72a3b1d4a5c05acefb08"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/orbitPocQrSolve.cpp",
+      "bytes": 33930,
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/orbitPocQrSolve.cpp",
+      "bytes": 33930,
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/groops/extension/nuisanceLineSearch.h",
+      "bytes": 23465,
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/nuisanceLineSearch.h",
+      "bytes": 23465,
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/source/tests/test_native_nuisance_fail_fast.py",
+      "bytes": 9132,
+      "sha256": "a8ba9ddb0519620e3fa782e24e1b3d7615cfc282e39186665ac18f5b9ada3daa"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/tests/test_native_nuisance_fail_fast.py",
+      "bytes": 9132,
+      "sha256": "a8ba9ddb0519620e3fa782e24e1b3d7615cfc282e39186665ac18f5b9ada3daa"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/simulation/orbitPocQrSolve.cpp",
+      "bytes": 33930,
+      "sha256": "f39e64783e4247940c94ab9daa2c641dad89ac1f2bd204cdf29f56a19503a864"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/misc/orbitPoc/nuisanceLineSearch.h",
+      "bytes": 23928,
+      "sha256": "b9418dfbb11bff935f90515dadf500a90ae9a60152f8e8493fd3de2abd65e71c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1/search.json",
+      "bytes": 756,
+      "sha256": "2f54eb319e0e097b2e6c4098a021735260b9b7b22843a8dc69886081c1052528"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1/run.xml",
+      "bytes": 567,
+      "sha256": "091ca2581d0ebfea64cebe0aed7cc28820bba8540e75bd57c857b02bd2cbca69"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is1/qr.parent.txt",
+      "bytes": 17,
+      "sha256": "ed3bbcc488f2f45b653772efbf73597e27672abf866badb82712f91edc7b8b50"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3/search.json",
+      "bytes": 755,
+      "sha256": "0544a9878a7361eb6e29a93d1cb3c71a0b1ebfb240b229e3911b8b10125208af"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3/run.xml",
+      "bytes": 568,
+      "sha256": "380407de2ff9e4a20203da719d7039c03f77a2894ab05876606d88c64fe999ff"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is3/qr.parent.txt",
+      "bytes": 17,
+      "sha256": "ed3bbcc488f2f45b653772efbf73597e27672abf866badb82712f91edc7b8b50"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4/search.json",
+      "bytes": 759,
+      "sha256": "f60dead36fc44cabde134aea2f210b4c45430341ebfe80b369e12adc0ad431fc"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4/run.xml",
+      "bytes": 570,
+      "sha256": "9ac3cd943ee3133f6c9805b7df5dae21ac1c1f9032e5360309e2fe52a046b6b3"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_nuisance_search_is4/qr.parent.txt",
+      "bytes": 17,
+      "sha256": "ed3bbcc488f2f45b653772efbf73597e27672abf866badb82712f91edc7b8b50"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14/search.json",
+      "bytes": 721,
+      "sha256": "5de1196ef9b1be58b32b2d5c3472e47ddeb6c5026cb7b9e3d19bf759882a6594"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14/run.xml",
+      "bytes": 581,
+      "sha256": "14be83aca2565285de6518033f4b9977b009fa5bc9b885a443ebd5593a759266"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/pytest-temp/test_native_empirical_nuisance14/qr.parent.txt",
+      "bytes": 17,
+      "sha256": "ed3bbcc488f2f45b653772efbf73597e27672abf866badb82712f91edc7b8b50"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/reference_gates09.py",
+      "bytes": 45282,
+      "sha256": "5ff181f5a9e684fc6e3b25b27d6b56c53c97e7fc2bc50ec565057eca8adee184"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/sequence.py",
+      "bytes": 10946,
+      "sha256": "f346321a5bbdd9fdc38f65db5f5eb56d25a934cbf4613cff40c9a2d82423b7f5"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/plan.json",
+      "bytes": 5519,
+      "sha256": "40343c898a8ccf26d6f57575c520fe1abeab4e96bb3c79973952df6c845b06e2"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/controls-manifest01.json",
+      "bytes": 3930,
+      "sha256": "43eb44f34a4c4f5a2b3e7e0fd9873f06fa9e7ae3ce932c4f165e08543b17ed93"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-review06/controls-review01.json",
+      "bytes": 16361,
+      "sha256": "b969a3ebd4c9e649afd6fb6140c316be5165d4d54985231af998f42f140c8207"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-review06/correctness-launch-review02.json",
+      "bytes": 23947,
+      "sha256": "f9ddb983e4ac6bde63d15a5abcfa9220d76452738201d04b3f758c0b5012ef8f"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate06-native-failure-audit01/independent/audit.py",
+      "bytes": 12533,
+      "sha256": "bd793ec6f3d14464dc172c0fa7968624efda6b9723ae98ab3fe72d39d5fbc981"
+    }
+  ]
+}

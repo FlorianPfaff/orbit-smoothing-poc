@@ -1,0 +1,76 @@
+{
+  "counts": {
+    "error": 0,
+    "failure": 0,
+    "skipped": 0,
+    "tests": 106
+  },
+  "execution": {
+    "argv": [
+      "/usr/bin/taskset",
+      "-c",
+      "0",
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-s",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-s",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=/tmp/orbit-v41-native-tests04-rimhgo5s/native",
+      "--junitxml=/mnt/d/orbit-v41-recovery01/candidate04/native-tests04/native/tests.xml",
+      "tests/test_numerics_native_qr.py",
+      "tests/test_numerics_original_objective.py",
+      "tests/test_numerics_mean_residual.py",
+      "tests/test_numerics_derivatives.py",
+      "tests/test_numerics_geometry_precision.py",
+      "tests/test_numerics_synthetic_force_arithmetic.py"
+    ],
+    "boot_id": "cff30a8e-2573-4421-98cc-cfe6394e4b44",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    },
+    "elapsed_seconds": 63.7298841339998,
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "owned_process_group_cleaned": true,
+    "peak_process_tree_rss_bytes": 313372672,
+    "plan_sha256": "ed764e7da4b9e0b33947030fbbb35c27714a0832b6441a9f85694df50051d9de",
+    "returncode": 0,
+    "schema": "orbit-poc-segmented-supervision-v1",
+    "signals_received": [],
+    "status": "complete",
+    "supervisor": {
+      "parent": 23525,
+      "pid": 23793,
+      "start_ticks": 665558,
+      "state": "R"
+    },
+    "tracked_owned_processes": [
+      {
+        "parent": 23793,
+        "pid": 23804,
+        "start_ticks": 665747,
+        "state": "Z"
+      }
+    ],
+    "worker": {
+      "parent": 23793,
+      "pid": 23804,
+      "start_ticks": 665747,
+      "state": "D"
+    }
+  },
+  "identity_error": null,
+  "inputs_and_runtime_unchanged": true,
+  "passed": true,
+  "scratch_archive": "/mnt/d/orbit-v41-recovery01/candidate04/native-tests04/native/scratch",
+  "scratch_symlinks_copied_without_dereferencing": true,
+  "suite": "native",
+  "xml_error": null
+}
