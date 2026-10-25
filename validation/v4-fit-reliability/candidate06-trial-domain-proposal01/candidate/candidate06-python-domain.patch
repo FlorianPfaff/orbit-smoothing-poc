@@ -1,0 +1,405 @@
+--- a/docs/numerics-trial-domain.md
++++ b/docs/numerics-trial-domain.md
+@@ -0,0 +1,44 @@
++# Synthetic fitted-reference trial rejection
++
++Candidate06 changes the Python error boundary around the existing forward
++closure evaluator. It retains candidate04's native executable, force models,
++OU/pulse constraints, QR scaling, LM update formula, budgets and convergence
++thresholds. Candidate05 is not an ancestor.
++
++The original one-hour cold density fit stopped on its first LM trial. An
++independent augmented least-squares reconstruction agrees with the saved damped
++step, including all 61 OU prior rows. The maximum log-density correction was
++20.3769829508 despite the nonzero OU penalty. Damping in scaled coordinates can
++redistribute corrections among coupled parameters; it does not bound each
++physical coordinate or its exponential.
++
++The first propagation closure produced finite states, including strongly
++nonelliptic osculating states. GROOPS then fitted a mean equinoctial reference to
++those generated positions. An isolated replay using the exact archived binary
++orbit, unchanged native object files and original fitting loop reproduced the
++failure: update 1 made the semi-major axis negative and eccentricity greater
++than one; update 2 made all six fitted elements nonfinite. The existing precise
++reference guard then emitted `Nonfinite equinoctial reference input`.
++
++The adapter recognizes that exact terminal error only after a normal native
++exit code 1 in synthetic reference propagation, with a preceding completed,
++finite generated closure and a nonelliptic osculating-state witness. This
++extra witness conservatively qualifies an already failed evaluation; it is not
++a new trajectory acceptance cut. The adapter records the native error, input
++orbit/configuration hashes and state diagnostics in
++`trial-domain-failure.json`, preserving the failed propagation files.
++
++The typed failure is recoverable only inside the optimizer's candidate
++evaluation block. The trial is rejected, no accepted state or factor is
++installed, and the original damping increase applies. Initial, repeated,
++refined, confirmation and final-covariance evaluations remain fatal. An
++untyped error with the same reason remains fatal, as do unknown errors, input
++errors, crashes, timeouts and resource failures. There is no density clipping,
++alternate propagation path or covariance from a failed trial.
++
++Tests use the archived failed closure as a byte-pinned fixture, exercise actual
++closure error wiring, verify rollback and the unchanged damping sequence, and
++check that all nontrial phases remain fatal. They are focused implementation
++tests, not substitutes for the prescribed correctness suite or either original
++cold full fit. Full-fit success and release readiness require fresh independent
++validation; the historical density failure remains a failure.
+--- a/src/orbit_poc/numerics/backend.py
++++ b/src/orbit_poc/numerics/backend.py
+@@ -8,6 +8,7 @@
+ import csv
+ from dataclasses import dataclass
+ from pathlib import Path
++import re
+ import struct
+ import time
+ import xml.etree.ElementTree as ET
+@@ -19,7 +20,8 @@
+ from orbit_poc.comparison.initialization import _field, _standalone
+ from orbit_poc.comparison.protocol import artifact_record, canonical_hash, file_hash, read_json, write_json
+ from .config import Controls
+-from .optimizer import Linearization, NumericalFailure, certify_rank, minimize, proposal
++from .optimizer import (Linearization, NumericalFailure, PhysicalTrialDomainFailure,
++                        certify_rank, minimize, proposal)
+ from .retention import (compact_closed_closures, compact_closed_proposal,
+                         compress_closed_row_provenance, discard_inactive_factors)
+ 
+@@ -87,6 +89,47 @@
+                                    "fresh full nuisance correction did not confirm strict conditional convergence")):
+         return "nuisance_failure"
+     return "native_failure"
++
++
++def reference_domain_failure_evidence(log, execution, previous_states, *, derivative_profile, gm):
++    """Recognize only the archived synthetic fitted-reference domain failure.
++
++    This is not a generic native-error classifier. The caller must be closing a
++    freshly generated trajectory and retain its preceding successful closure.
++    Even this typed failure is fatal outside candidate evaluation in minimize.
++    """
++    if (derivative_profile != "synthetic_complete_v1" or not isinstance(execution, dict)
++            or type(execution.get("returncode")) is not int or execution["returncode"] != 1
++            or execution.get("timed_out") is not False or previous_states is None
++            or type(gm) not in (int, float) or not np.isfinite(gm) or gm <= 0):
++        return None
++    lines = [line.strip() for line in re.sub(r"\x1b\[[0-9;]*m", "", log).splitlines() if line.strip()]
++    if (lines[-2:] != ["Nonfinite equinoctial reference input", "=== Finished GROOPS with error ==="]
++            or lines.count("****** Error ******") != 1
++            or "--- PreprocessingVariationalEquation ---" not in lines
++            or not any("preprocessingVariationalEquation.cpp:" in line and "(computeArc)" in line
++                       for line in lines)):
++        return None
++    states = np.asarray(previous_states, dtype=float)
++    if states.ndim != 2 or states.shape[1] != 6 or len(states) < 2 or not np.isfinite(states).all():
++        return None
++    with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
++        radius = np.linalg.norm(states[:, :3], axis=1)
++        speed = np.linalg.norm(states[:, 3:], axis=1)
++        energy = .5 * speed**2 - gm / radius
++    if (not np.isfinite([radius, speed, energy]).all() or np.any(radius <= 0)
++            or not np.any(energy >= 0)):
++        return None
++    return {"schema": "orbit-poc-physical-trial-domain-v1",
++            "domain": "synthetic_fitted_elliptic_reference",
++            "terminal_native_error": "Nonfinite equinoctial reference input",
++            "preceding_closure_finite": True, "samples": len(states), "gm_m3_s2": gm,
++            "nonelliptic_osculating_samples": int(np.count_nonzero(energy >= 0)),
++            "minimum_radius_m": float(radius.min()), "maximum_radius_m": float(radius.max()),
++            "maximum_speed_m_s": float(speed.max()),
++            "maximum_specific_orbital_energy_m2_s2": float(energy.max()),
++            "recoverable_only_during_trial": True,
++            "fitted_element_attribution": "not exported by native executable"}
+ 
+ 
+ def nuisance_profile_resolution(receipt, *, covariance=False):
+@@ -264,7 +307,33 @@
+                 _field(propagation, "orbitPocDerivativeDiagnostics", iteration / "derivatives.json")
+             programs = [propagation, *self._evaluation(config, source, variable, orbit, vector,
+                         initial=initial, reference=reference, initial_design=design)]
+-            self.execute(_standalone(source, programs, config["date"]), iteration, "propagate")
++            try:
++                self.execute(_standalone(source, programs, config["date"]), iteration, "propagate")
++            except NumericalFailure as error:
++                # An unknown error, process crash, budget failure or bad initial
++                # input remains fatal. Only recognize a normal native exit at
++                # the known reference-domain boundary after a finite generated
++                # closure. No parameter clipping or alternate force model.
++                cause = error.__cause__
++                execution = cause.execution if isinstance(cause, native.NativeExecutionError) else None
++                gm_text = template.findtext("useEnke/GM")
++                try:
++                    gm = float(gm_text) if gm_text is not None else None
++                except ValueError:
++                    gm = None
++                evidence = (reference_domain_failure_evidence(
++                    (iteration / "propagate.log").read_text(errors="replace"), execution, previous,
++                    derivative_profile=self.derivatives, gm=gm)
++                    if error.reason == "native_failure" and execution and index > 1 else None)
++                if evidence is None:
++                    raise
++                evidence.update(closure_iteration=index, reference_orbit=str(reference_orbit),
++                    reference_orbit_sha256=file_hash(reference_orbit),
++                    propagation_config_sha256=execution["config_sha256"],
++                    native_binary_sha256=execution["native_binary_sha256"],
++                    propagation_log=artifact_record("failed_reference_propagation_log", iteration / "propagate.log"))
++                write_json(folder / "trial-domain-failure.json", evidence)
++                raise PhysicalTrialDomainFailure(str(error), evidence) from error
+             self.propagations += 1
+             epochs, states = native._orbit(orbit.with_suffix(".txt"))
+             # The complete text is now in memory. Preserve it losslessly and
+--- a/src/orbit_poc/numerics/optimizer.py
++++ b/src/orbit_poc/numerics/optimizer.py
+@@ -21,6 +21,14 @@
+     def __init__(self, reason, message):
+         super().__init__(message)
+         self.reason = reason
++
++
++class PhysicalTrialDomainFailure(NumericalFailure):
++    """An evidenced forward-domain failure, recoverable only inside a trial."""
++
++    def __init__(self, message, evidence):
++        super().__init__("physical_trial_domain", message)
++        self.evidence = evidence
+ 
+ 
+ class LinearSystem(Protocol):
+@@ -300,11 +308,14 @@
+                     # A failed candidate never installs an orbit or force cache.
+                     # Support violations and execution budgets remain fatal;
+                     # stronger damping can resolve a physically invalid trial.
+-                    if error.reason not in {"closure_failed", "nuisance_failure", "invalid_objective",
+-                                            "rank_deficient", "unresolved_rank"}:
++                    if not isinstance(error, PhysicalTrialDomainFailure) and error.reason not in {
++                            "closure_failed", "nuisance_failure", "invalid_objective",
++                            "rank_deficient", "unresolved_rank"}:
+                         raise
+                     candidate_point = None
+                     record.update(reason=error.reason, trial_error=str(error))
++                    if isinstance(error, PhysicalTrialDomainFailure):
++                        record["trial_domain_evidence"] = error.evidence
+                 remaining()
+                 if candidate_point is None:
+                     actual, ratio, accepted = None, None, False
+--- a/tests/test_numerics_trial_domain.py
++++ b/tests/test_numerics_trial_domain.py
+@@ -0,0 +1,218 @@
++"""Archived domain failure, narrowly typed recovery and unchanged rollback."""
++from dataclasses import replace
++from pathlib import Path
++import gzip
++import hashlib
++import json
++import xml.etree.ElementTree as ET
++
++import numpy as np
++import pytest
++
++from orbit_poc.numerics import backend
++from orbit_poc.numerics.config import Controls
++from orbit_poc.numerics.optimizer import NumericalFailure, PhysicalTrialDomainFailure, minimize
++from test_numerics_optimizer import ProfiledModel
++
++
++FIXTURE = Path(__file__).parent / 'fixtures/density_reference_domain'
++
++
++@pytest.fixture
++def archived():
++    manifest = json.loads((FIXTURE / 'manifest.json').read_text())
++    for item in manifest['files']:
++        assert hashlib.sha256((FIXTURE / item['fixture']).read_bytes()).hexdigest() == item['sha256']
++    rows = []
++    for line in gzip.open(FIXTURE / 'orbit.txt.gz', 'rt'):
++        try:
++            row = [float(value) for value in line.split()]
++        except ValueError:
++            continue
++        if len(row) == 10:
++            rows.append(row)
++    values = np.asarray(rows)
++    return {'log': (FIXTURE / 'propagate.log').read_text(),
++            'execution': json.loads((FIXTURE / 'propagate.execution.json').read_text()),
++            'previous_states': values[:, 1:7], 'derivative_profile': 'synthetic_complete_v1',
++            'gm': manifest['gm']}
++
++
++def test_exact_archived_failure_is_typed_without_broad_native_reclassification(archived):
++    result = backend.reference_domain_failure_evidence(**archived)
++    assert result['samples'] == 720
++    assert result['nonelliptic_osculating_samples'] == 447
++    assert result['minimum_radius_m'] == pytest.approx(560881.2680583355)
++    assert result['maximum_speed_m_s'] == pytest.approx(79502.14893695017)
++    assert result['recoverable_only_during_trial'] is True
++    assert backend.native_failure_reason(archived['log'], archived['execution']) == 'native_failure'
++
++
++@pytest.mark.parametrize('change', [
++    {'returncode': -9}, {'returncode': -11}, {'returncode': 137}, {'returncode': 2},
++    {'returncode': 0}, {'returncode': True}, {'timed_out': True}, {'timed_out': None},
++])
++def test_resource_crash_and_unknown_exits_remain_fatal(archived, change):
++    archived['execution'] = {**archived['execution'], **change}
++    assert backend.reference_domain_failure_evidence(**archived) is None
++
++
++@pytest.mark.parametrize('change', [
++    {'previous_states': None}, {'gm': None}, {'gm': -1.}, {'gm': float('nan')},
++    {'derivative_profile': 'flight_gravity_drag_v1'}, {'derivative_profile': 'legacy_v3'},
++    {'previous_states': np.zeros((2, 6))}, {'previous_states': np.ones((2, 7))},
++    {'previous_states': np.full((2, 6), float('nan'))},
++    {'previous_states': np.full((2, 6), 1e300)},
++    {'previous_states': np.array([[7e6, 0., 0., 0., 7500., 0.]] * 2)},
++])
++def test_only_measured_generated_synthetic_domain_is_recoverable(archived, change):
++    assert backend.reference_domain_failure_evidence(**{**archived, **change}) is None
++
++
++@pytest.mark.parametrize('change', [
++    lambda text: text.replace('Nonfinite equinoctial reference input', 'Cannot open input file'),
++    lambda text: text + 'Segmentation fault\n',
++    lambda text: text.replace('PreprocessingVariationalEquation', 'GnssProcessing'),
++    lambda text: text.replace('(computeArc)', '(otherOperation)'),
++    lambda text: text.replace('****** Error ******', ''),
++    lambda text: text + '****** Error ******\n',
++    lambda text: 'Nonfinite equinoctial reference input\n',
++])
++def test_exact_terminal_error_and_propagation_context_are_required(archived, change):
++    archived['log'] = change(archived['log'])
++    assert backend.reference_domain_failure_evidence(**archived) is None
++
++
++def test_native_close_preserves_failed_files_and_binds_generated_reference(tmp_path, monkeypatch, archived):
++    source = ET.Element('root')
++    globals_node = ET.SubElement(source, 'global')
++    ET.SubElement(globals_node, 'time', label='timeStart').text = '60424'
++    ET.SubElement(globals_node, 'time', label='timeEnd').text = '60424+1/24'
++    propagation = ET.SubElement(source, 'PreprocessingVariationalEquation')
++    ET.SubElement(ET.SubElement(propagation, 'useEnke'), 'GM').text = str(archived['gm'])
++    path = tmp_path / 'variational.xml'
++    ET.ElementTree(source).write(path)
++    folder = tmp_path / 'point-004-trial-001'
++    folder.mkdir()
++    initial_reference = tmp_path / 'accepted-orbit.dat'
++    initial_reference.write_bytes(b'accepted orbit, unchanged')
++    state = backend.PhysicalState(np.arange(6.), np.zeros(61), initial_reference)
++    initial_copy, force_copy = state.initial.copy(), state.force.copy()
++    model = backend.NativeModel.__new__(backend.NativeModel)
++    model.density, model.derivatives, model.propagations = True, 'synthetic_complete_v1', 0
++    model.protected_factor = tmp_path / 'accepted.R.bin'
++    model.protected_factor.write_bytes(b'accepted factor, unchanged')
++    monkeypatch.setattr(model, '_evaluation', lambda *a, **kw: [])
++    monkeypatch.setattr(backend, 'compact_closed_closures', lambda *a: None)
++    monkeypatch.setattr(backend.native, '_orbit', lambda *a: (np.arange(720.), archived['previous_states']))
++    calls = []
++
++    def execute(tree, iteration, label):
++        assert label == 'propagate'
++        calls.append(tree.find('.//PreprocessingVariationalEquation/inputfileOrbit').text)
++        if len(calls) == 1:
++            (iteration / 'orbit.dat').write_bytes(b'finite generated closure-01 orbit')
++            return
++        (iteration / 'propagate.log').write_text(archived['log'])
++        try:
++            raise backend.native.NativeExecutionError('exact archived domain failure', execution=archived['execution'])
++        except backend.native.NativeExecutionError as native_error:
++            raise NumericalFailure('native_failure', str(native_error)) from native_error
++
++    monkeypatch.setattr(model, 'execute', execute)
++    with pytest.raises(PhysicalTrialDomainFailure) as caught:
++        model._close(state, {'configs': {'variational': str(path)}, 'date': '2024-04-24'}, folder, False)
++    record = json.loads((folder / 'trial-domain-failure.json').read_text())
++    assert record == caught.value.evidence
++    assert calls == [str(initial_reference), str(folder / 'closure-01/orbit.dat')]
++    assert record['reference_orbit'] == calls[1]
++    assert record['reference_orbit_sha256'] == hashlib.sha256(Path(calls[1]).read_bytes()).hexdigest()
++    assert (folder / 'closure-02/propagate.log').read_text() == archived['log']
++    assert model.protected_factor.read_bytes() == b'accepted factor, unchanged'
++    np.testing.assert_array_equal(state.initial, initial_copy)
++    np.testing.assert_array_equal(state.force, force_copy)
++
++
++def test_typed_trial_rollback_keeps_state_and_factor_and_uses_original_damping(archived):
++    evidence = backend.reference_domain_failure_evidence(**archived)
++
++    class FailedTrials(ProfiledModel):
++        def __init__(self):
++            super().__init__()
++            self.accepted, self.before_retry = [], []
++
++        def accept(self, point):
++            self.accepted.append(point)
++
++        def evaluate(self, state, label, tighter=False):
++            if label.startswith('trial-') and int(label[6:]) <= 4:
++                point = self.accepted[-1]
++                self.before_retry.append((point.state, point.factor.copy(), point.rhs.copy()))
++                raise PhysicalTrialDomainFailure('archived propagation domain', evidence)
++            return super().evaluate(state, label, tighter)
++
++    model = FailedTrials()
++    result = minimize(model, 0.)
++    assert result['converged'], result
++    rejected = result['history'][:4]
++    assert [entry['damping'] for entry in rejected] == pytest.approx([.001, .002, .008, .064])
++    assert all(not entry['accepted'] and entry['trial_domain_evidence'] == evidence for entry in rejected)
++    assert all(entry['actual_reduction'] is None and entry['gain_ratio'] is None for entry in rejected)
++    assert result['history'][4]['damping'] == pytest.approx(1.024)
++    assert len({entry['objective_before'] for entry in rejected}) == 1
++    for state, factor, rhs in model.before_retry:
++        assert state == 0.
++        np.testing.assert_array_equal(factor, model.before_retry[0][1])
++        np.testing.assert_array_equal(rhs, model.before_retry[0][2])
++
++
++@pytest.mark.parametrize('phase', ['initial', 'repeat', 'closure-refinement', 'confirmation', 'finish'])
++def test_domain_failures_outside_trial_are_fatal_without_covariance(archived, phase):
++    evidence = backend.reference_domain_failure_evidence(**archived)
++
++    class FailedPhase(ProfiledModel):
++        def evaluate(self, state, label, tighter=False):
++            if label == phase:
++                raise PhysicalTrialDomainFailure('controlled nontrial failure', evidence)
++            return super().evaluate(state, label, tighter)
++
++        def finish(self, point):
++            if phase == 'finish':
++                raise PhysicalTrialDomainFailure('controlled final failure', evidence)
++            return super().finish(point)
++
++    model = FailedPhase()
++    result = minimize(model, 0.)
++    assert result['status'] == 'physical_trial_domain'
++    assert not result['converged'] and not result['covariance_valid'] and not model.finalized
++    assert all(row.get('reason') != 'physical_trial_domain' for row in result['history'])
++
++
++def test_untyped_domain_reason_is_not_a_recoverable_native_error():
++    class Untyped(ProfiledModel):
++        def evaluate(self, state, label, tighter=False):
++            if label.startswith('trial-'):
++                raise NumericalFailure('physical_trial_domain', 'no typed evidence')
++            return super().evaluate(state, label, tighter)
++
++    model = Untyped()
++    result = minimize(model, 0.)
++    assert result['status'] == 'physical_trial_domain'
++    assert not result['converged'] and not result['covariance_valid'] and not model.finalized
++    assert not result['history']
++
++
++def test_repeated_domain_failure_exhausts_existing_budget_without_false_convergence(archived):
++    evidence = backend.reference_domain_failure_evidence(**archived)
++
++    class AlwaysInvalid(ProfiledModel):
++        def evaluate(self, state, label, tighter=False):
++            if label.startswith('trial-'):
++                raise PhysicalTrialDomainFailure('controlled trial failure', evidence)
++            return super().evaluate(state, label, tighter)
++
++    model = AlwaysInvalid()
++    result = minimize(model, 0., controls=replace(Controls(), maximum_trial_evaluations=3))
++    assert result['status'] == 'iteration_limit'
++    assert result['trial_evaluations'] == 3 and result['accepted_iterations'] == 0
++    assert not result['converged'] and not result['covariance_valid'] and not model.finalized

@@ -1,0 +1,48 @@
+{
+  "schema": "independent-reference-domain-context-v1",
+  "scope": "Read-only archived trajectory, finite/domain diagnostics; no native or reference-fit replay",
+  "initial_osculating_semimajor_axis_m": 6878135.619705009,
+  "initial_osculating_eccentricity": 7.86324781984517e-07,
+  "initial_angular_momentum_m2_s": 52360556669.21044,
+  "initial_is_finite_bound_nonsingular": true,
+  "completed_closure": {
+    "state_rows": 720,
+    "all_numeric_fields_finite": true,
+    "minimum_geocentric_radius_m": 560881.2680583355,
+    "maximum_geocentric_radius_m": 76910297.6669768,
+    "maximum_speed_m_s": 79502.14893695017
+  },
+  "source_conclusion": "The exact error is emitted from the finite-element guard after native iterative leastSquares reference fitting. The archive does not export which fitted element became nonfinite or the first bad reference-fit iteration. This is not proof that the coordinate-conversion implementation is correct in every valid domain.",
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-01/orbit.txt.gz",
+      "bytes": 55768,
+      "sha256": "cd13f2aaf1759f27d8b8427f300c1c66adf1e2bbf458428521de5072f2076a96"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+      "bytes": 893,
+      "sha256": "7d8e4b232a09b8bebd95532c3ab0cbad77f90c9c1b50468aa21d701c75164734"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.xml",
+      "bytes": 6223,
+      "sha256": "63c96cd90858474159d5e1888577417b4be4f32369aee6f5a40cd876838e6982"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/base/equinoctial.cpp",
+      "bytes": 13370,
+      "sha256": "8d9891e02432e8d07ff503749978f0754f272323e8a8cc9ac9e4e36d55d2d189"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/programs/preprocessing/preprocessingVariationalEquation.cpp",
+      "bytes": 35670,
+      "sha256": "b587eb6ee68c1cc51ba7a8ca21223a0111b3a0fc6e6c308d54bff029e80cc055"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/native-source-04/source/misc/orbitPoc/preciseEquinoctialReference.h",
+      "bytes": 5103,
+      "sha256": "c1bbcb507eca1b08bb4958ae49e45b48c5f91bf6fc7297ce2cd6da693b0ad964"
+    }
+  ]
+}

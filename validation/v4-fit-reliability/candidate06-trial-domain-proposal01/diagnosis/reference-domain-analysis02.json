@@ -1,0 +1,78 @@
+{
+  "schema": "native-reference-diagnosis-v1",
+  "initial_elements": {
+    "iteration": 0,
+    "GM": 398600441500000,
+    "a": 6878135.619705009,
+    "h": -5.399864606084097e-07,
+    "k": 5.715953857368696e-07,
+    "p": -3.752849477977221e-09,
+    "q": 0.498581622794359,
+    "l0": 6.283183976647873
+  },
+  "first_invalid_domain_update": {
+    "iteration": 1,
+    "GM": 398600441500000,
+    "a": -3867703.4865055187,
+    "h": -0.16768454388917764,
+    "k": -1.5296158180125772,
+    "p": -0.001851365076118453,
+    "q": 0.46996713128793316,
+    "l0": 5.99158353016038
+  },
+  "first_invalid_domain_eccentricity": 1.5387795998691973,
+  "first_nonfinite_elements_update": {
+    "iteration": 2,
+    "GM": 398600441500000,
+    "a": null,
+    "h": null,
+    "k": null,
+    "p": null,
+    "q": null,
+    "l0": null
+  },
+  "terminal_error": {
+    "guard_error": "Nonfinite equinoctial reference input"
+  },
+  "diagnosis": "Original leastSquares reference construction exits its elliptic domain at update1 and all six fitted coordinates become nonfinite at update2. Unchanged precise reference evaluator then emits the archived guard.",
+  "scope": "Isolated exact mean-reference fit replay using native binary input, unchanged candidate04 object code and original loop with observational element logging. Not a nonlinear full fit.",
+  "production_native_changed": false,
+  "supervisor": {
+    "status": "complete",
+    "elapsed_seconds": 95.94635853,
+    "peak_process_tree_rss_bytes": 212840448,
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    }
+  },
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/evidence/native-reference-probe01/plan.json",
+      "sha256": "a21c10c106cad6058a0958a55a39ca69f14b87f6f3a1b4488b9a1cc22a833daa"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/evidence/native-reference-probe01/probe.cpp",
+      "sha256": "e825e5b1b376ed9f1d795f23efa1a1e4e3c18ab2bf12caeda6d921e97e2631b4"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/evidence/native-reference-probe01/original-reference-loop.cpp.txt",
+      "sha256": "9497088d50f4d47656323805ee2f6b61671b1a82e3e4a30cba275d450f313505"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/evidence/native-reference-probe01/trace.jsonl",
+      "sha256": "805cf6611557603dca692ee16ddea5769f82421753b80aebbe91d274ad89ca9f"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/evidence/native-reference-probe01/supervisor.json",
+      "sha256": "6fdc92984f43d155fceebdb6e9635325bbac80a72995575b09c9b1aa276a634c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate06/evidence/native-reference-probe01/replay-result.json",
+      "sha256": "3bd410e397ab7b849ddf1a04633af8678d2533cbb68b94e05e6d631b2f22e40d"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+test_aggregate_false_rejected (test_sequence.GateAudit.test_aggregate_false_rejected) ... ok
+test_all_ten_pass (test_sequence.GateAudit.test_all_ten_pass) ... ok
+test_changed_input_identity_rejected (test_sequence.GateAudit.test_changed_input_identity_rejected) ... ok
+test_changed_plan_hash_rejected (test_sequence.GateAudit.test_changed_plan_hash_rejected) ... ok
+test_changed_strict_argv_rejected (test_sequence.GateAudit.test_changed_strict_argv_rejected) ... ok
+test_changed_strict_hash_rejected (test_sequence.GateAudit.test_changed_strict_hash_rejected) ... ok
+test_changed_strict_stage_rejected (test_sequence.GateAudit.test_changed_strict_stage_rejected) ... ok
+test_correction_count_rejected (test_sequence.GateAudit.test_correction_count_rejected) ... ok
+test_empty_plan_rejected (test_sequence.GateAudit.test_empty_plan_rejected) ... FAIL
+test_empty_result_stages_rejected (test_sequence.GateAudit.test_empty_result_stages_rejected) ... ok
+test_extra_plan_job_rejected (test_sequence.GateAudit.test_extra_plan_job_rejected) ... FAIL
+test_gate_failed_rejected (test_sequence.GateAudit.test_gate_failed_rejected) ... ok
+test_interrupted_gate_rejected (test_sequence.GateAudit.test_interrupted_gate_rejected) ... ok
+test_missing_cleanup_certificate_rejected (test_sequence.GateAudit.test_missing_cleanup_certificate_rejected) ... ok
+test_missing_gate_receipt_rejected (test_sequence.GateAudit.test_missing_gate_receipt_rejected) ... ok
+test_missing_result_stage_rejected (test_sequence.GateAudit.test_missing_result_stage_rejected) ... ok
+test_native_count_rejected (test_sequence.GateAudit.test_native_count_rejected) ... ok
+test_nonempty_owned_tree_rejected (test_sequence.GateAudit.test_nonempty_owned_tree_rejected) ... ok
+test_nonzero_strict_exit_rejected (test_sequence.GateAudit.test_nonzero_strict_exit_rejected) ... ok
+test_nonzero_supervisor_exit_rejected (test_sequence.GateAudit.test_nonzero_supervisor_exit_rejected) ... ok
+test_received_signal_rejected (test_sequence.GateAudit.test_received_signal_rejected) ... ok
+test_reordered_plan_rejected (test_sequence.GateAudit.test_reordered_plan_rejected) ... ok
+test_reordered_results_rejected (test_sequence.GateAudit.test_reordered_results_rejected) ... ok
+test_supervisor_failure_rejected (test_sequence.GateAudit.test_supervisor_failure_rejected) ... ok
+test_truncated_plan_rejected (test_sequence.GateAudit.test_truncated_plan_rejected) ... FAIL
+test_unverified_cleanup_rejected (test_sequence.GateAudit.test_unverified_cleanup_rejected) ... ok
+test_wrong_freeze_attribution_rejected (test_sequence.GateAudit.test_wrong_freeze_attribution_rejected) ... ok
+test_wrong_planned_inventory_rejected (test_sequence.GateAudit.test_wrong_planned_inventory_rejected) ... ok
+test_wrong_review_attribution_rejected (test_sequence.GateAudit.test_wrong_review_attribution_rejected) ... ok
+test_wrong_stage_rejected (test_sequence.GateAudit.test_wrong_stage_rejected) ... ok
+test_changed_driver_rejected (test_sequence.Identity.test_changed_driver_rejected) ... ok
+test_changed_review_rejected (test_sequence.Identity.test_changed_review_rejected) ... ok
+test_changed_sequence_review_rejected (test_sequence.Identity.test_changed_sequence_review_rejected) ... ok
+test_changed_stage_order_rejected (test_sequence.Identity.test_changed_stage_order_rejected) ... ok
+test_checked_fixture_passes (test_sequence.Identity.test_checked_fixture_passes) ... ok
+test_prior_boot_rejected (test_sequence.Identity.test_prior_boot_rejected) ... ok
+test_wrong_sequence_driver_review_rejected (test_sequence.Identity.test_wrong_sequence_driver_review_rejected) ... ok
+test_wrong_source_review_rejected (test_sequence.Identity.test_wrong_source_review_rejected) ... ok
+test_cold_exception_preserved (test_sequence.SerialRun.test_cold_exception_preserved) ... ok
+test_direct_signal_attributed_and_handlers_restored (test_sequence.SerialRun.test_direct_signal_attributed_and_handlers_restored) ... ok
+test_failed_cold_retained (test_sequence.SerialRun.test_failed_cold_retained) ... ok
+test_failed_cold_row_cannot_pass_aggregate (test_sequence.SerialRun.test_failed_cold_row_cannot_pass_aggregate) ... FAIL
+test_gate_exception_prevents_cold (test_sequence.SerialRun.test_gate_exception_prevents_cold) ... ok
+test_gate_nonzero_prevents_cold (test_sequence.SerialRun.test_gate_nonzero_prevents_cold) ... ok
+test_gate_receipt_failure_prevents_cold (test_sequence.SerialRun.test_gate_receipt_failure_prevents_cold) ... ok
+test_malformed_phase_receipt_still_records_failure (test_sequence.SerialRun.test_malformed_phase_receipt_still_records_failure) ... ERROR
+test_missing_cold_stage_fails (test_sequence.SerialRun.test_missing_cold_stage_fails) ... ok
+test_only_strict_pass_allows_cold (test_sequence.SerialRun.test_only_strict_pass_allows_cold) ... ok
+test_phase_interruption_attributed (test_sequence.SerialRun.test_phase_interruption_attributed) ... ok
+test_post_gate_identity_failure_prevents_cold (test_sequence.SerialRun.test_post_gate_identity_failure_prevents_cold) ... ok
+test_startup_identity_failure_prevents_all (test_sequence.SerialRun.test_startup_identity_failure_prevents_all) ... ok
+test_startup_review_failure_prevents_all (test_sequence.SerialRun.test_startup_review_failure_prevents_all) ... ok
+
+======================================================================
+ERROR: test_malformed_phase_receipt_still_records_failure (test_sequence.SerialRun.test_malformed_phase_receipt_still_records_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 115, in test_malformed_phase_receipt_still_records_failure
+    (self.go/'detached-result.json').write_text('{bad');code,g,c,r=self.run_case(gate_code=1);self.assertEqual(code,1);self.assertEqual(r['status'],'failed');c.execute.assert_not_called()
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 43, in run_case
+    code=seq.run(self.path,self.digest,self.audit,self.audit_sha)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/sequence.py", line 101, in run
+    interrupted_phase=any((q/'detached-result.json').is_file() and read(q/'detached-result.json').get('status')=='interrupted' for q in (GATE_OUT,COLD_OUT))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/sequence.py", line 101, in <genexpr>
+    interrupted_phase=any((q/'detached-result.json').is_file() and read(q/'detached-result.json').get('status')=='interrupted' for q in (GATE_OUT,COLD_OUT))
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/sequence.py", line 18, in read
+    def read(p):return json.loads(Path(p).read_text())
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+======================================================================
+FAIL: test_empty_plan_rejected (test_sequence.GateAudit.test_empty_plan_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 47, in test_empty_plan_rejected
+    def test_empty_plan_rejected(self):self.jobs=[];self.update_plan();self.reject_audit()
+                                                                       ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 39, in reject_audit
+    with self.assertRaises(Exception):seq.gate_audit(self.p)
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_extra_plan_job_rejected (test_sequence.GateAudit.test_extra_plan_job_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 49, in test_extra_plan_job_rejected
+    def test_extra_plan_job_rejected(self):self.jobs=self.jobs+[self.jobs[-1]];self.update_plan();self.reject_audit()
+                                                                                                  ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 39, in reject_audit
+    with self.assertRaises(Exception):seq.gate_audit(self.p)
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_truncated_plan_rejected (test_sequence.GateAudit.test_truncated_plan_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 48, in test_truncated_plan_rejected
+    def test_truncated_plan_rejected(self):self.jobs=self.jobs[:-1];self.update_plan();self.reject_audit()
+                                                                                       ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 39, in reject_audit
+    with self.assertRaises(Exception):seq.gate_audit(self.p)
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_failed_cold_row_cannot_pass_aggregate (test_sequence.SerialRun.test_failed_cold_row_cannot_pass_aggregate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/test_sequence.py", line 103, in test_failed_cold_row_cannot_pass_aggregate
+    self.cold_result['stages'][1]['status']='failed';write(self.co/'result.json',self.cold_result);code,g,c,r=self.run_case();self.assertEqual(code,1);self.assertEqual(r['status'],'failed')
+                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 52 tests in 1.239s
+
+FAILED (failures=4, errors=1)

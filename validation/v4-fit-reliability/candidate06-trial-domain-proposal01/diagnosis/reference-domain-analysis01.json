@@ -1,0 +1,27 @@
+{
+  "schema": "archived-density-reference-domain-analysis-v1",
+  "fixture_manifest_sha256": "22a27a9ce59e4389848cc082434c683da0c1a776ba8e87dae3ec7c3bbd8cab32",
+  "gm_m3_s2": 398600441500000.0,
+  "finite_samples": 720,
+  "minimum_radius_m": 560881.2680583355,
+  "maximum_radius_m": 76910297.6669768,
+  "maximum_speed_m_s": 79502.14893695017,
+  "nonelliptic_osculating_samples": 447,
+  "maximum_specific_orbital_energy_m2_s2": 3155113176.0588713,
+  "maximum_osculating_eccentricity": 1107.4856529749607,
+  "initial_osculating_eccentricity": 7.86324781984517e-07,
+  "initial_specific_orbital_energy_m2_s2": -28975907.392554093,
+  "maximum_log_density": 20.37698295083867,
+  "maximum_density_multiplier": 707312369.9593607,
+  "diagnosis": [
+    "The failed reference was fitted to the finite generated closure-01 positions.",
+    "GROOPS initializes an equinoctial reference from the first state, then fits six elements to sparse positions by unconstrained least squares.",
+    "The precise-reference error is emitted after that fit and certifies a nonfinite fitted reference input; it is not direct exp(log_density) overflow.",
+    "The generated trajectory includes positive specific orbital energy and strongly nonelliptic osculating states."
+  ],
+  "limits": [
+    "The failed executable did not export the fitted elements or their intermediate updates, so the first invalid element and fit iteration cannot be attributed from this archive.",
+    "Finite input-state diagnostics establish a failed trial domain, not a proof of global nonlinear solvability or a corrected full-fit outcome."
+  ],
+  "native_runs": 0
+}

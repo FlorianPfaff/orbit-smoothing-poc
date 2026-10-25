@@ -1,0 +1,69 @@
+...........................F.......................................      [100%]
+=================================== FAILURES ===================================
+____ test_native_close_preserves_failed_files_and_binds_generated_reference ____
+
+tmp_path = PosixPath('/mnt/d/orbit-v41-density-trial-candidate06/tests/unit01/tmp/test_native_close_preserves_fa0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74b07b09c550>
+archived = {'derivative_profile': 'synthetic_complete_v1', 'execution': {'blas_openmp_threads': 1, 'command': ['/mnt/d/orbit-v41-...computeArc)\x1b[0m\n\x1b[1;31mNonfinite equinoctial reference input\x1b[0m\n=== Finished GROOPS with error ===\n', ...}
+
+    def test_native_close_preserves_failed_files_and_binds_generated_reference(tmp_path, monkeypatch, archived):
+        source = ET.Element('root')
+        propagation = ET.SubElement(source, 'PreprocessingVariationalEquation')
+        ET.SubElement(ET.SubElement(propagation, 'useEnke'), 'GM').text = str(archived['gm'])
+        path = tmp_path / 'variational.xml'
+        ET.ElementTree(source).write(path)
+        folder = tmp_path / 'point-004-trial-001'
+        folder.mkdir()
+        initial_reference = tmp_path / 'accepted-orbit.dat'
+        initial_reference.write_bytes(b'accepted orbit, unchanged')
+        state = backend.PhysicalState(np.arange(6.), np.zeros(61), initial_reference)
+        initial_copy, force_copy = state.initial.copy(), state.force.copy()
+        model = backend.NativeModel.__new__(backend.NativeModel)
+        model.density, model.derivatives, model.propagations = True, 'synthetic_complete_v1', 0
+        model.protected_factor = tmp_path / 'accepted.R.bin'
+        model.protected_factor.write_bytes(b'accepted factor, unchanged')
+        monkeypatch.setattr(model, '_evaluation', lambda *a, **kw: [])
+        monkeypatch.setattr(backend, 'compact_closed_closures', lambda *a: None)
+        monkeypatch.setattr(backend.native, '_orbit', lambda *a: (np.arange(720.), archived['previous_states']))
+        calls = []
+    
+        def execute(tree, iteration, label):
+            assert label == 'propagate'
+            calls.append(tree.find('.//PreprocessingVariationalEquation/inputfileOrbit').text)
+            if len(calls) == 1:
+                (iteration / 'orbit.dat').write_bytes(b'finite generated closure-01 orbit')
+                return
+            (iteration / 'propagate.log').write_text(archived['log'])
+            try:
+                raise backend.native.NativeExecutionError('exact archived domain failure', execution=archived['execution'])
+            except backend.native.NativeExecutionError as native_error:
+                raise NumericalFailure('native_failure', str(native_error)) from native_error
+    
+        monkeypatch.setattr(model, 'execute', execute)
+        with pytest.raises(PhysicalTrialDomainFailure) as caught:
+>           model._close(state, {'configs': {'variational': str(path)}, 'date': '2024-04-24'}, folder, False)
+
+../orbit-v41-density-trial-candidate06/source/tests/test_numerics_trial_domain.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../orbit-v41-density-trial-candidate06/source/src/orbit_poc/numerics/backend.py:311: in _close
+    self.execute(_standalone(source, programs, config["date"]), iteration, "propagate")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+source = <Element 'root' at 0x74b07b4ad710>
+programs = [<Element 'PreprocessingVariationalEquation' at 0x74b07b4ad990>]
+date = '2024-04-24'
+
+    def _standalone(source, programs, date):
+        """Retain native loop globals, including a separate exact UTC offset."""
+        global_node = source.find("global")
+        if global_node is None or any(global_node.find(f"time[@label='{key}']") is None
+                                      for key in ("timeStart", "timeEnd")):
+>           raise ValueError("Nominal initialization requires the source time globals")
+E           ValueError: Nominal initialization requires the source time globals
+
+../orbit-v41-density-trial-candidate06/source/src/orbit_poc/comparison/initialization.py:20: ValueError
+- generated xml file: /mnt/d/orbit-v41-density-trial-candidate06/tests/unit01/junit.xml -
+=========================== short test summary info ============================
+FAILED ../orbit-v41-density-trial-candidate06/source/tests/test_numerics_trial_domain.py::test_native_close_preserves_failed_files_and_binds_generated_reference
+1 failed, 66 passed in 26.07s

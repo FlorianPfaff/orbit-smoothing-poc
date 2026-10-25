@@ -1,0 +1,125 @@
+{
+  "schema": "candidate06-proposal-publication-v1",
+  "created_at": "2026-10-25T19:24:47.302281+00:00",
+  "scope": "Static source/diagnosis/control proposal, not numerical validation results or launch authority",
+  "parent_publication_commit": "d3d82ed450b43901f9b749f5c4086a6e69211b24",
+  "pull_request": "https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/9",
+  "source_snapshot_sha256": "24c41840ad687aef76111e213b027c8ff613463313ccd7fb8fbf759e253db739",
+  "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "production_python_files": [
+    "src/orbit_poc/numerics/backend.py",
+    "src/orbit_poc/numerics/optimizer.py"
+  ],
+  "native_source_changed": false,
+  "native_rebuild_required": false,
+  "physical_or_statistical_model_changes": false,
+  "threshold_changes": false,
+  "frozen_benchmark_changes": false,
+  "candidate04_context": {
+    "pulse": "strict pass with fresh covariance; final tiny objective reduction below measured floor disclosed in published report",
+    "density": "first-trial propagation/reference-domain failure; no covariance; not timeout or memory limit"
+  },
+  "candidate06_native_correctness": "pending",
+  "candidate06_cold_pulse": "pending",
+  "candidate06_cold_density": "pending",
+  "numerical_gate_or_cold_fit_results_included": false,
+  "launch_authority": false,
+  "release_authority": false,
+  "covariance_authority": false,
+  "tests": [
+    {
+      "label": "Candidate fixture development attempt",
+      "receipt": "candidate/tests/unit01/result.json",
+      "tests": 67,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "passed": false
+    },
+    {
+      "label": "Candidate focused suite",
+      "receipt": "candidate/tests/unit02/result.json",
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "label": "Correctness controls first suite",
+      "receipt": "controls/correctness/pure-tests01/result.json",
+      "tests": 163,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "label": "Correctness controls final suite",
+      "receipt": "controls/correctness/pure-tests02/result.json",
+      "tests": 165,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "label": "Cold controls draft suite",
+      "receipt": "controls/cold/pure-tests01/result.json",
+      "tests": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "label": "Cold controls resolved suite",
+      "receipt": "controls/cold/pure-tests02/result.json",
+      "tests": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "label": "Sequence initial suite",
+      "receipt": "controls/sequence/tests01/result.json",
+      "tests": 52,
+      "failures": 4,
+      "errors": 1,
+      "skipped": 0,
+      "passed": false
+    },
+    {
+      "label": "Sequence corrected suite",
+      "receipt": "controls/sequence/tests02/result.json",
+      "tests": 63,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    }
+  ],
+  "preserved_failures": [
+    {
+      "receipt": "candidate/tests/unit01/result.json",
+      "cause": "A new test fixture omitted required time globals; unit02 changes the fixture only."
+    },
+    {
+      "receipt": "controls/sequence/tests01/result.json",
+      "cause": "Tests exposed truncated gate-plan zip, concealed failed cold row, and malformed terminal receipt handling; separate corrected driver tested in tests02."
+    },
+    {
+      "receipt": "reviews/cold-controls-review01.json",
+      "cause": "Reviewer predicates incorrectly expected unchanged helper hash to differ and compared equivalent inventories by ordering; review02 corrects the audit only."
+    }
+  ],
+  "limitations": [
+    "A valid augmented linear step and an isolated reference-fit replay do not prove successful nonlinear estimation.",
+    "Focused tests, source reviews and pure control tests do not replace prescribed native correctness checks or original GNSS-only cold fits.",
+    "No new covariance or accuracy claim is authorized by this packet.",
+    "The existing propagations counter increments only after successful native execute calls. Failed recovered invocations remain in per-point receipts; the counter must not be labelled all native attempts.",
+    "The delivery manifest and original reviews retain their historical pending fields; later source/control approvals are separate evidence.",
+    "Pending statuses describe this static proposal evidence boundary. Later operational attempts require separate append-only results, never rewriting this packet."
+  ]
+}
