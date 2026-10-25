@@ -1,0 +1,168 @@
+{
+  "schema": "orbit-poc-one-hour-resource-lifecycle-review-v1",
+  "reviewed_at": "2026-10-25T06:18:57.691143+01:00",
+  "approved": false,
+  "scope": "Independent read-only conceptual/code review of resource, ownership, admission and lifecycle controls at exact source hashes. Not complete scientific/runtime audit or actual namespace launch approval.",
+  "launch_authority": false,
+  "sources": [
+    {
+      "original": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/one_hour_controls.py",
+      "snapshot": "/mnt/d/orbit-v41-recovery02/one-hour-host-review01/lifecycle-review02-one_hour_controls.py",
+      "sha256": "a7a12783f61983e56a5c2b5352231bc3193fab5708faf5718c98a1fc0ba0934a",
+      "bytes": 36776
+    },
+    {
+      "original": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/contracts.py",
+      "snapshot": "/mnt/d/orbit-v41-recovery02/one-hour-host-review01/lifecycle-review02-contracts.py",
+      "sha256": "788d7af20539758a22e061c481ee4964674b1c6387e2b230f1427dfe7850065a",
+      "bytes": 9380
+    }
+  ],
+  "check_count": 24,
+  "checks": [
+    {
+      "name": "exact_process_tree_rss_limit",
+      "passed": true,
+      "source_evidence": "contracts.LIMITS andrun.run_owned"
+    },
+    {
+      "name": "exact_native7200deadline",
+      "passed": true,
+      "source_evidence": "contracts.LIMITS andrun.run_owned"
+    },
+    {
+      "name": "CPU4affinity",
+      "passed": true,
+      "source_evidence": "runworker taskset pluscurrentadmission"
+    },
+    {
+      "name": "preserve16GiBadmissionheadroom",
+      "passed": true,
+      "source_evidence": "admissionchecksabovefrozen8GiBRSSlimitalone"
+    },
+    {
+      "name": "output_and_scratch32GiBchecks",
+      "passed": true,
+      "source_evidence": "resource_admissionchecks bothfilesystems"
+    },
+    {
+      "name": "resource_checks_launch_and_each_stage",
+      "passed": true,
+      "source_evidence": "launch,runinitial,andperstage admission"
+    },
+    {
+      "name": "scratch_runtime32GiBmonitor",
+      "passed": true,
+      "source_evidence": "originalsupervisor monitors ext4scratchfree"
+    },
+    {
+      "name": "disk_backed_scratch_validation",
+      "passed": true,
+      "source_evidence": "pinnedlegacydisk_filesystemrejectstmpfs/9p"
+    },
+    {
+      "name": "actual_namespace_disk_mount_proof",
+      "passed": false,
+      "source_evidence": "kernelmountinfoinactualnamespace"
+    },
+    {
+      "name": "actual_backing_cold_checks",
+      "passed": true,
+      "source_evidence": "actualext4leavesnotonlyDplaceholders"
+    },
+    {
+      "name": "owned_root_and_output_identity_pins",
+      "passed": true,
+      "source_evidence": "outputroot,scratchroot,outputstagesandplaceholderleaves"
+    },
+    {
+      "name": "canonical_owned_directory_contract",
+      "passed": true,
+      "source_evidence": "directoryidentitychecksowneranddev/inode"
+    },
+    {
+      "name": "scratch_leaf_identity_pins",
+      "passed": true,
+      "source_evidence": "actualbackingleavesimmutableidentity"
+    },
+    {
+      "name": "current_boot_required",
+      "passed": true,
+      "source_evidence": "oldbootcannotauthorizefreshworker"
+    },
+    {
+      "name": "shared_stable_lock",
+      "passed": true,
+      "source_evidence": "sharedoldlockwithsafeopenandowner/inodecheck"
+    },
+    {
+      "name": "lock_held_during_serial_native_loop",
+      "passed": true,
+      "source_evidence": "singleloopheldcooperativelock"
+    },
+    {
+      "name": "current_host_competitor_admission_per_fit",
+      "passed": true,
+      "source_evidence": "reuseauditedcurrenthostprocessscanwithoutforeignkill"
+    },
+    {
+      "name": "owned_supervision_only",
+      "passed": true,
+      "source_evidence": "noadapterPID/PGIDsignals;originalpidfdsubreapersuppliescleanup"
+    },
+    {
+      "name": "cleanup_required_for_any_pass",
+      "passed": true,
+      "source_evidence": "unverifiedcleanupcannotpassorcontinue"
+    },
+    {
+      "name": "interruption_stops_next_stage",
+      "passed": true,
+      "source_evidence": "nativeinterruptedclassificationstopsserialcontroller"
+    },
+    {
+      "name": "interruption_propagated_to_detached",
+      "passed": true,
+      "source_evidence": "innerownedhelperinterruptnotlostbyoutersignalhandler"
+    },
+    {
+      "name": "partial_receipt_reported_as_attempted",
+      "passed": true,
+      "source_evidence": "partialsupervisorreceiptpreservedandnotcalledunexecuted"
+    },
+    {
+      "name": "preflight_owned_cleanup_required",
+      "passed": true,
+      "source_evidence": "actualnamespacepreflightmustcompleteandcleanuppassbeforefreeze"
+    },
+    {
+      "name": "existing_results_not_overwritten",
+      "passed": true,
+      "source_evidence": "exclusivewritesandfreshstagecontractretainfailures"
+    }
+  ],
+  "findings": [
+    {
+      "name": "actual_namespace_disk_mount_proof",
+      "passed": false,
+      "source_evidence": "kernelmountinfoinactualnamespace"
+    }
+  ],
+  "resolved_draft_findings": [
+    "L1actualbackingfreshness",
+    "L2owner/rootidentity",
+    "L3bothfilesystemadmission",
+    "L4sharedsafelock",
+    "L5interruptionstatus",
+    "L6partialreceiptclassification"
+  ],
+  "remaining_nonblocking_limits": [
+    "CPUadmissionandlockarecooperative,nothostexclusiveCPUreservation.",
+    "Continuousfree-spaceenforcementmonitorsnativeext4scratch;Doutputfreeischeckedatlaunchandeachstage,notcontinuously.",
+    "SIGKILLorhostpowerlossmayleaveonlypartialreceipts;neitherisassignedscientificsuccess.",
+    "Completefrozenplan/native/runtime/inputidentityandactualnamespacepreflightmustbeseparatelyapprovedbeforelaunch."
+  ],
+  "native_runs": 0,
+  "tests_launched": 0,
+  "original_files_modified": false
+}

@@ -1,0 +1,255 @@
+{
+  "schema": "orbit-poc-one-hour-cold-plan-v1",
+  "created_at": "2026-10-25T05:30:44.249337+00:00",
+  "stages": [
+    "cold-pulses",
+    "cold-density"
+  ],
+  "limits": {
+    "cpu": 4,
+    "min_free_disk_bytes": 34359738368,
+    "minimum_available_memory_bytes": 17179869184,
+    "numerical_threads": 1,
+    "process_tree_rss_bytes": 8589934592,
+    "timeout_seconds": 7200
+  },
+  "boot_id": "8a138607-8bb2-45b1-9f2f-b6187bdeb161",
+  "cold_start": true,
+  "initialization": "Unchanged NativeModel.initial_state: GNSS-only prepared nominal orbit; zero pulse/density coordinates; no imported nuisance state",
+  "previous_results_reused": false,
+  "source_identity": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+  "source_snapshot": {
+    "bytes": 92337,
+    "path": "/mnt/d/orbit-v41-recovery01/candidate04/source-snapshot.json",
+    "sha256": "f7e3e8ae35758ea42a607132f873c6fde9b81b6afe8c3389f5c47d9b2af3474f"
+  },
+  "reference_plan": {
+    "bytes": 586026,
+    "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/plan.json",
+    "sha256": "83224b4e5284e5b7d4c6ac0e8d99f0f7845a0c1aedbd7f6d1f1a45831212967a"
+  },
+  "control_pins": [
+    {
+      "bytes": 9380,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/contracts.py",
+      "sha256": "788d7af20539758a22e061c481ee4964674b1c6387e2b230f1427dfe7850065a"
+    },
+    {
+      "bytes": 36776,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/one_hour_controls.py",
+      "sha256": "a7a12783f61983e56a5c2b5352231bc3193fab5708faf5718c98a1fc0ba0934a"
+    },
+    {
+      "bytes": 8914,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/test_behavior.py",
+      "sha256": "8c987193cb127c6642e06ab28db883509bb49f314d577c4f6d2dfd8ecdb0cb58"
+    },
+    {
+      "bytes": 11428,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/test_contracts.py",
+      "sha256": "985c66913f5970dd06065deabec060b47bdb81543f7ecef112819afd5ac8d5cb"
+    }
+  ],
+  "helper_pins": [
+    {
+      "bytes": 42143,
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/reference_gates09.py",
+      "sha256": "c60a79be9e4fb048035b448c6edfc1e58ea4ceff9c40087bd7927f97d3c4ddd7"
+    },
+    {
+      "bytes": 63666,
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/scripts/run_v41_wholefit_regressions.py",
+      "sha256": "92343a79f27212464a59f30006e6f09ec0a3b7366367a4566a3a2c31c26a1ef4"
+    },
+    {
+      "bytes": 42143,
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/reference_gates09.py",
+      "sha256": "c60a79be9e4fb048035b448c6edfc1e58ea4ceff9c40087bd7927f97d3c4ddd7"
+    },
+    {
+      "bytes": 10966,
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/reference_runtime09.py",
+      "sha256": "75b02780b8276146a686f62c32682c62110d1e52718e306c4cc68383bf33f59d"
+    },
+    {
+      "bytes": 3692,
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/reference_storage09.py",
+      "sha256": "d26bf3f2e8bf24a6578a34fa02a516d223f90afc600ce98f22d5a4dd3978550d"
+    },
+    {
+      "bytes": 13308,
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/reference_recovery.py",
+      "sha256": "b64cbfb315438d06fbba2790da453111854e392a4560c70d9214c4eb8174474d"
+    },
+    {
+      "bytes": 10602,
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/reference_objective_output.py",
+      "sha256": "273ccb83032cc3c7f4c000ca41f66a678cd7b353a500530eafb9e28fd60545fd"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/stdio-probe/probe.py",
+      "sha256": "bb3bbbd4bd1fe80d27a7743e7c76f53e458356b74409236286f200b7a7b05990"
+    }
+  ],
+  "originals": {
+    "cold-density": {
+      "bytes": 75440,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/originals/cold-density.json",
+      "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd"
+    },
+    "cold-pulses": {
+      "bytes": 75295,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/originals/cold-pulses.json",
+      "sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5"
+    }
+  },
+  "namespace_scope": "Minimal mount allowlist; no host /, /mnt, /home or archived results are exposed. System /usr /etc /lib runtime directories remain readonly.",
+  "original_plan": {
+    "source": "/mnt/d/orbit-v41-recovery02/one-hour-run01/plan.json",
+    "bytes": 7465129,
+    "sha256": "a495b77a6b314459a418429d16e2a4e119807154dfd375809ef9c82e71ac5df3"
+  },
+  "runtime": {
+    "native": {
+      "bytes": 24260648,
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d"
+    },
+    "python": {
+      "bytes": 25912192,
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "sha256": "58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8"
+    },
+    "source_root": "/mnt/d/orbit-v41-recovery01/candidate04/source"
+  },
+  "jobs": [
+    {
+      "directory": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses",
+      "environment": {
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "HOME": "/home/emper",
+        "LANG": "C.UTF-8",
+        "LC_ALL": "C.UTF-8",
+        "LD_LIBRARY_PATH": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS": "64",
+        "ORBIT_POC_GNSS_DESIGN_SCRATCH": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/scratch",
+        "ORBIT_POC_GNSS_DESIGN_STORAGE": "disk",
+        "ORBIT_POC_NUISANCE_CONDITIONAL_QR": "1",
+        "ORBIT_POC_NUISANCE_COST_ONLY_DESIGN": "1",
+        "ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY": "1",
+        "ORBIT_POC_NUISANCE_FIXED_DYNAMICS": "1",
+        "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE": "1",
+        "ORBIT_POC_NUISANCE_PERFORMANCE": "1",
+        "ORBIT_POC_NUMERICS_SPOOL_DIRECTORY": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/row-spool",
+        "ORBIT_POC_VARIATIONAL_BLOCK_EPOCHS": "64",
+        "PATH": "/usr/bin:/bin",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONPATH": "/mnt/d/orbit-v41-recovery01/candidate04/source/src",
+        "TEMP": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/tmp",
+        "TMP": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/tmp",
+        "TMPDIR": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/tmp"
+      },
+      "original_request": {
+        "bytes": 75295,
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/request.json",
+        "sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5"
+      },
+      "rebinding": {
+        "bytes": 1438,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/rebinding.json",
+        "sha256": "8c9d35e021f965e64a9173982bfcb420fdcdef00eb6557906d8a682cfe862035"
+      },
+      "request": {
+        "bytes": 75256,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/request.json",
+        "sha256": "0fb168fe35a4780e6fd591ed6c626eee3555af0dc0620b6fac3513ce1c516959"
+      },
+      "scratch": "/home/emper/orbit-one-hour-scratch01/cold-pulses",
+      "stage": "cold-pulses"
+    },
+    {
+      "directory": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density",
+      "environment": {
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "HOME": "/home/emper",
+        "LANG": "C.UTF-8",
+        "LC_ALL": "C.UTF-8",
+        "LD_LIBRARY_PATH": "/home/emper/orbit-nuisance-warmstarts/toolchain-01/lib",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS": "64",
+        "ORBIT_POC_GNSS_DESIGN_SCRATCH": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/scratch",
+        "ORBIT_POC_GNSS_DESIGN_STORAGE": "disk",
+        "ORBIT_POC_NUISANCE_CONDITIONAL_QR": "1",
+        "ORBIT_POC_NUISANCE_COST_ONLY_DESIGN": "1",
+        "ORBIT_POC_NUISANCE_FAIL_FAST_REPLAY": "1",
+        "ORBIT_POC_NUISANCE_FIXED_DYNAMICS": "1",
+        "ORBIT_POC_NUISANCE_INTERPOLATION_CACHE": "1",
+        "ORBIT_POC_NUISANCE_PERFORMANCE": "1",
+        "ORBIT_POC_NUMERICS_SPOOL_DIRECTORY": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/row-spool",
+        "ORBIT_POC_VARIATIONAL_BLOCK_EPOCHS": "64",
+        "PATH": "/usr/bin:/bin",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONPATH": "/mnt/d/orbit-v41-recovery01/candidate04/source/src",
+        "TEMP": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/tmp",
+        "TMP": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/tmp",
+        "TMPDIR": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/tmp"
+      },
+      "original_request": {
+        "bytes": 75440,
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json",
+        "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd"
+      },
+      "rebinding": {
+        "bytes": 1444,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/rebinding.json",
+        "sha256": "91b8bd2dd88f4df0fcef7475672e192286e96712f18fce2343672e4d0d916e27"
+      },
+      "request": {
+        "bytes": 75401,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/request.json",
+        "sha256": "4c5398cc2e4c193ff7965a1a5cbd4e0b2f1c79537e20ee1d5858de33048dca1b"
+      },
+      "scratch": "/home/emper/orbit-one-hour-scratch01/cold-density",
+      "stage": "cold-density"
+    }
+  ],
+  "binding_role_counts": {
+    "runtime_file": 53,
+    "native_library": 6,
+    "estimation:gnss_biases": 1,
+    "estimation:gnss_orbits": 1,
+    "estimation:gnss_attitudes": 1,
+    "estimation:gnss_clocks": 1,
+    "estimation:force_auxiliary": 90,
+    "native:fixed_initial_state": 1,
+    "native:nominal_initialization": 1,
+    "native:initial_bootstrap": 1,
+    "native:closed_nominal_orbit": 1,
+    "native:configured_estimation_input": 4,
+    "prepared_data": 128,
+    "native:converted_estimation_input": 133,
+    "estimation:gnss_observations": 1,
+    "estimation:bootstrap_orbit": 1,
+    "runtime_member": 6574,
+    "estimation:earth_orientation": 1,
+    "estimation:attitude": 1,
+    "native_binary": 1,
+    "native_build_manifest": 1,
+    "source_configuration": 9,
+    "pinned_control_helper": 5,
+    "new_control": 4
+  },
+  "directory_tree_count": 15,
+  "extraction_scope": "Derived compact view; the exact full external plan is bound by freeze SHA256."
+}
