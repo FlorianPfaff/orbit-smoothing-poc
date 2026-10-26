@@ -1,0 +1,61 @@
+{
+  "argv": [
+    "/usr/bin/taskset",
+    "-c",
+    "4",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "-s",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--noconftest",
+    "--rootdir",
+    "/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04",
+    "-c",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-controls02/pytest.ini",
+    "--basetemp=/mnt/d/orbit-v41-recovery02/candidate07-postboot-cold-tests03/tmp",
+    "--junitxml=/mnt/d/orbit-v41-recovery02/candidate07-postboot-cold-tests03/junit.xml",
+    "/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04/test_behavior.py",
+    "/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04/test_recovery.py"
+  ],
+  "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+  "cleanup": {
+    "empty_tree_certificate": "kernel_ECHILD",
+    "hard_kill": false,
+    "remaining": [],
+    "signals": [],
+    "verified": true
+  },
+  "elapsed_seconds": 32.544615435000196,
+  "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+  "owned_process_group_cleaned": true,
+  "peak_process_tree_rss_bytes": 80736256,
+  "plan_sha256": "b6150855060e95db09d405e62873f3b1045c7aba1c1f6625832f18da40c2390e",
+  "returncode": 0,
+  "schema": "orbit-poc-segmented-supervision-v1",
+  "signals_received": [],
+  "status": "complete",
+  "supervisor": {
+    "parent": 17573,
+    "pid": 19692,
+    "start_ticks": 426939,
+    "state": "R"
+  },
+  "tracked_owned_processes": [
+    {
+      "parent": 19692,
+      "pid": 19782,
+      "start_ticks": 427286,
+      "state": "Z"
+    }
+  ],
+  "worker": {
+    "parent": 19692,
+    "pid": 19782,
+    "start_ticks": 427286,
+    "state": "R"
+  }
+}

@@ -1,0 +1,597 @@
+{
+  "accepted_iterations": 0,
+  "artifacts": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/factor-retention.json",
+      "role": "online_factor_retention",
+      "sha256": "fdf7c40eaf7a7a5efa274d76bf95037c60b65feb5509568c545295d2fe24e821"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-retention.json",
+      "role": "online_closure_retention",
+      "sha256": "ec7d0338f5b2491a031e0cdf2f6e6ea1fc92193cd3dc4963a87036e91a71b7a9"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-retention.json",
+      "role": "online_closure_retention",
+      "sha256": "7f3d094e06b71c097c4bd7f1bb2996034191adfae3cf0c3b79fa822fe279d175"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-retention.json",
+      "role": "online_closure_retention",
+      "sha256": "749bafa77aeeefa0ac927cbf9902b7f290e180c0f010cd8bea3f035ffa06279b"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-retention.json",
+      "role": "online_closure_retention",
+      "sha256": "a0065e09daf41b352a5752c48fb9d0f236288cd989444e902276cdf4505eb02d"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-000/proposal-retention.json",
+      "role": "online_proposal_retention",
+      "sha256": "963a41ceb8c72901abb77bc581793dfa9a60d5c414bc8966abab08d391b3acb5"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-001/proposal-retention.json",
+      "role": "online_proposal_retention",
+      "sha256": "b3ac4d30e9bd5041875d76e5e254fad81d0ad141cb8c40cd9b32c3808a3bc252"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/native_runtime.json",
+      "role": "native_runtime",
+      "sha256": "750f895f08c893a5e1c3e833463c1eb02a9a4e41bc8e4355990a7a68c392bbf6"
+    }
+  ],
+  "confirmation_checks": [],
+  "converged": false,
+  "covariance_scope": "marginalized",
+  "covariance_valid": false,
+  "elapsed_seconds": 1272.851604999989,
+  "error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+  "force_model_hash": "38fd15988b4760e01ead7744f515dcb0f33b004fa8e53c09790804528082b926",
+  "history": [],
+  "mask_hash": "20c1fa242d7ebd698c7c6a6c67102a1358c6d885d6ce1b8a8ea9394ffadf7388",
+  "measurement_model_hash": "629516ed48d1bd7cc77e5668f18506076b6535ca202b3aac2743e9d344b1ae67",
+  "metadata": {
+    "ambiguity_policy": "jointly estimated float ambiguities",
+    "covariance_scope": "local Gaussian; fixed selected hyperparameters; no damping",
+    "derivative_profile": "synthetic_complete_v1",
+    "gnss_numerical_policy": {
+      "name": "relative_query_clock_range_v1",
+      "range_residual": "High/low interpolated receiver/transmitter coordinates and extended-precision corrected geometry/clock arithmetic before residual rounding",
+      "receiver_scope": "Inertial LEO receivers; Earth-fixed receivers explicitly unsupported",
+      "remaining_representation_limits": [
+        "Other metadata and attitude consumers retain native Time",
+        "Orbit archives and derivative matrices retain native double precision"
+      ],
+      "time_queries": "Explicit sub-Time polynomial offsets for receiver state/design and transmitter light time"
+    },
+    "ionosphere_policy": "Per-observation STEC locally eliminated; independent epoch VTEC and receiver clocks jointly eliminated by QR; all conditionally recovered; nonlinear STEC terms reprofiled",
+    "nuisance_profile_policy": "Strict fresh nuisance stationarity required for convergence/covariance; empirically resolution-limited profiles permit only resolved nonfinal physical progress",
+    "omitted_flight_derivatives": [],
+    "reference_inputs_used": false,
+    "states_frame": "CRF",
+    "states_units": "m,m/s"
+  },
+  "method": "groops_log_drag_ou",
+  "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "numerical_diagnostics": {
+    "accepted_iterations": 0,
+    "confirmation_checks": [],
+    "converged": false,
+    "covariance_valid": false,
+    "derivative_profile": "synthetic_complete_v1",
+    "elapsed_seconds": 1272.851604999989,
+    "error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+    "execution": [
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/initial-input/convert.xml"
+        ],
+        "config_sha256": "263259047da0b108e9180558ed2bd5a3253ab3309668295912f35ecf58fe7753",
+        "elapsed_seconds": 0.3648661759943934,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/initial-input/convert.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 15167488,
+        "pid": 3,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-01/propagate.xml"
+        ],
+        "config_sha256": "a209e9ccc8519bc1771f13dbc564e10b2def955482f75a2a9e297f7d5b9dbd9a",
+        "elapsed_seconds": 1.4611566759995185,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 290557952,
+        "pid": 4,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-02/propagate.xml"
+        ],
+        "config_sha256": "5727bfe49ae9bb6bf0a6ff0af2b205ff4c8f73c57fc9f9f1d9172b38744f2509",
+        "elapsed_seconds": 1.9207312340004137,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 290816000,
+        "pid": 5,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/profile.xml"
+        ],
+        "config_sha256": "888e04247ce3cc2eaf68e098a002d842d29284c0a1909bb3ffa153896f3ac17f",
+        "elapsed_seconds": 402.7274625900027,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/profile.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 289562624,
+        "pid": 6,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-01/propagate.xml"
+        ],
+        "config_sha256": "3a42713ff2f14ffa5cbda0dbe2b762ea6889be5ad4ee3280f535720117c3bf82",
+        "elapsed_seconds": 2.8199795270047616,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291233792,
+        "pid": 160,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-02/propagate.xml"
+        ],
+        "config_sha256": "576618f7ebc143bea25a753ccc72f93d1c42b230da256660402b12249787c773",
+        "elapsed_seconds": 2.7171048070013057,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291074048,
+        "pid": 161,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/profile.xml"
+        ],
+        "config_sha256": "68a92bd88fbe7b3eaa2de8bf5354485bc0a9ccfe14639936a383fe1218f6309e",
+        "elapsed_seconds": 406.8656160590035,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/profile.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 289681408,
+        "pid": 162,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-01/propagate.xml"
+        ],
+        "config_sha256": "10614de7f0009b3c5ed8c596619dcc8f783cb0d49c9ac8d58c3b2742eb5fb021",
+        "elapsed_seconds": 2.776192909994279,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291332096,
+        "pid": 325,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-02/propagate.xml"
+        ],
+        "config_sha256": "634561f1060b55556f8ce77539cf84adf88615b983ab8cd82d922562aee8dba5",
+        "elapsed_seconds": 2.769405986997299,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291328000,
+        "pid": 326,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/profile.xml"
+        ],
+        "config_sha256": "41e760ea728b732c60c478d76c73bc436e1e142f00dad6fbf5e70b8f5d4b64e6",
+        "elapsed_seconds": 401.6025092619966,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/profile.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 290095104,
+        "pid": 327,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-000/linearized-proposal.xml"
+        ],
+        "config_sha256": "7fda3ddd9786b5404bb8160aa2ea1baea7d81c665b80e414a030bcfd2fba3dec",
+        "elapsed_seconds": 0.5066463700059103,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-000/linearized-proposal.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 18857984,
+        "pid": 490,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-001/linearized-proposal.xml"
+        ],
+        "config_sha256": "fc171d04041aeb00b36baad82eb14a4510a2ea924d3a361b60b2cc4abd21ccc3",
+        "elapsed_seconds": 0.609979487999226,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-001/linearized-proposal.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 18788352,
+        "pid": 491,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-01/propagate.xml"
+        ],
+        "config_sha256": "191f6bffd0ffea11dd44dba5453c90dfbca479d2f3f0b76d9d82b5a0db82ae6d",
+        "elapsed_seconds": 6.803638466008124,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291389440,
+        "pid": 492,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.xml"
+        ],
+        "config_sha256": "63c96cd90858474159d5e1888577417b4be4f32369aee6f5a40cd876838e6982",
+        "elapsed_seconds": 6.8706231609976385,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291418112,
+        "pid": 493,
+        "returncode": 1,
+        "timed_out": false
+      }
+    ],
+    "history": [],
+    "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "peak_rss_bytes": 291418112,
+    "peak_rss_scope": "maximum individual native parent-process RSS; excludes nuisance trial children; benchmark harness records recursive process-tree RSS",
+    "propagation_count": 7,
+    "row_storage": {
+      "closed_row_provenance": "verified lossless gzip",
+      "closure_trajectories": "verified lossless gzip; current completed orbit/variational pair retained; superseded binary bytes hashed before removal",
+      "keep_intermediate_factors": false,
+      "keep_iteration_diagnostics": true,
+      "point_factors": "accepted factor plus newest diagnostic factor; superseded bytes hashed before removal",
+      "proposal_trajectories": "verified lossless gzip and correction metrics; completed unused binary bytes hashed before removal",
+      "spool_directory": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/row-spool"
+    },
+    "source_hash": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+    "status": "native_failure",
+    "trial_evaluations": 1
+  },
+  "numerical_status": "native_failure",
+  "parameter_blocks": [
+    "initial_state",
+    "log_density",
+    "receiver_clock",
+    "ionosphere",
+    "signal_bias",
+    "float_ambiguities"
+  ],
+  "peak_rss_bytes": 291418112,
+  "peak_rss_scope": "maximum individual native parent-process RSS; excludes nuisance trial children; benchmark harness records recursive process-tree RSS",
+  "preprocessing_hash": "6f02b26c2af8af38f561b6ecf8e4afb69a0d5d0f10bbc809d807ac2398508200",
+  "runtime": {
+    "accepted_iterations": 0,
+    "confirmation_checks": [],
+    "converged": false,
+    "covariance_valid": false,
+    "derivative_profile": "synthetic_complete_v1",
+    "elapsed_seconds": 1272.851604999989,
+    "error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+    "execution": [
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/initial-input/convert.xml"
+        ],
+        "config_sha256": "263259047da0b108e9180558ed2bd5a3253ab3309668295912f35ecf58fe7753",
+        "elapsed_seconds": 0.3648661759943934,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/initial-input/convert.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 15167488,
+        "pid": 3,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-01/propagate.xml"
+        ],
+        "config_sha256": "a209e9ccc8519bc1771f13dbc564e10b2def955482f75a2a9e297f7d5b9dbd9a",
+        "elapsed_seconds": 1.4611566759995185,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 290557952,
+        "pid": 4,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-02/propagate.xml"
+        ],
+        "config_sha256": "5727bfe49ae9bb6bf0a6ff0af2b205ff4c8f73c57fc9f9f1d9172b38744f2509",
+        "elapsed_seconds": 1.9207312340004137,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 290816000,
+        "pid": 5,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/profile.xml"
+        ],
+        "config_sha256": "888e04247ce3cc2eaf68e098a002d842d29284c0a1909bb3ffa153896f3ac17f",
+        "elapsed_seconds": 402.7274625900027,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-001-initial/profile.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 289562624,
+        "pid": 6,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-01/propagate.xml"
+        ],
+        "config_sha256": "3a42713ff2f14ffa5cbda0dbe2b762ea6889be5ad4ee3280f535720117c3bf82",
+        "elapsed_seconds": 2.8199795270047616,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291233792,
+        "pid": 160,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-02/propagate.xml"
+        ],
+        "config_sha256": "576618f7ebc143bea25a753ccc72f93d1c42b230da256660402b12249787c773",
+        "elapsed_seconds": 2.7171048070013057,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291074048,
+        "pid": 161,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/profile.xml"
+        ],
+        "config_sha256": "68a92bd88fbe7b3eaa2de8bf5354485bc0a9ccfe14639936a383fe1218f6309e",
+        "elapsed_seconds": 406.8656160590035,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-002-repeat/profile.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 289681408,
+        "pid": 162,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-01/propagate.xml"
+        ],
+        "config_sha256": "10614de7f0009b3c5ed8c596619dcc8f783cb0d49c9ac8d58c3b2742eb5fb021",
+        "elapsed_seconds": 2.776192909994279,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291332096,
+        "pid": 325,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-02/propagate.xml"
+        ],
+        "config_sha256": "634561f1060b55556f8ce77539cf84adf88615b983ab8cd82d922562aee8dba5",
+        "elapsed_seconds": 2.769405986997299,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291328000,
+        "pid": 326,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/profile.xml"
+        ],
+        "config_sha256": "41e760ea728b732c60c478d76c73bc436e1e142f00dad6fbf5e70b8f5d4b64e6",
+        "elapsed_seconds": 401.6025092619966,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/profile.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 290095104,
+        "pid": 327,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-000/linearized-proposal.xml"
+        ],
+        "config_sha256": "7fda3ddd9786b5404bb8160aa2ea1baea7d81c665b80e414a030bcfd2fba3dec",
+        "elapsed_seconds": 0.5066463700059103,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-000/linearized-proposal.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 18857984,
+        "pid": 490,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-001/linearized-proposal.xml"
+        ],
+        "config_sha256": "fc171d04041aeb00b36baad82eb14a4510a2ea924d3a361b60b2cc4abd21ccc3",
+        "elapsed_seconds": 0.609979487999226,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-001/linearized-proposal.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 18788352,
+        "pid": 491,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-01/propagate.xml"
+        ],
+        "config_sha256": "191f6bffd0ffea11dd44dba5453c90dfbca479d2f3f0b76d9d82b5a0db82ae6d",
+        "elapsed_seconds": 6.803638466008124,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-01/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291389440,
+        "pid": 492,
+        "returncode": 0,
+        "timed_out": false
+      },
+      {
+        "blas_openmp_threads": 1,
+        "command": [
+          "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+          "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.xml"
+        ],
+        "config_sha256": "63c96cd90858474159d5e1888577417b4be4f32369aee6f5a40cd876838e6982",
+        "elapsed_seconds": 6.8706231609976385,
+        "log": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+        "memory_measurement": "Linux process VmHWM/VmRSS sampled at50ms; serial native process",
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "peak_rss_bytes": 291418112,
+        "pid": 493,
+        "returncode": 1,
+        "timed_out": false
+      }
+    ],
+    "history": [],
+    "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "peak_rss_bytes": 291418112,
+    "peak_rss_scope": "maximum individual native parent-process RSS; excludes nuisance trial children; benchmark harness records recursive process-tree RSS",
+    "propagation_count": 7,
+    "row_storage": {
+      "closed_row_provenance": "verified lossless gzip",
+      "closure_trajectories": "verified lossless gzip; current completed orbit/variational pair retained; superseded binary bytes hashed before removal",
+      "keep_intermediate_factors": false,
+      "keep_iteration_diagnostics": true,
+      "point_factors": "accepted factor plus newest diagnostic factor; superseded bytes hashed before removal",
+      "proposal_trajectories": "verified lossless gzip and correction metrics; completed unused binary bytes hashed before removal",
+      "spool_directory": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/row-spool"
+    },
+    "source_hash": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+    "status": "native_failure",
+    "trial_evaluations": 1
+  },
+  "source_hash": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+  "status": "failed",
+  "trial_evaluations": 1
+}

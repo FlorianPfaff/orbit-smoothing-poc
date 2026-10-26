@@ -1,0 +1,84 @@
+{
+  "schema": "candidate07-additive-git-tooling-independent-source-review-v1",
+  "reviewer": "/root/terminal_audit_readiness_review",
+  "author": "/root/npz_export_audit_readiness",
+  "scope": "Independent source and saved-byte review only; no Git, network, Python, imports, tests, native execution or active-result freeze.",
+  "source_ledger": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-git-publication-preparation01/source.sha256",
+    "sha256": "41d9e2b24bafe39fee278d3ac1602b4acb18816b2dcfd0480bfa7f404deffdaa",
+    "members": 32,
+    "all_member_hashes_verified": true
+  },
+  "entrypoints": {
+    "publication_contract.sh": "1abfe8e1ec2586e65a7dbeaf14a0372f42aef5dda5f4923b041f72d42184c62d",
+    "prepare_commit.sh": "c10fd3dd8aa482f6e42894af11f7d6a6ea5fa68d76df11d1d51049b6434ee734",
+    "push_commit.sh": "1c1825a3b4a11f445d301c99822724a5d91e8d385ea1b70af2ef9100f718f254"
+  },
+  "source_archive_checks": {
+    "correction_ledger_sha256": "18cab9c4fb3c214798682f639e0e7bbc97fbd94d591226c7d620288ef616d6c9",
+    "all_24_correction_members_verified": true,
+    "candidate06_snapshot_sha256": "24c41840ad687aef76111e213b027c8ff613463313ccd7fb8fbf759e253db739",
+    "candidate07_snapshot_sha256": "4b997bcda7c94bce973389542895dca05a3fde6e7a53fdb4178fb61eaf22646e",
+    "candidate07_canonical_ordered_files_sha256": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+    "candidate06_file_count": 492,
+    "candidate07_file_count": 500,
+    "independently_derived_snapshot_delta": {"modified": 2, "added": 8, "removed": 0},
+    "delta_matches_archived_delta_json": true,
+    "both_archived_snapshots_equal_actual_saved_snapshots": true,
+    "two_old_bases_and_ten_new_or_changed_files_equal_actual_candidate_source_bytes": true,
+    "patch_applied_or_numerics_reaudited": false
+  },
+  "supported_source_properties": [
+    "Preparation is restricted to a fresh dedicated bare repository and a new candidate07 evidence prefix; staged and committed changes must be additions only, with exact source/blob correspondence and an explicit single reviewed parent.",
+    "The existing candidate06 publication must be an ancestor. Preparation does not push, edit PR metadata, change active source, alter defaults or replace frozen benchmark files.",
+    "A real audited packet and exact request/review/source hashes are required. The ordered thirteen outcomes and four audit keys are checked without requiring scientific success, so unsuccessful outcomes remain publishable.",
+    "Packet members retain the original 4 MiB bound and 32 MiB aggregate payload bound; the bulky cold plan is not silently admitted by raising limits.",
+    "The archived source is an exact scoped correction archive, not an installed production implementation or an asserted successful fit. Historical source-only records are explicitly distinguished from future actual outcomes.",
+    "The hardcoded commit message contains no forbidden codex marker. No future packet, review, commit or push receipt is fabricated by the prepared source.",
+    "Once a push is attempted, its command log and attempt marker remain available after a normal push failure; there is no automatic retry or replacement parent. The concurrency weakness below limits that preservation guarantee."
+  ],
+  "blocking_findings": [
+    {
+      "id": "GIT01",
+      "scope": "push control; expected-parent compare-and-swap",
+      "file": "push_commit.sh",
+      "lines": [30, 34],
+      "finding": "The separate ls-remote equality check followed by ordinary fast-forward push does not implement an atomic expected-parent CAS. If the remote branch is deleted or rewound to an ancestor after that observation and before push negotiation, this direct-child commit can still be accepted or recreate the branch even though the actual old ref no longer equals the reviewed parent. Divergent concurrent advances are rejected, but that narrower property must not be reported as exact CAS.",
+      "basis": "Static command and data-flow review; the author confirmed that the existing source intentionally uses normal fast-forward push rather than atomic CAS. No remote race was executed.",
+      "minimal_resolution": "Use a separately versioned exact-old-ref conditional update while retaining the existing independently verified direct-child relation, additive tree and refusal to overwrite a changed parent. Keep preparation01 unchanged and do not silently broaden force/update authority."
+    },
+    {
+      "id": "GIT02",
+      "scope": "push attempt ownership and retained failure evidence",
+      "file": "push_commit.sh",
+      "lines": [9, 26, 30, 31, 34],
+      "finding": "The absence check for push-attempt.json/push-receipt.json is separated from truncating writes. Two invocations on the same prepared output can both pass the check and overwrite the shared verification, attempt and push logs, violating one-attempt ownership and failure preservation. There is no local exclusive claim or lock in this helper.",
+      "basis": "Static lifecycle review of the check and subsequent redirections; no concurrent invocation was executed.",
+      "minimal_resolution": "Take an atomic, non-overwriting one-attempt claim before any push-phase output write, preserve that claim on every failure, and refuse an existing claim. An exclusive directory/marker is sufficient; no general dispatcher or retry framework is needed."
+    }
+  ],
+  "source_readiness": {
+    "no_blocker_found_in_additive_commit_preparation_source": true,
+    "approved_for_push_as_written": false,
+    "actual_packet_review_still_required": true,
+    "parent_actual_prepared_commit_diff_review_still_required": true,
+    "no_actual_packet_or_git_outcome_audited": true
+  },
+  "tests_or_commands_executed": {
+    "targeted_shell_source_reads_jq_metadata_hashes_and_cmp": true,
+    "git": false,
+    "network": false,
+    "python_or_imports": false,
+    "source_scripts_or_tests": false,
+    "native": false
+  },
+  "preservation": {
+    "review_is_additive": true,
+    "original_tooling_and_all_source_ledgers_unchanged": true,
+    "active_candidate07_and_frozen_protocols_unchanged": true,
+    "actual_density_outcome_not_assumed": true
+  },
+  "release_authority": false,
+  "covariance_authority": false,
+  "scientific_release_authority": false
+}

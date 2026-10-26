@@ -1,0 +1,79 @@
+Future actual input contract — no request or approval exists in this source draft
+
+prepare_commit.sh accepts exactly four positional arguments:
+  REQUEST REQUEST_SHA TOOLING_LEDGER_SHA FRESH_OUTPUT
+FRESH_OUTPUT must be the unused canonical directory
+/mnt/d/orbit-v41-recovery02/candidate07-git-publication-runNN (at least two digits).
+The script rejects existing output and cannot write inside the audited packet,
+active source, current controls or frozen benchmark. It fetches/creates a local
+commit only when actually invoked later. It never pushes.
+
+REQUEST is a canonical regular JSON file <=1MiB with exactly these fields:
+ schema: candidate07-additive-git-publication-request-v1
+ expected_remote_parent: actual forty-character commit, independently observed
+ packet: actual canonical packet directory
+ packet_sha256sums_sha256: actual final SHA256SUMS file hash
+ report_sha256: actual report.json hash
+ inputs_manifest_sha256: actual inputs-manifest.json hash
+ audit: actual canonical independent packet review path
+ audit_sha256: that actual review's SHA256
+ publication_source_manifest_sha256: this final source.sha256 file hash
+All digest values must be actual64-hex values, not placeholders. No request JSON
+is emitted here because the density fit and terminal audits remain unfinished.
+No current success/failure outcome or final parent is assumed.
+
+The actual future independent review must use schema
+candidate07-sequence03-independent-packet-review-v1, approved_for_publication=true,
+blocking_findings=[], packet and the three packet hashes exactly as requested,
+publication_source_manifest_sha256 matching this source ledger,
+correction_source_manifest_sha256 matching correction-source/SHA256SUMS,
+candidate07_snapshot_file_sha2564b997bcda7c94bce973389542895dca05a3fde6e7a53fdb4178fb61eaf22646e,
+candidate07_canonical_source_identityb49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a,
+and false release_authority/covariance_authority/scientific_release_authority.
+It can contain additional review evidence. These are required fields for a real
+review of the final bytes, not a new supplied approval or numerical gate.
+
+The existing publication builder remains unchanged:
+candidate07-outcome-publication01/build_packet.py. Suggested future output is
+candidate07-sequence03-publication01/packet, after actual collection, four audits,
+packet build and independent inspection. Both successful and failed/missing
+outcomes are publishable when honestly documented and independently approved;
+there is deliberately no requirement that both fits pass to publish the evidence.
+All thirteen rows and all four audit categories must remain present, with false
+accuracy/release/covariance authority. Source-snapshot identity is checked from
+the packet's actual source_receipt_links, never inferred from a final-point name.
+
+Git destination is fixed: FlorianPfaff/orbit-smoothing-poc, v4-fit-reliability
+(PR9). New prefix validation/v4-fit-reliability/candidate07-sequence03 must be
+absent in the expected parent. The parent must include published candidate06
+commitfbbc72ffb628d98b9d4b61c5a5c5d2c4bd0c856a as an ancestor. The helper checks
+ls-remote, exact FETCH_HEAD, then remote again immediately before commit.
+Only new100644 blobs below this prefix may enter the commit. Packet files retain
+their paths at that prefix; exact correction archive and this helper source are
+under publication-tooling/. No production repository file is modified.
+Every blob is byte-compared, and committed/staged additions must match exactly.
+
+push_commit.sh is a separate later action accepting:
+  PREPARED_OUTPUT REQUEST_SHA TOOLING_LEDGER_SHA COMMIT_RECEIPT_SHA
+It revalidates actual packet/audit/source bytes, exact committed blobs and the
+commit's sole parent, then atomically claims PREPARED_OUTPUT/push-attempt01 using
+mkdir before any push-phase output write. Existing claims are never reused or
+removed. All attempt files are written there with shell noclobber enabled.
+The current remote parent is observed, and Git receives the explicit old-ref
+condition --force-with-lease=<fixed ref>:<reviewed parent>. The verified sole-parent
+relation permits only this reviewed fast-forward. Concurrent advance, rewind or
+deletion rejects the update. No unconstrained force, implicit lease, PR metadata
+edit, rebase, retry or replacement parent is allowed. Preserve any failed claim.
+If transmission outcome is uncertain, inspect actual remote state separately;
+attempt.json deliberately contains pushed:null. receipt.json is created only
+after actual successful push and exact remote-head verification. The earlier
+claim.json records local ownership before transmission, not a completed push.
+Earlier packet paths, commits and failures remain untouched. CORRECTION02.txt
+binds the actual two-finding independent review. An01 prepared commit receipt
+cannot be substituted: the actual future request/commit binds this02 source ledger.
+
+Current preparation performed only shell/source reads, exact copies, source
+hash/diff checks and new source writes. No packet build, Git operation, network
+request, numerical program, test/import, commit, fetch or push was executed.
+Before real use: independent source review and appropriate isolated helper
+qualification, then actual final packet review and parent-owned launch.

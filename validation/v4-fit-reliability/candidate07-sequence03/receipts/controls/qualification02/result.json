@@ -1,0 +1,633 @@
+{
+  "action": "qualify",
+  "covariance_authority": false,
+  "elapsed_seconds": 584.562820079,
+  "error": "ValueError('Wrong exact test identities')",
+  "jobs": {
+    "auditors": {
+      "cleanup_verified": true,
+      "junit": {
+        "bytes": 13231,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/auditors/junit.xml",
+        "sha256": "560fcf91bd1c1c278c196dacab7d1b89cf45718bffe66dee6be8d8fb8aca766f"
+      },
+      "returncode": 0,
+      "status": "complete",
+      "supervisor": {
+        "bytes": 2052,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/auditors/supervisor.json",
+        "sha256": "adf435bf28d9f40eab2d7491fe7fafa8764e241e7f3e264d211e5095e39d6024"
+      },
+      "tests": {
+        "counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 118
+        },
+        "identities": [
+          [
+            ".CompressedRows",
+            "test_archive_hash_and_manifest_identity_are_checked"
+          ],
+          [
+            ".CompressedRows",
+            "test_crc_and_truncation_checked_even_when_archive_hash_is_pinned"
+          ],
+          [
+            ".CompressedRows",
+            "test_existing_raw_must_also_match"
+          ],
+          [
+            ".CompressedRows",
+            "test_missing_archive_still_pending"
+          ],
+          [
+            ".CompressedRows",
+            "test_missing_raw_is_verified_without_restoration_and_attributed"
+          ],
+          [
+            ".CompressedRows",
+            "test_ordinary_missing_pin_still_pending"
+          ],
+          [
+            ".CompressedRows",
+            "test_per_archive_and_total_resource_bounds"
+          ],
+          [
+            ".CompressedRows",
+            "test_policy_flags_extra_fields_and_path_binding_are_not_ignored"
+          ],
+          [
+            ".CompressedRows",
+            "test_raw_hash_size_and_expansion_must_match"
+          ],
+          [
+            ".CompressedRows",
+            "test_repeated_receipt_is_not_double_counted_and_conflict_fails"
+          ],
+          [
+            ".CompressedRows",
+            "test_unknown_policy_does_not_authorize_missing_raw"
+          ],
+          [
+            ".NativeSchema",
+            "test_archived_diagnostic_identity_and_full_status"
+          ],
+          [
+            ".NativeSchema",
+            "test_python_certificate_status_cannot_replace_native_status"
+          ],
+          [
+            ".NativeSchema",
+            "test_wrong_schema_damping_and_incomplete_dimension_remain_rejected"
+          ],
+          [
+            ".PlaceholderSchema",
+            "test_absent_outcome_remains_pending"
+          ],
+          [
+            ".PlaceholderSchema",
+            "test_explicit_failed_attempt_is_failed_before_optional_pin_access"
+          ],
+          [
+            ".PlaceholderSchema",
+            "test_malformed_claimed_pass_is_distinct_from_unlaunched"
+          ],
+          [
+            ".PlaceholderSchema",
+            "test_real_unlaunched_shape_is_pending_before_any_pin_access"
+          ],
+          [
+            ".PlannedLedger",
+            "test_archived_mixed_cold_outcome_preserves_pass_and_failure_separately"
+          ],
+          [
+            ".PlannedLedger",
+            "test_changed_aggregate_attribution_is_failed_phase_with_pending_attempts"
+          ],
+          [
+            ".PlannedLedger",
+            "test_each_missing_phase_file_keeps_available_rows_and_blocks_cold_selection"
+          ],
+          [
+            ".PlannedLedger",
+            "test_failed_detached_does_not_erase_successful_or_failed_recorded_rows"
+          ],
+          [
+            ".PlannedLedger",
+            "test_malformed_phase_document_retains_all_attempts"
+          ],
+          [
+            ".PlannedLedger",
+            "test_nine_passed_failed_incomplete_phase_combinations_keep_inventory"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_archive_failures_preserve_stage_outcomes"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_archive_roundtrip_and_bounded_read"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_exact_eleven_and_eight_inventory"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_existing_audit_output_is_never_overwritten"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_manifest_setup_failures_emit_eight_rows"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_missing_input_does_not_erase_eight_outcomes_or_approve"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_nonfinite_and_duplicate_json_rejected"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_reader_hash_change_missing_foreign_and_symlink"
+          ],
+          [
+            ".IdentityAndReporting",
+            "test_unlaunched_failure_and_missing_distinct"
+          ],
+          [
+            ".RefinementArithmetic",
+            "test_complete_signal_support_and_fixed_nuisance_are_required"
+          ],
+          [
+            ".RefinementArithmetic",
+            "test_native_declared_shapes_are_checked"
+          ],
+          [
+            ".RefinementArithmetic",
+            "test_position_alignment_and_true_norm"
+          ],
+          [
+            ".RefinementArithmetic",
+            "test_signal_predicate_uses_stricter_coarse_sigma"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_coarse_failure_remains_before_two_consecutive_passing_scales"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_exact_quadratic_consecutive_scales"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_inflated_physical_allowance_cannot_be_self_consistently_relabelled"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_missing_scales_resolution_and_summary_manipulation_fail"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_per_scale_derivatives_cannot_hide_a_cubic_term"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_pulse_native_micrometre_units"
+          ],
+          [
+            ".ObjectiveArithmetic",
+            "test_stationary_plus_transition_ou_prior"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_changed_strict_confirmation_or_threshold_rejected"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_claimed_huge_dimensions_do_not_allocate_an_index_range"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_exclusive_boolean_qualification_is_required"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_invalid_full_factor_metadata_rejected"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_invalid_or_missing_floor_policy_preserved"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_missing_strict_metadata_is_unavailable_not_success"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_real_full_and_conditional_contracts_are_distinct"
+          ],
+          [
+            ".EndpointMetadata",
+            "test_strict_and_qualified_floor_endpoints_remain_distinct"
+          ],
+          [
+            ".ReplayArithmetic",
+            "test_floor_limited_and_transaction_defects_remain_failures"
+          ],
+          [
+            ".ReplayArithmetic",
+            "test_strict_transaction_fixture"
+          ],
+          [
+            ".Boundaries",
+            "test_above_boundary_is_unresolved"
+          ],
+          [
+            ".Boundaries",
+            "test_above_ten_is_full"
+          ],
+          [
+            ".Boundaries",
+            "test_exact_boundary_is_deficient"
+          ],
+          [
+            ".Boundaries",
+            "test_invalid_singular_tables"
+          ],
+          [
+            ".Boundaries",
+            "test_json_numbers_supported_numpy_scalar_metadata_rejected"
+          ],
+          [
+            ".Boundaries",
+            "test_original_reduced_row_count_matters"
+          ],
+          [
+            ".Boundaries",
+            "test_padded_underdetermined_factor_uses_max_m_n"
+          ],
+          [
+            ".Boundaries",
+            "test_ten_boundary_is_unresolved"
+          ],
+          [
+            ".Boundaries",
+            "test_zero_and_exact_rank_deficient"
+          ],
+          [
+            ".Boundaries",
+            "test_zero_rows_zero_factor_is_deficient"
+          ],
+          [
+            ".ArrayAudit",
+            "test_cross_driver_classification_disagreement_is_not_waived"
+          ],
+          [
+            ".ArrayAudit",
+            "test_cross_driver_roundoff_reported_without_new_tolerance"
+          ],
+          [
+            ".ArrayAudit",
+            "test_deficient_and_unresolved_never_accepted_full"
+          ],
+          [
+            ".ArrayAudit",
+            "test_forbidden_array_representations"
+          ],
+          [
+            ".ArrayAudit",
+            "test_full_rank_no_authority"
+          ],
+          [
+            ".ArrayAudit",
+            "test_inconsistent_native_certificate"
+          ],
+          [
+            ".ArrayAudit",
+            "test_no_second_scaling_of_factor"
+          ],
+          [
+            ".ArrayAudit",
+            "test_padded_underdetermined_native_factor"
+          ],
+          [
+            ".ArrayAudit",
+            "test_requested_driver_is_gesvd_no_overwrite"
+          ],
+          [
+            ".ArrayAudit",
+            "test_zero_row_native_zero_factor"
+          ],
+          [
+            ".Metadata",
+            "test_parameter_inventory_scale_and_units_are_not_erased"
+          ],
+          [
+            ".Metadata",
+            "test_wrong_counts_conditional_damping_and_scale"
+          ],
+          [
+            ".Binary",
+            "test_exact_little_endian_payload"
+          ],
+          [
+            ".Binary",
+            "test_truncation_trailing_bad_shape_and_nonfinite"
+          ],
+          [
+            ".Reporting",
+            "test_claimed_status_cannot_override_actual_failure"
+          ],
+          [
+            ".Reporting",
+            "test_failed_and_unlaunched_are_retained_without_svd"
+          ],
+          [
+            ".Reporting",
+            "test_missing_aggregate_preserves_planned_inventory"
+          ],
+          [
+            ".Reporting",
+            "test_missing_manifest_cli_preserves_two_rows"
+          ],
+          [
+            ".Reporting",
+            "test_mixed_factor_generation_is_rejected_before_numerical_audit"
+          ],
+          [
+            ".Reporting",
+            "test_no_source_module_imports_or_subprocess_calls"
+          ],
+          [
+            ".Reporting",
+            "test_unexpected_auditor_failure_still_preserves_both_rows"
+          ],
+          [
+            ".StrictJsonAndPublication",
+            "test_actual_cli_malformed_aggregate_preserves_both_planned_cases"
+          ],
+          [
+            ".StrictJsonAndPublication",
+            "test_atomic_publication_failure_and_no_overwrite"
+          ],
+          [
+            ".StrictJsonAndPublication",
+            "test_decoder_and_reader_reject_nonfinite_or_overflow"
+          ],
+          [
+            ".StrictJsonAndPublication",
+            "test_main_rejects_nonfinite_manifest_with_complete_failure_report"
+          ],
+          [
+            ".StrictJsonAndPublication",
+            "test_serialize_first_leaves_no_partial_output"
+          ],
+          [
+            ".ExportTests",
+            "test_atomic_output_has_no_partial_file_or_overwrite"
+          ],
+          [
+            ".ExportTests",
+            "test_covariance_policy_and_indefiniteness"
+          ],
+          [
+            ".ExportTests",
+            "test_duplicate_member_and_payload_truncation"
+          ],
+          [
+            ".ExportTests",
+            "test_exact_arrays"
+          ],
+          [
+            ".ExportTests",
+            "test_frozen_epoch_serialization_tolerance"
+          ],
+          [
+            ".ExportTests",
+            "test_frozen_source_identity_is_not_snapshot_file_identity"
+          ],
+          [
+            ".ExportTests",
+            "test_native_headers_counts_and_numerical_rows"
+          ],
+          [
+            ".ExportTests",
+            "test_nonfinite_and_overflow_json_rejected"
+          ],
+          [
+            ".ExportTests",
+            "test_nonfinite_backend_cli_retains_both_rows_without_partial_json"
+          ],
+          [
+            ".ExportTests",
+            "test_nonnumeric_nonfinite_and_shape_rejected"
+          ],
+          [
+            ".ExportTests",
+            "test_npz_roundtrip_and_bad_members"
+          ],
+          [
+            ".ExportTests",
+            "test_order_and_support"
+          ],
+          [
+            ".ExportTests",
+            "test_pin_hash_and_missing"
+          ],
+          [
+            ".ExportTests",
+            "test_prediction_checks_not_omitted"
+          ],
+          [
+            ".ExportTests",
+            "test_successful_stage_fixture_and_final_folder_attribution"
+          ],
+          [
+            ".ExportTests",
+            "test_xml_ownership_and_unique_roles"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_distinct_actual_source_snapshot_plan_and_native_bindings"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_export_both_actual_failure_rows_preserved_without_inventing_exports"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_export_old_schema_does_not_lose_both_rows"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_export_placeholder_manifest_pin_is_not_accepted"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_rank_failure_timeout_and_unlaunched_rows_need_no_factor"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_rank_old_terminal_path_rejected_before_reader"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_rank_rejects_old_process_wrong_plan_and_nonterminal_before_proc_reads"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_rank_rejects_old_source_snapshot_as_source_and_wrong_native"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_scientific_hash_valid_old_plan_cannot_masquerade_as_new"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_scientific_old_schema_rejected"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_selected_missing_manifest_retains_all_thirteen_rows"
+          ],
+          [
+            ".Candidate07Identity",
+            "test_selected_rejects_old_sequence_schema_and_overridden_fixed_pin"
+          ]
+        ]
+      }
+    },
+    "collector": {
+      "cleanup_verified": true,
+      "junit": {
+        "bytes": 2034,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/collector/junit.xml",
+        "sha256": "0b6bce2212e933a7b5b802d504f8b3c88cceb8ad0509fceededbcd9ffb600b38"
+      },
+      "returncode": 0,
+      "status": "complete",
+      "supervisor": {
+        "bytes": 1636,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/collector/supervisor.json",
+        "sha256": "9e0b97009c54ced207bbbda40009cfd598e70931b54d2f08a673123351dbc374"
+      }
+    },
+    "publication": {
+      "cleanup_verified": true,
+      "junit": {
+        "bytes": 2519,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/publication/junit.xml",
+        "sha256": "564e4383ceca6c9b92f85885e0e0e4659197e3a7bc3f98c25957c03e1c62fc1e"
+      },
+      "returncode": 0,
+      "status": "complete",
+      "supervisor": {
+        "bytes": 1632,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/publication/supervisor.json",
+        "sha256": "2fac1a347e74f40368690e55f5d6b6dba74122a6f189ac58b1a58a9fa61830b6"
+      },
+      "tests": {
+        "counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 19
+        },
+        "identities": [
+          [
+            ".OutcomeTests",
+            "test_actual_failed_audit_missing_output_is_explicit"
+          ],
+          [
+            ".OutcomeTests",
+            "test_artifact_selection_uses_actual_roles_and_never_point_number"
+          ],
+          [
+            ".OutcomeTests",
+            "test_audit_input_source_or_argv_substitution_rejected"
+          ],
+          [
+            ".OutcomeTests",
+            "test_auditor_release_or_covariance_authority_claim_rejected"
+          ],
+          [
+            ".OutcomeTests",
+            "test_both_pass_reports_thirteen_but_no_release_or_covariance_authority"
+          ],
+          [
+            ".OutcomeTests",
+            "test_false_audit_aggregate_cannot_hide_failed_child"
+          ],
+          [
+            ".OutcomeTests",
+            "test_false_failed_fit_covariance_claim_retained_as_discrepancy"
+          ],
+          [
+            ".OutcomeTests",
+            "test_gate_failure_and_never_started_cold_preserve_all_planned_rows"
+          ],
+          [
+            ".OutcomeTests",
+            "test_interrupted_status_is_not_normalized_to_success"
+          ],
+          [
+            ".OutcomeTests",
+            "test_missing_strict_receipt_cannot_support_aggregate_pass"
+          ],
+          [
+            ".OutcomeTests",
+            "test_mixed_cold_outcome_retains_exact_error_history_and_both_rows"
+          ],
+          [
+            ".OutcomeTests",
+            "test_nonzero_audit_exit_and_cleanup_failure_block_success"
+          ],
+          [
+            ".OutcomeTests",
+            "test_unknown_status_and_html_content_remain_literal_not_success"
+          ],
+          [
+            ".IdentityAndStorage",
+            "test_complete_temporary_packet_keeps_bytes_all_rows_and_fresh_paths"
+          ],
+          [
+            ".IdentityAndStorage",
+            "test_exact_copy_external_hash_and_false_missing"
+          ],
+          [
+            ".IdentityAndStorage",
+            "test_existing_output_and_missing_manifest_never_create_or_replace_packet"
+          ],
+          [
+            ".IdentityAndStorage",
+            "test_running_or_foreign_sequence_never_publishes"
+          ],
+          [
+            ".IdentityAndStorage",
+            "test_storage_limits_aliases_and_nonfinite_rejected"
+          ],
+          [
+            ".IdentityAndStorage",
+            "test_terminal_identity_pass_fixture_and_wrong_actual_pins_rejected"
+          ]
+        ]
+      }
+    }
+  },
+  "last_owned_cleanup_verified": true,
+  "native_runs": false,
+  "plan": {
+    "bytes": 7037,
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-qualification02-launch01/plan.json",
+    "sha256": "0add2b8db27f111e9613f350376cd8439d4336c73230ee8fe9aee538467e4512"
+  },
+  "release_authority": false,
+  "schema": "candidate07-postboot-audit-result-v1",
+  "signals_received": [],
+  "sources_unchanged": true,
+  "status": "failed"
+}

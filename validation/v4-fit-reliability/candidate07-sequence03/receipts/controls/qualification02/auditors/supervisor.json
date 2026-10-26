@@ -1,0 +1,62 @@
+{
+  "argv": [
+    "/usr/bin/taskset",
+    "-c",
+    "4",
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "-s",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--noconftest",
+    "-c",
+    "/mnt/d/orbit-v41-recovery02/candidate07-audit-tests-preparation01/pytest.ini",
+    "--basetemp=/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/auditors/tmp",
+    "--junitxml=/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/auditors/junit.xml",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postsequence-auditors01/selected/test_selected_terminal_audit.py",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postsequence-auditors01/scientific/test_scientific_terminal_audit.py",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postsequence-auditors01/rank/test_rank_audit.py",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postsequence-auditors01/export/test_export_audit.py",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postsequence-auditors01/test_candidate07_adapters.py"
+  ],
+  "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+  "cleanup": {
+    "empty_tree_certificate": "kernel_ECHILD",
+    "hard_kill": false,
+    "remaining": [],
+    "signals": [],
+    "verified": true
+  },
+  "elapsed_seconds": 27.615136681000195,
+  "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+  "owned_process_group_cleaned": true,
+  "peak_process_tree_rss_bytes": 74739712,
+  "plan_sha256": "e3c0d8f7e452bdd561b1460cff0588bcdbdb6b2a2908102e8e43f83648834dbd",
+  "returncode": 0,
+  "schema": "orbit-poc-segmented-supervision-v1",
+  "signals_received": [],
+  "status": "complete",
+  "supervisor": {
+    "parent": 5560,
+    "pid": 7920,
+    "start_ticks": 162556,
+    "state": "R"
+  },
+  "tracked_owned_processes": [
+    {
+      "parent": 7920,
+      "pid": 7921,
+      "start_ticks": 162853,
+      "state": "Z"
+    }
+  ],
+  "worker": {
+    "parent": 7920,
+    "pid": 7921,
+    "start_ticks": 162853,
+    "state": "D"
+  }
+}

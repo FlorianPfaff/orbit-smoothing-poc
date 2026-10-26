@@ -1,0 +1,153 @@
+--- a/src/orbit_poc/numerics/backend.py
++++ b/src/orbit_poc/numerics/backend.py
+@@ -21,6 +21,7 @@
+ from orbit_poc.comparison.protocol import artifact_record, canonical_hash, file_hash, read_json, write_json
+ from .config import Controls
+ from .optimizer import (Linearization, NumericalFailure, PhysicalTrialDomainFailure,
++                        NumericalTrialClosureFailure,
+                         certify_rank, minimize, proposal)
+ from .retention import (compact_closed_closures, compact_closed_proposal,
+                         compress_closed_row_provenance, discard_inactive_factors)
+@@ -132,6 +133,65 @@
+             "fitted_element_attribution": "not exported by native executable"}
+ 
+ 
++def wide_tangent_closure_failure_evidence(log, execution, previous_states, *, derivative_profile):
++    """Recognize the measured returned-state residual exhaustion, not arbitrary errors.
++
++    This exact native binary's physical-correction solver uses tolerance 2e-12
++    and 120 iterations. Its failed result is never accepted. A typed exception
++    is recoverable only within minimize's candidate evaluation; the same error
++    at initialization, confirmation or covariance remains fatal. The terminal
++    receipt does not identify ill-conditioning versus an arithmetic floor.
++    """
++    if (derivative_profile != "synthetic_complete_v1" or not isinstance(execution, dict)
++            or type(execution.get("returncode")) is not int or execution["returncode"] != 1
++            or execution.get("timed_out") is not False or previous_states is None
++            or execution.get("native_binary_sha256") !=
++               "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d"
++            or not isinstance(log, str) or len(log) > 65536):
++        return None
++    lines = [line.strip() for line in re.sub(r"\x1b\[[0-9;]*m", "", log).splitlines() if line.strip()]
++    if (len(lines) < 4 or lines[0] != "=== Starting GROOPS ==="
++            or lines[-1] != "=== Finished GROOPS with error ==="
++            or lines.count("****** Error ******") != 1
++            or [line for line in lines if line.startswith("--- ")] !=
++               ["--- PreprocessingVariationalEquation ---"]
++            or not any("preprocessingVariationalEquation.cpp:" in line and "(computeArc)" in line
++                       for line in lines)):
++        return None
++    trace = lines[lines.index("****** Error ******") + 1:-2]
++    frames = (r"in .*/config/config\.cpp:[0-9]+ \(run\)",
++              r"in .*/programs/preprocessing/preprocessingVariationalEquation\.cpp:[0-9]+ \(run\)",
++              r"in .*/parallel/parallel\.h:[0-9]+ \(forEachInterval\)",
++              r"in .*/programs/preprocessing/preprocessingVariationalEquation\.cpp:[0-9]+ \(computeArc\)")
++    if len(trace) != len(frames) or any(re.fullmatch(pattern, line) is None for pattern, line in zip(frames, trace)):
++        return None
++    number = r"(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?"
++    match = re.fullmatch(
++        r"wide tangent returned double state did not meet true residual tolerance: relative_residual=(" + number +
++        r"), tolerance=(" + number + r"), iterations=120, solve_role=physical_correction, column=0, duration_seconds=(" +
++        number + r")", lines[-2])
++    if match is None:
++        return None
++    relative, tolerance, duration = (float(value) for value in match.groups())
++    if (not np.isfinite([relative, tolerance, duration]).all() or tolerance != 2e-12
++            or relative <= tolerance or duration <= 0):
++        return None
++    try:
++        states = np.asarray(previous_states, dtype=float)
++    except (TypeError, ValueError):
++        return None
++    if states.ndim != 2 or states.shape[1] != 6 or len(states) < 2 or not np.isfinite(states).all():
++        return None
++    return {"schema": "orbit-poc-numerical-trial-closure-v1",
++            "failure_kind": "wide_returned_binary64_residual_exhaustion",
++            "terminal_native_error": lines[-2], "relative_residual": relative,
++            "tolerance": tolerance, "iterations": 120, "solve_role": "physical_correction",
++            "column": 0, "duration_seconds": duration, "preceding_closure_finite": True,
++            "samples": len(states), "recoverable_only_during_trial": True,
++            "failed_state_accepted": False, "native_thresholds_unchanged": True,
++            "numerical_cause": "not determined by terminal residual receipt"}
++
++
+ def nuisance_profile_resolution(receipt, *, covariance=False):
+     """Validate native profiling status without converting a floor into convergence."""
+     strict = receipt.get("nuisance_converged") is True
+@@ -311,9 +371,10 @@
+                 self.execute(_standalone(source, programs, config["date"]), iteration, "propagate")
+             except NumericalFailure as error:
+                 # An unknown error, process crash, budget failure or bad initial
+-                # input remains fatal. Only recognize a normal native exit at
+-                # the known reference-domain boundary after a finite generated
+-                # closure. No parameter clipping or alternate force model.
++                # input remains fatal. Recognize only evidenced normal exits
++                # at the known domain boundary or returned-state residual
++                # exhaustion after a finite generated closure. No parameter
++                # clipping, numerical limit change or alternate force model.
+                 cause = error.__cause__
+                 execution = cause.execution if isinstance(cause, native.NativeExecutionError) else None
+                 gm_text = template.findtext("useEnke/GM")
+@@ -325,15 +386,24 @@
+                     (iteration / "propagate.log").read_text(errors="replace"), execution, previous,
+                     derivative_profile=self.derivatives, gm=gm)
+                     if error.reason == "native_failure" and execution and index > 1 else None)
++                failure_type = PhysicalTrialDomainFailure
++                receipt_name, log_role = "trial-domain-failure.json", "failed_reference_propagation_log"
++                if evidence is None:
++                    evidence = (wide_tangent_closure_failure_evidence(
++                        (iteration / "propagate.log").read_text(errors="replace"), execution, previous,
++                        derivative_profile=self.derivatives)
++                        if error.reason == "native_failure" and execution and index > 1 else None)
++                    failure_type = NumericalTrialClosureFailure
++                    receipt_name, log_role = "trial-closure-failure.json", "failed_numerical_closure_log"
+                 if evidence is None:
+                     raise
+                 evidence.update(closure_iteration=index, reference_orbit=str(reference_orbit),
+                     reference_orbit_sha256=file_hash(reference_orbit),
+                     propagation_config_sha256=execution["config_sha256"],
+                     native_binary_sha256=execution["native_binary_sha256"],
+-                    propagation_log=artifact_record("failed_reference_propagation_log", iteration / "propagate.log"))
+-                write_json(folder / "trial-domain-failure.json", evidence)
+-                raise PhysicalTrialDomainFailure(str(error), evidence) from error
++                    propagation_log=artifact_record(log_role, iteration / "propagate.log"))
++                write_json(folder / receipt_name, evidence)
++                raise failure_type(str(error), evidence) from error
+             self.propagations += 1
+             epochs, states = native._orbit(orbit.with_suffix(".txt"))
+             # The complete text is now in memory. Preserve it losslessly and
+--- a/src/orbit_poc/numerics/optimizer.py
++++ b/src/orbit_poc/numerics/optimizer.py
+@@ -31,6 +31,14 @@
+         self.evidence = evidence
+ 
+ 
++class NumericalTrialClosureFailure(NumericalFailure):
++    """Evidenced native physical-correction non-closure, trial recovery only."""
++
++    def __init__(self, message, evidence):
++        super().__init__("numerical_trial_closure", message)
++        self.evidence = evidence
++
++
+ class LinearSystem(Protocol):
+     """Optional numerical representation of the same native linearization.
+ 
+@@ -308,7 +316,7 @@
+                     # A failed candidate never installs an orbit or force cache.
+                     # Support violations and execution budgets remain fatal;
+                     # stronger damping can resolve a physically invalid trial.
+-                    if not isinstance(error, PhysicalTrialDomainFailure) and error.reason not in {
++                    if not isinstance(error, (PhysicalTrialDomainFailure, NumericalTrialClosureFailure)) and error.reason not in {
+                             "closure_failed", "nuisance_failure", "invalid_objective",
+                             "rank_deficient", "unresolved_rank"}:
+                         raise
+@@ -316,6 +324,8 @@
+                     record.update(reason=error.reason, trial_error=str(error))
+                     if isinstance(error, PhysicalTrialDomainFailure):
+                         record["trial_domain_evidence"] = error.evidence
++                    elif isinstance(error, NumericalTrialClosureFailure):
++                        record["trial_closure_evidence"] = error.evidence
+                 remaining()
+                 if candidate_point is None:
+                     actual, ratio, accepted = None, None, False

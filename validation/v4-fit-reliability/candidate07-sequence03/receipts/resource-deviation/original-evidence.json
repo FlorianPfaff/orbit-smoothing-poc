@@ -1,0 +1,89 @@
+{
+  "schema": "orbit.prior-work-fulltext-access-and-read-scope.v1",
+  "date": "2026-10-26",
+  "scope": "Targeted legitimate full-text follow-up for two closest papers; no scientific protocol or project-run changes.",
+  "previous_records_read": [
+    "/mnt/d/orbit-publication-review/2026-10-26-literature-followup01/review.json",
+    "/mnt/d/orbit-publication-review/2026-10-26-literature-access01/request.json",
+    "/mnt/d/orbit-publication-review/2026-10-26-literature-access01/outcome.json",
+    "/mnt/d/orbit-publication-review/2026-10-22-prior-art01/review.json"
+  ],
+  "target_articles": [
+    {
+      "citation": "Beutler, G., Jaeggi, A., Hugentobler, U., and Mervart, L. (2006). Efficient satellite orbit modelling using pseudo-stochastic parameters. Journal of Geodesy 80:353-372.",
+      "doi": "10.1007/s00190-006-0072-6",
+      "exact_full_text_retrieved": false,
+      "equations_of_exact_article_verified": false,
+      "primary_sources": [
+        {"url": "https://portal.fis.tum.de/en/publications/efficient-satellite-orbit-modelling-using-pseudo-stochastic-param/", "access_scope": "Institutional citation and abstract."},
+        {"url": "https://www.bernese.unibe.ch/publist/publist_2006.php", "access_scope": "Author institution publication list; exact citation and DOI, no accessible article PDF link for this entry."},
+        {"url": "https://link.springer.com/article/10.1007/s00190-006-0072-6", "access_scope": "Publisher subscription preview; full methods unavailable."},
+        {"url": "https://boris-portal.unibe.ch/bitstreams/d3c26748-8447-4202-ba6c-ae640a16e5a0/download", "access_scope": "Public search result identifies the article; ordinary web open still returned 503 Service Unavailable. Search excerpt is not full-text access."}
+      ],
+      "abstract_only_fact": "Two efficient least-squares methods are described as equivalent to conventional least squares; the first provides full covariance and the second selected covariance information.",
+      "remaining_question": "Exact correspondence between the 2006 article and the independently read 2007 author dissertation is not established; do not attribute dissertation equation numbers to the article."
+    },
+    {
+      "citation": "Li, J., Shen, H.-X., Huang, P., Chu, Y., and Baoyin, H. (2024). Thermospheric Density Estimation Method Using a First-Order Gauss-Markov Process.",
+      "doi": "10.2514/1.A35884",
+      "exact_full_text_retrieved": false,
+      "equations_of_exact_article_verified": false,
+      "primary_access_attempt": {"url": "https://arc.aiaa.org/doi/epdf/10.2514/1.A35884", "access_scope": "Ordinary publisher full-text endpoint unavailable through web reader; no bypass attempted."},
+      "discovery_only_secondary_sources": [
+        "https://www.citedrive.com/en/discovery/thermospheric-density-estimation-method-using-a-first-order-gaussmarkov-process/",
+        "https://www.researchgate.net/publication/379549590_Thermospheric_Density_Estimation_Method_Using_a_First-Order_Gauss-Markov_Process",
+        "https://jglobal.jst.go.jp/en/public/202502289649032781"
+      ],
+      "bounded_search_scope": "Exact DOI/title searches, PDF search, author and institutional repository discovery including edu.cn. No verified legitimate author full-text copy located. ResearchGate offered request-full-text, not a readable paper.",
+      "abstract_echo_only": "Discovery records describe first-order Gauss-Markov drag-acceleration deviations, sequential estimation and smoothing, and Q-SAT GPS application. These are not verified equation-level facts from primary full text.",
+      "remaining_questions": [
+        "Exact stochastic variable: drag acceleration, density, log density, or another correction; transition, driving covariance, units and parameter tuning.",
+        "Observation level and GPS preprocessing; treatment of clocks, ionosphere, biases, ambiguities and their uncertainty.",
+        "Smoothing objective, nonlinear iteration, constraints, covariance computation and uncertainty validation.",
+        "Exact simulated and flight comparisons, blackout/storm protocols, independent validation, and whether calibrated predictive likelihood or coverage is evaluated."
+      ],
+      "absence_claims_authorized": false
+    }
+  ],
+  "new_primary_supplement": {
+    "citation": "Jaeggi, Adrian (2007). Pseudo-Stochastic Orbit Modeling of Low Earth Satellites Using the Global Positioning System. Geodaetisch-geophysikalische Arbeiten in der Schweiz, volume 73. Swiss Geodetic Commission. ISBN 978-3-908440-17-8.",
+    "url": "https://www.sgc.ethz.ch/sgc-volumes/sgk-73.pdf",
+    "relationship": "Author dissertation supplement, not the exact 2006 journal article.",
+    "http_status": 200,
+    "pdf_bytes": 16844314,
+    "pdf_sha256": "027acd90f3f0697cbacffca682b55ae4bb63a6987ff43ce3b8bb58216cca8980",
+    "text_sha256": "2481d19c65888fed2e4f7463a71517e074745362e240b27072d27b68c4ca8f92",
+    "pdf_pages": 220,
+    "read_scope": "Title/citation, Chapter 6 targeted text (sections 6.3-6.7), and visual inspection of PDF pages 80,81,82,85,89,94, corresponding to printed pages 63,64,65,68,72,77. No claim to have audited the entire dissertation.",
+    "text_limitation": "Math-font extraction contains corrupt glyphs. The equation descriptions below were checked against rendered page images, not guessed from extracted symbols.",
+    "verified_findings": [
+      {"locator": "Printed pp.63-64, equations 6.22-6.29", "finding": "Subinterval coordinate transformations enable pulse pre-elimination from reduced normal equations. Pulse constraints enter before elimination; cross-epoch constraints require a modified step."},
+      {"locator": "Printed p.65, equations 6.30-6.34", "finding": "Elimination retains weighted residual energy and supports final-state covariance; backward substitution then recovers earlier parameters."},
+      {"locator": "Printed p.68, section 6.4.2, equation 6.46", "finding": "Epoch clocks and phase biases have distinct elimination lifetimes; additional parameters are explicitly partitioned into retained and eliminable groups."},
+      {"locator": "Printed p.72, section 6.6.1", "finding": "An algebraic-equivalence experiment reports about 0.5 mm/day along-track drift, below 1 mm/day in observed cases, and radial/cross-track differences below 0.05 mm."},
+      {"locator": "Printed p.77, section 6.7", "finding": "The rapid method recovers parameter standard deviations and some covariance blocks, not the complete covariance. Connected ambiguity sets inform datum selection."}
+    ],
+    "interpretation_for_our_work": "Subinterval elimination, nuisance lifetimes, residual-energy retention, and numerical-equivalence comparisons have direct precedent. Our square-root implementation and strict checks are engineering differences requiring measured evidence; this review establishes no first-of-kind claim."
+  },
+  "decision": {
+    "new_evidence": "Primary equation-level supplement now available for the reduced-dynamic elimination family.",
+    "exact_article_access_gap_closed": false,
+    "li_equation_comparison_complete": false,
+    "manuscript_change_required_now": false,
+    "paper_position": "Continue positioning the work as a prospective controlled scientific comparison, with honest uncertainty and failure reporting. Do not claim Gauss-Markov density estimation or segmented orbit elimination as new, or claim other methods lack an unexamined feature.",
+    "smallest_follow_up": "Obtain the exact two articles through a legitimate accessible author copy or existing institutional/library access; compare Li's state/prior/nuisance definitions before asserting scientific differentiation. The dissertation already warrants explicit related-work treatment when the manuscript is next edited.",
+    "project_runs_or_protocols_modified": false,
+    "author_contact_or_purchase_performed": false
+  },
+  "local_processing_receipts": {
+    "download": ["jaeggi2007-response-headers.txt", "jaeggi2007-download-status.json", "jaeggi2007-curl-exit.txt", "jaeggi2007-download.stderr"],
+    "extractor": "/usr/bin/mutool",
+    "extractor_sha256": "1ac6c3565ea6269f01491e95a824d48e7c02d8b438a8b1381ebb3ecf07932c04",
+    "preserved_processing_issues": [
+      "pdftotext was not installed; only a tool-availability precheck occurred. No installation was attempted.",
+      "First page-render command produced pages80-82, then exited1 because a separate '94' argument was interpreted as a filename. Its stderr remains unchanged; the corrected comma-separated request produced pages85,89,94 with exit0."
+    ],
+    "local_numerical_or_project_execution": false,
+    "public_pdf_outside_git": true
+  }
+}
