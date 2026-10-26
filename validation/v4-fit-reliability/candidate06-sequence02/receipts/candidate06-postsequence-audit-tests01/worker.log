@@ -1,0 +1,28 @@
+........................................................................ [ 40%]
+........................................................................ [ 81%]
+.....................F...........                                        [100%]
+=================================== FAILURES ===================================
+_______ ElevenStageContract.test_lifecycle_and_execution_remain_original _______
+
+self = <test_eleven_stage_contract.ElevenStageContract testMethod=test_lifecycle_and_execution_remain_original>
+
+    def test_lifecycle_and_execution_remain_original(self):
+     funcs=lambda p:{n.name:ast.dump(n,include_attributes=False) for n in ast.parse(p.read_text()).body if isinstance(n,ast.FunctionDef)}
+     old=funcs(Path(__file__).parent.parent/'density-trial-sequence01/sequence.py');new=funcs(Path(seq.__file__))
+     for name in old:
+>     if name not in ('checked','gate_audit'):self.assertEqual(old[name],new[name],name)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E     AssertionError: "Func[7123 chars]rgs=[Call(func=Name(id='all', ctx=Load()), arg[5244 chars]=[])" != "Func[7123 chars]rgs=[BoolOp(op=Or(), values=[Compare(left=Subs[5438 chars]=[])"
+E     Diff is 40419 characters long. Set self.maxDiff to None to see it. : run
+
+density-trial-sequence-reporting-correction01/test_eleven_stage_contract.py:52: AssertionError
+=============================== warnings summary ===============================
+candidate06-export-audit-draft02/test_export_audit.py::ExportTests::test_duplicate_member_and_payload_truncation
+  /mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/native-env/lib/python3.11/zipfile.py:1606: UserWarning: Duplicate name: 'mjd.npy'
+    return self._open_to_write(zinfo, force_zip64=force_zip64)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /mnt/d/orbit-v41-recovery02/candidate06-postsequence-audit-tests01/junit.xml -
+=========================== short test summary info ============================
+FAILED density-trial-sequence-reporting-correction01/test_eleven_stage_contract.py::ElevenStageContract::test_lifecycle_and_execution_remain_original
+1 failed, 176 passed, 1 warning in 59.46s

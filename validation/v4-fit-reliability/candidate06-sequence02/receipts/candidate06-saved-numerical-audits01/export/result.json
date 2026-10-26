@@ -1,0 +1,50 @@
+{
+  "schema": "candidate06-export-audit-v1",
+  "approved": false,
+  "release_authority": false,
+  "covariance_authority": false,
+  "all_exports_consistent": false,
+  "outcomes": [
+    {
+      "stage": "cold-pulses",
+      "status": "export_consistency_passed",
+      "passed": true,
+      "backend_outcome": {
+        "status": "complete",
+        "numerical_status": "complete",
+        "converged": true,
+        "covariance_valid": true,
+        "error": null
+      },
+      "final_folder": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance",
+      "checks": {
+        "regular": {
+          "count": 720,
+          "maximum_raw_asymmetry": 0.0
+        },
+        "prediction": {
+          "count": 120,
+          "maximum_raw_asymmetry": 0.0
+        },
+        "npz_native_values_exact": true,
+        "maximum_regular_epoch_serialization_difference_mjd": 0.0,
+        "native_binary_decoded": false,
+        "covariance_reconstructed_from_designs": false
+      },
+      "note": "Native binary orbit hash/role is linked but binary payload is not decoded. This checks saved ASCII/NPZ consistency, not full independent covariance reconstruction."
+    },
+    {
+      "stage": "cold-density",
+      "status": "not_applicable_unsuccessful_fit",
+      "backend_outcome": {
+        "status": "failed",
+        "numerical_status": "native_failure",
+        "converged": false,
+        "covariance_valid": false,
+        "error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-density/fit/point-005-trial-002/closure-03/propagate.log"
+      },
+      "passed": false
+    }
+  ],
+  "error": null
+}

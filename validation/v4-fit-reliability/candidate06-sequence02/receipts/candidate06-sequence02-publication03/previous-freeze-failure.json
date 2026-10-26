@@ -1,0 +1,15 @@
+{
+  "schema":"candidate06-publication-freeze-failure-preservation-v1",
+  "operation":"candidate06-sequence02-publication01/freeze_inputs.sh",
+  "status":"failed_before_complete_manifest_or_packet_build",
+  "evidence_source":"Parent executed the freeze and reported exit failure at cold/plan.json; source-only follow-up verified the unchanged partial8-pin ledger and all prior spec sizes.",
+  "source_manifest_sha256":"7da7d8d2831f011618b33ead20c96d114fe901554e256eff6dff7f855852be9e",
+  "input_spec_sha256":"abcba62581563e48bc49daa9c7eed1dbfcdfb8d7cae72da0959260cbd7be0d86",
+  "preserved_partial_pin_ledger_sha256":"19d6657899f4fecd27dbaba0f9a5a5462c41b0e920c7585230f08c62da6cfa7b",
+  "partial_pin_count":8,
+  "cause":{"path":"/mnt/d/orbit-v41-recovery02/candidate06-cold02/plan.json","bytes":8404614,"maximum_copied_receipt_bytes":4194304,"sha256":"39b2e76b51a3c9fdb296f39bd2aedcdd8fd1860fa658d52fc632bd7088c0094a"},
+  "correction":"Separate publication03 retains the cold plan externally, bound by its exact path/hash/bytes in the copied cold freeze and output manifest. No file-size or scientific threshold is relaxed.",
+  "prior_spec_scan":{"missing_files":0,"oversized_files":1,"other_retained_files":141,"other_retained_bytes":6730294},
+  "all_scientific_outcomes_unchanged":true,
+  "reviewer_executed_freeze_or_builder":false
+}

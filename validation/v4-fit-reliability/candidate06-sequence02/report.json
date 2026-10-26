@@ -1,0 +1,1309 @@
+{
+  "accuracy_claim": false,
+  "covariance_authority": false,
+  "density_backend_error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-density/fit/point-005-trial-002/closure-03/propagate.log",
+  "density_history": [
+    {
+      "accepted": false,
+      "accepted_iteration": 0,
+      "actual_reduction": null,
+      "damping": 0.001,
+      "gain_ratio": null,
+      "normalized_gradient": 0.11135604936310274,
+      "nuisance_floor_limited_before": false,
+      "objective_before": 6816074.455124643,
+      "objective_floor": 0.00123538076877594,
+      "predicted_reduction": 6371265.2228500815,
+      "rank": {
+        "columns": 146,
+        "condition_number": 3843.561073628567,
+        "effective_rows": 7885,
+        "maximum_singular_value": 5.510735726943343,
+        "minimum_singular_value": 0.0014337578150516695,
+        "rank": 146,
+        "status": "full_rank",
+        "threshold": 9.64831574788955e-12
+      },
+      "raw_correction": {
+        "density_update": 0.1384153061280788,
+        "position_change_m": 7.347058155853033,
+        "pulse_update_m_s": 0.0
+      },
+      "reason": "physical_trial_domain",
+      "trial": 1,
+      "trial_correction": {
+        "density_update": 20.37698295083867,
+        "position_change_m": 6.101891302466964,
+        "pulse_update_m_s": 0.0
+      },
+      "trial_domain_evidence": {
+        "closure_iteration": 2,
+        "domain": "synthetic_fitted_elliptic_reference",
+        "fitted_element_attribution": "not exported by native executable",
+        "gm_m3_s2": 398600441500000.0,
+        "maximum_radius_m": 76910297.6669768,
+        "maximum_specific_orbital_energy_m2_s2": 3155113176.0588713,
+        "maximum_speed_m_s": 79502.14893695017,
+        "minimum_radius_m": 560881.2680583355,
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "nonelliptic_osculating_samples": 447,
+        "preceding_closure_finite": true,
+        "propagation_config_sha256": "84e09aa03762b26325a5741788c196211d52e869c2e66da710a40b57e23d5511",
+        "propagation_log": {
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+          "role": "failed_reference_propagation_log",
+          "sha256": "9c480183940b4806d53e56fbfc70bc721633eed42eed1ea95e49914d8b76ffc5"
+        },
+        "recoverable_only_during_trial": true,
+        "reference_orbit": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-density/fit/point-004-trial-001/closure-01/orbit.dat",
+        "reference_orbit_sha256": "fad56ff09dd6a6c1b2c22162c327ff8131b08805d7681a3895b6d359e8d58089",
+        "samples": 720,
+        "schema": "orbit-poc-physical-trial-domain-v1",
+        "terminal_native_error": "Nonfinite equinoctial reference input"
+      },
+      "trial_error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-density/fit/point-004-trial-001/closure-02/propagate.log"
+    }
+  ],
+  "external_input_identities": [
+    {
+      "id": "cold/plan.json",
+      "pin": {
+        "bytes": 8404614,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/plan.json",
+        "sha256": "39b2e76b51a3c9fdb296f39bd2aedcdd8fd1860fa658d52fc632bd7088c0094a"
+      },
+      "reason": "Bulky runtime inventory retained externally; exact plan identity is also in the copied cold freeze receipt."
+    }
+  ],
+  "frozen_benchmarks_unchanged": true,
+  "helper_qualification": {
+    "corrected": {
+      "errors": 0,
+      "failed_cases": [],
+      "failures": 0,
+      "passed": 203,
+      "skipped": 0,
+      "tests": 203
+    },
+    "initial": {
+      "errors": 0,
+      "failed_cases": [
+        "test_lifecycle_and_execution_remain_original"
+      ],
+      "failures": 1,
+      "passed": 176,
+      "skipped": 0,
+      "tests": 177
+    },
+    "selected-source03": {
+      "errors": 0,
+      "failed_cases": [],
+      "failures": 0,
+      "passed": 24,
+      "skipped": 0,
+      "tests": 24
+    }
+  },
+  "limitations": [
+    "Candidate06 remains unsuccessful: the density cold fit failed during its second trial. No density covariance is accepted and no release readiness is established.",
+    "The 11 correctness checks and two cold fits are diagnostic regressions, not replacements for frozen v3.1 or v4 benchmark attempts. Frozen protocols, physical/statistical models and correctness thresholds are unchanged.",
+    "Both cold fits use their original GNSS-only initialization without a donor nuisance state. The one-hour case is synthetic leo500/quiet/normal; GRACE-FO filenames in templates do not make it a flight accuracy experiment.",
+    "Saved-artifact rank, covariance/export and objective/refinement audits have distinct scopes. A strict pulse final covariance does not prove calibrated scientific uncertainty, full-grid independent tangent reconstruction or complete flight derivatives.",
+    "Rank uses the original reduced stochastic row count and the undamped saved factor. Driver singular-value differences are disclosed without adding a numerical agreement tolerance.",
+    "The first density trial was rejected as a physical-domain failure; its second trial failed a native correction check. Preserve both rather than relabeling either as convergence. Trial-history/rollback source and receipt evidence is separate from re-executing every historical trial.",
+    "The original sequence aggregate reporting exception, the initial helper test failure and the source02 selected-audit compression-reader failure remain preserved. Corrected reporting/audit readers do not change estimator outcomes.",
+    "No accuracy-superiority, GPU speedup, complete-flight-Jacobian or paper-readiness claim follows from this packet. No aggregate audit exit code alone determines whether a particular pulse check passed."
+  ],
+  "limits_and_approximations_from_scientific_audit": [
+    "No independent propagation/refit, complete source/dependency tree or process-lifecycle audit; use the separately reviewed terminal supervisor audit.",
+    "Three test suites and two cold fits are inventory-only here; source02 covers selected cold corrections/covariance and test receipt checks.",
+    "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+    "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+    "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance.",
+    "No complete flight Jacobian, calibrated uncertainty, accuracy superiority, benchmark substitution or release claim."
+  ],
+  "original_outcomes": [
+    {
+      "stage": "cold-pulses",
+      "status": "passed"
+    },
+    {
+      "stage": "cold-density",
+      "status": "failed"
+    }
+  ],
+  "outcomes": [
+    {
+      "recorded_status": "passed",
+      "stage": "native-tests",
+      "strict_receipt": "gates/native-tests/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 1376.0920036550015,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/native-tests/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "native-fail-fast-tests",
+      "strict_receipt": "gates/native-fail-fast-tests/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 925.1429841610006,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/native-fail-fast-tests/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "correction-tests",
+      "strict_receipt": "gates/correction-tests/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 966.7088429430005,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/correction-tests/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "synthetic-refinement-log_drag_ou",
+      "strict_receipt": "gates/synthetic-refinement-log_drag_ou/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 1034.4967229370013,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/synthetic-refinement-log_drag_ou/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "synthetic-refinement-pulses",
+      "strict_receipt": "gates/synthetic-refinement-pulses/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 960.1215278420023,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/synthetic-refinement-pulses/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "flight-refinement",
+      "strict_receipt": "gates/flight-refinement/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 968.5110606630005,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/flight-refinement/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "eccentric-24h-refinement",
+      "strict_receipt": "gates/eccentric-24h-refinement/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 1959.9184417819997,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/eccentric-24h-refinement/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "objective-log_drag_ou",
+      "strict_receipt": "gates/objective-log_drag_ou/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 2758.164410726,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/objective-log_drag_ou/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "objective-pulses",
+      "strict_receipt": "gates/objective-pulses/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 1835.2225748410056,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/objective-pulses/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "nuisance-replay",
+      "strict_receipt": "gates/nuisance-replay/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 1266.6913444040038,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/nuisance-replay/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "nuisance-replay-candidate1-point012",
+      "strict_receipt": "gates/nuisance-replay-candidate1-point012/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 710.1627158959964,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "gates/nuisance-replay-candidate1-point012/supervisor.json"
+    },
+    {
+      "recorded_status": "passed",
+      "stage": "cold-pulses",
+      "strict_receipt": "cold/cold-pulses/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 2535.8448039330033,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      },
+      "supervisor_receipt": "cold/cold-pulses/supervisor.json"
+    },
+    {
+      "recorded_status": "failed",
+      "stage": "cold-density",
+      "strict_receipt": "cold/cold-density/strict-result.json",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 1962.4951941580002,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 1,
+        "signals_received": [],
+        "status": "failed"
+      },
+      "supervisor_receipt": "cold/cold-density/supervisor.json"
+    }
+  ],
+  "publication_input_sha256": "95c5f32e87a45ad4ebe09ed243acdb8fd6337d157274c7c012534964c8cbb0ed",
+  "pulse_confirmation_checks": [
+    {
+      "accepted_iteration": 10,
+      "normalized_gradient": 4.299922095674568e-09,
+      "nuisance_floor_limited": false,
+      "objective_before": 3235.4271854407007,
+      "objective_refreshed": 3235.4271848708195,
+      "physical_parameters_unchanged": true,
+      "rank": {
+        "columns": 91,
+        "condition_number": 2172.7823920130036,
+        "effective_rows": 7830,
+        "maximum_singular_value": 3.077449187211228,
+        "minimum_singular_value": 0.0014163632761954056,
+        "rank": 91,
+        "status": "full_rank",
+        "threshold": 5.350481643487707e-12
+      },
+      "raw_correction": {
+        "density_update": 0.0,
+        "position_change_m": 6.51925802230835e-09,
+        "pulse_update_m_s": 1.0500475322750857e-12
+      },
+      "stationary": true,
+      "trial_evaluations": 10
+    }
+  ],
+  "release_authority": false,
+  "saved_audits": {
+    "export": {
+      "result_sha256": "3b23c062e763e2ea144026f750cbabfd3dceed562084b27af0619cd69e2ef2b8",
+      "summary": "cold-pulses: export_consistency_passed; cold-density: not_applicable_unsuccessful_fit",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 6.349348876996373,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 1,
+        "signals_received": [],
+        "status": "failed"
+      }
+    },
+    "rank": {
+      "result_sha256": "b4e07d81cfa014228394860d6f7d9ce9c3d6bf821eadf895dd0f55f731aa2627",
+      "summary": "cold-pulses: rank_check_complete; cold-density: recorded_unsuccessful",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 9.38505236399942,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 1,
+        "signals_received": [],
+        "status": "failed"
+      }
+    },
+    "scientific": {
+      "result_sha256": "80233b2a9c4ad4226902ecc113a768dd3e2543b9d137af532147259d5791b917",
+      "summary": "8/8 saved scientific predicates passed",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 16.132324605998292,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    "selected": {
+      "result_sha256": "c87524f021140b3548645009432bc1a0244e03fd15096e9fa8d1e2474cf41cd8",
+      "summary": "cold-pulses: selected_checks_completed; cold-density: failed",
+      "supervisor": {
+        "cleanup_verified": true,
+        "elapsed_seconds": 23.851738969999133,
+        "empty_tree_certificate": "kernel_ECHILD",
+        "owned_process_group_cleaned": true,
+        "remaining": [],
+        "returncode": 1,
+        "signals_received": [],
+        "status": "failed"
+      }
+    }
+  },
+  "schema": "candidate06-sequence02-publication-v1",
+  "selected_pulse_saved_checks": {
+    "cold_state_matches_saved_original_conversion": true,
+    "covariance_difference_accepted": false,
+    "direct_objective": 3235.427185391728,
+    "dynamic_covariance_relative_frobenius_difference": 9.317299040706916e-16,
+    "dynamic_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "force_update_units": "m/s",
+    "initial_cartesian_correction_si": [
+      7.313506854101837e-11,
+      2.8131967189305597e-10,
+      -1.9623991847837396e-10,
+      -9.939102755815668e-13,
+      -4.2026514543600706e-14,
+      -3.3907579657915237e-13
+    ],
+    "lower_triangle_exact_zero": true,
+    "rank_certificate_scope": "Recorded original factor only; independent SVD outstanding",
+    "recomputed_dynamic_covariance_native_units": [
+      [
+        50.94337944732481,
+        27.248925286769822,
+        32.48262320249675,
+        -51.197755750382385,
+        11.88374802135368,
+        6.613178130798635,
+        0.035301298202335754,
+        -0.006774446451053138,
+        -0.01750216461828322,
+        -0.11188215619636938,
+        -0.060939663843099075,
+        -0.08565714694887508
+      ],
+      [
+        27.248925286769822,
+        62.91582558589009,
+        25.28900634890578,
+        -15.651355858353133,
+        17.588688869663056,
+        -29.615222918781782,
+        0.01394765588487097,
+        0.006418985871305189,
+        -0.028393562122655223,
+        -0.022845721317231678,
+        0.00022541822647839915,
+        -0.09454000407046688
+      ],
+      [
+        32.48262320249675,
+        25.28900634890578,
+        86.48469912749562,
+        -47.995965568166625,
+        -28.703742293383552,
+        7.758990223184608,
+        -0.009063540799520958,
+        -0.02868113760288533,
+        -0.013012687209938974,
+        0.09492798996128976,
+        -0.07409056083572083,
+        -0.012755080499968824
+      ],
+      [
+        -51.197755750382385,
+        -15.651355858353133,
+        -47.995965568166625,
+        98.28186821539438,
+        -7.976705499905247,
+        -30.690326296107994,
+        -0.013318946421504675,
+        0.019715237167981226,
+        0.01556657189584854,
+        0.0015169690203370794,
+        0.07110634282405588,
+        0.03846797425237791
+      ],
+      [
+        11.88374802135368,
+        17.588688869663056,
+        -28.703742293383552,
+        -7.976705499905247,
+        46.16112599533053,
+        -10.264579069868944,
+        0.02679858585191296,
+        0.01785638251537174,
+        -0.008577201136137242,
+        -0.10774376715195243,
+        0.029032275835944484,
+        -0.0855259092434287
+      ],
+      [
+        6.613178130798635,
+        -29.615222918781782,
+        7.758990223184608,
+        -30.690326296107994,
+        -10.264579069868944,
+        39.586673542696296,
+        0.0020332604264762374,
+        -0.01340280487329062,
+        0.010661512491631307,
+        0.00430089751585474,
+        -0.05229468580059528,
+        0.035138732088092484
+      ],
+      [
+        0.035301298202335754,
+        0.01394765588487097,
+        -0.009063540799520958,
+        -0.013318946421504675,
+        0.02679858585191296,
+        0.0020332604264762374,
+        5.7243843268337476e-05,
+        1.1236683347912532e-05,
+        -4.089913558870672e-06,
+        -0.00023333812352715124,
+        -4.849196026727052e-05,
+        -0.00011834871572145556
+      ],
+      [
+        -0.006774446451053138,
+        0.006418985871305189,
+        -0.02868113760288533,
+        0.019715237167981226,
+        0.01785638251537174,
+        -0.01340280487329062,
+        1.1236683347912532e-05,
+        2.1144941387386988e-05,
+        6.164493601157199e-06,
+        -8.859907969461658e-05,
+        3.0057141691032124e-05,
+        -3.1778649286361126e-05
+      ],
+      [
+        -0.01750216461828322,
+        -0.028393562122655223,
+        -0.013012687209938974,
+        0.01556657189584854,
+        -0.008577201136137242,
+        0.010661512491631307,
+        -4.089913558870672e-06,
+        6.164493601157199e-06,
+        2.721382818963272e-05,
+        -3.79506031172755e-05,
+        -1.1504882109234364e-06,
+        3.354236572080783e-05
+      ],
+      [
+        -0.11188215619636938,
+        -0.022845721317231678,
+        0.09492798996128976,
+        0.0015169690203370794,
+        -0.10774376715195243,
+        0.00430089751585474,
+        -0.00023333812352715124,
+        -8.859907969461658e-05,
+        -3.79506031172755e-05,
+        0.001174235244562718,
+        0.00013358745701097418,
+        0.00043438820776392804
+      ],
+      [
+        -0.060939663843099075,
+        0.00022541822647839915,
+        -0.07409056083572083,
+        0.07110634282405588,
+        0.029032275835944484,
+        -0.05229468580059528,
+        -4.849196026727052e-05,
+        3.0057141691032124e-05,
+        -1.1504882109234364e-06,
+        0.00013358745701097418,
+        0.00020020174071208894,
+        6.143414480791328e-05
+      ],
+      [
+        -0.08565714694887508,
+        -0.09454000407046688,
+        -0.012755080499968824,
+        0.03846797425237791,
+        -0.0855259092434287,
+        0.035138732088092484,
+        -0.00011834871572145556,
+        -3.1778649286361126e-05,
+        3.354236572080783e-05,
+        0.00043438820776392804,
+        6.143414480791328e-05,
+        0.0003583246988873485
+      ]
+    ],
+    "recomputed_force_update": 6.181421462221165e-13,
+    "recomputed_initial_cartesian_covariance_si": [
+      [
+        5.7243843268337476e-05,
+        1.1236683347912532e-05,
+        -4.089913558870672e-06,
+        -6.490629305344958e-08,
+        -1.3488723301048824e-08,
+        -3.292036598649668e-08
+      ],
+      [
+        1.1236683347912532e-05,
+        2.1144941387386988e-05,
+        6.164493601157199e-06,
+        -2.4645084755108925e-08,
+        8.360818272887934e-09,
+        -8.83967991275692e-09
+      ],
+      [
+        -4.089913558870672e-06,
+        6.164493601157199e-06,
+        2.721382818963272e-05,
+        -1.0556495999242143e-08,
+        -3.200245371136123e-10,
+        9.330282537081455e-09
+      ],
+      [
+        -6.490629305344958e-08,
+        -2.4645084755108925e-08,
+        -1.0556495999242143e-08,
+        9.085677600923228e-11,
+        1.0336366341830366e-11,
+        3.361090741962571e-11
+      ],
+      [
+        -1.3488723301048824e-08,
+        8.360818272887934e-09,
+        -3.200245371136123e-10,
+        1.0336366341830366e-11,
+        1.5490664921499993e-11,
+        4.7534839036533356e-12
+      ],
+      [
+        -3.292036598649668e-08,
+        -8.83967991275692e-09,
+        9.330282537081455e-09,
+        3.361090741962571e-11,
+        4.7534839036533356e-12,
+        2.772547243504625e-11
+      ]
+    ],
+    "recomputed_normalized_gradient": 8.35656500814021e-09,
+    "recomputed_position_change_m": 1.0588035919612342e-08,
+    "recorded_metrics": {
+      "density_update": 0.0,
+      "position_change_m": 1.0588035919612342e-08,
+      "pulse_update_m_s": 6.181421462221263e-13
+    },
+    "recorded_normalized_gradient": 8.35656500814021e-09,
+    "recorded_receipts": {
+      "aggregate": "passed",
+      "artifacts": [
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/fit.npz",
+          "sha256": "259de95660df42c24f4078b9ed45f8cd339a73904b2044c7bd88be9bd7f6f8ad"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/physical_parameters.json",
+          "sha256": "f9fc30cab3b5648ebfab355d4a0ff0595715c9e63c22c9ff9f4bc21314d6e64b"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.profile.json",
+          "sha256": "38ed9256edb8f06f3cba26a4bc205e828c218757a42af66e05b6244b9cffc4e1"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/closure-02/initial_design.txt",
+          "sha256": "2ce78ff67e8afabb322335ec28554db642d5bf082dbbabb30df2b743e97048c5"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/closure-02/reference.txt",
+          "sha256": "7d258e49e663a79a652c930904841b6d9154eec9522e2891d51698cf9244d633"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/profile.xml",
+          "sha256": "1ba07947b10e879038470cf0c8689cc3a4825e8fee78f56673d29e4783e9b60b"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/closure-02/variational.dat",
+          "sha256": "9774616ead9a7d7a809454205f628855fda8a2dc9dc57fb1d4f1847353f60067"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.R.bin",
+          "sha256": "de6fd9551313ab00bf0f12843870281f4186aa626f1dd856dc02244ff04d84e5"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.rhs.bin",
+          "sha256": "7579ba5ca0e7806e9623c0088d39e4d845d7b6f16892df5a1b9109b43afa26d5"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.factor.json",
+          "sha256": "84031a638f36ebbbd008cdd5ac08fae48917d7eaac6b3c7f619ac9dedb73a84f"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.diagnostics.json",
+          "sha256": "5ab4e15c87a65bffd4edf5865681657219343e0b22a4210fd6821df818d689c8"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.profile.json",
+          "sha256": "1b08ac673985bd5f17c91631b70685f15b0f52d857fbc52a2c2c272eed5c080d"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.parameters.tsv",
+          "sha256": "cce270dc225448109a217d9b514c365d9cc130a67a3bcb821075fa71b33a9168"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.rows.tsv.gz",
+          "sha256": "2500877c1b0ba1df050b463cc6e68a41c1a170d1c0d2542bf86f3e361974576e"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/qr.7.rows.tsv.compression.json",
+          "sha256": "8ac928e342fa9b63135cc28fcf059e34bb0ac24352b475eb23b4aa1c590e01a6"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/gracefo1_orbit_2024-04-24.dat",
+          "sha256": "3d7a059f0bf1b126c5ddba87c4e566520fad2895c345e2717dae5bfa07ebb816"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/parameter_covariance.txt",
+          "sha256": "5ec80e5d054e651aa3646b70dc54cb85188c3f820a6f0b9c8655e06333f719ec"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/orbit_parameters.txt",
+          "sha256": "e108a6ba800dae2af7e38c1bf4090204cc88541a139318b0df445ad4834de64a"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/preprocessing_audit.txt",
+          "sha256": "780882fc2305de07f8214fb037da6dce1d54f937e81521013b4782be9b513fe7"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/phase_recovery.txt",
+          "sha256": "55a03ceee64ac955bec5f084f771a5f413ea980a6bf0b47c4458dad2d96fb33c"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/full_apriori_solution.txt",
+          "sha256": "f0b20dd275ec688bd8f67dc746b4512797eb4218787ea08f1501f177b0ceb6d8"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/native/output/2024-04-24/full_parameter_names.txt",
+          "sha256": "b211e7ed51efd2765119c072a8dc3585bf0467818f840f0eb2039f5b94e672b0"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/factor-retention.json",
+          "sha256": "6edaabc75248303d072b3a34c3920beb6bd85d370a66b03aa9152d66a201e5fe"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-001-initial/closure-retention.json",
+          "sha256": "1fe4c7591b167553a3eeb8d33e2124206949b5237eef1d19379590532596ffc7"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-002-repeat/closure-retention.json",
+          "sha256": "8e8e1fa0cafa997a96d880eb2b1f2b1a68e30b185bec80118ddb45084c44f16c"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-003-closure-refinement/closure-retention.json",
+          "sha256": "5edfc47babf698c02ae6a47d9bffdc76963cd9791e1b36ceda6b5e20a55e9d5c"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-004-trial-001/closure-retention.json",
+          "sha256": "c2eab1bddcd22f1b3cafdb6d8a88241ae029bfad5806289a3d35816076ac9659"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-005-trial-002/closure-retention.json",
+          "sha256": "0f23cae1e97ab072e25c7ce07e736ec8f995928d54b6c8a06f0fe164e8d51249"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-006-trial-003/closure-retention.json",
+          "sha256": "4feed5d462f4a6e7b1f797523ce51af2aed4038a66436d8c3d82def991c29dc3"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-007-trial-004/closure-retention.json",
+          "sha256": "26bcf48d0410d17dd6dc4b2bcb2deb210f4a9bbd22937d6ffb22d2628edc32a8"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-008-trial-005/closure-retention.json",
+          "sha256": "8406bd34299b7c71a753e53d8922d026a8c48d4e2ac5eec7b22cb0ab18a9415f"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-009-trial-006/closure-retention.json",
+          "sha256": "b44702b69354e6aeaafc304dc5db6028b3e1d3098dc01c75162a53203d1abaee"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-010-trial-007/closure-retention.json",
+          "sha256": "7bed1426afe5ecbccf1157541eeb44659301afc5c668da736126b3b4ae80238b"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-011-trial-008/closure-retention.json",
+          "sha256": "0c1f7b701cced196dd67e76f6bbe24b1fec93c7274c5726b387817249424de0a"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-012-repeat-floor/closure-retention.json",
+          "sha256": "ea1eb4c76347d46932ba806760da482cdce3fea24b47f6fff7ca270149d2dd44"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-013-refine-floor/closure-retention.json",
+          "sha256": "eff44922a0c33f7ba214b4e849d5dd954cd0fda9e8b9dbb63475e97bd0695110"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-014-trial-009/closure-retention.json",
+          "sha256": "9230ea0a8b78009f0f83e4fc39163b794ca63fe9aedcc28d516eb76711ade148"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-015-repeat-floor/closure-retention.json",
+          "sha256": "c6a3c29715f02843fd6317dde1c8b3d1df45a5013caa6e9972b3c6a39c045b04"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-016-refine-floor/closure-retention.json",
+          "sha256": "31feb7cf4f16d1d85773df5401b4e43520f2097e228ebf13707c38c345acf5d4"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-017-trial-010/closure-retention.json",
+          "sha256": "b99d1e0ed5b3f6744fcc5564cbf134492c576a08b825e305dcc8c66781c5e358"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-018-confirmation/closure-retention.json",
+          "sha256": "91f4d3e5f31679f4de5163d39fa0908925f5d61691232f0d646d08a4c8af437f"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/closure-retention.json",
+          "sha256": "865224fd1a9fa3bcb5074f0d4d1c7a7d2773feac69203a9ba5a96daad0a75b85"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-003-closure-refinement/proposal-000/proposal-retention.json",
+          "sha256": "1cf153381541fec593fcfa146f1415ab28e06cd81237040106a48125fde68bb5"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-003-closure-refinement/proposal-001/proposal-retention.json",
+          "sha256": "29a6cc3f033386c00ff684476217ad56d671262e3198de41ed208d6d6ee85f0e"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-004-trial-001/proposal-000/proposal-retention.json",
+          "sha256": "a8e397cf98547eb669394d7fa45192df0ebd8e6b1489bd77bd6d30a48368f5fd"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-004-trial-001/proposal-001/proposal-retention.json",
+          "sha256": "e173f4462b142d7abea4fcfa7231f5dbde2fa871f8f4c850fef6d61adb5a216e"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-005-trial-002/proposal-000/proposal-retention.json",
+          "sha256": "7e603fb519c15df22845337d05294b38048e733265d6fcea87ffed7b4adcd7cd"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-005-trial-002/proposal-001/proposal-retention.json",
+          "sha256": "34b3065e0abdb6abfed2702ca6931b47e5f84c6c338f496590dda0488288f1f8"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-006-trial-003/proposal-000/proposal-retention.json",
+          "sha256": "c2e51d971d8f3f7a37eee67a2d51b44de48f7b381fc431cdc9a297f5ff19d7af"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-006-trial-003/proposal-001/proposal-retention.json",
+          "sha256": "5f710c31ef788f81df1122e6252448ab14d59819a85b0708f07d2d6fa13967a4"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-007-trial-004/proposal-000/proposal-retention.json",
+          "sha256": "566dddb6141822223ee05634f17a0f50ca27d3506c8e079362c2021dd1e48fcd"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-007-trial-004/proposal-001/proposal-retention.json",
+          "sha256": "7f01897fb2e4c882349372a2e7e07a6dc83b4dd31bb8cd7978ba54104bad2e00"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-008-trial-005/proposal-000/proposal-retention.json",
+          "sha256": "afc0187692e52d9c3c7ad5dda2c077fee9fbc51def179cc89cfa83f75c116a2d"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-008-trial-005/proposal-001/proposal-retention.json",
+          "sha256": "9f3e1164d5262ae1568b21f052c61fba8b494544d4350f08b7fd0bf90f7d8540"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-009-trial-006/proposal-000/proposal-retention.json",
+          "sha256": "27943217e8fb58e064840000a158bd7749decaf1c633d104c633722e5924e447"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-009-trial-006/proposal-001/proposal-retention.json",
+          "sha256": "094d4b4cb5b0f312e0a35953b119fdf53b08244f4ae27249f7fb4c23d7dc6bd3"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-010-trial-007/proposal-000/proposal-retention.json",
+          "sha256": "2f7babb247c047f1e713efff2fb5626a41fd8b07c4fa9bbe8494e8ba650f1240"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-010-trial-007/proposal-001/proposal-retention.json",
+          "sha256": "05abfe9c2a846116b100a083b82e28ed50d59e581a7a07c8f8d33820da6c5268"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-011-trial-008/proposal-000/proposal-retention.json",
+          "sha256": "473581e792b9940793420f5f11cc2c0be22aa0a9ce79f4d81f9600eb6ad262f9"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-013-refine-floor/proposal-000/proposal-retention.json",
+          "sha256": "312c1fcb32cfe7ffdf8f17c6780112d4b6c5b4f83cefa2cd5754f0eac1294bf6"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-013-refine-floor/proposal-001/proposal-retention.json",
+          "sha256": "aaefa29bb98ef378f3a4c0e43f3e920408281baad386e0a43ed723a41209acfb"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-014-trial-009/proposal-000/proposal-retention.json",
+          "sha256": "c8d4852055e247fc54cef345f4b0e071f62f722002f0f46dc2d68459f2c4edcb"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-016-refine-floor/proposal-000/proposal-retention.json",
+          "sha256": "4b62bf63291620df623e4489cdd69523f65c81ec19707c6271b7772fda900d96"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-016-refine-floor/proposal-001/proposal-retention.json",
+          "sha256": "4afa4c7b9f26947407b0d2e4879d92b0abd0ef81f244fe5bbcc2dfa5e3f7ce95"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-017-trial-010/proposal-000/proposal-retention.json",
+          "sha256": "f137d7d8a3909ba4eb5c7808adcc143212c0c25386704cb9a96be548aedf5c33"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-018-confirmation/proposal-000/proposal-retention.json",
+          "sha256": "225edfaf0cc1a78dda4788e4c69790af428c8c435ea6b0a53272f9d7f05d22f7"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance/proposal-000/proposal-retention.json",
+          "sha256": "d9a147fbf22b5da9188cd8f185a49005116b08c7365169dfcf56c3e403d42b74"
+        },
+        {
+          "hash_verified": true,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/native_runtime.json",
+          "sha256": "5cc5bff2ad6feb034c8f3652a2b9477b3037866d85d129f9e770de0ad971e1e9"
+        }
+      ],
+      "backend": {
+        "converged": true,
+        "covariance_valid": true,
+        "numerical_status": "complete",
+        "status": "complete"
+      },
+      "strict": {
+        "accepted_covariance": true,
+        "status": "passed"
+      },
+      "supervisor": {
+        "returncode": 0,
+        "status": "complete"
+      }
+    },
+    "retained_dimension": 91,
+    "selected_checks_completed": true,
+    "stage": "cold-pulses",
+    "undamped_native_correction": [
+      4.772722771766682e-07,
+      1.246359758485985e-07,
+      -6.181421462221164e-07,
+      -2.1132312266155066e-07,
+      3.9826875181586214e-07,
+      -2.5088383349986e-08,
+      7.313506854101837e-11,
+      2.8131967189305597e-10,
+      -1.9623991847837396e-10,
+      -3.5731074407157326e-09,
+      -1.5108531978424452e-10,
+      -1.2189774887020528e-09,
+      7.381302224629539e-19,
+      -2.8728199693595524e-08,
+      1.3708382738516517e-07,
+      1.3708382738498483e-07,
+      1.3696270312379285e-07,
+      -3.32346453214832e-07,
+      -3.320606299487429e-07,
+      -3.283122254987776e-07,
+      -3.280263541750564e-07,
+      -3.225682543658108e-07,
+      -3.222866750194578e-07,
+      -3.292953017018167e-07,
+      -3.2900453250515083e-07,
+      -3.2685182800482947e-07,
+      -3.265580094626686e-07,
+      -3.2254774525110335e-07,
+      -3.2225995300912066e-07,
+      -3.339656004072888e-07,
+      -3.336613253960694e-07,
+      -3.327255824286211e-07,
+      -3.324282215440898e-07,
+      -3.227459895219045e-07,
+      -3.224737550783938e-07,
+      -3.309981996726431e-07,
+      -3.3070160686482585e-07,
+      -3.3572481017118586e-07,
+      -3.3542397034731154e-07,
+      -3.261775126114178e-07,
+      -3.2587492079882714e-07,
+      -2.9969255110605127e-07,
+      -2.994346447451496e-07,
+      -3.158545763666267e-07,
+      -3.155836958334121e-07,
+      -2.9109046484773173e-07,
+      -2.9084604651340244e-07,
+      -2.949080866126117e-07,
+      -2.9465404165560774e-07,
+      -3.405469581439938e-07,
+      -3.4024068403179854e-07,
+      -3.2129319212494257e-07,
+      -3.210088409808849e-07,
+      -2.8872097032510816e-07,
+      -2.884779414431894e-07,
+      -2.8475909047679797e-07,
+      -2.8451840640598204e-07,
+      -2.3268216394556146e-07,
+      -2.3248488349454104e-07,
+      -3.362750488838533e-07,
+      -3.360017376223424e-07,
+      -2.723592355361504e-07,
+      -2.721232212726112e-07,
+      -3.368595225722056e-07,
+      -3.3656245921671064e-07,
+      -2.858942281975032e-07,
+      -2.8562587954940005e-07,
+      -2.99111084108335e-07,
+      -2.9885861825991204e-07,
+      -3.2513488175879686e-07,
+      -3.248836969113263e-07,
+      -2.2644618065837794e-07,
+      -2.2622082252374656e-07,
+      -1.7687075702269152e-07,
+      -1.7670938816607968e-07,
+      -2.4718193107634126e-07,
+      -2.469746725033659e-07,
+      -1.4478299942435766e-07,
+      -1.446582933520027e-07,
+      -2.7762607683066693e-07,
+      -2.7736757710852096e-07,
+      -8.054970146811242e-08,
+      -8.048101226116574e-08,
+      -1.3490857487537872e-07,
+      -1.3479303617709236e-07,
+      -1.5409643141401314e-07,
+      -1.5397025711300838e-07,
+      -1.4153332872069833e-07,
+      -1.414169261148083e-07,
+      -2.9903695169487805e-08,
+      -2.987802087322887e-08
+    ],
+    "undamped_qr_optimum_objective": 3235.4271853917257
+  },
+  "sequence_recorded_failure": {
+    "audit_sha256": "0c12660ced0656c21675150a87611838db3f5f7f0c4c9b1df363cc741df5f176",
+    "cold_result": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/result.json",
+    "correctness_result": "/mnt/d/orbit-v41-recovery02/candidate06-correctness02/result.json",
+    "elapsed_seconds": 27161.622482059,
+    "error": "ValueError('Cold aggregate disagrees with a failed stage')",
+    "old_results_reused": false,
+    "phase": "cold_fits",
+    "phase_receipt_errors": [],
+    "plan_sha256": "0d886a5f236ba5a1b734b5395d142e663e13c3b7fa2693044072c0822ff05d67",
+    "release_authority": false,
+    "returncode": 1,
+    "signals_received": [],
+    "status": "failed"
+  },
+  "source_receipt_links": {
+    "audit-source/export": "receipts/candidate06-export-audit-draft02/export_audit.py",
+    "audit-source/rank": "receipts/candidate06-rank-audit-draft03/rank_audit.py",
+    "audit-source/scientific": "receipts/candidate06-scientific-terminal-audit-draft02/scientific_terminal_audit.py",
+    "audit-source/selected": "receipts/candidate06-sequence02-final-audit-readiness01/source03/selected_terminal_audit.py",
+    "audit-source/selected-old": "receipts/candidate06-sequence02-final-audit-readiness01/source02/selected_terminal_audit.py",
+    "audits/export/controller-exit.txt": "receipts/candidate06-saved-numerical-audits01/export/controller-exit.txt",
+    "audits/export/plan.json": "receipts/candidate06-saved-numerical-audits01/export/plan.json",
+    "audits/export/result.json": "receipts/candidate06-saved-numerical-audits01/export/result.json",
+    "audits/export/supervisor.json": "receipts/candidate06-saved-numerical-audits01/export/supervisor.json",
+    "audits/export/worker.log": "receipts/candidate06-saved-numerical-audits01/export/worker.log",
+    "audits/rank/controller-exit.txt": "receipts/candidate06-saved-numerical-audits01/rank/controller-exit.txt",
+    "audits/rank/plan.json": "receipts/candidate06-saved-numerical-audits01/rank/plan.json",
+    "audits/rank/result.json": "receipts/candidate06-saved-numerical-audits01/rank/result.json",
+    "audits/rank/supervisor.json": "receipts/candidate06-saved-numerical-audits01/rank/supervisor.json",
+    "audits/rank/worker.log": "receipts/candidate06-saved-numerical-audits01/rank/worker.log",
+    "audits/scientific/controller-exit.txt": "receipts/candidate06-saved-numerical-audits01/scientific/controller-exit.txt",
+    "audits/scientific/plan.json": "receipts/candidate06-saved-numerical-audits01/scientific/plan.json",
+    "audits/scientific/result.json": "receipts/candidate06-saved-numerical-audits01/scientific/result.json",
+    "audits/scientific/supervisor.json": "receipts/candidate06-saved-numerical-audits01/scientific/supervisor.json",
+    "audits/scientific/worker.log": "receipts/candidate06-saved-numerical-audits01/scientific/worker.log",
+    "audits/selected/controller-exit.txt": "receipts/candidate06-saved-numerical-audits02/selected/controller-exit.txt",
+    "audits/selected/plan.json": "receipts/candidate06-saved-numerical-audits02/selected/plan.json",
+    "audits/selected/result.json": "receipts/candidate06-saved-numerical-audits02/selected/result.json",
+    "audits/selected/supervisor.json": "receipts/candidate06-saved-numerical-audits02/selected/supervisor.json",
+    "audits/selected/worker.log": "receipts/candidate06-saved-numerical-audits02/selected/worker.log",
+    "candidate-source-snapshot": "receipts/candidate06-source-snapshot.json",
+    "cold/cold-density/backend-result.json": "receipts/candidate06-cold02/cold-density/backend-result.json",
+    "cold/cold-density/request.json": "receipts/candidate06-cold02/cold-density/request.json",
+    "cold/cold-density/strict-result.json": "receipts/candidate06-cold02/cold-density/strict-result.json",
+    "cold/cold-density/supervisor.json": "receipts/candidate06-cold02/cold-density/supervisor.json",
+    "cold/cold-pulses/backend-result.json": "receipts/candidate06-cold02/cold-pulses/backend-result.json",
+    "cold/cold-pulses/request.json": "receipts/candidate06-cold02/cold-pulses/request.json",
+    "cold/cold-pulses/strict-result.json": "receipts/candidate06-cold02/cold-pulses/strict-result.json",
+    "cold/cold-pulses/supervisor.json": "receipts/candidate06-cold02/cold-pulses/supervisor.json",
+    "cold/detached-result.json": "receipts/candidate06-cold02/detached-result.json",
+    "cold/freeze.json": "receipts/candidate06-cold02/freeze.json",
+    "cold/result.json": "receipts/candidate06-cold02/result.json",
+    "correctness/detached-result.json": "receipts/candidate06-correctness02/detached-result.json",
+    "correctness/freeze.json": "receipts/candidate06-correctness02/freeze.json",
+    "correctness/plan.json": "receipts/candidate06-correctness02/plan.json",
+    "correctness/result.json": "receipts/candidate06-correctness02/result.json",
+    "failures/point-004-trial-001/closure-02/propagate.execution.json": "receipts/candidate06-cold02/cold-density/fit/point-004-trial-001/closure-02/propagate.execution.json",
+    "failures/point-004-trial-001/closure-02/propagate.log": "receipts/candidate06-cold02/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+    "failures/point-004-trial-001/closure-02/propagate.xml": "receipts/candidate06-cold02/cold-density/fit/point-004-trial-001/closure-02/propagate.xml",
+    "failures/point-005-trial-002/closure-03/propagate.execution.json": "receipts/candidate06-cold02/cold-density/fit/point-005-trial-002/closure-03/propagate.execution.json",
+    "failures/point-005-trial-002/closure-03/propagate.log": "receipts/candidate06-cold02/cold-density/fit/point-005-trial-002/closure-03/propagate.log",
+    "failures/point-005-trial-002/closure-03/propagate.xml": "receipts/candidate06-cold02/cold-density/fit/point-005-trial-002/closure-03/propagate.xml",
+    "failures/trial-domain-failure.json": "receipts/candidate06-cold02/cold-density/fit/point-004-trial-001/trial-domain-failure.json",
+    "gates/correction-tests/strict-result.json": "receipts/candidate06-correctness02/correction-tests/strict-result.json",
+    "gates/correction-tests/supervisor.json": "receipts/candidate06-correctness02/correction-tests/supervisor.json",
+    "gates/correction-tests/tests.xml": "receipts/candidate06-correctness02/correction-tests/tests.xml",
+    "gates/eccentric-24h-refinement/strict-result.json": "receipts/candidate06-correctness02/eccentric-24h-refinement/strict-result.json",
+    "gates/eccentric-24h-refinement/supervisor.json": "receipts/candidate06-correctness02/eccentric-24h-refinement/supervisor.json",
+    "gates/flight-refinement/strict-result.json": "receipts/candidate06-correctness02/flight-refinement/strict-result.json",
+    "gates/flight-refinement/supervisor.json": "receipts/candidate06-correctness02/flight-refinement/supervisor.json",
+    "gates/native-fail-fast-tests/strict-result.json": "receipts/candidate06-correctness02/native-fail-fast-tests/strict-result.json",
+    "gates/native-fail-fast-tests/supervisor.json": "receipts/candidate06-correctness02/native-fail-fast-tests/supervisor.json",
+    "gates/native-fail-fast-tests/tests.xml": "receipts/candidate06-correctness02/native-fail-fast-tests/tests.xml",
+    "gates/native-tests/strict-result.json": "receipts/candidate06-correctness02/native-tests/strict-result.json",
+    "gates/native-tests/supervisor.json": "receipts/candidate06-correctness02/native-tests/supervisor.json",
+    "gates/native-tests/tests.xml": "receipts/candidate06-correctness02/native-tests/tests.xml",
+    "gates/nuisance-replay-candidate1-point012/strict-result.json": "receipts/candidate06-correctness02/nuisance-replay-candidate1-point012/strict-result.json",
+    "gates/nuisance-replay-candidate1-point012/supervisor.json": "receipts/candidate06-correctness02/nuisance-replay-candidate1-point012/supervisor.json",
+    "gates/nuisance-replay/strict-result.json": "receipts/candidate06-correctness02/nuisance-replay/strict-result.json",
+    "gates/nuisance-replay/supervisor.json": "receipts/candidate06-correctness02/nuisance-replay/supervisor.json",
+    "gates/objective-log_drag_ou/strict-result.json": "receipts/candidate06-correctness02/objective-log_drag_ou/strict-result.json",
+    "gates/objective-log_drag_ou/supervisor.json": "receipts/candidate06-correctness02/objective-log_drag_ou/supervisor.json",
+    "gates/objective-pulses/strict-result.json": "receipts/candidate06-correctness02/objective-pulses/strict-result.json",
+    "gates/objective-pulses/supervisor.json": "receipts/candidate06-correctness02/objective-pulses/supervisor.json",
+    "gates/synthetic-refinement-log_drag_ou/strict-result.json": "receipts/candidate06-correctness02/synthetic-refinement-log_drag_ou/strict-result.json",
+    "gates/synthetic-refinement-log_drag_ou/supervisor.json": "receipts/candidate06-correctness02/synthetic-refinement-log_drag_ou/supervisor.json",
+    "gates/synthetic-refinement-pulses/strict-result.json": "receipts/candidate06-correctness02/synthetic-refinement-pulses/strict-result.json",
+    "gates/synthetic-refinement-pulses/supervisor.json": "receipts/candidate06-correctness02/synthetic-refinement-pulses/supervisor.json",
+    "inputs/artifact-pins.json": "receipts/candidate06-terminal-rank-export-manifests01/artifact-pins.json",
+    "inputs/export-inputs.json": "receipts/candidate06-terminal-rank-export-manifests01/export-inputs.json",
+    "inputs/original-preparation-receipt.json": "receipts/candidate06-terminal-input-manifests01/preparation-receipt.json",
+    "inputs/original-scientific-inputs.json": "receipts/candidate06-terminal-input-manifests01/scientific-inputs.json",
+    "inputs/original-selected-inputs.json": "receipts/candidate06-terminal-input-manifests01/selected-inputs.json",
+    "inputs/preparation-manifest.json": "receipts/candidate06-terminal-rank-export-manifests01/preparation-manifest.json",
+    "inputs/rank-inputs.json": "receipts/candidate06-terminal-rank-export-manifests01/rank-inputs.json",
+    "inputs/source03-mapping-change.json": "receipts/candidate06-terminal-input-manifests02/mapping-change.json",
+    "inputs/source03-replay-compressed-pins.json": "receipts/candidate06-terminal-input-manifests02/replay-compressed-pins.json",
+    "inputs/source03-selected-inputs.json": "receipts/candidate06-terminal-input-manifests02/selected-inputs.json",
+    "original/cold-density/backend-result.json": "receipts/one-hour-run01/cold-density/backend-result.json",
+    "original/cold-density/request.json": "receipts/one-hour-run01/cold-density/request.json",
+    "original/cold-density/strict-result.json": "receipts/one-hour-run01/cold-density/strict-result.json",
+    "original/cold-density/supervisor.json": "receipts/one-hour-run01/cold-density/supervisor.json",
+    "original/cold-pulses/backend-result.json": "receipts/one-hour-run01/cold-pulses/backend-result.json",
+    "original/cold-pulses/request.json": "receipts/one-hour-run01/cold-pulses/request.json",
+    "original/cold-pulses/strict-result.json": "receipts/one-hour-run01/cold-pulses/strict-result.json",
+    "original/cold-pulses/supervisor.json": "receipts/one-hour-run01/cold-pulses/supervisor.json",
+    "original/density-failure/propagate.execution.json": "receipts/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.execution.json",
+    "original/density-failure/propagate.log": "receipts/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log",
+    "original/density-failure/propagate.xml": "receipts/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.xml",
+    "original/result.json": "receipts/one-hour-run01/result.json",
+    "preserved/selected-source02/controller-exit.txt": "receipts/candidate06-saved-numerical-audits01/selected/controller-exit.txt",
+    "preserved/selected-source02/plan.json": "receipts/candidate06-saved-numerical-audits01/selected/plan.json",
+    "preserved/selected-source02/result.json": "receipts/candidate06-saved-numerical-audits01/selected/result.json",
+    "preserved/selected-source02/supervisor.json": "receipts/candidate06-saved-numerical-audits01/selected/supervisor.json",
+    "preserved/selected-source02/worker.log": "receipts/candidate06-saved-numerical-audits01/selected/worker.log",
+    "publication/previous-freeze-failure.json": "receipts/candidate06-sequence02-publication03/previous-freeze-failure.json",
+    "qualification/corrected/junit.xml": "receipts/candidate07-qualification01/junit.xml",
+    "qualification/corrected/plan.json": "receipts/candidate07-qualification01/plan.json",
+    "qualification/corrected/source-after.txt": "receipts/candidate07-qualification01/source-after.txt",
+    "qualification/corrected/source-before.sha256": "receipts/candidate07-qualification01/source-before.sha256",
+    "qualification/corrected/supervisor.json": "receipts/candidate07-qualification01/supervisor.json",
+    "qualification/corrected/worker.log": "receipts/candidate07-qualification01/worker.log",
+    "qualification/initial/junit.xml": "receipts/candidate06-postsequence-audit-tests01/junit.xml",
+    "qualification/initial/plan.json": "receipts/candidate06-postsequence-audit-tests01/plan.json",
+    "qualification/initial/source-after.txt": "receipts/candidate06-postsequence-audit-tests01/source-after.txt",
+    "qualification/initial/source-before.sha256": "receipts/candidate06-postsequence-audit-tests01/source-before.sha256",
+    "qualification/initial/supervisor.json": "receipts/candidate06-postsequence-audit-tests01/supervisor.json",
+    "qualification/initial/worker.log": "receipts/candidate06-postsequence-audit-tests01/worker.log",
+    "qualification/selected-source03/junit.xml": "receipts/candidate06-selected-audit-tests02/junit.xml",
+    "qualification/selected-source03/plan.json": "receipts/candidate06-selected-audit-tests02/plan.json",
+    "qualification/selected-source03/source-after.txt": "receipts/candidate06-selected-audit-tests02/source-after.txt",
+    "qualification/selected-source03/source-before.sha256": "receipts/candidate06-selected-audit-tests02/source-before.sha256",
+    "qualification/selected-source03/supervisor.json": "receipts/candidate06-selected-audit-tests02/supervisor.json",
+    "qualification/selected-source03/worker.log": "receipts/candidate06-selected-audit-tests02/worker.log",
+    "reporting/density-trial-sequence-reporting-correction01/README.txt": "receipts/density-trial-sequence-reporting-correction01/README.txt",
+    "reporting/density-trial-sequence-reporting-correction01/sequence.py": "receipts/density-trial-sequence-reporting-correction01/sequence.py",
+    "reporting/density-trial-sequence-reporting-correction01/source.sha256": "receipts/density-trial-sequence-reporting-correction01/source.sha256",
+    "reporting/density-trial-sequence-reporting-correction01/test_eleven_stage_contract.py": "receipts/density-trial-sequence-reporting-correction01/test_eleven_stage_contract.py",
+    "reporting/density-trial-sequence-reporting-correction01/test_sequence.py": "receipts/density-trial-sequence-reporting-correction01/test_sequence.py",
+    "reporting/density-trial-sequence-reporting-correction02/README.txt": "receipts/density-trial-sequence-reporting-correction02/README.txt",
+    "reporting/density-trial-sequence-reporting-correction02/sequence.py": "receipts/density-trial-sequence-reporting-correction02/sequence.py",
+    "reporting/density-trial-sequence-reporting-correction02/source.sha256": "receipts/density-trial-sequence-reporting-correction02/source.sha256",
+    "reporting/density-trial-sequence-reporting-correction02/test_eleven_stage_contract.py": "receipts/density-trial-sequence-reporting-correction02/test_eleven_stage_contract.py",
+    "reporting/density-trial-sequence-reporting-correction02/test_sequence.py": "receipts/density-trial-sequence-reporting-correction02/test_sequence.py",
+    "reviews/candidate06-cold02-pulse-read-review01": "receipts/candidate06-cold02-pulse-read-review01/review.json",
+    "reviews/candidate06-saved-audits-read-review01": "receipts/candidate06-saved-audits-read-review01/review.json",
+    "reviews/candidate06-saved-audits-read-review02": "receipts/candidate06-saved-audits-read-review02/review.json",
+    "reviews/candidate06-sequence02-terminal-read-audit01": "receipts/candidate06-sequence02-terminal-read-audit01/review.json",
+    "reviews/candidate06-terminal-input-mapping-review01": "receipts/candidate06-terminal-input-mapping-review01/review.json",
+    "reviews/candidate06-terminal-rank-export-mapping-review01": "receipts/candidate06-terminal-rank-export-mapping-review01/review.json",
+    "selected-source03/README.txt": "receipts/candidate06-sequence02-final-audit-readiness01/source03/README.txt",
+    "selected-source03/SHA256SUMS": "receipts/candidate06-sequence02-final-audit-readiness01/source03/SHA256SUMS",
+    "selected-source03/test_selected_terminal_audit.py": "receipts/candidate06-sequence02-final-audit-readiness01/source03/test_selected_terminal_audit.py",
+    "sequence/launch.json": "receipts/density-trial-sequence02/launch.json",
+    "sequence/plan.json": "receipts/density-trial-sequence02/plan.json",
+    "sequence/result.json": "receipts/density-trial-sequence02/result.json",
+    "sequence/sequence.py": "receipts/density-trial-sequence02/sequence.py"
+  },
+  "status": "failed_density_requires_correction"
+}
