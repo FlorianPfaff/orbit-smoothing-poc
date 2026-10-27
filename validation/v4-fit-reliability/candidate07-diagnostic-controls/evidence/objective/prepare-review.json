@@ -1,0 +1,122 @@
+{
+  "schema": "candidate07-undamped-objective-action-review-v1",
+  "reviewed_utc": "2026-10-27T06:53:16Z",
+  "reviewer": "/root/postboot_audits",
+  "approved": true,
+  "approved_actions": [
+    "prepare"
+  ],
+  "source_ledger_sha256": "cb0ede1217650e60e644beee648502f6be828adef3560591b5f5b44d49dd8432",
+  "plan_sha256": null,
+  "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+  "limits": {
+    "objective_seconds": 900,
+    "preflight_seconds": 1800,
+    "rss_bytes": 8589934592,
+    "cpu": 4,
+    "threads": 1
+  },
+  "local600_terminal": {
+    "classification": "prelaunch_failure",
+    "controller": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay-run01/native-control/controller-result.json",
+      "sha256": "8e8cacf3892c8a6b511fafd5ce4c25e071de24e123d5b14774d28cc365e278a9",
+      "bytes": 2153
+    },
+    "audit": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay01-independent-native-failure-review01/review.json",
+      "sha256": "2faaa379fdecb20a4ad22e8a1b1f300058f43331c96231a98f6ef1928baf1613",
+      "bytes": 11227
+    },
+    "caller_completion": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay-launch01/native-caller-failure01.json",
+      "sha256": "e22a1ece52fef55721f7328d17ccf42219ac6080c823b852a865bc17348d99c6",
+      "bytes": 1185
+    }
+  },
+  "five_fixture_qualification": {
+    "controller": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures02/result.json",
+      "sha256": "ecf9dbaf256974e6080c5b1e1ae8f5a016f3dad8cdeee97a2320131d83b7897f",
+      "bytes": 847
+    },
+    "supervisor": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures02/supervisor.json",
+      "sha256": "e91ad203e181bc99604e34a8030def248d1189bc2350863df40ab7db55fdd7d8",
+      "bytes": 9523
+    },
+    "worker": {
+      "path": "/home/emper/orbit-density04-undamped-probe-fixtures02/fixture-result.json",
+      "sha256": "608203729638496163d5dffec02c49f87cda991bc1e909a1cc4c2830f4622aa5",
+      "bytes": 1950
+    },
+    "plan": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixture-launch02/plan.json",
+      "sha256": "9c7477a68817c9eb246f552534a8ae03d75f5393a52be775264b5c673b2311c2",
+      "bytes": 2437
+    }
+  },
+  "independent_fixture_review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures02-independent-outcome-review01/review.json",
+    "sha256": "ec628ea3b46165712d086c8f212e3fc9854ecd56ad5cdc7c45809a491af6d135",
+    "bytes": 17099
+  },
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixture-launch02/caller-completion01.json",
+      "sha256": "d65ac5cc531cb5a6daa414fcee0c5fc267bd03eee1b54a9475256560490ad863",
+      "bytes": 1179
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-objective-controls01-independent-source-review02/review.json",
+      "sha256": "2773af1a7aaf0a61e47e60ad12317df884795660ed1aa7547a5dbdeb262d5e08",
+      "bytes": 7585
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixture-controls01-independent-source-review02/review.json",
+      "sha256": "e4fbe38ad102130077cf80eb345230b34da28dc37e52be93a66f8e5218f818c2",
+      "bytes": 8703
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-objective-controls01/preparation03/inputs.sha256",
+      "sha256": "cb0ede1217650e60e644beee648502f6be828adef3560591b5f5b44d49dd8432",
+      "bytes": 2000
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures02-independent-outcome-review01/review.json",
+      "sha256": "ec628ea3b46165712d086c8f212e3fc9854ecd56ad5cdc7c45809a491af6d135",
+      "bytes": 17099
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures02-independent-outcome-review01/terminal-observation.txt",
+      "sha256": "5f3abfd5ebd4729cc2cd2025ffdbc0b82892ddeb4f15b6ee5876f4ec68981ea3",
+      "bytes": 408
+    }
+  ],
+  "scope": "Only prepare the fresh exclusive objective plan and namespace inputs from the reviewed source03 after current admission. No preflight, scientific import worker, physical objective evaluation, native execution, optimizer, covariance or release is authorized.",
+  "producer_reference_handling": "Three-field action pins are observed independently. The original controller producer references remain exactly path/sha256 and are compared by the reviewed explicit projection; no producer field was invented or rewritten.",
+  "factual_prerequisites": {
+    "local600": "Actual prelaunch StopIteration failure, caller closed, controller absent; no supervisor/worker existed and no ECHILD certificate is invented.",
+    "fixture02": "Actual5/5 methods passed with no failures/errors/skips/forbidden events; source/runtime before/after and owned ECHILD/empty/no-signal cleanup independently audited.",
+    "fixture_host_mapping_limitation": "Namespace PID2 has no individually recorded host PID/start mapping. Four recorded host identities are absent and actual owned supervisor cleanup certifies the empty child tree."
+  },
+  "conditions": [
+    "Fresh current-host admission, cooperative lock and full original input/runtime verification remain required by prepare.",
+    "The objective output/scratch roots must be absent and the new plan must be created exclusively.",
+    "Preserve every preparation failure; there is no automatic next action or replay restart.",
+    "Any later preflight/evaluate needs its own actual plan-bound current-boot action review. The new preflight must pass before evaluation."
+  ],
+  "preserved_failures": [
+    "Local600 prelaunch failure",
+    "Fixture01 import failure before discovery",
+    "All previous density timeouts and frozen benchmark outcomes"
+  ],
+  "no_actual_objective_plan_yet": true,
+  "preflight_authority": false,
+  "objective_evaluation_authority": false,
+  "native_execution_authority": false,
+  "optimizer_change_authority": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "threshold_change_authority": false
+}

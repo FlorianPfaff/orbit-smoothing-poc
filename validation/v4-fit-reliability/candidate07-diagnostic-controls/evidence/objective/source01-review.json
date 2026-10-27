@@ -1,0 +1,54 @@
+{
+  "schema": "undamped-objective-controls-independent-source-review-v1",
+  "status": "held_for_explicit_fixture_receipt_schema_correction",
+  "approved": false,
+  "approved_actions": [],
+  "reviewer": "/root/postboot_audits",
+  "source_author": "/root/launcher_recovery",
+  "source_ledger": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-objective-controls01/preparation01/inputs.sha256",
+    "sha256": "a6e953384b393ee7fef50063d5cb36db3ae15902567044e8b915bc34cb6115c7",
+    "members": 10,
+    "files_including_ledger": 11,
+    "all_members_rehashed": true,
+    "exact_file_membership_verified": true,
+    "symlinks_present": false
+  },
+  "driver_sha256": "26f67e7f8d536bc8da31cf76506715e172a79488250d3f410d920dbf00c8024c",
+  "reused_entrypoints_rehashed": 7,
+  "blocking_findings": [
+    {
+      "id": "UOC01",
+      "priority": 1,
+      "file": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-objective-controls01/preparation01/objective_control.py",
+      "function": "prerequisites",
+      "problem": "The consumer's pin/verify requires exactly path,sha256,bytes. Its five_fixture_qualification supervisor/worker action pins therefore must have three fields, but the actual frozen fixture producer writes controller.supervisor and controller.fixture_result with exactly path,sha256. Direct equality cannot pass. The subsequent read(verify(c['plan'])) likewise rejects the actual producer's two-field controller.plan reference because the consumer recomputes a three-field pin.",
+      "producer": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixture-controls01/preparation01/fixture_control.py",
+      "producer_sha256": "351326cb0a9d14cd4f209c47b014c7e5c0eb13e04626e91477b46f9dc74072d5",
+      "effect": "No genuine output from the sealed five-fixture controller can satisfy prepare, regardless of fixture success. This is a source-proven integration defect, not an observed execution failure or failed numerical criterion.",
+      "minimal_correction": "Preserve preparation01. In a separate successor, require the exact two-field producer schema and compare its path/hash to separately verified three-field external action pins. Add an explicit actual fixture-plan action pin and verify the producer's two-field plan reference against it. Do not fabricate byte fields in producer receipts, broadly normalize arbitrary mappings or change numerical gates."
+    }
+  ],
+  "other_reviewed_scope": {
+    "original_model": "The driver uses frozen source11 and unchanged exact-request NativeModel.evaluate only; physical mapping, density source and strict eligibility remain owned by that already reviewed wrapper. No optimizer, covariance, warm-start or native build branch is added.",
+    "baseline": "The four actual baseline receipts are verified by their exact manifest and original byte pins; strict_profile validates original nuisance confirmation, and tighter/floor/cost values are linked to the archived point003 binding. No candidate objective floor is asserted.",
+    "prerequisites": "The intended gates require actual closed local600 controller/supervisor plus independent terminal/absence attribution and exact five fixture results. No such future values are supplied in this source. Failed local replay may authorize resource admission only after actual closed cleanup; it is not a scientific pass.",
+    "namespace": "Original cold04 read-only input/runtime projections and forbidden paths remain, with finite explicit new diagnostic sources/inputs. NativeModel's future fit root remains separate from old data. The old nested fit/row-spool bind is removed exactly once and replaced by the new whole-fit ext4 bind after stage mounts; that preserves an empty model root while allowing the unchanged backend to create its spool. The existing containing-mount proof can inspect the future spool path under the mounted fit root without creating it.",
+    "runtime_and_budgets": "Full source/input/runtime1800s preflight is required for this new namespace. The900s evaluation worker rechecks all non-runtime-member files, complete small scientific source and14 native loader dependencies; full Python tree rehash remains in preflight and parent pre/postchecks. NativeModel's original7200s internal setting is unchanged;900s external supervision is the actual diagnostic budget. CPU4, one thread and8GiB remain explicit.",
+    "phase_attribution": "Evaluate requires actual successful new preflight/freeze/controller/supervisor with closing postchecks. All phases are separate and no automatic next phase or retry is introduced. Logical fit-result path and ext4 backing digest are explicitly connected in the parent.",
+    "failure_reporting": "Floor-limited/ineligible wrapper outcomes and native exceptions map to nonzero worker failure; timeout is not convergence. Parent full postchecks remain in finally, and output/scratch/controller directories are exclusive. Raw failed outputs are retained. Cleanup authority remains the existing owned pidfd/subreaper receipts; there is no scientific acceptance from a closed process alone.",
+    "source_only_limit": "No actual plan, namespace, worker, native output, prerequisite result or postcheck was executed or certified. Existing helpers and source inspection cannot substitute for these future observations."
+  },
+  "source01_preservation_required": true,
+  "successor_needed": true,
+  "actual_preparations": 0,
+  "Python_imports": 0,
+  "tests_executed": 0,
+  "native_runs": 0,
+  "source_files_modified": false,
+  "current_runs_modified": false,
+  "thresholds_modified": false,
+  "execution_authority": false,
+  "covariance_authority": false,
+  "release_authority": false
+}

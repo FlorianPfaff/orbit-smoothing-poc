@@ -1,0 +1,250 @@
+{
+  "schema": "candidate07-diagnostic-controls-publication-v1",
+  "created_utc": "2026-10-27T07:15:17Z",
+  "status": "completed_controls_only_objective_preparation_pending_at_recorded_observation",
+  "summary": "The local fixed-profile replay failed before native dispatch; the first fixture job failed before test discovery; the corrected fixture job passed exactly five helper/dispatch tests. No physical objective evaluation or factor recovery is reported here.",
+  "authority": {
+    "scientific_acceptance": false,
+    "objective_correctness": false,
+    "nuisance_convergence": false,
+    "covariance": false,
+    "release": false,
+    "accuracy_superiority": false,
+    "speedup": false
+  },
+  "changes_to_models_priors_weights_thresholds_defaults_or_frozen_protocols": false,
+  "observed_outcomes": [
+    {
+      "id": "local600",
+      "status": "prelaunch_failure",
+      "scientific_worker_limit_seconds": 600,
+      "scientific_worker_started": false,
+      "supervised_worker_dispatched": false,
+      "native_dispatched": false,
+      "supervisor_receipt": null,
+      "cleanup_certificate": null,
+      "error": "StopIteration()",
+      "controller_elapsed_seconds": 1045.581538888,
+      "timing_scope": "Parent preparation/identity checks and failure handling; no native runtime or numerical timeout.",
+      "cause": "The inherited namespace helper selected a cold-density job from jobs=[], raising StopIteration before a command or supervisor was created.",
+      "source_posthash_verified": true,
+      "terminal_boundary_verified": true,
+      "known_controller_absence_verified": true,
+      "review": "evidence/local600/independent-review.json",
+      "result": "evidence/local600/controller-result.json",
+      "restart_authorized": false,
+      "initial_full_factor_recovered": false
+    },
+    {
+      "id": "fixture01",
+      "status": "failed_before_discovery",
+      "expected_methods": 5,
+      "discovered_methods": 0,
+      "executed_methods": 0,
+      "passed_methods": 0,
+      "error": "ImportError('libz.so.1: cannot open shared object file: No such file or directory')",
+      "native_gnss_runs": 0,
+      "actual_execution": {
+        "status": "failed",
+        "worker_error": "ImportError('libz.so.1: cannot open shared object file: No such file or directory')",
+        "controller_error": "ValueError('Unclean or failed worker')",
+        "supervisor_status": "failed",
+        "supervisor_returncode": 1,
+        "caller_session": 90504,
+        "caller_exit_code": 1,
+        "final_tool_chunk": "a3068d",
+        "expected_methods": [
+          "test_probe.ProbeBindingTests.test_reference_subtraction_density_baseline_and_velocity_conversion",
+          "test_probe.ProbeBindingTests.test_full_design_is_used_and_nonfinite_or_wrong_shape_is_rejected",
+          "test_probe.ProbeBindingTests.test_matrix_envelope_rejects_missing_extra_and_nonfinite_values",
+          "test_probe.ProbeBindingTests.test_strict_gate_requires_two_updates_full_confirmation_and_no_floor",
+          "test_probe.ProbeBindingTests.test_one_ordinary_evaluation_has_no_optimizer_or_covariance_call"
+        ],
+        "discovered_methods": 0,
+        "executed_methods": 0,
+        "passed_methods": 0,
+        "method_counts_basis": "Import failed during exec_module before unittest discovery; no discovery.json, unittest.log, tests_run, started_ids or success_ids were produced. The five expected IDs are a plan, not execution evidence.",
+        "native_gnss_runs": 0,
+        "forbidden_events": [],
+        "worker_elapsed_seconds": 1.0536157460010145,
+        "supervisor_elapsed_seconds": 2.704361998999957,
+        "controller_elapsed_seconds": 86.60313024100469,
+        "peak_process_tree_rss_bytes": 28909568,
+        "worker_limit_seconds": 300,
+        "rss_limit_bytes": 8589934592,
+        "cpu": 4,
+        "threads": 1
+      },
+      "owned_cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "review": "evidence/fixture01/independent-review.json",
+      "result": "evidence/fixture01/worker-result.json",
+      "preserved": true
+    },
+    {
+      "id": "fixture02",
+      "status": "passed_exact_five",
+      "expected_methods": 5,
+      "discovered_methods": 5,
+      "executed_methods": 5,
+      "passed_methods": 5,
+      "actual_tests": {
+        "expected_ids": [
+          "test_probe.ProbeBindingTests.test_reference_subtraction_density_baseline_and_velocity_conversion",
+          "test_probe.ProbeBindingTests.test_full_design_is_used_and_nonfinite_or_wrong_shape_is_rejected",
+          "test_probe.ProbeBindingTests.test_matrix_envelope_rejects_missing_extra_and_nonfinite_values",
+          "test_probe.ProbeBindingTests.test_strict_gate_requires_two_updates_full_confirmation_and_no_floor",
+          "test_probe.ProbeBindingTests.test_one_ordinary_evaluation_has_no_optimizer_or_covariance_call"
+        ],
+        "started_ids": [
+          "test_probe.ProbeBindingTests.test_full_design_is_used_and_nonfinite_or_wrong_shape_is_rejected",
+          "test_probe.ProbeBindingTests.test_matrix_envelope_rejects_missing_extra_and_nonfinite_values",
+          "test_probe.ProbeBindingTests.test_one_ordinary_evaluation_has_no_optimizer_or_covariance_call",
+          "test_probe.ProbeBindingTests.test_reference_subtraction_density_baseline_and_velocity_conversion",
+          "test_probe.ProbeBindingTests.test_strict_gate_requires_two_updates_full_confirmation_and_no_floor"
+        ],
+        "success_ids": [
+          "test_probe.ProbeBindingTests.test_full_design_is_used_and_nonfinite_or_wrong_shape_is_rejected",
+          "test_probe.ProbeBindingTests.test_matrix_envelope_rejects_missing_extra_and_nonfinite_values",
+          "test_probe.ProbeBindingTests.test_one_ordinary_evaluation_has_no_optimizer_or_covariance_call",
+          "test_probe.ProbeBindingTests.test_reference_subtraction_density_baseline_and_velocity_conversion",
+          "test_probe.ProbeBindingTests.test_strict_gate_requires_two_updates_full_confirmation_and_no_floor"
+        ],
+        "discovered_methods": 5,
+        "tests_run": 5,
+        "failures": [],
+        "errors": [],
+        "skips": [],
+        "expected_failures": [],
+        "unexpected_successes": [],
+        "forbidden_events": [],
+        "unittest_reported_seconds": 0.001,
+        "scope": "Pure mapping, finite/envelope input rejection, strict-profile eligibility and one-call dispatch with a fake Model. These tests do not call the real NativeModel objective evaluator, native GNSS estimator, propagation, optimizer or covariance path."
+      },
+      "actual_execution": {
+        "controller_status": "passed",
+        "worker_status": "passed",
+        "supervisor_status": "complete",
+        "supervisor_returncode": 0,
+        "caller_session": 76299,
+        "caller_exit_code": 0,
+        "final_tool_chunk": "c29a75",
+        "native_gnss_runs": 0,
+        "worker_elapsed_seconds": 1.40299627299828,
+        "supervisor_elapsed_seconds": 2.3925010669991025,
+        "controller_elapsed_seconds": 91.79369741099799,
+        "peak_process_tree_rss_bytes": 29499392,
+        "limits": {
+          "cpu": 4,
+          "max_process_tree_rss_bytes": 8589934592,
+          "min_free_disk_bytes": 1073741824,
+          "timeout_seconds": 300
+        },
+        "threads": 1,
+        "timing_scope": "Unittest timing, worker initialization/checking time, owned supervision and parent verification are reported separately; no numerical or hardware-performance claim."
+      },
+      "owned_cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "host_identity_limitation": "Private namespace pid2 has no separately recorded host PID/start mapping. It is not equated to hostPID2. The authenticated owned supervisor reports kernel_ECHILD and no remaining tree.",
+      "review": "evidence/fixture02/independent-review.json",
+      "result": "evidence/fixture02/worker-result.json",
+      "scope": "Five pure binding, rejection, eligibility and stub-dispatch fixtures. The real NativeModel, propagation, GNSS optimizer and covariance path were not executed."
+    }
+  ],
+  "source_corrections": [
+    {
+      "id": "fixture_loader_projection",
+      "source_before": "source/fixture01/inputs.sha256",
+      "source_after": "source/fixture02/inputs.sha256",
+      "change": "Preserve the pinned libz SONAME and resolved filename at the existing logical and canonical runtime prefixes; include finite existing bz2/lzma stdlib dependencies. No broad mount, installation or host fallback.",
+      "evidence": "source/fixture02/loader/diagnosis.json",
+      "diff": "source/fixture02/loader/controller-correction.diff",
+      "tests_models_limits_unchanged": true,
+      "actual_scope_verified": "corrected five-fixture qualification only"
+    },
+    {
+      "id": "objective_receipt_schema",
+      "preserved_rejected_source": "source/objective01/inputs.sha256",
+      "review": "evidence/objective/source01-review.json",
+      "corrected_source": "source/objective02/inputs.sha256",
+      "change": "Compare exact two-field fixture producer references with separately verified three-field observed action pins, and bind the actual prelaunch local600 failure without inventing supervisor/cleanup evidence.",
+      "diff": "source/objective03/provenance/source02-correction.diff",
+      "execution_of_sources01_02": false
+    },
+    {
+      "id": "objective_fixture_successor_binding",
+      "source": "source/objective03/inputs.sha256",
+      "change": "Rebind only to corrected fixture02 source/output identities; failed fixture01 is never accepted as a passed prerequisite.",
+      "diff": "source/objective03/provenance/source03-fixture-binding.diff",
+      "source_review": "evidence/objective/source03-review.json",
+      "scientific_code_changed": false
+    }
+  ],
+  "pending_objective": {
+    "observed_utc": "2026-10-27T06:58:46Z",
+    "status_at_observation": "live_prepare_only",
+    "status_is_timestamped_snapshot": true,
+    "controller_pid_at_observation": 115320,
+    "actual_plan_sha256_at_observation": null,
+    "preflight_launched_at_observation": false,
+    "physical_objective_evaluations_at_observation": 0,
+    "approved_actions": [
+      "prepare"
+    ],
+    "prepare_review": "evidence/objective/prepare-review.json",
+    "snapshot": "evidence/objective/recovery68.json",
+    "planned_scope": "One exact archived proposal000 physical state, ordinary tighter=False closure, strict nuisance refit and covariance=False. No optimizer, lambda search, retry or new baseline run.",
+    "remaining_before_evaluation": "Actual prepared plan and separate full namespace/runtime preflight must complete and receive independent action review; this report grants none of those actions.",
+    "planned_resource_limits": {
+      "preflight_worker_seconds": 1800,
+      "objective_worker_seconds": 900,
+      "cpu": 4,
+      "threads": 1,
+      "process_tree_rss_bytes": 8589934592
+    },
+    "timing_scope": "Future worker bounds include worker startup and finite consumed-byte checks. Full runtime/namespace preflight is separate, and parent identity verification has separate elapsed time. None is evidence of completed physical evaluation.",
+    "comparison_limit": "Archived baseline used tighter=True; the proposed single candidate evaluation uses the ordinary tighter=False setting. Its inherited floor is not a fresh candidate-floor measurement.",
+    "full_initial_factor_recovery": false,
+    "completed_physical_evaluation": false
+  },
+  "prior_numerical_evidence": {
+    "status": "eleven_preserved_correctness_stages_passed",
+    "preserved_correctness_stage_count": 11,
+    "helper_tests_relationship": "The five helper/dispatch tests supplement, and do not replace or rerun, the eleven already published numerical correctness stages.",
+    "cold_fit_scope": "The previously published completed pulse cold fit and timed-out density cold fit remain unchanged. These diagnostic controls do not establish completion of the density cold fit.",
+    "prior_sequence_commit": "a36da221f2bebd9dc223c1e8512925ab6e5fc532",
+    "prior_sequence_url": "https://github.com/FlorianPfaff/orbit-smoothing-poc/tree/a36da221f2bebd9dc223c1e8512925ab6e5fc532/validation/v4-fit-reliability/candidate07-sequence03",
+    "prior_density_commit": "503cc55df5b39d405b1c6ba2bfc05360a001b73a",
+    "prior_density_url": "https://github.com/FlorianPfaff/orbit-smoothing-poc/tree/503cc55df5b39d405b1c6ba2bfc05360a001b73a/validation/v4-fit-reliability/candidate07-density04-timeout",
+    "prior_recovery_commit": "9749a74709d081f86465ffb70a0c12395de92a14",
+    "prior_recovery_report": "evidence/prior/recovery-published-report.json",
+    "current_source_or_run_modified": false
+  },
+  "limitations": [
+    "There is no new GNSS estimate, nonlinear objective result, full factor, covariance, accuracy result or release-readiness claim in this packet.",
+    "The local600 failure was prelaunch; a missing supervisor is not a cleanup certificate and cannot be represented as a numerical timeout.",
+    "Fixture01 has zero discovered/executed methods; five expected IDs are not five failed or passed executions.",
+    "Fixture02 proves only the five declared pure helper/dispatch behaviors in the admitted fixture environment; it does not exercise the real native objective.",
+    "Cooperative admission and affinity do not imply exclusive physical CPU reservation. Control/worker timings are descriptive receipts, not a performance comparison.",
+    "Historical resource-control deviations and numerical limitations remain in the prior published reports; this packet does not remove or reinterpret them.",
+    "The original missing initial full factor remains missing; a future separately computed factor cannot replace its historical provenance.",
+    "Source01 and source02 controls, fixture01 failure and all previous numerical failures remain preserved. Current preparation is described only at the timestamp in record68.",
+    "Only selected small source and evidence files are packaged. Original ledgers describe larger external bundles; runtime binaries, numerical data, raw row spools and large runtime inventories remain outside Git. Paths inside byte-exact historical JSON refer to original archives, not relocated packet contents."
+  ],
+  "provenance": {
+    "manifest": "inputs-manifest.json",
+    "copied_input_count": 75,
+    "assembly_method": "Shell/jq and ordinary file copies only; no Python, tests, imports, compiler, numerical work, renderer, Git or publication command used.",
+    "independent_packet_review_pending": true
+  }
+}

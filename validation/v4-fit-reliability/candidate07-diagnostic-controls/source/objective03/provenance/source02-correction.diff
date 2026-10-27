@@ -1,0 +1,46 @@
+--- ../preparation01/objective_control.py	2026-10-27 07:22:07.724703800 +0100
++++ objective_control.py	2026-10-27 07:31:21.090400200 +0100
+@@ -65,20 +65,36 @@
+  need(sha(h.c.SOURCE/'src/orbit_poc/segmented/supervisor.py')==SUPERVISOR_SHA,'supervisor changed')
+ def clean(h,s):
+  g,_=h.helpers();return g.cleanup_verified(s) and s['cleanup']['empty_tree_certificate']=='kernel_ECHILD' and s['cleanup']['remaining']==[]
++def fixture_reference(producer,observed):
++ # The sealed fixture producer records exactly two fields. Bytes belong only
++ # to the independently observed action pin; never manufacture producer fields.
++ need(set(producer)=={'path','sha256'},'unknown fixture reference schema')
++ verify(observed)
++ need(producer=={k:observed[k] for k in ('path','sha256')},'fixture reference differs from observed pin')
+ def prerequisites(h,r):
+- # Actual terminal attribution may be success or failure; neither is invented.
+- x=r['local600_terminal'];c=read(verify(x['controller']));s=read(verify(x['supervisor']));a=read(verify(x['audit']))
+- need(x['controller']['path']==str(REPLAY/'native-control/controller-result.json') and x['supervisor']['path']==str(REPLAY/'native-control/supervisor.json'),'wrong replay attempt')
+- need(c['action']=='native' and c['plan_sha256']==REPLAY_PLAN_SHA and c['source_ledger_sha256']=='e781713a5c2e3556cfac4d9bb7682656527411a66a9143ffa0a01f5703f9b092' and c['status'] in ('failed','native_completed_pending_independent_factor_audit') and c['source_input_runtime_posthash_verified'] is True and c['cleanup_verified'] is True and c['supervisor']==x['supervisor'] and clean(h,s),'local600 has no clean closed attribution')
+- need(a['schema']=='undamped-probe-local600-terminal-review-v1' and a['controller']==x['controller'] and a['supervisor']==x['supervisor'] and a['terminal_attribution_verified'] is True and a['owned_processes_absent'] is True,'independent local600 terminal/absence audit required')
++ # This exact attempt failed before any command or supervisor existed. Do not
++ # require or invent a worker-cleanup receipt for a never-dispatched worker.
++ x=r['local600_terminal']
++ need(set(x)=={'classification','controller','audit','caller_completion'} and x['classification']=='prelaunch_failure','only the actual prelaunch failure is in scope')
++ c=read(verify(x['controller']));a=read(verify(x['audit']));verify(x['caller_completion'])
++ need(x['audit']['path']==str(BASE/'candidate07-density04-local-fixed-replay01-independent-native-failure-review01/review.json') and x['audit']['sha256']=='2faaa379fdecb20a4ad22e8a1b1f300058f43331c96231a98f6ef1928baf1613','wrong actual prelaunch audit')
++ need(x['controller']['path']==str(REPLAY/'native-control/controller-result.json') and x['controller']['sha256']=='8e8cacf3892c8a6b511fafd5ce4c25e071de24e123d5b14774d28cc365e278a9','wrong replay attempt')
++ need(c['action']=='native' and c['plan_sha256']==REPLAY_PLAN_SHA and c['source_ledger_sha256']=='e781713a5c2e3556cfac4d9bb7682656527411a66a9143ffa0a01f5703f9b092' and c['status']=='failed' and c['error']=='StopIteration()' and c['source_input_runtime_posthash_verified'] is True and c['all_output_files']==[] and not any(k in c for k in ('supervisor','worker_returncode','cleanup_verified')),'prelaunch controller facts differ')
++ need(a['schema']=='candidate07-local-fixed-profile-prelaunch-failure-independent-review-v1' and a['status']=='prelaunch_failure_verified' and a['controller_result']==x['controller'] and a['caller_completion']==x['caller_completion'] and a['source_ledger_sha256']==c['source_ledger_sha256'] and a['plan_sha256']==REPLAY_PLAN_SHA and a['native_dispatched'] is False and a['supervised_worker_dispatched'] is False and a['same_boot_controller_absence_verified'] is True,'actual independent prelaunch/absence audit required')
++ need(a['terminal_boundary_verified'] is True and a['supervisor_receipt'] is None and a['cleanup_certificate'] is None,'prelaunch evidence misclassified as worker cleanup')
++ verify(a['process_identity']['independent_observation'])
++ absent=[REPLAY/'native-control'/name for name in ('command.json','supervisor.json','supervisor.plan.json','supervisor.log','worker.log')]
++ absent.append(REPLAY/'cold-density/native-exec-request.json')
++ need(all(not os.path.lexists(path) for path in absent) and not any(p.is_file() or p.is_symlink() for p in (REPLAY/'cold-density/arms/A-original/output').rglob('*')),'preserved prelaunch failure acquired native artifacts')
+  need(sha(REPLAY/'plan.json')==REPLAY_PLAN_SHA,'replay plan changed')
+  x=r['five_fixture_qualification'];c=read(verify(x['controller']));s=read(verify(x['supervisor']));f=read(verify(x['worker']))
+  need(x['controller']['path']==str(FIXTURES/'result.json') and x['supervisor']['path']==str(FIXTURES/'supervisor.json') and x['worker']['path']=='/home/emper/orbit-density04-undamped-probe-fixtures01/fixture-result.json','wrong fixture attempt')
+  ledger(FIXTURE_SOURCE,'inputs.sha256',FIXTURE_SHA)
+- need(c['status']=='passed' and c['source_runtime_unchanged'] is True and c['cleanup_verified'] is True and c['supervisor']==x['supervisor'] and c['fixture_result']==x['worker'] and s['status']=='complete' and s['returncode']==0 and clean(h,s),'fixture control incomplete')
++ fixture_reference(c['supervisor'],x['supervisor']);fixture_reference(c['fixture_result'],x['worker']);fixture_reference(c['plan'],x['plan'])
++ need(c['status']=='passed' and c['source_runtime_unchanged'] is True and c['cleanup_verified'] is True and s['status']=='complete' and s['returncode']==0 and clean(h,s),'fixture control incomplete')
+  ids=(SOURCE/'expected-test-ids.txt').read_text().splitlines()
+  need(f['status']=='passed' and f['expected_ids']==ids and sorted(f['started_ids'])==sorted(ids) and sorted(f['success_ids'])==sorted(ids) and f['tests_run']==5 and all(f[k]==[] for k in ('failures','errors','skips','expected_failures','unexpected_successes','forbidden_events')) and f['source_control_bytes_unchanged'] is True,'exact five fixtures not passed')
+- p=read(verify(c['plan']));need(p['control_ledger']['sha256']==FIXTURE_SHA and p['probe_ledger']['sha256']==SOURCE_SHA,'fixture source attribution differs')
++ p=read(verify(x['plan']));need(p['control_ledger']['sha256']==FIXTURE_SHA and p['probe_ledger']['sha256']==SOURCE_SHA,'fixture source attribution differs')
+  return {'local600_terminal':r['local600_terminal'],'five_fixture_qualification':r['five_fixture_qualification']}
+ def authority(h,path,digest,action,source_sha,plan_sha=None):
+  need(sha(path)==digest,'action review changed');r=read(path)

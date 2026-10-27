@@ -1,0 +1,88 @@
+{
+  "schema": "undamped-probe-fixture-execution-source-review-v1",
+  "status": "source_ready_for_exact_five_fixture_qualification_only",
+  "approved": true,
+  "approved_actions": [
+    "qualify"
+  ],
+  "reviewer": "/root/postboot_audits",
+  "source_author": "/root/launcher_recovery",
+  "probe_ledger": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-objective-probe01/preparation01/inputs.sha256",
+    "sha256": "754967b72939e921f0eafcb98766c1daa514bf8ae1e512c49dbe9f77518a3cef"
+  },
+  "control_ledger": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixture-controls01/preparation02/inputs.sha256",
+    "sha256": "1c68b261682141c2e746c6384b231168e8a0c3388692200549ed110170d157f4"
+  },
+  "source_verification": {
+    "control_members": 35,
+    "control_files_including_ledger": 36,
+    "all_control_members_rehashed": true,
+    "exact_control_membership_verified": true,
+    "control_symlinks_present": false,
+    "probe_members": 11,
+    "all_probe_members_rehashed": true,
+    "probe_test_bodies_unchanged": true,
+    "exact_five_ids_match_probe_source": true,
+    "controller_sha256": "c68cfd13f348244b2e3b2074e8a5ade0a3443f0cea29ad37dd9ae1ef4500d2b6",
+    "worker_sha256": "d3e9712644086907c7be8bfcdf1a14666fdfd8027f26b50e1a6dc91d0cc2d6bd",
+    "launcher_sha256": "e9a50b26d977eb2785b035165779e1364f70d79e8b9fea9bd202872c1f4bffeb",
+    "source_review_sha256": "70881b6117b8a514e7718aa5abc1a460bf92f9e3428a0febe2b9fd843d86e01c",
+    "reused_admission_sha256": "521a61578ff4fb713acf0fff0f7278ced529121f8dc5b7db5e184f485fcbcb6a",
+    "reused_supervisor_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "reused_python_envelope_sha256": "4caf9479c010fe4eddd5f10f027cbec04e849c702129c39746ca18fc1926709d",
+    "admission_supervisor_python_envelope_byte_identical_to_predecessor": true,
+    "extra_stdlib_manifest_sha256": "5f5e1565cf9f67dbe7e1f6e215bf49175b56cba3e5bfc11edfd98e2fd9bb8969",
+    "all_seven_static_elf_identity_pins_rehashed": true,
+    "control_functional_delta": "New output/scratch02; finite logical-prefix SONAME and resolved projections for already pinned base libraries; two exact pinned existing bz2/lzma dependency files. Worker differs only in scratch root. All original five assertions, source11, admission, supervisor, Python envelope, limits and guard are unchanged."
+  },
+  "findings": [],
+  "reviewed_behavior": {
+    "scope": "Only the existing five pure binding/eligibility/dispatch methods. No evaluate_bound_probe invocation, physical evaluation, native GNSS executable, compiler, orbital dataset or numerical solve is included.",
+    "source_and_plan_binding": "Prepare requires this exact external qualify-only review, both source ledgers and exact five IDs, then exclusively creates a plan outside source/output/scratch. Run requires its exact supplied plan hash and rechecks review, sources, fixed limits/environment/output/scratch/Python and IDs. No actual plan exists or is attributed by this source review.",
+    "worker_projection": "A finite bwrap namespace mounts only probe/control sources, the actual plan, pinned interpreter/runtime paths and base stdlib read-only; site-packages are hidden. Only new scratch and ephemeral proc/dev/tmp are writable. Compiler/header/spec mounts and compiler environment from the predecessor are removed. Archive paths named in source provenance are not mounted as archive inputs.",
+    "startup_and_imports": "Controller and worker use -I -S -B and a fresh pycache prefix. Worker checks exact environment, CWD and CPU4, hashes source/control bytes before and after, and blocks subprocess/exec/spawn/fork/FFI/signal events plus NumPy/SciPy/psutil/orbit_poc imports after bootstrap. Fixtures import only the explicitly pinned source module and stdlib; their fake model exercises dispatch without entering the scientific evaluator.",
+    "trusted_supervisor_runtime": "Outside the worker, the existing supervisor imports psutil from the finite pinned site directory and launches its dedicated helper with unchanged -s semantics. The exact psutil and _distutils_hack trees, distutils-precedence.pth startup member, interpreter/stdlib/dependency identities, startup absences and alias targets are checked by the saved runtime envelope before and after. The supervisor is not claimed to share the restricted worker import policy.",
+    "admission_and_limits": "Unchanged current-host process/memory/affinity admission, safe owned cooperative lock, CPU4 affinity, one-thread environment,300-second owned worker,8GiB process-tree RSS and1GiB free-disk threshold. Current unrelated work is rejected, not terminated. Cooperative admission is not exclusive physical CPU reservation. Parent verification time is separately reported, not silently part of a native performance claim.",
+    "exact_test_attribution": "Exact discovery, started and success IDs; five actual tests; no failures/errors/skips/expected failures/unexpected successes/forbidden events. The unchanged five methods are helper/dispatch tests, not a native integration or scientific gate pass.",
+    "failure_and_cleanup": "Exclusive scratch/output/log/result paths retain all failures and provide no retry. Original pidfd/subreaper supervisor authenticates owned PID/start/boot and only its descendants; source requires complete0, verified ECHILD empty tree and no cleanup signals/hard kill. Absent supervisor receipt cannot become cleanup. Source/runtime postchecks run in finally after supervised failures where the before snapshot exists, and failed postchecks make the parent result failed. Initial precondition failures can precede structured worker output and remain failures in outer logs/receipts.",
+    "evidence_limit": "This is source/static-ELF verification, not an executed loader probe or successful runtime qualification. The actual predecessor fixture01 failed during import before any tests, so no pass is inherited. Runtime bytes/membership/aliases and namespace commands plus observed worker interpreter context are checked; this is not a loaded-module/shared-library map or TRACEEXEC proof.",
+    "loader_correction": "The actual prior import failed because the logical stdlib extension RPATH required libz.so.1, but the finite namespace projected only the versioned logical filename. Both canonical and logical SONAME/resolved spellings now map to the same pinned read-only files. Existing zlib and added bz2/lzma NEEDED/RPATH records close through already pinned libc/libpthread; _hashlib uses already pinned libcrypto. Extra files and aliases are verified before and after. There is no directory-wide library mount, install, LD_LIBRARY_PATH fallback, changed Python bytes or process/FFI allowance."
+  },
+  "conditions_before_any_actual_qualification": [
+    "The earlier local replay is independently recorded as a prelaunch failure; require fresh current-host admission, not a fabricated supervisor or cleanup receipt.",
+    "Root selects these exact five fixtures and creates a fresh external plan; record and verify its actual hash before run.",
+    "Actual full source/runtime before/after verification, five exact successful methods and owned supervisor cleanup must pass; this source review does not pre-certify those observations.",
+    "Preserve and independently audit every actual failure or timeout; do not substitute later output into fixture01."
+  ],
+  "prohibited_authority": {
+    "objective_probe_execution": false,
+    "native_execution": false,
+    "optimizer_change": false,
+    "covariance": false,
+    "release": false
+  },
+  "prepared_methods": 5,
+  "actual_tests_executed_during_review": 0,
+  "Python_imports_performed": 0,
+  "runtime_probe_executed": false,
+  "compiler_runs": 0,
+  "native_runs": 0,
+  "plan_created_during_review": false,
+  "source_files_modified": false,
+  "active_runs_modified": false,
+  "thresholds_modified": false,
+  "predecessor_failure": {
+    "controls_ledger_sha256": "96a3b683a5c1d90cfa10d35818f8718a0388933bf57159a8f82960cf1277c660",
+    "worker_result_sha256": "64e7ddfe380b314a768a9f6536e4bee07a5b2806430722fbb3f073835407c96d",
+    "controller_result_sha256": "b90b6918df85e5ecdb4d7e3c2dd089d73d13107a02ecc1c315003c57515bd2ab",
+    "supervisor_sha256": "96b767c6555fcfd04f912788f7b3f8d392f6f7d20aec910a8d3f19bb293c4104",
+    "measured_failure": "ImportError: libz.so.1 before test discovery",
+    "actual_tests_executed": 0,
+    "preserved": true
+  },
+  "review_date_utc": "2026-10-27",
+  "ldd_or_library_execution_performed": false,
+  "execution_plan_authority": "Only reviewed fixture preparation and actual qualification with current admission; no objective action or native launch is granted."
+}
