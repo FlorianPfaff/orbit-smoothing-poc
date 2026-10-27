@@ -1,0 +1,93 @@
+{
+  "schema": "candidate07-density04-trial2-interim-read-review-v1",
+  "status": "interim_rejection_verified_not_a_terminal_fit_audit",
+  "snapshot_window_utc": {
+    "start": "2026-10-26T23:58:13.526169760Z",
+    "end": "2026-10-26T23:58:13.887906297Z"
+  },
+  "live_history_scope": "A byte-stable copy bracketed by equal before/after SHA256 readings. It is an interim snapshot, not a final receipt or claim that the live history will remain unchanged.",
+  "snapshot_sha256": "123bc65fd0b24004efd315a6b3bdb88882c84ff08f55f90417f7b1e829a1b540",
+  "snapshot_status": "running",
+  "accepted_iterations": 0,
+  "completed_trial_records": 2,
+  "trial_evaluations": 2,
+  "trial2": {
+    "reason": "numerical_trial_closure",
+    "accepted": false,
+    "actual_reduction": null,
+    "gain_ratio": null,
+    "damping": 0.002,
+    "evidence": {
+      "closure_iteration": 3,
+      "column": 0,
+      "duration_seconds": 3595.0,
+      "failed_state_accepted": false,
+      "failure_kind": "wide_returned_binary64_residual_exhaustion",
+      "iterations": 120,
+      "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "native_thresholds_unchanged": true,
+      "numerical_cause": "not determined by terminal residual receipt",
+      "preceding_closure_finite": true,
+      "propagation_config_sha256": "8206229f86b80ed7ce0293de56ee3b2a23b6dd96a869e5ed4e86f4dea2c21881",
+      "propagation_log": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-005-trial-002/closure-03/propagate.log",
+        "role": "failed_numerical_closure_log",
+        "sha256": "10ee997833653019f3efa1a8da2405e461ed6fbebcc380bb6fcabb2916005388"
+      },
+      "recoverable_only_during_trial": true,
+      "reference_orbit": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-005-trial-002/closure-02/orbit.dat",
+      "reference_orbit_sha256": "080510d39caf9a59c7711274d67323ca170eadef0f0455ad2c50241feb272794",
+      "relative_residual": 0.000010644281392730035,
+      "samples": 720,
+      "schema": "orbit-poc-numerical-trial-closure-v1",
+      "solve_role": "physical_correction",
+      "terminal_native_error": "wide tangent returned double state did not meet true residual tolerance: relative_residual=1.0644281392730035e-05, tolerance=2e-12, iterations=120, solve_role=physical_correction, column=0, duration_seconds=3595",
+      "tolerance": 2E-12
+    }
+  },
+  "comparison_to_archived_failure": {
+    "original_log_sha256": "36464f2daefae4f2d76f76e7d61856254ca1db9632a31d164cc58f8ea00953f4",
+    "original_execution_sha256": "b59f42399f264033c581a7888a57311451fb8ad22c72a89db31f62c1e82e9658",
+    "current_log_sha256": "10ee997833653019f3efa1a8da2405e461ed6fbebcc380bb6fcabb2916005388",
+    "current_execution_sha256": "d20c2934b7ad0ec355db196e551eed74493eee6f433cf442da9f6e6ce67b110f",
+    "current_failure_receipt_sha256": "cd5789edb388f1ad3c9e0134febd22c47b2d24f300f9776347a4d7d976de65e4",
+    "exact_terminal_error_matches_after_ANSI_removal": true,
+    "same_native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "both_native_returncodes": 1,
+    "both_timed_out": false,
+    "relative_residual": 0.000010644281392730035,
+    "tolerance": 2E-12,
+    "iterations": 120,
+    "solve_role": "physical_correction",
+    "column": 0,
+    "duration_seconds": 3595,
+    "original_outcome": "The candidate06 native failure escaped as a terminal error before a completed trial2 history row; that failure remains preserved.",
+    "current_outcome": "The same terminal numerical failure is now recorded as numerical_trial_closure and rejected. No actual reduction or gain ratio is fabricated."
+  },
+  "source_check": {
+    "source_snapshot_matches_current_plan": true,
+    "backend_sha256": "c3687ca9df0f45c77bc0141c1a006859a97065e7adce894c1711ac70dd1f5249",
+    "optimizer_sha256": "3ff42ad4271926087c1c9ac052d825148e9367e2fe859e390e44a515e681e955",
+    "both_files_match_pinned_source_snapshot": true,
+    "backend_scope": "The exact binary/profile/failed-execution signature and unchanged 2e-12 threshold are required. The native residual remains a failure.",
+    "optimizer_scope": "The typed exception is caught inside trial evaluation; candidate_point becomes None, accepted=False and install(candidate_point) is guarded by accepted. Rejection updates damping and writes the history record."
+  },
+  "continuation_evidence": {
+    "history_status": "running",
+    "next_point_directory_observed": "point-006-trial-003",
+    "interpretation": "Consistent with continuing optimization beyond the rejected second trial. No final convergence or future success is inferred."
+  },
+  "limitations": [
+    "The exact terminal signature matches the original failure; the terminal residual does not determine its numerical root cause.",
+    "No in-memory initial-state, nuisance, thermal-history or force-cache rollback snapshot was inspected. Complete transactional rollback is not independently established by these records/source checks.",
+    "No native propagation, objective, tolerance, covariance or solver calculation was rerun.",
+    "This is not a terminal fit validation, cleanup certificate or final history receipt."
+  ],
+  "threshold_changes": false,
+  "failed_trial_state_accepted": false,
+  "final_convergence_established": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "frozen_protocols_unchanged": true,
+  "review_method": "Read-only shell, hashes, JSON and pinned source inspection; no Python imports/tests/native execution or rendering."
+}
