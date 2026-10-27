@@ -1,0 +1,549 @@
+{
+  "schema": "candidate07-density04-terminal-outcome-review-v1",
+  "status": "timeout_verified_with_owned_cleanup_and_completed_closing_checks",
+  "reviewer": "/root/interruption_review",
+  "reviewed_at_utc": "2026-10-27T01:38:27Z",
+  "independence": {
+    "reviewer_did_not_launch_density04": true,
+    "reviewer_authored_density_recovery_controls04": true,
+    "independent_of_execution": true,
+    "fresh_independent_control_source_review": false,
+    "scope": "Read-only actual outcome, process ownership and terminal-boundary audit. Existing independent source/plan/launch reviews remain separate; authoring recovery controls is explicitly disclosed."
+  },
+  "review_method": "Shell/jq/source/stat/hash inspection only; no Python imports, tests, native execution, numerical reruns, rendering, restarts or workload signals.",
+  "density_freeze_sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+  "terminal": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/detached-result.json",
+    "sha256": "b308b1e2c3a4635e6627e5776612ae46b630f6fe39ae5aba5b5a9dc76434a13b",
+    "bytes": 467
+  },
+  "supervisor": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.json",
+    "sha256": "6084ce8423986a7be712e848a4b73a555bbe56e814cbb01aecd34713004ad9e1",
+    "bytes": 147822
+  },
+  "aggregate": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/result.json",
+    "sha256": "92f7a72c0a99368c91ffc04b3e8107982de49f56cb5542c370a9b0520c5226b8",
+    "bytes": 668
+  },
+  "plan": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/plan.json",
+    "sha256": "530221cae291e0689cdd5dce62deca1b18f27ad0682553c8e9d5ced11504cafb",
+    "bytes": 8408033
+  },
+  "supervisor_plan": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.plan.json",
+    "sha256": "f0d22d5c3bb0f0f3fefbfc13772cf732f9d1908596649e74b4b424e5eba714c3",
+    "bytes": 146749
+  },
+  "terminal_contract_checks_passed": true,
+  "actual_terminal": {
+    "detached": {
+      "audit_sha256": "35602d82d75d7d8cc2010df7217cd0ca00708567f2cd7f3fa4891ba09f793572",
+      "cleanup_authority": "Original pidfd/subreaper supervisor receipts only; no inferred cleanup certificate",
+      "elapsed_seconds": 9841.040617729,
+      "error": null,
+      "freeze_sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+      "old_results_reused": false,
+      "release_authority": false,
+      "returncode": 1,
+      "signals_received": [],
+      "status": "failed"
+    },
+    "aggregate": {
+      "error": null,
+      "freeze_sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+      "old_results_reused": false,
+      "planned_stages": [
+        "cold-density"
+      ],
+      "release_authority": false,
+      "stages": [
+        {
+          "continue": true,
+          "reason": "supervisor_did_not_complete",
+          "stage": "cold-density",
+          "status": "timeout",
+          "strict_result": null,
+          "supervisor": {
+            "bytes": 147822,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.json",
+            "sha256": "6084ce8423986a7be712e848a4b73a555bbe56e814cbb01aecd34713004ad9e1"
+          }
+        }
+      ],
+      "status": "failed"
+    }
+  },
+  "actual_supervision": {
+    "status": "timeout",
+    "returncode": -15,
+    "elapsed_seconds": 7200.168923458999,
+    "peak_process_tree_rss_bytes": 386945024,
+    "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "plan_sha256": "f0d22d5c3bb0f0f3fefbfc13772cf732f9d1908596649e74b4b424e5eba714c3",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [
+        {
+          "pid": 56706,
+          "signal": 15,
+          "start_ticks": 1250726
+        },
+        {
+          "pid": 56707,
+          "signal": 15,
+          "start_ticks": 1250729
+        },
+        {
+          "pid": 56707,
+          "signal": 15,
+          "start_ticks": 1250729
+        },
+        {
+          "pid": 56707,
+          "signal": 15,
+          "start_ticks": 1250729
+        },
+        {
+          "pid": 56707,
+          "signal": 15,
+          "start_ticks": 1250729
+        },
+        {
+          "pid": 56707,
+          "signal": 15,
+          "start_ticks": 1250729
+        },
+        {
+          "pid": 56707,
+          "signal": 15,
+          "start_ticks": 1250729
+        }
+      ],
+      "verified": true
+    },
+    "signals_received": [],
+    "owned_process_group_cleaned": true
+  },
+  "process_observation": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-terminal-outcome-review01/process-observation.json",
+    "sha256": "8c1b605bcb58720acc69faf1aa5b0ada1d98624a37f82a71033e31ccfbdfbda6",
+    "bytes": 1142
+  },
+  "exact_process_identity_observations": {
+    "schema": "density04-owned-process-terminal-observation-v1",
+    "at_utc": "2026-10-27T01:36:13Z",
+    "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+    "observations": [
+      {
+        "role": "detached_launcher",
+        "pid": 54107,
+        "expected_start_ticks": 1061450,
+        "proc_entry_exists": false,
+        "exact_identity_absent": true
+      },
+      {
+        "role": "supervisor",
+        "pid": 56698,
+        "expected_start_ticks": 1250145,
+        "proc_entry_exists": false,
+        "exact_identity_absent": true
+      },
+      {
+        "role": "supervised_worker",
+        "pid": 56706,
+        "expected_start_ticks": 1250726,
+        "proc_entry_exists": false,
+        "exact_identity_absent": true
+      },
+      {
+        "role": "tracked_owned_process",
+        "pid": 56707,
+        "expected_start_ticks": 1250729,
+        "proc_entry_exists": false,
+        "exact_identity_absent": true
+      },
+      {
+        "role": "previously_observed_native",
+        "pid": 64294,
+        "expected_start_ticks": 1731039,
+        "proc_entry_exists": false,
+        "exact_identity_absent": true
+      }
+    ],
+    "all_exact_identities_absent": true,
+    "process_signals_sent": false
+  },
+  "owned_cleanup_verified": true,
+  "launcher_closing_checks": {
+    "finished": true,
+    "aggregate_error": null,
+    "detached_error": null,
+    "evidence": "Unchanged runner calls checked_freeze/checked_plan after run_owned and before aggregate classification. Aggregate reason supervisor_did_not_complete with error=null records valid identity check; detached terminal subsequently records failed/1 with no external signal. Launcher is now absent.",
+    "not_a_full_independent_runtime_rehash": true
+  },
+  "scientific_outcome": {
+    "strict_full_fit_passed": false,
+    "fit_timed_out": true,
+    "accepted_covariance": false,
+    "convergence_certified": false,
+    "release_authority": false,
+    "whole_fit_terminal_worker_receipt_available": false,
+    "history_status": "running",
+    "completed_logged_trial_evaluations": 30,
+    "completed_history_records": 30,
+    "recorded_accepted_iterations": 22,
+    "confirmation_checks": [],
+    "last_recorded_accepted_trial": 30,
+    "last_recorded_accepted_objective": 108511.68952280404,
+    "last_history_record": {
+      "accepted": true,
+      "accepted_iteration": 21,
+      "actual_reduction": 21976.130659245653,
+      "damping": 0.014243095839601297,
+      "gain_ratio": 0.9720673144802097,
+      "normalized_gradient": 0.07683132285780363,
+      "nuisance_floor_limited_before": false,
+      "nuisance_floor_limited_trial": false,
+      "nuisance_resolution_sum": 0.0,
+      "objective_before": 130487.82018204969,
+      "objective_floor": 0.00123538076877594,
+      "objective_reduction_numerically_resolved": true,
+      "objective_trial": 108511.68952280404,
+      "predicted_reduction": 22607.622262247216,
+      "rank": {
+        "columns": 146,
+        "condition_number": 5008.716292180101,
+        "effective_rows": 7885,
+        "maximum_singular_value": 3.6363468401287027,
+        "minimum_singular_value": 0.0007260037558537661,
+        "rank": 146,
+        "status": "full_rank",
+        "threshold": 6.366594992183132E-12
+      },
+      "raw_correction": {
+        "density_update": 10.143114798163017,
+        "position_change_m": 1.7306945673701555,
+        "pulse_update_m_s": 0.0
+      },
+      "trial": 30,
+      "trial_correction": {
+        "density_update": 1.5461094065371892,
+        "position_change_m": 0.8202490395821705,
+        "pulse_update_m_s": 0.0
+      },
+      "trial_rank": {
+        "columns": 146,
+        "condition_number": 4868.050919745233,
+        "effective_rows": 7885,
+        "maximum_singular_value": 3.5580480095876976,
+        "minimum_singular_value": 0.000730897862049049,
+        "rank": 146,
+        "status": "full_rank",
+        "threshold": 6.229507699817337E-12
+      }
+    },
+    "accepted_state_attribution": "Last explicitly accepted history record, not largest point-directory index. Stopped history status remains running and is not rewritten as convergence or a normal solver terminal.",
+    "rejected_trial_inventory": [
+      {
+        "trial": 1,
+        "reason": "physical_trial_domain",
+        "accepted": false,
+        "trial_error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-004-trial-001/closure-02/propagate.log"
+      },
+      {
+        "trial": 2,
+        "reason": "numerical_trial_closure",
+        "accepted": false,
+        "trial_error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-005-trial-002/closure-03/propagate.log"
+      },
+      {
+        "trial": 3,
+        "reason": "nuisance_failure",
+        "accepted": false,
+        "trial_error": "Native profile exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-006-trial-003/profile.log"
+      },
+      {
+        "trial": 4,
+        "reason": "nonpositive_actual_reduction",
+        "accepted": false,
+        "trial_error": null
+      },
+      {
+        "trial": 18,
+        "reason": "nuisance_failure",
+        "accepted": false,
+        "trial_error": "Native profile exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-021-trial-018/profile.log"
+      },
+      {
+        "trial": 26,
+        "reason": "nonpositive_actual_reduction",
+        "accepted": false,
+        "trial_error": null
+      },
+      {
+        "trial": 27,
+        "reason": "nonpositive_actual_reduction",
+        "accepted": false,
+        "trial_error": null
+      },
+      {
+        "trial": 28,
+        "reason": "nonpositive_actual_reduction",
+        "accepted": false,
+        "trial_error": null
+      }
+    ],
+    "rejection_counts": [
+      {
+        "reason": "nonpositive_actual_reduction",
+        "count": 4
+      },
+      {
+        "reason": "nuisance_failure",
+        "count": 2
+      },
+      {
+        "reason": "numerical_trial_closure",
+        "count": 1
+      },
+      {
+        "reason": "physical_trial_domain",
+        "count": 1
+      }
+    ],
+    "floor_limited_completed_trial_rows": []
+  },
+  "incomplete_trial": {
+    "trial": 31,
+    "role": "trial-031",
+    "point": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031",
+    "profile": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.xml",
+      "sha256": "701ced715f2b9d75fdc5d24ba78a152d4cd03de7558b3d0fa2e17b5d1b1c670d",
+      "bytes": 12347
+    },
+    "native_log": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.log",
+      "sha256": "3c5067294f2976647d884a478b528782e664d6161c9b7ca844310943a80e7f54",
+      "bytes": 46784
+    },
+    "trajectory_closure": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/closure.json",
+      "sha256": "6bf09d8c808ce7666a4d5e1fef62e9967e7e78b3610d19f1ca22cfd31cd602ba",
+      "bytes": 269
+    },
+    "native_estimation_started": true,
+    "evidence": "Native log names this exact profile, enters GnssProcessing and contains partial nuisance passes; stopped log has no Finished GROOPS marker. Optimizer source passes explicit trial-NNN role to evaluate. No profile.execution.json or history row31 exists.",
+    "native_terminal_receipt_available": false,
+    "logged_accepted_outcome": false,
+    "retained_as_partial_timeout_failure": true,
+    "scope": "Propagation closure=true applies only to fixed trial trajectory; it is not full-fit convergence. No objective, acceptance, nuisance completion or covariance is inferred for partial trial31."
+  },
+  "missing_artifacts": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/backend-result.json",
+      "exists": false
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/strict-result.json",
+      "exists": false
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/result.json",
+      "exists": false
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.execution.json",
+      "exists": false
+    }
+  ],
+  "unchanged_controls": {
+    "supervisor_timeout_seconds": 7200,
+    "process_tree_rss_limit_bytes": 8589934592,
+    "accepted_iteration_limit": 32,
+    "trial_evaluation_limit": 96,
+    "position_tolerance_m": 0.00003,
+    "density_tolerance": 0.0001,
+    "normalized_gradient_tolerance": 1E-8,
+    "method": "groops_log_drag_ou",
+    "tau_seconds": 7200,
+    "sigma_log_density": 0.3,
+    "original_case_and_parameters_and_controls_match": true,
+    "freeze_plan_request_source_snapshot_and_key_sources_rehashed": true,
+    "all_ten_recovery_control_source_members_rehashed": true,
+    "key_backend_optimizer_supervisor_hashes_match_snapshot": true,
+    "independent_full_scientific_dataset_or_python_runtime_rehash": false
+  },
+  "prior_interim_review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-live-interim-review01/review.json",
+    "sha256": "5132e6f22cfdf0706c34c8f6fa6cc3c11b841b05d7fbdf0cbb6cccb3461d1909",
+    "bytes": 4630
+  },
+  "prior_trial2_failure_review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-trial2-interim-review01/review.json",
+    "sha256": "5d79f2454fdc29e318a1225c694946583e17886f9e50c6aa117090246742a642",
+    "bytes": 5605
+  },
+  "approved_for_follow_on_local_controls": true,
+  "admission_scope": "Actual terminal and owned cleanup permit separately approved follow-on local control work. Its own current-host admission, cooperative lock, fixed source/input identities and action-specific approval remain required. No new numerical fit or automatic restart is authorized.",
+  "covariance_authority": false,
+  "scientific_acceptance": false,
+  "release_authority": false,
+  "frozen_protocols_and_thresholds_unchanged": true,
+  "original_failures_preserved": true,
+  "limitations": [
+    "No mathematical or trajectory verification rerun; saved record values are reported, not independently recomputed.",
+    "No in-memory rollback/caches inspected; recorded rejection is not a complete independent transactional rollback proof.",
+    "Closing identity checks are source-bound launcher assertions with key independent hashes, not a second full runtime/data verification.",
+    "No uncontended timing or timing-causality claim; read-only monitoring and separate historical resource-deviation disclosure remain distinct.",
+    "Incomplete first PID observation record has null identity fields from a jq authoring error and is retained unused; the final observation is a fresh complete same-boot read."
+  ],
+  "evidence_pins": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/detached-result.json",
+      "sha256": "b308b1e2c3a4635e6627e5776612ae46b630f6fe39ae5aba5b5a9dc76434a13b",
+      "bytes": 467
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/result.json",
+      "sha256": "92f7a72c0a99368c91ffc04b3e8107982de49f56cb5542c370a9b0520c5226b8",
+      "bytes": 668
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.json",
+      "sha256": "6084ce8423986a7be712e848a4b73a555bbe56e814cbb01aecd34713004ad9e1",
+      "bytes": 147822
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.plan.json",
+      "sha256": "f0d22d5c3bb0f0f3fefbfc13772cf732f9d1908596649e74b4b424e5eba714c3",
+      "bytes": 146749
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/freeze.json",
+      "sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+      "bytes": 973
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/plan.json",
+      "sha256": "530221cae291e0689cdd5dce62deca1b18f27ad0682553c8e9d5ced11504cafb",
+      "bytes": 8408033
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/launch.json",
+      "sha256": "23b1849e438fcb5205b3362ac5d2c0e0858f70a656408434babe4a99ef11770d",
+      "bytes": 1630
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/run-started.json",
+      "sha256": "d7893a2c0f91b4cb5c2c10ce92f9cc050430836650988a08e2834c1b131aaff7",
+      "bytes": 1223
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/detached-started.json",
+      "sha256": "cf41d4c3ae3742d1d87a4650225c108145ae56d288798ffbfad16cfe1be732be",
+      "bytes": 236
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/request.json",
+      "sha256": "04e2f1cbf1ce4d76749edf0e3d4f3b46ca043560e2308920ed312e02ee906042",
+      "bytes": 75401
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/originals/cold-density.json",
+      "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd",
+      "bytes": 75440
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/iterations.json",
+      "sha256": "f6d798f502625b22ac9274259d3d0ddc44ab2cf8895209ebc3d81ddda0432877",
+      "bytes": 50853
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.xml",
+      "sha256": "701ced715f2b9d75fdc5d24ba78a152d4cd03de7558b3d0fa2e17b5d1b1c670d",
+      "bytes": 12347
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.log",
+      "sha256": "3c5067294f2976647d884a478b528782e664d6161c9b7ca844310943a80e7f54",
+      "bytes": 46784
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/closure.json",
+      "sha256": "6bf09d8c808ce7666a4d5e1fef62e9967e7e78b3610d19f1ca22cfd31cd602ba",
+      "bytes": 269
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04/source.sha256",
+      "sha256": "2bef971aaa46668bff5a09aa025e3b2ff2970a0b0e1e0c51540a8239789fa457",
+      "bytes": 835
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04/one_hour_controls.py",
+      "sha256": "a968d8b3f312ccd0f4f62965a30dafb0cd76564cdd72bf678af73ec4bf02fc1d",
+      "bytes": 38078
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate07/source-snapshot.json",
+      "sha256": "4b997bcda7c94bce973389542895dca05a3fde6e7a53fdb4178fb61eaf22646e",
+      "bytes": 95105
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate07/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "c3687ca9df0f45c77bc0141c1a006859a97065e7adce894c1711ac70dd1f5249",
+      "bytes": 43170
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate07/source/src/orbit_poc/numerics/optimizer.py",
+      "sha256": "3ff42ad4271926087c1c9ac052d825148e9367e2fe859e390e44a515e681e955",
+      "bytes": 19149
+    },
+    {
+      "path": "/mnt/d/orbit-v41-density-trial-candidate07/source/src/orbit_poc/segmented/supervisor.py",
+      "sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+      "bytes": 14990
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/binaries/groops-v41-28c725765201e470",
+      "sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "bytes": 24260648
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-live-interim-review01/review.json",
+      "sha256": "5132e6f22cfdf0706c34c8f6fa6cc3c11b841b05d7fbdf0cbb6cccb3461d1909",
+      "bytes": 4630
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-trial2-interim-review01/review.json",
+      "sha256": "5d79f2454fdc29e318a1225c694946583e17886f9e50c6aa117090246742a642",
+      "bytes": 5605
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04-independent-launch-review02/review.json",
+      "sha256": "35602d82d75d7d8cc2010df7217cd0ca00708567f2cd7f3fa4891ba09f793572",
+      "bytes": 8665
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-collector03-operational-handoff01/HANDOFF.txt",
+      "sha256": "d8606cf3be6a315f980af1d074f288710bdd858a5c71fb7ea5a5ff1324bbffa0",
+      "bytes": 8119
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-terminal-outcome-review01/process-observation.json",
+      "sha256": "8c1b605bcb58720acc69faf1aa5b0ada1d98624a37f82a71033e31ccfbdfbda6",
+      "bytes": 1142
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-terminal-outcome-review01/missing-artifacts.json",
+      "sha256": "5b82c6515a0d7970db539f7de61d3530a192708ee84d7436d440c02a997693c3",
+      "bytes": 672
+    }
+  ]
+}

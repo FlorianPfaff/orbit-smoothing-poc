@@ -1,0 +1,205 @@
+{
+  "schema": "initial-density-fixed-physical-replay-native-action-review-v1",
+  "review_kind": "independent_actual_staging_outcome_and_single_native_replay_action",
+  "reviewed_at_utc": "2026-10-27T03:35:28Z",
+  "reviewer": "/root/interruption_review",
+  "run_owner": "/root",
+  "approved_actions": [
+    "evaluate_native"
+  ],
+  "source_ledger_sha256": "a4f36ee0e0ce263e232554fb19d50b5d8e810729d87d861fe47cb5af10acd193",
+  "controls_ledger_sha256": "064940cbf9ed87a05a188f6abc2955961b14c26affe711501ccf90e80df6d4d0",
+  "source_review_sha256": "b99953ecd19203813cfb0544e242e1065ff1cff96ba1472f73fad6929c22a0a9",
+  "previous_outcome": {
+    "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/stage-controller01/result.json",
+    "sha256": "ea8061f958cbe256f54a99383907b6172e6dc379d8056fc89e56699806934315",
+    "bytes": 4496
+  },
+  "prepared_plan_sha256": "ea689b814004b5b45906650b629614f488802ac9f320c932c201e2a945c253c0",
+  "composition_sha256": "8324e0bdf325e5cb520559fad106133fd119da5132c0ecb8ce6e3bcfb709c463",
+  "native_timeout_seconds": 600,
+  "evidence": [
+    {
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/stage-controller01/result.json",
+      "sha256": "ea8061f958cbe256f54a99383907b6172e6dc379d8056fc89e56699806934315",
+      "bytes": 4496
+    },
+    {
+      "bytes": 988,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/stage-worker01/result.json",
+      "sha256": "85bee89ef8073d8b6e04c3b1a9ad40002de1e65efe18b4b482e7415a6b850791"
+    },
+    {
+      "bytes": 2547,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/stage-worker01/supervisor.json",
+      "sha256": "3340cc4eee80f63cc28110e18b646e1c394edd6cf8ba546d2db2d3ac80e9f157"
+    },
+    {
+      "bytes": 74255,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/prepared01/plan.json",
+      "sha256": "ea689b814004b5b45906650b629614f488802ac9f320c932c201e2a945c253c0"
+    },
+    {
+      "bytes": 223983,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/runtime01/A-composition.json",
+      "sha256": "8324e0bdf325e5cb520559fad106133fd119da5132c0ecb8ce6e3bcfb709c463"
+    },
+    {
+      "bytes": 12462,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/prepared01/A-original/profile.xml",
+      "sha256": "a210547ed9fb27240e8c44232a2ed1c2b199ea5b456778a99bfe60cea5ca43aa"
+    },
+    {
+      "bytes": 1910,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/prepared01/A-original/environment.json",
+      "sha256": "2e1942ee73dc06483bfe442f5ab51d02a5287f9f79eab19678e6a2df251d9f43"
+    }
+  ],
+  "actual_stage": {
+    "controller_status": "completed_pending_independent_audit",
+    "worker_status": "passed",
+    "supervisor_status": "complete",
+    "returncode": 0,
+    "elapsed_seconds": 3.330559637863189,
+    "peak_process_tree_rss_bytes": 55676928,
+    "native_runs": 0,
+    "process_policy_events": [],
+    "posthash_verified": true,
+    "worker_posthash_verified": true
+  },
+  "composition_checks": {
+    "exact_original_records_preserved": 197,
+    "added_physical_records": 3,
+    "total_records": 200,
+    "exact_original_aliases_preserved": 148,
+    "added_point_aliases": 133,
+    "total_aliases": 281,
+    "exact_runtime_inventory_preserved": 15,
+    "exact_runtime_aliases_preserved": 10,
+    "native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "native_and_fourteen_libraries_and_elf_equal_original_A_runtime": true,
+    "records_equal_original_plus_actual_prepared_physical_inputs": true,
+    "aliases_equal_original_plus_exact_prepared_point_aliases": true,
+    "finite_directory_policy_count": 97,
+    "empty_device_target": "/dev",
+    "empty_process_target": "/proc",
+    "original_lookup_and_directory_guard_functions_unmodified": true,
+    "direct_remote_read_only_recheck": {
+      "started_at_utc": "2026-10-27T03:34:00Z",
+      "finished_at_utc": "2026-10-27T03:34:02Z",
+      "same_boot_verified": true,
+      "all_200_file_hashes_sizes_modes_passed": true,
+      "all_281_literal_symlink_targets_passed": true,
+      "exact_file_symlink_directory_membership_passed": true,
+      "no_special_files": true,
+      "dev_proc_targets_empty": true,
+      "plan_and_composition_hashes_unchanged": true
+    },
+    "native_private_pid_proc_traceexec_fd_proofs": "Remain required during the future single native action; staging and the read-only recheck did not execute or mount the native process."
+  },
+  "identity_checks": {
+    "source_members_rehashed": 42,
+    "original_guard_source_members_rehashed": 131,
+    "source_runtime_input_review_snapshots_before_after_byte_identical": true,
+    "runtime_files": 1495,
+    "runtime_aliases": 13,
+    "loaded_before_count": 94,
+    "loaded_after_count": 118,
+    "all_loaded_entries_match_actual_runtime": true,
+    "all_overlapping_prepare_runtime_entries_match": true,
+    "retrieved_archive_members_byte_verified": 20,
+    "archive_sha256": "6f50e926377cf84134f36c1e49d5aa1cb0a296b5b10f7de80f4975cf785167d2",
+    "runtime_sha256": "5210be92f98e26332fe837f54b1538699f86d8e2799d08b1ddc986c0480c3513",
+    "input_snapshot_sha256": "ed95452d24da74231bdd411e5446e30e9a7f1c3eb139db567de8e8f0eaf2403b"
+  },
+  "admission": {
+    "hostname": "workstation1",
+    "uid": 1002,
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "cpu": [
+      127
+    ],
+    "nice": 19,
+    "blockers": [],
+    "storage": [
+      "/dev/nvme0n1p2",
+      "ext4"
+    ],
+    "available_memory_bytes": 76770258944,
+    "free_disk_bytes": 971167338496
+  },
+  "cleanup": {
+    "empty_tree_certificate": "kernel_ECHILD",
+    "hard_kill": false,
+    "remaining": [],
+    "signals": [],
+    "verified": true
+  },
+  "owned_process_group_cleaned": true,
+  "signals_received": [],
+  "identities_absent_on_same_boot": [
+    {
+      "role": "controller",
+      "pid": 2119024,
+      "start_ticks": 205548407
+    },
+    {
+      "role": "supervisor",
+      "pid": 2119108,
+      "start_ticks": 205548580
+    },
+    {
+      "role": "worker",
+      "pid": 2119109,
+      "start_ticks": 205548583
+    }
+  ],
+  "absence_observed_at_utc": "2026-10-27T03:32:16Z",
+  "absence_evidence": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/stage-absence.txt",
+    "sha256": "5cc83d0e9a8b165778a8537e26ea4fec35c077b1ed13de64f7037aa252e32da5"
+  },
+  "local_outcome_root": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/stage-outcome01",
+  "native_action_scope": {
+    "calls": 1,
+    "method": "original point-003 density fixed-physical cold nuisance replay",
+    "native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "prepared_profile": {
+      "bytes": 12462,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/prepared01/A-original/profile.xml",
+      "sha256": "a210547ed9fb27240e8c44232a2ed1c2b199ea5b456778a99bfe60cea5ca43aa"
+    },
+    "environment": {
+      "bytes": 1910,
+      "path": "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/prepared01/A-original/environment.json",
+      "sha256": "2e1942ee73dc06483bfe442f5ab51d02a5287f9f79eab19678e6a2df251d9f43"
+    },
+    "prior": {
+      "knot_seconds": 60.0,
+      "sigma_log_density": 0.3,
+      "tau_seconds": 7200.0
+    },
+    "limits": {
+      "cpu": 127,
+      "native_profile_seconds": 600,
+      "numerical_threads": 1,
+      "process_tree_rss_bytes": 8589934592
+    },
+    "physical_optimization": false,
+    "repropagation": false,
+    "warm_start": false,
+    "original_missing_factor_restored": false
+  },
+  "blocking_findings": [],
+  "approved_for_single_native_replay": true,
+  "analysis_authority": false,
+  "physical_optimization_authority": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "limitations": [
+    "This review used saved receipts/source hashes and one read-only remote shell tree verification. No Python import, test, native execution, build, model update or numerical computation was performed by the reviewer.",
+    "The future native action must retain the reviewed source, exact plan/composition/runtime, original fixed_fit ownership and TRACEEXEC/private-proc/read-only-stdin/descriptor guards, 600-second budget, 8GiB process-tree limit, CPU127 and one numerical thread. No retry or budget increase is authorized here.",
+    "The original qr.74.R.bin remains missing. Any fresh factor is an attributed replay unless its actual digest matches the preserved deleted-factor digest. Native process completion alone does not certify nuisance convergence, rank, objective, factor equivalence, full-fit convergence or covariance.",
+    "All original failures, the density timeout, published evidence and frozen benchmark protocols remain unchanged."
+  ]
+}

@@ -1,0 +1,622 @@
+{
+  "schema": "candidate07-saved-mathematical-audits-independent-outcome-review-v1",
+  "status": "completed_available_checks_passed_original_gaps_preserved",
+  "reviewed_at_utc": "2026-10-27T03:44:33Z",
+  "reviewer": "/root/interruption_review",
+  "run_owner": "/root",
+  "independence": "Independent of this execution and its mathematical results. Reviewer previously authored or reviewed interruption and publication controls; this is an independent source, receipt, identity and result-scope audit, not another mathematical reimplementation or rerun.",
+  "review_method": "Shell/JQ, source diff inspection and SHA256 only. All102 source members, actual manifest/executor pins, result/supervisor/plan pins and original missing terminal paths checked. Numerical workers were not rerun; their mathematical results are evaluated against their original source predicates and limitations.",
+  "controller": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/result.json",
+    "sha256": "dd6b722225896e2573a2426e058b82b9877c11ba0f2db9922e3ac9ffe3fa560a",
+    "bytes": 3960,
+    "status": "complete",
+    "elapsed_seconds": 934.1553855099992,
+    "runtime_unchanged": true,
+    "sources_unchanged": true,
+    "signals_received": [],
+    "last_owned_cleanup_verified": true
+  },
+  "plan": {
+    "bytes": 6633,
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-collector04-followon-launch01/audit-plan.json",
+    "sha256": "8bd2c07b79a6b66430747e09191069af530d8802d2c0833807f9ea2bdf55bb83"
+  },
+  "collection_prerequisite": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection05-independent-outcome-review01/review.json",
+    "sha256": "03cf8841e07745deab48719e6c009d4bb5f004baa3f8626221e17a728dac6bc1",
+    "collection": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-input-manifests04/collection.json",
+      "sha256": "5e0a612e1a0744232725182640c5aab10c25abfda29859afab0081caa2dfb67a"
+    },
+    "independently_rehashed_backing_files_by_collection_reviewer": 4392,
+    "collection_status": "prepared_with_evidence_gaps",
+    "current_reviewer_rehashed_all_4392_again": false
+  },
+  "actual_workers": [
+    {
+      "action": "scientific",
+      "result": {
+        "bytes": 150280,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/scientific/result.json",
+        "sha256": "6b413b0181ab8de57cdaf29f8b143c978d1b0d4693f15e079296cffdda1a2756"
+      },
+      "supervisor": {
+        "bytes": 1525,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/scientific/supervisor.json",
+        "sha256": "89e2b4b6a20b6e47f2a94b16690e2f0975475bb9dbd4b2265151f75f6c245669"
+      },
+      "status": "complete",
+      "returncode": 0,
+      "elapsed_seconds": 197.9239546880017,
+      "peak_process_tree_rss_bytes": 309157888,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "owned_process_group_cleaned": true,
+      "signals_received": []
+    },
+    {
+      "action": "selected",
+      "result": {
+        "bytes": 95925,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/selected/result.json",
+        "sha256": "44a61540db8db0dab27e8fd613f58d0613ddffa4a99e4fa1fdb76b3e0539bc77"
+      },
+      "supervisor": {
+        "bytes": 1521,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/selected/supervisor.json",
+        "sha256": "aec100490694c9b7fcb0e86701a2cbbc071b09ed768cca481554bd5a38a5899f"
+      },
+      "status": "complete",
+      "returncode": 0,
+      "elapsed_seconds": 111.96304861599856,
+      "peak_process_tree_rss_bytes": 63533056,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "owned_process_group_cleaned": true,
+      "signals_received": []
+    },
+    {
+      "action": "rank",
+      "result": {
+        "bytes": 38795,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/rank/result.json",
+        "sha256": "014b0f1fecd4e038ee18c43afa2767a9b223c6d98a6a8d6fba2fff0d6e6929fa"
+      },
+      "supervisor": {
+        "bytes": 1514,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/rank/supervisor.json",
+        "sha256": "229426fd2ed9796a77b3ad9e6897e371b9d203d848d38e1ac7d1ae36d0db6981"
+      },
+      "status": "complete",
+      "returncode": 0,
+      "elapsed_seconds": 146.50905342199985,
+      "peak_process_tree_rss_bytes": 298471424,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "owned_process_group_cleaned": true,
+      "signals_received": []
+    },
+    {
+      "action": "export",
+      "result": {
+        "bytes": 25904,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/export/result.json",
+        "sha256": "bdf6c24af8fe2157961653bde00eec8bfe62b99be8b59e0218d86527f7a6ca2d"
+      },
+      "supervisor": {
+        "bytes": 1517,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/export/supervisor.json",
+        "sha256": "73a5b1013be4d5c42e85e7020b4d92fd1909c195dc28849fb60833a7ee61ce93"
+      },
+      "status": "complete",
+      "returncode": 0,
+      "elapsed_seconds": 132.01736303000143,
+      "peak_process_tree_rss_bytes": 70569984,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "owned_process_group_cleaned": true,
+      "signals_received": []
+    }
+  ],
+  "scientific_result": {
+    "status": "saved_predicates_passed",
+    "recorded_all_eleven_strict_passed": true,
+    "all_eight_saved_predicates_passed": true,
+    "stages": [
+      {
+        "stage": "synthetic-refinement-log_drag_ou",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+          "recomputed_metrics": {
+            "aligned_position_maximum_m": 2.3744159907068985E-9,
+            "offgrid_position_maximum_m": 0.000005566784450289729
+          },
+          "unavailable": [
+            "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+          ]
+        }
+      },
+      {
+        "stage": "synthetic-refinement-pulses",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+          "recomputed_metrics": {
+            "aligned_position_maximum_m": 8.598987624337612E-9,
+            "offgrid_position_maximum_m": 0.000005521734222117772
+          },
+          "unavailable": [
+            "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+          ]
+        }
+      },
+      {
+        "stage": "flight-refinement",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+          "recomputed_metrics": {
+            "aligned_position_maximum_m": 0.0000020958471515340153,
+            "offgrid_position_maximum_m": 0.000011756472870225025
+          },
+          "unavailable": [
+            "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+          ]
+        }
+      },
+      {
+        "stage": "eccentric-24h-refinement",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+          "recomputed_metrics": {
+            "aligned_position_maximum_m": 2.2931159012476224E-9,
+            "offgrid_position_maximum_m": 0.000006219499706767487
+          },
+          "unavailable": [
+            "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+          ]
+        }
+      },
+      {
+        "stage": "objective-log_drag_ou",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "derivatives": [
+            {
+              "error_plus_resolution": 0.006182739636946293,
+              "finite_difference": -399.4826380215525,
+              "passed": false,
+              "scale": 1.0
+            },
+            {
+              "error_plus_resolution": 0.001552095844248443,
+              "finite_difference": -397.6298743213565,
+              "passed": false,
+              "scale": 0.5
+            },
+            {
+              "error_plus_resolution": 0.0003883120985834755,
+              "finite_difference": -397.16688688258364,
+              "passed": false,
+              "scale": 0.25
+            },
+            {
+              "error_plus_resolution": 0.0000982620794232755,
+              "finite_difference": -397.0515723471417,
+              "passed": true,
+              "scale": 0.125
+            },
+            {
+              "error_plus_resolution": 0.000024537271255743286,
+              "finite_difference": -397.02208919020995,
+              "passed": true,
+              "scale": 0.0625
+            }
+          ],
+          "endpoint_count": 22,
+          "floor_limited_endpoints": [],
+          "recomputed_prior_cost": 4.848917841373496,
+          "recomputed_prior_residual_difference": 2.054824088659757E-9,
+          "unavailable": [
+            "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+            "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+            "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance."
+          ]
+        }
+      },
+      {
+        "stage": "objective-pulses",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "derivatives": [
+            {
+              "error_plus_resolution": 0.0000013320088375389127,
+              "finite_difference": -525.4759769790035,
+              "passed": true,
+              "scale": 1.0
+            },
+            {
+              "error_plus_resolution": 0.000002874560283428208,
+              "finite_difference": -525.4758523005285,
+              "passed": true,
+              "scale": 0.5
+            }
+          ],
+          "endpoint_count": 10,
+          "floor_limited_endpoints": [],
+          "recomputed_prior_cost": 0.053929305673915545,
+          "recomputed_prior_residual_difference": 0.0,
+          "unavailable": [
+            "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+            "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+            "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance."
+          ]
+        }
+      },
+      {
+        "stage": "nuisance-replay",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "ambiguity_half_integer_crossings": 50,
+          "generations": 6,
+          "original_profile_sha256": "902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0",
+          "physical_input_sha256": {
+            "density": "04423d3a829d790f38f5d5c3befc6c28cc3d95b590ec89530653b47169806129",
+            "reference": "2d9e49252da986843035ed0e78df9fb217069a04426cfab1621ec571ba5744a8",
+            "variational": "a2f39bb67f756f013a2b47bb9e5c8e8863a2dc100243a0682eda65a71020cf5d"
+          },
+          "raw_update_m": 3.0018499648969506E-10,
+          "successful_observation_signatures": [
+            "468164590554894258"
+          ]
+        }
+      },
+      {
+        "stage": "nuisance-replay-candidate1-point012",
+        "status": "saved_predicates_passed",
+        "recorded_status": "passed",
+        "details": {
+          "ambiguity_half_integer_crossings": 47,
+          "generations": 6,
+          "original_profile_sha256": "3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8",
+          "physical_input_sha256": {
+            "density": "1c554b9450d5d7d3204886cdea63aead22b9965c986524ddfac44db75f665772",
+            "reference": "bfcbabb09dc288aa939b68191150250e887e1ca535dcdbca1f8640350b7b94b7",
+            "variational": "10a8304c8f999fa61d84939eeadb16db4ab109bf8982f85b7ab2f9de24aa07f6"
+          },
+          "raw_update_m": 3.7772297043099616E-10,
+          "successful_observation_signatures": [
+            "468164590554894258"
+          ]
+        }
+      }
+    ],
+    "refinement_signal_fraction_of_noise_limit": 0.01,
+    "maximum_refinement_signal_fraction_of_sigma": 0.0021892592180925963,
+    "position_limit_m": 0.00003,
+    "directional_relative_tolerance": 0.0001,
+    "required_consecutive_passing_derivative_scales": 2,
+    "density_objective_endpoints": 22,
+    "pulse_objective_endpoints": 10,
+    "all_32_endpoint_qualifications_strict": true,
+    "floor_limited_endpoints": 0,
+    "density_prior_residual_tolerance": 2E-8,
+    "pulse_prior_residual_tolerance": 1E-12,
+    "nuisance_update_limit_m": 1E-8,
+    "nuisance_required_consecutive_small_updates": 2,
+    "read_pins_bound_to_collected_file_map": 259,
+    "errors": [],
+    "unavailable": [
+      "No independent propagation/refit, complete source/dependency tree or process-lifecycle audit; use the separately reviewed terminal supervisor audit.",
+      "Three test suites and two cold fits are inventory-only here; source02 covers selected cold corrections/covariance and test receipt checks.",
+      "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+      "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+      "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance.",
+      "No complete flight Jacobian, calibrated uncertainty, accuracy superiority, benchmark substitution or release claim."
+    ]
+  },
+  "selected_result": {
+    "status": "available_individual_checks_complete",
+    "all_eleven_recorded_strict_passes_and_selected_hash_checks": true,
+    "original_test_receipt_counts": [
+      {
+        "stage": "native-tests",
+        "junit_count": 106
+      },
+      {
+        "stage": "native-fail-fast-tests",
+        "junit_count": 37
+      },
+      {
+        "stage": "correction-tests",
+        "junit_count": 51
+      }
+    ],
+    "pulse": {
+      "cold_state_matches_saved_original_conversion": true,
+      "covariance_difference_accepted": false,
+      "direct_objective": 3235.427185391728,
+      "dynamic_covariance_relative_frobenius_difference": 9.317299040706916E-16,
+      "dynamic_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "evidence_origin": "postboot_individual_receipts",
+      "force_update_units": "m/s",
+      "initial_cartesian_correction_si": [
+        7.313506854101837E-11,
+        2.8131967189305597E-10,
+        -1.9623991847837396E-10,
+        -9.939102755815668E-13,
+        -4.2026514543600706E-14,
+        -3.3907579657915237E-13
+      ],
+      "lower_triangle_exact_zero": true,
+      "rank_certificate_scope": "Recorded original factor only; independent SVD outstanding",
+      "recomputed_force_update": 6.181421462221165E-13,
+      "recomputed_normalized_gradient": 8.35656500814021E-9,
+      "recomputed_position_change_m": 1.0588035919612342E-8,
+      "recorded_metrics": {
+        "density_update": 0.0,
+        "position_change_m": 1.0588035919612342E-8,
+        "pulse_update_m_s": 6.181421462221263E-13
+      },
+      "recorded_normalized_gradient": 8.35656500814021E-9,
+      "retained_dimension": 91,
+      "selected_checks_completed": true,
+      "stage": "cold-pulses",
+      "undamped_qr_optimum_objective": 3235.4271853917257
+    },
+    "density": {
+      "audit_status": "interrupted_without_terminal_receipt",
+      "covariance_authority": false,
+      "original_cleanup_receipt_available": false,
+      "stage": "cold-density"
+    },
+    "consumed_pins_bound_to_collected_logical_or_backing_map": 155,
+    "compressed_row_reconstructions": 14,
+    "compressed_row_scope": "Worker streamed gzip CRC, byte counts and hashes; this reviewer checked attribution but did not decompress or restore raw rows.",
+    "covariance_scope": "Dynamic covariance reconstructed from the complete91-column retained factor, marginalizing retained nuisance uncertainty. Relative difference is reported, with covariance_difference_accepted=false; no new covariance calibration or scientific acceptance follows.",
+    "selected_rank_wording": "The selected worker reports independent SVD outstanding because that module does not compute it. The separate rank worker below completed that check for the same owned pulse factor; original selected output is preserved.",
+    "errors": [],
+    "whole_pair_complete": false
+  },
+  "rank_result": {
+    "status": "available_individual_checks_complete",
+    "pulse": {
+      "stage": "cold-pulses",
+      "status": "rank_check_complete",
+      "recorded_status": "passed",
+      "dimensions": {
+        "columns": 91,
+        "effective_rows": 7830,
+        "factor_coordinate_basis": "saved column-scaled retained original parameters; no second scaling",
+        "local_parameters": 240,
+        "original_objective_rows": 9414,
+        "row_count_basis": "native reduced_rows after epoch-local QR; not source_rows or original_objective_rows",
+        "source_rows": 8070
+      },
+      "independent": {
+        "columns": 91,
+        "condition_number": 2172.7823920117507,
+        "effective_rows": 7830,
+        "python_status": "full_rank",
+        "rank": 91,
+        "sigma_max": 3.0774491872090635,
+        "sigma_min": 0.001416363276195226,
+        "status": "full",
+        "threshold": 5.3504816434839435E-12
+      },
+      "full_rank_classification_agrees": true,
+      "maximum_absolute_singular_value_difference": 1.5543122344752192E-15,
+      "maximum_difference_over_largest_singular_value": 5.05065117219636E-16,
+      "independent_driver": "scipy.linalg.svd lapack_driver=gesvd compute_uv=False",
+      "producer_driver": "GROOPS LAPACK DGESDD computeSingularVectors=FALSE",
+      "singular_value_numeric_agreement_accepted": false,
+      "discrepancies": []
+    },
+    "density": {
+      "recorded_status": "interrupted",
+      "stage": "cold-density",
+      "status": "recorded_unsuccessful"
+    },
+    "all_two_full_rank_classifications_agree": false,
+    "consumed_pins_bound_to_collected_file_map": 8,
+    "rank_policy": "epsilon*max(effective_rows,columns)*sigma_max; deficient at or below t, unresolved through10t. Original effective_rows7830,91 retained columns; no new numeric singular-value tolerance.",
+    "inherited_source_only_draft_label": "Raw rank report retains source_only_draft=true from its original constructor. Actual execution is established by the real worker, supervisor and parent receipts, not that inherited label.",
+    "errors": [],
+    "limits": [
+      "No independent raw-row recount or column-norm reconstruction.",
+      "No comparison to prior confirmation Python certificate: it is a different factor.",
+      "No nuisance convergence, covariance, objective, full execution or release certificate.",
+      "Audit byte/dimension bounds are not a measured process-tree memory certificate."
+    ]
+  },
+  "export_result": {
+    "status": "available_individual_checks_complete",
+    "outcomes": [
+      {
+        "backend_outcome": {
+          "converged": true,
+          "covariance_valid": true,
+          "error": null,
+          "numerical_status": "complete",
+          "status": "complete"
+        },
+        "checks": {
+          "covariance_reconstructed_from_designs": false,
+          "maximum_regular_epoch_serialization_difference_mjd": 0.0,
+          "native_binary_decoded": false,
+          "npz_native_values_exact": true,
+          "prediction": {
+            "count": 120,
+            "maximum_raw_asymmetry": 0.0
+          },
+          "regular": {
+            "count": 720,
+            "maximum_raw_asymmetry": 0.0
+          }
+        },
+        "final_folder": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/fit/point-019-final-covariance",
+        "note": "Native binary orbit hash/role is linked but binary payload is not decoded. This checks saved ASCII/NPZ consistency, not full independent covariance reconstruction.",
+        "passed": true,
+        "stage": "cold-pulses",
+        "status": "export_consistency_passed"
+      },
+      {
+        "covariance_authority": false,
+        "passed": false,
+        "reason": "interrupted_without_backend_or_strict_terminal_receipt",
+        "stage": "cold-density",
+        "status": "unavailable"
+      }
+    ],
+    "whole_pair_complete": false
+  },
+  "identity_and_execution": {
+    "source_members_rehashed": 102,
+    "source_ledgers": 13,
+    "source_before_after_byte_identical": true,
+    "source_snapshot_sha256": "eb6299520ed10b410873d28ffab97ba75c1b6220129e88ffb8c93d601596e8f2",
+    "runtime_before_after_byte_identical": true,
+    "runtime_receipt_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+    "runtime_files": 8281,
+    "runtime_trees": 19,
+    "elf_objects": 212,
+    "runtime_evidence_limit": "The original pinned verifier reports complete hash/membership/ELF verification before and after. This review compared those byte-identical receipts and source identities; it did not repeat the full8281-file runtime verifier.",
+    "unchanged_mathematical_bodies": "Scientific source differs from the original only at the explicit missing-terminal admission boundary. Rank source differs at interrupted terminal/case attribution. Selected and export mathematical executor files are byte-identical to their original pinned sources; original numerical thresholds remain unchanged.",
+    "cpu": 4,
+    "numerical_threads": 1,
+    "max_process_tree_rss_bytes": 8589934592,
+    "worker_limits_seconds": {
+      "scientific": 600,
+      "selected": 600,
+      "rank": 300,
+      "export": 300
+    },
+    "admission_scope": "Cooperative current-host admission, no exclusive CPU reservation. Controller934.155s includes all four serial workers and source/runtime verification, not a per-worker timeout or solver timing.",
+    "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+    "parent_identity": {
+      "pid": 90867,
+      "start_ticks": 2716791
+    },
+    "direct_absence_observed_at_utc": "2026-10-27T03:42:28Z",
+    "absent_identities": [
+      {
+        "pid": 90867,
+        "start_ticks": 2716791
+      },
+      {
+        "pid": 92499,
+        "start_ticks": 2735964
+      },
+      {
+        "pid": 92515,
+        "start_ticks": 2736392
+      },
+      {
+        "pid": 93036,
+        "start_ticks": 2756376
+      },
+      {
+        "pid": 93037,
+        "start_ticks": 2756520
+      },
+      {
+        "pid": 93147,
+        "start_ticks": 2768025
+      },
+      {
+        "pid": 93148,
+        "start_ticks": 2768324
+      },
+      {
+        "pid": 94117,
+        "start_ticks": 2783309
+      },
+      {
+        "pid": 94118,
+        "start_ticks": 2783590
+      }
+    ],
+    "process_observation_sha256": "fbf848c0f6f1ff65ff69e9ded658d8361f0a24fffa031f43ecf5e6dd16491e7c"
+  },
+  "original_gaps": {
+    "original_sequence_terminal_missing": true,
+    "original_cold_aggregate_missing": true,
+    "original_cold_detached_receipt_missing": true,
+    "all_six_original_missing_terminal_paths_still_absent": [
+      "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/detached-result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/backend-result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/strict-result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/profile.execution.json"
+    ],
+    "missing_reference_occurrences": 2426,
+    "unique_missing_file_count_not_claimed": true,
+    "preserved_gap_categories": {
+      "historical_R_rhs_z_references": 2367,
+      "orbit_dat_references": 50,
+      "missing_terminal_references": 9
+    },
+    "original_cold03_density": "Interrupted across a reboot, no final backend/strict receipt, accepted covariance or fabricated terminal cleanup. It remains unavailable in selected/rank/export audit rows.",
+    "later_density04": "Separate real7200-second timeout. Its terminal was used only to admit subsequent local work, never substituted for the original cold03 outcome.",
+    "resource_history": "The already published historical local resource-deviation disclosure remains applicable. These saved audits neither establish uncontended original numerical timing nor infer its impact harmless or causal."
+  },
+  "ready_for_additive_reporting": true,
+  "complete_original_cold_pair": false,
+  "whole_scientific_comparison_complete": false,
+  "new_fit_authority": false,
+  "native_execution_authority": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "numerical_thresholds_or_frozen_protocols_changed": false,
+  "limitations": [
+    "All four workers completed and available predicates passed; this does not turn the interrupted density row into a pass.",
+    "No independent reconstruction of the original raw observation design, complete flight Jacobian, empirical objective floor, calibrated uncertainty or accuracy superiority is established.",
+    "Export consistency is ASCII/NPZ agreement for720 regular and120 prediction epochs. Native binary orbit decoding and covariance reconstruction from full trajectory designs remain outside that export audit.",
+    "No mathematical rerun, local Python import/test/render, native replay, source modification or original-result replacement was performed by this reviewer."
+  ],
+  "blockers_for_honest_additive_reporting": []
+}

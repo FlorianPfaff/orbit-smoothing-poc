@@ -1,0 +1,117 @@
+{
+  "schema": "candidate07-postboot-collection-independent-failure-review-v1",
+  "reviewer": "/root/launcher_recovery",
+  "observed_utc": "2026-10-26T22:08:08Z",
+  "collection_success": false,
+  "classification": "collector_timed_out_without_manifests",
+  "actual_controller_result": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection-control03/result.json",
+    "sha256": "99507ecdb0b05c53d0cf02d1f63dea0ac40eac6b8fd15d1834e9d098b5a01cef"
+  },
+  "controller_status_interpretation": "complete means closing source/runtime checks finished; collect job remains timeout/-15 with null result. It is not collection success.",
+  "plan": {
+    "bytes": 3958,
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection03-launch01/plan.json",
+    "sha256": "fb0a8de40b2a270d4ced6b6e4f0fbf242755b5c7eabccc93bdf84256b2803041"
+  },
+  "controller_elapsed_seconds": 983.2152763840004,
+  "observation": {
+    "frozen_job_exact": true,
+    "supervised_argv_exact": true,
+    "limits_exact": true,
+    "worker_status": "timeout",
+    "returncode": -15,
+    "elapsed_seconds": 600.042896807,
+    "peak_rss_bytes": 81416192,
+    "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "supervisor": {
+      "parent": 30023,
+      "pid": 32117,
+      "start_ticks": 722305,
+      "state": "R"
+    },
+    "worker": {
+      "parent": 32117,
+      "pid": 32121,
+      "start_ticks": 722560,
+      "state": "D"
+    },
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [
+        {
+          "pid": 32121,
+          "signal": 15,
+          "start_ticks": 722560
+        }
+      ],
+      "verified": true
+    },
+    "signals_received": [],
+    "partial_individual_evidence": {
+      "schema": "candidate07-postboot-individual-evidence-v1",
+      "original_phase_aggregate_available": false,
+      "covariance_authority": false,
+      "release_authority": false,
+      "cases": [
+        {
+          "stage": "cold-pulses",
+          "status": "passed",
+          "cleanup_verified": true,
+          "covariance_authority": false
+        },
+        {
+          "stage": "cold-density",
+          "status": "interrupted",
+          "cleanup_verified": false,
+          "covariance_authority": false
+        }
+      ]
+    }
+  },
+  "all_result_and_supervisor_plan_pins_rehashed": true,
+  "all98_source_members_rehashed": true,
+  "source_pre_post_sha256": "1f893a115946d86669b1a51a353871b0296cccb4c4dad268ebd89140f66ae39a",
+  "runtime_pre_post_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+  "source_runtime_pre_post_identical": true,
+  "actual_owned_cleanup_verified": true,
+  "controller_and_supervisor_and_worker_pids_absent": true,
+  "only_partial_collection_file": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-input-manifests02/recovered-individual-evidence.json",
+    "sha256": "0f5b3497e759372e4b8d748f29fd8a5f5e4006f684c4513efaa8dbf9cffab8f3"
+  },
+  "collection_and_four_manifests_and_worker_result_absent": true,
+  "original_sequence_cold_and_density_terminal_gaps_preserved": true,
+  "saved_audits": [
+    {
+      "name": "scientific",
+      "status": "unavailable_not_run",
+      "reason": "collection_timeout_no_manifest"
+    },
+    {
+      "name": "selected",
+      "status": "unavailable_not_run",
+      "reason": "collection_timeout_no_manifest"
+    },
+    {
+      "name": "rank",
+      "status": "unavailable_not_run",
+      "reason": "collection_timeout_no_manifest"
+    },
+    {
+      "name": "export",
+      "status": "unavailable_not_run",
+      "reason": "collection_timeout_no_manifest"
+    }
+  ],
+  "diagnosis_limit": "Progress reached derived individual evidence. This does not localize timeout within later pulse artifact collection versus final stability hashing; no numerical predicate was evaluated and memory limit was not approached.",
+  "audit_action_approved": false,
+  "density04_input_or_numerical_evidence_invalidated": false,
+  "original_attempt_preserved": true,
+  "reviewer_executed_python_or_arrays": false,
+  "covariance_authority": false,
+  "release_authority": false
+}

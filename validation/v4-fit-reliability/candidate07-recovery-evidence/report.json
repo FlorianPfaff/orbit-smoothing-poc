@@ -1,0 +1,1506 @@
+{
+  "schema": "candidate07-recovery-evidence-publication-v1",
+  "evidence_snapshot_utc": "2026-10-27T04:03:50.530296+00:00",
+  "title": "Candidate07: recovered saved checks and preserved replay timeout",
+  "status": "available_saved_checks_passed_density_and_initial_factor_recovery_incomplete",
+  "summary": "All four recovered saved-audit workers completed. Eight numerical predicates and the available pulse checks passed within their stated scope. The original density case remains interrupted, the later full density fit timed out, and the new fixed-physical replay also timed out before producing an eligible full factor.",
+  "publication": {
+    "pr_url": "https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/9",
+    "prior_head": "1ace5cd3f47da98271ca8fbdb7da24ba4af0d13d",
+    "proposed_repository_prefix": "validation/v4-fit-reliability/candidate07-recovery-evidence",
+    "additive_only": true,
+    "pushed_by_this_assembly": false,
+    "packet_independent_review": "pending_external_review"
+  },
+  "build_method": "Static JSON extraction, byte-exact metadata copying and escaped HTML rendering. No scientific arrays, solver, native process, refit or test suite executed by this builder.",
+  "original_planned_rows": [
+    {
+      "stage": "native-tests",
+      "original_status": "passed",
+      "current_saved_evidence": "original_test_receipt_verified",
+      "test_count": 106,
+      "original_strict_receipt": {
+        "bytes": 172332,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/native-tests/strict-result.json",
+        "sha256": "0bcf8134c877be9f9c3a4c8853a88e75b8c16d242f5b274dd6f22cf7a11d2ed4"
+      }
+    },
+    {
+      "stage": "native-fail-fast-tests",
+      "original_status": "passed",
+      "current_saved_evidence": "original_test_receipt_verified",
+      "test_count": 37,
+      "original_strict_receipt": {
+        "bytes": 160182,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/native-fail-fast-tests/strict-result.json",
+        "sha256": "3dfc13904a16525ffe0326d33d080d3f0224b25a2a7812f59e063aa46239c931"
+      }
+    },
+    {
+      "stage": "correction-tests",
+      "original_status": "passed",
+      "current_saved_evidence": "original_test_receipt_verified",
+      "test_count": 51,
+      "original_strict_receipt": {
+        "bytes": 162870,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/correction-tests/strict-result.json",
+        "sha256": "f62b672a5f8a018d4aeb5d3c9ea5afd58a703c3809f24e0b2c88b5b3cd9bc392"
+      }
+    },
+    {
+      "stage": "synthetic-refinement-log_drag_ou",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 154285,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/synthetic-refinement-log_drag_ou/strict-result.json",
+        "sha256": "48b30bbb3c20d7581469dd21c8d7d2857f7c60ad4d2e322fb243a8f3459f2d49"
+      }
+    },
+    {
+      "stage": "synthetic-refinement-pulses",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 154240,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/synthetic-refinement-pulses/strict-result.json",
+        "sha256": "ba4beb3bb4dfd53396f9189b741c6963ecdac5ef91a665fcbbac593c752d1153"
+      }
+    },
+    {
+      "stage": "flight-refinement",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 154149,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/flight-refinement/strict-result.json",
+        "sha256": "95db8cce069edd313c5364d8a6d5d811272effea09d89f4fbd8fbe8061ad18fc"
+      }
+    },
+    {
+      "stage": "eccentric-24h-refinement",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 154204,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/eccentric-24h-refinement/strict-result.json",
+        "sha256": "8377974ff413d6fa69c410f3d71b36eeb563498b2c4f95418c64f6d4cdc248e6"
+      }
+    },
+    {
+      "stage": "objective-log_drag_ou",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 155609,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/objective-log_drag_ou/strict-result.json",
+        "sha256": "89058d0cac0d685629f8694c9b237d5e80de00e7c195255903439a3293897a48"
+      }
+    },
+    {
+      "stage": "objective-pulses",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 155546,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/objective-pulses/strict-result.json",
+        "sha256": "304495779482d234249d4d84b6caa90dbb68991c5dbac600f284002c3c2ea4bb"
+      }
+    },
+    {
+      "stage": "nuisance-replay",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 154204,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/nuisance-replay/strict-result.json",
+        "sha256": "45869b7a427d3abe8ba91a8bc80fbd01d07370d21be1fbd7aca5442d079ab047"
+      }
+    },
+    {
+      "stage": "nuisance-replay-candidate1-point012",
+      "original_status": "passed",
+      "current_saved_evidence": "saved_numerical_predicate_passed",
+      "test_count": null,
+      "original_strict_receipt": {
+        "bytes": 154358,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/nuisance-replay-candidate1-point012/strict-result.json",
+        "sha256": "11abf365119856b1cf7fc69a242f1492261ec627df682f9c8f8eeff04493d216"
+      }
+    },
+    {
+      "stage": "cold-pulses",
+      "original_status": "passed_individual_receipt",
+      "current_saved_evidence": "selected_checks_complete_rank_full_export_consistent",
+      "new_full_fit": false
+    },
+    {
+      "stage": "cold-density",
+      "original_status": "interrupted_without_terminal_receipt",
+      "current_saved_evidence": "unavailable",
+      "accepted_covariance": false
+    }
+  ],
+  "original_correctness_count": 11,
+  "new_saved_numerical_predicates": 8,
+  "original_test_counts": [
+    {
+      "stage": "native-tests",
+      "junit_count": 106
+    },
+    {
+      "stage": "native-fail-fast-tests",
+      "junit_count": 37
+    },
+    {
+      "stage": "correction-tests",
+      "junit_count": 51
+    }
+  ],
+  "four_saved_audits": {
+    "scientific_result": {
+      "status": "saved_predicates_passed",
+      "recorded_all_eleven_strict_passed": true,
+      "all_eight_saved_predicates_passed": true,
+      "stages": [
+        {
+          "stage": "synthetic-refinement-log_drag_ou",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+            "recomputed_metrics": {
+              "aligned_position_maximum_m": 2.3744159907068985e-09,
+              "offgrid_position_maximum_m": 5.566784450289729e-06
+            },
+            "unavailable": [
+              "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+            ]
+          }
+        },
+        {
+          "stage": "synthetic-refinement-pulses",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+            "recomputed_metrics": {
+              "aligned_position_maximum_m": 8.598987624337612e-09,
+              "offgrid_position_maximum_m": 5.521734222117772e-06
+            },
+            "unavailable": [
+              "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+            ]
+          }
+        },
+        {
+          "stage": "flight-refinement",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+            "recomputed_metrics": {
+              "aligned_position_maximum_m": 2.0958471515340153e-06,
+              "offgrid_position_maximum_m": 1.1756472870225025e-05
+            },
+            "unavailable": [
+              "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+            ]
+          }
+        },
+        {
+          "stage": "eccentric-24h-refinement",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "limits": "position <30 micrometres; every signal <1% of min(coarse native sigma, prescribed noise)",
+            "recomputed_metrics": {
+              "aligned_position_maximum_m": 2.2931159012476224e-09,
+              "offgrid_position_maximum_m": 6.219499706767487e-06
+            },
+            "unavailable": [
+              "Independent physical force reconstruction and full closure history are outside this saved prediction audit."
+            ]
+          }
+        },
+        {
+          "stage": "objective-log_drag_ou",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "derivatives": [
+              {
+                "error_plus_resolution": 0.006182739636946293,
+                "finite_difference": -399.4826380215525,
+                "passed": false,
+                "scale": 1.0
+              },
+              {
+                "error_plus_resolution": 0.001552095844248443,
+                "finite_difference": -397.6298743213565,
+                "passed": false,
+                "scale": 0.5
+              },
+              {
+                "error_plus_resolution": 0.0003883120985834755,
+                "finite_difference": -397.16688688258364,
+                "passed": false,
+                "scale": 0.25
+              },
+              {
+                "error_plus_resolution": 9.82620794232755e-05,
+                "finite_difference": -397.0515723471417,
+                "passed": true,
+                "scale": 0.125
+              },
+              {
+                "error_plus_resolution": 2.4537271255743286e-05,
+                "finite_difference": -397.02208919020995,
+                "passed": true,
+                "scale": 0.0625
+              }
+            ],
+            "endpoint_count": 22,
+            "floor_limited_endpoints": [],
+            "recomputed_prior_cost": 4.848917841373496,
+            "recomputed_prior_residual_difference": 2.054824088659757e-09,
+            "unavailable": [
+              "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+              "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+              "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance."
+            ]
+          }
+        },
+        {
+          "stage": "objective-pulses",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "derivatives": [
+              {
+                "error_plus_resolution": 1.3320088375389127e-06,
+                "finite_difference": -525.4759769790035,
+                "passed": true,
+                "scale": 1.0
+              },
+              {
+                "error_plus_resolution": 2.874560283428208e-06,
+                "finite_difference": -525.4758523005285,
+                "passed": true,
+                "scale": 0.5
+              }
+            ],
+            "endpoint_count": 10,
+            "floor_limited_endpoints": [],
+            "recomputed_prior_cost": 0.053929305673915545,
+            "recomputed_prior_residual_difference": 0.0,
+            "unavailable": [
+              "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+              "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+              "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance."
+            ]
+          }
+        },
+        {
+          "stage": "nuisance-replay",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "ambiguity_half_integer_crossings": 50,
+            "generations": 6,
+            "original_profile_sha256": "902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0",
+            "physical_input_sha256": {
+              "density": "04423d3a829d790f38f5d5c3befc6c28cc3d95b590ec89530653b47169806129",
+              "reference": "2d9e49252da986843035ed0e78df9fb217069a04426cfab1621ec571ba5744a8",
+              "variational": "a2f39bb67f756f013a2b47bb9e5c8e8863a2dc100243a0682eda65a71020cf5d"
+            },
+            "raw_update_m": 3.0018499648969506e-10,
+            "successful_observation_signatures": [
+              "468164590554894258"
+            ]
+          }
+        },
+        {
+          "stage": "nuisance-replay-candidate1-point012",
+          "status": "saved_predicates_passed",
+          "recorded_status": "passed",
+          "details": {
+            "ambiguity_half_integer_crossings": 47,
+            "generations": 6,
+            "original_profile_sha256": "3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8",
+            "physical_input_sha256": {
+              "density": "1c554b9450d5d7d3204886cdea63aead22b9965c986524ddfac44db75f665772",
+              "reference": "bfcbabb09dc288aa939b68191150250e887e1ca535dcdbca1f8640350b7b94b7",
+              "variational": "10a8304c8f999fa61d84939eeadb16db4ab109bf8982f85b7ab2f9de24aa07f6"
+            },
+            "raw_update_m": 3.7772297043099616e-10,
+            "successful_observation_signatures": [
+              "468164590554894258"
+            ]
+          }
+        }
+      ],
+      "refinement_signal_fraction_of_noise_limit": 0.01,
+      "maximum_refinement_signal_fraction_of_sigma": 0.0021892592180925963,
+      "position_limit_m": 3e-05,
+      "directional_relative_tolerance": 0.0001,
+      "required_consecutive_passing_derivative_scales": 2,
+      "density_objective_endpoints": 22,
+      "pulse_objective_endpoints": 10,
+      "all_32_endpoint_qualifications_strict": true,
+      "floor_limited_endpoints": 0,
+      "density_prior_residual_tolerance": 2e-08,
+      "pulse_prior_residual_tolerance": 1e-12,
+      "nuisance_update_limit_m": 1e-08,
+      "nuisance_required_consecutive_small_updates": 2,
+      "read_pins_bound_to_collected_file_map": 259,
+      "errors": [],
+      "unavailable": [
+        "No independent propagation/refit, complete source/dependency tree or process-lifecycle audit; use the separately reviewed terminal supervisor audit.",
+        "Three test suites and two cold fits are inventory-only here; source02 covers selected cold corrections/covariance and test receipt checks.",
+        "No independent full SVD or recomputation of the analytic native directional derivative from pruned original factors/directions. Finite differences and prior residuals are independently recomputed.",
+        "No direct recomputation of the full precise original measurement objective from every raw residual expansion; saved direct native costs are rebound to each endpoint.",
+        "No complete independent floor-audit proof for any floor-limited objective endpoint. Such endpoints are reported distinctly and cannot authorize covariance.",
+        "No complete flight Jacobian, calibrated uncertainty, accuracy superiority, benchmark substitution or release claim."
+      ]
+    },
+    "selected_result": {
+      "status": "available_individual_checks_complete",
+      "all_eleven_recorded_strict_passes_and_selected_hash_checks": true,
+      "original_test_receipt_counts": [
+        {
+          "stage": "native-tests",
+          "junit_count": 106
+        },
+        {
+          "stage": "native-fail-fast-tests",
+          "junit_count": 37
+        },
+        {
+          "stage": "correction-tests",
+          "junit_count": 51
+        }
+      ],
+      "pulse": {
+        "cold_state_matches_saved_original_conversion": true,
+        "covariance_difference_accepted": false,
+        "direct_objective": 3235.427185391728,
+        "dynamic_covariance_relative_frobenius_difference": 9.317299040706916e-16,
+        "dynamic_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "evidence_origin": "postboot_individual_receipts",
+        "force_update_units": "m/s",
+        "initial_cartesian_correction_si": [
+          7.313506854101837e-11,
+          2.8131967189305597e-10,
+          -1.9623991847837396e-10,
+          -9.939102755815668e-13,
+          -4.2026514543600706e-14,
+          -3.3907579657915237e-13
+        ],
+        "lower_triangle_exact_zero": true,
+        "rank_certificate_scope": "Recorded original factor only; independent SVD outstanding",
+        "recomputed_force_update": 6.181421462221165e-13,
+        "recomputed_normalized_gradient": 8.35656500814021e-09,
+        "recomputed_position_change_m": 1.0588035919612342e-08,
+        "recorded_metrics": {
+          "density_update": 0.0,
+          "position_change_m": 1.0588035919612342e-08,
+          "pulse_update_m_s": 6.181421462221263e-13
+        },
+        "recorded_normalized_gradient": 8.35656500814021e-09,
+        "retained_dimension": 91,
+        "selected_checks_completed": true,
+        "stage": "cold-pulses",
+        "undamped_qr_optimum_objective": 3235.4271853917257
+      },
+      "density": {
+        "audit_status": "interrupted_without_terminal_receipt",
+        "covariance_authority": false,
+        "original_cleanup_receipt_available": false,
+        "stage": "cold-density"
+      },
+      "consumed_pins_bound_to_collected_logical_or_backing_map": 155,
+      "compressed_row_reconstructions": 14,
+      "compressed_row_scope": "Worker streamed gzip CRC, byte counts and hashes; this reviewer checked attribution but did not decompress or restore raw rows.",
+      "covariance_scope": "Dynamic covariance reconstructed from the complete91-column retained factor, marginalizing retained nuisance uncertainty. Relative difference is reported, with covariance_difference_accepted=false; no new covariance calibration or scientific acceptance follows.",
+      "selected_rank_wording": "The selected worker reports independent SVD outstanding because that module does not compute it. The separate rank worker below completed that check for the same owned pulse factor; original selected output is preserved.",
+      "errors": [],
+      "whole_pair_complete": false
+    },
+    "rank_result": {
+      "status": "available_individual_checks_complete",
+      "pulse": {
+        "stage": "cold-pulses",
+        "status": "rank_check_complete",
+        "recorded_status": "passed",
+        "dimensions": {
+          "columns": 91,
+          "effective_rows": 7830,
+          "factor_coordinate_basis": "saved column-scaled retained original parameters; no second scaling",
+          "local_parameters": 240,
+          "original_objective_rows": 9414,
+          "row_count_basis": "native reduced_rows after epoch-local QR; not source_rows or original_objective_rows",
+          "source_rows": 8070
+        },
+        "independent": {
+          "columns": 91,
+          "condition_number": 2172.7823920117507,
+          "effective_rows": 7830,
+          "python_status": "full_rank",
+          "rank": 91,
+          "sigma_max": 3.0774491872090635,
+          "sigma_min": 0.001416363276195226,
+          "status": "full",
+          "threshold": 5.3504816434839435e-12
+        },
+        "full_rank_classification_agrees": true,
+        "maximum_absolute_singular_value_difference": 1.5543122344752192e-15,
+        "maximum_difference_over_largest_singular_value": 5.05065117219636e-16,
+        "independent_driver": "scipy.linalg.svd lapack_driver=gesvd compute_uv=False",
+        "producer_driver": "GROOPS LAPACK DGESDD computeSingularVectors=FALSE",
+        "singular_value_numeric_agreement_accepted": false,
+        "discrepancies": []
+      },
+      "density": {
+        "recorded_status": "interrupted",
+        "stage": "cold-density",
+        "status": "recorded_unsuccessful"
+      },
+      "all_two_full_rank_classifications_agree": false,
+      "consumed_pins_bound_to_collected_file_map": 8,
+      "rank_policy": "epsilon*max(effective_rows,columns)*sigma_max; deficient at or below t, unresolved through10t. Original effective_rows7830,91 retained columns; no new numeric singular-value tolerance.",
+      "inherited_source_only_draft_label": "Raw rank report retains source_only_draft=true from its original constructor. Actual execution is established by the real worker, supervisor and parent receipts, not that inherited label.",
+      "errors": [],
+      "limits": [
+        "No independent raw-row recount or column-norm reconstruction.",
+        "No comparison to prior confirmation Python certificate: it is a different factor.",
+        "No nuisance convergence, covariance, objective, full execution or release certificate.",
+        "Audit byte/dimension bounds are not a measured process-tree memory certificate."
+      ]
+    },
+    "export_result": {
+      "status": "available_individual_checks_complete",
+      "outcomes": [
+        {
+          "backend_outcome": {
+            "converged": true,
+            "covariance_valid": true,
+            "error": null,
+            "numerical_status": "complete",
+            "status": "complete"
+          },
+          "checks": {
+            "covariance_reconstructed_from_designs": false,
+            "maximum_regular_epoch_serialization_difference_mjd": 0.0,
+            "native_binary_decoded": false,
+            "npz_native_values_exact": true,
+            "prediction": {
+              "count": 120,
+              "maximum_raw_asymmetry": 0.0
+            },
+            "regular": {
+              "count": 720,
+              "maximum_raw_asymmetry": 0.0
+            }
+          },
+          "final_folder": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/fit/point-019-final-covariance",
+          "note": "Native binary orbit hash/role is linked but binary payload is not decoded. This checks saved ASCII/NPZ consistency, not full independent covariance reconstruction.",
+          "passed": true,
+          "stage": "cold-pulses",
+          "status": "export_consistency_passed"
+        },
+        {
+          "covariance_authority": false,
+          "passed": false,
+          "reason": "interrupted_without_backend_or_strict_terminal_receipt",
+          "stage": "cold-density",
+          "status": "unavailable"
+        }
+      ],
+      "whole_pair_complete": false
+    }
+  },
+  "audit_execution": {
+    "controller": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/result.json",
+      "sha256": "dd6b722225896e2573a2426e058b82b9877c11ba0f2db9922e3ac9ffe3fa560a",
+      "bytes": 3960,
+      "status": "complete",
+      "elapsed_seconds": 934.1553855099992,
+      "runtime_unchanged": true,
+      "sources_unchanged": true,
+      "signals_received": [],
+      "last_owned_cleanup_verified": true
+    },
+    "actual_workers": [
+      {
+        "action": "scientific",
+        "result": {
+          "bytes": 150280,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/scientific/result.json",
+          "sha256": "6b413b0181ab8de57cdaf29f8b143c978d1b0d4693f15e079296cffdda1a2756"
+        },
+        "supervisor": {
+          "bytes": 1525,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/scientific/supervisor.json",
+          "sha256": "89e2b4b6a20b6e47f2a94b16690e2f0975475bb9dbd4b2265151f75f6c245669"
+        },
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 197.9239546880017,
+        "peak_process_tree_rss_bytes": 309157888,
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "owned_process_group_cleaned": true,
+        "signals_received": []
+      },
+      {
+        "action": "selected",
+        "result": {
+          "bytes": 95925,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/selected/result.json",
+          "sha256": "44a61540db8db0dab27e8fd613f58d0613ddffa4a99e4fa1fdb76b3e0539bc77"
+        },
+        "supervisor": {
+          "bytes": 1521,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/selected/supervisor.json",
+          "sha256": "aec100490694c9b7fcb0e86701a2cbbc071b09ed768cca481554bd5a38a5899f"
+        },
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 111.96304861599856,
+        "peak_process_tree_rss_bytes": 63533056,
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "owned_process_group_cleaned": true,
+        "signals_received": []
+      },
+      {
+        "action": "rank",
+        "result": {
+          "bytes": 38795,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/rank/result.json",
+          "sha256": "014b0f1fecd4e038ee18c43afa2767a9b223c6d98a6a8d6fba2fff0d6e6929fa"
+        },
+        "supervisor": {
+          "bytes": 1514,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/rank/supervisor.json",
+          "sha256": "229426fd2ed9796a77b3ad9e6897e371b9d203d848d38e1ac7d1ae36d0db6981"
+        },
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 146.50905342199985,
+        "peak_process_tree_rss_bytes": 298471424,
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "owned_process_group_cleaned": true,
+        "signals_received": []
+      },
+      {
+        "action": "export",
+        "result": {
+          "bytes": 25904,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/export/result.json",
+          "sha256": "bdf6c24af8fe2157961653bde00eec8bfe62b99be8b59e0218d86527f7a6ca2d"
+        },
+        "supervisor": {
+          "bytes": 1517,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/export/supervisor.json",
+          "sha256": "73a5b1013be4d5c42e85e7020b4d92fd1909c195dc28849fb60833a7ee61ce93"
+        },
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 132.01736303000143,
+        "peak_process_tree_rss_bytes": 70569984,
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "owned_process_group_cleaned": true,
+        "signals_received": []
+      }
+    ],
+    "identity_and_execution": {
+      "source_members_rehashed": 102,
+      "source_ledgers": 13,
+      "source_before_after_byte_identical": true,
+      "source_snapshot_sha256": "eb6299520ed10b410873d28ffab97ba75c1b6220129e88ffb8c93d601596e8f2",
+      "runtime_before_after_byte_identical": true,
+      "runtime_receipt_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+      "runtime_files": 8281,
+      "runtime_trees": 19,
+      "elf_objects": 212,
+      "runtime_evidence_limit": "The original pinned verifier reports complete hash/membership/ELF verification before and after. This review compared those byte-identical receipts and source identities; it did not repeat the full8281-file runtime verifier.",
+      "unchanged_mathematical_bodies": "Scientific source differs from the original only at the explicit missing-terminal admission boundary. Rank source differs at interrupted terminal/case attribution. Selected and export mathematical executor files are byte-identical to their original pinned sources; original numerical thresholds remain unchanged.",
+      "cpu": 4,
+      "numerical_threads": 1,
+      "max_process_tree_rss_bytes": 8589934592,
+      "worker_limits_seconds": {
+        "scientific": 600,
+        "selected": 600,
+        "rank": 300,
+        "export": 300
+      },
+      "admission_scope": "Cooperative current-host admission, no exclusive CPU reservation. Controller934.155s includes all four serial workers and source/runtime verification, not a per-worker timeout or solver timing.",
+      "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+      "parent_identity": {
+        "pid": 90867,
+        "start_ticks": 2716791
+      },
+      "direct_absence_observed_at_utc": "2026-10-27T03:42:28Z",
+      "absent_identities": [
+        {
+          "pid": 90867,
+          "start_ticks": 2716791
+        },
+        {
+          "pid": 92499,
+          "start_ticks": 2735964
+        },
+        {
+          "pid": 92515,
+          "start_ticks": 2736392
+        },
+        {
+          "pid": 93036,
+          "start_ticks": 2756376
+        },
+        {
+          "pid": 93037,
+          "start_ticks": 2756520
+        },
+        {
+          "pid": 93147,
+          "start_ticks": 2768025
+        },
+        {
+          "pid": 93148,
+          "start_ticks": 2768324
+        },
+        {
+          "pid": 94117,
+          "start_ticks": 2783309
+        },
+        {
+          "pid": 94118,
+          "start_ticks": 2783590
+        }
+      ],
+      "process_observation_sha256": "fbf848c0f6f1ff65ff69e9ded658d8361f0a24fffa031f43ecf5e6dd16491e7c"
+    },
+    "independence": "Independent of this execution and its mathematical results. Reviewer previously authored or reviewed interruption and publication controls; this is an independent source, receipt, identity and result-scope audit, not another mathematical reimplementation or rerun.",
+    "review_method": "Shell/JQ, source diff inspection and SHA256 only. All102 source members, actual manifest/executor pins, result/supervisor/plan pins and original missing terminal paths checked. Numerical workers were not rerun; their mathematical results are evaluated against their original source predicates and limitations."
+  },
+  "collection_attempts": [
+    {
+      "attempt": "03",
+      "controller_status": "complete",
+      "controller_elapsed_seconds": 983.2152763840004,
+      "worker_status": "timeout",
+      "worker_elapsed_seconds": 600.042896807,
+      "worker_returncode": -15,
+      "peak_process_tree_rss_bytes": 81416192,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 32121,
+            "signal": 15,
+            "start_ticks": 722560
+          }
+        ],
+        "verified": true
+      },
+      "success": false
+    },
+    {
+      "attempt": "04",
+      "controller_status": "complete",
+      "controller_elapsed_seconds": 1190.5432046739988,
+      "worker_status": "timeout",
+      "worker_elapsed_seconds": 600.0619833599994,
+      "worker_returncode": -15,
+      "peak_process_tree_rss_bytes": 81309696,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 76587,
+            "signal": 15,
+            "start_ticks": 2231195
+          }
+        ],
+        "verified": true
+      },
+      "success": false
+    },
+    {
+      "attempt": "05",
+      "controller_status": "complete",
+      "controller_elapsed_seconds": 900.1254388289999,
+      "worker_status": "complete",
+      "worker_elapsed_seconds": 367.78298787499807,
+      "worker_returncode": 0,
+      "peak_process_tree_rss_bytes": 81510400,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "success": true
+    }
+  ],
+  "collection05_scope": {
+    "input_scope": {
+      "manifests_complete": true,
+      "status": "prepared_with_evidence_gaps",
+      "file_count": 4392,
+      "unique_backing_files": 4392,
+      "bytes_rehashed": 330855604,
+      "all_independent_backing_hashes_passed": true,
+      "all_source_members_and_ledgers_passed": true,
+      "all_manifest_and_ledger_hashes_passed": true,
+      "scientific_map_equals_file_map": true,
+      "selected_logical_pins_equal_file_map": true,
+      "correctness_stages": 11,
+      "scientific_predicate_stages": 8,
+      "density_objective_endpoints": 22,
+      "pulse_objective_endpoints": 10,
+      "pulse_factor_owner": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/fit/point-019-final-covariance/qr.7",
+      "pulse_factor_columns": 91,
+      "pulse_dynamic_count": 12,
+      "pulse_effective_rows": 7830,
+      "pulse_factor_owner_verified_against": "Actual backend/strict pins and final-covariance path in rank and export manifests; no maximum-index selection.",
+      "manifest_executor_identity": "Each audit_source_sha256 equals the actual executor_source pin, with original mathematical source and actual orchestration source recorded separately. These102 source members were independently rehashed.",
+      "evidence_gap_occurrences": 2426,
+      "gap_error": "Missing file and no unique frozen alias",
+      "gap_categories": {
+        "historical_R_rhs_z_references": 2367,
+        "orbit_dat_references": 50,
+        "missing_terminal_references": 9
+      },
+      "gap_stage_occurrences": {
+        "cold_density": 1468,
+        "cold_pulses": 953,
+        "sequence": 2,
+        "cold_aggregate_other": 3
+      },
+      "no_correctness_stage_gap_occurrences": true,
+      "gap_limit": "Counts are missing-reference occurrences, not unique files or proof every omission is harmless. Historical payloads remain missing;104 explicit removed-attribution records and compression evidence remain separate. Relevant mathematical audits must determine availability/failure rather than infer success from collection.",
+      "interrupted_density": "Manifest has recorded_status interrupted; export backend/strict/exports empty; recovered summary says no original cleanup or covariance authority. No final density factor is fabricated.",
+      "missing_original_aggregates": "Original sequence result, cold aggregate and cold detached result remain absent/null. The recovered individual-evidence file is not substituted at those logical paths.",
+      "later_density04": "Its real timeout/cleanup serves resource admission only. No density04 outcome is substituted into the interrupted cold03 scientific records."
+    },
+    "original_gaps": {
+      "original_sequence_terminal_missing": true,
+      "original_cold_aggregate_missing": true,
+      "original_cold_detached_receipt_missing": true,
+      "all_six_original_missing_terminal_paths_still_absent": [
+        "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/result.json",
+        "/mnt/d/orbit-v41-recovery02/candidate07-cold03/result.json",
+        "/mnt/d/orbit-v41-recovery02/candidate07-cold03/detached-result.json",
+        "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/backend-result.json",
+        "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/strict-result.json",
+        "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/profile.execution.json"
+      ],
+      "missing_reference_occurrences": 2426,
+      "unique_missing_file_count_not_claimed": true,
+      "preserved_gap_categories": {
+        "historical_R_rhs_z_references": 2367,
+        "orbit_dat_references": 50,
+        "missing_terminal_references": 9
+      },
+      "original_cold03_density": "Interrupted across a reboot, no final backend/strict receipt, accepted covariance or fabricated terminal cleanup. It remains unavailable in selected/rank/export audit rows.",
+      "later_density04": "Separate real7200-second timeout. Its terminal was used only to admit subsequent local work, never substituted for the original cold03 outcome.",
+      "resource_history": "The already published historical local resource-deviation disclosure remains applicable. These saved audits neither establish uncontended original numerical timing nor infer its impact harmless or causal."
+    },
+    "controller_completion_is_not_scientific_acceptance": true,
+    "no_speed_claim": true
+  },
+  "original_density03": {
+    "status": "reboot_interrupted_without_terminal_receipt",
+    "accepted_covariance": false,
+    "cleanup_receipt_available": false,
+    "later_density04_not_substituted": true
+  },
+  "later_density04": {
+    "terminal": {
+      "detached": {
+        "audit_sha256": "35602d82d75d7d8cc2010df7217cd0ca00708567f2cd7f3fa4891ba09f793572",
+        "cleanup_authority": "Original pidfd/subreaper supervisor receipts only; no inferred cleanup certificate",
+        "elapsed_seconds": 9841.040617729,
+        "error": null,
+        "freeze_sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+        "old_results_reused": false,
+        "release_authority": false,
+        "returncode": 1,
+        "signals_received": [],
+        "status": "failed"
+      },
+      "aggregate": {
+        "error": null,
+        "freeze_sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+        "old_results_reused": false,
+        "planned_stages": [
+          "cold-density"
+        ],
+        "release_authority": false,
+        "stages": [
+          {
+            "continue": true,
+            "reason": "supervisor_did_not_complete",
+            "stage": "cold-density",
+            "status": "timeout",
+            "strict_result": null,
+            "supervisor": {
+              "bytes": 147822,
+              "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.json",
+              "sha256": "6084ce8423986a7be712e848a4b73a555bbe56e814cbb01aecd34713004ad9e1"
+            }
+          }
+        ],
+        "status": "failed"
+      }
+    },
+    "scientific_outcome": {
+      "strict_full_fit_passed": false,
+      "fit_timed_out": true,
+      "accepted_covariance": false,
+      "convergence_certified": false,
+      "release_authority": false,
+      "whole_fit_terminal_worker_receipt_available": false,
+      "history_status": "running",
+      "completed_logged_trial_evaluations": 30,
+      "completed_history_records": 30,
+      "recorded_accepted_iterations": 22,
+      "confirmation_checks": [],
+      "last_recorded_accepted_trial": 30,
+      "last_recorded_accepted_objective": 108511.68952280404,
+      "last_history_record": {
+        "accepted": true,
+        "accepted_iteration": 21,
+        "actual_reduction": 21976.130659245653,
+        "damping": 0.014243095839601297,
+        "gain_ratio": 0.9720673144802097,
+        "normalized_gradient": 0.07683132285780363,
+        "nuisance_floor_limited_before": false,
+        "nuisance_floor_limited_trial": false,
+        "nuisance_resolution_sum": 0.0,
+        "objective_before": 130487.82018204969,
+        "objective_floor": 0.00123538076877594,
+        "objective_reduction_numerically_resolved": true,
+        "objective_trial": 108511.68952280404,
+        "predicted_reduction": 22607.622262247216,
+        "rank": {
+          "columns": 146,
+          "condition_number": 5008.716292180101,
+          "effective_rows": 7885,
+          "maximum_singular_value": 3.6363468401287027,
+          "minimum_singular_value": 0.0007260037558537661,
+          "rank": 146,
+          "status": "full_rank",
+          "threshold": 6.366594992183132e-12
+        },
+        "raw_correction": {
+          "density_update": 10.143114798163017,
+          "position_change_m": 1.7306945673701555,
+          "pulse_update_m_s": 0.0
+        },
+        "trial": 30,
+        "trial_correction": {
+          "density_update": 1.5461094065371892,
+          "position_change_m": 0.8202490395821705,
+          "pulse_update_m_s": 0.0
+        },
+        "trial_rank": {
+          "columns": 146,
+          "condition_number": 4868.050919745233,
+          "effective_rows": 7885,
+          "maximum_singular_value": 3.5580480095876976,
+          "minimum_singular_value": 0.000730897862049049,
+          "rank": 146,
+          "status": "full_rank",
+          "threshold": 6.229507699817337e-12
+        }
+      },
+      "accepted_state_attribution": "Last explicitly accepted history record, not largest point-directory index. Stopped history status remains running and is not rewritten as convergence or a normal solver terminal.",
+      "rejected_trial_inventory": [
+        {
+          "trial": 1,
+          "reason": "physical_trial_domain",
+          "accepted": false,
+          "trial_error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-004-trial-001/closure-02/propagate.log"
+        },
+        {
+          "trial": 2,
+          "reason": "numerical_trial_closure",
+          "accepted": false,
+          "trial_error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-005-trial-002/closure-03/propagate.log"
+        },
+        {
+          "trial": 3,
+          "reason": "nuisance_failure",
+          "accepted": false,
+          "trial_error": "Native profile exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-006-trial-003/profile.log"
+        },
+        {
+          "trial": 4,
+          "reason": "nonpositive_actual_reduction",
+          "accepted": false,
+          "trial_error": null
+        },
+        {
+          "trial": 18,
+          "reason": "nuisance_failure",
+          "accepted": false,
+          "trial_error": "Native profile exited 1; see /mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-021-trial-018/profile.log"
+        },
+        {
+          "trial": 26,
+          "reason": "nonpositive_actual_reduction",
+          "accepted": false,
+          "trial_error": null
+        },
+        {
+          "trial": 27,
+          "reason": "nonpositive_actual_reduction",
+          "accepted": false,
+          "trial_error": null
+        },
+        {
+          "trial": 28,
+          "reason": "nonpositive_actual_reduction",
+          "accepted": false,
+          "trial_error": null
+        }
+      ],
+      "rejection_counts": [
+        {
+          "reason": "nonpositive_actual_reduction",
+          "count": 4
+        },
+        {
+          "reason": "nuisance_failure",
+          "count": 2
+        },
+        {
+          "reason": "numerical_trial_closure",
+          "count": 1
+        },
+        {
+          "reason": "physical_trial_domain",
+          "count": 1
+        }
+      ],
+      "floor_limited_completed_trial_rows": []
+    },
+    "incomplete_trial": {
+      "trial": 31,
+      "role": "trial-031",
+      "point": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031",
+      "profile": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.xml",
+        "sha256": "701ced715f2b9d75fdc5d24ba78a152d4cd03de7558b3d0fa2e17b5d1b1c670d",
+        "bytes": 12347
+      },
+      "native_log": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.log",
+        "sha256": "3c5067294f2976647d884a478b528782e664d6161c9b7ca844310943a80e7f54",
+        "bytes": 46784
+      },
+      "trajectory_closure": {
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/closure.json",
+        "sha256": "6bf09d8c808ce7666a4d5e1fef62e9967e7e78b3610d19f1ca22cfd31cd602ba",
+        "bytes": 269
+      },
+      "native_estimation_started": true,
+      "evidence": "Native log names this exact profile, enters GnssProcessing and contains partial nuisance passes; stopped log has no Finished GROOPS marker. Optimizer source passes explicit trial-NNN role to evaluate. No profile.execution.json or history row31 exists.",
+      "native_terminal_receipt_available": false,
+      "logged_accepted_outcome": false,
+      "retained_as_partial_timeout_failure": true,
+      "scope": "Propagation closure=true applies only to fixed trial trajectory; it is not full-fit convergence. No objective, acceptance, nuisance completion or covariance is inferred for partial trial31."
+    },
+    "numerical_timeout_seconds": 7200,
+    "distinct_from_original_density03": true,
+    "scope": "Previously published full-fit timeout retained separately; no new refit in this packet."
+  },
+  "new_initial_fixed_replay": {
+    "outcome": "verified_preserved_timeout_failure",
+    "actual_controller_status": "failed",
+    "actual_controller_error": "ValueError('owned completion not clean; preserve failure')",
+    "terminal": {
+      "supervisor_status": "timeout",
+      "returncode": -15,
+      "elapsed_seconds": 600.1729960988741,
+      "peak_process_tree_rss_bytes": 313798656,
+      "timeout_seconds": 600,
+      "max_process_tree_rss_bytes": 8589934592,
+      "controller_signals_received": [],
+      "supervisor_signals_received": []
+    },
+    "cleanup": {
+      "verified": true,
+      "empty_tree_certificate": "kernel_ECHILD",
+      "remaining": [],
+      "hard_kill": false,
+      "signals": [
+        {
+          "pid": 2123175,
+          "signal": 15,
+          "start_ticks": 205583948
+        }
+      ],
+      "owned_process_group_cleaned": true,
+      "distinction": "The controller clean predicate additionally requires zero cleanup signals and therefore rejects this timeout. This does not erase the supervisor kernel_ECHILD/empty-tree certificate. One owned SIGTERM was recorded; no hard kill was recorded. There is no nested native wait/exit receipt because the worker was interrupted."
+    },
+    "process_observation": {
+      "observed_utc": "2026-10-27T03:54:51Z",
+      "same_boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+      "all_listed_pids_absent": true,
+      "identities": [
+        {
+          "role": "controller",
+          "pid": 2123092,
+          "start_ticks": 205583744
+        },
+        {
+          "role": "supervisor",
+          "pid": 2123174,
+          "start_ticks": 205583945
+        },
+        {
+          "role": "supervised_outer_bwrap",
+          "pid": 2123175,
+          "start_ticks": 205583948
+        },
+        {
+          "role": "inner_python_tracer",
+          "pid": 2123176,
+          "start_ticks": null,
+          "limitation": "PID is established by launcher parent and native TracerPid; no start-tick receipt was saved. Current PID absence is verified, without inventing a start identity."
+        },
+        {
+          "role": "native_bwrap_launcher",
+          "pid": 2123190,
+          "start_ticks": 205584121
+        },
+        {
+          "role": "native_child",
+          "pid": 2123191,
+          "start_ticks": 205584121
+        }
+      ]
+    },
+    "identity_checks": {
+      "all_31_source_and_11_controls_members_rehashed": true,
+      "source_input_runtime_action_review_before_after_byte_identical": true,
+      "controller_posthash_verified": true,
+      "runtime_snapshot_files": 1496,
+      "runtime_snapshot_aliases": 13,
+      "all_loaded_before_pins_match_runtime_snapshot": true,
+      "loaded_before_files": 98,
+      "worker_loaded_after_available": false,
+      "post_exec_canonical_file_records": 200,
+      "post_exec_alias_records": 281,
+      "actual_prepared_argv_environment_and_cwd_match": true,
+      "private_pid1_and_readonly_proc_proof_pass": true,
+      "strict_standard_descriptors_and_no_directory_handles_pass": true,
+      "archive_sha256": "6edaf78c96803930198bea12e25a1e27b5ff15197f7c4c83202a8c55d1e9ce35",
+      "archive_regular_files": 1063,
+      "archive_content_size_time_and_membership_compare_pass": true,
+      "archive_extraction_metadata_difference": "Local /mnt/d extraction mode/UID/GID differ from remote tar metadata; first strict tar comparison stopped the initial audit script on these differences. Preserved comparison log contains only Mode/Uid/Gid differences. Follow-on content audit verified no payload/size/time/missing differences; no original artifacts were changed.",
+      "fresh_full_remote_runtime_rehash_by_reviewer": false,
+      "scope": "The reviewer rehashed source/control members, all extracted archive files and the archive; verified exact recorded before/after runtime/input maps and the source implementing their checks. The source-qualified controller performed the actual remote closing runtime/input/tree verification. The reviewer did not independently rehash all1496 runtime files again."
+    },
+    "partial_progress": {
+      "completed_nuisance_line_search_generations": 68,
+      "completed_nuisance_performance_generations": 68,
+      "complete_generation_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "next_partial_generation": 69,
+      "last_complete": {
+        "objective_before": 6816074.455124643,
+        "full_step_prediction": 1.9907186002306475e-16,
+        "undamped_maximum_update_m": 1.2218304769954294e-08,
+        "accepted": true,
+        "alpha": 0.25,
+        "accepted_update_m": 3.0545761924885735e-09,
+        "accepted_actual_reduction": 2.5113278478941844e-14,
+        "stationary_without_update": false,
+        "nuisance_floor_limited": false
+      },
+      "strict_update_limit_m": 1e-08,
+      "last_undamped_update_passes": false,
+      "fresh_full_nuisance_confirmation_available": false,
+      "partial_factor": {
+        "generation": 69,
+        "schema": "orbit-poc-conditional-nuisance-qr-factor-v1",
+        "rows": 79,
+        "columns": 79,
+        "dynamic_columns": 0,
+        "retained_global_indices": [
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385
+        ],
+        "original_retained_parameter_count": 146,
+        "full_rank_certificate": false,
+        "covariance_authority": false,
+        "only_retained_R_sha256": "cc292fb9ef014a5cbf67fecf42b5800496a6a5e7c393f6a0a4ca96ab4c40fe0f",
+        "original_deleted_full_R_sha256": "e1db8f334d895fcf59836c45e307f06e89ec4c5a12be38cdb92497dec238a77d",
+        "byte_identical_to_original_deleted_R": false,
+        "eligible_as_final_full_factor": false
+      },
+      "missing_outputs": [
+        "arms/A-original/control/result.json",
+        "arms/A-original/control/loaded-after.json",
+        "arms/A-original/output/qr.profile.json",
+        "arms/A-original/output/qr.69.nuisance_line_search.json",
+        "arms/A-original/output/qr.69.nuisance_performance.json"
+      ],
+      "interpretation": "An accepted small line-search step is not the required small undamped correction. Generation69 is only a conditional79-column factor, not a fresh final146-column factor. The original deleted full factor remains unrecovered."
+    },
+    "measured_timing": {
+      "completed_generations": 68,
+      "parent_row_build_seconds": 99.11455300199997,
+      "ordinary_trials": 76,
+      "ordinary_trial_wall_seconds": 201.647823313,
+      "ordinary_trial_user_seconds": 126.986613,
+      "ordinary_trial_system_seconds": 0.3613669999999999,
+      "zero_replays": 68,
+      "zero_replay_wall_seconds": 104.05407946100001,
+      "zero_replay_user_seconds": 65.199957,
+      "zero_replay_system_seconds": 0.336779,
+      "probe_rounds": 0,
+      "arithmetic_audits": 0,
+      "unmeasured_parent_stages": [
+        "nuisance_solves",
+        "local_recovery",
+        "parameter_update"
+      ],
+      "timing_scope": "monotonic_wall_nested_design_time_included_in_row_build",
+      "coverage": "search_iterations_only_final_linearization_not_emitted"
+    },
+    "timing_limits": [
+      "Recorded child user/system times are genuine per-trial measurements, not a complete CPU profile.",
+      "The summaries cover only68 completed search generations; generation69, setup, nuisance solves, local recovery and parameter updates are not fully accounted for.",
+      "Observation-design/interpolation times are nested within row-build time and were not added again.",
+      "Repeated row construction and trial evaluations are directly measured work. The causal reason the original426.1585s execution completed while this replay reached its600s wall budget is not established; no hardware, contention or speedup conclusion is made."
+    ],
+    "original_common_history_comparison": {
+      "generations": 68,
+      "exact_nonresource_generations": 0,
+      "first_difference": {
+        "generation": 1,
+        "all_nonresource_fields_exact": false,
+        "objective_before_original": 2323920819.0708723,
+        "objective_before_replay": 2323920819.0708723,
+        "objective_difference": 0,
+        "undamped_original": 38.67124827557857,
+        "undamped_replay": 38.67124827557853,
+        "update_difference": -4.263256414560601e-14,
+        "alpha_original": 1,
+        "alpha_replay": 1,
+        "trials_original": 1,
+        "trials_replay": 1,
+        "accepted_original": true,
+        "accepted_replay": true,
+        "signatures_original": [
+          "468164590554894258"
+        ],
+        "signatures_replay": [
+          "468164590554894258"
+        ],
+        "first_differing_scalar_path": [
+          "undamped_maximum_update_m"
+        ]
+      },
+      "maximum_objective_absolute_difference": 9.313225746154785e-10,
+      "maximum_undamped_update_absolute_difference": 2.393834607687332e-08,
+      "alpha_mismatches": 6,
+      "trial_count_mismatches": 6,
+      "accepted_flag_mismatches": 0,
+      "observation_signature_mismatches": 0,
+      "last": {
+        "generation": 68,
+        "all_nonresource_fields_exact": false,
+        "objective_before_original": 6816074.455124643,
+        "objective_before_replay": 6816074.455124643,
+        "objective_difference": 0,
+        "undamped_original": 2.0095143988307208e-08,
+        "undamped_replay": 1.2218304769954294e-08,
+        "update_difference": -7.876839218352914e-09,
+        "alpha_original": 0.5,
+        "alpha_replay": 0.25,
+        "trials_original": 2,
+        "trials_replay": 3,
+        "accepted_original": true,
+        "accepted_replay": true,
+        "signatures_original": [
+          "468164590554894258"
+        ],
+        "signatures_replay": [
+          "468164590554894258"
+        ],
+        "first_differing_scalar_path": [
+          "alpha"
+        ]
+      }
+    },
+    "original_successful_profile": {
+      "iterations": 73,
+      "nuisance_converged": true,
+      "nuisance_floor_limited": false,
+      "fresh_full_nuisance_confirmed": true,
+      "fresh_full_nuisance_update_m": 9.887286056187469e-09,
+      "scope": "Archived original point003 receipt only; it does not confer convergence or a final factor on this timed-out replay."
+    },
+    "findings": [
+      "Native initialization and guarded TRACEEXEC succeeded; failure was the unchanged600-second supervision limit while nuisance profiling remained active.",
+      "Peak recorded process-tree RSS313798656B was below8GiB; this receipt is a wall timeout, not a reported memory-limit stop.",
+      "The common histories differ numerically from generation1 and have six different line-search/trial-count choices. Exact observation signatures and accepted flags agree across68. No equivalence claim or cross-host cause is inferred from their small stored differences.",
+      "Native stderr contains two deprecated configuration-key warnings and GPS.G01 no-usable-epochs notice, not a native terminal convergence/error receipt."
+    ],
+    "approved_for_saved_initial_factor_analysis": false,
+    "retained_analysis_prerequisite_issued": false,
+    "publication_scope": "May describe this preserved timeout and its audited partial progress. No successful initial-factor recovery, full-fit convergence, covariance acceptance or scientific accuracy conclusion."
+  },
+  "unexecuted_analysis": {
+    "source_members": 37,
+    "controls_members": 13,
+    "source_ledger_sha256": "3e2a67cf4d9b00f1dc25375922cdbd73f8926c65a4f104b8149286e92c6fa6ab",
+    "controls_ledger_sha256": "ae55b9c4236c255a3cba32cbd600706b4e4319b5269af94c5b018c7fa73eb3ce",
+    "prepared_fixture_count": 13,
+    "source_review": "qualification_only",
+    "actual_tests_executed": 0,
+    "actual_analysis_executed": false,
+    "qualification_held": true,
+    "reason": "Remote replay produced only an unfinished conditional79 factor; no eligible strictly profiled full146 factor or actual input manifest exists."
+  },
+  "next_local600": {
+    "status": "source_preparation_only_not_launched_at_snapshot",
+    "source_preparation_path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay01/preparation01",
+    "feasibility_review": "reviews/local600-source-feasibility.json",
+    "proposed_limit_seconds": 600,
+    "prepared_plan_or_launch_claimed": false,
+    "separate_actual_admission_review_and_result_required": true,
+    "historical_426_second_profile_is_not_an_eta_or_hardware_causal_claim": true
+  },
+  "historical_resource_disclosure": {
+    "summary": "Prior packet02 disclosed local PDF extraction/rendering outside the admitted numerical tree while a density objective was reported active. Exact intervals and numerical/timing impact were unmeasured. No overlap with this later density04 fit, harmlessness, failure causation or uncontended timing is inferred; no automatic rerun or threshold change follows.",
+    "review": "reviews/historical-resource-deviation.json",
+    "addendum": "reviews/historical-resource-addendum.json",
+    "exclusive_original_timing_claimed": false,
+    "impact_measured": false
+  },
+  "limitations": [
+    "All four workers completed and available predicates passed; this does not turn the interrupted density row into a pass.",
+    "No independent reconstruction of the original raw observation design, complete flight Jacobian, empirical objective floor, calibrated uncertainty or accuracy superiority is established.",
+    "Export consistency is ASCII/NPZ agreement for720 regular and120 prediction epochs. Native binary orbit decoding and covariance reconstruction from full trajectory designs remain outside that export audit.",
+    "No mathematical rerun, local Python import/test/render, native replay, source modification or original-result replacement was performed by this reviewer.",
+    "Recorded child user/system times are genuine per-trial measurements, not a complete CPU profile.",
+    "The summaries cover only68 completed search generations; generation69, setup, nuisance solves, local recovery and parameter updates are not fully accounted for.",
+    "Observation-design/interpolation times are nested within row-build time and were not added again.",
+    "Repeated row construction and trial evaluations are directly measured work. The causal reason the original426.1585s execution completed while this replay reached its600s wall budget is not established; no hardware, contention or speedup conclusion is made.",
+    "The initial fixed-physical replay is a nuisance profile on stored physical inputs, not a new full fit or trajectory propagation.",
+    "No new covariance-calibration, accuracy-superiority or release claim follows. Covariance_difference_accepted and singular_value_numeric_agreement_accepted remain false in the copied raw outputs.",
+    "This packet does not complete the original 150-attempt v3.1 benchmark or the frozen v4 campaign, and substitutes no corrected result into them.",
+    "Static publication does not alter observations, initialization, models, priors, weights, thresholds or hyperparameters."
+  ],
+  "scientific_acceptance": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "accuracy_superiority_claim": false,
+  "thresholds_changed": false,
+  "frozen_benchmarks_changed": false,
+  "native_run_authorized": false,
+  "original_cold_pair_complete": false
+}

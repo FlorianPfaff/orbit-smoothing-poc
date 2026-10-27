@@ -1,0 +1,78 @@
+{
+  "admission": {
+    "covariance_authority": false,
+    "missing_original_receipts": [
+      "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/detached-result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/backend-result.json",
+      "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/strict-result.json"
+    ],
+    "observed_boot": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+    "original_boot": "cb2d0b40-9b17-45f8-9e5c-716efb8e6aa5",
+    "original_cleanup_receipt_available": false,
+    "original_processes_cannot_survive_boot_change": true,
+    "original_sequence_status": "interrupted_without_terminal_receipt",
+    "release_authority": false,
+    "review": {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-sequence03-interruption-independent-review01/review.json",
+      "sha256": "559ab88a472c346eba5ca5d24584b56d2f7e95a8e37ef3eefaf105f4a0a026c4"
+    },
+    "schema": "candidate07-recovered-admission-v1",
+    "scientific_pass": false
+  },
+  "cases": [
+    {
+      "backend_result": {
+        "bytes": 230973,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/backend-result.json",
+        "sha256": "062739e4b4c9d123fd26f2f6c0c8a562ce290616d2e4fc524cec9d1ca07809c9"
+      },
+      "cleanup_verified": true,
+      "covariance_authority": false,
+      "evidence_origin": "postboot_individual_receipts",
+      "original_phase_aggregate_available": false,
+      "stage": "cold-pulses",
+      "status": "passed",
+      "strict_result": {
+        "bytes": 5403,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/strict-result.json",
+        "sha256": "7a4448fe6ef0c68192fa37bd46b143ff719ef0a430586c4422448fc96613c11c"
+      },
+      "supervisor": {
+        "bytes": 148323,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/supervisor.json",
+        "sha256": "b6c42d654ed4f84a8d583f44651810cbfc65a732cf183e93a4e750d073f4d7dc"
+      },
+      "supervisor_plan": {
+        "bytes": 147208,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/supervisor.plan.json",
+        "sha256": "47dde39c806b88109f67c96a75d7d5a58ae446278b5756d2ee0aa4aaf3395009"
+      }
+    },
+    {
+      "backend_result": null,
+      "cleanup_verified": false,
+      "covariance_authority": false,
+      "evidence_origin": "postboot_individual_receipts",
+      "original_phase_aggregate_available": false,
+      "stage": "cold-density",
+      "status": "interrupted",
+      "strict_result": null,
+      "supervisor": {
+        "bytes": 147434,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/supervisor.json",
+        "sha256": "3a46291712ab565237392af08c2df279c17feaea04ff91d546c060bce01cf1ee"
+      },
+      "supervisor_plan": {
+        "bytes": 147234,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/supervisor.plan.json",
+        "sha256": "45c295515f9012d73e6552eb68d37d72f1bd361909b9f45ae75b416fa26a628f"
+      }
+    }
+  ],
+  "covariance_authority": false,
+  "original_phase_aggregate_available": false,
+  "release_authority": false,
+  "schema": "candidate07-postboot-individual-evidence-v1"
+}

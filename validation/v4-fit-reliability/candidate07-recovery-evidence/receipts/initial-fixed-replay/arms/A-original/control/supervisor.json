@@ -1,0 +1,90 @@
+{
+  "argv": [
+    "/usr/bin/bwrap",
+    "--die-with-parent",
+    "--unshare-net",
+    "--ro-bind",
+    "/",
+    "/",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--tmpfs",
+    "/tmp",
+    "--bind",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/arms/A-original/control",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/arms/A-original/control",
+    "--bind",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/arms/A-original/output",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/arms/A-original/output",
+    "--bind",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/arms/A-original/scratch",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/arms/A-original/scratch",
+    "--chdir",
+    "/home/florianpfaff/codex-runs/orbit-fixed-physical-parity-20261026-06/control-source",
+    "--",
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/source/replay_worker.py",
+    "--source-sha256",
+    "a4f36ee0e0ce263e232554fb19d50b5d8e810729d87d861fe47cb5af10acd193",
+    "--plan-sha256",
+    "ea689b814004b5b45906650b629614f488802ac9f320c932c201e2a945c253c0",
+    "--composition-sha256",
+    "8324e0bdf325e5cb520559fad106133fd119da5132c0ecb8ce6e3bcfb709c463",
+    "--runtime-receipt",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/native-controller01/runtime-before.json",
+    "--runtime-sha256",
+    "7aedaac0bf64f40eee6235db5f25ac13dfb03e380d7a587f2485adcb47a72229",
+    "--review",
+    "/home/florianpfaff/codex-runs/orbit-density-initial-fixed-replay-20261027-01/reviews/native-review.json",
+    "--review-sha256",
+    "4709f8a5f87eaed96d464214ab2d2828c7ae9368d4364c5e050653dddfb85e1e"
+  ],
+  "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+  "cleanup": {
+    "empty_tree_certificate": "kernel_ECHILD",
+    "hard_kill": false,
+    "remaining": [],
+    "signals": [
+      {
+        "pid": 2123175,
+        "signal": 15,
+        "start_ticks": 205583948
+      }
+    ],
+    "verified": true
+  },
+  "elapsed_seconds": 600.1729960988741,
+  "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+  "owned_process_group_cleaned": true,
+  "peak_process_tree_rss_bytes": 313798656,
+  "plan_sha256": "17f75c1ba9cfb54487f758ae0aedad2e6e90f90b48fad4f516814f3ac12164ea",
+  "returncode": -15,
+  "schema": "orbit-poc-segmented-supervision-v1",
+  "signals_received": [],
+  "status": "timeout",
+  "supervisor": {
+    "parent": 2123092,
+    "pid": 2123174,
+    "start_ticks": 205583945,
+    "state": "R"
+  },
+  "tracked_owned_processes": [
+    {
+      "parent": 2123174,
+      "pid": 2123175,
+      "start_ticks": 205583948,
+      "state": "S"
+    }
+  ],
+  "worker": {
+    "parent": 2123174,
+    "pid": 2123175,
+    "start_ticks": 205583948,
+    "state": "S"
+  }
+}
