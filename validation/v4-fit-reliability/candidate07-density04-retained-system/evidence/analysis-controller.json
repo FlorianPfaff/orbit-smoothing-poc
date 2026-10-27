@@ -1,0 +1,82 @@
+{
+  "action": "analyze",
+  "controls_sha256": "cd092ad6e25ce4fbf9b8c8cf0a2712de885f0b7eae97879800e880b3cf1bf54e",
+  "covariance_authority": false,
+  "native_runs": 0,
+  "release_authority": false,
+  "review_sha256": "5d48f9ca7690867245f83fa50f6fb865a8d1ce2aa13756287c20066bff18a3b6",
+  "schema": "density-retained-supervised-action-v1",
+  "signals_received": [],
+  "source_runtime_posthashed": true,
+  "source_sha256": "e32689579fb6cf392439dd19a41b08053824a6fc193244816102d9abc8ed2820",
+  "status": "passed",
+  "supervisor": {
+    "argv": [
+      "/usr/bin/bwrap",
+      "--die-with-parent",
+      "--unshare-net",
+      "--ro-bind",
+      "/",
+      "/",
+      "--tmpfs",
+      "/mnt",
+      "--dev",
+      "/dev",
+      "--tmpfs",
+      "/tmp",
+      "--bind",
+      "/home/florianpfaff/codex-runs/orbit-density-retained-qr11-20261027-01/analysis01",
+      "/home/florianpfaff/codex-runs/orbit-density-retained-qr11-20261027-01/analysis01",
+      "--chdir",
+      "/home/florianpfaff/codex-runs/orbit-density-retained-qr11-20261027-01",
+      "--",
+      "/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python",
+      "-I",
+      "-S",
+      "-B",
+      "/home/florianpfaff/codex-runs/orbit-density-retained-qr11-20261027-01/worker.py",
+      "analyze",
+      "e32689579fb6cf392439dd19a41b08053824a6fc193244816102d9abc8ed2820",
+      "cd092ad6e25ce4fbf9b8c8cf0a2712de885f0b7eae97879800e880b3cf1bf54e",
+      "5d48f9ca7690867245f83fa50f6fb865a8d1ce2aa13756287c20066bff18a3b6"
+    ],
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "cleanup": {
+      "empty_tree_certificate": "kernel_ECHILD",
+      "hard_kill": false,
+      "remaining": [],
+      "signals": [],
+      "verified": true
+    },
+    "elapsed_seconds": 2.0084006858523935,
+    "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "owned_process_group_cleaned": true,
+    "peak_process_tree_rss_bytes": 73502720,
+    "plan_sha256": "fe84218061c92cc1d7e190a4d4e31fe2d0004df4a722a78731c0314e3d8765b7",
+    "returncode": 0,
+    "schema": "orbit-poc-segmented-supervision-v1",
+    "signals_received": [],
+    "status": "complete",
+    "supervisor": {
+      "parent": 2092308,
+      "pid": 2092363,
+      "start_ticks": 205210581,
+      "state": "R"
+    },
+    "tracked_owned_processes": [
+      {
+        "parent": 2092363,
+        "pid": 2092364,
+        "start_ticks": 205210584,
+        "state": "Z"
+      }
+    ],
+    "worker": {
+      "parent": 2092363,
+      "pid": 2092364,
+      "start_ticks": 205210584,
+      "state": "S"
+    }
+  },
+  "worker_result_sha256": "f9fa07e208a3bd450f24b94ca1bf16b5c6a206bd27f09349786520586a33730b"
+}

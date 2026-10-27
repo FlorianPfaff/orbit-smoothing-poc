@@ -1,0 +1,33 @@
+Source-only operational handoff (not an execution grant)
+
+Use gpuserver4090 after independent source review and current-host admission. Fresh proposed root:
+/home/florianpfaff/codex-runs/orbit-density-retained-qr11-20261027-01
+Install candidate source as root/source and exact manifest data as root/inputs. Existing source/runs are read-only. Use separate root/qualification01 and root/analysis01 outputs. Reject reused output paths rather than resuming or overwriting.
+
+Reuse actual qualified scientific interpreter:
+/home/florianpfaff/codex-runs/orbit-poc-20261013/env/bin/python
+Python3.11.15, NumPy1.26.4, SciPy1.15.3.
+Reuse snapshot/read_pins/write_new functions from the unchanged:
+/home/florianpfaff/codex-runs/orbit-parity-saved-comparator-20261027-02/source/provenance/qualified-isolated-suite.py
+SHA dd530f1344a88bff3eb9e55dbbe97d82f20cb58fff8f8641a6dbcb775a81b041
+Existing runtime inventory there provenance/runtime.sha256:
+dd15f70ca65b3c6409aef1c461e877a0892d2b7771cb6ba0deed73ef0582010c
+Existing aliases there provenance/runtime-links.txt:
+bd05218976dac6800a60289c31b01ec35078f194074e239b328fa83f6fa41f1e
+Do not call the old suite's main or borrow its successful results. Use its exact runtime snapshot/read helpers under a narrow reviewed wrapper for this new source.
+
+Exact interpreter invocation remains -I -S -B. The wrapper must start with the exact isolated stdlib paths, establish canonical stdlib and lib-dynload, then use precisely:
+[stdlib, stdlib/lib-dynload, root/source, root/source/tests, root/source/vendor, root/source/vendor/production, pinned site-packages]
+Preconfigure both vendor paths, so retained_analysis.libraries() does not alter sys.path. No broad path normalization. Allowed nonstdlib top-level imports are numpy, scipy, retained_analysis, selected_terminal_audit, orbit_poc, test_retained_analysis. orbit_poc has exactly six frozen files. Load origin checks and runtime snapshots verify every actual imported or mapped file against the reviewed inventory plus this source ledger. Preserve the exact generated _sysconfigdata module handling from the existing wrapper.
+
+The focused tests never import numpy.testing; no hardware-command startup exception is needed. Keep the established no-process/no-unreviewed-FFI audit hook closed for the entire worker. Scientific-library imports and mappings retain the existing policy and pin checks. The source's provenance backend/oracle files are evidence only and must not be imported. No native executable, subprocess, thread-pool or scientific refit action is allowed.
+
+Use the existing reviewed owned-process supervisor, one numerical thread, CPU127, nice19, 8GiB and300s for each of two separate actions. Capture stdout/stderr, actual child identity/startticks/currentboot, peak memory, elapsed time and cleanup/ECHILD. Verify source/runtime/input identities before and after, including failure. Record actual current-host admission; no invented prior-campaign receipt.
+
+First action: qualification only. Discover test_retained_analysis, require sorted IDs exactly equal expected-test-ids.txt and count9 before running. Use unittest.TextTestRunner; require9 successes/no errors/failures/skips plus unchanged loaded-source/runtime snapshots and verified owned cleanup. No numpy.testing, subprocess, native or actual qr.11 analysis is run by the tests.
+
+After independently reviewing actual qualification, second action: saved analysis only. Run retained_analysis.main with:
+--input-root root/inputs --output root/analysis01/result.json
+The wrapper must set the real argument vector for this entry; do not substitute readers, datasets, paths inside the source, optimizers or numerical functions. Source embeds original ownership paths as data while actual input content is addressed through the independently hashed manifest/staged root. All31 role identities are checked by the actual driver before and after. No physical state is installed or proposed to a native executable.
+
+A nonzero exit, missing receipt, input change, failed comparison or timeout is retained. Qualification success cannot become analysis success by inference. Analysis pass grants only the stated retained-system consistency result, not nonlinear convergence or covariance readiness. Do not auto-rerun native/full fits.

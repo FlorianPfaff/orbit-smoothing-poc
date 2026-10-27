@@ -1,0 +1,82 @@
+{
+  "schema": "density04-retained-factor-independent-plan-review-v1",
+  "reviewed_at_utc": "2026-10-27T02:07:54Z",
+  "reviewer": "/root/interruption_review",
+  "independence": "Independent of this retained-factor plan's author and the density04 execution. Reviewer authored earlier density recovery controls and its scoped terminal review; this is source/receipt review only, not an independent numerical rerun.",
+  "plan": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-retained-factor-audit-preparation01",
+    "ledger": "preparation.sha256",
+    "sha256": "d13b86b8946b6ba82b2e312e679df94f369a07b42f00802088eb33609e5abea7",
+    "members": 9,
+    "all_members_rehashed": true,
+    "availability_present_files_rehashed": 59,
+    "availability_missing_paths_confirmed": 5,
+    "reused_source_files_rehashed": 5
+  },
+  "decision": "Suitable for a separate bounded source implementation after the concrete preparation conditions below are bound. This is not execution approval and not a numerical pass.",
+  "source_implementation_recommended": true,
+  "execution_authority": false,
+  "numerical_computation_performed": false,
+  "imports_tests_native_builds_or_rendering_performed": false,
+  "original_inputs_or_plan_modified": false,
+  "ownership": {
+    "accepted_trial": 30,
+    "point": "point-033-trial-030",
+    "unique_full_factor": "qr.11",
+    "R_sha256": "b0f490ad716fa89b0e8e44789ef5416658aadca35df1b328d950eb34532319c9",
+    "binary_header_dimensions": [146,146],
+    "retained_global_indices": "exactly 240..385 inclusive, unique",
+    "dynamic_indices": "retained 0..66 inclusive, global 240..306",
+    "dynamic_counts": {"log_density_knots":61,"initial_state_native":6},
+    "retained_nuisance_count": 79,
+    "already_eliminated_local_count": 240,
+    "source_rows": 8125,
+    "effective_rank_rows": 7885,
+    "original_objective_rows": 9469,
+    "strict_nuisance_iterations": 10,
+    "fresh_full_nuisance_confirmed": true,
+    "direct_objective_matches_accepted_trial": 108511.68952280404,
+    "final_retention_event_explicitly_protects_this_R": true,
+    "partial_trial31_not_eligible": true,
+    "selection_by_maximum_index": false
+  },
+  "coordinate_review": {
+    "rhs_and_z_sha256": "8fbcfba339f79fe1b9f9533ed32c56e28d45f65a7d01475ca5941fc453915637",
+    "rhs_and_z_are_transformed_target_aliases": true,
+    "native_writer_evidence": "scaledRowQr.h lines616-617 writes z to both names; lines704 exports actual native undamped/step in delta.tsv",
+    "native_delta_source": "qr.11.delta.tsv undamped column, join global240..385; do not consume the first146 rows",
+    "full_parameter_inventory_rows": 386,
+    "full_delta_inventory_rows": 386,
+    "retained_scale_count": 146,
+    "initial_mapping": "closure-02/initial_design.txt is a native Matrix(6 x 67). Native last-three initial coordinates are velocity-times-arc-scale in m, not direct m/s. Apply the complete design to dynamic native corrections; preserve61 density knot order.",
+    "nuisance_mapping": "Retain all79 native bias/phase/ambiguity coordinates, their unit and scale records, both coordinate inventories and all four datum selection files. Group differences by native unit; do not infer range-equivalent signal corrections from rounded parameter names.",
+    "proposal_mapping": "backend.py trial: dynamic delta=step[mask], initial increment=design@delta, full-force increment=delta[:-6], emitted parameters=reference+delta once. proposal000 is undamped; proposal001 is the next source-derived damped trial at this accepted state.",
+    "lambda_nonzero": 0.004747698613200432,
+    "lambda_attribution": "Source-derived from trial30 recorded0.014243095839601297 and gain0.9720673144802097 via optimizer accepted-step rule damping*=max(1/3,1-(2*ratio-1)**3). Interrupted trial31 did not record it directly; match proposal001 before interpretation. No solve or parameter subtraction performed in this review."
+  },
+  "required_preparation_bindings": [
+    {"path":"/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/iterations.json","sha256":"f6d798f502625b22ac9274259d3d0ddc44ab2cf8895209ebc3d81ddda0432877","reason":"Described by PLAN but missing from availability manifest; binds accepted state and lambda operands."},
+    {"path":"/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/factor-retention.json","sha256":"47c96a7eb1aeca6074568e328bf10ba48c9b844737a1e62b4f100189e1c47a1e","reason":"Described by PLAN but missing from availability manifest; binds protected qr.11 and released initial R."},
+    {"path":"/mnt/d/orbit-v41-density-trial-candidate07/source/src/orbit_poc/numerics/backend.py","sha256":"c3687ca9df0f45c77bc0141c1a006859a97065e7adce894c1711ac70dd1f5249","reason":"Exact reference/native-to-SI mapping source; bind in the separate implementation."},
+    {"path":"/mnt/d/orbit-v41-density-trial-candidate07/source/src/orbit_poc/numerics/config.py","sha256":"6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9","reason":"Optimizer imports Controls; pin actual complete source import closure and unchanged numerical controls."}
+  ],
+  "implementation_clarifications": [
+    "For lambda>0 stationarity uses R-transpose times (R*z-b) plus lambda*D-transpose*D*z. The undamped physical gradient remains a separate reported quantity; it need not vanish at a damped solution. Do not form a normal matrix.",
+    "Use original146 scaling unchanged in joint and nuisance-profiled solves. Keep nuisance conditional relationships and residual energy, and recover all79 nuisance directions. Never replace this with a dynamic-only submatrix solve.",
+    "Compare every retained native coordinate at lambda0 to native delta.tsv and both lambda solutions to the independent augmented QR/profiled solve with the existing1e-7 posterior-standard-deviation discrepancy gate. If covariance comparison is implemented, explicitly define its norm and preserve1e-8 relative gate; diagnostic algebraic normalization is not accepted covariance.",
+    "Pin the pure helper/oracle source and production import closure without importing entire native-launch test modules. A few closed-form coupling/unit/malformed-input fixtures suffice; no new general framework.",
+    "Report stored trajectory metrics as archived observations only. Preserve original objective/constant residual energy separately; do not call a retained algebraic result a new nonlinear objective evaluation."
+  ],
+  "unavailable_checks": {
+    "initial_qr74_R": "Absent; recorded released hash e1db8f334d895fcf59836c45e307f06e89ec4c5a12be38cdb92497dec238a77d verified in retention ledger.",
+    "original_weighted_rows": "Only labels/rhs/column-index provenance remains; no numerical coefficients and numeric spool directory is empty. No original-row assembly audit is possible from these files.",
+    "local240_recovery": "Final full factor has no numeric local conditional artifact. Do not borrow a different nuisance iteration's conditionals.",
+    "initial_damping_explanation": "Last-state audit cannot independently explain or certify the missing initial factor's solve."
+  },
+  "scope_limits": [
+    "Only one archived retained system and lambdas0/source-derived0.004747698613200432.",
+    "No normal equations, native replay/exporter, fit, build, trajectory re-evaluation, threshold change or frozen protocol edit.",
+    "No convergence, orbital covariance readiness, density recovery, accuracy superiority or release claim.",
+    "Remote300s/8GiB/one-thread CPU127/nice19 execution remains a later separately reviewed and admitted action."
+  ]
+}
