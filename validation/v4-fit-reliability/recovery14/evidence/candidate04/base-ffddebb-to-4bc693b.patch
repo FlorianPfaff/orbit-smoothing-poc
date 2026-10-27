@@ -1,0 +1,2901 @@
+diff --git a/docs/v4.1-nuisance-fixed-dynamics.md b/docs/v4.1-nuisance-fixed-dynamics.md
+new file mode 100644
+index 0000000..df8156f
+--- /dev/null
++++ b/docs/v4.1-nuisance-fixed-dynamics.md
+@@ -0,0 +1,44 @@
++# Fixed physical coordinates during nuisance fitting
++
++The separate v4.1 installer `groops/extension/native_nuisance_v41.py` follows
++the corrected numerical and nuisance-performance installers. Its runtime switch
++is `ORBIT_POC_NUISANCE_FIXED_DYNAMICS=1`; absent or `0` retains the previous
++path. Other values reject. The bounded dynamic-design installer follows this
++installer and replaces the heap finiteness scan with the sealed store's
++ingestion certificate.
++
++The candidate removes two operations whose physical correction is exactly zero:
++
++- A nuisance update previously multiplied both complete trajectory design
++  matrices by a zero vector. The candidate verifies every correction value,
++  demands finite immutable-design certificates, then adds zero vectors without
++  reading the design matrices. Native clock-dependent position and velocity
++  interpolation still runs, including the mandatory zero-update replay.
++- Conditional ionosphere recovery previously interpolated every dynamic design
++  column before multiplying those columns by zero. A scoped `profile_step`
++  guard checks all physical coordinates before replacing those columns with
++  zeros. Native query/stencil/remainder validation remains active. The scope
++  ends before trial evaluation, so full weighted rows, rank certification,
++  physical proposals and covariance retain their original design values.
++
++Neither operation uses a tolerance to identify zero. A subnormal nonzero
++correction uses the ordinary product. Invalid coordinates, invalid queries,
++missing certificates and inconsistent certificate dimensions reject. Parameter
++updates still invalidate covariance. Every cold profile, zero replay,
++line-search trial, convergence threshold and objective/prior row remains.
++
++`*.nuisance_fixed_dynamics.json` records cumulative parent-process counters.
++Forked child counters are deliberately excluded; these sidecars do not claim
++to measure total saved work or certify a fit.
++
++The standalone guards and installer contracts run with
++`ORBIT_POC_V41_COMPONENT_TESTS=1 python -m pytest tests/test_nuisance_v41.py`.
++They check default behavior, source installation, exact-zero and finite-value
++guards, invalid query callbacks, scope cleanup and fork isolation. They do not
++prove complete native equivalence. Before use, run the unchanged native and
++correction suites plus actual pulse/density GNSS profiles with the switch off
++and on, including nonzero full priors, both observation accumulation modes,
++changed receiver clocks, pulse-side queries, rejected trials and covariance
++freshness. Compare full scientific artifacts and final linearizations. The
++large failed inputs remain necessary to establish whether these changes fix
++the observed timeouts.
+diff --git a/docs/v41-native-design-storage.md b/docs/v41-native-design-storage.md
+new file mode 100644
+index 0000000..02728ba
+--- /dev/null
++++ b/docs/v41-native-design-storage.md
+@@ -0,0 +1,71 @@
++# Native GNSS derivative storage in v4.1
++
++The v4 density failures exposed two distinct allocations. The fixed-parameter
++closure evaluator retained full position/velocity designs, and the GNSS orbit
++parametrization retained another pair across nuisance-process forks. The v4.1
++storage adapter addresses the GNSS pair. The previously added blocked closure
++evaluator remains a separate component.
++
++`native_design_storage_v41.py` installs after `native_nuisance_v41.py`. The native
++runtime selects `ORBIT_POC_GNSS_DESIGN_STORAGE=disk`; the compatibility default
++remains `memory`. Disk mode requires an explicit existing
++`ORBIT_POC_GNSS_DESIGN_SCRATCH` directory. Block size is controlled by
++`ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS`, a canonical integer in `[1,4096]` with default
++64. The v4.1 run specification pins these values and the source/build/input
++hashes. None of these controls changes observations, their support, measurement
++weights, priors, parameter units, convergence thresholds or covariance authority.
++
++The adapter calls the existing `VariationalEquationFromFile::integrateArc` on
++consecutive ranges of the original native grid. One persistent native model
++retains its chronological integration accumulator throughout construction. Each
++position and velocity block contains every original dynamic parameter. Values
++are checked for finiteness, then written as the native contiguous column-major
++binary64 bytes. Computational cuts introduce no force boundaries or priors.
++
++Each design owns a preallocated, immediately unlinked regular scratch file.
++Allocation or I/O failures are fatal; there is no heap fallback. On completion,
++the sole writable descriptor is replaced by a readonly descriptor for the same
++inode, with device, inode, size and unlink state checked. Reads use `pread`, so
++forked children cannot change a shared file offset. A two-block cache is reset
++when its process identity changes. Closing the last inherited descriptor frees
++the scratch storage, including when an owned process is killed.
++Only the process that creates a store may append to or seal it. Forked children
++cannot mutate an incompletely constructed store; completed stores remain
++available for immutable reads in both parent and child.
++
++`DesignRows::row` reconstructs bounded native Matrix slices from the saved
++blocks. Existing piecewise interpolation entrypoints accept this source by a
++template parameter; their bodies, polynomial stencil selection, pulse-side
++convention, time remainders and Twofold arithmetic are unchanged. The native
++piecewise routine requests only the physical interpolation segment. A segment
++or block larger than 64 MiB is rejected explicitly. This is an implementation
++resource bound, not a change to a physical segment or interpolation stencil.
++
++Initial reference updates, subsequent dynamic updates, native Cartesian
++covariance products and observation-epoch covariance products all use bounded
++row blocks. The original parameter covariance, including marginalized nuisance
++uncertainty, is preserved. These BLAS calls have different row dimensions from
++the full-matrix path; numerical equivalence must be measured under the existing
++acceptance gates. Storage alone does not establish convergence or authorize a
++covariance.
++
++The ingestion certificate is available only for completed finite designs. The
++fixed-dynamics optimization uses this certificate before omitting products with
++an exactly zero dynamic correction. Receiver-clock-driven trajectory
++interpolation still runs, including during a zero-update replay.
++
++Each selected runtime writes `.design_storage.jsonl` diagnostic records next to
++its native QR prefix. Records identify the process and unlinked file, shape,
++block size, reserved/written/read scratch bytes, cache loads/hits and I/O wall
++time. The per-block FNV-1a checksum detects read corruption; it is not a
++cryptographic provenance hash. Source, input and executable SHA256 pins remain
++in the run manifest. Process-tree RSS accounting and its 8 GiB limit are
++unchanged, and disk storage costs remain part of elapsed time.
++
++The automated component checks use the actual selected native Matrix, BLAS and
++corrected Polynomial implementation. They cover block sizes, exact derivative
++bytes, interpolation at physical boundaries with time remainders, products,
++selected covariance, alias/fork lifetimes, descriptor cleanup, malformed state,
++truncation, corruption and allocation failure. Full native linearization,
++objective, nuisance replay, rank and fit-equivalence gates remain required;
++passing these component checks does not replace them.
+diff --git a/groops/extension/designRowsV41.h b/groops/extension/designRowsV41.h
+new file mode 100644
+index 0000000..83b3da5
+--- /dev/null
++++ b/groops/extension/designRowsV41.h
+@@ -0,0 +1,376 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#ifndef ORBIT_POC_DESIGN_ROWS_V41_H
++#define ORBIT_POC_DESIGN_ROWS_V41_H
++#include "base/import.h"
++#include <array>
++#include <cerrno>
++#include <chrono>
++#include <cstdint>
++#include <cstring>
++#include <fcntl.h>
++#include <fstream>
++#include <iomanip>
++#include <limits>
++#include <memory>
++#include <sys/stat.h>
++#include <unistd.h>
++
++// Immutable native binary64 design rows. This is storage, not a replacement
++// tangent operator: all columns and every chronological native epoch survive.
++// No mapping or Matrix allocator is changed. A cache holds at most two native
++// blocks; reads use pread so forked trials never share a mutable file offset.
++namespace OrbitPoc
++{
++namespace DesignStorage
++{
++using Clock=std::chrono::steady_clock;
++inline double seconds(Clock::time_point start)
++{return std::chrono::duration<double>(Clock::now()-start).count();}
++inline void fail(const std::string &what)
++{throw(Exception("GNSS design storage: "+what));}
++inline std::uint64_t product(std::uint64_t a,std::uint64_t b)
++{
++  if(b && a>std::uint64_t(std::numeric_limits<off_t>::max())/b)fail("byte size overflow");
++  return a*b;
++}
++inline UInt blockEpochs()
++{
++  const char *raw=std::getenv("ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS");
++  const std::string text=raw?raw:"64";UInt value=0;
++  if(text.empty() || (text.size()>1&&text.front()=='0'))fail("block epochs must be canonical 1..4096");
++  for(char c:text)
++  {
++    if(c<'0'||c>'9'||value>409||(value==409&&c>'6'))fail("block epochs must be canonical 1..4096");
++    value=10*value+UInt(c-'0');
++  }
++  if(!value)fail("block epochs must be canonical 1..4096");
++  return value;
++}
++inline bool enabled()
++{
++  const char *raw=std::getenv("ORBIT_POC_GNSS_DESIGN_STORAGE");
++  const std::string text=raw?raw:"memory";
++  if(text=="memory")return false;
++  if(text=="disk"){blockEpochs();return true;}
++  fail("ORBIT_POC_GNSS_DESIGN_STORAGE must be memory or disk");return false;
++}
++inline std::string directory()
++{
++  const char *raw=std::getenv("ORBIT_POC_GNSS_DESIGN_SCRATCH");
++  if(!raw||!*raw)fail("disk storage requires an explicit scratch directory");
++  return raw;
++}
++inline void finite(const_MatrixSliceRef value)
++{
++  for(UInt column=0;column<value.columns();column++)
++    for(UInt row=0;row<value.rows();row++)
++      if(!std::isfinite(value(row,column)))fail("nonfinite native derivative");
++}
++// An integrity checksum, NOT a source/provenance cryptographic hash. Exact
++// source/build/input SHA256 pins remain the responsibility of the run manifest.
++inline std::uint64_t checksum(const void *data,std::size_t bytes)
++{
++  const auto *p=static_cast<const unsigned char*>(data);
++  std::uint64_t hash=14695981039346656037ULL;
++  for(std::size_t i=0;i<bytes;i++){hash^=p[i];hash*=1099511628211ULL;}
++  return hash;
++}
++inline void io(int fd,void *buffer,std::size_t bytes,off_t offset,bool write)
++{
++  auto *data=static_cast<char*>(buffer);
++  while(bytes)
++  {
++    const ssize_t done=write ? ::pwrite(fd,data,bytes,offset) : ::pread(fd,data,bytes,offset);
++    if(done<0&&errno==EINTR)continue;
++    if(done<=0)fail(std::string(write?"write":"read")+" failed or ended early: "+(done<0?std::strerror(errno):"unexpected EOF"));
++    data+=done;bytes-=std::size_t(done);offset+=done;
++  }
++}
++struct Block {UInt first,rows;std::uint64_t offset,bytes,checksum;};
++struct Backing
++{
++  int fd=-1;UInt rows=0,columns=0,blockRows=0,writtenRows=0;
++  bool sealed=false,finiteValidated=false;
++  std::uint64_t bytes=0,writtenBytes=0;
++  dev_t device=0;ino_t inode=0;pid_t creator=::getpid();
++  double writeSeconds=0;
++  std::vector<Block> blocks;
++  Backing(UInt rowCount,UInt columnCount,UInt blockSize):rows(rowCount),columns(columnCount),blockRows(blockSize)
++  {
++    if(!rows||!columns||!blockRows)fail("empty store geometry");
++    bytes=product(product(rows,columns),sizeof(Double));
++    if(product(product(std::min(rows,blockRows),columns),sizeof(Double))>64ULL*1024*1024)
++      fail("one design block exceeds the 64 MiB storage bound");
++    const auto path=directory();
++    const int dir=::open(path.c_str(),O_RDONLY|O_DIRECTORY|O_NOFOLLOW|O_CLOEXEC);
++    if(dir<0)fail("cannot open scratch directory: "+std::string(std::strerror(errno)));
++    // openat+O_EXCL and immediate unlink leave only owned descriptors, including
++    // on SIGKILL. No shared filename can be replaced while a trial is reading.
++    static std::uint64_t sequence=0;
++    std::string name;
++    for(unsigned attempt=0;attempt<128;attempt++)
++    {
++      name="orbit-design-"+std::to_string(::getpid())+"-"+std::to_string(++sequence);
++      fd=::openat(dir,name.c_str(),O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC,0600);
++      if(fd>=0||errno!=EEXIST)break;
++    }
++    const int saved=errno;
++    if(fd<0){::close(dir);fail("cannot create owned store: "+std::string(std::strerror(saved)));}
++    if(::unlinkat(dir,name.c_str(),0)!=0)
++    {const int error=errno;::close(fd);fd=-1;::close(dir);fail("cannot unlink owned store: "+std::string(std::strerror(error)));}
++    ::close(dir);
++    try
++    {
++      struct stat state{};
++      if(::fstat(fd,&state)!=0||!S_ISREG(state.st_mode)||state.st_nlink!=0)fail("unexpected owned store identity");
++      device=state.st_dev;inode=state.st_ino;
++      // Reserve real scratch capacity before integration. ENOSPC and unsupported
++      // fallocate are explicit failures; there is no heap or sparse-file fallback.
++      const int error=::posix_fallocate(fd,0,off_t(bytes));
++      if(error)fail("cannot reserve scratch bytes: "+std::string(std::strerror(error)));
++    }
++    catch(...){::close(fd);fd=-1;throw;}
++  }
++  ~Backing(){if(fd>=0)::close(fd);}
++  Backing(const Backing&)=delete;Backing&operator=(const Backing&)=delete;
++  void append(const_MatrixSliceRef values)
++  {
++    if(::getpid()!=creator)fail("only the creating process may append an unsealed design");
++    if(sealed||writtenRows>=rows||values.rows()!=std::min(blockRows,rows-writtenRows)||values.columns()!=columns)
++      fail("append order, dimensions or sealed state mismatch");
++    finite(values);
++    Matrix packed(values); // exact native copy; contiguous column-major bytes
++    const auto start=Clock::now();
++    const auto count=product(product(packed.rows(),packed.columns()),sizeof(Double));
++    io(fd,const_cast<Double*>(packed.const_field()),std::size_t(count),off_t(writtenBytes),true);
++    blocks.push_back({writtenRows,values.rows(),writtenBytes,count,checksum(packed.const_field(),std::size_t(count))});
++    writtenRows+=values.rows();writtenBytes+=count;writeSeconds+=seconds(start);
++  }
++  void seal()
++  {
++    if(::getpid()!=creator)fail("only the creating process may seal a design");
++    if(sealed||writtenRows!=rows||writtenBytes!=bytes)fail("incomplete or repeated seal");
++    if(::fsync(fd)!=0)fail("cannot persist completed design: "+std::string(std::strerror(errno)));
++    // Replace the sole writable descriptor with a readonly descriptor of the
++    // SAME unlinked inode. All later writes are impossible through this object.
++    const std::string path="/proc/self/fd/"+std::to_string(fd);
++    const int readonly=::open(path.c_str(),O_RDONLY|O_CLOEXEC);
++    if(readonly<0)fail("cannot seal store readonly");
++    struct stat state{};
++    if(::fstat(readonly,&state)!=0||state.st_dev!=device||state.st_ino!=inode||state.st_nlink!=0||std::uint64_t(state.st_size)!=bytes)
++    {::close(readonly);fail("sealed store identity or length mismatch");}
++    ::close(fd);fd=readonly;sealed=true;finiteValidated=true;
++  }
++};
++}
++
++class DesignRows
++{
++  Matrix heap;
++  std::shared_ptr<DesignStorage::Backing> backing;
++  struct Cache {std::size_t index=std::numeric_limits<std::size_t>::max();Matrix value;std::uint64_t used=0;};
++  mutable std::array<Cache,2> cache;
++  mutable pid_t cacheProcess=::getpid();
++  mutable std::uint64_t sequence=0,readBytes=0,loads=0,hits=0;
++  mutable double readSeconds=0;
++  bool heapFinite=false;
++  const Matrix &load(std::size_t index)const
++  {
++    if(!backing||!backing->sealed||index>=backing->blocks.size())DesignStorage::fail("unsealed or missing read block");
++    if(cacheProcess!=::getpid())
++    {cache={};sequence=readBytes=loads=hits=0;readSeconds=0;cacheProcess=::getpid();}
++    for(auto &entry:cache)if(entry.index==index){entry.used=++sequence;hits++;return entry.value;}
++    auto &entry=cache[cache[0].used<=cache[1].used?0:1];
++    const auto &block=backing->blocks.at(index);
++    Matrix value(block.rows,columns(),Matrix::NOFILL);
++    const auto start=DesignStorage::Clock::now();
++    DesignStorage::io(backing->fd,value.field(),std::size_t(block.bytes),off_t(block.offset),false);
++    if(DesignStorage::checksum(value.const_field(),std::size_t(block.bytes))!=block.checksum)
++      DesignStorage::fail("stored native derivative integrity mismatch");
++    readSeconds+=DesignStorage::seconds(start);readBytes+=block.bytes;loads++;
++    entry.value=std::move(value);entry.index=index;entry.used=++sequence;return entry.value;
++  }
++public:
++  DesignRows()=default;
++  explicit DesignRows(const Matrix &value):heap(value){DesignStorage::finite(heap);heapFinite=true;}
++  static DesignRows disk(UInt rows,UInt columns,UInt blockRows)
++  {DesignRows value;value.backing=std::make_shared<DesignStorage::Backing>(rows,columns,blockRows);return value;}
++  UInt rows()const{return backing?backing->rows:heap.rows();}
++  UInt columns()const{return backing?backing->columns:heap.columns();}
++  bool isDisk()const{return bool(backing);}
++  bool finiteValidated()const{return backing?backing->sealed&&backing->finiteValidated:heapFinite;}
++  const Matrix &denseMatrix()const
++  {if(backing)DesignStorage::fail("dense access to disk design is forbidden");return heap;}
++  UInt blockRows()const{return backing?backing->blockRows:rows();}
++  void append(const_MatrixSliceRef value)
++  {if(!backing)DesignStorage::fail("append requires disk store");backing->append(value);}
++  void seal(){if(!backing)DesignStorage::fail("seal requires disk store");backing->seal();}
++  // Intentionally supports only the native zero-column validation view. It
++  // cannot accidentally materialize a trajectory-wide column subset.
++  Matrix column(UInt first,UInt count)const
++  {if(first||count)DesignStorage::fail("only zero-column query validation is supported");return Matrix(rows(),0);}
++  Matrix row(UInt first,UInt count=1)const
++  {
++    if(first>rows()||count>rows()-first)DesignStorage::fail("row range outside native design");
++    if(!backing)return heap.row(first,count);
++    if(!backing->sealed)DesignStorage::fail("read before immutable seal");
++    if(DesignStorage::product(DesignStorage::product(count,columns()),sizeof(Double))>64ULL*1024*1024)
++      DesignStorage::fail("requested physical interpolation segment exceeds 64 MiB; unsupported storage geometry");
++    Matrix result(count,columns(),Matrix::NOFILL);
++    for(UInt output=0;output<count;)
++    {
++      const UInt original=first+output;
++      const std::size_t index=original/backing->blockRows;
++      const auto &block=backing->blocks.at(index);
++      const UInt offset=original-block.first;
++      const UInt length=std::min(count-output,block.rows-offset);
++      copy(load(index).row(offset,length),result.row(output,length));output+=length;
++    }
++    return result;
++  }
++  Matrix operator*(const_MatrixSliceRef rhs)const
++  {
++    if(rhs.rows()!=columns())DesignStorage::fail("matrix product dimensions differ");
++    if(!backing)return heap*rhs;
++    if(DesignStorage::product(DesignStorage::product(rows(),rhs.columns()),sizeof(Double))>64ULL*1024*1024)
++      DesignStorage::fail("unbounded design product; use row blocks");
++    Matrix result(rows(),rhs.columns());
++    for(UInt first=0;first<rows();)
++    {
++      const UInt count=std::min(blockRows(),rows()-first);
++      matMult(1.,row(first,count),rhs,result.row(first,count));first+=count;
++    }
++    return result;
++  }
++  void addProduct(const_MatrixSliceRef rhs,MatrixSliceRef output)const
++  {
++    if(rhs.rows()!=columns()||output.rows()!=rows()||output.columns()!=rhs.columns())DesignStorage::fail("add-product dimensions differ");
++    if(!backing){matMult(1.,heap,rhs,output);return;}
++    for(UInt first=0;first<rows();)
++    {
++      const UInt count=std::min(blockRows(),rows()-first);
++      matMult(1.,row(first,count),rhs,output.row(first,count));first+=count;
++    }
++  }
++  void report(const char *stage)const
++  {
++    if(!backing)return;
++    const char *raw=std::getenv("ORBIT_POC_NUMERICS_QR_PREFIX");
++    if(!raw||!*raw)DesignStorage::fail("disk diagnostics require native QR output prefix");
++    std::ofstream out(std::string(raw)+".design_storage.jsonl",std::ios::app);
++    out<<std::setprecision(17)<<"{\"schema\":\"orbit-poc-design-storage-v41\",\"stage\":\""<<stage
++       <<"\",\"creator_pid\":"<<backing->creator<<",\"pid\":"<<::getpid()
++       <<",\"device\":"<<backing->device<<",\"inode\":"<<backing->inode
++       <<",\"rows\":"<<rows()<<",\"columns\":"<<columns()<<",\"block_rows\":"<<blockRows()
++       <<",\"sealed\":"<<(backing->sealed?"true":"false")<<",\"finite_validated\":"<<(finiteValidated()?"true":"false")
++       <<",\"scratch_reserved_bytes\":"<<backing->bytes<<",\"scratch_written_bytes\":"<<backing->writtenBytes
++       <<",\"write_wall_seconds\":"<<backing->writeSeconds<<",\"read_bytes\":"<<readBytes
++       <<",\"read_wall_seconds\":"<<readSeconds<<",\"block_loads\":"<<loads<<",\"cache_hits\":"<<hits
++       <<",\"checksum_kind\":\"fnv1a64_integrity_not_provenance\",\"cache_block_bound\":2}\n";
++    out.close();if(!out)DesignStorage::fail("cannot write diagnostic receipt");
++  }
++};
++
++struct StoredVariationalEquation
++{
++  std::vector<Time> times;Vector pos0,vel0;DesignRows PosDesign,VelDesign;
++};
++template<class Model> StoredVariationalEquation integrateStoredDesigns(Model &model,const std::vector<Time> &times)
++{
++  if(times.empty())DesignStorage::fail("empty native time grid");
++  StoredVariationalEquation result;
++  if(!DesignStorage::enabled())
++  {
++    auto native=model.integrateArc(times.front(),times.back(),TRUE,TRUE);
++    result.times=std::move(native.times);result.pos0=std::move(native.pos0);result.vel0=std::move(native.vel0);
++    result.PosDesign=DesignRows(native.PosDesign);result.VelDesign=DesignRows(native.VelDesign);return result;
++  }
++  const UInt block=DesignStorage::blockEpochs(),columns=model.parameterCount();
++  if(times.size()>std::numeric_limits<UInt>::max()/3)DesignStorage::fail("epoch count overflow");
++  result.times=times;result.pos0=Vector(3*times.size());result.vel0=Vector(3*times.size());
++  result.PosDesign=DesignRows::disk(3*times.size(),columns,3*block);
++  result.VelDesign=DesignRows::disk(3*times.size(),columns,3*block);
++  for(UInt first=0;first<times.size();)
++  {
++    const UInt count=std::min(block,UInt(times.size()-first));
++    // Same persistent native Alpha/integrand history, never restarted at a cut.
++    auto native=model.integrateArc(times.at(first),times.at(first+count-1),TRUE,TRUE);
++    if(model.parameterCount()!=columns||native.times.size()!=count||native.pos0.rows()!=3*count||native.vel0.rows()!=3*count)
++      DesignStorage::fail("native block geometry changed");
++    for(UInt i=0;i<count;i++)
++      if(native.times.at(i).mjdInt()!=times.at(first+i).mjdInt()||native.times.at(i).mjdMod()!=times.at(first+i).mjdMod())
++        DesignStorage::fail("native block time identity changed");
++    result.PosDesign.append(native.PosDesign);result.VelDesign.append(native.VelDesign);
++    copy(native.pos0,result.pos0.row(3*first,3*count));copy(native.vel0,result.vel0.row(3*first,3*count));first+=count;
++  }
++  result.PosDesign.seal();result.VelDesign.seal();
++  result.PosDesign.report("sealed");result.VelDesign.report("sealed");return result;
++}
++
++inline Matrix cartesianCovarianceRows(const_MatrixSliceRef position,const_MatrixSliceRef velocity,
++                                     const_MatrixSliceRef parameterCovariance)
++{
++  const UInt count=parameterCovariance.rows();
++  if(!count||parameterCovariance.columns()!=count||position.rows()%3||velocity.rows()!=position.rows()||
++     position.columns()!=count||velocity.columns()!=count)
++    DesignStorage::fail("Cartesian covariance design dimensions differ");
++  const UInt epochs=position.rows()/3;
++  const Matrix posCov=position*parameterCovariance,velCov=velocity*parameterCovariance;
++  Matrix rows(epochs,36);
++  for(UInt epoch=0;epoch<epochs;epoch++)
++  {
++    Matrix design(6,count),weighted(6,count);
++    copy(position.row(3*epoch,3),design.row(0,3));copy(velocity.row(3*epoch,3),design.row(3,3));
++    copy(posCov.row(3*epoch,3),weighted.row(0,3));copy(velCov.row(3*epoch,3),weighted.row(3,3));
++    const Matrix covariance=weighted*design.trans();
++    for(UInt i=0;i<6;i++)for(UInt j=0;j<6;j++)
++    {
++      const Double value=0.5*(covariance(i,j)+covariance(j,i));
++      if(!std::isfinite(value)||((i==j)&&(value<=0)))DesignStorage::fail("invalid native Cartesian covariance");
++      rows(epoch,6*i+j)=value;
++    }
++  }
++  return rows;
++}
++
++inline Matrix storedCartesianCovariance(const DesignRows &position,const DesignRows &velocity,
++                                       const_MatrixSliceRef parameterCovariance)
++{
++  if(position.rows()%3||position.rows()!=velocity.rows()||position.columns()!=velocity.columns()||position.isDisk()!=velocity.isDisk())
++    DesignStorage::fail("position/velocity storage covariance geometry differs");
++  if(!position.isDisk())return cartesianCovarianceRows(position.denseMatrix(),velocity.denseMatrix(),parameterCovariance);
++  Matrix result(position.rows()/3,36);
++  for(UInt first=0;first<position.rows();)
++  {
++    const UInt count=std::min(position.blockRows(),position.rows()-first);
++    const Matrix rows=cartesianCovarianceRows(position.row(first,count),velocity.row(first,count),parameterCovariance);
++    copy(rows,result.row(first/3,count/3));first+=count;
++  }
++  position.report("native_covariance");velocity.report("native_covariance");return result;
++}
++
++template<class Polynomial> Matrix storedObservationCovariance(const Polynomial &polynomial,const std::vector<Time> &queries,
++    const DesignRows &position,const DesignRows &velocity,const_MatrixSliceRef parameterCovariance)
++{
++  if(position.isDisk()!=velocity.isDisk())DesignStorage::fail("position/velocity observation storage differs");
++  if(!position.isDisk())
++  {
++    const Matrix pos=polynomial.interpolate(queries,position.denseMatrix(),3);
++    const Matrix vel=polynomial.interpolate(queries,velocity.denseMatrix(),3,TRUE);
++    return cartesianCovarianceRows(pos,vel,parameterCovariance);
++  }
++  Matrix result(queries.size(),36);
++  const UInt block=std::max(UInt(1),position.blockRows()/3);
++  for(UInt first=0;first<queries.size();)
++  {
++    const UInt count=std::min(block,UInt(queries.size()-first));
++    const std::vector<Time> part(queries.begin()+first,queries.begin()+first+count);
++    const Matrix pos=polynomial.interpolate(part,position,3);
++    const Matrix vel=polynomial.interpolate(part,velocity,3,TRUE);
++    const Matrix rows=cartesianCovarianceRows(pos,vel,parameterCovariance);
++    copy(rows,result.row(first,count));first+=count;
++  }
++  position.report("observation_covariance");velocity.report("observation_covariance");return result;
++}
++}
++#endif
+diff --git a/groops/extension/native_design_storage_v41.py b/groops/extension/native_design_storage_v41.py
+new file mode 100644
+index 0000000..bb62e70
+--- /dev/null
++++ b/groops/extension/native_design_storage_v41.py
+@@ -0,0 +1,176 @@
++#!/usr/bin/env python3
++"""Bound GNSS derivative storage without changing the native tangent operator.
++
++Install last, after nuisance v4.1. A separate selected v4.1 runtime enables disk
++storage; existing runtime defaults and physical/statistical configuration stay
++unchanged. Native Matrix ownership and interpolation arithmetic are untouched.
++"""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++from pathlib import Path
++
++MARKER = "ORBIT_POC_DESIGN_STORAGE_V41"
++MANIFEST = "orbit-poc-design-storage-v41-extension.json"
++DYNAMIC = "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp"
++DECLARATION = "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.h"
++POLYNOMIAL = "source/misc/orbitPoc/piecewisePolynomial.h"
++HEADER = "source/misc/orbitPoc/designRowsV41.h"
++
++
++def _replace(text, old, new):
++    if text.count(old) != 1:
++        raise ValueError("Design-storage v4.1 anchor mismatch: " + old[:100])
++    return text.replace(old, new, 1)
++
++
++def _declaration(text):
++    if "ORBIT_POC_NUISANCE_FIXED_DYNAMICS_V41" not in text:
++        raise ValueError("Design-storage requires nuisance v4.1 first")
++    text = _replace(text, '#include "base/import.h"', '#include "base/import.h"\n#include "misc/orbitPoc/designRowsV41.h"')
++    text = _replace(text, "    std::vector<Matrix>            PosDesign, VelDesign;",
++                    "    std::vector<OrbitPoc::DesignRows> PosDesign, VelDesign;")
++    return "// " + MARKER + "\n" + text
++
++
++def _polynomial(text):
++    # Only source parameter types change. The exact existing selection, native
++    # polynomial, Twofold, pulse-side and relative-time code bodies stay intact.
++    for name in ("interpolate", "interpolateOffset"):
++        old = f"  Matrix {name}(const std::vector<Time> &timesNew, const_MatrixSliceRef A,"
++        new = f"  template<class Rows> Matrix {name}(const std::vector<Time> &timesNew, const Rows &A,"
++        text = _replace(text, old, new)
++    text = _replace(text, '#include "base/polynomial.h"', '#include "base/polynomial.h"\n#include "misc/orbitPoc/designRowsV41.h"')
++    # Preserve native MatrixSlice aliasing on the compatibility path. A generic
++    # provider row() materializes its bounded disk slice; applying that method
++    # to heap storage would introduce an unnecessary per-observation deep copy.
++    text = _replace(text, "\n};\n#endif", """
++  // ORBIT_POC_DESIGN_STORAGE_DISPATCH_V41
++  Matrix interpolate(const std::vector<Time> &timesNew,const OrbitPoc::DesignRows &A,
++                     UInt rowsPerEpoch=1,Bool valuesJump=FALSE)const
++  {
++    if(!A.isDisk())return interpolate(timesNew,A.denseMatrix(),rowsPerEpoch,valuesJump);
++    return interpolate<OrbitPoc::DesignRows>(timesNew,A,rowsPerEpoch,valuesJump);
++  }
++  Matrix interpolateOffset(const std::vector<Time> &timesNew,const OrbitPoc::DesignRows &A,
++                     const std::vector<long double> &offsetSeconds,UInt rowsPerEpoch=1,Bool valuesJump=FALSE,
++                     std::vector<long double> *preciseValues=nullptr,std::vector<long double> *coordinateRemainders=nullptr)const
++  {
++    if(!A.isDisk())return interpolateOffset(timesNew,A.denseMatrix(),offsetSeconds,rowsPerEpoch,valuesJump,preciseValues,coordinateRemainders);
++    return interpolateOffset<OrbitPoc::DesignRows>(timesNew,A,offsetSeconds,rowsPerEpoch,valuesJump,preciseValues,coordinateRemainders);
++  }
++};
++#endif""")
++    return "// " + MARKER + "\n" + text
++
++
++def _dynamic(text):
++    if "ORBIT_POC_NUISANCE_FIXED_DYNAMICS_V41" not in text:
++        raise ValueError("Design-storage requires nuisance v4.1 first")
++    text = _replace(text,
++        "auto variationalEquation = file.integrateArc(arc.times.front(), arc.times.back(), TRUE/*computePosition*/, TRUE/*computeVelocity*/);",
++        "auto variationalEquation = OrbitPoc::integrateStoredDesigns(file,arc.times);")
++    for member in ("PosDesign", "VelDesign"):
++        old = f"orbitPocNuisanceV41::certifyFinite(para->{member}.back())"
++        new = f"orbitPocNuisanceV41::certifyKnownFinite(para->{member}.back().rows(),para->{member}.back().columns(),para->{member}.back().finiteValidated())"
++        text = _replace(text, old, new)
++    for member, output in (("PosDesign", "pos"), ("VelDesign", "vel")):
++        text = _replace(text, f"matMult(1.,variationalEquation.{member},orbitPocReference,para->{output}.back());",
++                        f"variationalEquation.{member}.addProduct(orbitPocReference,para->{output}.back());")
++    # Covariance remains the full nuisance-marginalized dynamic covariance.
++    # Change only the storage of its Cartesian products, after certification.
++    begin = "          const Matrix &pos = para->PosDesign.at(arcNo);"
++    end = "          para->stateCovariance.push_back(rows);"
++    if text.count(begin) != 1 or text.count(end) != 1:
++        raise ValueError("Design-storage native covariance bounds mismatch")
++    first, last = text.index(begin), text.index(end) + len(end)
++    text = text[:first] + """          if(para->PosDesign.at(arcNo).rows()!=3*epochs || para->VelDesign.at(arcNo).rows()!=3*epochs ||
++             para->PosDesign.at(arcNo).columns()!=count || para->VelDesign.at(arcNo).columns()!=count)
++            throw(Exception("Position/velocity variational designs do not match orbit parameters"));
++          para->stateCovariance.push_back(OrbitPoc::storedCartesianCovariance(
++              para->PosDesign.at(arcNo),para->VelDesign.at(arcNo),parameterCovariance));""" + text[last:]
++    begin = "            const Matrix pos = para->polynomial.at(arcNo).interpolate(query, para->PosDesign.at(arcNo), 3);"
++    end = """          }
++          for(Bool valid : covered)"""
++    if text.count(begin) != 1 or text.count(end) != 1:
++        raise ValueError("Design-storage observation covariance bounds mismatch")
++    first, last = text.index(begin), text.index(end)
++    text = text[:first] + """            const Matrix covarianceRows=OrbitPoc::storedObservationCovariance(para->polynomial.at(arcNo),query,
++                para->PosDesign.at(arcNo),para->VelDesign.at(arcNo),para->parameterCovariance);
++            for(UInt epoch=0;epoch<query.size();epoch++)
++            {
++              output(indices.at(epoch),0)=query.at(epoch).mjd();
++              copy(covarianceRows.row(epoch,1),output.slice(indices.at(epoch),1,1,36));
++            }
++""" + text[last:]
++    # Finite/boundary checks remain in native interpolation, even when a cost
++    # build elides derivatives. No source is replaced following construction.
++    anchor = """          const Vector pos = para->polynomial.at(arcNo).interpolateOffset(times, para->pos.at(arcNo), queryRemainders, 3, FALSE, nullptr, &coordinateLow);"""
++    text = _replace(text, anchor, """          para->PosDesign.at(arcNo).report("parameter_update");
++          para->VelDesign.at(arcNo).report("parameter_update");
++""" + anchor)
++    return "// " + MARKER + "\n" + text
++
++
++def _sha(data):
++    return hashlib.sha256(data).hexdigest()
++
++
++def _ordinary(path, absent=False):
++    if any(parent.is_symlink() for parent in (path, *path.parents)):
++        raise ValueError("Symlink in design-storage installation")
++    if not path.is_file() and not (absent and not path.exists()):
++        raise ValueError("Nonregular design-storage installation file")
++
++
++def apply(source):
++    root = Path(source).absolute()
++    here = Path(__file__).resolve().parent
++    inputs = {name: _sha((here / name).read_bytes()) for name in
++              ("native_design_storage_v41.py", "designRowsV41.h")}
++    files = {DYNAMIC, DECLARATION, POLYNOMIAL, HEADER}
++    for name in files | {MANIFEST}:
++        _ordinary(root / name, absent=name in {HEADER, MANIFEST})
++    if (root / MANIFEST).exists():
++        old = json.loads((root / MANIFEST).read_text())
++        if old.get("schema") != "orbit-poc-design-storage-v41-install-v1" or old.get("installer_inputs") != inputs or set(old.get("installed_files", {})) != files:
++            raise ValueError("Design-storage installation identity differs")
++        for name, digest in old["installed_files"].items():
++            if _sha((root / name).read_bytes()) != digest:
++                raise ValueError("Installed design-storage source changed")
++        return old
++    original = {name: (root / name).read_bytes() for name in (DYNAMIC, DECLARATION, POLYNOMIAL)}
++    if any(MARKER.encode() in value for value in original.values()):
++        raise ValueError("Unattributed partial design-storage installation")
++    header = (here / "designRowsV41.h").read_bytes()
++    if (root / HEADER).exists() and (root / HEADER).read_bytes() != header:
++        raise ValueError("Unattributed design-storage helper")
++    updated = {DYNAMIC: _dynamic(original[DYNAMIC].decode()).encode(),
++               DECLARATION: _declaration(original[DECLARATION].decode()).encode(),
++               POLYNOMIAL: _polynomial(original[POLYNOMIAL].decode()).encode(), HEADER: header}
++    result = {"schema": "orbit-poc-design-storage-v41-install-v1", "runtime_default": "memory",
++              "runtime_environment": "ORBIT_POC_GNSS_DESIGN_STORAGE", "values": ["memory", "disk"],
++              "required_disk_scratch": "ORBIT_POC_GNSS_DESIGN_SCRATCH",
++              "block_epochs_environment": "ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS",
++              "block_epochs_default": 64, "block_epochs_range": [1, 4096],
++              "cache_blocks_per_design": 2, "maximum_loaded_rows_bytes": 64 * 1024 * 1024,
++              "scope": "native_GNSS_dynamic_design_storage_and_bounded_products",
++              "operator_and_interpolation": "same_native_chronological_operator_and_piecewise_body",
++              "arithmetic_note": "Row-block BLAS shapes differ; existing numerical equivalence gates remain mandatory",
++              "priors_weights_coordinates_and_thresholds": "unchanged",
++              "scratch_accounting": "preallocated_unlinked_owned_files_in_native_process_tree; no_RSS_policy_change",
++              "installer_inputs": inputs, "previous_files": {name: _sha(data) for name, data in original.items()},
++              "installed_files": {name: _sha(data) for name, data in updated.items()}}
++    for name, data in updated.items():
++        (root / name).parent.mkdir(parents=True, exist_ok=True)
++        (root / name).write_bytes(data)
++    (root / MANIFEST).write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
++    return result
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--source", required=True)
++    print(json.dumps(apply(parser.parse_args().source), indent=2, sort_keys=True))
+diff --git a/groops/extension/native_nuisance_v41.py b/groops/extension/native_nuisance_v41.py
+new file mode 100644
+index 0000000..681ca88
+--- /dev/null
++++ b/groops/extension/native_nuisance_v41.py
+@@ -0,0 +1,146 @@
++#!/usr/bin/env python3
++"""Install exact fixed-dynamics nuisance work elimination after instrumentation.
++
++This is a separate default-off v4.1 candidate. It changes neither the full QR
++linearization nor cold checks, objective rows, line-search limits or thresholds.
++Run before native_dynamic_design_memory_v41 when bounded backing is selected.
++"""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++from pathlib import Path
++
++MARKER = "ORBIT_POC_NUISANCE_FIXED_DYNAMICS_V41"
++MANIFEST = "orbit-poc-nuisance-v41-extension.json"
++DYNAMIC = "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp"
++DECLARATION = "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.h"
++PROCESSING = "source/gnss/gnssProcessingStep/gnssProcessingStep.cpp"
++HEADER = "source/misc/orbitPoc/nuisanceFixedDynamics.h"
++
++
++def _replace(text, old, new):
++    if text.count(old) != 1:
++        raise ValueError(f"Nuisance v4.1 anchor mismatch: {old[:100]}")
++    return text.replace(old, new, 1)
++
++
++def _dynamic(text):
++    if "ORBIT_POC_NUISANCE_PERFORMANCE_V1" not in text:
++        raise ValueError("Nuisance v4.1 requires nuisance performance instrumentation")
++    text = _replace(text, "            para->VelDesign.emplace_back(variationalEquation.VelDesign);", """            para->VelDesign.emplace_back(variationalEquation.VelDesign);
++            // ORBIT_POC_V41_FINITE_DESIGN_INGEST: immutable until parameter destruction.
++            if(orbitPocQr::enabled() && orbitPocNuisanceV41::enabled())
++            {
++              para->orbitPocPositionDesignCertificates.push_back(orbitPocNuisanceV41::certifyFinite(para->PosDesign.back()));
++              para->orbitPocVelocityDesignCertificates.push_back(orbitPocNuisanceV41::certifyFinite(para->VelDesign.back()));
++            }
++            else
++            {
++              para->orbitPocPositionDesignCertificates.push_back({});
++              para->orbitPocVelocityDesignCertificates.push_back({});
++            }""")
++    text = _replace(text, "orbitPocNuisancePerformance::dynamicDesign(para->PosDesign.at(arcNo).columns(),", "orbitPocNuisanceV41::dynamicDesign(para->PosDesign.at(arcNo).columns(),")
++    text = _replace(text,
++        "[&](){para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo).column(0,0), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3);}",
++        """[&](){if(orbitPocNuisanceV41::recoveringFixedDynamics())
++                  orbitPocNuisanceV41::requireCertificate(para->orbitPocPositionDesignCertificates.at(arcNo),para->PosDesign.at(arcNo));
++                para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo).column(0,0), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3);}""")
++    text = _replace(text, """          para->pos.at(arcNo) += para->PosDesign.at(arcNo) * dx;
++          para->vel.at(arcNo) += para->VelDesign.at(arcNo) * dx;""", """          // Skip only proven-zero products. Clock-driven position/velocity
++          // interpolation below is still mandatory, even for the zero replay.
++          if(orbitPocQr::enabled() && orbitPocNuisanceV41::enabled() && orbitPocNuisanceV41::exactZero(dx))
++          {
++            orbitPocNuisanceV41::requireCertificate(para->orbitPocPositionDesignCertificates.at(arcNo),para->PosDesign.at(arcNo));
++            orbitPocNuisanceV41::requireCertificate(para->orbitPocVelocityDesignCertificates.at(arcNo),para->VelDesign.at(arcNo));
++            // Keep the legacy zero additions, including signed-zero behavior.
++            para->pos.at(arcNo) += Vector(para->pos.at(arcNo).rows());
++            para->vel.at(arcNo) += Vector(para->vel.at(arcNo).rows());
++            orbitPocNuisanceV41::counters().skippedZeroProducts+=2;
++          }
++          else
++          {
++            para->pos.at(arcNo) += para->PosDesign.at(arcNo) * dx;
++            para->vel.at(arcNo) += para->VelDesign.at(arcNo) * dx;
++          }""")
++    return "// " + MARKER + "\n" + text
++
++
++def _declaration(text):
++    text = _replace(text, '#include "base/import.h"', '#include "base/import.h"\n#include "misc/orbitPoc/nuisanceFixedDynamics.h"')
++    text = _replace(text, "    std::vector<Matrix>            PosDesign, VelDesign;", """    std::vector<Matrix>            PosDesign, VelDesign;
++    std::vector<orbitPocNuisanceV41::FiniteDesignCertificate> orbitPocPositionDesignCertificates,orbitPocVelocityDesignCertificates;""")
++    return "// " + MARKER + "\n" + text
++
++
++def _processing(text):
++    if "ORBIT_POC_TRANSACTIONAL_NUISANCE_V31" not in text or "ORBIT_POC_NUISANCE_PERFORMANCE_V1" not in text:
++        raise ValueError("Nuisance v4.1 requires corrected transactional instrumented profiling")
++    start = """      Double maximumJointObservationInfluence=0;
++      GnssDesignMatrix A(normalEquationInfo);
++      for(UInt epoch:normalEquationInfo.idEpochs)"""
++    text = _replace(text, start, """      Double maximumJointObservationInfluence=0;
++      GnssDesignMatrix A(normalEquationInfo);
++      {
++      orbitPocNuisanceV41::RecoveryScope fixedDynamics(mode=="profile_step",normalEquationInfo.parameterNames(),x,
++        [](const ParameterName &name){return orbitPocQr::dynamic(name);});
++      for(UInt epoch:normalEquationInfo.idEpochs)""")
++    text = _replace(text, """              localUpdates.push_back({eqn.receiver->observation(trans,epoch),local,influence});
++            }
++      auto observationFingerprint=""", """              localUpdates.push_back({eqn.receiver->observation(trans,epoch),local,influence});
++            }
++      } // fixed physical coordinates apply only to conditional recovery
++      auto observationFingerprint=""")
++    anchor = '      orbitPocNuisancePerformance::writeSearch(stem+".nuisance_performance.json",search,rowBuildPerformance);'
++    text = _replace(text, anchor, anchor + '\n      orbitPocNuisanceV41::writeCounters(stem+".nuisance_fixed_dynamics.json");')
++    return '// ' + MARKER + '\n#include "misc/orbitPoc/nuisanceFixedDynamics.h"\n' + text
++
++
++def _digest(data):
++    return hashlib.sha256(data).hexdigest()
++
++
++def apply(root):
++    root = Path(root)
++    here = Path(__file__).resolve().parent
++    inputs = {name: _digest((here / name).read_bytes()) for name in ("native_nuisance_v41.py", "nuisanceFixedDynamics.h")}
++    manifest_path = root / MANIFEST
++    files = {DYNAMIC, DECLARATION, PROCESSING, HEADER}
++    if manifest_path.exists():
++        manifest = json.loads(manifest_path.read_text())
++        if manifest.get("installer_inputs") != inputs or set(manifest.get("installed_files", {})) != files:
++            raise ValueError("Installed nuisance v4.1 implementation differs")
++        for name, expected in manifest["installed_files"].items():
++            if _digest((root / name).read_bytes()) != expected:
++                raise ValueError(f"Installed nuisance v4.1 file changed: {name}")
++        return manifest
++    originals = {name: (root / name).read_bytes() for name in (DYNAMIC, DECLARATION, PROCESSING)}
++    if any(MARKER in value.decode() for value in originals.values()):
++        raise ValueError("Unattributed partial nuisance v4.1 installation")
++    if (root / HEADER).exists() and (root / HEADER).read_bytes() != (here / "nuisanceFixedDynamics.h").read_bytes():
++        raise ValueError("Unattributed nuisance v4.1 helper")
++    # All source anchors are checked before the first mutation.
++    updated = {DYNAMIC: _dynamic(originals[DYNAMIC].decode()).encode(),
++               DECLARATION: _declaration(originals[DECLARATION].decode()).encode(),
++               PROCESSING: _processing(originals[PROCESSING].decode()).encode(),
++               HEADER: (here / "nuisanceFixedDynamics.h").read_bytes()}
++    manifest = {"schema": "orbit-poc-nuisance-v41-extension-v1", "runtime_default": "0",
++                "runtime_environment": "ORBIT_POC_NUISANCE_FIXED_DYNAMICS", "runtime_values": ["0", "1"],
++                "scope": "exact_zero_dynamic_products_and_nuisance_only_conditional_recovery",
++                "full_rank_linearizations_and_covariance": "unchanged",
++                "cold_checks_and_correctness_thresholds": "unchanged",
++                "finite_design_policy": "immutable_ingestion_certificate_required_before_zero_product_shortcut",
++                "installer_inputs": inputs,
++                "previous_files": {name: _digest(value) for name, value in originals.items()},
++                "installed_files": {name: _digest(value) for name, value in updated.items()}}
++    for name, value in updated.items():
++        (root / name).write_bytes(value)
++    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
++    return manifest
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--source", required=True)
++    print(json.dumps(apply(parser.parse_args().source), indent=2, sort_keys=True))
+diff --git a/groops/extension/nuisanceFixedDynamics.h b/groops/extension/nuisanceFixedDynamics.h
+new file mode 100644
+index 0000000..3a8d1eb
+--- /dev/null
++++ b/groops/extension/nuisanceFixedDynamics.h
+@@ -0,0 +1,109 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#ifndef ORBIT_POC_NUISANCE_FIXED_DYNAMICS_H
++#define ORBIT_POC_NUISANCE_FIXED_DYNAMICS_H
++#include <cmath>
++#include <cstdint>
++#include <cstdlib>
++#include <fstream>
++#include <stdexcept>
++#include <string>
++#include <utility>
++#include "misc/orbitPoc/nuisancePerformance.h"
++
++// The physical coordinates in an inner nuisance correction are exactly zero.
++// Do not confuse this predicate with a small-update or convergence threshold.
++namespace orbitPocNuisanceV41
++{
++inline bool enabled()
++{
++  const char *raw=std::getenv("ORBIT_POC_NUISANCE_FIXED_DYNAMICS");
++  const std::string value=raw?raw:"0";
++  if(value=="0")return false;
++  if(value=="1")return true;
++  throw std::invalid_argument("ORBIT_POC_NUISANCE_FIXED_DYNAMICS must be 0 or 1");
++}
++struct FiniteDesignCertificate
++{
++  std::uint64_t rows=0,columns=0;
++  bool validated=false;
++};
++inline FiniteDesignCertificate certifyKnownFinite(std::uint64_t rows,std::uint64_t columns,bool validated)
++{
++  if(!validated)throw std::runtime_error("Fixed-dynamics optimization requires a finite immutable design");
++  return {rows,columns,true};
++}
++template<class Matrix> inline FiniteDesignCertificate certifyFinite(const Matrix &matrix)
++{
++  // Native matrices are column major. This check is once per immutable design,
++  // never once per nuisance trial; the bounded backing supplies its sealed
++  // ingestion certificate instead of making individual coefficient reads.
++  for(std::uint64_t j=0;j<matrix.columns();j++)
++    for(std::uint64_t i=0;i<matrix.rows();i++)
++      if(!std::isfinite(matrix(i,j)))throw std::runtime_error("Nonfinite immutable dynamic design");
++  return certifyKnownFinite(matrix.rows(),matrix.columns(),true);
++}
++template<class Matrix> inline void requireCertificate(const FiniteDesignCertificate &certificate,const Matrix &matrix)
++{
++  if(!certificate.validated||certificate.rows!=matrix.rows()||certificate.columns!=matrix.columns())
++    throw std::runtime_error("Missing or mismatched finite dynamic-design certificate");
++}
++template<class Vector> inline bool exactZero(const Vector &correction)
++{
++  bool zero=true;
++  for(std::uint64_t i=0;i<correction.rows();i++)
++  {
++    if(!std::isfinite(correction(i)))throw std::runtime_error("Nonfinite physical correction");
++    zero=zero&&(correction(i)==0.);
++  }
++  return zero;
++}
++inline bool &recoveringFixedDynamics(){static bool value=false;return value;}
++struct Counters
++{
++  std::uint64_t omittedRecoveryDesigns=0,skippedZeroProducts=0;
++};
++inline Counters &counters(){static Counters value;return value;}
++
++// Scope only the conditional-recovery pass. The full weighted row build,
++// original-coordinate rank certificate, proposal and covariance stay intact.
++class RecoveryScope
++{
++  bool active=false;
++public:
++  template<class Names,class Vector,class IsDynamic>
++  RecoveryScope(bool profileStep,const Names &names,const Vector &correction,IsDynamic isDynamic)
++  {
++    if(!profileStep||!enabled())return;
++    if(recoveringFixedDynamics())throw std::logic_error("Nested fixed-dynamics recovery");
++    if(names.size()!=correction.rows())throw std::runtime_error("Nuisance correction coordinate count differs");
++    for(std::uint64_t i=0;i<names.size();i++)
++      if(isDynamic(names[i])&&(!std::isfinite(correction(i))||correction(i)!=0.))
++        throw std::runtime_error("Nuisance recovery contains a nonzero physical correction");
++    active=true;recoveringFixedDynamics()=true;
++  }
++  RecoveryScope(const RecoveryScope &)=delete;
++  RecoveryScope &operator=(const RecoveryScope &)=delete;
++  ~RecoveryScope(){if(active)recoveringFixedDynamics()=false;}
++};
++template<class Validate,class Compute> inline auto dynamicDesign(std::uint64_t columns,Validate &&validate,Compute &&compute)->decltype(compute())
++{
++  if(recoveringFixedDynamics())
++  {
++    // Preserve native time, stencil, endpoint and remainder validation.
++    validate();counters().omittedRecoveryDesigns++;
++    using Result=decltype(compute());
++    return Result(3,columns);
++  }
++  return orbitPocNuisancePerformance::dynamicDesign(columns,std::forward<Validate>(validate),std::forward<Compute>(compute));
++}
++inline void writeCounters(const std::string &path)
++{
++  if(!enabled())return;
++  std::ofstream out(path);
++  out<<"{\"schema\":\"orbit-poc-nuisance-fixed-dynamics-v1\",\"omitted_recovery_designs\":"<<counters().omittedRecoveryDesigns
++     <<",\"parent_skipped_zero_products\":"<<counters().skippedZeroProducts
++     <<",\"scope\":\"cumulative_parent_process_only_excludes_forked_trial_counters\"}\n";
++  if(!out)throw std::runtime_error("Cannot record fixed-dynamics optimization counters");
++}
++}
++#endif
+diff --git a/scripts/build_groops.py b/scripts/build_groops.py
+index 4032586..1846a55 100644
+--- a/scripts/build_groops.py
++++ b/scripts/build_groops.py
+@@ -6,11 +6,13 @@ import hashlib
+ import json
+ import os
+ import shutil
++import stat
+ import subprocess
+ import sys
+ 
+ COMMIT = "7e1bd6dc8bf2fb1c9180f2f9366efa7e7b4477ee"
+ REPOSITORY = "https://github.com/groops-devs/groops.git"
++V41_PROFILE = "orbit-poc-reliability-v41-build-profile.json"
+ 
+ 
+ def run(args, **kwargs):
+@@ -25,6 +27,59 @@ def source_receipt(source):
+     return {"sha256": digest, "files": files}
+ 
+ 
++def reliability_inputs(extension):
++    """Pin the complete overlay implementation, excluding Python bytecode."""
++    reliability_ordinary_tree(extension.parent)
++    files = {str(path.relative_to(extension.parent)): hashlib.sha256(path.read_bytes()).hexdigest()
++             for path in sorted(extension.parent.rglob("*"))
++             if path.is_file() and "__pycache__" not in path.parts}
++    files["scripts/build_groops.py"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++    return files
++
++
++def reliability_ordinary_tree(root):
++    """Do not allow identical bytes to conceal external or special backing."""
++    root = Path(root).absolute()
++    for path in (root, *root.parents):
++        if path.is_symlink():
++            raise ValueError("Symlink in v4.1 source or installer identity: " + str(path))
++    for path in (root, *root.rglob("*")):
++        mode = path.lstat().st_mode
++        if not (stat.S_ISREG(mode) or stat.S_ISDIR(mode)):
++            raise ValueError("Unsafe nonregular v4.1 source or installer entry: " + str(path))
++
++
++def reliability_profile(source, extension, *, verify):
++    """Verify the final layered source without reinstalling older overlays.
++
++    Later overlays intentionally replace earlier installed files. Their final
++    source and all original installer receipts are sealed together; reentry
++    never reruns an older installer against a later layer.
++    """
++    reliability_ordinary_tree(source / "source")
++    names = ["orbit-poc-extension.json", "orbit-poc-segmented-extension.json",
++             "orbit-poc-wide-tangent-extension.json", "orbit-poc-nuisance-performance-extension.json",
++             "orbit-poc-variational-memory-extension.json", "orbit-poc-nuisance-v41-extension.json",
++             "orbit-poc-design-storage-v41-extension.json"]
++    for name in names:
++        path = source / name
++        if path.is_symlink() or not path.is_file():
++            raise ValueError("Missing or unsafe v4.1 overlay receipt: " + name)
++    actual = {"schema": "orbit-poc-reliability-v41-build-profile-v1",
++              "upstream_commit": COMMIT, "installer_inputs": reliability_inputs(extension),
++              "patched_source": source_receipt(source),
++              "overlay_receipts": {name: hashlib.sha256((source / name).read_bytes()).hexdigest() for name in names}}
++    path = source / V41_PROFILE
++    if verify:
++        if path.is_symlink() or not path.is_file() or json.loads(path.read_text()) != actual:
++            raise ValueError("Installed v4.1 profile identity differs; use a fresh source tree")
++    else:
++        with path.open("x") as stream:
++            json.dump(actual, stream, indent=2, sort_keys=True)
++            stream.write("\n")
++    return actual
++
++
+ def main():
+     p = argparse.ArgumentParser(description=__doc__)
+     p.add_argument("--source-dir", type=Path, required=True)
+@@ -38,8 +93,13 @@ def main():
+     p.add_argument("--wide-tangent-candidate", action="store_true", help="Opt into the separately versioned wide-tangent candidate; requires --segmented")
+     p.add_argument("--nuisance-performance", action="store_true", help="Install separate opt-in nuisance instrumentation and exact interpolation cache; requires --numerics")
+     p.add_argument("--variational-memory-candidate", action="store_true", help="Install default-off bounded closure evaluator; requires --segmented and --nuisance-performance")
++    p.add_argument("--reliability-v41", action="store_true", help="Install the separate default-off v4.1 storage and fixed-dynamics candidate; requires the complete wide-tangent/memory profile")
+     p.add_argument("--cmake-executable", type=Path, help="Use an independent CMake installation with the compiler prefix")
+     args = p.parse_args()
++    if args.reliability_v41:
++        for directory in (args.source_dir.absolute(), args.build_dir.absolute()):
++            if any(path.is_symlink() for path in (directory, *directory.parents)):
++                raise ValueError("Symlink in v4.1 source/build directory")
+     source, build = args.source_dir.resolve(), args.build_dir.resolve()
+     if args.jobs < 1:
+         p.error("--jobs must be positive")
+@@ -53,6 +113,9 @@ def main():
+         p.error("--nuisance-performance requires --numerics")
+     if args.variational_memory_candidate and not (args.segmented and args.nuisance_performance):
+         p.error("--variational-memory-candidate requires --segmented and --nuisance-performance")
++    if args.reliability_v41 and not (args.numerics and args.segmented and args.wide_tangent_candidate
++                                    and args.nuisance_performance and args.variational_memory_candidate):
++        p.error("--reliability-v41 requires --numerics --segmented --wide-tangent-candidate --nuisance-performance --variational-memory-candidate")
+     if not source.exists():
+         source.parent.mkdir(parents=True, exist_ok=True)
+         run(["git", "clone", "--filter=blob:none", REPOSITORY, source])
+@@ -63,9 +126,22 @@ def main():
+         raise ValueError(f"Expected GROOPS {COMMIT}, found {revision}")
+     installed_nuisance = (source / "orbit-poc-nuisance-performance-extension.json").is_file()
+     installed_memory = (source / "orbit-poc-variational-memory-extension.json").is_file()
++    installed_v41 = os.path.lexists(source / V41_PROFILE)
++    partial_v41 = any(os.path.lexists(source / name) for name in
++                      ("orbit-poc-nuisance-v41-extension.json", "orbit-poc-design-storage-v41-extension.json"))
++    if (installed_v41 or partial_v41) and not args.reliability_v41:
++        raise ValueError("This source has the v4.1 candidate; retain --reliability-v41 or use a fresh source tree")
++    if partial_v41 and not installed_v41:
++        raise ValueError("Unsealed partial v4.1 installation; preserve it and use a fresh source tree")
++    if args.reliability_v41 and not installed_v41:
++        changed = subprocess.check_output(["git", "-C", str(source), "status", "--porcelain", "--untracked-files=all"], text=True)
++        if changed.strip() or installed_nuisance or installed_memory:
++            raise ValueError("A new v4.1 profile requires a separate clean pinned upstream checkout")
+     if installed_memory and not installed_nuisance:
+         raise ValueError("Installed variational-memory profile lacks nuisance provenance; use a fresh source tree")
+-    if installed_nuisance:
++    if installed_v41:
++        reliability_profile(source, extension, verify=True)
++    elif installed_nuisance:
+         # The base installer copies original headers. Reapplying it would
+         # overwrite the attributed optional extension before verification.
+         if not args.nuisance_performance:
+@@ -92,6 +168,10 @@ def main():
+             run([sys.executable, extension.with_name("native_nuisance_performance.py"), "--source", source])
+         if args.variational_memory_candidate:
+             run([sys.executable, extension.with_name("native_variational_memory.py"), "--source", source])
++        if args.reliability_v41:
++            run([sys.executable, extension.with_name("native_nuisance_v41.py"), "--source", source])
++            run([sys.executable, extension.with_name("native_design_storage_v41.py"), "--source", source])
++            reliability_profile(source, extension, verify=False)
+     env = dict(os.environ)
+     cmake = str(args.cmake_executable.resolve()) if args.cmake_executable else "cmake"
+     command = [cmake, "-S", source / "source", "-B", build, "-G", "Ninja",
+@@ -143,6 +223,8 @@ def main():
+         if args.variational_memory_candidate:
+             manifest["variational_memory_extension"] = json.loads(
+                 (source / "orbit-poc-variational-memory-extension.json").read_text())
++        if args.reliability_v41:
++            manifest["reliability_v41_profile"] = reliability_profile(source, extension, verify=True)
+         (build / "build-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+ 
+ 
+diff --git a/tests/fixtures/design_storage_v41/dynamic.cpp b/tests/fixtures/design_storage_v41/dynamic.cpp
+new file mode 100644
+index 0000000..8a52021
+--- /dev/null
++++ b/tests/fixtures/design_storage_v41/dynamic.cpp
+@@ -0,0 +1,649 @@
++// ORBIT_POC_NUISANCE_PERFORMANCE_V1
++#include "misc/orbitPoc/nuisancePerformance.h"
++#include "misc/orbitPoc/scaledRowQr.h"
++// ORBIT_POC_NUMERICS_REFERENCE_V1
++// ORBIT_POC_PRECISE_POSITION_REMAINDER_V31_PAIR2
++// ORBIT_POC_RELATIVE_QUERY_INTERPOLATION_V31
++/***********************************************/
++/**
++* @file gnssParametrizationLeoDynamicOrbits.cpp
++*
++* @brief Orbits by variational equations.
++* @see GnssParametrization
++*
++* @author Torsten Mayer-Guerr
++* @date 2021-01-23
++*
++*/
++/***********************************************/
++
++#include "base/import.h"
++#include "config/config.h"
++#include "files/fileInstrument.h"
++#include "files/fileMatrix.h"
++#include "files/fileParameterName.h"
++#include "gnss/gnss.h"
++#include "classes/ephemerides/ephemerides.h"
++#include "classes/parametrizationAcceleration/parametrizationAcceleration.h"
++#include "classes/timeSeries/timeSeries.h"
++#include "classes/timeSeries/timeSeries.h"
++#include "classes/platformSelector/platformSelector.h"
++#include "misc/observation/variationalEquationFromFile.h"
++#include "gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.h"
++
++/***********************************************/
++
++GnssParametrizationLeoDynamicOrbits::GnssParametrizationLeoDynamicOrbits(Config &config)
++{
++  try
++  {
++    TimeSeriesPtr stochasticPulse;
++
++    readConfig(config, "name",                        name,                        Config::OPTIONAL, "parameter.dynamicOrbits", "used for parameter selection");
++    readConfig(config, "selectReceivers",             selectReceivers,             Config::MUSTSET,  "",     "");
++    readConfig(config, "outputfileOrbit",             fileNameOrbit,               Config::OPTIONAL, "",     "variable {station} available");
++    readConfig(config,"outputfileOrbitNative",fileNameOrbitNative,Config::OPTIONAL,"","binary .dat orbit preserving native epoch precision");
++    readConfig(config, "outputfileParameters",        fileNameParameter,           Config::OPTIONAL, "",     "variable {station} available");
++    readConfig(config, "outputfileCovariance",        fileNameCovariance,          Config::OPTIONAL, "",     "MJD and 36 row-major marginalized Cartesian covariance entries in SI; serial only");
++    readConfig(config, "outputfileParameterCovariance", fileNameParameterCovariance, Config::OPTIONAL, "", "Full nuisance-marginalized dynamic parameter covariance in native parameter order");
++    readConfig(config, "outputfileCovarianceObservationEpochs", fileNameCovarianceObservationEpochs, Config::OPTIONAL, "", "MJD and 36 marginalized Cartesian SI covariance entries at every nominal GNSS epoch, including masked epochs");
++    readConfig(config, "inputfileVariational",        fileNameVariational,         Config::MUSTSET,  "variational_{loopTime:%D}.{station}.dat", "variable {station} available");
++    readConfig(config, "stochasticPulse",             stochasticPulse,             Config::DEFAULT,  "",     "[mu/s] parametrization of stochastic pulses");
++    readConfig(config, "parametrizationAcceleration", parametrizationAcceleration, Config::DEFAULT,  "",     "orbit force parameters");
++    readConfig(config, "ephemerides",                 ephemerides,                 Config::MUSTSET,  "",     "");
++    readConfig(config, "minEstimableEpochsRatio",     minEstimableEpochsRatio,     Config::DEFAULT,  "0.75", "drop satellites with lower ratio of estimable epochs to total epochs");
++    readConfig(config, "integrationDegree",           integrationDegree,           Config::DEFAULT,  "7",    "integration of forces by polynomial approximation of degree n");
++    readConfig(config, "interpolationDegree",         interpolationDegree,         Config::DEFAULT,  "7",    "for orbit interpolation and velocity calculation");
++    readConfig(config,"inputfileNumericsReferenceParameters",fileNameNumericsReference,Config::OPTIONAL,"","fixed physical mean parameters; excluded from increments");
++    if(isCreateSchema(config)) return;
++
++    pulses = stochasticPulse->times();
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++GnssParametrizationLeoDynamicOrbits::~GnssParametrizationLeoDynamicOrbits()
++{
++  for(Parameter *para : parameters)
++    delete para;
++}
++
++/***********************************************/
++
++void GnssParametrizationLeoDynamicOrbits::init(Gnss *gnss, Parallel::CommunicatorPtr comm)
++{
++  try
++  {
++    this->gnss = gnss;
++    if((!fileNameCovariance.empty() || !fileNameParameterCovariance.empty() || !fileNameCovarianceObservationEpochs.empty()) && Parallel::size(comm) != 1)
++      throw(Exception("Native LEO covariance extension supports serial execution only"));
++    auto selectedReceivers = gnss->selectReceivers(selectReceivers);
++
++    VariableList fileNameVariableList;
++    fileNameVariableList.setVariable("station", "****");
++    parameters.resize(gnss->receivers.size(), nullptr);
++    Vector recvProcess(gnss->receivers.size());
++    for(UInt idRecv=0; idRecv<gnss->receivers.size(); idRecv++)
++      if(selectedReceivers.at(idRecv) && gnss->receivers.at(idRecv)->useable())
++      {
++        auto para = new Parameter();
++        parameters.at(idRecv) = para;
++        para->recv = gnss->receivers.at(idRecv);
++        if(!para->recv->isMyRank())
++          continue;
++        recvProcess(idRecv) = Parallel::myRank(comm)+1;
++
++        // find first and last valid epoch
++        Time timeStart, timeEnd;
++        for(UInt idEpoch=0; idEpoch<gnss->times.size(); idEpoch++)
++          if(para->recv->useable(idEpoch))
++          {
++            timeStart = gnss->times.at(idEpoch);
++            break;
++          }
++        for(UInt idEpoch=gnss->times.size(); idEpoch-->0;)
++          if(para->recv->useable(idEpoch))
++          {
++            timeEnd = gnss->times.at(idEpoch);
++            break;
++          }
++
++        // stochastic pulses in interval
++        std::vector<Time> pulsesInterval;
++        std::copy_if(pulses.begin(), pulses.end(), std::back_inserter(pulsesInterval), [&](auto &p) {return (timeStart < p) && (p < timeEnd);});
++
++        fileNameVariableList.setVariable("station", para->recv->name());
++        VariationalEquationFromFile file;
++        file.open(fileNameVariational(fileNameVariableList), nullptr/*parametrizationGravity*/, parametrizationAcceleration, pulsesInterval, ephemerides, integrationDegree);
++        para->x = Vector(file.parameterCount());
++        Matrix orbitPocReference(file.parameterCount(),1);
++        if(!fileNameNumericsReference.empty())
++        {
++          readFileMatrix(fileNameNumericsReference,orbitPocReference);
++          if(orbitPocReference.rows()!=file.parameterCount() || orbitPocReference.columns()!=1)
++            throw(Exception("Fixed physical reference parameter count differs from native dynamics"));
++        }
++
++        // parameter names
++        file.parameterNameSatellite(para->parameterNames);
++        file.parameterNameSatelliteArc(para->parameterNames);
++        for(auto &name : para->parameterNames)
++          name.object = para->recv->name();
++
++        for(UInt idEpoch=0; idEpoch<gnss->times.size(); idEpoch++)
++          if(para->recv->useable(idEpoch))
++          {
++            const VariationalEquationArc &arc = file.getArc(gnss->times.at(idEpoch));
++
++            para->startEpoch.push_back(idEpoch);
++            while((idEpoch+1 < gnss->times.size()) && (gnss->times.at(idEpoch+1) <= arc.times.back()))
++              idEpoch++;
++            while(!para->recv->useable(idEpoch)) // go back to the last valid epoch
++              idEpoch--;
++            para->endEpoch.push_back(idEpoch);
++
++            auto variationalEquation = file.integrateArc(arc.times.front(), arc.times.back(), TRUE/*computePosition*/, TRUE/*computeVelocity*/);
++            para->times.emplace_back(variationalEquation.times);
++            para->PosDesign.emplace_back(variationalEquation.PosDesign);
++            para->VelDesign.emplace_back(variationalEquation.VelDesign);
++            para->pos.emplace_back(variationalEquation.pos0);
++            para->vel.emplace_back(variationalEquation.vel0);
++            if(!fileNameNumericsReference.empty())
++            {
++              matMult(1.,variationalEquation.PosDesign,orbitPocReference,para->pos.back());
++              matMult(1.,variationalEquation.VelDesign,orbitPocReference,para->vel.back());
++            }
++            para->polynomial.emplace_back(para->times.back(), interpolationDegree, parametrizationAcceleration->integrationBoundaries(), pulsesInterval);
++
++            std::vector<Time> times;std::vector<long double> queryRemainders;
++            for(UInt idEpoch=para->startEpoch.back(); idEpoch<=para->endEpoch.back(); idEpoch++)
++              if(para->recv->useable(idEpoch))
++                {times.push_back(para->recv->timeCorrected(idEpoch));queryRemainders.push_back(para->recv->timeRemainder(idEpoch));}
++
++            std::vector<long double> coordinateLow;
++          const Vector pos = para->polynomial.back().interpolateOffset(times, para->pos.back(), queryRemainders, 3, FALSE, nullptr, &coordinateLow);
++          para->recv->orbitPocPositionRemainder.resize(para->recv->times.size());
++            const Vector vel = para->polynomial.back().interpolateOffset(times, para->vel.back(), queryRemainders, 3, TRUE/*velocity jumps*/);
++            UInt i=0;
++            for(UInt idEpoch=para->startEpoch.back(); idEpoch<=para->endEpoch.back(); idEpoch++)
++              if(para->recv->useable(idEpoch))
++              {
++                para->recv->pos.at(idEpoch) = Vector3d(pos.row(3*i, 3));
++              para->recv->orbitPocPositionRemainder.at(idEpoch)=Vector3d(static_cast<Double>(coordinateLow.at(3*i)),static_cast<Double>(coordinateLow.at(3*i+1)),static_cast<Double>(coordinateLow.at(3*i+2)));
++                para->recv->vel.at(idEpoch) = Vector3d(vel.row(3*i, 3));
++                i++;
++              }
++          } // for(idEpoch)
++      } // for(idRecv)
++
++    // distribute process id of receivers
++    Parallel::reduceSum(recvProcess, 0, comm);
++    Parallel::broadCast(recvProcess, 0, comm);
++
++    // synchronize parameter names
++    for(UInt idRecv=0; idRecv<gnss->receivers.size(); idRecv++)
++      if(recvProcess(idRecv))
++        Parallel::broadCast(parameters.at(idRecv)->parameterNames, static_cast<UInt>(recvProcess(idRecv)-1), comm);
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++void GnssParametrizationLeoDynamicOrbits::requirements(GnssNormalEquationInfo &normalEquationInfo,
++                                                       std::vector<UInt> &/*transCount*/, std::vector<UInt> &/*transCountEpoch*/,
++                                                       std::vector<UInt> &recvCount,  std::vector<UInt> &/*recvCountEpoch*/)
++{
++  try
++  {
++    if(isEnabled(normalEquationInfo, name))
++      for(auto para : parameters)
++        if(para && para->recv->isMyRank())
++         recvCount.at(para->recv->idRecv()) += static_cast<UInt>(minEstimableEpochsRatio * normalEquationInfo.idEpochs.size());
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++void GnssParametrizationLeoDynamicOrbits::initParameter(GnssNormalEquationInfo &normalEquationInfo)
++{
++  try
++  {
++   for(auto para : parameters)
++      if(para)
++        para->index = GnssParameterIndex();
++    if(!isEnabled(normalEquationInfo, name))
++      return;
++
++    UInt countPara = 0;
++    for(auto para : parameters)
++      if(para && para->recv->useable() && normalEquationInfo.estimateReceiver.at(para->recv->idRecv()))
++      {
++        para->index = normalEquationInfo.parameterNamesReceiver(para->recv->idRecv(), para->parameterNames);
++        countPara += para->parameterNames.size();
++      }
++    if(countPara)
++      logInfo<<countPara%"%9i dynamic orbit parameters"s<<Log::endl;
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++void GnssParametrizationLeoDynamicOrbits::aprioriParameter(const GnssNormalEquationInfo &normalEquationInfo, MatrixSliceRef x0) const
++{
++  try
++  {
++    for(auto para : parameters)
++      if(para && para->index && para->recv->isMyRank())
++        copy(para->x, x0.row(normalEquationInfo.index(para->index), para->x.rows()));
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++void GnssParametrizationLeoDynamicOrbits::designMatrix(const GnssNormalEquationInfo &normalEquationInfo, const GnssObservationEquation &eqn, GnssDesignMatrix &A) const
++{
++  try
++  {
++    auto para = parameters.at(eqn.receiver->idRecv());
++    if(para && para->index)
++    {
++      const UInt arcNo = std::distance(para->endEpoch.begin(), std::upper_bound(para->endEpoch.begin(), para->endEpoch.end(), eqn.idEpoch,
++                                       [&](UInt idEpoch, UInt end) {return idEpoch <= end;}));
++
++      // ORBIT_POC_SEGMENTED_OBSERVATION_EXPORT_V4
++      if(orbitPocRowQr().capturingSegmentedRows())
++      {
++        const char *overridePath=std::getenv("ORBIT_POC_SEGMENTED_OBSERVATIONS");
++        const std::string path=overridePath?overridePath:orbitPocRowQr().artifactStem()+".segmented_observations.jsonl";
++        if(path.empty())throw(Exception("empty segmented observation export path"));
++        using namespace OrbitPoc::SegmentedExport;
++        std::ofstream out(path,std::ios::app);out.precision(17);if(!out)throw(Exception("cannot open segmented observation export"));
++        out<<"{\"kind\":\"observation\",\"factor_stem\":";string(out,orbitPocRowQr().artifactStem());
++        out<<",\"row_start\":"<<orbitPocRowQr().weightedRowCount()<<",\"receiver\":"<<eqn.receiver->idRecv()<<",\"transmitter\":"<<eqn.transmitter->idTrans()
++           <<",\"epoch\":"<<eqn.idEpoch<<",\"arc\":"<<arcNo<<",\"native_first\":"<<normalEquationInfo.index(para->index)
++           <<",\"native_count\":"<<para->x.rows()<<",\"time\":";time(out,eqn.timeRecv);
++        out<<",\"time_remainder\":\""<<std::hexfloat<<eqn.receiver->timeRemainder(eqn.idEpoch)<<std::defaultfloat<<"\",\"halo\":";
++        weights(out,para->polynomial.at(arcNo).orbitPocStencil(eqn.timeRecv,eqn.receiver->timeRemainder(eqn.idEpoch)));
++        out<<",\"rows\":"<<eqn.A.rows()<<",\"position_design\":";matrix(out,eqn.A.column(GnssObservationEquation::idxPosRecv,3));out<<"}\n";
++        if(!out)throw(Exception("segmented observation export failed"));
++      }
++
++      matMult(1., eqn.A.column(GnssObservationEquation::idxPosRecv, 3),
++              orbitPocNuisancePerformance::dynamicDesign(para->PosDesign.at(arcNo).columns(),
++                [&](){para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo).column(0,0), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3);},
++                [&](){return orbitPocNuisancePerformance::interpolate(
++                para,&para->polynomial.at(arcNo),&para->PosDesign.at(arcNo),eqn.receiver->idRecv(),eqn.idEpoch,arcNo,
++                eqn.timeRecv.mjdInt(),eqn.timeRecv.mjdMod(),eqn.receiver->timeRemainder(eqn.idEpoch),
++                [&](){return para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3);});}), A.column(para->index));
++    }
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++Double GnssParametrizationLeoDynamicOrbits::updateParameter(const GnssNormalEquationInfo &normalEquationInfo, const_MatrixSliceRef x, const_MatrixSliceRef /*Wz*/)
++{
++  try
++  {
++    Double maxChange = 0;
++    Gnss::InfoParameterChange info("mm");
++    for(auto para : parameters)
++      if(para && para->index && para->recv->isMyRank())
++      {
++        para->stateCovariance.clear(); // invalidate covariance after any parameter update
++        para->parameterCovariance = Matrix();
++        const Vector dx = x.row(normalEquationInfo.index(para->index), para->x.rows());
++        para->x += dx;
++
++        for(UInt arcNo=0; arcNo<para->times.size(); arcNo++)
++        {
++          para->pos.at(arcNo) += para->PosDesign.at(arcNo) * dx;
++          para->vel.at(arcNo) += para->VelDesign.at(arcNo) * dx;
++
++          std::vector<Time> times;std::vector<long double> queryRemainders;
++          for(UInt idEpoch=para->startEpoch.at(arcNo); idEpoch<=para->endEpoch.at(arcNo); idEpoch++)
++            if(para->recv->useable(idEpoch))
++              {times.push_back(para->recv->timeCorrected(idEpoch));queryRemainders.push_back(para->recv->timeRemainder(idEpoch));}
++
++          std::vector<long double> coordinateLow;
++          const Vector pos = para->polynomial.at(arcNo).interpolateOffset(times, para->pos.at(arcNo), queryRemainders, 3, FALSE, nullptr, &coordinateLow);
++          para->recv->orbitPocPositionRemainder.resize(para->recv->times.size());
++          const Vector vel = para->polynomial.at(arcNo).interpolateOffset(times, para->vel.at(arcNo), queryRemainders, 3, TRUE/*velocity jumps*/);
++          UInt i=0;
++          for(UInt idEpoch=para->startEpoch.at(arcNo); idEpoch<=para->endEpoch.at(arcNo); idEpoch++)
++            if(para->recv->useable(idEpoch))
++            {
++              const Vector3d dpos = Vector3d(pos.row(3*i, 3)) - para->recv->pos.at(idEpoch);
++              para->recv->pos.at(idEpoch) = Vector3d(pos.row(3*i, 3));
++              para->recv->orbitPocPositionRemainder.at(idEpoch)=Vector3d(static_cast<Double>(coordinateLow.at(3*i)),static_cast<Double>(coordinateLow.at(3*i+1)),static_cast<Double>(coordinateLow.at(3*i+2)));
++              para->recv->vel.at(idEpoch) = Vector3d(vel.row(3*i, 3));
++              if(info.update(1e3*dpos.r()))
++                info.info = "position receiver ("+para->recv->name()+", "+times.at(i).dateTimeStr()+")";
++              i++;
++            }
++        }
++      }
++    info.synchronizeAndPrint(normalEquationInfo.comm, 1e-3, maxChange);
++    return maxChange;
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++
++// ORBIT_COMPARISON_MARGINAL_COVARIANCE_V1
++void GnssParametrizationLeoDynamicOrbits::updateCovariance(const GnssNormalEquationInfo &normalEquationInfo, const MatrixDistributed &covariance)
++{
++  try
++  {
++    if((fileNameCovariance.empty() && fileNameParameterCovariance.empty() && fileNameCovarianceObservationEpochs.empty()) || !isEnabled(normalEquationInfo, name))
++      return;
++    if(Parallel::size(normalEquationInfo.comm) != 1)
++      throw(Exception("Native LEO covariance extension supports serial execution only"));
++
++    for(auto para : parameters)
++      if(para && para->index && para->recv->isMyRank())
++      {
++        const UInt count = para->x.rows();
++        const UInt first = normalEquationInfo.index(para->index);
++        if(first+count > covariance.parameterCount())
++          throw(Exception("Orbit parameter range exceeds full inverse dimension"));
++        Matrix parameterCovariance(count, count);
++        // These entries are extracted AFTER inversion of the full native normal
++        // matrix. Clocks, float ambiguities and other fitted blocks have already
++        // been marginalized. Never invert an orbit-only normal submatrix here.
++        for(UInt i=0; i<count; i++)
++          for(UInt j=i; j<count; j++)
++          {
++            const UInt blockI = covariance.index2block(first+i);
++            const UInt blockJ = covariance.index2block(first+j);
++            if(!covariance.isBlockUsed(blockI, blockJ) || !covariance.isMyRank(blockI, blockJ))
++              throw(Exception("Full inverse is missing a required orbit covariance block"));
++            const Matrix &block = covariance.N(blockI, blockJ);
++            const UInt row = first+i-covariance.blockIndex(blockI);
++            const UInt col = first+j-covariance.blockIndex(blockJ);
++            if(row >= block.rows() || col >= block.columns())
++              throw(Exception("Full inverse orbit covariance block has incomplete storage"));
++            const Double value = block(row, col);
++            if(!std::isfinite(value))
++              throw(Exception("Nonfinite native orbit parameter covariance"));
++            parameterCovariance(i,j) = parameterCovariance(j,i) = value;
++          }
++
++        para->parameterCovariance = parameterCovariance; // ORBIT_COMPARISON_PARAMETER_COVARIANCE_V1
++        if(fileNameCovariance.empty()) continue;
++        para->stateCovariance.clear();
++        for(UInt arcNo=0; arcNo<para->times.size(); arcNo++)
++        {
++          const UInt epochs = para->times.at(arcNo).size();
++          const Matrix &pos = para->PosDesign.at(arcNo);
++          const Matrix &vel = para->VelDesign.at(arcNo);
++          if(pos.rows() != 3*epochs || vel.rows() != 3*epochs || pos.columns() != count || vel.columns() != count)
++            throw(Exception("Position/velocity variational designs do not match orbit parameters"));
++          // Batched matrix products preserve all state/dynamic cross terms and
++          // avoid a large separate covariance product at every epoch.
++          const Matrix posCov = pos * parameterCovariance;
++          const Matrix velCov = vel * parameterCovariance;
++          Matrix rows(epochs, 36);
++          for(UInt epoch=0; epoch<epochs; epoch++)
++          {
++            Matrix design(6, count), weighted(6, count);
++            copy(pos.row(3*epoch, 3), design.row(0, 3));
++            copy(vel.row(3*epoch, 3), design.row(3, 3));
++            copy(posCov.row(3*epoch, 3), weighted.row(0, 3));
++            copy(velCov.row(3*epoch, 3), weighted.row(3, 3));
++            const Matrix stateCovariance = weighted * design.trans();
++            for(UInt i=0; i<6; i++)
++              for(UInt j=0; j<6; j++)
++              {
++                const Double value = 0.5*(stateCovariance(i,j)+stateCovariance(j,i));
++                if(!std::isfinite(value) || ((i == j) && (value <= 0)))
++                  throw(Exception("Invalid native Cartesian covariance"));
++                rows(epoch, 6*i+j) = value;
++              }
++          }
++          para->stateCovariance.push_back(rows);
++        }
++      }
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
++
++void GnssParametrizationLeoDynamicOrbits::writeResults(const GnssNormalEquationInfo &normalEquationInfo, const std::string &suffix) const
++{
++  try
++  {
++    if(!isEnabled(normalEquationInfo, name))
++      return;
++
++
++    // ORBIT_POC_SEGMENTED_COVARIANCE_QUERIES_V4. This is independent of all
++    // dense covariance output options and does not authorize covariance.
++    const char *queryOption=std::getenv("ORBIT_POC_SEGMENTED_COVARIANCE_QUERIES");
++    if(queryOption && std::string(queryOption)!="0" && std::string(queryOption)!="1")
++      throw(Exception("Segmented covariance query export must be 0 or 1"));
++    if(queryOption && std::string(queryOption)=="1")
++    {
++      if(!orbitPocRowQr().enabled()||orbitPocRowQr().artifactStem().empty()||orbitPocRowQr().isCostOnly())
++        throw(Exception("Segmented covariance queries require an ordinary native QR factor"));
++      using namespace OrbitPoc::SegmentedExport;
++      const std::string path=orbitPocRowQr().artifactStem()+".segmented_covariance_queries.jsonl";
++      std::ofstream out(path);out.precision(17);if(!out)throw(Exception("cannot open segmented covariance query export"));
++      out<<"{\"kind\":\"metadata\",\"schema\":\"orbit-poc-segmented-covariance-queries-v1\",\"factor_stem\":";
++      string(out,orbitPocRowQr().artifactStem());out<<",\"write_suffix\":";string(out,suffix);
++      out<<",\"coordinates\":\"Cartesian_SI\",\"row_order\":\"position_xyz_velocity_xyz\",\"post_pulse_velocity\":true,\"covariance_produced\":false}\n";
++      UInt trajectoryCount=0,observationCount=0;
++      for(auto para:parameters)
++        if(para&&para->index&&para->recv->isMyRank())
++        {
++          const UInt first=normalEquationInfo.index(para->index),count=para->x.rows();
++          std::vector<Bool> covered(gnss->times.size(),FALSE);UInt trajectoryIndex=0;
++          for(UInt arcNo=0;arcNo<para->times.size();arcNo++)
++          {
++            const auto &times=para->times.at(arcNo);
++            if(times.empty())throw(Exception("empty native trajectory query arc"));
++            for(UInt i=0;i<times.size();i++,trajectoryIndex++,trajectoryCount++)
++            {
++              const std::vector<Weight> identity={{i,1.L,0.L}};
++              stateQuery(out,"trajectory",para->recv->idRecv(),arcNo,trajectoryIndex,first,count,times[i],identity,identity);
++            }
++            for(UInt i=0;i<gnss->times.size();i++)
++              if(!covered[i]&&gnss->times[i]>=times.front()&&gnss->times[i]<=times.back())
++              {
++                const auto position=para->polynomial.at(arcNo).orbitPocStencil(gnss->times[i]);
++                const auto velocity=para->polynomial.at(arcNo).orbitPocStencil(gnss->times[i],0.L,TRUE);
++                stateQuery(out,"nominal_observation",para->recv->idRecv(),arcNo,i,first,count,gnss->times[i],position,velocity);
++                covered[i]=TRUE;observationCount++;
++              }
++          }
++          for(Bool valid:covered)if(!valid)throw(Exception("A nominal GNSS covariance query lies outside every native arc"));
++        }
++      if(!trajectoryCount||!observationCount)throw(Exception("empty segmented covariance query support"));
++      out<<"{\"kind\":\"complete\",\"trajectory_count\":"<<trajectoryCount<<",\"nominal_observation_count\":"<<observationCount<<"}\n";
++      if(!out)throw(Exception("segmented covariance query export failed"));
++    }
++
++    if(!fileNameOrbit.empty())
++    {
++      VariableList fileNameVariableList;
++      fileNameVariableList.setVariable("station", "***");
++      logStatus<<"write receiver orbits to files <"<<fileNameOrbit(fileNameVariableList).appendBaseName(suffix)<<">"<<Log::endl;
++      for(auto para : parameters)
++        if(para && para->index && para->recv->isMyRank())
++        {
++          std::vector<OrbitArc> arcList;
++          for(UInt arcNo=0; arcNo<para->times.size(); arcNo++)
++          {
++            OrbitArc arc;
++            for(UInt idEpoch=0; idEpoch<para->times.at(arcNo).size(); idEpoch++)
++            {
++              OrbitEpoch epoch;
++              epoch.time     = para->times.at(arcNo).at(idEpoch);
++              epoch.position = Vector3d(para->pos.at(arcNo).row(3*idEpoch, 3));
++              epoch.velocity = Vector3d(para->vel.at(arcNo).row(3*idEpoch, 3));
++              arc.push_back(epoch);
++            }
++            arcList.push_back(arc);
++          }
++          fileNameVariableList.setVariable("station", para->recv->name());
++          InstrumentFile::write(fileNameOrbit(fileNameVariableList).appendBaseName(suffix), arcList);
++          if(!fileNameOrbitNative.empty())
++            InstrumentFile::write(fileNameOrbitNative(fileNameVariableList).appendBaseName(suffix),arcList);
++        }
++    }
++
++
++    // ORBIT_COMPARISON_MARGINAL_COVARIANCE_V1: MJD, then row-major 6x6 SI covariance.
++    if(!fileNameCovariance.empty())
++    {
++      VariableList fileNameVariableList;
++      fileNameVariableList.setVariable("station", "***");
++      logStatus<<"write marginalized Cartesian covariance <"<<fileNameCovariance(fileNameVariableList).appendBaseName(suffix)<<">"<<Log::endl;
++      for(auto para : parameters)
++        if(para && para->index && para->recv->isMyRank())
++        {
++          if(para->stateCovariance.size() != para->times.size())
++            throw(Exception("Run computeCovarianceMatrix after the final parameter update before covariance output"));
++          UInt count = 0;
++          for(const auto &times : para->times)
++            count += times.size();
++          Matrix output(count, 37);
++          UInt row = 0;
++          for(UInt arcNo=0; arcNo<para->times.size(); arcNo++)
++            for(UInt epoch=0; epoch<para->times.at(arcNo).size(); epoch++, row++)
++            {
++              output(row, 0) = para->times.at(arcNo).at(epoch).mjd();
++              for(UInt column=0; column<36; column++)
++                output(row, column+1) = para->stateCovariance.at(arcNo)(epoch, column);
++            }
++          fileNameVariableList.setVariable("station", para->recv->name());
++          writeFileMatrix(fileNameCovariance(fileNameVariableList).appendBaseName(suffix), output);
++        }
++    }
++
++
++    // ORBIT_COMPARISON_PARAMETER_COVARIANCE_V1: exact native parameter ordering.
++    if(!fileNameParameterCovariance.empty())
++    {
++      VariableList fileNameVariableList;
++      for(auto para : parameters)
++        if(para && para->index && para->recv->isMyRank())
++        {
++          if(para->parameterCovariance.rows() != para->x.rows())
++            throw(Exception("Run computeCovarianceMatrix after final parameter update before parameter covariance output"));
++          fileNameVariableList.setVariable("station", para->recv->name());
++          writeFileMatrix(fileNameParameterCovariance(fileNameVariableList).appendBaseName(suffix), para->parameterCovariance);
++        }
++    }
++
++
++    // ORBIT_COMPARISON_OBSERVATION_COVARIANCE_V1: evaluate designs, then J P J^T.
++    if(!fileNameCovarianceObservationEpochs.empty())
++    {
++      VariableList fileNameVariableList;
++      for(auto para : parameters)
++        if(para && para->index && para->recv->isMyRank())
++        {
++          const UInt count = para->x.rows();
++          if(para->parameterCovariance.rows() != count)
++            throw(Exception("Run computeCovarianceMatrix after final update before observation covariance output"));
++          Matrix output(gnss->times.size(), 37);
++          std::vector<Bool> covered(gnss->times.size(), FALSE);
++          for(UInt arcNo=0; arcNo<para->times.size(); arcNo++)
++          {
++            std::vector<Time> query;
++            std::vector<UInt> indices;
++            for(UInt i=0; i<gnss->times.size(); i++)
++              if(!covered.at(i) && gnss->times.at(i) >= para->times.at(arcNo).front() &&
++                                  gnss->times.at(i) <= para->times.at(arcNo).back())
++              {
++                query.push_back(gnss->times.at(i));
++                indices.push_back(i);
++                covered.at(i) = TRUE;
++              }
++            if(query.empty()) continue;
++            const Matrix pos = para->polynomial.at(arcNo).interpolate(query, para->PosDesign.at(arcNo), 3);
++            const Matrix vel = para->polynomial.at(arcNo).interpolate(query, para->VelDesign.at(arcNo), 3, TRUE/*velocity jumps*/);
++            const Matrix posCov = pos * para->parameterCovariance;
++            const Matrix velCov = vel * para->parameterCovariance;
++            for(UInt epoch=0; epoch<query.size(); epoch++)
++            {
++              Matrix design(6, count), weighted(6, count);
++              copy(pos.row(3*epoch, 3), design.row(0, 3));
++              copy(vel.row(3*epoch, 3), design.row(3, 3));
++              copy(posCov.row(3*epoch, 3), weighted.row(0, 3));
++              copy(velCov.row(3*epoch, 3), weighted.row(3, 3));
++              const Matrix stateCovariance = weighted * design.trans();
++              output(indices.at(epoch), 0) = query.at(epoch).mjd();
++              for(UInt i=0; i<6; i++)
++                for(UInt j=0; j<6; j++)
++                {
++                  const Double value = 0.5*(stateCovariance(i,j)+stateCovariance(j,i));
++                  if(!std::isfinite(value) || ((i == j) && (value <= 0)))
++                    throw(Exception("Invalid native Cartesian covariance at GNSS epoch"));
++                  output(indices.at(epoch), 1+6*i+j) = value;
++                }
++            }
++          }
++          for(Bool valid : covered)
++            if(!valid)
++              throw(Exception("A nominal GNSS covariance epoch lies outside every variational arc"));
++          fileNameVariableList.setVariable("station", para->recv->name());
++          writeFileMatrix(fileNameCovarianceObservationEpochs(fileNameVariableList).appendBaseName(suffix), output);
++        }
++    }
++
++    if(!fileNameParameter.empty())
++    {
++      VariableList fileNameVariableList;
++      fileNameVariableList.setVariable("station", "***");
++      logStatus<<"write estimated receiver parameters to files <"<<fileNameParameter(fileNameVariableList).appendBaseName(suffix)<<">"<<Log::endl;
++      for(auto para : parameters)
++        if(para && para->index && para->recv->isMyRank())
++        {
++          fileNameVariableList.setVariable("station", para->recv->name());
++          writeFileMatrix(fileNameParameter(fileNameVariableList).appendBaseName(suffix), para->x);
++        }
++    }
++  }
++  catch(std::exception &e)
++  {
++    GROOPS_RETHROW(e)
++  }
++}
++
++/***********************************************/
+diff --git a/tests/fixtures/design_storage_v41/dynamic.h b/tests/fixtures/design_storage_v41/dynamic.h
+new file mode 100644
+index 0000000..043d79b
+--- /dev/null
++++ b/tests/fixtures/design_storage_v41/dynamic.h
+@@ -0,0 +1,113 @@
++/***********************************************/
++/**
++* @file gnssParametrizationLeoDynamicOrbits.h
++*
++* @brief Orbits by variational equations.
++* @see GnssParametrization
++*
++* @author Torsten Mayer-Guerr
++* @date 2021-01-23
++*
++*/
++/***********************************************/
++
++#ifndef __GROOPS_GNSSPARAMETRIZATIONLEODYNAMICORBITS__
++#define __GROOPS_GNSSPARAMETRIZATIONLEODYNAMICORBITS__
++
++// Latex documentation
++#ifdef DOCSTRING_GnssParametrization
++static const char *docstringGnssParametrizationLeoDynamicOrbits = R"(
++\subsection{LeoDynamicOrbits}\label{gnssParametrizationType:leoDynamicOrbits}
++The estimation of (reduced) dynamic orbits is formulated as variational equations.
++It is based on \configFile{inputfileVariational}{variationalEquation} calculated with \program{PreprocessingVariationalEquation}.
++Necessary integrations are performed by integrating a moving interpolation polynomial of degree \config{integrationDegree}.
++The \configClass{parametrizationAcceleration}{parametrizationAccelerationType} must include at least those
++parameters that were estimated in \program{PreprocessingVariationalEquationOrbitFit}.
++Additional \configClass{stochasticPulse}{timeSeriesType} parameters can be set up to reduce orbit mismodeling.
++If not enough epochs with observations are available (\config{minEstimableEpochsRatio}) the LEO satellite is disabled.
++
++The parameters and \file{parameter names}{parameterName} are divided into global
++\begin{itemize}
++\item \verb|<station>:<parametrizationAcceleration>:*:*|,
++\item \verb|<station>:stochasticPulse.x::<time>|,
++\item \verb|<station>:stochasticPulse.y::<time>|,
++\item \verb|<station>:stochasticPulse.z::<time>|,
++\end{itemize}
++and arc related parameters
++\begin{itemize}
++\item \verb|<station>:arc<no>.<parametrizationAcceleration>:*:*|,
++\item \verb|<station>:arc<no>.position0.x::|,
++\item \verb|<station>:arc<no>.position0.y::|,
++\item \verb|<station>:arc<no>.position0.z::|.
++\item \verb|<station>:arc<no>.velocity0.x::|,
++\item \verb|<station>:arc<no>.velocity0.y::|,
++\item \verb|<station>:arc<no>.velocity0.z::|.
++\end{itemize}
++)";
++#endif
++
++/***********************************************/
++
++#include "base/import.h"
++#include "misc/orbitPoc/piecewisePolynomial.h"
++#include "config/config.h"
++#include "gnss/gnss.h"
++#include "classes/ephemerides/ephemerides.h"
++#include "classes/parametrizationAcceleration/parametrizationAcceleration.h"
++#include "classes/platformSelector/platformSelector.h"
++#include "gnss/gnssParametrization/gnssParametrization.h"
++
++/***** CLASS ***********************************/
++
++/** @brief Orbits by variational equations.
++* @ingroup gnssParametrizationGroup
++* @see GnssParametrization */
++class GnssParametrizationLeoDynamicOrbits : public GnssParametrizationBase
++{
++  class Parameter
++  {
++  public:
++    GnssReceiverPtr                recv;
++    GnssParameterIndex             index;
++    std::vector<ParameterName>     parameterNames;
++    Vector                         x;
++    // for each arc:
++    std::vector<UInt>              startEpoch, endEpoch;
++    std::vector<std::vector<Time>> times;
++    std::vector<Matrix>            PosDesign, VelDesign;
++    std::vector<Vector>            pos, vel;
++    std::vector<Matrix>            stateCovariance; // ORBIT_COMPARISON_MARGINAL_COVARIANCE_V1
++    Matrix                         parameterCovariance; // ORBIT_COMPARISON_PARAMETER_COVARIANCE_V1
++    std::vector<OrbitPocPiecewisePolynomial> polynomial;
++  };
++
++  Gnss                          *gnss;
++  std::string                    name;
++  PlatformSelectorPtr            selectReceivers;
++  FileName                       fileNameOrbit, fileNameOrbitNative, fileNameParameter, fileNameVariational, fileNameCovariance, fileNameParameterCovariance, fileNameCovarianceObservationEpochs; // ORBIT_COMPARISON_OBSERVATION_COVARIANCE_V1
++  FileName fileNameNumericsReference; // ORBIT_POC_NUMERICS_REFERENCE_V1
++  std::vector<Time>              pulses;
++  ParametrizationAccelerationPtr parametrizationAcceleration;
++  EphemeridesPtr                 ephemerides;
++  Double                         minEstimableEpochsRatio;
++  UInt                           integrationDegree, interpolationDegree;
++  std::vector<Parameter*>        parameters; // for each receiver
++
++public:
++  GnssParametrizationLeoDynamicOrbits(Config &config);
++ ~GnssParametrizationLeoDynamicOrbits();
++
++  void   init(Gnss *gnss, Parallel::CommunicatorPtr comm) override;
++  void   requirements(GnssNormalEquationInfo &normalEquationInfo, std::vector<UInt> &transCount, std::vector<UInt> &transCountEpoch,
++                      std::vector<UInt> &recvCount, std::vector<UInt> &recvCountEpoch) override;
++  void   initParameter(GnssNormalEquationInfo &normalEquationInfo) override;
++  void   aprioriParameter(const GnssNormalEquationInfo &normalEquationInfo, MatrixSliceRef x0) const override;
++  void   designMatrix(const GnssNormalEquationInfo &normalEquationInfo, const GnssObservationEquation &eqn, GnssDesignMatrix &A) const override;
++  Double updateParameter(const GnssNormalEquationInfo &normalEquationInfo, const_MatrixSliceRef x, const_MatrixSliceRef Wz) override;
++  void   updateCovariance(const GnssNormalEquationInfo &normalEquationInfo, const MatrixDistributed &covariance) override;
++  void   writeResults(const GnssNormalEquationInfo &normalEquationInfo, const std::string &suffix) const override;
++};
++
++/***********************************************/
++
++#endif
+diff --git a/tests/fixtures/design_storage_v41/piecewise.h b/tests/fixtures/design_storage_v41/piecewise.h
+new file mode 100644
+index 0000000..355f472
+--- /dev/null
++++ b/tests/fixtures/design_storage_v41/piecewise.h
+@@ -0,0 +1,198 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#ifndef ORBIT_POC_PIECEWISE_POLYNOMIAL_H
++#define ORBIT_POC_PIECEWISE_POLYNOMIAL_H
++#include "base/import.h"
++#include "base/polynomial.h"
++#include "misc/orbitPoc/wideInterpolationStencil.h"
++#include "misc/orbitPoc/segmentedNativeExport.h"
++
++// A fitted pulse orbit is continuous in position but has a right-continuous
++// velocity jump. Density knots are continuous in both, with nonsmooth higher
++// derivatives. Never let a polynomial stencil cross either type of boundary.
++class OrbitPocPiecewisePolynomial
++{
++  struct Segment
++  {
++    UInt first, count, jumpCount;
++    Polynomial smooth, jump;
++  };
++  std::vector<Time> splitTimes;
++  std::vector<Segment> segments;
++  UInt epochCount=0;
++
++public:
++  OrbitPocPiecewisePolynomial() {}
++  OrbitPocPiecewisePolynomial(const std::vector<Time> &times, UInt degree,
++      const std::vector<Time> &boundaries, const std::vector<Time> &pulses)
++  {init(times,degree,boundaries,pulses);}
++
++  void init(const std::vector<Time> &times, UInt degree,
++      const std::vector<Time> &boundaries, const std::vector<Time> &pulses)
++  {
++    if(times.size()<=degree || !degree)
++      throw(Exception("insufficient epochs for piecewise orbit interpolation"));
++    epochCount=times.size(); splitTimes.clear(); segments.clear();
++    std::vector<UInt> nodes{0};
++    std::vector<UInt> jumpNodes;
++    auto insert=[&](const Time &time, Bool jump)
++    {
++      if(time<=times.front() || time>=times.back()) return;
++      auto found=std::lower_bound(times.begin(),times.end(),time);
++      UInt index=std::distance(times.begin(),found);
++      if(index && std::abs((times.at(index-1)-time).seconds())<std::abs((times.at(index)-time).seconds())) index--;
++      if(std::abs((times.at(index)-time).seconds())>1e-5)
++        throw(Exception("pulse/density interpolation boundary must be a native grid epoch"));
++      nodes.push_back(index);
++      if(jump) jumpNodes.push_back(index);
++    };
++    for(const auto &time:boundaries) insert(time,FALSE);
++    for(const auto &time:pulses) insert(time,TRUE);
++    nodes.push_back(times.size()-1);
++    std::sort(nodes.begin(),nodes.end());
++    nodes.erase(std::unique(nodes.begin(),nodes.end()),nodes.end());
++    for(UInt i=0;i+1<nodes.size();i++)
++    {
++      Segment segment;
++      segment.first=nodes.at(i); segment.count=nodes.at(i+1)-segment.first+1;
++      const Bool jump=std::find(jumpNodes.begin(),jumpNodes.end(),nodes.at(i+1))!=jumpNodes.end();
++      segment.jumpCount=segment.count-(jump ? 1 : 0);
++      if(segment.jumpCount<=degree)
++        throw(Exception("native grid too coarse for the chosen piecewise interpolation degree"));
++      std::vector<Time> smooth(times.begin()+segment.first,times.begin()+segment.first+segment.count);
++      segment.smooth.init(smooth,degree,TRUE,FALSE,-(degree+1.1),-1.1,1e-7);
++      if(jump) smooth.pop_back(); // the endpoint contains the POST-pulse velocity
++      segment.jump.init(smooth,degree,TRUE,FALSE,-(degree+1.1),-1.1,1e-7);
++      segments.push_back(std::move(segment));
++      if(i+2<nodes.size()) splitTimes.push_back(times.at(nodes.at(i+1)));
++    }
++  }
++
++  Matrix interpolate(const std::vector<Time> &timesNew, const_MatrixSliceRef A,
++                     UInt rowsPerEpoch=1, Bool valuesJump=FALSE) const
++  {
++    if(segments.empty() || A.rows()!=rowsPerEpoch*epochCount)
++      throw(Exception("piecewise orbit interpolation data shape mismatch"));
++    if(timesNew.size()==1)
++    {
++      const UInt index=std::upper_bound(splitTimes.begin(),splitTimes.end(),timesNew.front())-splitTimes.begin();
++      const auto &part=segments.at(index);
++      const UInt count=valuesJump ? part.jumpCount : part.count;
++      const auto &polynomial=valuesJump ? part.jump : part.smooth;
++      OrbitPoc::WideInterpolation::Mapping wideMapping(std::array<UInt,1>{0},part.first);
++      return polynomial.interpolate(timesNew,A.row(rowsPerEpoch*part.first,rowsPerEpoch*count),rowsPerEpoch);
++    }
++    Matrix output(rowsPerEpoch*timesNew.size(),A.columns());
++    std::vector<std::vector<UInt>> indices(segments.size());
++    for(UInt i=0;i<timesNew.size();i++)
++    {
++      // Exact boundary epochs use the right segment and therefore preserve the
++      // native t>=pulse convention. No averaging or smoothing of jumps occurs.
++      const UInt segment=std::upper_bound(splitTimes.begin(),splitTimes.end(),timesNew.at(i))-splitTimes.begin();
++      indices.at(segment).push_back(i);
++    }
++    for(UInt segment=0;segment<segments.size();segment++)
++    {
++      auto &order=indices.at(segment);
++      if(order.empty()) continue;
++      std::stable_sort(order.begin(),order.end(),[&](UInt a,UInt b){return timesNew.at(a)<timesNew.at(b);});
++      std::vector<Time> queries;
++      for(UInt index:order) queries.push_back(timesNew.at(index));
++      const auto &part=segments.at(segment);
++      const UInt count=valuesJump ? part.jumpCount : part.count;
++      const auto &polynomial=valuesJump ? part.jump : part.smooth;
++      OrbitPoc::WideInterpolation::Mapping wideMapping(order,part.first);
++      const Matrix values=polynomial.interpolate(queries,A.row(rowsPerEpoch*part.first,rowsPerEpoch*count),rowsPerEpoch);
++      for(UInt i=0;i<order.size();i++) copy(values.row(rowsPerEpoch*i,rowsPerEpoch),output.row(rowsPerEpoch*order.at(i),rowsPerEpoch));
++    }
++    return output;
++  }
++  // ORBIT_POC_RELATIVE_QUERY_INTERPOLATION_V31
++  Matrix interpolateOffset(const std::vector<Time> &timesNew, const_MatrixSliceRef A,
++                     const std::vector<long double> &offsetSeconds, UInt rowsPerEpoch=1, Bool valuesJump=FALSE, std::vector<long double> *preciseValues=nullptr, std::vector<long double> *coordinateRemainders=nullptr) const
++  {
++    const char *prefix=std::getenv("ORBIT_POC_NUMERICS_QR_PREFIX");
++    // ORBIT_POC_PRECISE_POSITION_REMAINDER_V31_PAIR2
++    if(!prefix||!*prefix)
++    {
++      const Matrix values=interpolate(timesNew,A,rowsPerEpoch,valuesJump);
++      if(preciseValues){preciseValues->resize(values.rows()*values.columns());for(UInt row=0;row<values.rows();row++)for(UInt col=0;col<values.columns();col++)preciseValues->at(row*values.columns()+col)=values(row,col);}
++      if(coordinateRemainders)coordinateRemainders->assign(values.rows()*values.columns(),0.L);
++      return values;
++    }
++    if(preciseValues)preciseValues->assign(rowsPerEpoch*timesNew.size()*A.columns(),0.L);
++    if(coordinateRemainders)coordinateRemainders->assign(rowsPerEpoch*timesNew.size()*A.columns(),0.L);
++    if(!offsetSeconds.empty()&&offsetSeconds.size()!=timesNew.size())throw(Exception("Piecewise relative query shape mismatch"));
++    auto offsetAt=[&](UInt index){return offsetSeconds.empty()?0.L:offsetSeconds.at(index);};
++    auto difference=[](const Time &a,const Time &b){return (static_cast<long double>(a.mjdInt())-b.mjdInt())*86400.L+(static_cast<long double>(a.mjdMod())-b.mjdMod())*86400.L;};
++    auto segmentAt=[&](UInt i){return std::upper_bound(splitTimes.begin(),splitTimes.end(),timesNew.at(i),[&](const Time &query,const Time &boundary){return difference(query,boundary)+offsetAt(i)<0;})-splitTimes.begin();};
++    if(segments.empty() || A.rows()!=rowsPerEpoch*epochCount)
++      throw(Exception("piecewise orbit interpolation data shape mismatch"));
++    if(timesNew.size()==1)
++    {
++      const UInt index=segmentAt(0);
++      const auto &part=segments.at(index);
++      const UInt count=valuesJump ? part.jumpCount : part.count;
++      const auto &polynomial=valuesJump ? part.jump : part.smooth;
++      return polynomial.interpolateOffset(timesNew,A.row(rowsPerEpoch*part.first,rowsPerEpoch*count),offsetSeconds,rowsPerEpoch,0,FALSE,preciseValues,coordinateRemainders);
++    }
++    Matrix output(rowsPerEpoch*timesNew.size(),A.columns());
++    std::vector<std::vector<UInt>> indices(segments.size());
++    for(UInt i=0;i<timesNew.size();i++)
++    {
++      // Exact boundary epochs use the right segment and therefore preserve the
++      // native t>=pulse convention. No averaging or smoothing of jumps occurs.
++      const UInt segment=segmentAt(i);
++      indices.at(segment).push_back(i);
++    }
++    for(UInt segment=0;segment<segments.size();segment++)
++    {
++      auto &order=indices.at(segment);
++      if(order.empty()) continue;
++      std::stable_sort(order.begin(),order.end(),[&](UInt a,UInt b){return difference(timesNew.at(a),timesNew.at(b))+offsetAt(a)-offsetAt(b)<0;});
++      std::vector<Time> queries;std::vector<long double> offsets;
++      for(UInt index:order){queries.push_back(timesNew.at(index));offsets.push_back(offsetAt(index));}
++      const auto &part=segments.at(segment);
++      const UInt count=valuesJump ? part.jumpCount : part.count;
++      const auto &polynomial=valuesJump ? part.jump : part.smooth;
++      std::vector<long double> exact,low;
++      const Matrix values=polynomial.interpolateOffset(queries,A.row(rowsPerEpoch*part.first,rowsPerEpoch*count),offsets,rowsPerEpoch,0,FALSE,preciseValues?&exact:nullptr,coordinateRemainders?&low:nullptr);
++      if(preciseValues)for(UInt i=0;i<order.size();i++)for(UInt row=0;row<rowsPerEpoch;row++)for(UInt col=0;col<A.columns();col++)preciseValues->at((rowsPerEpoch*order.at(i)+row)*A.columns()+col)=exact.at((rowsPerEpoch*i+row)*A.columns()+col);
++      if(coordinateRemainders)for(UInt i=0;i<order.size();i++)for(UInt row=0;row<rowsPerEpoch;row++)for(UInt col=0;col<A.columns();col++)coordinateRemainders->at((rowsPerEpoch*order.at(i)+row)*A.columns()+col)=low.at((rowsPerEpoch*i+row)*A.columns()+col);
++      for(UInt i=0;i<order.size();i++) copy(values.row(rowsPerEpoch*i,rowsPerEpoch),output.row(rowsPerEpoch*order.at(i),rowsPerEpoch));
++    }
++    return output;
++  }
++  // ORBIT_POC_SEGMENTED_STENCIL_CAPTURE_V4: evaluate the native selection and
++  // coefficient code with zero data columns. No replica interpolation recipe.
++  std::vector<OrbitPoc::SegmentedExport::Weight> orbitPocStencil(
++      const Time &query,long double remainder=0.L,Bool velocity=FALSE) const
++  {
++    if(segments.empty())throw(Exception("empty segmented interpolation"));
++    const char *prefix=std::getenv("ORBIT_POC_NUMERICS_QR_PREFIX");
++    const Bool precise=prefix&&*prefix;
++    if(!precise&&remainder!=0)throw(Exception("relative halo requires the native precise interpolation path"));
++    auto difference=[](const Time&a,const Time&b){return (static_cast<long double>(a.mjdInt())-b.mjdInt())*86400.L+(static_cast<long double>(a.mjdMod())-b.mjdMod())*86400.L;};
++    const UInt segment=precise ? std::upper_bound(splitTimes.begin(),splitTimes.end(),query,[&](const Time&q,const Time&b){return difference(q,b)+remainder<0;})-splitTimes.begin() : std::upper_bound(splitTimes.begin(),splitTimes.end(),query)-splitTimes.begin();
++    const auto &part=segments.at(segment);const UInt count=velocity?part.jumpCount:part.count;
++    const auto &polynomial=velocity?part.jump:part.smooth;
++    OrbitPoc::SegmentedExport::Capture capture;
++    polynomial.interpolateOffset({query},Matrix(count,0),{remainder},1);
++    if(capture.values.empty())throw(Exception("native interpolation failed to export its halo"));
++    for(auto &term:capture.values)term.index+=part.first;
++    return capture.values;
++  }
++
++  // Invoke the ACTUAL existing batch traversal with dummy scalar data. No
++  // physical or tangent state enters Matrix; hooks only collect metadata.
++  std::vector<OrbitPoc::WideInterpolation::Stencil> orbitPocWideStateStencils(
++      const std::vector<Time> &timesNew,Bool valuesJump=FALSE) const
++  {
++    if(OrbitPoc::SegmentedExport::capturedStencil)
++      throw(Exception("wide state interpolation cannot nest segmented capture"));
++    OrbitPoc::WideInterpolation::Capture capture(timesNew.size(),epochCount);
++    interpolate(timesNew,Matrix(epochCount,1),1,valuesJump);
++    return capture.take();
++  }
++
++};
++#endif
+diff --git a/tests/fixtures/native_design_storage_v41.cpp b/tests/fixtures/native_design_storage_v41.cpp
+new file mode 100644
+index 0000000..e2fa19c
+--- /dev/null
++++ b/tests/fixtures/native_design_storage_v41.cpp
+@@ -0,0 +1,197 @@
++// Real native Matrix, Polynomial, BLAS and piecewise API; no numerical stubs.
++#include "misc/orbitPoc/designRowsV41.h"
++#include "misc/orbitPoc/piecewisePolynomial.h"
++#include <dirent.h>
++#include <signal.h>
++#include <sys/resource.h>
++#include <sys/wait.h>
++
++void require(bool valid,const char *message){if(!valid)throw std::runtime_error(message);}
++template<class Function> void rejects(Function function)
++{bool rejected=false;try{function();}catch(const std::exception&){rejected=true;}require(rejected,"expected explicit rejection");}
++Matrix values(UInt rows,UInt columns)
++{
++  Matrix data(rows,columns);
++  for(UInt column=0;column<columns;column++)for(UInt row=0;row<rows;row++)
++    data(row,column)=std::sin(0.13*(row+1)*(column+1))+std::cos(0.01*row)+0.001*row*column;
++  return data;
++}
++OrbitPoc::DesignRows stored(const Matrix &matrix,UInt block)
++{
++  auto rows=OrbitPoc::DesignRows::disk(matrix.rows(),matrix.columns(),block);
++  for(UInt first=0;first<matrix.rows();first+=block)
++    rows.append(matrix.row(first,std::min(block,matrix.rows()-first)));
++  rows.seal();return rows;
++}
++double difference(const_MatrixSliceRef a,const_MatrixSliceRef b)
++{
++  require(a.rows()==b.rows()&&a.columns()==b.columns(),"comparison shapes differ");
++  double error=0.;for(UInt row=0;row<a.rows();row++)for(UInt column=0;column<a.columns();column++)
++    error=std::max(error,std::abs(a(row,column)-b(row,column)));
++  return error;
++}
++double magnitude(const_MatrixSliceRef a)
++{double value=0.;for(UInt i=0;i<a.rows();i++)for(UInt j=0;j<a.columns();j++)value=std::max(value,std::abs(a(i,j)));return value;}
++int ownedFile()
++{
++  DIR *directory=::opendir("/proc/self/fd");require(directory,"cannot enumerate fixture descriptors");int found=-1;
++  while(auto *entry=::readdir(directory))
++  {
++    if(entry->d_name[0]=='.')continue;
++    char target[4096];const std::string name="/proc/self/fd/"+std::string(entry->d_name);
++    const ssize_t length=::readlink(name.c_str(),target,sizeof(target)-1);
++    if(length<=0)continue;target[length]=0;
++    if(std::string(target).find("/orbit-design-")!=std::string::npos)
++    {require(found<0,"fixture expected one owned store");found=std::stoi(entry->d_name);}
++  }
++  ::closedir(directory);require(found>=0,"fixture owned store missing");return found;
++}
++void run(const std::string &kind,UInt block)
++{
++  if(kind=="parser"){std::cout<<"{\"block\":"<<OrbitPoc::DesignStorage::blockEpochs()<<",\"disk\":"<<(OrbitPoc::DesignStorage::enabled()?"true":"false")<<"}\n";return;}
++  if(kind=="allocation_failure")
++  {
++    struct rlimit original{};require(::getrlimit(RLIMIT_FSIZE,&original)==0,"getrlimit failed");
++    const auto signal=::signal(SIGXFSZ,SIG_IGN);struct rlimit bounded=original;bounded.rlim_cur=1024;
++    require(::setrlimit(RLIMIT_FSIZE,&bounded)==0,"setrlimit failed");
++    rejects([](){auto store=OrbitPoc::DesignRows::disk(1024,4,8);});
++    require(::setrlimit(RLIMIT_FSIZE,&original)==0,"restore limit failed");::signal(SIGXFSZ,signal);
++    std::cout<<"{\"rejected_without_fallback\":true}\n";return;
++  }
++  if(kind=="short_read"||kind=="corruption")
++  {
++    const Matrix data=values(48,7);auto store=stored(data,12);const int descriptor=ownedFile();
++    require((::fcntl(descriptor,F_GETFL)&O_ACCMODE)==O_RDONLY,"sealed descriptor is writable");
++    const int writer=::open(("/proc/self/fd/"+std::to_string(descriptor)).c_str(),O_WRONLY);
++    require(writer>=0,"fault fixture cannot reopen owned inode");
++    if(kind=="short_read")require(::ftruncate(writer,0)==0,"truncate fault failed");
++    else{const Double wrong=1e30;require(::pwrite(writer,&wrong,sizeof(wrong),0)==sizeof(wrong),"corruption fault failed");}
++    ::close(writer);rejects([&](){store.row(0,3);});
++    std::cout<<"{\"detected_fault\":true}\n";return;
++  }
++  if(kind=="lifecycle")
++  {
++    const Matrix data=values(96,7);int descriptor=-1;
++    {
++      auto store=stored(data,12);descriptor=ownedFile();
++      struct stat metadata{};require(::fstat(descriptor,&metadata)==0&&metadata.st_nlink==0,"scratch file not unlinked");
++      const Matrix before=store.row(4,9);auto alias=store;
++      store=OrbitPoc::DesignRows();require(difference(alias.row(4,9),before)==0,"alias lost original bytes");
++      const pid_t child=::fork();require(child>=0,"fork failed");
++      if(child==0)
++      {
++        int result=0;try{require(difference(alias.row(78,12),data.row(78,12))==0,"fork child row mismatch");alias=OrbitPoc::DesignRows();}catch(...){result=3;}
++        ::_exit(result);
++      }
++      int status=0;require(::waitpid(child,&status,0)==child&&WIFEXITED(status)&&WEXITSTATUS(status)==0,"fork child failed");
++      require(difference(alias.row(3,27),data.row(3,27))==0,"child altered parent file/cache state");
++    }
++    require(::fcntl(descriptor,F_GETFD)<0&&errno==EBADF,"owned descriptor leaked");
++    std::cout<<"{\"fork_alias_cleanup\":true}\n";return;
++  }
++  if(kind=="preseal_fork")
++  {
++    const Matrix data=values(24,5);
++    auto store=OrbitPoc::DesignRows::disk(24,5,12);
++    store.append(data.row(0,12));
++    const pid_t child=::fork();require(child>=0,"pre-seal fork failed");
++    if(child==0)
++    {
++      int result=0;
++      try
++      {
++        // The inherited writable descriptor must not authorize mutation. The
++        // append shape is otherwise valid, so this exercises the owner guard.
++        rejects([&](){store.append(data.row(12,12));});
++        rejects([&](){store.row(0,3);});
++      }
++      catch(...){result=3;}
++      ::_exit(result);
++    }
++    int status=0;
++    require(::waitpid(child,&status,0)==child&&WIFEXITED(status)&&WEXITSTATUS(status)==0,
++            "child mutated or accepted an unsealed inherited store");
++    store.append(data.row(12,12));
++    const pid_t sealingChild=::fork();require(sealingChild>=0,"pre-seal owner fork failed");
++    if(sealingChild==0)
++    {
++      int result=0;
++      // All rows now exist, so a seal would otherwise be valid. This checks
++      // the seal owner guard independently of the incomplete-write guard.
++      try{rejects([&](){store.seal();});}catch(...){result=3;}
++      ::_exit(result);
++    }
++    require(::waitpid(sealingChild,&status,0)==sealingChild&&WIFEXITED(status)&&WEXITSTATUS(status)==0,
++            "child accepted seal of an inherited complete design");
++    store.seal();
++    require(store.finiteValidated()&&difference(store.row(0,24),data)==0,
++            "pre-seal child changed parent design bytes or lifecycle");
++    std::cout<<"{\"preseal_fork_mutations_rejected\":true}\n";return;
++  }
++  if(kind=="invalid")
++  {
++    const Matrix good=values(24,5);
++    auto store=OrbitPoc::DesignRows::disk(24,5,12);
++    rejects([&](){store.row(0,3);});rejects([&](){store.seal();});
++    rejects([&](){store.append(good.row(0,6));});
++    Matrix bad=good.row(0,12);bad(3,2)=std::numeric_limits<double>::infinity();
++    rejects([&](){store.append(bad);});rejects([&](){OrbitPoc::DesignRows heap(bad);});
++    store.append(good.row(0,12));store.append(good.row(12,12));store.seal();
++    rejects([&](){store.append(good.row(0,12));});rejects([&](){store.seal();});
++    rejects([&](){store.row(23,2);});rejects([&](){store.column(0,1);});rejects([&](){store.denseMatrix();});
++    require(store.finiteValidated()&&difference(store.row(0,24),good)==0,"negative test damaged accepted store");
++    std::cout<<"{\"state_errors_rejected\":true}\n";return;
++  }
++  const UInt epochs=97,columns=11;
++  const Matrix position=values(3*epochs,columns),velocity=values(3*epochs,columns)*0.123;
++  auto pos=stored(position,3*block),vel=stored(velocity,3*block);
++  require(pos.finiteValidated()&&vel.finiteValidated(),"sealed finite certificate missing");
++  double maxRows=0,maxInterpolation=0,maxProduct=0,maxCovariance=0;
++  if(kind=="rows"||kind=="products")
++  {
++    for(UInt first=0;first<position.rows();first+=7)
++      maxRows=std::max(maxRows,difference(pos.row(first,std::min(UInt(19),position.rows()-first)),position.row(first,std::min(UInt(19),position.rows()-first))));
++    require(maxRows==0,"native row bytes changed");
++    const Matrix rhs=values(columns,1);const Matrix expected=position*rhs;
++    maxProduct=difference(pos*rhs,expected);
++    Matrix sum=values(position.rows(),1),reference=sum;matMult(1.,position,rhs,reference);pos.addProduct(rhs,sum);
++    maxProduct=std::max(maxProduct,difference(sum,reference));
++    require(maxProduct<=5e-14*std::max(1.,magnitude(reference)),"blocked product differs excessively");
++  }
++  else if(kind=="interpolation"||kind=="covariance")
++  {
++    std::vector<Time> times;
++    for(UInt i=0;i<epochs;i++)times.emplace_back(60000,Double(5*i)/86400.);
++    const std::vector<Time> boundaries{times.at(12),times.at(24),times.at(48)},pulses{times.at(24),times.at(48)};
++    OrbitPocPiecewisePolynomial polynomial(times,7,boundaries,pulses);
++    std::vector<Time> query{times.at(0),Time(60000,17.3/86400.),times.at(12),times.at(24),Time(60000,239.9/86400.),times.at(48),times.at(80)};
++    const std::vector<long double> offsets{0,1e-9L,-1e-9L,0,1e-9L,-1e-9L,0};
++    for(bool jump:{false,true})
++    {
++      const auto &full=jump?velocity:position;const auto &disk=jump?vel:pos;
++      maxInterpolation=std::max(maxInterpolation,difference(polynomial.interpolateOffset(query,disk,offsets,3,jump),polynomial.interpolateOffset(query,full,offsets,3,jump)));
++      for(UInt i=0;i<query.size();i++)
++        maxInterpolation=std::max(maxInterpolation,difference(polynomial.interpolateOffset({query.at(i)},disk,{offsets.at(i)},3,jump),polynomial.interpolateOffset({query.at(i)},full,{offsets.at(i)},3,jump)));
++      require(polynomial.interpolateOffset(query,disk.column(0,0),offsets,3,jump).columns()==0,"zero-column validation changed");
++    }
++    require(maxInterpolation==0,"native interpolation binary64 values changed");
++    Matrix factor=values(columns,columns),covariance=factor*factor.trans();for(UInt i=0;i<columns;i++)covariance(i,i)+=2.;
++    const Matrix expected=OrbitPoc::cartesianCovarianceRows(position,velocity,covariance);
++    const Matrix actual=OrbitPoc::storedCartesianCovariance(pos,vel,covariance);
++    maxCovariance=difference(actual,expected)/std::max(1.,magnitude(expected));
++    const Matrix observationExpected=OrbitPoc::storedObservationCovariance(polynomial,query,OrbitPoc::DesignRows(position),OrbitPoc::DesignRows(velocity),covariance);
++    const Matrix observationActual=OrbitPoc::storedObservationCovariance(polynomial,query,pos,vel,covariance);
++    maxCovariance=std::max(maxCovariance,difference(observationActual,observationExpected)/std::max(1.,magnitude(observationExpected)));
++    require(maxCovariance<1e-12,"selected Cartesian covariance error exceeds component tolerance");
++  }
++  else throw std::runtime_error("unknown native design fixture case");
++  pos.report("fixture_complete");vel.report("fixture_complete");
++  std::cout<<std::setprecision(17)<<"{\"row_max_error\":"<<maxRows<<",\"interpolation_max_error\":"<<maxInterpolation
++           <<",\"product_max_error\":"<<maxProduct<<",\"covariance_relative_error\":"<<maxCovariance<<"}\n";
++}
++int main(int argc,char **argv)
++{
++  if(argc!=3)return 2;
++  try{run(argv[1],std::stoul(argv[2]));return 0;}
++  catch(const std::exception &error){std::cerr<<error.what()<<'\n';return 3;}
++}
+diff --git a/tests/test_native_design_storage_v41.py b/tests/test_native_design_storage_v41.py
+new file mode 100644
+index 0000000..632fb80
+--- /dev/null
++++ b/tests/test_native_design_storage_v41.py
+@@ -0,0 +1,222 @@
++"""Strict installer checks and explicitly selected actual native storage tests.
++
++The native fixture links a completed pinned GROOPS build; it uses the actual
++Matrix, BLAS and corrected piecewise Polynomial. These are component gates,
++not evidence of full-fit convergence or statistical covariance authority.
++"""
++from __future__ import annotations
++
++import hashlib
++import importlib.util
++import json
++import os
++from pathlib import Path
++import subprocess
++
++import pytest
++
++ROOT = Path(__file__).resolve().parents[1]
++EXT = ROOT / "groops/extension"
++FIXTURES = ROOT / "tests/fixtures/design_storage_v41"
++NATIVE = ROOT / "tests/fixtures/native_design_storage_v41.cpp"
++PINS = {
++    "dynamic.cpp": "b2d4690bbb19b432a993ec8739cf541c523450b3f1934e93765a8fbb254bea48",
++    "dynamic.h": "a7b2a53bd4f5ae9422dfd4afb30b34e763b149202ceaf2fa93d0a5ff4541e6ec",
++    "piecewise.h": "15b95511bd72feaa3ac567fab37636cf87a13d3e453b988a662e576925cc0b76",
++}
++
++
++def load(path, name):
++    spec = importlib.util.spec_from_file_location(name, path)
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++installer = load(EXT / "native_design_storage_v41.py", "storage_v41_installer")
++nuisance = load(EXT / "native_nuisance_v41.py", "storage_v41_nuisance_installer")
++linker = load(ROOT / "tests/test_native_cost_only_query.py", "storage_v41_native_linker")
++
++
++def tree(tmp_path):
++    root = tmp_path / "native"
++    for file, expected in PINS.items():
++        assert hashlib.sha256((FIXTURES / file).read_bytes()).hexdigest() == expected
++    values = {installer.DYNAMIC: nuisance._dynamic((FIXTURES / "dynamic.cpp").read_text()),
++              installer.DECLARATION: nuisance._declaration((FIXTURES / "dynamic.h").read_text()),
++              installer.POLYNOMIAL: (FIXTURES / "piecewise.h").read_text()}
++    for name, text in values.items():
++        path = root / name
++        path.parent.mkdir(parents=True, exist_ok=True)
++        path.write_text(text)
++    return root
++
++
++def snapshot(root):
++    return {path.relative_to(root).as_posix(): path.read_bytes() for path in root.rglob("*") if path.is_file()}
++
++
++def test_storage_installer_exact_interpolation_body_and_idempotence(tmp_path):
++    root = tree(tmp_path)
++    original = (root / installer.POLYNOMIAL).read_text()
++    report = installer.apply(root)
++    actual = (root / installer.POLYNOMIAL).read_text().removeprefix("// " + installer.MARKER + "\n")
++    actual = actual.replace('#include "misc/orbitPoc/designRowsV41.h"\n', '')
++    first = actual.index("  // ORBIT_POC_DESIGN_STORAGE_DISPATCH_V41")
++    last = actual.index("\n};\n#endif", first)
++    actual = actual[:first] + actual[last + 1:]
++    for name in ("interpolate", "interpolateOffset"):
++        actual = actual.replace(f"template<class Rows> Matrix {name}(const std::vector<Time> &timesNew, const Rows &A,",
++                                f"Matrix {name}(const std::vector<Time> &timesNew, const_MatrixSliceRef A,")
++    assert actual == original
++    assert report["runtime_default"] == "memory"
++    assert report["cache_blocks_per_design"] == 2
++    assert "same_native_chronological" in report["operator_and_interpolation"]
++    before = snapshot(root)
++    assert installer.apply(root) == report
++    assert snapshot(root) == before
++
++
++@pytest.mark.parametrize("damage", ["init", "prior_order", "covariance", "interpolation", "partial", "header", "symlink"])
++def test_storage_installer_rejects_incomplete_sources_before_writes(tmp_path, damage):
++    root = tree(tmp_path)
++    dynamic = root / installer.DYNAMIC
++    if damage == "init":
++        dynamic.write_text(dynamic.read_text().replace("auto variationalEquation = file.integrateArc", "auto variationalEquation= file.integrateArc"))
++    elif damage == "prior_order":
++        dynamic.write_text((FIXTURES / "dynamic.cpp").read_text())
++    elif damage == "covariance":
++        dynamic.write_text(dynamic.read_text().replace("para->stateCovariance.push_back(rows);", "para->stateCovariance.emplace_back(rows);"))
++    elif damage == "interpolation":
++        path = root / installer.POLYNOMIAL
++        path.write_text(path.read_text().replace("const_MatrixSliceRef A,", "const Matrix &A,"))
++    elif damage == "partial":
++        dynamic.write_text("// " + installer.MARKER + "\n" + dynamic.read_text())
++    elif damage == "header":
++        (root / installer.HEADER).write_text("unattributed")
++    elif damage == "symlink":
++        target = tmp_path / "external.cpp"
++        dynamic.rename(target)
++        dynamic.symlink_to(target)
++    before = snapshot(root)
++    with pytest.raises(ValueError):
++        installer.apply(root)
++    assert snapshot(root) == before
++
++
++@pytest.mark.parametrize("name", [installer.DYNAMIC, installer.DECLARATION, installer.POLYNOMIAL, installer.HEADER, installer.MANIFEST])
++def test_storage_installer_detects_reentry_identity_drift(tmp_path, name):
++    root = tree(tmp_path)
++    installer.apply(root)
++    path = root / name
++    if name == installer.MANIFEST:
++        value = json.loads(path.read_text())
++        value["installer_inputs"]["designRowsV41.h"] = "0" * 64
++        path.write_text(json.dumps(value))
++    else:
++        path.write_text(path.read_text() + "\n// changed\n")
++    before = snapshot(root)
++    with pytest.raises(ValueError):
++        installer.apply(root)
++    assert snapshot(root) == before
++
++
++def test_storage_dynamic_hooks_have_no_trajectory_wide_covariance_products(tmp_path):
++    root = tree(tmp_path)
++    installer.apply(root)
++    actual = (root / installer.DYNAMIC).read_text()
++    assert "file.integrateArc(arc.times.front()" not in actual
++    assert "const Matrix &pos = para->PosDesign" not in actual
++    assert "const Matrix posCov = pos *" not in actual
++    assert "const Matrix velCov = vel *" not in actual
++    assert "storedCartesianCovariance" in actual and "storedObservationCovariance" in actual
++    assert "finiteValidated()" in actual
++    assert "referenceCovariance" not in actual
++
++
++@pytest.fixture(scope="module")
++def native_storage(tmp_path_factory):
++    keys = ["ORBIT_POC_STORAGE_NATIVE_" + name for name in ("SOURCE", "BUILD", "CXX")]
++    selected = [os.environ.get(key) for key in keys]
++    if not any(selected):
++        pytest.skip("select a completed v4.1 native build for actual storage/Polynomial tests")
++    assert all(selected), "all three native source/build/compiler selectors required"
++    source, build, compiler = map(Path, selected)
++    assert all(path.is_absolute() for path in (source, build, compiler))
++    native = source / "source"
++    cache = {}
++    for line in (build / "CMakeCache.txt").read_text().splitlines():
++        if not line.startswith(("//", "#")) and "=" in line:
++            key, value = line.split("=", 1)
++            cache[key.split(":", 1)[0]] = value
++    assert Path(cache["CMAKE_CXX_COMPILER"]).resolve() == compiler.resolve()
++    assert Path(cache["CMAKE_HOME_DIRECTORY"]).resolve() == native.resolve()
++    objects, libraries = linker._link_arguments((build / "build.ninja").read_text(), build)
++    inputs = [NATIVE, compiler, build / "build.ninja", build / "CMakeCache.txt",
++              native / "misc/orbitPoc/designRowsV41.h", native / "misc/orbitPoc/piecewisePolynomial.h",
++              *objects, *(Path(name) for name in libraries if Path(name).is_absolute())]
++    pins = [linker._pin(path) for path in inputs]
++    output = tmp_path_factory.mktemp("native-design-storage-v41")
++    binary = output / "storage"
++    command = [str(compiler), "-std=c++17", "-O2", "-I", str(native), str(NATIVE),
++               *map(str, objects), *libraries, "-o", str(binary)]
++    result = subprocess.run(command, cwd=output, env=linker._environment(), capture_output=True, text=True, timeout=180)
++    (output / "compile.log").write_text(result.stdout + result.stderr)
++    unchanged = all(linker._pin(Path(pin["path"])) == pin for pin in pins)
++    (output / "compile.json").write_text(json.dumps({"command": command, "returncode": result.returncode,
++        "inputs_unchanged": unchanged, "input_pins": pins, "binary": linker._pin(binary) if binary.exists() else None}, indent=2) + "\n")
++    assert unchanged
++    assert result.returncode == 0, result.stdout + result.stderr
++    return binary
++
++
++def run(binary, tmp_path, kind, block=7, extra=None, expected=0):
++    environment = linker._environment()
++    environment.update(ORBIT_POC_GNSS_DESIGN_STORAGE="disk", ORBIT_POC_GNSS_DESIGN_SCRATCH=str(tmp_path),
++                       ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS=str(block), ORBIT_POC_NUMERICS_QR_PREFIX=str(tmp_path / "qr"))
++    environment.update(extra or {})
++    result = subprocess.run([str(binary), kind, str(block)], cwd=tmp_path, env=environment,
++                            capture_output=True, text=True, timeout=30)
++    (tmp_path / f"{kind}-{block}.log").write_text(result.stdout + result.stderr)
++    assert result.returncode == expected, result.stdout + result.stderr
++    assert not list(tmp_path.glob("orbit-design-*")), "owned scratch files must be immediately unlinked"
++    return json.loads(result.stdout) if expected == 0 else result.stderr
++
++
++@pytest.mark.parametrize("block", [1, 7, 13, 64, 256])
++@pytest.mark.parametrize("kind", ["rows", "products", "interpolation", "covariance"])
++def test_real_native_design_storage_equivalence(native_storage, tmp_path, block, kind):
++    report = run(native_storage, tmp_path, kind, block)
++    assert report["row_max_error"] == 0
++    assert report["interpolation_max_error"] == 0
++    assert report["covariance_relative_error"] < 1e-12
++    receipts = [json.loads(line) for line in (tmp_path / "qr.design_storage.jsonl").read_text().splitlines()]
++    assert all(row["sealed"] and row["finite_validated"] for row in receipts)
++    assert all(row["scratch_written_bytes"] == row["scratch_reserved_bytes"] for row in receipts)
++    assert all(row["cache_block_bound"] == 2 for row in receipts)
++
++
++@pytest.mark.parametrize("kind", ["lifecycle", "preseal_fork", "invalid", "short_read", "corruption", "allocation_failure"])
++def test_real_native_storage_lifecycle_and_io_fail_closed(native_storage, tmp_path, kind):
++    report = run(native_storage, tmp_path, kind)
++    assert list(report.values()) == [True]
++
++
++@pytest.mark.parametrize("value", ["0", "", "01", "-1", "+1", "4097", "1e2", " 64"])
++def test_native_storage_rejects_noncanonical_block_sizes(native_storage, tmp_path, value):
++    assert "canonical 1..4096" in run(native_storage, tmp_path, "parser", extra={"ORBIT_POC_GNSS_DESIGN_BLOCK_EPOCHS": value}, expected=3)
++
++
++@pytest.mark.parametrize("value", ["0", "1", "mmap", "", "DISK"])
++def test_native_storage_rejects_unknown_storage_modes(native_storage, tmp_path, value):
++    assert "must be memory or disk" in run(native_storage, tmp_path, "parser", extra={"ORBIT_POC_GNSS_DESIGN_STORAGE": value}, expected=3)
++
++
++@pytest.mark.parametrize("mode", ["missing", "regular_file", "symlink"])
++def test_native_storage_rejects_unusable_scratch_without_heap_fallback(native_storage, tmp_path, mode):
++    target = tmp_path / "scratch"
++    if mode == "regular_file":
++        target.write_text("not a directory")
++    elif mode == "symlink":
++        target.symlink_to(tmp_path, target_is_directory=True)
++    assert "cannot open scratch directory" in run(native_storage, tmp_path, "rows", extra={"ORBIT_POC_GNSS_DESIGN_SCRATCH": str(target)}, expected=3)
+diff --git a/tests/test_nuisance_v41.py b/tests/test_nuisance_v41.py
+new file mode 100644
+index 0000000..00a8ab2
+--- /dev/null
++++ b/tests/test_nuisance_v41.py
+@@ -0,0 +1,198 @@
++"""Fixed-coordinate work elimination: source contract and component guards.
++
++The component executable is deliberately selected by its own runtime flag;
++building it is not evidence of a complete native fit or accepted covariance.
++"""
++from __future__ import annotations
++
++import importlib.util
++import json
++import os
++from pathlib import Path
++import shutil
++import subprocess
++
++import pytest
++
++ROOT = Path(__file__).resolve().parents[1]
++EXTENSION = ROOT / "groops/extension"
++SPEC = importlib.util.spec_from_file_location("native_nuisance_v41", EXTENSION / "native_nuisance_v41.py")
++MODULE = importlib.util.module_from_spec(SPEC)
++SPEC.loader.exec_module(MODULE)
++
++
++def _sources():
++    """Minimal exact upstream contracts, no unrelated mocked native behavior."""
++    return {
++        MODULE.DYNAMIC: '''// ORBIT_POC_NUISANCE_PERFORMANCE_V1
++            para->VelDesign.emplace_back(variationalEquation.VelDesign);
++orbitPocNuisancePerformance::dynamicDesign(para->PosDesign.at(arcNo).columns(),
++                [&](){para->polynomial.at(arcNo).interpolateOffset({eqn.timeRecv}, para->PosDesign.at(arcNo).column(0,0), {eqn.receiver->timeRemainder(eqn.idEpoch)}, 3);},
++                [&](){return nativeInterpolation();});
++          para->pos.at(arcNo) += para->PosDesign.at(arcNo) * dx;
++          para->vel.at(arcNo) += para->VelDesign.at(arcNo) * dx;
++          const Vector pos = actualClockDependentPositionInterpolation();
++          const Vector vel = actualClockDependentVelocityInterpolation();
++''',
++        MODULE.DECLARATION: '''#include "base/import.h"
++    std::vector<Matrix>            PosDesign, VelDesign;
++''',
++        MODULE.PROCESSING: '''// ORBIT_POC_TRANSACTIONAL_NUISANCE_V31
++// ORBIT_POC_NUISANCE_PERFORMANCE_V1
++      Double maximumJointObservationInfluence=0;
++      GnssDesignMatrix A(normalEquationInfo);
++      for(UInt epoch:normalEquationInfo.idEpochs)
++            {
++              localUpdates.push_back({eqn.receiver->observation(trans,epoch),local,influence});
++            }
++      auto observationFingerprint=[](){};
++      orbitPocNuisancePerformance::writeSearch(stem+".nuisance_performance.json",search,rowBuildPerformance);
++''',
++    }
++
++
++@pytest.fixture
++def native_tree(tmp_path):
++    for name, text in _sources().items():
++        path = tmp_path / name
++        path.parent.mkdir(parents=True, exist_ok=True)
++        path.write_text(text)
++    (tmp_path / MODULE.HEADER).parent.mkdir(parents=True, exist_ok=True)
++    return tmp_path
++
++
++def test_installer_keeps_geometry_refresh_and_full_paths(native_tree):
++    manifest = MODULE.apply(native_tree)
++    cpp = (native_tree / MODULE.DYNAMIC).read_text()
++    assert cpp.count("para->PosDesign.at(arcNo) * dx") == 1
++    assert cpp.count("para->VelDesign.at(arcNo) * dx") == 1
++    assert cpp.index("actualClockDependentPositionInterpolation()") > cpp.index("skippedZeroProducts+=2")
++    assert cpp.index("actualClockDependentVelocityInterpolation()") > cpp.index("skippedZeroProducts+=2")
++    assert "exactZero(dx)" in cpp and "requireCertificate" in cpp
++    assert "para->pos.at(arcNo) += Vector(para->pos.at(arcNo).rows());" in cpp
++    processing = (native_tree / MODULE.PROCESSING).read_text()
++    assert 'RecoveryScope fixedDynamics(mode=="profile_step"' in processing
++    assert processing.index("} // fixed physical coordinates") < processing.index("auto observationFingerprint")
++    assert manifest["runtime_default"] == "0"
++    assert manifest["full_rank_linearizations_and_covariance"] == "unchanged"
++    assert manifest["cold_checks_and_correctness_thresholds"] == "unchanged"
++
++
++def test_installer_reentry_verifies_bytes(native_tree):
++    first = MODULE.apply(native_tree)
++    snapshot = {name: (native_tree / name).read_bytes() for name in first["installed_files"]}
++    assert MODULE.apply(native_tree) == first
++    assert snapshot == {name: (native_tree / name).read_bytes() for name in snapshot}
++
++
++@pytest.mark.parametrize("name", [MODULE.DYNAMIC, MODULE.DECLARATION, MODULE.PROCESSING, MODULE.HEADER])
++def test_installer_rejects_modified_installed_file(native_tree, name):
++    MODULE.apply(native_tree)
++    path = native_tree / name
++    path.write_text(path.read_text() + "// changed\n")
++    with pytest.raises(ValueError, match="file changed"):
++        MODULE.apply(native_tree)
++
++
++@pytest.mark.parametrize("name", [MODULE.DYNAMIC, MODULE.DECLARATION, MODULE.PROCESSING])
++@pytest.mark.parametrize("duplicate", [False, True])
++def test_installer_prevalidates_all_source_anchors(native_tree, name, duplicate):
++    path = native_tree / name
++    path.write_text(path.read_text() * 2 if duplicate else "changed source\n")
++    before = {p: p.read_bytes() for p in native_tree.rglob("*") if p.is_file()}
++    with pytest.raises(ValueError):
++        MODULE.apply(native_tree)
++    assert before == {p: p.read_bytes() for p in native_tree.rglob("*") if p.is_file()}
++
++
++@pytest.mark.parametrize("name", [MODULE.DYNAMIC, MODULE.DECLARATION, MODULE.PROCESSING])
++def test_installer_rejects_unattributed_partial_source(native_tree, name):
++    path = native_tree / name
++    path.write_text("// " + MODULE.MARKER + "\n" + path.read_text())
++    with pytest.raises(ValueError, match="partial"):
++        MODULE.apply(native_tree)
++
++
++def test_installer_rejects_unattributed_header(native_tree):
++    (native_tree / MODULE.HEADER).write_text("different\n")
++    with pytest.raises(ValueError, match="helper"):
++        MODULE.apply(native_tree)
++
++
++@pytest.fixture(scope="module")
++def fixed_dynamics_probe(tmp_path_factory):
++    if os.environ.get("ORBIT_POC_V41_COMPONENT_TESTS") != "1":
++        pytest.skip("select ORBIT_POC_V41_COMPONENT_TESTS=1 for compiled component guards")
++    directory = tmp_path_factory.mktemp("nuisance-v41-component")
++    include = directory / "misc/orbitPoc"
++    include.mkdir(parents=True)
++    shutil.copyfile(EXTENSION / "nuisancePerformance.h", include / "nuisancePerformance.h")
++    source = directory / "probe.cpp"
++    source.write_text(r'''
++#include <cassert>
++#include <limits>
++#include <vector>
++#include <sys/wait.h>
++#include <unistd.h>
++#include "nuisanceFixedDynamics.h"
++namespace v41=orbitPocNuisanceV41;
++struct Matrix {
++  unsigned r,c; std::vector<double> a;
++  Matrix(unsigned rows,unsigned columns):r(rows),c(columns),a(r*c){}
++  unsigned rows()const{return r;} unsigned columns()const{return c;}
++  double operator()(unsigned i,unsigned j)const{return a.at(i+r*j);}
++  double &operator()(unsigned i,unsigned j){return a.at(i+r*j);}
++  double operator()(unsigned i)const{return a.at(i);}
++};
++int main(int argc,char **argv) {
++  assert(argc==2);const std::string mode=argv[1];
++  setenv("ORBIT_POC_NUISANCE_FIXED_DYNAMICS","1",1);
++  Matrix x(3,1),design(3,3);design(0,0)=2.;
++  std::vector<bool> names={true,false,true};
++  auto dynamic=[](bool value){return value;};
++  if(mode=="default") {unsetenv("ORBIT_POC_NUISANCE_FIXED_DYNAMICS");assert(!v41::enabled());return 0;}
++  if(mode=="invalid_switch") {setenv("ORBIT_POC_NUISANCE_FIXED_DYNAMICS","x",1);try{v41::enabled();}catch(const std::invalid_argument&){return 0;}return 1;}
++  if(mode=="zero") {x(0,0)=-0.;assert(v41::exactZero(x));x(2,0)=std::numeric_limits<double>::denorm_min();assert(!v41::exactZero(x));return 0;}
++  if(mode=="nonfinite_correction") {x(1,0)=std::numeric_limits<double>::quiet_NaN();try{v41::exactZero(x);}catch(const std::runtime_error&){return 0;}return 1;}
++  if(mode=="signed_zero_add") {double z=-0.;z+=0.;assert(!std::signbit(z));x(0,0)=-0.;assert(v41::exactZero(x));return 0;}
++  if(mode=="nonfinite_design") {design(2,2)=std::numeric_limits<double>::infinity();try{v41::certifyFinite(design);}catch(const std::runtime_error&){return 0;}return 1;}
++  if(mode=="certificate") {auto c=v41::certifyFinite(design);v41::requireCertificate(c,design);c.columns++;try{v41::requireCertificate(c,design);}catch(const std::runtime_error&){return 0;}return 1;}
++  if(mode=="missing_certificate") {try{v41::requireCertificate({},design);}catch(const std::runtime_error&){return 0;}return 1;}
++  if(mode=="unsealed") {try{v41::certifyKnownFinite(3,3,false);}catch(const std::runtime_error&){return 0;}return 1;}
++  if(mode=="nonzero_scope") {x(2,0)=1e-100;try{v41::RecoveryScope s(true,names,x,dynamic);}catch(const std::runtime_error&){assert(!v41::recoveringFixedDynamics());return 0;}return 1;}
++  if(mode=="dimension_scope") {names.pop_back();try{v41::RecoveryScope s(true,names,x,dynamic);}catch(const std::runtime_error&){assert(!v41::recoveringFixedDynamics());return 0;}return 1;}
++  if(mode=="nested_scope") {v41::RecoveryScope s(true,names,x,dynamic);try{v41::RecoveryScope t(true,names,x,dynamic);}catch(const std::logic_error&){assert(v41::recoveringFixedDynamics());return 0;}return 1;}
++  if(mode=="fork_scope") {
++    const auto pid=fork();assert(pid>=0);
++    if(pid==0){v41::RecoveryScope s(true,names,x,dynamic);assert(v41::recoveringFixedDynamics());v41::counters().skippedZeroProducts=99;_exit(0);}
++    int status=0;assert(waitpid(pid,&status,0)==pid&&WIFEXITED(status)&&WEXITSTATUS(status)==0);
++    assert(!v41::recoveringFixedDynamics()&&v41::counters().skippedZeroProducts==0);return 0;
++  }
++  unsigned calls=0,validations=0;
++  auto compute=[&](){calls++;return design;};auto validate=[&](){validations++;};
++  if(mode=="scope_rollback") {try{v41::RecoveryScope s(true,names,x,dynamic);throw std::runtime_error("rollback");}catch(const std::runtime_error&){}assert(!v41::recoveringFixedDynamics());return 0;}
++  if(mode=="invalid_query") {try{v41::RecoveryScope s(true,names,x,dynamic);v41::dynamicDesign(3,[](){throw std::runtime_error("bad query");},compute);}catch(const std::runtime_error&){assert(calls==0&&!v41::recoveringFixedDynamics());return 0;}return 1;}
++  assert(mode=="dispatch");
++  {v41::RecoveryScope s(false,names,x,dynamic);assert(v41::dynamicDesign(3,validate,compute)(0,0)==2.);}
++  x(1,0)=23.; // nuisance coordinate need not be zero
++  {v41::RecoveryScope s(true,names,x,dynamic);assert(v41::dynamicDesign(3,validate,compute)(0,0)==0.);}
++  assert(v41::dynamicDesign(3,validate,compute)(0,0)==2.);
++  assert(calls==2&&validations==1&&v41::counters().omittedRecoveryDesigns==1&&!v41::recoveringFixedDynamics());
++}
++''')
++    compiler = shutil.which("c++")
++    assert compiler, "component fixture requires a C++ compiler"
++    executable = directory / "probe"
++    subprocess.run([compiler, "-std=c++17", "-O2", "-Wall", "-Wextra", "-I", str(directory),
++                    "-I", str(EXTENSION), str(source), "-o", str(executable)],
++                   capture_output=True, text=True, check=True, timeout=60)
++    return executable
++
++
++@pytest.mark.parametrize("mode", ["default", "invalid_switch", "zero", "nonfinite_correction", "nonfinite_design",
++    "certificate", "missing_certificate", "unsealed", "nonzero_scope", "dimension_scope", "nested_scope",
++    "scope_rollback", "invalid_query", "dispatch", "signed_zero_add", "fork_scope"])
++def test_compiled_fixed_coordinate_guards(fixed_dynamics_probe, mode):
++    env = {key: value for key, value in os.environ.items() if not key.startswith("ORBIT_POC_")}
++    subprocess.run([str(fixed_dynamics_probe), mode], env=env, capture_output=True,
++                   text=True, check=True, timeout=10)
+diff --git a/tests/test_v41_build_controls.py b/tests/test_v41_build_controls.py
+new file mode 100644
+index 0000000..403f2c8
+--- /dev/null
++++ b/tests/test_v41_build_controls.py
+@@ -0,0 +1,125 @@
++"""Admission and immutable layered-source reentry; no compiler is launched."""
++import importlib.util
++import json
++from pathlib import Path
++import sys
++
++import pytest
++
++from tests.test_v4_candidate_build_controls import ROOT, setup, snapshot
++
++FLAGS = ["--numerics", "--segmented", "--wide-tangent-candidate",
++         "--nuisance-performance", "--variational-memory-candidate", "--reliability-v41"]
++RECEIPTS = ["orbit-poc-extension.json", "orbit-poc-segmented-extension.json",
++            "orbit-poc-wide-tangent-extension.json", "orbit-poc-nuisance-performance-extension.json",
++            "orbit-poc-variational-memory-extension.json", "orbit-poc-nuisance-v41-extension.json",
++            "orbit-poc-design-storage-v41-extension.json"]
++
++
++def fixture(tmp_path, monkeypatch, *, installed=False, flags=FLAGS):
++    builder, source, build, calls, reads, before = setup(tmp_path, monkeypatch, flags=flags)
++
++    def read(command, **kwargs):
++        reads.append(command)
++        if command[-2:] == ["rev-parse", "HEAD"]:
++            return builder.COMMIT + "\n"
++        assert command[-3:] == ["status", "--porcelain", "--untracked-files=all"]
++        return ""
++
++    monkeypatch.setattr(builder.subprocess, "check_output", read)
++    extension = ROOT / "groops/extension/apply_extension.py"
++    if installed:
++        for name in RECEIPTS:
++            (source / name).write_text(json.dumps({"name": name}))
++        builder.reliability_profile(source, extension, verify=False)
++    return builder, source, build, calls, reads, extension
++
++
++@pytest.mark.parametrize("missing", FLAGS[:-1])
++def test_prerequisites_fail_before_source_access(tmp_path, monkeypatch, missing):
++    b, s, _, calls, reads, _ = fixture(tmp_path, monkeypatch, flags=[x for x in FLAGS if x != missing])
++    before = snapshot(s)
++    with pytest.raises(SystemExit):
++        b.main()
++    assert not calls and not reads and snapshot(s) == before
++
++
++def test_fresh_installs_all_layers_once_and_seals_final_source(tmp_path, monkeypatch):
++    b, s, _, calls, _, extension = fixture(tmp_path, monkeypatch)
++    installers = ["apply_extension.py", "native_segmented.py", "native_tangent_wide.py",
++                  "native_nuisance_performance.py", "native_variational_memory.py",
++                  "native_nuisance_v41.py", "native_design_storage_v41.py"]
++
++    def run(command, **kwargs):
++        calls.append([str(x) for x in command])
++        name = Path(str(command[1])).name
++        if name in installers:
++            (s / RECEIPTS[installers.index(name)]).write_text(json.dumps({"name": name}))
++            (s / "source/preserved.cpp").write_text(name)
++
++    monkeypatch.setattr(b, "run", run)
++    b.main()
++    assert [Path(c[1]).name for c in calls[:-1]] == installers
++    assert calls[-1][:2] == ["cmake", "-S"]
++    b.reliability_profile(s, extension, verify=True)
++    before = snapshot(s)
++    calls.clear()
++    b.main()
++    assert len(calls) == 1 and calls[0][0] == "cmake"
++    assert snapshot(s) == before
++
++
++@pytest.mark.parametrize("damage", ["source", "receipt", "missing_receipt", "inputs", "seal", "partial", "downgrade"])
++def test_reentry_refuses_drift_without_reinstalling(tmp_path, monkeypatch, damage):
++    b, s, build, calls, _, _ = fixture(tmp_path, monkeypatch, installed=True,
++        flags=FLAGS[:-1] if damage == "downgrade" else FLAGS)
++    if damage == "source":
++        (s / "source/preserved.cpp").write_text("changed")
++    elif damage == "receipt":
++        (s / RECEIPTS[2]).write_text("{}")
++    elif damage == "missing_receipt":
++        (s / RECEIPTS[2]).unlink()
++    elif damage == "inputs":
++        monkeypatch.setattr(b, "reliability_inputs", lambda extension: {"different": "implementation"})
++    elif damage == "seal":
++        (s / b.V41_PROFILE).write_text("{}")
++    elif damage == "partial":
++        (s / b.V41_PROFILE).unlink()
++    before = snapshot(s)
++    with pytest.raises(ValueError):
++        b.main()
++    assert not calls and not build.exists() and snapshot(s) == before
++
++
++def test_new_profile_refuses_existing_campaign_checkout(tmp_path, monkeypatch):
++    b, s, _, calls, _, _ = fixture(tmp_path, monkeypatch)
++    (s / "orbit-poc-nuisance-performance-extension.json").write_text("{}")
++    before = snapshot(s)
++    with pytest.raises(ValueError, match="clean pinned upstream"):
++        b.main()
++    assert not calls and snapshot(s) == before
++
++
++def test_profile_rejects_symlink_receipt(tmp_path, monkeypatch):
++    b, s, _, calls, _, _ = fixture(tmp_path, monkeypatch, installed=True)
++    target = tmp_path / "receipt.json"
++    target.write_bytes((s / RECEIPTS[2]).read_bytes())
++    (s / RECEIPTS[2]).unlink()
++    (s / RECEIPTS[2]).symlink_to(target)
++    with pytest.raises(ValueError, match="unsafe"):
++        b.main()
++    assert not calls
++
++
++@pytest.mark.parametrize("option", ["--source-dir", "--build-dir"])
++def test_cli_rejects_symlink_directory_before_resolution(tmp_path, monkeypatch, option):
++    b, s, build, calls, reads, _ = fixture(tmp_path, monkeypatch)
++    alias = tmp_path / "alias"
++    target = s if option == "--source-dir" else tmp_path
++    alias.symlink_to(target, target_is_directory=True)
++    argv = list(sys.argv)
++    argv[argv.index(option)+1] = str(alias if option == "--source-dir" else alias / "build")
++    monkeypatch.setattr(sys, "argv", argv)
++    with pytest.raises(ValueError, match="Symlink"):
++        b.main()
++    assert not calls and not reads and not build.exists()
+diff --git a/tests/test_v41_build_paths.py b/tests/test_v41_build_paths.py
+new file mode 100644
+index 0000000..ad29338
+--- /dev/null
++++ b/tests/test_v41_build_paths.py
+@@ -0,0 +1,47 @@
++"""Independent path counterexamples for the v4.1 build profile (no native work)."""
++from pathlib import Path
++
++import pytest
++
++from tests.test_v41_build_controls import RECEIPTS, fixture
++
++
++@pytest.mark.parametrize("surface", ["source_file", "source_directory", "installer_file", "installer_directory"])
++def test_sealed_profile_rejects_external_symlink_backing(tmp_path, monkeypatch, surface):
++    builder, source, _, _, _, _ = fixture(tmp_path, monkeypatch)
++    extension_root = tmp_path / "extension"
++    extension_root.mkdir()
++    extension = extension_root / "apply_extension.py"
++    extension.write_text("# isolated installer fixture\n")
++    (extension_root / "empty").mkdir()
++    (source / "source/empty").mkdir()
++    for name in RECEIPTS:
++        (source / name).write_text("{}")
++    builder.reliability_profile(source, extension, verify=False)
++    if surface == "source_file":
++        original = source / "source/preserved.cpp"
++    elif surface == "source_directory":
++        original = source / "source/empty"
++    elif surface == "installer_file":
++        original = extension
++    else:
++        original = extension_root / "empty"
++    external = tmp_path / ("external-" + surface)
++    if original.is_dir():
++        original.rmdir()
++        external.mkdir()
++    else:
++        external.write_bytes(original.read_bytes())
++        original.unlink()
++    original.symlink_to(external)
++    with pytest.raises(ValueError, match="[Ss]ymlink|unsafe|[Ii]dentity|regular"):
++        builder.reliability_profile(source, extension, verify=True)
++
++
++@pytest.mark.parametrize("name", ["orbit-poc-reliability-v41-build-profile.json", "orbit-poc-nuisance-v41-extension.json", "orbit-poc-design-storage-v41-extension.json"])
++def test_dangling_candidate_receipt_blocks_every_installer(tmp_path, monkeypatch, name):
++    builder, source, _, calls, _, _ = fixture(tmp_path, monkeypatch)
++    (source / name).symlink_to(tmp_path / "absent-receipt.json")
++    with pytest.raises(ValueError):
++        builder.main()
++    assert calls == []

@@ -1,0 +1,12 @@
+{
+  "schema": "undamped-probe-fixture-loader-source-diagnosis-v1",
+  "actual_worker_result_sha256": "64e7ddfe380b314a768a9f6536e4bee07a5b2806430722fbb3f073835407c96d",
+  "actual_controller_result_sha256": "b90b6918df85e5ecdb4d7e3c2dd089d73d13107a02ecc1c315003c57515bd2ab",
+  "actual_supervisor_sha256": "96b767c6555fcfd04f912788f7b3f8d392f6f7d20aec910a8d3f19bb293c4104",
+  "failure": "ImportError libz.so.1 before test discovery",
+  "source_cause": "logical Python prefix had resolved versioned filename but no SONAME filename required by the loaded extension RPATH",
+  "correction": "finite exact SONAME and resolved filename projections; two existing stdlib bz2/lzma dependency files",
+  "executed_runtime_probe": false,
+  "tests_changed": false,
+  "limits_changed": false
+}

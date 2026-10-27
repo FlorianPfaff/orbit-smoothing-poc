@@ -1,0 +1,132 @@
+{
+  "schema": "one-hour-independent-control-review-v1",
+  "created_utc": "2026-10-25T05:21:09.006073+00:00",
+  "approved_for_preparation": true,
+  "launch_approved": false,
+  "requires": "Actual successful unmodified minimal-namespace preflight for both configurations, immutable execution freeze and exact final manifest review before native launch.",
+  "checks": [
+    {
+      "name": "independent pinned3.11 pure suite",
+      "passed": true
+    },
+    {
+      "name": "original scientific contract unchanged",
+      "passed": true
+    },
+    {
+      "name": "tested exact current source contracts.py",
+      "passed": true
+    },
+    {
+      "name": "tested exact current source one_hour_controls.py",
+      "passed": true
+    },
+    {
+      "name": "tested exact current source test_behavior.py",
+      "passed": true
+    },
+    {
+      "name": "tested exact current source test_contracts.py",
+      "passed": true
+    },
+    {
+      "name": "runner reviewed identity",
+      "passed": true
+    },
+    {
+      "name": "contract reviewed identity",
+      "passed": true
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/contracts.py",
+      "sha256": "788d7af20539758a22e061c481ee4964674b1c6387e2b230f1427dfe7850065a",
+      "bytes": 9380
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/one_hour_controls.py",
+      "sha256": "a7a12783f61983e56a5c2b5352231bc3193fab5708faf5718c98a1fc0ba0934a",
+      "bytes": 36776
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/test_behavior.py",
+      "sha256": "8c987193cb127c6642e06ab28db883509bb49f314d577c4f6d2dfd8ecdb0cb58",
+      "bytes": 8914
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-controls01/test_contracts.py",
+      "sha256": "985c66913f5970dd06065deabec060b47bdb81543f7ecef112819afd5ac8d5cb",
+      "bytes": 11428
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/controls-tests01/result.json",
+      "sha256": "fbeab3ebe72a7d1c8335748075d5f6905af1b2b8828de4635847e5b5217dd607",
+      "bytes": 658
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/controls-tests01/source-copy.json",
+      "sha256": "87f88e0c85fbaf230a71ce923b135935ba1338ec9b8b26d14090e7cc0c99598a",
+      "bytes": 1161
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/controls-tests01/run_tests.py",
+      "sha256": "937b0131ab1ee9d1571252b450d636b80894d1c3763dfee00c89295b33961a92",
+      "bytes": 1396
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/controls-tests01/output.log",
+      "sha256": "645b0cbac95ccad49b9ceb3dfc8a88d6333597af4158d6e9408875926544e9d2",
+      "bytes": 5820
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/scientific-contract01.json",
+      "sha256": "e8b98e985ddbc4a95f21d8bdaab14cc32e093fa5cd9789a7e4d85e56ad6c07d8",
+      "bytes": 22437
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/native-contract/contract.json",
+      "sha256": "a4fa4f206a34769a09c3bb13e8ae58fc931b6f50f94d1abc7b38f132d8d515be",
+      "bytes": 34119
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-host-review01/lifecycle-review03.json",
+      "sha256": "ac8bdf101d03d72a98d05d523659b5a0008e6818a2931c2b5b3dd7d48514f94e",
+      "bytes": 5865
+    }
+  ],
+  "resolved_findings": [
+    {
+      "issue": "Runtime directory additions or symlink changes could evade listed-file checks",
+      "resolution": "Exact normalized runtime-tree member inventory verification added; actual added/import-shadow and symlink negatives pass."
+    },
+    {
+      "issue": "Subsidiary runtime helper must be verified before execution",
+      "resolution": "Bound-file verification now precedes helper-driven runtime membership execution; helper source is explicitly included in read-only bindings."
+    },
+    {
+      "issue": "Covariance files and earlier optimizer confirmation alone insufficient",
+      "resolution": "Assessment reads separate final-covariance point, validates full undamped original-coordinate factor, recomputes final rank/gradient, and reads retained final physical correction. Tiny behavioral fixtures reject stale/damped/conditional/gradient failures."
+    },
+    {
+      "issue": "Output/scratch symlink, replaced directory or stale backing",
+      "resolution": "Ordinary owned directory/inode identities and actual backing emptiness checked; negative fixtures pass. Pinned supervisor resource/lifecycle review is separately retained."
+    },
+    {
+      "issue": "Cold initialization and result provenance need inspectable evidence",
+      "resolution": "Exactly three runtime request rebindings, original GNSS bootstrap/nominal orbit, actual first converted state, zero pulse/density vectors, result source/preprocessing/mask hashes and no-donor flags are bound."
+    }
+  ],
+  "interpretation": {
+    "two_cases": "Original one-hour shared-data engineering regressions; no independent scientific accuracy claim.",
+    "nuisance": "Audited intermediate floor-limited progress remains allowed; final physical confirmation/covariance require strict fresh nuisance convergence.",
+    "unit_test_scope": "Exact author test/source bytes copied to reviewer area; unit temporary base redirected here; no native execution or original-file writes. Actual unchanged namespace integration is separate preflight evidence.",
+    "native_runs": 0,
+    "original_files_edited": false,
+    "threshold_changes": false,
+    "remaining_source_blockers": [],
+    "optional_reporting_requirements": []
+  }
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Candidate07 diagnostic controls: two preserved failures and five passing helper tests</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:1080px;margin:2rem auto;padding:0 1.2rem;color:#17212b;background:#fafbfd}h1{font-size:1.8rem;line-height:1.2}h2{font-size:1.25rem;margin-top:2rem}a{color:#125b98}table{width:100%;border-collapse:collapse;background:white}th,td{padding:.7rem;border:1px solid #cbd4df;text-align:left;vertical-align:top}th{background:#eaf0f6}.notice{border-left:4px solid #a45a00;background:#fff5e5;padding:1rem}.muted{color:#46566a}code{overflow-wrap:anywhere}summary{cursor:pointer;font-weight:600}li{margin:.3rem 0}small{font-size:.88rem}</style></head>
+<body>
+<h1>Candidate07: diagnostic control outcomes</h1>
+<p class="notice"><strong>No new orbit-fit result is reported.</strong> A fixed-profile replay failed before launch, a first helper-test job failed during import, and its corrected successor passed all five helper tests. The physical objective probe was still in preparation at the recorded observation, <strong>27 October 2026, 06:58:46 UTC</strong>.</p>
+<p><a href="report.json">Machine-readable report</a> · <a href="inputs-manifest.json">Exact input provenance</a> · <a href="SHA256SUMS">Packet checksums</a></p>
+<table><thead><tr><th>Attempt</th><th>Actual outcome</th><th>Scientific work and cleanup</th></tr></thead><tbody>
+<tr><td>Local fixed-profile replay<br><small>600-second intended native limit</small></td><td><strong>Prelaunch failure</strong>: <code>StopIteration</code> while selecting a job from <code>jobs=[]</code>.<br><a href="evidence/local600/independent-review.json">Independent audit</a> · <a href="evidence/local600/controller-result.json">Controller result</a></td><td>No command, supervisor, worker or native execution was dispatched. No numerical timeout or factor was produced. Caller termination and controller absence were verified; <strong>no supervisor or cleanup certificate exists</strong>.</td></tr>
+<tr><td>Fixture01</td><td><strong>Import failure before discovery</strong>: <code>libz.so.1</code> was absent at the loader’s required logical path.<br><a href="evidence/fixture01/independent-review.json">Independent audit</a> · <a href="evidence/fixture01/worker-result.json">Worker result</a></td><td>Five methods were planned; <strong>zero were discovered or executed</strong>. No native GNSS calls. Actual supervised worker exited 1; owned cleanup verified an empty tree with no signals or hard kill.</td></tr>
+<tr><td>Corrected fixture02</td><td><strong>5/5 passed</strong>, with zero errors, failures or skips.<br><a href="evidence/fixture02/independent-review.json">Independent audit</a> · <a href="evidence/fixture02/worker-result.json">Worker result</a> · <a href="evidence/fixture02/unittest.log">Test log</a></td><td>Pure mapping, input rejection, eligibility and stub-dispatch tests only. No real <code>NativeModel</code>, propagation, GNSS fit or covariance call. Supervised worker exited 0; owned cleanup verified an empty tree without signals or hard kill.</td></tr>
+</tbody></table>
+<h2>What was corrected</h2>
+<p>The fixture successor adds only finite pinned loader paths: the existing <code>libz</code> SONAME and resolved filename at both existing runtime prefixes, plus the existing <code>bz2</code>/<code>lzma</code> standard-library dependencies. The five test bodies, admission mechanism, 300-second bound, CPU 4, one thread and 8 GiB limit remain unchanged. There was no broad filesystem mount, package installation or host fallback. <a href="source/fixture02/loader/diagnosis.json">Loader diagnosis</a> · <a href="source/fixture02/loader/controller-correction.diff">Exact source correction</a> · <a href="evidence/fixture02/source-review.json">Source review</a>.</p>
+<p>A separate, unexecuted objective-control source initially expected three-field file pins where the actual fixture producer emits two-field references. The successor validates those exact producer references against separately verified observed metadata; it does not add fields to old receipts. It also binds the actual prelaunch failure with null supervisor/cleanup evidence. The current source then changes only the fixture successor identities. <a href="evidence/objective/source01-review.json">Preserved source defect</a> · <a href="source/objective03/provenance/source02-correction.diff">Schema and failure-attribution correction</a> · <a href="source/objective03/provenance/source03-fixture-binding.diff">Fixture02 binding</a> · <a href="evidence/objective/source03-review.json">Current source review</a>.</p>
+<h2>Objective probe: preparation only at the recorded observation</h2>
+<p>At <strong>06:58:46 UTC on 27 October 2026</strong>, source preparation03 had a prepare-only grant and the parent was performing preparation checks. No prepared-plan hash was yet recorded, no objective preflight had launched, and zero physical objective evaluations had run. This is a timestamped status, not a live assertion. <a href="evidence/objective/recovery68.json">Recorded observation</a> · <a href="evidence/objective/prepare-review.json">Prepare-only grant</a>.</p>
+<p>The intended later diagnostic is one fixed archived undamped proposal, evaluated through the existing physical objective with ordinary closure and strict nuisance refitting. It is not an optimizer run or a retry of factor recovery. Its proposed 900-second worker bound is separate from the unchanged replay’s 600-second bound; the full namespace/runtime preflight has its own 1,800-second bound. Worker startup and finite checks count within worker limits; parent identity verification is separate. No action beyond preparation is authorized by this report.</p>
+<p>The proposed ordinary closure setting differs from the tighter archived baseline. The inherited objective floor is not a fresh candidate-floor measurement. A floor-limited or failed result must remain ineligible for a strict comparison, and any future factor cannot be called the recovered original missing factor.</p>
+<h2>Relation to the numerical results</h2>
+<p>The five helper/dispatch tests <strong>supplement, and do not replace or rerun, the eleven already published numerical correctness stages</strong>. The previously completed pulse cold fit and the timed-out density cold fit remain unchanged. See the <a href="https://github.com/FlorianPfaff/orbit-smoothing-poc/tree/a36da221f2bebd9dc223c1e8512925ab6e5fc532/validation/v4-fit-reliability/candidate07-sequence03">original candidate07 publication</a> and <a href="https://github.com/FlorianPfaff/orbit-smoothing-poc/tree/503cc55df5b39d405b1c6ba2bfc05360a001b73a/validation/v4-fit-reliability/candidate07-density04-timeout">density04 timeout publication</a>. Their resource-control disclosures and numerical limitations remain in force.</p>
+<p>This packet supports no new scientific acceptance, density-fit completion, accuracy, covariance, speedup or release-readiness claim. Physical models, priors, observation weights, correctness thresholds, defaults and frozen benchmarks are unchanged. Cooperative admission and CPU affinity do not establish exclusive physical CPU reservation.</p>
+<h2>Recorded timing scopes</h2>
+<table><thead><tr><th>Attempt</th><th>Parent/controller elapsed</th><th>Owned supervisor elapsed</th><th>Worker body elapsed</th><th>Peak owned-tree RSS</th></tr></thead><tbody>
+<tr><td>Local600 prelaunch</td><td>1,045.581539 s</td><td>Not dispatched</td><td>Not dispatched</td><td>Not measured for a worker</td></tr>
+<tr><td>Fixture01</td><td>86.603130 s</td><td>2.704362 s</td><td>1.053616 s</td><td>28,909,568 bytes</td></tr>
+<tr><td>Fixture02</td><td>91.793697 s</td><td>2.392501 s</td><td>1.402996 s</td><td>29,499,392 bytes</td></tr>
+</tbody></table>
+<p class="muted">These distinct receipt clocks are descriptive, not a hardware or numerical performance benchmark. Fixture02’s namespace PID 2 has no separately recorded host PID/start mapping; it is not equated to host PID 2. The recorded host identities were absent and the owned supervisor certified an empty process tree.</p>
+<details><summary>Source and evidence inventory</summary><p>Selected small files are copied byte-for-byte. The <a href="inputs-manifest.json">manifest</a> records their original absolute paths, hashes and sizes. Original source ledgers cover larger external bundles, so this is not a standalone runtime. Historical JSON paths still refer to their original archives. Binaries, datasets, numerical row spools and large runtime inventories remain outside this packet.</p><ul>
+<li><a href="evidence/local600/independent-review.json">evidence/local600/independent-review.json</a> <small>(11227 bytes)</small></li>
+<li><a href="evidence/local600/controller-result.json">evidence/local600/controller-result.json</a> <small>(2153 bytes)</small></li>
+<li><a href="evidence/local600/caller-failure.json">evidence/local600/caller-failure.json</a> <small>(1185 bytes)</small></li>
+<li><a href="evidence/local600/terminal-observation.txt">evidence/local600/terminal-observation.txt</a> <small>(269 bytes)</small></li>
+<li><a href="source/local600/inputs.sha256">source/local600/inputs.sha256</a> <small>(3854 bytes)</small></li>
+<li><a href="source/local600/local_replay.py">source/local600/local_replay.py</a> <small>(23590 bytes)</small></li>
+<li><a href="evidence/fixture01/independent-review.json">evidence/fixture01/independent-review.json</a> <small>(15793 bytes)</small></li>
+<li><a href="evidence/fixture01/controller-result.json">evidence/fixture01/controller-result.json</a> <small>(703 bytes)</small></li>
+<li><a href="evidence/fixture01/worker-result.json">evidence/fixture01/worker-result.json</a> <small>(856 bytes)</small></li>
+<li><a href="evidence/fixture01/supervisor.json">evidence/fixture01/supervisor.json</a> <small>(7954 bytes)</small></li>
+<li><a href="evidence/fixture01/caller-failure.json">evidence/fixture01/caller-failure.json</a> <small>(1208 bytes)</small></li>
+<li><a href="evidence/fixture01/terminal-observation.txt">evidence/fixture01/terminal-observation.txt</a> <small>(443 bytes)</small></li>
+<li><a href="source/fixture01/inputs.sha256">source/fixture01/inputs.sha256</a> <small>(1458 bytes)</small></li>
+<li><a href="source/fixture01/fixture_control.py">source/fixture01/fixture_control.py</a> <small>(14578 bytes)</small></li>
+<li><a href="source/fixture01/fixture_worker.py">source/fixture01/fixture_worker.py</a> <small>(6584 bytes)</small></li>
+<li><a href="evidence/fixture02/independent-review.json">evidence/fixture02/independent-review.json</a> <small>(17099 bytes)</small></li>
+<li><a href="evidence/fixture02/controller-result.json">evidence/fixture02/controller-result.json</a> <small>(847 bytes)</small></li>
+<li><a href="evidence/fixture02/worker-result.json">evidence/fixture02/worker-result.json</a> <small>(1950 bytes)</small></li>
+<li><a href="evidence/fixture02/supervisor.json">evidence/fixture02/supervisor.json</a> <small>(9523 bytes)</small></li>
+<li><a href="evidence/fixture02/caller-completion.json">evidence/fixture02/caller-completion.json</a> <small>(1179 bytes)</small></li>
+<li><a href="evidence/fixture02/plan.json">evidence/fixture02/plan.json</a> <small>(2437 bytes)</small></li>
+<li><a href="evidence/fixture02/actual-command.json">evidence/fixture02/actual-command.json</a> <small>(9095 bytes)</small></li>
+<li><a href="evidence/fixture02/worker-context.json">evidence/fixture02/worker-context.json</a> <small>(1444 bytes)</small></li>
+<li><a href="evidence/fixture02/discovery.json">evidence/fixture02/discovery.json</a> <small>(762 bytes)</small></li>
+<li><a href="evidence/fixture02/unittest.log">evidence/fixture02/unittest.log</a> <small>(952 bytes)</small></li>
+<li><a href="evidence/fixture02/terminal-observation.txt">evidence/fixture02/terminal-observation.txt</a> <small>(408 bytes)</small></li>
+<li><a href="evidence/fixture02/source-review.json">evidence/fixture02/source-review.json</a> <small>(8703 bytes)</small></li>
+<li><a href="source/fixture02/inputs.sha256">source/fixture02/inputs.sha256</a> <small>(3484 bytes)</small></li>
+<li><a href="source/fixture02/fixture_control.py">source/fixture02/fixture_control.py</a> <small>(14886 bytes)</small></li>
+<li><a href="source/fixture02/fixture_worker.py">source/fixture02/fixture_worker.py</a> <small>(6584 bytes)</small></li>
+<li><a href="source/fixture02/launch.sh">source/fixture02/launch.sh</a> <small>(850 bytes)</small></li>
+<li><a href="source/fixture02/README.txt">source/fixture02/README.txt</a> <small>(5547 bytes)</small></li>
+<li><a href="source/fixture02/status.json">source/fixture02/status.json</a> <small>(940 bytes)</small></li>
+<li><a href="source/fixture02/stdlib-extra-libraries.json">source/fixture02/stdlib-extra-libraries.json</a> <small>(864 bytes)</small></li>
+<li><a href="source/fixture02/host-files.sha256">source/fixture02/host-files.sha256</a> <small>(733 bytes)</small></li>
+<li><a href="source/fixture02/loader/_bz2.dynamic.txt">source/fixture02/loader/_bz2.dynamic.txt</a> <small>(1433 bytes)</small></li>
+<li><a href="source/fixture02/loader/_hashlib.dynamic.txt">source/fixture02/loader/_hashlib.dynamic.txt</a> <small>(1437 bytes)</small></li>
+<li><a href="source/fixture02/loader/_lzma.dynamic.txt">source/fixture02/loader/_lzma.dynamic.txt</a> <small>(1433 bytes)</small></li>
+<li><a href="source/fixture02/loader/controller-correction.diff">source/fixture02/loader/controller-correction.diff</a> <small>(2908 bytes)</small></li>
+<li><a href="source/fixture02/loader/diagnosis.json">source/fixture02/loader/diagnosis.json</a> <small>(777 bytes)</small></li>
+<li><a href="source/fixture02/loader/inspected-elf-files.sha256">source/fixture02/loader/inspected-elf-files.sha256</a> <small>(1205 bytes)</small></li>
+<li><a href="source/fixture02/loader/libbz2.so.1.0.8.dynamic.txt">source/fixture02/loader/libbz2.so.1.0.8.dynamic.txt</a> <small>(1337 bytes)</small></li>
+<li><a href="source/fixture02/loader/liblzma.so.5.dynamic.txt">source/fixture02/loader/liblzma.so.5.dynamic.txt</a> <small>(1604 bytes)</small></li>
+<li><a href="source/fixture02/loader/libz.so.1.3.2.dynamic.txt">source/fixture02/loader/libz.so.1.3.2.dynamic.txt</a> <small>(1524 bytes)</small></li>
+<li><a href="source/fixture02/loader/stdlib-import-lines.txt">source/fixture02/loader/stdlib-import-lines.txt</a> <small>(307 bytes)</small></li>
+<li><a href="source/fixture02/loader/worker-root-only.diff">source/fixture02/loader/worker-root-only.diff</a> <small>(510 bytes)</small></li>
+<li><a href="source/fixture02/loader/zlib.dynamic.txt">source/fixture02/loader/zlib.dynamic.txt</a> <small>(1506 bytes)</small></li>
+<li><a href="source/probe/inputs.sha256">source/probe/inputs.sha256</a> <small>(977 bytes)</small></li>
+<li><a href="source/probe/probe.py">source/probe/probe.py</a> <small>(13336 bytes)</small></li>
+<li><a href="source/probe/expected-test-ids.txt">source/probe/expected-test-ids.txt</a> <small>(477 bytes)</small></li>
+<li><a href="source/probe/README.txt">source/probe/README.txt</a> <small>(5101 bytes)</small></li>
+<li><a href="source/probe/test_probe.py">source/probe/test_probe.py</a> <small>(3710 bytes)</small></li>
+<li><a href="evidence/objective/probe-source-review.json">evidence/objective/probe-source-review.json</a> <small>(7416 bytes)</small></li>
+<li><a href="source/objective01/inputs.sha256">source/objective01/inputs.sha256</a> <small>(924 bytes)</small></li>
+<li><a href="source/objective01/objective_control.py">source/objective01/objective_control.py</a> <small>(22966 bytes)</small></li>
+<li><a href="source/objective01/README.txt">source/objective01/README.txt</a> <small>(8346 bytes)</small></li>
+<li><a href="source/objective02/inputs.sha256">source/objective02/inputs.sha256</a> <small>(1445 bytes)</small></li>
+<li><a href="source/objective02/objective_control.py">source/objective02/objective_control.py</a> <small>(24849 bytes)</small></li>
+<li><a href="source/objective02/README.txt">source/objective02/README.txt</a> <small>(9413 bytes)</small></li>
+<li><a href="source/objective03/inputs.sha256">source/objective03/inputs.sha256</a> <small>(2000 bytes)</small></li>
+<li><a href="source/objective03/objective_control.py">source/objective03/objective_control.py</a> <small>(24849 bytes)</small></li>
+<li><a href="source/objective03/README.txt">source/objective03/README.txt</a> <small>(10116 bytes)</small></li>
+<li><a href="source/objective03/baseline-inputs.json">source/objective03/baseline-inputs.json</a> <small>(1752 bytes)</small></li>
+<li><a href="source/objective03/launch.sh">source/objective03/launch.sh</a> <small>(1214 bytes)</small></li>
+<li><a href="source/objective03/status.json">source/objective03/status.json</a> <small>(1301 bytes)</small></li>
+<li><a href="source/objective03/provenance/correction.json">source/objective03/provenance/correction.json</a> <small>(800 bytes)</small></li>
+<li><a href="source/objective03/provenance/source02-correction.diff">source/objective03/provenance/source02-correction.diff</a> <small>(6565 bytes)</small></li>
+<li><a href="source/objective03/provenance/source03-fixture-binding.diff">source/objective03/provenance/source03-fixture-binding.diff</a> <small>(2425 bytes)</small></li>
+<li><a href="source/objective03/provenance/reused-entrypoints.sha256">source/objective03/provenance/reused-entrypoints.sha256</a> <small>(1051 bytes)</small></li>
+<li><a href="evidence/objective/source01-review.json">evidence/objective/source01-review.json</a> <small>(5696 bytes)</small></li>
+<li><a href="evidence/objective/source03-review.json">evidence/objective/source03-review.json</a> <small>(7585 bytes)</small></li>
+<li><a href="evidence/objective/prepare-review.json">evidence/objective/prepare-review.json</a> <small>(6239 bytes)</small></li>
+<li><a href="evidence/objective/recovery68.json">evidence/objective/recovery68.json</a> <small>(5490 bytes)</small></li>
+<li><a href="evidence/prior/density04-published-report.json">evidence/prior/density04-published-report.json</a> <small>(17823 bytes)</small></li>
+<li><a href="evidence/prior/recovery-published-report.json">evidence/prior/recovery-published-report.json</a> <small>(63189 bytes)</small></li>
+</ul></details>
+<p><small>Prepared as an additive evidence packet. No previous packet, source, benchmark, run or failed receipt was modified. Independent review of this assembled packet and any Git publication remain separate.</small></p>
+</body></html>

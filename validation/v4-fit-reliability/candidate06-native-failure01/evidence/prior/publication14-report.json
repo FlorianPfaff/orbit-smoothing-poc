@@ -1,0 +1,184 @@
+{
+  "schema": "orbit-poc-eight-check-publication-v1",
+  "published_scope": "Candidate04 reference-preservation checks only",
+  "independent_audits": {
+    "terminal": {
+      "path": "/mnt/d/orbit-v41-recovery02/terminal-audit14-01/audit-result.json",
+      "sha256": "0807edbd38da3cc9eb0789a4210ae808db2ef1850aafbbd25ef363a59667694e",
+      "checks": 359
+    },
+    "objective_math": {
+      "path": "/mnt/d/orbit-v41-recovery02/terminal-audit14-01/objective-math/audit-result.json",
+      "sha256": "482fde39e8f1aa73af506b0505fa912010ac1aa25bc312e1321a6d05a01ffe18",
+      "checks": 381
+    }
+  },
+  "run": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01",
+  "native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "plan_sha256": "83224b4e5284e5b7d4c6ac0e8d99f0f7845a0c1aedbd7f6d1f1a45831212967a",
+  "freeze_sha256": "11d21c440b6eee1df54372f2f524c03799ac3c5b2d2e854fb9cf68330361608d",
+  "counts": {
+    "planned": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "stages": [
+    {
+      "stage": "synthetic-refinement-log_drag_ou",
+      "status": "passed",
+      "scientific_seconds": 263.9649926130005,
+      "worker_total_seconds": 1629.885666588998,
+      "supervised_seconds": 1640.943737007001,
+      "peak_process_tree_rss_bytes": 459264000,
+      "cleanup_verified": true,
+      "evidence": {
+        "maximum_fraction_of_sigma": 7.09405867382884e-07,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/synthetic-refinement-log_drag_ou/result/result.json",
+          "sha256": "e62039e3e861f659ca0d2b6cbe3ceffb621736de496362ee31433faeae5e9504"
+        }
+      },
+      "receipt_written_at": "2026-10-24T10:11:14.785470+02:00"
+    },
+    {
+      "stage": "synthetic-refinement-pulses",
+      "status": "passed",
+      "scientific_seconds": 165.80240509800205,
+      "worker_total_seconds": 1222.6185663329961,
+      "supervised_seconds": 1231.9290100600047,
+      "peak_process_tree_rss_bytes": 457342976,
+      "cleanup_verified": true,
+      "evidence": {
+        "maximum_fraction_of_sigma": 2.6320776669308543e-06,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/synthetic-refinement-pulses/result/result.json",
+          "sha256": "3aa146bf026e20f884e12db125b8b729dee1a7643b8f82cde8a7a9016823a5f9"
+        }
+      },
+      "receipt_written_at": "2026-10-24T10:39:42.241286+02:00"
+    },
+    {
+      "stage": "flight-refinement",
+      "status": "passed",
+      "scientific_seconds": 365.2275606979965,
+      "worker_total_seconds": 1498.2859287790052,
+      "supervised_seconds": 1507.1518402760048,
+      "peak_process_tree_rss_bytes": 661467136,
+      "cleanup_verified": true,
+      "evidence": {
+        "maximum_fraction_of_sigma": 0.0021892592180925963,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/flight-refinement/result/result.json",
+          "sha256": "0d329c529b4e40a103472a29efe026d32dbceeb34084cfe13b03268497308564"
+        }
+      },
+      "receipt_written_at": "2026-10-24T11:14:38.292322+02:00"
+    },
+    {
+      "stage": "eccentric-24h-refinement",
+      "status": "passed",
+      "scientific_seconds": 840.595931503005,
+      "worker_total_seconds": 1795.777319066001,
+      "supervised_seconds": 1807.1824928729984,
+      "peak_process_tree_rss_bytes": 509923328,
+      "cleanup_verified": true,
+      "evidence": {
+        "maximum_fraction_of_sigma": 7.592764935300996e-07,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/eccentric-24h-refinement/result/result.json",
+          "sha256": "43dec78e8313657193eb8e2a82ced6756af42657ac9e78860983eda5f9ce61a8"
+        }
+      },
+      "receipt_written_at": "2026-10-24T11:54:40.830547+02:00"
+    },
+    {
+      "stage": "objective-log_drag_ou",
+      "status": "passed",
+      "scientific_seconds": 2196.522409624995,
+      "worker_total_seconds": 3074.74883363401,
+      "supervised_seconds": 3083.206628685999,
+      "peak_process_tree_rss_bytes": 445915136,
+      "cleanup_verified": true,
+      "evidence": {
+        "accepted_scales": [
+          0.125,
+          0.0625
+        ],
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/objective-log_drag_ou/result/validation.json",
+          "sha256": "5adb7a306cd86bad64937ef2fbc8dd1303573e7b53f211351b1e275d41919c4e"
+        }
+      },
+      "receipt_written_at": "2026-10-24T12:52:51.166502+02:00"
+    },
+    {
+      "stage": "objective-pulses",
+      "status": "passed",
+      "scientific_seconds": 1138.432146867999,
+      "worker_total_seconds": 2131.2543982490024,
+      "supervised_seconds": 2139.9367134499917,
+      "peak_process_tree_rss_bytes": 442306560,
+      "cleanup_verified": true,
+      "evidence": {
+        "accepted_scales": [
+          1.0,
+          0.5
+        ],
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/objective-pulses/result/validation.json",
+          "sha256": "437675f142f2e793bbc26bbd60cec370c0f5788beba8adaaf600e1dc58cc9a7c"
+        }
+      },
+      "receipt_written_at": "2026-10-24T13:36:26.700847+02:00"
+    },
+    {
+      "stage": "nuisance-replay",
+      "status": "passed",
+      "scientific_seconds": 69.07167034699523,
+      "worker_total_seconds": 1106.9536492309999,
+      "supervised_seconds": 1117.639279726005,
+      "peak_process_tree_rss_bytes": 391450624,
+      "cleanup_verified": true,
+      "evidence": {
+        "raw_update_m": 3.0018499648969506e-10,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/nuisance-replay/result/receipt.json",
+          "sha256": "3ed4ea7e9ee7db0be1d917c118e669bfec1678a55f26b8e81fb4d90ee07cd90e"
+        },
+        "strict": true
+      },
+      "receipt_written_at": "2026-10-24T14:01:35.731579+02:00"
+    },
+    {
+      "stage": "nuisance-replay-candidate1-point012",
+      "status": "passed",
+      "scientific_seconds": 74.35439941300137,
+      "worker_total_seconds": 1122.4072394560062,
+      "supervised_seconds": 1130.9061361180065,
+      "peak_process_tree_rss_bytes": 391200768,
+      "cleanup_verified": true,
+      "evidence": {
+        "raw_update_m": 3.7772297043099616e-10,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/reference-gates14-run01/nuisance-replay-candidate1-point012/result/receipt.json",
+          "sha256": "f76813a67974867db5415003eecb6ddf1cf47cd0c1bba265928746d71be5ecf0"
+        },
+        "strict": true
+      },
+      "receipt_written_at": "2026-10-24T14:29:27.329172+02:00"
+    }
+  ],
+  "objective_profiles": {
+    "density": 22,
+    "pulses": 10,
+    "all_strict": true,
+    "floor_limited": 0
+  },
+  "whole_fit_verified": false,
+  "accepted_covariance": false,
+  "release_authority": false,
+  "new_native_runs_launched_for_publication": false,
+  "frozen_benchmark_results_replaced": false,
+  "timing_scope": "Stage totals include substantial identity/inventory I/O; these are not fit speed comparisons.",
+  "external_artifacts": "Original datasets, binaries, trajectories and large row archives stay outside Git; exact source locators and hashes remain in the copied receipts."
+}

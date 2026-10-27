@@ -1,0 +1,93 @@
+{
+  "schema": "candidate07-postboot-collection04-independent-failure-review-v1",
+  "status": "actual_collection_timeout_preserved_no_audit_grant",
+  "reviewer": "/root/launcher_recovery",
+  "scope": "Independent read-only audit of actual execution, terminal, source/runtime receipts, partial output and current-host process absence. The reviewer authored the previously independently reviewed collector adaptation; no new independent source approval is claimed here.",
+  "actual_artifacts": {
+    "plan_sha256": "86bd8e209da14457691d6b131df02aa6f962ca88db1659b82135a2d1ad8f3313",
+    "collect_action_review_sha256": "9f4337eedd5c4139f8d23886900b29dfc1c61e50864443eb1073e6b3ee8998c0",
+    "actual36_qualification_sha256": "b311fe1c219a05d0a9d3a11881efb7d518e6868ed765c5935aa83aa03b1f91bf",
+    "controller_result_sha256": "499a146607bc2c2fbb3208ca2835c11dd975b2fbb2aab7a75559304071681565",
+    "supervisor_sha256": "1cb35b1bca7ae21c04a0a075f8550047289c7ede400e6835dbae00a4e12b8835",
+    "supervisor_plan_sha256": "ae458158df1d3a65144b162da16f8734efdee31b2c463d92227df78edb73e098",
+    "source_before_after_sha256": "8bab605761318082cbc109a1822315fae64fe69688a1e7bfd2d48d463fa62662",
+    "runtime_before_after_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+    "partial_recovered_individual_evidence_sha256": "0f5b3497e759372e4b8d748f29fd8a5f5e4006f684c4513efaa8dbf9cffab8f3",
+    "post_completion_evidence_sha256": "b71a355145006baba30606a305acaaba7ecfffb14161f6e1743d7eb080faafe6",
+    "collector_source_sha256": "3b60068ee2926fb21b56d53428ef96e8654f48042d50d12bdf8da8b6f3e459e8",
+    "collector_contract_sha256": "6d69a13972d9c8d070c779f5811b20387fdb34af01cdcff18004484fea2619e4"
+  },
+  "actual_terminal": {
+    "controller_status": "complete",
+    "controller_status_meaning": "Closing identity checks completed; it does not mean collection succeeded.",
+    "controller_caller_exit_reported": 0,
+    "controller_elapsed_seconds": 1190.5432046739988,
+    "worker_status": "timeout",
+    "worker_returncode": -15,
+    "worker_elapsed_seconds": 600.0619833599994,
+    "worker_timeout_limit_seconds": 600,
+    "peak_process_tree_rss_bytes": 81309696,
+    "rss_limit_bytes": 8589934592,
+    "worker_result": null,
+    "worker_log_bytes": 0,
+    "source_snapshots_byte_identical": true,
+    "runtime_snapshots_byte_identical": true,
+    "runtime_verification": {"files":8281,"trees":19,"elf_objects":212,"hashes_and_membership_verified":true,"elf_resolution_verified":true}
+  },
+  "cleanup": {
+    "verified": true,
+    "empty_tree_certificate": "kernel_ECHILD",
+    "remaining": [],
+    "hard_kill": false,
+    "signals_received": [],
+    "owned_SIGTERM_records": [{"pid":76587,"start_ticks":2231195,"signal":15}],
+    "current_boot": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+    "absent_identities": [
+      {"role":"controller","pid":74857,"start_ticks":2193783},
+      {"role":"supervisor","pid":76572,"start_ticks":2230787},
+      {"role":"worker","pid":76587,"start_ticks":2231195}
+    ],
+    "controller_start_attribution": "Observed directly in /proc/74857/stat during closing checks at 2026-10-27T02:16:19Z; subsequent same-boot absence independently checked."
+  },
+  "partial_output": {
+    "root": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-input-manifests03",
+    "only_surviving_file": "recovered-individual-evidence.json",
+    "bytes": 3318,
+    "original_pulse_receipts": "preserved passed individual case",
+    "original_density": "interrupted, no backend or strict result, no original cleanup certificate",
+    "collection_receipt_present": false,
+    "file_map_present": false,
+    "scientific_manifest_present": false,
+    "selected_manifest_present": false,
+    "rank_manifest_present": false,
+    "export_manifest_present": false,
+    "partial_file_does_not_authorize_any_saved_audit": true
+  },
+  "bottleneck_findings": [
+    "The recovered individual-evidence marker proves the initial correctness/replay enumeration and recovery summary were reached. There is no subsequent checkpoint distinguishing cold-case enumeration, final pulse selection or the final mandatory full rehash.",
+    "Collector03 already fuses owned()+add() canonicalization within one selected partial-file operation. It preserves ownership resolution on every call, expected identities, full-content hashes and final full rehash. The previous duplicated path operation is not still present in that path.",
+    "Normal add() caches successful logical pins, so repeated logical references do not automatically imply repeated hashing. Selected JSON data() still reopens/parses files, nested references may add surviving compressed payloads, os.walk checks child directory symlinks and owned() resolves each selected path.",
+    "The earlier c2153b0a performance review reports 1309 selected pulse and 1772 selected density diagnostic files, with nested compressed payloads. Those historical metadata counts describe possible work, not measured current visit counts or per-phase time.",
+    "The supervised worker was recorded in D state, compatible with a blocked kernel operation but insufficient to attribute a particular filesystem call. Root separately observed parent closing checks in p9_client_rpc; that is explicitly not a worker bottleneck measurement.",
+    "The saved RSS is far below8GiB. This is a wall timeout, not a measured memory-limit failure or numerical failure. No speedup or regression magnitude can be inferred from two censored600-second outcomes."
+  ],
+  "smallest_next_source_only_change": {
+    "purpose": "Localize the expensive phase before choosing another optimization or filesystem-staging intervention.",
+    "change": "Separate instrumented collector successor with bounded phase checkpoints and cumulative operation/file/byte counters, covering each cold case, partial inventory and final stability rehash. Checkpoints are diagnostic only and never substitute for manifests, hashes, final verification or an audit result.",
+    "preserve": ["600-second limit","full hashing and final rehash","alias and ownership checks","all archived physical/statistical data and parameters","original mathematical auditor bodies","all prior failures and partial outputs"],
+    "qualification": "Existing applicable collector/adapter fixtures plus focused tests for only the new bounded diagnostic behavior, under a separately reviewed source/control packet.",
+    "execution_authorized_by_this_review": false,
+    "ext4_staging": "Possible later diagnostic only with exact input and logical-path preservation; not an assumed fix and not authorized here."
+  },
+  "approved_for_postboot_audit_controls": false,
+  "approved_actions": [],
+  "collection_success": false,
+  "saved_audits_authorized": false,
+  "new_execution_authorized": false,
+  "scientific_acceptance": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "thresholds_or_frozen_protocols_changed": false,
+  "all_failures_and_partial_outputs_preserved": true,
+  "review_imports_tests_native_runs": 0
+}

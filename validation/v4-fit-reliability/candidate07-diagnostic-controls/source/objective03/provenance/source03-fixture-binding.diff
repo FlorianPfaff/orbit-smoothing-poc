@@ -1,0 +1,24 @@
+--- ../preparation02/objective_control.py	2026-10-27 07:31:21.090400200 +0100
++++ objective_control.py	2026-10-27 07:45:51.630194100 +0100
+@@ -14,9 +14,9 @@
+ ORIGINAL_SHA='530221cae291e0689cdd5dce62deca1b18f27ad0682553c8e9d5ced11504cafb'
+ REPLAY=BASE/'candidate07-density04-local-fixed-replay-run01'
+ REPLAY_PLAN_SHA='8ca6a619781418ad2ee44577ec4001fa3f6c2b4240d77b1c280ce51425bc79a3'
+-FIXTURES=BASE/'candidate07-density04-undamped-probe-fixtures01'
+-FIXTURE_SOURCE=BASE/'candidate07-density04-undamped-probe-fixture-controls01/preparation01'
+-FIXTURE_SHA='96a3b683a5c1d90cfa10d35818f8718a0388933bf57159a8f82960cf1277c660'
++FIXTURES=BASE/'candidate07-density04-undamped-probe-fixtures02'
++FIXTURE_SOURCE=BASE/'candidate07-density04-undamped-probe-fixture-controls01/preparation02'
++FIXTURE_SHA='1c68b261682141c2e746c6384b231168e8a0c3388692200549ed110170d157f4'
+ SUPERVISOR_SHA='060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267'
+ SCHEMA='candidate07-undamped-objective-plan-v1'
+ LIMITS={'objective_seconds':900,'preflight_seconds':1800,'rss_bytes':8*1024**3,'cpu':4,'threads':1}
+@@ -88,7 +88,7 @@
+  need(all(not os.path.lexists(path) for path in absent) and not any(p.is_file() or p.is_symlink() for p in (REPLAY/'cold-density/arms/A-original/output').rglob('*')),'preserved prelaunch failure acquired native artifacts')
+  need(sha(REPLAY/'plan.json')==REPLAY_PLAN_SHA,'replay plan changed')
+  x=r['five_fixture_qualification'];c=read(verify(x['controller']));s=read(verify(x['supervisor']));f=read(verify(x['worker']))
+- need(x['controller']['path']==str(FIXTURES/'result.json') and x['supervisor']['path']==str(FIXTURES/'supervisor.json') and x['worker']['path']=='/home/emper/orbit-density04-undamped-probe-fixtures01/fixture-result.json','wrong fixture attempt')
++ need(x['controller']['path']==str(FIXTURES/'result.json') and x['supervisor']['path']==str(FIXTURES/'supervisor.json') and x['worker']['path']=='/home/emper/orbit-density04-undamped-probe-fixtures02/fixture-result.json','wrong fixture attempt')
+  ledger(FIXTURE_SOURCE,'inputs.sha256',FIXTURE_SHA)
+  fixture_reference(c['supervisor'],x['supervisor']);fixture_reference(c['fixture_result'],x['worker']);fixture_reference(c['plan'],x['plan'])
+  need(c['status']=='passed' and c['source_runtime_unchanged'] is True and c['cleanup_verified'] is True and s['status']=='complete' and s['returncode']==0 and clean(h,s),'fixture control incomplete')

@@ -1,0 +1,59 @@
+{
+  "argv": [
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "-s",
+    "-B",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postboot-auditors02/worker.py",
+    "--action",
+    "collect",
+    "--plan",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection03-launch01/plan.json",
+    "--plan-sha256",
+    "fb0a8de40b2a270d4ced6b6e4f0fbf242755b5c7eabccc93bdf84256b2803041",
+    "--output",
+    "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection-control03/collect/result.json"
+  ],
+  "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+  "cleanup": {
+    "empty_tree_certificate": "kernel_ECHILD",
+    "hard_kill": false,
+    "remaining": [],
+    "signals": [
+      {
+        "pid": 32121,
+        "signal": 15,
+        "start_ticks": 722560
+      }
+    ],
+    "verified": true
+  },
+  "elapsed_seconds": 600.042896807,
+  "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+  "owned_process_group_cleaned": true,
+  "peak_process_tree_rss_bytes": 81416192,
+  "plan_sha256": "ee8c56de0742c59478e26af84db6cca83427b723b69b50b708c4f324086b3f55",
+  "returncode": -15,
+  "schema": "orbit-poc-segmented-supervision-v1",
+  "signals_received": [],
+  "status": "timeout",
+  "supervisor": {
+    "parent": 30023,
+    "pid": 32117,
+    "start_ticks": 722305,
+    "state": "R"
+  },
+  "tracked_owned_processes": [
+    {
+      "parent": 32117,
+      "pid": 32121,
+      "start_ticks": 722560,
+      "state": "D"
+    }
+  ],
+  "worker": {
+    "parent": 32117,
+    "pid": 32121,
+    "start_ticks": 722560,
+    "state": "D"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "action": "native",
+  "all_output_files": [],
+  "cooperative_lock": {
+    "device": 71,
+    "inode": 562949954097733,
+    "path": "/mnt/d/orbit-v41-recovery02/validation-controls07/cooperative-admission.lock",
+    "scope": "Existing shared cooperative lock; opened without following links, no lock-file content changes",
+    "uid": 1000
+  },
+  "covariance_authority": false,
+  "elapsed_seconds": 1045.581538888,
+  "error": "StopIteration()",
+  "plan_sha256": "8ca6a619781418ad2ee44577ec4001fa3f6c2b4240d77b1c280ce51425bc79a3",
+  "release_authority": false,
+  "review": {
+    "bytes": 14794,
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay01-independent-preflight-review01/review.json",
+    "sha256": "b9af8f0ff5c1ffc941e3c4ef237ac365be6aa787fb0d2cb8c822be32a3d83f03"
+  },
+  "schema": "candidate07-local-fixed-profile-controller-v1",
+  "source_input_runtime_posthash_verified": true,
+  "source_ledger_sha256": "e781713a5c2e3556cfac4d9bb7682656527411a66a9143ffa0a01f5703f9b092",
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay01/preparation01/local_replay.py\", line 239, in run_phase\n    argv=command if action=='qualify' else namespace(h,a,p,'native' if action=='native' else 'preflight',command)\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/orbit-v41-recovery02/candidate07-density04-local-fixed-replay01/preparation01/local_replay.py\", line 156, in namespace\n    stage='cold-density' if mode=='native' else 'prepared';args=h.namespace(p,stage,argv)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04/one_hour_controls.py\", line 212, in namespace\n    for key in ['request','rebinding']:item=next(x for x in plan['jobs'] if x['stage']==stage)[key];binds.append(('ro',item['path'],item['path']))\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n"
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Density fit: saved-factor consistency audit</title>
+<style>body{font:16px/1.55 system-ui,sans-serif;max-width:960px;margin:40px auto;padding:0 24px;color:#183044;background:#fafcfd}h1,h2{line-height:1.2}table{border-collapse:collapse;width:100%;margin:20px 0}th,td{padding:10px;text-align:left;border-bottom:1px solid #ccd9e0}th{background:#eaf0f4}.status{padding:16px;border-left:4px solid #25816c;background:#eef8f4}code{overflow-wrap:anywhere}a{color:#075fad}.note{color:#465d6b}footer{border-top:1px solid #ccd9e0;margin-top:36px;padding-top:16px}</style>
+<h1>Density fit: saved-factor consistency audit</h1>
+<p class="status"><strong>All 11 comparisons passed independent audit.</strong> The largest discrepancy was 1.04 × 10<sup>−11</sup> posterior standard deviations, below the unchanged 10<sup>−7</sup> limit. This verifies one saved intermediate retained linear system. The density fit remains unconverged.</p>
+<p>After candidate07 recovered the original trial-closure failure, its repeated one-hour cold density fit reached the two-hour numerical limit with 22 accepted iterations. We checked the last accepted point, <code>point-033-trial-030/qr.11</code>, to investigate its large corrections. The factor contains 146 retained coordinates: 67 dynamic coordinates and 79 GNSS nuisance coordinates.</p>
+<h2>What was checked</h2>
+<p>Independent augmented Householder QR and QR nuisance elimination agree with the unchanged production solver. The undamped result also agrees with the native exported correction. Both dynamic proposals reproduce the archived parameters and their mapping to the physical initial state and density knots. Nine focused fixtures passed before the actual-factor calculation.</p>
+<table><thead><tr><th>Quantity</th><th>Undamped</th><th>Damped</th></tr></thead><tbody>
+<tr><td>Damping</td><td>0</td><td>0.004747698613200432</td></tr>
+<tr><td>Joint vs profiled solution, posterior SD</td><td>8.56 × 10<sup>−12</sup></td><td>1.04 × 10<sup>−11</sup></td></tr>
+<tr><td>Joint vs production solution, posterior SD</td><td>1.32 × 10<sup>−13</sup></td><td>1.34 × 10<sup>−14</sup></td></tr>
+<tr><td>Largest log-density correction</td><td>9.464868</td><td>1.382638</td></tr>
+<tr><td>Scaled dynamic correction norm</td><td>115,033.150</td><td>1,221.694</td></tr>
+<tr><td>Archived linearized position change</td><td>1.708094 m</td><td>0.155190 m</td></tr>
+</tbody></table>
+<p>The undamped rank is full under the existing policy: 146 columns, 7,885 effective rows, condition number about 4,868. The nonzero damping value is derived from the logged preceding acceptance and the unchanged controller formula; agreement with the archived next proposal confirms its attribution. It was not directly logged as a completed trial31 result.</p>
+<p>The original direct objective is 108,511.689523 and the original orthogonal residual energy is 23,178.578579. The damped stationarity residual includes the damping contribution. Its undamped residual gradient is reported separately. Selected triangular solves supply uncertainty scales solely for these numerical comparisons; no orbital covariance is accepted.</p>
+<h2>Limits and next diagnostic</h2>
+<p>The refined initial factor <code>qr.74</code> was deliberately released by retention. Original numeric observation rows and the eliminated local conditionals are also unavailable. Row labels cannot reconstruct those coefficients. This check therefore does not validate their assembly, the initial factor, nonlinear closure or full-fit convergence. The timed-out fit has no accepted covariance.</p>
+<p>The first archived damped proposal changed log density by about 20.38, while its undamped proposal changed it by about 0.138. Large individual coordinates under damping can result from parameter coupling. A separately prepared initial-point diagnostic is needed to assess that behavior. No optimizer, physical model, prior, observation weight, hyperparameter or correctness threshold changed here.</p>
+<h2>Archive-control failure retained</h2>
+<p>The separate collection04 worker timed out after 600.062 seconds. Its controller completed its closing checks, but no complete collection manifest or mathematical-audit result was produced. Cleanup was verified, with one owned SIGTERM and no hard kill. Four additional saved-artifact audits remain pending. This infrastructure failure does not relabel the completed native correctness tests.</p>
+<h2>Evidence</h2>
+<ul>
+<li><a href="summary.json">Machine-readable summary</a> and <a href="evidence/analysis.json">all numerical comparisons</a>.</li>
+<li><a href="reviews/analysis.json">Independent actual-result audit</a>, <a href="reviews/qualification.json">nine-test qualification audit</a>, and <a href="reviews/collection04-failure.json">collection timeout audit</a>.</li>
+<li><a href="analysis-source/README.txt">Scientific implementation and scope</a>, <a href="analysis-source/inputs.json">31 input-role hashes</a>, <a href="analysis-source/inputs.sha256">scientific source hashes</a>, and <a href="execution-source/controls.sha256">execution source hashes</a>.</li>
+<li><a href="https://github.com/FlorianPfaff/orbit-smoothing-poc/blob/503cc55df5b39d405b1c6ba2bfc05360a001b73a/validation/v4-fit-reliability/candidate07-density04-timeout/index.html">Previously published pulse success and density timeout</a>.</li>
+</ul>
+<footer>Independent qualification and actual analysis ran serially on gpuserver4090 with one numerical thread, 300-second action limits and an 8 GiB process-tree limit. The actual analysis completed in 2.008 seconds with 73,502,720 bytes peak process-tree RSS. These are diagnostic costs, not whole-fit performance evidence. No native executable or nonlinear fit ran. Frozen campaigns and all previous failures remain unchanged; PR #9 remains a draft.</footer>
+</html>

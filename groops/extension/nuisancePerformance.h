@@ -38,9 +38,18 @@ inline bool cacheEnabled()
   if(value=="1")return true;
   throw std::invalid_argument("ORBIT_POC_NUISANCE_INTERPOLATION_CACHE must be 0 or 1");
 }
+inline bool costOnlyDesignEnabled()
+{
+  const char *raw=std::getenv("ORBIT_POC_NUISANCE_COST_ONLY_DESIGN");
+  const std::string value=raw?raw:"0";
+  if(value=="0")return false;
+  if(value=="1")return true;
+  throw std::invalid_argument("ORBIT_POC_NUISANCE_COST_ONLY_DESIGN must be 0 or 1");
+}
 struct BuildContext
 {
   bool active=false,cache=false;
+  bool costOnly=false,omitDynamicDesign=false;
   std::uint64_t generation=0;
 };
 inline BuildContext &context(){static BuildContext value;return value;}
@@ -48,9 +57,11 @@ struct Metrics
 {
   std::uint64_t observationDesignCalls=0;
   std::uint64_t interpolationCalls=0,interpolationCacheHits=0,interpolationEvaluations=0;
+  std::uint64_t omittedDynamicDesigns=0;
   double buildWallSeconds=0,observationDesignWallSeconds=0;
   double interpolationWallSeconds=0;
   bool available=false,completed=false,costOnly=false,interpolationCache=false;
+  bool costOnlyDesign=false;
 };
 static_assert(std::is_trivially_copyable<Metrics>::value,"trial metrics must cross the existing fixed-size pipe");
 inline Metrics &metrics(){static Metrics value;return value;}
@@ -68,16 +79,19 @@ public:
       // Cache lifetime is independent of diagnostic output. A fresh generation
       // also invalidates every fork-inherited entry before the child's build.
       const bool cache=cacheEnabled();
+      const bool omit=costOnlyDesignEnabled();
       if(context().active)throw std::logic_error("Nested native row builds are unsupported");
       if(context().generation==std::numeric_limits<std::uint64_t>::max())
         throw std::overflow_error("Native row build generation exhausted");
       context().generation++;context().active=true;context().cache=cache;
+      context().costOnly=costOnly;context().omitDynamicDesign=omit;
     }
     metrics()=Metrics{};
     if(active)
     {
       metrics().available=true;metrics().costOnly=costOnly;
       metrics().interpolationCache=context().cache;
+      metrics().costOnlyDesign=context().omitDynamicDesign;
     }
   }
   ~BuildMeasure()
@@ -90,6 +104,25 @@ public:
     }
   }
 };
+
+// The native cost-only row consumer uses original measurement residuals and
+// full prior rows; it never solves with these dynamic observation columns.
+// Keep the native column block and all nuisance derivatives in place. Full
+// row builds (including rank, proposals and covariance) always compute them.
+template<class Validate,class Compute> inline auto dynamicDesign(std::uint64_t columns,Validate &&validate,Compute &&compute)->decltype(compute())
+{
+  if(context().active&&context().costOnly&&context().omitDynamicDesign)
+  {
+    // Retain the native query/stencil/remainder checks even though these
+    // unused derivative values are omitted. Full builds still validate and
+    // compute every actual derivative column through the original path.
+    validate();
+    if(metrics().available)metrics().omittedDynamicDesigns++;
+    using Result=decltype(compute());
+    return Result(3,columns);
+  }
+  return compute();
+}
 
 struct InterpolationKey
 {
@@ -159,6 +192,8 @@ inline void writeMetrics(std::ostream &out,const Metrics &m)
      <<",\"observation_design_wall_seconds\":"<<m.observationDesignWallSeconds
      <<",\"observation_design_calls\":"<<m.observationDesignCalls
      <<",\"interpolation_cache\":"<<(m.interpolationCache?"true":"false")
+     <<",\"cost_only_design\":"<<(m.costOnlyDesign?"true":"false")
+     <<",\"omitted_dynamic_designs\":"<<m.omittedDynamicDesigns
      <<",\"interpolation_calls\":"<<m.interpolationCalls
      <<",\"interpolation_cache_hits\":"<<m.interpolationCacheHits
      <<",\"interpolation_evaluations\":"<<m.interpolationEvaluations

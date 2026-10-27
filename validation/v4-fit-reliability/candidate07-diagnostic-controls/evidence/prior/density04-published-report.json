@@ -1,0 +1,432 @@
+{
+  "schema": "candidate07-density04-additive-publication-v1",
+  "status": "density_timeout_pulse_strict_pass_retained",
+  "evidence_snapshot_utc": "2026-10-27T01:48:06Z",
+  "proposed_repository_prefix": "validation/v4-fit-reliability/candidate07-density04-timeout",
+  "prior_publication": {
+    "commit": "a36da221f2bebd9dc223c1e8512925ab6e5fc532",
+    "pr_url": "https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/9",
+    "packet_url": "https://github.com/FlorianPfaff/orbit-smoothing-poc/tree/a36da221f2bebd9dc223c1e8512925ab6e5fc532/validation/v4-fit-reliability/candidate07-sequence03",
+    "report": {
+      "target": "receipts/prior-publication/report.json",
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-sequence03-publication02/packet/report.json",
+      "sha256": "0d712e5eefa9014f995d09e91cf769bf6d1d1e811dc36b9b82fcf9dee46e9a70",
+      "bytes": 155114,
+      "status": "copied_byte_exact"
+    },
+    "prior_packet_unchanged": true
+  },
+  "case": {
+    "scope": "One-hour synthetic engineering case; not flight or a new scientific comparison",
+    "orbit": "leo500",
+    "atmosphere": "quiet",
+    "coverage": "normal",
+    "seed": 300000,
+    "epoch": "2024-04-24T00:00:00",
+    "duration_hours": 1,
+    "gnss_cadence_seconds": 30,
+    "initialization": "Original GNSS-only initialization; no physical override or nuisance donor"
+  },
+  "correctness": {
+    "status": "eleven_preserved_correctness_stages_passed",
+    "new_rerun_in_this_packet": false,
+    "stages": [
+      {
+        "stage": "native-tests",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 172332,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/native-tests/strict-result.json",
+          "sha256": "0bcf8134c877be9f9c3a4c8853a88e75b8c16d242f5b274dd6f22cf7a11d2ed4"
+        }
+      },
+      {
+        "stage": "native-fail-fast-tests",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 160182,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/native-fail-fast-tests/strict-result.json",
+          "sha256": "3dfc13904a16525ffe0326d33d080d3f0224b25a2a7812f59e063aa46239c931"
+        }
+      },
+      {
+        "stage": "correction-tests",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 162870,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/correction-tests/strict-result.json",
+          "sha256": "f62b672a5f8a018d4aeb5d3c9ea5afd58a703c3809f24e0b2c88b5b3cd9bc392"
+        }
+      },
+      {
+        "stage": "synthetic-refinement-log_drag_ou",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 154285,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/synthetic-refinement-log_drag_ou/strict-result.json",
+          "sha256": "48b30bbb3c20d7581469dd21c8d7d2857f7c60ad4d2e322fb243a8f3459f2d49"
+        }
+      },
+      {
+        "stage": "synthetic-refinement-pulses",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 154240,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/synthetic-refinement-pulses/strict-result.json",
+          "sha256": "ba4beb3bb4dfd53396f9189b741c6963ecdac5ef91a665fcbbac593c752d1153"
+        }
+      },
+      {
+        "stage": "flight-refinement",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 154149,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/flight-refinement/strict-result.json",
+          "sha256": "95db8cce069edd313c5364d8a6d5d811272effea09d89f4fbd8fbe8061ad18fc"
+        }
+      },
+      {
+        "stage": "eccentric-24h-refinement",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 154204,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/eccentric-24h-refinement/strict-result.json",
+          "sha256": "8377974ff413d6fa69c410f3d71b36eeb563498b2c4f95418c64f6d4cdc248e6"
+        }
+      },
+      {
+        "stage": "objective-log_drag_ou",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 155609,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/objective-log_drag_ou/strict-result.json",
+          "sha256": "89058d0cac0d685629f8694c9b237d5e80de00e7c195255903439a3293897a48"
+        }
+      },
+      {
+        "stage": "objective-pulses",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 155546,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/objective-pulses/strict-result.json",
+          "sha256": "304495779482d234249d4d84b6caa90dbb68991c5dbac600f284002c3c2ea4bb"
+        }
+      },
+      {
+        "stage": "nuisance-replay",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 154204,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/nuisance-replay/strict-result.json",
+          "sha256": "45869b7a427d3abe8ba91a8bc80fbd01d07370d21be1fbd7aca5442d079ab047"
+        }
+      },
+      {
+        "stage": "nuisance-replay-candidate1-point012",
+        "status": "passed",
+        "strict_result": {
+          "bytes": 154358,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/nuisance-replay-candidate1-point012/strict-result.json",
+          "sha256": "11abf365119856b1cf7fc69a242f1492261ec627df682f9c8f8eeff04493d216"
+        }
+      }
+    ],
+    "receipt": {
+      "target": "receipts/correctness03/result.json",
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/result.json",
+      "sha256": "7dafb280e5e396a4232b1058a98c0ef5cecd604315902c601b28cf551f483dd1",
+      "bytes": 15676,
+      "status": "copied_byte_exact"
+    },
+    "scope": "Individual original receipts and prior published audit remain authoritative; no new mathematical audit was executed to build this packet."
+  },
+  "cold_outcomes": [
+    {
+      "attempt": "candidate07-cold03/cold-pulses",
+      "method": "groops_pulses",
+      "status": "producer_strict_full_fit_pass",
+      "strict_status": "passed",
+      "whole_fit_verified": true,
+      "producer_covariance_valid": true,
+      "producer_accepted_covariance": true,
+      "strict_receipt": {
+        "target": "receipts/pulse03/strict-result.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/strict-result.json",
+        "sha256": "7a4448fe6ef0c68192fa37bd46b143ff719ef0a430586c4422448fc96613c11c",
+        "bytes": 5403,
+        "status": "copied_byte_exact"
+      },
+      "receipt_review": {
+        "target": "reviews/pulse03-terminal-receipts.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03-pulse-receipt-review01/review.json",
+        "sha256": "680a6400e8e66cc2447cb8374e4527c07519018b61226382b1d49d0bacf11069",
+        "bytes": 8433,
+        "status": "copied_byte_exact"
+      },
+      "additional_saved_mathematical_audits": "pending",
+      "scope": "Preserved actual pass; no new independent covariance acceptance or release authority."
+    },
+    {
+      "attempt": "candidate07-cold03/cold-density",
+      "method": "groops_log_drag_ou",
+      "status": "historical_boot_interruption_no_final_result",
+      "review": {
+        "target": "reviews/original-sequence03-interruption.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-sequence03-interruption-independent-review01/review.json",
+        "sha256": "559ab88a472c346eba5ca5d24584b56d2f7e95a8e37ef3eefaf105f4a0a026c4",
+        "bytes": 14718,
+        "status": "copied_byte_exact"
+      },
+      "replaced": false
+    },
+    {
+      "attempt": "candidate07-cold-density04/cold-density",
+      "method": "groops_log_drag_ou",
+      "status": "timeout",
+      "caller_status": "failed",
+      "caller_returncode": 1,
+      "supervisor_status": "timeout",
+      "supervisor_returncode": -15,
+      "whole_fit_verified": false,
+      "strict_density_covariance": false,
+      "terminal": {
+        "target": "receipts/density04/detached-result.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/detached-result.json",
+        "sha256": "b308b1e2c3a4635e6627e5776612ae46b630f6fe39ae5aba5b5a9dc76434a13b",
+        "bytes": 467,
+        "status": "copied_byte_exact"
+      },
+      "aggregate": {
+        "target": "receipts/density04/result.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/result.json",
+        "sha256": "92f7a72c0a99368c91ffc04b3e8107982de49f56cb5542c370a9b0520c5226b8",
+        "bytes": 668,
+        "status": "copied_byte_exact"
+      },
+      "supervisor": {
+        "target": "receipts/density04/supervisor.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/supervisor.json",
+        "sha256": "6084ce8423986a7be712e848a4b73a555bbe56e814cbb01aecd34713004ad9e1",
+        "bytes": 147822,
+        "status": "copied_byte_exact"
+      },
+      "independent_terminal_review": {
+        "target": "reviews/density04-independent-terminal.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04-independent-terminal-confirmation01/review.json",
+        "sha256": "5d37eb7852516c5f360511e50b98e5bcc2d6ff159b7e39ee757000c864795354",
+        "bytes": 3702,
+        "status": "copied_byte_exact"
+      },
+      "scoped_outcome_review": {
+        "target": "reviews/density04-scoped-outcome.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-terminal-outcome-review01/review.json",
+        "sha256": "4fd3098e7d2d2d58ab796edf3f6ee36f704f39d04c6099e15a2859e1e63d56d0",
+        "bytes": 22065,
+        "status": "copied_byte_exact"
+      }
+    }
+  ],
+  "density04_progress": {
+    "stopped_history_status": "running",
+    "completed_logged_trial_evaluations": 30,
+    "recorded_accepted_iterations": 22,
+    "rejections": [
+      {
+        "trial": 1,
+        "reason": "physical_trial_domain"
+      },
+      {
+        "trial": 2,
+        "reason": "numerical_trial_closure"
+      },
+      {
+        "trial": 3,
+        "reason": "nuisance_failure"
+      },
+      {
+        "trial": 4,
+        "reason": "nonpositive_actual_reduction"
+      },
+      {
+        "trial": 18,
+        "reason": "nuisance_failure"
+      },
+      {
+        "trial": 26,
+        "reason": "nonpositive_actual_reduction"
+      },
+      {
+        "trial": 27,
+        "reason": "nonpositive_actual_reduction"
+      },
+      {
+        "trial": 28,
+        "reason": "nonpositive_actual_reduction"
+      }
+    ],
+    "confirmation_checks": [],
+    "last_recorded_accepted_trial": 30,
+    "last_recorded_accepted_objective": 108511.68952280404,
+    "last_recorded_raw_correction": {
+      "density_update": 10.143114798163017,
+      "position_change_m": 1.7306945673701555,
+      "pulse_update_m_s": 0.0
+    },
+    "last_recorded_normalized_gradient": 0.07683132285780363,
+    "highest_explicitly_identified_started_trial": 31,
+    "incomplete_trial": {
+      "role": "trial-031",
+      "native_estimation_started": true,
+      "native_terminal_receipt_available": false,
+      "accepted_outcome_recorded": false,
+      "profile": {
+        "target": "receipts/density04/trial031-profile.xml",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.xml",
+        "sha256": "701ced715f2b9d75fdc5d24ba78a152d4cd03de7558b3d0fa2e17b5d1b1c670d",
+        "bytes": 12347,
+        "status": "copied_byte_exact"
+      },
+      "native_log": {
+        "target": "receipts/density04/trial031-profile.log",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/profile.log",
+        "sha256": "3c5067294f2976647d884a478b528782e664d6161c9b7ca844310943a80e7f54",
+        "bytes": 46784,
+        "status": "copied_byte_exact"
+      },
+      "trajectory_closure": {
+        "target": "receipts/density04/trial031-closure.json",
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04/cold-density/fit/point-034-trial-031/closure.json",
+        "sha256": "6bf09d8c808ce7666a4d5e1fef62e9967e7e78b3610d19f1ca22cfd31cd602ba",
+        "bytes": 269,
+        "status": "copied_byte_exact"
+      }
+    },
+    "meaning": "Thirty completed history outcomes are not the total number of attempted trials. Trial31 began native estimation and was incomplete at timeout. A successful fixed-trial propagation closure is not full-fit convergence. The stopped running history is never promoted to a convergence receipt."
+  },
+  "timing_and_memory": {
+    "supervised_density_stage_seconds": 7200.168923458999,
+    "detached_caller_seconds": 9841.040617729,
+    "peak_supervised_process_tree_rss_bytes": 386945024,
+    "timeout_limit_seconds": 7200,
+    "process_tree_rss_limit_bytes": 8589934592,
+    "clock_scope": "The supervised density worker includes its initialization and fitting. Detached caller time additionally includes its setup and closing identity verification. Neither duration is pure solver time; they must not be interchanged.",
+    "uncontended_timing_claim": false
+  },
+  "cleanup": {
+    "verified": true,
+    "empty_tree_certificate": "kernel_ECHILD",
+    "owned_process_group_cleaned": true,
+    "remaining": [],
+    "signal_records": [
+      {
+        "pid": 56706,
+        "signal": 15,
+        "start_ticks": 1250726
+      },
+      {
+        "pid": 56707,
+        "signal": 15,
+        "start_ticks": 1250729
+      },
+      {
+        "pid": 56707,
+        "signal": 15,
+        "start_ticks": 1250729
+      },
+      {
+        "pid": 56707,
+        "signal": 15,
+        "start_ticks": 1250729
+      },
+      {
+        "pid": 56707,
+        "signal": 15,
+        "start_ticks": 1250729
+      },
+      {
+        "pid": 56707,
+        "signal": 15,
+        "start_ticks": 1250729
+      },
+      {
+        "pid": 56707,
+        "signal": 15,
+        "start_ticks": 1250729
+      }
+    ],
+    "signal_event_count": 7,
+    "distinct_signalled_identities": [
+      {
+        "pid": 56706,
+        "start_ticks": 1250726
+      },
+      {
+        "pid": 56707,
+        "start_ticks": 1250729
+      }
+    ],
+    "hard_kill": false,
+    "signals_received": [],
+    "note": "Seven SIGTERM records target two distinct owned bwrap identities; there was no hard kill. No signal-free cleanup claim. Final detached/aggregate receipts and same-boot absence observations are available."
+  },
+  "saved_audits": {
+    "scientific": {
+      "status": "pending_no_result_asserted"
+    },
+    "selected": {
+      "status": "pending_no_result_asserted"
+    },
+    "rank": {
+      "status": "pending_no_result_asserted"
+    },
+    "export": {
+      "status": "pending_no_result_asserted"
+    }
+  },
+  "saved_audit_scope": "Separate collector/control qualification is not execution or acceptance of these four saved mathematical audits. This packet snapshots them as pending and does not infer results from a later control status.",
+  "pulse_tangent_probe": {
+    "scope": "Separate stored-linearization pulse diagnostic on already saved inputs; not another full fit, density recovery, objective-floor proof or physical convergence certificate.",
+    "results_imported_into_this_packet": false
+  },
+  "provenance": {
+    "candidate07_canonical_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+    "candidate07_source_snapshot_sha256": "4b997bcda7c94bce973389542895dca05a3fde6e7a53fdb4178fb61eaf22646e",
+    "density_freeze_sha256": "157fe1429f6fba01ae3369434086b36efc33bd4ec27bf00ef86b26f4e83775be",
+    "density_plan_sha256": "530221cae291e0689cdd5dce62deca1b18f27ad0682553c8e9d5ced11504cafb",
+    "density_native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "frozen_benchmarks_unchanged": true,
+    "original_failure_interruption_and_history_preserved": true,
+    "bulk_data_and_row_spools_excluded": true
+  },
+  "historical_resource_disclosure": {
+    "review": {
+      "target": "reviews/historical-resource-deviation.json",
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-local-rendering-control-deviation-review01/review.json",
+      "sha256": "b0b76269016d7a379f003fa57d21a16df2160cb1bac3cffd99d7a0dc7b123692",
+      "bytes": 8220,
+      "status": "copied_byte_exact"
+    },
+    "addendum": {
+      "target": "reviews/historical-resource-addendum.json",
+      "path": "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/resource-observation-addendum01/addendum.json",
+      "sha256": "7094f675d431d222a560d285927c4d15b49212d50105d77ac1737301342e56df",
+      "bytes": 7257,
+      "status": "copied_byte_exact"
+    },
+    "summary": "Prior packet02 disclosed local PDF extraction/rendering outside the admitted numerical tree while a density objective was reported active. Exact intervals and numerical/timing impact were unmeasured. No overlap with this later density04 fit, harmlessness, failure causation or uncontended timing is inferred; no automatic rerun or threshold change follows."
+  },
+  "review_independence": {
+    "terminal_confirmation": "postboot_audits, independent of recovery-control author and executor",
+    "scoped_outcome": "interruption_review, independent of execution but author of recovery controls04; source-author limitation explicitly retained",
+    "packet_author": "interruption_review; actual packet requires a separate independent content review"
+  },
+  "build_method": "Light shell/jq byte-exact receipt packaging and static HTML source; no imports/tests/native/numerical computation/browser rendering/Git or remote writes.",
+  "packet_independent_review_completed": false,
+  "strict_density_convergence": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "accuracy_claim": false,
+  "scientific_superiority_claim": false,
+  "automatic_restart_authorized": false,
+  "thresholds_changed": false
+}

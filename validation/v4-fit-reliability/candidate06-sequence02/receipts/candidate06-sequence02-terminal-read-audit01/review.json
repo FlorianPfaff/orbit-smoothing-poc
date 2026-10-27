@@ -1,0 +1,159 @@
+{
+  "schema": "orbit-poc-candidate06-sequence02-independent-terminal-read-audit-v1",
+  "reviewer": "/root/trial_rollback_audit_readiness",
+  "status": "terminal_attribution_verified_overall_failure_preserved",
+  "scope": "Read-only receipt attribution, exact planned inventory, saved status/metric inspection, bounded hashes and current owned-PID absence. No Python, imports, tests, builds, native work, numerical recomputation or audit-script execution.",
+  "identities": {
+    "sequence_plan_sha256": "0d886a5f236ba5a1b734b5395d142e663e13c3b7fa2693044072c0822ff05d67",
+    "correctness_plan_sha256": "eb9f2a088b30cf631ab1437666e5f69cf23935f8e9fabbd355ef3254169c63f3",
+    "correctness_freeze_sha256": "4868b8e5458c3e310bae43ae03d033f3fff4b4b7462bc92ef82dd454b92b92a2",
+    "cold_plan_sha256": "39b2e76b51a3c9fdb296f39bd2aedcdd8fd1860fa658d52fc632bd7088c0094a",
+    "cold_freeze_sha256": "630a55edeb657d85e7cc1ce94630a09fc1128c5c4e6a45fd90c33242f550e83a",
+    "native_binary_sha256_from_bound_requests_results": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "canonical_candidate_source_hash": "3c9174b52e0b894ffee58f0f4a28bb5e633e5861b377da0a587eac9eb8f2b702",
+    "candidate_source_snapshot_file_hash_distinct": "24c41840ad687aef76111e213b027c8ff613463313ccd7fb8fbf759e253db739",
+    "boot_id": "cb2d0b40-9b17-45f8-9e5c-716efb8e6aa5"
+  },
+  "terminal_receipts": {
+    "sequence_result_sha256": "e16d536c91e31ad30a7cb65fdc87e0323c236cac559720d8c97251e5b7d89cf1",
+    "correctness_result_sha256": "d3e60df339a00cbfaf0cd89e0535481e90ee699bb879d3280ce917f57c50e6ed",
+    "correctness_detached_result_sha256": "2c6c20b61094296d9566c07aa8ae4df1655b39b9d03e72f23de716c73007eff2",
+    "correctness_original_terminal_gate_check_sha256": "cc268808dc199ff19fd495d4b04b6e11b128d9538f886c7f38b9a25f317c2a83",
+    "cold_aggregate_sha256": "65eb25da98415f9c03cc7b6d290f37b3e0dee1716fb995b0bd95a753fb61fbcb",
+    "cold_detached_result_sha256": "fca7c950012f0700da0f69dc15c34c4de6a401e3c3d4c460a93b9887ef06d41f",
+    "all_26_supervisor_and_strict_stage_references_rehashed_match": true,
+    "all_11_nested_scientific_result_or_junit_references_rehashed_match": true,
+    "old_results_reused": false,
+    "sequence_status": "failed",
+    "sequence_returncode": 1,
+    "correctness_status": "complete",
+    "correctness_returncode": 0,
+    "cold_aggregate_status": "failed",
+    "cold_detached_returncode": 1
+  },
+  "all_thirteen_planned_outcomes": [
+    {"stage":"native-tests","status":"passed","tests":106,"failures":0,"errors":0,"skips":0},
+    {"stage":"native-fail-fast-tests","status":"passed","tests":37,"failures":0,"errors":0,"skips":0},
+    {"stage":"correction-tests","status":"passed","tests":51,"failures":0,"errors":0,"skips":0},
+    {"stage":"synthetic-refinement-log_drag_ou","status":"passed","saved_maximum_fraction_of_sigma":7.09405867382884e-7},
+    {"stage":"synthetic-refinement-pulses","status":"passed","saved_maximum_fraction_of_sigma":2.6320776669308543e-6},
+    {"stage":"flight-refinement","status":"passed","saved_maximum_fraction_of_sigma":0.0021892592180925963},
+    {"stage":"eccentric-24h-refinement","status":"passed","saved_maximum_fraction_of_sigma":7.592764935300996e-7},
+    {"stage":"objective-log_drag_ou","status":"passed","saved_consecutive_accepted_scales":[0.125,0.0625]},
+    {"stage":"objective-pulses","status":"passed","saved_consecutive_accepted_scales":[1.0,0.5]},
+    {"stage":"nuisance-replay","status":"passed","strict_nuisance":true,"floor_limited":false,"fresh_full_update_m":3.001836305461484e-10,"source_profile_sha256":"902923d3d84ce30cee1f0cb8484784aae62aafb69097f2d431c373913ac8aca0"},
+    {"stage":"nuisance-replay-candidate1-point012","status":"passed","strict_nuisance":true,"floor_limited":false,"fresh_full_update_m":3.7772335272354267e-10,"source_profile_sha256":"3440617770eae3177d6a87b8b743e79603ac9b0e9245da0d84f3016177eb1ed8"},
+    {"stage":"cold-pulses","status":"passed","accepted_iterations":10,"trial_evaluations":10,"producer_covariance_valid":true},
+    {"stage":"cold-density","status":"failed","numerical_status":"native_failure","accepted_iterations":0,"trial_evaluations":2,"producer_covariance_valid":false}
+  ],
+  "metric_scope": "Metrics above are inspected saved producer evidence with verified receipt hashes; they are not newly independently recomputed numerical results. Both nuisance replays explicitly requested optional floor reporting but actually achieved strict convergence, exact zero-update replay and fixed observations/weights. Neither passed via numerical-floor-only progress.",
+  "cold_problem_identity": {
+    "case": "One-hour synthetic retained-Tudat engineering fixture, leo500, quiet, normal tracking, seed300000, April24 template epoch, 30-second cadence; not flight evidence.",
+    "pulse_parameters": {"interval_seconds":1200,"sigma_velocity_m_s":0.0001},
+    "density_parameters": {"knot_seconds":60,"sigma_log_density":0.3,"tau_seconds":7200,"initial_prior":"stationary_ou","empirical_acceleration":false},
+    "cold_start_recorded_for_both": "Original GNSS-only bootstrap and unchanged nominal closure; no nuisance donor or physical state override; zero initial six pulse components or 61 density values.",
+    "initial_orbit_text_sha256": "014a0b01b26b4167f9d30797cd10577d717c9a1f1f2e16d09120197a6e6b1ef3",
+    "nominal_orbit_sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1",
+    "numerical_limits": "32 accepted iterations,96 trials,7200 seconds; position30 micrometres,density1e-4,pulse1e-8 m/s,gradient1e-8,min gain ratio1e-4; unchanged."
+  },
+  "pulse_outcome": {
+    "strict_result_sha256": "f0c5f455348db78e58e5875a4540c69bac6e88753e0b0dff62db43dce52a3b36",
+    "backend_result_sha256": "60183bca74aa03bdd8b8d9dc6a7145ee3379b6db5ddac2400f42e8755b60ae6e",
+    "iterations_sha256": "4aee131f880cf3c505a4485bf181fb7ded4ea14b90dfc5445dbafda773aa2051",
+    "supervisor_sha256": "f2bbc1da0086dd4a69cc5fe3810ab0efce1e6904bb80a5b44658055e715efcaf",
+    "supervisor_elapsed_seconds": 2535.8448039330033,
+    "peak_process_tree_rss_bytes": 383324160,
+    "fresh_final_profile_sha256": "38ed9256edb8f06f3cba26a4bc205e828c218757a42af66e05b6244b9cffc4e1",
+    "fresh_full_nuisance_update_m": 2.2153862437060773e-11,
+    "nuisance_floor_limited": false,
+    "saved_final_normalized_gradient": 8.35656500814021e-9,
+    "saved_final_maximum_position_update_m": 1.0588035919612342e-8,
+    "saved_final_maximum_pulse_update_m_s": 6.181421462221263e-13,
+    "independent_final_factor_and_export_audits_still_required": true
+  },
+  "density_failure_attribution": {
+    "strict_result_sha256": "ced6b1224e4d49ad76943c96d4a1d4d44c64c1a17488caffa8b6969677aca891",
+    "backend_result_sha256": "7c73efdab6a6fce5ea9fe9df285d43a3a1cac2855cd1f815532d4185a3526fbc",
+    "iterations_sha256": "6571c3c76e011b1046700f9491fabbf96d35e08c48742b018505d5f26ed2d0f5",
+    "supervisor_sha256": "831e7cf14168f9072da7d9c2297a3aff1e40b5ba8d702f16aaeaf017158b5950",
+    "supervisor_elapsed_seconds": 1962.4951941580002,
+    "peak_process_tree_rss_bytes": 383778816,
+    "trial1": {
+      "status": "typed_domain_rejection_recorded_and_optimization_continued",
+      "reason": "physical_trial_domain",
+      "domain": "synthetic_fitted_elliptic_reference",
+      "point": "point-004-trial-001/closure-02",
+      "native_error": "Nonfinite equinoctial reference input",
+      "returncode": 1,
+      "timed_out": false,
+      "domain_receipt_sha256": "bdd4596e97e5c8b5fffc6f29357835fefa2cd150bd58685adfcd541e97153759",
+      "execution_sha256": "0505ab7d469464c886e28829b28c13df56a855cf009e4f8cba6e8d3d9b522da0",
+      "full_in_memory_rollback_and_cache_state_not_observable_from_saved_receipts": true
+    },
+    "trial2": {
+      "status": "fatal_native_failure_preserved",
+      "point": "point-005-trial-002/closure-03",
+      "native_error": "wide tangent returned double state did not meet true residual tolerance",
+      "relative_residual": 1.0644281392730035e-5,
+      "unchanged_tolerance": 2e-12,
+      "solver_iterations": 120,
+      "solve_role": "physical_correction",
+      "column": 0,
+      "duration_seconds": 3595,
+      "returncode": 1,
+      "timed_out": false,
+      "execution_sha256": "b59f42399f264033c581a7888a57311451fb8ad22c72a89db31f62c1e82e9658",
+      "log_sha256": "36464f2daefae4f2d76f76e7d61856254ca1db9632a31d164cc58f8ea00953f4"
+    },
+    "history_completeness": "iterations.json records one rejected trial but trial_evaluations=2. Trial2 is preserved by the terminal backend error, retained point and native execution/log, not a fabricated completed second history row.",
+    "not_a_timeout_or_memory_limit": true,
+    "converged": false,
+    "accepted_covariance": false
+  },
+  "distinct_control_failures": [
+    "Density strict assessment records 'Complete result lacks valid marginalized covariance/convergence' after the actual failed backend. This is secondary validation handling, not the originating native error.",
+    "Sequence rollup records ValueError('Cold aggregate disagrees with a failed stage') although the preserved cold aggregate and detached result both already say failed. This bookkeeping defect must be diagnosed separately and cannot erase pulse success or density failure."
+  ],
+  "cleanup_and_execution_boundary": {
+    "all_thirteen_planned_stage_supervisors_terminal": true,
+    "all_cleanup_verified": true,
+    "all_empty_tree_certificates": "kernel_ECHILD",
+    "all_remaining_owned_process_lists_empty": true,
+    "hard_kills": 0,
+    "external_signals_received": 0,
+    "recorded_cleanup_signals": 34,
+    "all_cleanup_signals_are_SIGTERM_to_tracked_PID_and_start_identity": true,
+    "sequence_PID86724_absent_at_review": true,
+    "all_recorded_thirteen_stage_worker_supervisor_and_tracked_numeric_PIDs_absent_at_review": true,
+    "boot_unchanged": true,
+    "separate_preparation_supervisor_not_counted_as_fourteenth_planned_stage": true,
+    "scope": "Current absence plus owned supervisor certificates establishes this sequence has ended. No assertion is made that all unrelated host workloads are absent. Parent retains admission and serial scheduling authority."
+  },
+  "postterminal_audit_readiness": {
+    "sequence_completion_and_owned_cleanup_barrier_satisfied": true,
+    "exclusive_serial_audit_slot_owned_by_parent": true,
+    "reviewer_launched_numerical_audits": false,
+    "next_sequence": [
+      "Qualify the exact prepared selected-terminal and scientific saved-output audit helpers under the parent-reserved serial slot, preserving any helper failures.",
+      "Run independent saved-output checks for all eleven correctness stages, then pulse selected correction/covariance, independent rank and native/NPZ export checks. Preserve density as failed, with no accepted final covariance to test.",
+      "Audit retained density trial1 domain evidence and trial2 failure separately. Keep missing in-memory cache/installed-state snapshots explicitly unavailable. Do not silently repair or resume stopped candidate06 outputs.",
+      "Publish all thirteen outcomes and both secondary reporting defects. Any separately versioned numerical correction must pass unchanged correctness and cold-fit requirements."
+    ],
+    "prepared_helper_pins": {
+      "checklist_sha256": "ae9cfa4dc7b5e296cb96e29345f829d2ac453d28f6927089f43e4ac6ea7e7c14",
+      "selected_source02_sha256": "e77597cdcbf57cd3bd7b20202a2bc3728fc8b988b230065b4a9de7b2602456c4",
+      "scientific_draft02_delivery_sha256": "649b5894892bb6e0fdb9734748dad826fe373a1b0e9cb40658c52746fb398dd4",
+      "rank_draft03_delivery_sha256": "ff62ee8b4fb333891aeebab49242a839d8f4c41a019724bc838c4479ff9a0ee8",
+      "export_draft02_delivery_sha256": "643f9473d5f9b26a305de276d1e32d7b122a36bba558bc47dd96952a9f90c97c",
+      "trial_history_specification_sha256": "c2af43b71ae4ab15ece5d7a531e4fba17c6847a79f0f370db1a27ba7cfda75e1"
+    }
+  },
+  "authority": {
+    "terminal_attribution_verified": true,
+    "independent_numerical_validation_complete": false,
+    "covariance": false,
+    "release": false,
+    "scientific_accuracy_or_calibration": false
+  },
+  "original_frozen_benchmarks_thresholds_and_all_prior_attempts_unchanged": true
+}

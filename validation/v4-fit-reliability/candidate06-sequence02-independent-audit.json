@@ -1,0 +1,96 @@
+{
+  "schema": "candidate06-sequence02-publication03-independent-packet-review-v1",
+  "reviewed_at_utc": "2026-10-26T07:31:05Z",
+  "reviewer": "/root/npz_export_audit_readiness",
+  "status": "evidence_packet_verified_for_additive_publication",
+  "approved_for_publication": true,
+  "approval_scope": "Publication of the preserved candidate06 diagnostic outcomes and bounded saved-output audits only. This is not scientific or numerical release approval.",
+  "packet": "/mnt/d/orbit-v41-recovery02/candidate06-sequence02-publication03/packet",
+  "packet_sha256sums_sha256": "992f44d28195e514074b0e0e2a92f9cd923ef40d26f76f79a85b944b5a29a676",
+  "report_sha256": "8aea7faa8f1ff3319cdb45d9a03731f53333751a7f8bb2a9adb3a482771d6030",
+  "inputs_manifest_sha256": "95c5f32e87a45ad4ebe09ed243acdb8fd6337d157274c7c012534964c8cbb0ed",
+  "html_sha256": "0e0974d73957cbb92375563bd397454da7305624b87a08175fe604866175c299",
+  "methods": {
+    "shell_jq_hash_and_byte_comparison_only": true,
+    "authored_publication_builder": false,
+    "executed_python_or_audit_helpers": false,
+    "executed_numerical_work": false,
+    "rendered_html": false,
+    "published_or_changed_active_inputs": false,
+    "prior_helper_authorship": "This reviewer contributed export-helper source earlier. This review independently checks publication attribution and bytes, not an independent algorithm-design review or second numerical execution of that helper."
+  },
+  "checks": [
+    {
+      "id": "P01",
+      "passed": true,
+      "evidence": "build.log records packet_built_not_release_approved, 142 copied receipts, 6731629 receipt bytes and 13 outcomes; builder completed before review."
+    },
+    {
+      "id": "P02",
+      "passed": true,
+      "evidence": "All 147 SHA256SUMS entries pass. The inventory exactly equals all 148 packet regular files including SHA256SUMS itself. No symlinks found."
+    },
+    {
+      "id": "P03",
+      "passed": true,
+      "evidence": "All 142 uniquely named receipt targets and their original absolute source files have their exact manifest SHA256 and size, and cmp confirms byte identity. Packet builder and input manifest match their publication03 source copies. All six source.sha256 entries pass when read from their declared directory."
+    },
+    {
+      "id": "P04",
+      "passed": true,
+      "evidence": "All 13 report outcomes match their copied strict receipts; every corresponding supervisor verifies owned cleanup, kernel_ECHILD and no remaining processes. Eleven correctness stages passed, cold-pulses passed, cold-density failed."
+    },
+    {
+      "id": "P05",
+      "passed": true,
+      "evidence": "Both original one-hour-run01 backend outcomes remain copied separately: pulse complete with 10 accepted iterations and 10 trials; density failed after one trial and zero accepted iterations. The new candidate06-cold02 results remain distinct: pulse complete after 10/10, density failed after two trials and zero accepted iterations."
+    },
+    {
+      "id": "P06",
+      "passed": true,
+      "evidence": "Candidate06 density retains physical_trial_domain rejection for trial 1 and the separate trial-2 native physical_correction failure: relative residual 1.0644281392730035e-05 versus tolerance 2e-12, 120 iterations, column 0, duration 3595 s. Its strict covariance flag and backend convergence/covariance flags are false; no second accepted history row is invented."
+    },
+    {
+      "id": "P07",
+      "passed": true,
+      "evidence": "Four saved-output audit result/supervisor pairs are copied with their actual aggregate outcomes. Rank agrees on the pulse full-rank classification using 7830 reduced rows and 91 columns, distinct from 9414 original objective rows; no singular-value difference acceptance tolerance is introduced. Density remains unsuccessful in every applicable audit."
+    },
+    {
+      "id": "P08",
+      "passed": true,
+      "evidence": "Export audit reports saved ASCII/NPZ consistency for 720 regular and 120 prediction epochs at the same final point. It explicitly does not decode the native binary or reconstruct covariance from full propagated designs. Selected dynamic covariance checks and rank/scientific audits retain their separate scopes and false covariance/release authority."
+    },
+    {
+      "id": "P09",
+      "passed": true,
+      "evidence": "The scoped scientific audit preserves eight saved-predicate passes, 22 density objective endpoints and 10 pulse objective endpoints with no floor-limited endpoints. Pulse read review records a fresh strict final nuisance profile and undamped final covariance, separately disclosing its last accepted objective reduction below the measured numerical floor. The report does not treat floor-limited progress as covariance authority."
+    },
+    {
+      "id": "P10",
+      "passed": true,
+      "evidence": "Initial publication freeze failure is copied as a dedicated record. Original eight-line partial frozen-pins.jsonl remains intact and hashes to 19d6657899f4fecd27dbaba0f9a5a5462c41b0e920c7585230f08c62da6cfa7b. The 8404614-byte cold plan is intentionally external and independently rehashed to 39b2e76b51a3c9fdb296f39bd2aedcdd8fd1860fa658d52fc632bd7088c0094a; the receipt bound was not raised."
+    },
+    {
+      "id": "P11",
+      "passed": true,
+      "evidence": "The initial 176-pass/1-failure helper qualification and selected-source02 compressed-row reader failure remain copied and linked. Corrected selected-source03 results preserve density failure; they are not substituted estimator outcomes. Original aggregate reporting exception remains explicit."
+    },
+    {
+      "id": "P12",
+      "passed": true,
+      "evidence": "All 48 unique HTML href targets are safe existing relative regular files with no URL schemes, traversal, query/fragment or escaped path aliases. No script, iframe, object, embed, form or external/file URL is present. Static HTML and README explicitly deny release, accuracy-superiority, full-grid covariance reconstruction and complete-flight-derivative claims; one-hour cold cases are correctly identified as synthetic."
+    }
+  ],
+  "blocking_findings": [],
+  "covariance_authority": false,
+  "scientific_release_authority": false,
+  "release_authority": false,
+  "limitations": [
+    "No refits, propagation, SVD, covariance solve or helper execution were performed by this reviewer.",
+    "No independent reconstruction of full-grid covariance or nonlinear objective is established by this packaging audit.",
+    "Frozen benchmark preservation is supported by copied identity/scope records and read-only review; this audit does not independently reread every bulky benchmark input.",
+    "HTML link/source inspection was performed without browser rendering.",
+    "The initial source-ledger command was issued from the parent directory and therefore failed to locate six relative paths; it was rerun from publication03 and all six entries passed. This was an audit invocation mistake, not a packet mutation or estimator outcome."
+  ],
+  "next_action": "Parent may add this exact checksum-bound packet and review to the publication PR. Candidate07 correctness and both cold fits remain separate, pending their own actual results."
+}

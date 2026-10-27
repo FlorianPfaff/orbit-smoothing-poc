@@ -1,0 +1,3695 @@
+{
+  "accuracy_claim": false,
+  "audit_controller_evidence": null,
+  "audit_controller_status": "unavailable",
+  "collection_controller_status": "complete",
+  "collection_evidence": {
+    "all_prescribed_manifests_available": false,
+    "collection_receipt_available": false,
+    "complete": false,
+    "controller_closing_checks_valid": true,
+    "controller_recorded_job": {
+      "cleanup_verified": true,
+      "result": null,
+      "returncode": -15,
+      "status": "timeout",
+      "supervisor": {
+        "bytes": 1608,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection-control03/collect/supervisor.json",
+        "sha256": "45be7350ecec1d44417502d54fdb7d98eed4458de7340bc6184fe5481ef32fa7"
+      }
+    },
+    "controller_recorded_status": "complete",
+    "file_map_available": false,
+    "numerical_audit_or_covariance_authority": false,
+    "partial_individual_receipt_available": true,
+    "partial_receipt_does_not_complete_collection": true,
+    "status": "timeout",
+    "supervisor": {
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 32121,
+            "signal": 15,
+            "start_ticks": 722560
+          }
+        ],
+        "verified": true
+      },
+      "cleanup_certified": true,
+      "complete_exit_zero": false,
+      "elapsed_seconds": 600.042896807,
+      "owned_process_group_cleaned": true,
+      "peak_process_tree_rss_bytes": 81416192,
+      "returncode": -15,
+      "signals_received": [],
+      "status": "timeout"
+    },
+    "worker_error": null,
+    "worker_recorded_status": "unavailable",
+    "worker_result_available": false
+  },
+  "controls": {
+    "qualification02": {
+      "error": "ValueError('Wrong exact test identities')",
+      "independent_review": {
+        "actual_cleanup": {
+          "all_supervisor_plan_hashes_verified": true,
+          "all_three_empty_tree_certificates": "kernel_ECHILD",
+          "all_three_remaining": [],
+          "all_three_workers_owned_process_group_cleaned": true,
+          "cleanup_signals": [],
+          "hard_kill": false,
+          "signals_received": []
+        },
+        "actual_suites": [
+          {
+            "elapsed_seconds": 27.615136681000195,
+            "errors": 0,
+            "failures": 0,
+            "junit_sha256": "560fcf91bd1c1c278c196dacab7d1b89cf45718bffe66dee6be8d8fb8aca766f",
+            "name": "auditors",
+            "peak_process_tree_rss_bytes": 74739712,
+            "returncode": 0,
+            "skipped": 0,
+            "supervisor_sha256": "adf435bf28d9f40eab2d7491fe7fafa8764e241e7f3e264d211e5095e39d6024",
+            "supervisor_status": "complete",
+            "tests": 118,
+            "unique_cases": 118
+          },
+          {
+            "elapsed_seconds": 13.789362110000184,
+            "errors": 0,
+            "failures": 0,
+            "junit_sha256": "564e4383ceca6c9b92f85885e0e0e4659197e3a7bc3f98c25957c03e1c62fc1e",
+            "name": "publication",
+            "peak_process_tree_rss_bytes": 38739968,
+            "returncode": 0,
+            "skipped": 0,
+            "supervisor_sha256": "2fac1a347e74f40368690e55f5d6b6dba74122a6f189ac58b1a58a9fa61830b6",
+            "supervisor_status": "complete",
+            "tests": 19,
+            "unique_cases": 19
+          },
+          {
+            "elapsed_seconds": 12.412990265999952,
+            "errors": 0,
+            "failures": 0,
+            "junit_sha256": "0b6bce2212e933a7b5b802d504f8b3c88cceb8ad0509fceededbcd9ffb600b38",
+            "name": "collector",
+            "peak_process_tree_rss_bytes": 37781504,
+            "returncode": 0,
+            "skipped": 0,
+            "supervisor_sha256": "9e0b97009c54ced207bbbda40009cfd598e70931b54d2f08a673123351dbc374",
+            "supervisor_status": "complete",
+            "tests": 15,
+            "unique_cases": 15
+          },
+          {
+            "name": "recovery-controls",
+            "output_directory_absent": true,
+            "planned_tests": 14,
+            "status": "not_launched"
+          }
+        ],
+        "audit_permission_from_this_failure_review": false,
+        "classification": "failed_control_identity_guard_after_three_successful_test_workers",
+        "covariance_authority": false,
+        "current_observation": {
+          "absent_pids": [
+            5560,
+            7920,
+            7921,
+            8003,
+            8004,
+            8016,
+            8018
+          ],
+          "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+          "scope": "Observation after actual terminal result; no newly fabricated process or cleanup receipt"
+        },
+        "diagnosis": {
+          "actual_identity_example": ".CollectionTests.test_absent_density_is_explicit_and_never_invents_a_pin_or_history",
+          "all_actual_classnames": ".CollectionTests",
+          "expected_identity_example": "test_collection.CollectionTests.test_absent_density_is_explicit_and_never_invents_a_pin_or_history",
+          "explanation": "The unchanged argv selects pytest.ini from the sibling controls directory via -c. Pinned pytest config/findpaths.py sets rootdir to that ini parent. The explicitly selected test_collection.py lies outside that root; nodes._check_initialpaths_for_relpath returns the empty string for an exact initial path. junitxml.mangle_test_address and record_testreport join the empty path component with CollectionTests, yielding .CollectionTests. The controller incorrectly compares this exact JUnit representation with unittest module-qualified IDs.",
+          "pinned_pytest_sources": {
+            "_pytest/config/findpaths.py": "e3bbb530cc5d160d60f88b177e2d8f6baed6db507c639af0d8ba0c42650a61be",
+            "_pytest/junitxml.py": "51ea93fb20122b8aa5f2c412b9cf946b6daf719cde470f6ca2c50430bed4135d",
+            "_pytest/nodes.py": "693b0385b2c45646767200bc517416e776c10c3e58ee5ed937007491be4d868e"
+          },
+          "pinned_sources_match_frozen_python_runtime_inventory": true,
+          "same_fifteen_original_method_names": true
+        },
+        "full_qualification_passed": false,
+        "minimal_followup": [
+          "Preserve failedqualification02 and its missing recovery-tests/runtime-after evidence unchanged.",
+          "Prepare separately versioned qualification04, preserving all original test source selectors,argv,counts,no-skips requirements and numerical limits.",
+          "Keep the original fifteen unittest IDs and add a separately pinned explicit bijection to the exact fifteen JUnit(classname,name) pairs observed here. Validate the original module/class and each method identity. Compare actual JUnit against that finite expected table without arbitrary prefix stripping or broad normalization.",
+          "Exercise exact mapping rejection with changed class,changed method,duplicates,missing entries and skipped/failed cases; no missing test may be normalized away.",
+          "Run the complete fresh qualification with start/end runtime verification and independent audit. The three earlier worker passes do not convert failedqualification02 into an overall success.",
+          "Downstream adapter and collection controls must explicitly reference the actual new successful qualification; never manufacture a success at the old qualification02 path."
+        ],
+        "new_tests_or_python_execution_performed_by_reviewer": false,
+        "observed_utc": "2026-10-26T20:24:26Z",
+        "original_error": "ValueError('Wrong exact test identities')",
+        "original_files_modified": false,
+        "original_result_status": "failed",
+        "plan_sha256": "0add2b8db27f111e9613f350376cd8439d4336c73230ee8fe9aee538467e4512",
+        "release_authority": false,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/result.json",
+          "sha256": "d3b5655433f6a137a9a8091881778962d46f50afd451751344b64f9f2a59e844"
+        },
+        "runtime_verification": {
+          "end_runtime_identity_certified": false,
+          "runtime_after_available": false,
+          "runtime_before_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74"
+        },
+        "schema": "candidate07-postboot-qualification02-independent-failure-review-v1",
+        "source_controls_sha256": "3a5a16c13b028af5af37a39118047cb10dd83e078e822655d5472c40c9293e82",
+        "source_verification": {
+          "all_listed_source_after_pins_rehashed": true,
+          "before_after_byte_identical": true,
+          "source_after_sha256": "752b25eee84543153e78f651e607b29854074a2af6e25b679bffd9d67777e1b0",
+          "source_before_sha256": "752b25eee84543153e78f651e607b29854074a2af6e25b679bffd9d67777e1b0"
+        },
+        "supporting_artifacts": {
+          "collector_identity_observation_sha256": "f647ea12d88df88b55a44a93cf251f11d5cdb020f2b136cdf78aa33ec30d397a",
+          "junit_observation_sha256": "a1cf24c54c30301d78b47837b694fff142266deaa353b9d4e06fe56f5b3ee85d",
+          "pytest_source_ledger_sha256": "0e92a307fd014e417932e5607d29065dd0f9bf90f20de0d668db176e18d53b32",
+          "source_after_check_sha256": "6cfa08d93f31f7d7a652ca228359dfed0ef1a8b6614824ac30c92f14afc3fe59"
+        }
+      },
+      "independent_review_status": "failed_control_identity_guard_after_three_successful_test_workers",
+      "independently_reviewed_suites": [
+        {
+          "elapsed_seconds": 27.615136681000195,
+          "errors": 0,
+          "failures": 0,
+          "junit_sha256": "560fcf91bd1c1c278c196dacab7d1b89cf45718bffe66dee6be8d8fb8aca766f",
+          "name": "auditors",
+          "peak_process_tree_rss_bytes": 74739712,
+          "returncode": 0,
+          "skipped": 0,
+          "supervisor_sha256": "adf435bf28d9f40eab2d7491fe7fafa8764e241e7f3e264d211e5095e39d6024",
+          "supervisor_status": "complete",
+          "tests": 118,
+          "unique_cases": 118
+        },
+        {
+          "elapsed_seconds": 13.789362110000184,
+          "errors": 0,
+          "failures": 0,
+          "junit_sha256": "564e4383ceca6c9b92f85885e0e0e4659197e3a7bc3f98c25957c03e1c62fc1e",
+          "name": "publication",
+          "peak_process_tree_rss_bytes": 38739968,
+          "returncode": 0,
+          "skipped": 0,
+          "supervisor_sha256": "2fac1a347e74f40368690e55f5d6b6dba74122a6f189ac58b1a58a9fa61830b6",
+          "supervisor_status": "complete",
+          "tests": 19,
+          "unique_cases": 19
+        },
+        {
+          "elapsed_seconds": 12.412990265999952,
+          "errors": 0,
+          "failures": 0,
+          "junit_sha256": "0b6bce2212e933a7b5b802d504f8b3c88cceb8ad0509fceededbcd9ffb600b38",
+          "name": "collector",
+          "peak_process_tree_rss_bytes": 37781504,
+          "returncode": 0,
+          "skipped": 0,
+          "supervisor_sha256": "9e0b97009c54ced207bbbda40009cfd598e70931b54d2f08a673123351dbc374",
+          "supervisor_status": "complete",
+          "tests": 15,
+          "unique_cases": 15
+        },
+        {
+          "name": "recovery-controls",
+          "output_directory_absent": true,
+          "planned_tests": 14,
+          "status": "not_launched"
+        }
+      ],
+      "independently_reviewed_test_counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 152
+      },
+      "jobs": {
+        "auditors": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 13231,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/auditors/junit.xml",
+            "sha256": "560fcf91bd1c1c278c196dacab7d1b89cf45718bffe66dee6be8d8fb8aca766f"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 2052,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/auditors/supervisor.json",
+            "sha256": "adf435bf28d9f40eab2d7491fe7fafa8764e241e7f3e264d211e5095e39d6024"
+          },
+          "tests": {
+            "counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 118
+            },
+            "identities": [
+              [
+                ".CompressedRows",
+                "test_archive_hash_and_manifest_identity_are_checked"
+              ],
+              [
+                ".CompressedRows",
+                "test_crc_and_truncation_checked_even_when_archive_hash_is_pinned"
+              ],
+              [
+                ".CompressedRows",
+                "test_existing_raw_must_also_match"
+              ],
+              [
+                ".CompressedRows",
+                "test_missing_archive_still_pending"
+              ],
+              [
+                ".CompressedRows",
+                "test_missing_raw_is_verified_without_restoration_and_attributed"
+              ],
+              [
+                ".CompressedRows",
+                "test_ordinary_missing_pin_still_pending"
+              ],
+              [
+                ".CompressedRows",
+                "test_per_archive_and_total_resource_bounds"
+              ],
+              [
+                ".CompressedRows",
+                "test_policy_flags_extra_fields_and_path_binding_are_not_ignored"
+              ],
+              [
+                ".CompressedRows",
+                "test_raw_hash_size_and_expansion_must_match"
+              ],
+              [
+                ".CompressedRows",
+                "test_repeated_receipt_is_not_double_counted_and_conflict_fails"
+              ],
+              [
+                ".CompressedRows",
+                "test_unknown_policy_does_not_authorize_missing_raw"
+              ],
+              [
+                ".NativeSchema",
+                "test_archived_diagnostic_identity_and_full_status"
+              ],
+              [
+                ".NativeSchema",
+                "test_python_certificate_status_cannot_replace_native_status"
+              ],
+              [
+                ".NativeSchema",
+                "test_wrong_schema_damping_and_incomplete_dimension_remain_rejected"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_absent_outcome_remains_pending"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_explicit_failed_attempt_is_failed_before_optional_pin_access"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_malformed_claimed_pass_is_distinct_from_unlaunched"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_real_unlaunched_shape_is_pending_before_any_pin_access"
+              ],
+              [
+                ".PlannedLedger",
+                "test_archived_mixed_cold_outcome_preserves_pass_and_failure_separately"
+              ],
+              [
+                ".PlannedLedger",
+                "test_changed_aggregate_attribution_is_failed_phase_with_pending_attempts"
+              ],
+              [
+                ".PlannedLedger",
+                "test_each_missing_phase_file_keeps_available_rows_and_blocks_cold_selection"
+              ],
+              [
+                ".PlannedLedger",
+                "test_failed_detached_does_not_erase_successful_or_failed_recorded_rows"
+              ],
+              [
+                ".PlannedLedger",
+                "test_malformed_phase_document_retains_all_attempts"
+              ],
+              [
+                ".PlannedLedger",
+                "test_nine_passed_failed_incomplete_phase_combinations_keep_inventory"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_archive_failures_preserve_stage_outcomes"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_archive_roundtrip_and_bounded_read"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_exact_eleven_and_eight_inventory"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_existing_audit_output_is_never_overwritten"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_manifest_setup_failures_emit_eight_rows"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_missing_input_does_not_erase_eight_outcomes_or_approve"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_nonfinite_and_duplicate_json_rejected"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_reader_hash_change_missing_foreign_and_symlink"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_unlaunched_failure_and_missing_distinct"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_complete_signal_support_and_fixed_nuisance_are_required"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_native_declared_shapes_are_checked"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_position_alignment_and_true_norm"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_signal_predicate_uses_stricter_coarse_sigma"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_coarse_failure_remains_before_two_consecutive_passing_scales"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_exact_quadratic_consecutive_scales"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_inflated_physical_allowance_cannot_be_self_consistently_relabelled"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_missing_scales_resolution_and_summary_manipulation_fail"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_per_scale_derivatives_cannot_hide_a_cubic_term"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_pulse_native_micrometre_units"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_stationary_plus_transition_ou_prior"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_changed_strict_confirmation_or_threshold_rejected"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_claimed_huge_dimensions_do_not_allocate_an_index_range"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_exclusive_boolean_qualification_is_required"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_invalid_full_factor_metadata_rejected"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_invalid_or_missing_floor_policy_preserved"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_missing_strict_metadata_is_unavailable_not_success"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_real_full_and_conditional_contracts_are_distinct"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_strict_and_qualified_floor_endpoints_remain_distinct"
+              ],
+              [
+                ".ReplayArithmetic",
+                "test_floor_limited_and_transaction_defects_remain_failures"
+              ],
+              [
+                ".ReplayArithmetic",
+                "test_strict_transaction_fixture"
+              ],
+              [
+                ".Boundaries",
+                "test_above_boundary_is_unresolved"
+              ],
+              [
+                ".Boundaries",
+                "test_above_ten_is_full"
+              ],
+              [
+                ".Boundaries",
+                "test_exact_boundary_is_deficient"
+              ],
+              [
+                ".Boundaries",
+                "test_invalid_singular_tables"
+              ],
+              [
+                ".Boundaries",
+                "test_json_numbers_supported_numpy_scalar_metadata_rejected"
+              ],
+              [
+                ".Boundaries",
+                "test_original_reduced_row_count_matters"
+              ],
+              [
+                ".Boundaries",
+                "test_padded_underdetermined_factor_uses_max_m_n"
+              ],
+              [
+                ".Boundaries",
+                "test_ten_boundary_is_unresolved"
+              ],
+              [
+                ".Boundaries",
+                "test_zero_and_exact_rank_deficient"
+              ],
+              [
+                ".Boundaries",
+                "test_zero_rows_zero_factor_is_deficient"
+              ],
+              [
+                ".ArrayAudit",
+                "test_cross_driver_classification_disagreement_is_not_waived"
+              ],
+              [
+                ".ArrayAudit",
+                "test_cross_driver_roundoff_reported_without_new_tolerance"
+              ],
+              [
+                ".ArrayAudit",
+                "test_deficient_and_unresolved_never_accepted_full"
+              ],
+              [
+                ".ArrayAudit",
+                "test_forbidden_array_representations"
+              ],
+              [
+                ".ArrayAudit",
+                "test_full_rank_no_authority"
+              ],
+              [
+                ".ArrayAudit",
+                "test_inconsistent_native_certificate"
+              ],
+              [
+                ".ArrayAudit",
+                "test_no_second_scaling_of_factor"
+              ],
+              [
+                ".ArrayAudit",
+                "test_padded_underdetermined_native_factor"
+              ],
+              [
+                ".ArrayAudit",
+                "test_requested_driver_is_gesvd_no_overwrite"
+              ],
+              [
+                ".ArrayAudit",
+                "test_zero_row_native_zero_factor"
+              ],
+              [
+                ".Metadata",
+                "test_parameter_inventory_scale_and_units_are_not_erased"
+              ],
+              [
+                ".Metadata",
+                "test_wrong_counts_conditional_damping_and_scale"
+              ],
+              [
+                ".Binary",
+                "test_exact_little_endian_payload"
+              ],
+              [
+                ".Binary",
+                "test_truncation_trailing_bad_shape_and_nonfinite"
+              ],
+              [
+                ".Reporting",
+                "test_claimed_status_cannot_override_actual_failure"
+              ],
+              [
+                ".Reporting",
+                "test_failed_and_unlaunched_are_retained_without_svd"
+              ],
+              [
+                ".Reporting",
+                "test_missing_aggregate_preserves_planned_inventory"
+              ],
+              [
+                ".Reporting",
+                "test_missing_manifest_cli_preserves_two_rows"
+              ],
+              [
+                ".Reporting",
+                "test_mixed_factor_generation_is_rejected_before_numerical_audit"
+              ],
+              [
+                ".Reporting",
+                "test_no_source_module_imports_or_subprocess_calls"
+              ],
+              [
+                ".Reporting",
+                "test_unexpected_auditor_failure_still_preserves_both_rows"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_actual_cli_malformed_aggregate_preserves_both_planned_cases"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_atomic_publication_failure_and_no_overwrite"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_decoder_and_reader_reject_nonfinite_or_overflow"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_main_rejects_nonfinite_manifest_with_complete_failure_report"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_serialize_first_leaves_no_partial_output"
+              ],
+              [
+                ".ExportTests",
+                "test_atomic_output_has_no_partial_file_or_overwrite"
+              ],
+              [
+                ".ExportTests",
+                "test_covariance_policy_and_indefiniteness"
+              ],
+              [
+                ".ExportTests",
+                "test_duplicate_member_and_payload_truncation"
+              ],
+              [
+                ".ExportTests",
+                "test_exact_arrays"
+              ],
+              [
+                ".ExportTests",
+                "test_frozen_epoch_serialization_tolerance"
+              ],
+              [
+                ".ExportTests",
+                "test_frozen_source_identity_is_not_snapshot_file_identity"
+              ],
+              [
+                ".ExportTests",
+                "test_native_headers_counts_and_numerical_rows"
+              ],
+              [
+                ".ExportTests",
+                "test_nonfinite_and_overflow_json_rejected"
+              ],
+              [
+                ".ExportTests",
+                "test_nonfinite_backend_cli_retains_both_rows_without_partial_json"
+              ],
+              [
+                ".ExportTests",
+                "test_nonnumeric_nonfinite_and_shape_rejected"
+              ],
+              [
+                ".ExportTests",
+                "test_npz_roundtrip_and_bad_members"
+              ],
+              [
+                ".ExportTests",
+                "test_order_and_support"
+              ],
+              [
+                ".ExportTests",
+                "test_pin_hash_and_missing"
+              ],
+              [
+                ".ExportTests",
+                "test_prediction_checks_not_omitted"
+              ],
+              [
+                ".ExportTests",
+                "test_successful_stage_fixture_and_final_folder_attribution"
+              ],
+              [
+                ".ExportTests",
+                "test_xml_ownership_and_unique_roles"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_distinct_actual_source_snapshot_plan_and_native_bindings"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_export_both_actual_failure_rows_preserved_without_inventing_exports"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_export_old_schema_does_not_lose_both_rows"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_export_placeholder_manifest_pin_is_not_accepted"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_failure_timeout_and_unlaunched_rows_need_no_factor"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_old_terminal_path_rejected_before_reader"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_rejects_old_process_wrong_plan_and_nonterminal_before_proc_reads"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_rejects_old_source_snapshot_as_source_and_wrong_native"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_scientific_hash_valid_old_plan_cannot_masquerade_as_new"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_scientific_old_schema_rejected"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_selected_missing_manifest_retains_all_thirteen_rows"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_selected_rejects_old_sequence_schema_and_overridden_fixed_pin"
+              ]
+            ]
+          }
+        },
+        "collector": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 2034,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/collector/junit.xml",
+            "sha256": "0b6bce2212e933a7b5b802d504f8b3c88cceb8ad0509fceededbcd9ffb600b38"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 1636,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/collector/supervisor.json",
+            "sha256": "9e0b97009c54ced207bbbda40009cfd598e70931b54d2f08a673123351dbc374"
+          }
+        },
+        "publication": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 2519,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/publication/junit.xml",
+            "sha256": "564e4383ceca6c9b92f85885e0e0e4659197e3a7bc3f98c25957c03e1c62fc1e"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 1632,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/publication/supervisor.json",
+            "sha256": "2fac1a347e74f40368690e55f5d6b6dba74122a6f189ac58b1a58a9fa61830b6"
+          },
+          "tests": {
+            "counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 19
+            },
+            "identities": [
+              [
+                ".OutcomeTests",
+                "test_actual_failed_audit_missing_output_is_explicit"
+              ],
+              [
+                ".OutcomeTests",
+                "test_artifact_selection_uses_actual_roles_and_never_point_number"
+              ],
+              [
+                ".OutcomeTests",
+                "test_audit_input_source_or_argv_substitution_rejected"
+              ],
+              [
+                ".OutcomeTests",
+                "test_auditor_release_or_covariance_authority_claim_rejected"
+              ],
+              [
+                ".OutcomeTests",
+                "test_both_pass_reports_thirteen_but_no_release_or_covariance_authority"
+              ],
+              [
+                ".OutcomeTests",
+                "test_false_audit_aggregate_cannot_hide_failed_child"
+              ],
+              [
+                ".OutcomeTests",
+                "test_false_failed_fit_covariance_claim_retained_as_discrepancy"
+              ],
+              [
+                ".OutcomeTests",
+                "test_gate_failure_and_never_started_cold_preserve_all_planned_rows"
+              ],
+              [
+                ".OutcomeTests",
+                "test_interrupted_status_is_not_normalized_to_success"
+              ],
+              [
+                ".OutcomeTests",
+                "test_missing_strict_receipt_cannot_support_aggregate_pass"
+              ],
+              [
+                ".OutcomeTests",
+                "test_mixed_cold_outcome_retains_exact_error_history_and_both_rows"
+              ],
+              [
+                ".OutcomeTests",
+                "test_nonzero_audit_exit_and_cleanup_failure_block_success"
+              ],
+              [
+                ".OutcomeTests",
+                "test_unknown_status_and_html_content_remain_literal_not_success"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_complete_temporary_packet_keeps_bytes_all_rows_and_fresh_paths"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_exact_copy_external_hash_and_false_missing"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_existing_output_and_missing_manifest_never_create_or_replace_packet"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_running_or_foreign_sequence_never_publishes"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_storage_limits_aliases_and_nonfinite_rejected"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_terminal_identity_pass_fixture_and_wrong_actual_pins_rejected"
+              ]
+            ]
+          }
+        }
+      },
+      "recorded_test_counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 137
+      },
+      "result_link": "receipts/controls/qualification02/result.json",
+      "runtime_unchanged": null,
+      "scope": "control fixtures, not scientific results",
+      "sources_unchanged": true,
+      "status": "failed",
+      "test_count_scope": "recorded aggregate counts from 2/3 jobs; missing counts do not imply zero executed tests",
+      "tests": null
+    },
+    "qualification04": {
+      "error": null,
+      "independent_review": {
+        "actual_jobs_equal_frozen_plan": true,
+        "actual_result": {
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/result.json",
+          "sha256": "cbaff8bdfd7796454bc8619a09099eb6c26285006de32b65fbd5219024a7e843"
+        },
+        "all166_exact_junit_ids_verified": [
+          {
+            "count": 118,
+            "matches": true,
+            "suite": "auditors",
+            "unique": 118
+          },
+          {
+            "count": 19,
+            "matches": true,
+            "suite": "publication",
+            "unique": 19
+          },
+          {
+            "count": 15,
+            "matches": true,
+            "suite": "collector",
+            "unique": 15
+          },
+          {
+            "count": 14,
+            "matches": true,
+            "suite": "recovery-controls",
+            "unique": 14
+          }
+        ],
+        "all60_source_members_rehashed": true,
+        "all_failures_errors_skips_zero": true,
+        "all_four_workers_completed_with_actual_echild_no_signals_no_hard_kill": true,
+        "all_result_supervisor_junit_and_four_supervisor_plan_pins_rehashed": true,
+        "blocking_findings": [],
+        "controller_and_eight_worker_supervisor_pids_absent": true,
+        "covariance_authority": false,
+        "elapsed_seconds": 443.796494144,
+        "native_runs_authorized": 0,
+        "observed_boot": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+        "observed_utc": "2026-10-26T20:42:29Z",
+        "plan": {
+          "bytes": 7037,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-qualification04-launch01/plan.json",
+          "sha256": "b44634cff5872efe04493163c8a291a972160c99dec646fac3698ac59b27855d"
+        },
+        "prior_failed_qualification02_preserved": true,
+        "prior_failed_result_sha256": "d3b5655433f6a137a9a8091881778962d46f50afd451751344b64f9f2a59e844",
+        "qualification_passed": true,
+        "release_authority": false,
+        "reviewer": "/root/launcher_recovery",
+        "runtime_pre_post_identical_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+        "runtime_summary": {
+          "elf_objects": 212,
+          "elf_resolution_verified": true,
+          "files": 8281,
+          "hashes_and_membership_verified": true,
+          "trees": 19
+        },
+        "runtime_summary_matches_frozen_inventory": true,
+        "schema": "candidate07-postboot-qualification04-independent-outcome-review-v1",
+        "scope": "Actual test-control qualification only; no saved numerical arrays audited, no native estimator launched, and no original density terminal or covariance created",
+        "seven_source_ledgers_equal_independent_source_review": true,
+        "source_only_review_with_saved_receipt_reads": true,
+        "source_pre_post_identical_sha256": "b90caee2f3b16ab45a1d2d55dee46820b050d176a32b6b2a6bd69b7380de936f",
+        "suites": [
+          {
+            "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+            "elapsed_seconds": 19.506273801000134,
+            "execution_exact": true,
+            "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+            "peak_rss_bytes": 74457088,
+            "suite": "auditors",
+            "supervisor": {
+              "parent": 9271,
+              "pid": 11130,
+              "start_ticks": 270929,
+              "state": "R"
+            },
+            "terminal_clean": true,
+            "worker": {
+              "parent": 11130,
+              "pid": 11131,
+              "start_ticks": 271163,
+              "state": "R"
+            },
+            "xml_counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 118
+            },
+            "xml_has_no_failure_error_skipped": true
+          },
+          {
+            "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+            "elapsed_seconds": 10.775670659999832,
+            "execution_exact": true,
+            "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+            "peak_rss_bytes": 38412288,
+            "suite": "publication",
+            "supervisor": {
+              "parent": 9271,
+              "pid": 11178,
+              "start_ticks": 273325,
+              "state": "R"
+            },
+            "terminal_clean": true,
+            "worker": {
+              "parent": 11178,
+              "pid": 11183,
+              "start_ticks": 273491,
+              "state": "R"
+            },
+            "xml_counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 19
+            },
+            "xml_has_no_failure_error_skipped": true
+          },
+          {
+            "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+            "elapsed_seconds": 8.487179800999911,
+            "execution_exact": true,
+            "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+            "peak_rss_bytes": 37670912,
+            "suite": "collector",
+            "supervisor": {
+              "parent": 9271,
+              "pid": 11193,
+              "start_ticks": 274721,
+              "state": "R"
+            },
+            "terminal_clean": true,
+            "worker": {
+              "parent": 11193,
+              "pid": 11199,
+              "start_ticks": 274881,
+              "state": "R"
+            },
+            "xml_counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 15
+            },
+            "xml_has_no_failure_error_skipped": true
+          },
+          {
+            "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+            "elapsed_seconds": 6.454594161999921,
+            "execution_exact": true,
+            "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+            "peak_rss_bytes": 37277696,
+            "suite": "recovery-controls",
+            "supervisor": {
+              "parent": 9271,
+              "pid": 11208,
+              "start_ticks": 275977,
+              "state": "R"
+            },
+            "terminal_clean": true,
+            "worker": {
+              "parent": 11208,
+              "pid": 11217,
+              "start_ticks": 276147,
+              "state": "R"
+            },
+            "xml_counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 14
+            },
+            "xml_has_no_failure_error_skipped": true
+          }
+        ],
+        "tests": 166,
+        "tests_executed_by_reviewer": 0
+      },
+      "independent_review_status": "available",
+      "independently_reviewed_suites": null,
+      "independently_reviewed_test_counts": null,
+      "jobs": {
+        "auditors": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 13231,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/auditors/junit.xml",
+            "sha256": "4f283bf79a4378e3182ed179fc924a7356cc69c6180adb38bc1349234b2e0765"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 2057,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/auditors/supervisor.json",
+            "sha256": "7beebea4f735a2e85ec79ab07dffb232c995d017d7750d428d86c446dd8c175c"
+          },
+          "tests": {
+            "counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 118
+            },
+            "identities": [
+              [
+                ".CompressedRows",
+                "test_archive_hash_and_manifest_identity_are_checked"
+              ],
+              [
+                ".CompressedRows",
+                "test_crc_and_truncation_checked_even_when_archive_hash_is_pinned"
+              ],
+              [
+                ".CompressedRows",
+                "test_existing_raw_must_also_match"
+              ],
+              [
+                ".CompressedRows",
+                "test_missing_archive_still_pending"
+              ],
+              [
+                ".CompressedRows",
+                "test_missing_raw_is_verified_without_restoration_and_attributed"
+              ],
+              [
+                ".CompressedRows",
+                "test_ordinary_missing_pin_still_pending"
+              ],
+              [
+                ".CompressedRows",
+                "test_per_archive_and_total_resource_bounds"
+              ],
+              [
+                ".CompressedRows",
+                "test_policy_flags_extra_fields_and_path_binding_are_not_ignored"
+              ],
+              [
+                ".CompressedRows",
+                "test_raw_hash_size_and_expansion_must_match"
+              ],
+              [
+                ".CompressedRows",
+                "test_repeated_receipt_is_not_double_counted_and_conflict_fails"
+              ],
+              [
+                ".CompressedRows",
+                "test_unknown_policy_does_not_authorize_missing_raw"
+              ],
+              [
+                ".NativeSchema",
+                "test_archived_diagnostic_identity_and_full_status"
+              ],
+              [
+                ".NativeSchema",
+                "test_python_certificate_status_cannot_replace_native_status"
+              ],
+              [
+                ".NativeSchema",
+                "test_wrong_schema_damping_and_incomplete_dimension_remain_rejected"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_absent_outcome_remains_pending"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_explicit_failed_attempt_is_failed_before_optional_pin_access"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_malformed_claimed_pass_is_distinct_from_unlaunched"
+              ],
+              [
+                ".PlaceholderSchema",
+                "test_real_unlaunched_shape_is_pending_before_any_pin_access"
+              ],
+              [
+                ".PlannedLedger",
+                "test_archived_mixed_cold_outcome_preserves_pass_and_failure_separately"
+              ],
+              [
+                ".PlannedLedger",
+                "test_changed_aggregate_attribution_is_failed_phase_with_pending_attempts"
+              ],
+              [
+                ".PlannedLedger",
+                "test_each_missing_phase_file_keeps_available_rows_and_blocks_cold_selection"
+              ],
+              [
+                ".PlannedLedger",
+                "test_failed_detached_does_not_erase_successful_or_failed_recorded_rows"
+              ],
+              [
+                ".PlannedLedger",
+                "test_malformed_phase_document_retains_all_attempts"
+              ],
+              [
+                ".PlannedLedger",
+                "test_nine_passed_failed_incomplete_phase_combinations_keep_inventory"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_archive_failures_preserve_stage_outcomes"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_archive_roundtrip_and_bounded_read"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_exact_eleven_and_eight_inventory"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_existing_audit_output_is_never_overwritten"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_manifest_setup_failures_emit_eight_rows"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_missing_input_does_not_erase_eight_outcomes_or_approve"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_nonfinite_and_duplicate_json_rejected"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_reader_hash_change_missing_foreign_and_symlink"
+              ],
+              [
+                ".IdentityAndReporting",
+                "test_unlaunched_failure_and_missing_distinct"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_complete_signal_support_and_fixed_nuisance_are_required"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_native_declared_shapes_are_checked"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_position_alignment_and_true_norm"
+              ],
+              [
+                ".RefinementArithmetic",
+                "test_signal_predicate_uses_stricter_coarse_sigma"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_coarse_failure_remains_before_two_consecutive_passing_scales"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_exact_quadratic_consecutive_scales"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_inflated_physical_allowance_cannot_be_self_consistently_relabelled"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_missing_scales_resolution_and_summary_manipulation_fail"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_per_scale_derivatives_cannot_hide_a_cubic_term"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_pulse_native_micrometre_units"
+              ],
+              [
+                ".ObjectiveArithmetic",
+                "test_stationary_plus_transition_ou_prior"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_changed_strict_confirmation_or_threshold_rejected"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_claimed_huge_dimensions_do_not_allocate_an_index_range"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_exclusive_boolean_qualification_is_required"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_invalid_full_factor_metadata_rejected"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_invalid_or_missing_floor_policy_preserved"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_missing_strict_metadata_is_unavailable_not_success"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_real_full_and_conditional_contracts_are_distinct"
+              ],
+              [
+                ".EndpointMetadata",
+                "test_strict_and_qualified_floor_endpoints_remain_distinct"
+              ],
+              [
+                ".ReplayArithmetic",
+                "test_floor_limited_and_transaction_defects_remain_failures"
+              ],
+              [
+                ".ReplayArithmetic",
+                "test_strict_transaction_fixture"
+              ],
+              [
+                ".Boundaries",
+                "test_above_boundary_is_unresolved"
+              ],
+              [
+                ".Boundaries",
+                "test_above_ten_is_full"
+              ],
+              [
+                ".Boundaries",
+                "test_exact_boundary_is_deficient"
+              ],
+              [
+                ".Boundaries",
+                "test_invalid_singular_tables"
+              ],
+              [
+                ".Boundaries",
+                "test_json_numbers_supported_numpy_scalar_metadata_rejected"
+              ],
+              [
+                ".Boundaries",
+                "test_original_reduced_row_count_matters"
+              ],
+              [
+                ".Boundaries",
+                "test_padded_underdetermined_factor_uses_max_m_n"
+              ],
+              [
+                ".Boundaries",
+                "test_ten_boundary_is_unresolved"
+              ],
+              [
+                ".Boundaries",
+                "test_zero_and_exact_rank_deficient"
+              ],
+              [
+                ".Boundaries",
+                "test_zero_rows_zero_factor_is_deficient"
+              ],
+              [
+                ".ArrayAudit",
+                "test_cross_driver_classification_disagreement_is_not_waived"
+              ],
+              [
+                ".ArrayAudit",
+                "test_cross_driver_roundoff_reported_without_new_tolerance"
+              ],
+              [
+                ".ArrayAudit",
+                "test_deficient_and_unresolved_never_accepted_full"
+              ],
+              [
+                ".ArrayAudit",
+                "test_forbidden_array_representations"
+              ],
+              [
+                ".ArrayAudit",
+                "test_full_rank_no_authority"
+              ],
+              [
+                ".ArrayAudit",
+                "test_inconsistent_native_certificate"
+              ],
+              [
+                ".ArrayAudit",
+                "test_no_second_scaling_of_factor"
+              ],
+              [
+                ".ArrayAudit",
+                "test_padded_underdetermined_native_factor"
+              ],
+              [
+                ".ArrayAudit",
+                "test_requested_driver_is_gesvd_no_overwrite"
+              ],
+              [
+                ".ArrayAudit",
+                "test_zero_row_native_zero_factor"
+              ],
+              [
+                ".Metadata",
+                "test_parameter_inventory_scale_and_units_are_not_erased"
+              ],
+              [
+                ".Metadata",
+                "test_wrong_counts_conditional_damping_and_scale"
+              ],
+              [
+                ".Binary",
+                "test_exact_little_endian_payload"
+              ],
+              [
+                ".Binary",
+                "test_truncation_trailing_bad_shape_and_nonfinite"
+              ],
+              [
+                ".Reporting",
+                "test_claimed_status_cannot_override_actual_failure"
+              ],
+              [
+                ".Reporting",
+                "test_failed_and_unlaunched_are_retained_without_svd"
+              ],
+              [
+                ".Reporting",
+                "test_missing_aggregate_preserves_planned_inventory"
+              ],
+              [
+                ".Reporting",
+                "test_missing_manifest_cli_preserves_two_rows"
+              ],
+              [
+                ".Reporting",
+                "test_mixed_factor_generation_is_rejected_before_numerical_audit"
+              ],
+              [
+                ".Reporting",
+                "test_no_source_module_imports_or_subprocess_calls"
+              ],
+              [
+                ".Reporting",
+                "test_unexpected_auditor_failure_still_preserves_both_rows"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_actual_cli_malformed_aggregate_preserves_both_planned_cases"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_atomic_publication_failure_and_no_overwrite"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_decoder_and_reader_reject_nonfinite_or_overflow"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_main_rejects_nonfinite_manifest_with_complete_failure_report"
+              ],
+              [
+                ".StrictJsonAndPublication",
+                "test_serialize_first_leaves_no_partial_output"
+              ],
+              [
+                ".ExportTests",
+                "test_atomic_output_has_no_partial_file_or_overwrite"
+              ],
+              [
+                ".ExportTests",
+                "test_covariance_policy_and_indefiniteness"
+              ],
+              [
+                ".ExportTests",
+                "test_duplicate_member_and_payload_truncation"
+              ],
+              [
+                ".ExportTests",
+                "test_exact_arrays"
+              ],
+              [
+                ".ExportTests",
+                "test_frozen_epoch_serialization_tolerance"
+              ],
+              [
+                ".ExportTests",
+                "test_frozen_source_identity_is_not_snapshot_file_identity"
+              ],
+              [
+                ".ExportTests",
+                "test_native_headers_counts_and_numerical_rows"
+              ],
+              [
+                ".ExportTests",
+                "test_nonfinite_and_overflow_json_rejected"
+              ],
+              [
+                ".ExportTests",
+                "test_nonfinite_backend_cli_retains_both_rows_without_partial_json"
+              ],
+              [
+                ".ExportTests",
+                "test_nonnumeric_nonfinite_and_shape_rejected"
+              ],
+              [
+                ".ExportTests",
+                "test_npz_roundtrip_and_bad_members"
+              ],
+              [
+                ".ExportTests",
+                "test_order_and_support"
+              ],
+              [
+                ".ExportTests",
+                "test_pin_hash_and_missing"
+              ],
+              [
+                ".ExportTests",
+                "test_prediction_checks_not_omitted"
+              ],
+              [
+                ".ExportTests",
+                "test_successful_stage_fixture_and_final_folder_attribution"
+              ],
+              [
+                ".ExportTests",
+                "test_xml_ownership_and_unique_roles"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_distinct_actual_source_snapshot_plan_and_native_bindings"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_export_both_actual_failure_rows_preserved_without_inventing_exports"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_export_old_schema_does_not_lose_both_rows"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_export_placeholder_manifest_pin_is_not_accepted"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_failure_timeout_and_unlaunched_rows_need_no_factor"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_old_terminal_path_rejected_before_reader"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_rejects_old_process_wrong_plan_and_nonterminal_before_proc_reads"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_rank_rejects_old_source_snapshot_as_source_and_wrong_native"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_scientific_hash_valid_old_plan_cannot_masquerade_as_new"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_scientific_old_schema_rejected"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_selected_missing_manifest_retains_all_thirteen_rows"
+              ],
+              [
+                ".Candidate07Identity",
+                "test_selected_rejects_old_sequence_schema_and_overridden_fixed_pin"
+              ]
+            ]
+          }
+        },
+        "collector": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 2034,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/collector/junit.xml",
+            "sha256": "79dac19755df4b544062d6e01bbab4dc5e8e476d97d3ab4670418ce9ae61704c"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 1640,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/collector/supervisor.json",
+            "sha256": "9b0a930077ef0e9828c6521f63e9447f66bdc3277ad8584a66a073f804cbdfbf"
+          },
+          "tests": {
+            "counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 15
+            },
+            "identities": [
+              [
+                ".CollectionTests",
+                "test_absent_density_is_explicit_and_never_invents_a_pin_or_history"
+              ],
+              [
+                ".CollectionTests",
+                "test_changed_compressed_archive_is_not_pinned_as_valid"
+              ],
+              [
+                ".CollectionTests",
+                "test_cleanup_requires_actual_empty_owned_tree"
+              ],
+              [
+                ".CollectionTests",
+                "test_cold_duplicate_final_role_is_rejected"
+              ],
+              [
+                ".CollectionTests",
+                "test_cold_final_selection_uses_roles_and_strict_pin_equality"
+              ],
+              [
+                ".CollectionTests",
+                "test_compressed_rows_keep_source_attribution_without_restoring_raw"
+              ],
+              [
+                ".CollectionTests",
+                "test_conflicting_frozen_aliases_are_reported_not_guessed"
+              ],
+              [
+                ".CollectionTests",
+                "test_failed_density_preserves_backend_error_without_final_roles"
+              ],
+              [
+                ".CollectionTests",
+                "test_json_rejects_duplicate_and_nonfinite_control_values"
+              ],
+              [
+                ".CollectionTests",
+                "test_no_final_selection_for_failed_or_covariance_invalid_result"
+              ],
+              [
+                ".CollectionTests",
+                "test_objective_ambiguous_metadata_never_chooses_latest"
+              ],
+              [
+                ".CollectionTests",
+                "test_objective_metadata_is_collectible_after_binary_factor_pruning"
+              ],
+              [
+                ".CollectionTests",
+                "test_outputs_are_serialize_first_and_nonoverwriting"
+              ],
+              [
+                ".CollectionTests",
+                "test_partial_trial_failure_inventory_retains_log_config_and_failure"
+              ],
+              [
+                ".CollectionTests",
+                "test_removed_binary_is_attribution_not_a_new_file_pin"
+              ]
+            ]
+          }
+        },
+        "publication": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 2519,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/publication/junit.xml",
+            "sha256": "d58ffcdf375eeeb568a5a633b8620848032ed00c50e304dd86281755e2025465"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 1637,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/publication/supervisor.json",
+            "sha256": "e7a5a61ff4c7dc246f01dfef097bdda57df32ad1cdb90317d2ac4ec15abd4e14"
+          },
+          "tests": {
+            "counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 19
+            },
+            "identities": [
+              [
+                ".OutcomeTests",
+                "test_actual_failed_audit_missing_output_is_explicit"
+              ],
+              [
+                ".OutcomeTests",
+                "test_artifact_selection_uses_actual_roles_and_never_point_number"
+              ],
+              [
+                ".OutcomeTests",
+                "test_audit_input_source_or_argv_substitution_rejected"
+              ],
+              [
+                ".OutcomeTests",
+                "test_auditor_release_or_covariance_authority_claim_rejected"
+              ],
+              [
+                ".OutcomeTests",
+                "test_both_pass_reports_thirteen_but_no_release_or_covariance_authority"
+              ],
+              [
+                ".OutcomeTests",
+                "test_false_audit_aggregate_cannot_hide_failed_child"
+              ],
+              [
+                ".OutcomeTests",
+                "test_false_failed_fit_covariance_claim_retained_as_discrepancy"
+              ],
+              [
+                ".OutcomeTests",
+                "test_gate_failure_and_never_started_cold_preserve_all_planned_rows"
+              ],
+              [
+                ".OutcomeTests",
+                "test_interrupted_status_is_not_normalized_to_success"
+              ],
+              [
+                ".OutcomeTests",
+                "test_missing_strict_receipt_cannot_support_aggregate_pass"
+              ],
+              [
+                ".OutcomeTests",
+                "test_mixed_cold_outcome_retains_exact_error_history_and_both_rows"
+              ],
+              [
+                ".OutcomeTests",
+                "test_nonzero_audit_exit_and_cleanup_failure_block_success"
+              ],
+              [
+                ".OutcomeTests",
+                "test_unknown_status_and_html_content_remain_literal_not_success"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_complete_temporary_packet_keeps_bytes_all_rows_and_fresh_paths"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_exact_copy_external_hash_and_false_missing"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_existing_output_and_missing_manifest_never_create_or_replace_packet"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_running_or_foreign_sequence_never_publishes"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_storage_limits_aliases_and_nonfinite_rejected"
+              ],
+              [
+                ".IdentityAndStorage",
+                "test_terminal_identity_pass_fixture_and_wrong_actual_pins_rejected"
+              ]
+            ]
+          }
+        },
+        "recovery-controls": {
+          "cleanup_verified": true,
+          "junit": {
+            "bytes": 1846,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/recovery-controls/junit.xml",
+            "sha256": "16dd5a5c65fcf12af9b164fe57013a3e7e4e906b3543c7344d2a1b38c92297d7"
+          },
+          "returncode": 0,
+          "status": "complete",
+          "supervisor": {
+            "bytes": 1642,
+            "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/recovery-controls/supervisor.json",
+            "sha256": "d2807db6f59fee8879526ce6e2ff82022eebf84ecb605130f531c133bcbd8275"
+          },
+          "tests": {
+            "counts": {
+              "errors": 0,
+              "failures": 0,
+              "skipped": 0,
+              "tests": 14
+            },
+            "identities": [
+              [
+                "test_recovery.RecoveryTests",
+                "test_crossboot_admission_never_invents_cleanup_or_pass"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_duplicate_json_is_rejected"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_exclusive_output_preserves_existing_result"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_hash_mutation_rejected"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_junit_requires_exact_identities_and_no_skips"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_missing_action_grant_is_rejected"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_newly_appearing_original_terminal_blocks_recovery"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_noncanonical_ledger_member_rejected"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_nonfinite_json_is_rejected"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_owned_cleanup_requires_actual_echild"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_qualification_review_cannot_authorize_audit"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_review_for_different_boot_rejected"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_same_boot_never_proves_interruption"
+              ],
+              [
+                "test_recovery.RecoveryTests",
+                "test_second_changed_boot_requires_new_review"
+              ]
+            ]
+          }
+        }
+      },
+      "recorded_test_counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 166
+      },
+      "result_link": "receipts/controls/qualification04/result.json",
+      "runtime_unchanged": true,
+      "scope": "control fixtures, not scientific results",
+      "sources_unchanged": true,
+      "status": "complete",
+      "test_count_scope": "recorded aggregate counts from 4/4 jobs; missing counts do not imply zero executed tests",
+      "tests": null
+    },
+    "supplementary_adapter14": {
+      "error": null,
+      "independent_review": {
+        "actual_saved_arrays_audited": false,
+        "all72_source_members_rehashed": true,
+        "all_result_and_supervisor_plan_pins_rehashed": true,
+        "blocking_findings": [],
+        "collection_fixture_prerequisite_satisfied": true,
+        "controller_and_supervisor_and_worker_pids_absent": true,
+        "covariance_authority": false,
+        "elapsed_seconds": 603.9041058439998,
+        "explicit_rootdir_produced_original_exact14_identities": true,
+        "native_runs_authorized": 0,
+        "observation": {
+          "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+          "cleanup": {
+            "empty_tree_certificate": "kernel_ECHILD",
+            "hard_kill": false,
+            "remaining": [],
+            "signals": [],
+            "verified": true
+          },
+          "counts": {
+            "errors": 0,
+            "failures": 0,
+            "skipped": 0,
+            "tests": 14
+          },
+          "elapsed_seconds": 13.339010982999753,
+          "exact_unique14": true,
+          "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+          "identities_equal_frozen": true,
+          "no_failure_error_skipped_nodes": true,
+          "peak_rss_bytes": 41738240,
+          "returncode": 0,
+          "rootdir_exact": true,
+          "signals_received": [],
+          "status": "complete",
+          "supervised_argv_exact": true,
+          "supervised_limits_exact": true,
+          "supervisor": {
+            "parent": 13173,
+            "pid": 15020,
+            "start_ticks": 343753,
+            "state": "R"
+          },
+          "worker": {
+            "parent": 15020,
+            "pid": 15041,
+            "start_ticks": 344185,
+            "state": "R"
+          }
+        },
+        "observed_utc": "2026-10-26T20:56:08Z",
+        "passed": true,
+        "plan": {
+          "bytes": 3375,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-adapter-tests04-launch01/plan.json",
+          "sha256": "555f9dd61e92130d6e667170bd07d547809e3ec0418af09e661fca61a586994c"
+        },
+        "prior_qualification": {
+          "bytes": 24093,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/result.json",
+          "sha256": "cbaff8bdfd7796454bc8619a09099eb6c26285006de32b65fbd5219024a7e843"
+        },
+        "release_authority": false,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-adapter-tests04/result.json",
+          "sha256": "f3ef32430ee000d09147bf62a655aaca9ed508a18e06f7f04afc3c75f7d39945"
+        },
+        "reviewer": "/root/launcher_recovery",
+        "runtime_pre_post_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+        "schema": "candidate07-postboot-adapter-tests-independent-outcome-review-v1",
+        "scope": "Actual inert adapter qualification; permits its use as the prerequisite for separately source-approved collection, not numerical audit outcomes or native fits",
+        "source_pre_post_sha256": "505791a4dbcee5ebca5a23f2a5ed23b21d45507f6eb3e98b8749557a472b0e4b",
+        "source_runtime_pre_post_identical": true,
+        "tests_executed_by_reviewer": 0
+      },
+      "independent_review_status": "available",
+      "independently_reviewed_suites": null,
+      "independently_reviewed_test_counts": null,
+      "jobs": {},
+      "recorded_test_counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 14
+      },
+      "result_link": "receipts/controls/supplementary_adapter14/result.json",
+      "runtime_unchanged": true,
+      "scope": "control fixtures, not scientific results",
+      "sources_unchanged": true,
+      "status": "passed",
+      "test_count_scope": "actual top-level test receipt",
+      "tests": {
+        "counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 14
+        },
+        "identities": [
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_actual_executor_and_orchestration_are_both_bound"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_collector_final_selection_math_is_exact"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_export_missing_case_never_disappears"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_export_uses_exact_original_source"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_interrupted_density_never_calls_array_auditor"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_interrupted_density_with_invented_final_pin_fails"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_original_math_hash_cannot_mislabel_actual_executor"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_pulse_array_failure_is_retained"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_rank_mathematical_functions_are_exact"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_rank_per_case_checks_are_exact"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_scientific_mathematical_functions_are_exact"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_scientific_recovery_has_no_original_terminal_alias"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_selected_uses_exact_original_source"
+          ],
+          [
+            "test_recovered_adapters.RecoveredAdapters",
+            "test_unfrozen_module_is_not_imported"
+          ]
+        ]
+      }
+    },
+    "supplementary_cold31": {
+      "error": null,
+      "independent_review": {
+        "actual_saved_arrays_audited": false,
+        "all544_source_members_rehashed": true,
+        "all_result_and_supervisor_plan_pins_rehashed": true,
+        "approved_actions": [
+          "prepare_fresh_density04",
+          "preflight_fresh_density04"
+        ],
+        "approved_for_cold_fit": false,
+        "approved_for_fresh_prepare_and_preflight": true,
+        "blocking_findings": [],
+        "controller_and_supervisor_and_worker_pids_absent": true,
+        "controller_source": {
+          "path": "/mnt/d/orbit-v41-recovery02/density-trial-cold-controls04/source.sha256",
+          "sha256": "2bef971aaa46668bff5a09aa025e3b2ff2970a0b0e1e0c51540a8239789fa457"
+        },
+        "covariance_authority": false,
+        "elapsed_seconds": 769.497532762,
+        "explicit_rootdir_produced_original_exact31_identities": true,
+        "native_runs_authorized": 0,
+        "next_phase_advice": {
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04-preparation-advice01/next-phase.json",
+          "sha256": "d0aadb970f4cef8efe25f54829b15595c3bfb9d4c136f8e31e8c7921c19a8589"
+        },
+        "observation": {
+          "boot_id": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+          "cleanup": {
+            "empty_tree_certificate": "kernel_ECHILD",
+            "hard_kill": false,
+            "remaining": [],
+            "signals": [],
+            "verified": true
+          },
+          "counts": {
+            "errors": 0,
+            "failures": 0,
+            "skipped": 0,
+            "tests": 31
+          },
+          "elapsed_seconds": 32.544615435000196,
+          "exact_unique31": true,
+          "helper_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+          "identities_equal_frozen": true,
+          "no_failure_error_skipped_nodes": true,
+          "peak_rss_bytes": 80736256,
+          "returncode": 0,
+          "rootdir_exact": true,
+          "signals_received": [],
+          "status": "complete",
+          "supervised_argv_exact": true,
+          "supervised_limits_exact": true,
+          "supervisor": {
+            "parent": 17573,
+            "pid": 19692,
+            "start_ticks": 426939,
+            "state": "R"
+          },
+          "worker": {
+            "parent": 19692,
+            "pid": 19782,
+            "start_ticks": 427286,
+            "state": "R"
+          }
+        },
+        "observed_utc": "2026-10-26T21:11:10Z",
+        "passed": true,
+        "plan": {
+          "bytes": 2842,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-cold-tests03-launch01/plan.json",
+          "sha256": "d2cdbbe36229304b47c0d76c0c24e6c8f4caf9b134a3f394a712455abeeea372"
+        },
+        "preparation_fixture_prerequisite_satisfied": true,
+        "prior_qualification": {
+          "bytes": 24093,
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification04/result.json",
+          "sha256": "cbaff8bdfd7796454bc8619a09099eb6c26285006de32b65fbd5219024a7e843"
+        },
+        "project_source_exact500file_membership_verified": true,
+        "project_source_has_no_symlinks": true,
+        "release_authority": false,
+        "required_for_later_fit": [
+          "Actual successful fresh namespace preflight with original supervisor cleanup and exact input/source/runtime/environment closure",
+          "Independent launch review schema orbit-poc-one-hour-density-recovery-launch-review-v1 binding actual freeze,runner and canonical archived_evidence",
+          "Original GNSS initialization,zero density coordinates,unchanged physical/statistical settings,7200seconds/8GiB and current-host isolation"
+        ],
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-cold-tests03/result.json",
+          "sha256": "521610fb1bfc1c422325264ec4b662d96d34ab346b0b51a9a04a1a47f5a4838a"
+        },
+        "reviewer": "/root/launcher_recovery",
+        "runtime_pre_post_sha256": "698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74",
+        "schema": "candidate07-postboot-cold-tests-independent-outcome-review-v1",
+        "scope": "After fresh current-host admission, permit exact reviewed cold-controls04 preparation and non-native namespace preflight in unused candidate07-cold-density04 and /home/emper/orbit-candidate07-cold-density04. No fit launch authority; actual resulting plan/freeze/preflight need independent review.",
+        "source_pre_post_sha256": "fe307bc2fc0f97c1a6850b60c5f9757ae0d0a9769bff9f704241f795870c4bf7",
+        "source_runtime_pre_post_identical": true,
+        "tests_executed_by_reviewer": 0
+      },
+      "independent_review_status": "available",
+      "independently_reviewed_suites": null,
+      "independently_reviewed_test_counts": null,
+      "jobs": {},
+      "recorded_test_counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 31
+      },
+      "result_link": "receipts/controls/supplementary_cold31/result.json",
+      "runtime_unchanged": true,
+      "scope": "control fixtures, not scientific results",
+      "sources_unchanged": true,
+      "status": "passed",
+      "test_count_scope": "actual top-level test receipt",
+      "tests": {
+        "counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 31
+        },
+        "identities": [
+          [
+            "test_behavior.Behavioral",
+            "test_actual_assessment_passes_complete_tiny_final_evidence"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_added_import_shadow_and_symlink_fail"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_backing_not_placeholder_emptiness_is_checked"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_changed_existing_runtime_member_fails"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_cold_start_uses_original_state_and_zero_force"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_conditional_only_final_factor_fails"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_damped_final_factor_fails"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_exact_file_changed_or_missing_fails"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_fresh_gradient_recomputed_not_inherited"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_nonzero_initial_density_rejected"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_replaced_directory_identity_fails"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_source_and_support_identity_bound"
+          ],
+          [
+            "test_behavior.Behavioral",
+            "test_stale_final_correction_fails_despite_prior_stationarity"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_all_archive_pins_are_read_without_fresh_success_claim"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_archived_interruption_is_not_original_cleanup"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_archived_stage_command_cannot_change"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_archived_stage_missing_cleanup_or_running_rejected"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_archived_strict_stage_accepts_real_completion"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_changed_original_strict_result_rejects_recovery"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_changed_partial_failure_bytes_reject_recovery"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_density_rebinding_still_only_changes_three_runtime_fields"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_existing_recovery_output_is_not_overwritten"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_fabricated_old_terminal_rejects_recovery"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_foreign_boot_review_and_false_completion_rejected"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_incomplete_density_cannot_supply_covariance"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_native_gate_cannot_omit_a_test"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_new_boot_allowed_and_old_or_unreviewed_boot_rejected"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_old_results_are_forbidden_inside_new_estimator"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_only_density_can_be_requested"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_original_physical_thresholds_and_limits"
+          ],
+          [
+            "test_recovery.Recovery",
+            "test_review_requires_density_specific_scope_and_archive_binding"
+          ]
+        ]
+      }
+    }
+  },
+  "covariance_authority": false,
+  "created_at_utc": "2026-10-26T22:21:53.404276+00:00",
+  "frozen_benchmarks_unchanged": true,
+  "identities": {
+    "backend_recorded_native_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+    "canonical_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+    "snapshot_file_sha256": "4b997bcda7c94bce973389542895dca05a3fde6e7a53fdb4178fb61eaf22646e"
+  },
+  "limitations": [
+    "This is a diagnostic publication; the frozen v3.1/v4 benchmarks remain separate and unchanged.",
+    "The disclosed local PDF-processing resource deviation limits timing claims; exact intervals and numerical impact are unmeasured, and no harmlessness or failure attribution follows.",
+    "Both cold cases use original GNSS-only initialization, with no accepted-state or nuisance donor.",
+    "The pulse supervision includes seven recorded cleanup SIGTERM entries; its ECHILD result is not signal-free.",
+    "Strict nuisance convergence differs from numerical-floor-limited progress, which cannot authorize covariance.",
+    "Unavailable rank/export audit rows provide no completed audit or final density covariance certificate.",
+    "A nuisance line-search acceptance does not establish outer trial12 acceptance; no density final covariance is inferred.",
+    "Saved selected/rank/export checks do not establish full independent covariance reconstruction or uncertainty calibration.",
+    "The original builder and its19 tests are preserved; this packet uses the included standalone static assembler.",
+    "Actual final packet bytes require independent content audit before publication."
+  ],
+  "missing_original_receipts": [
+    "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/detached-result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/backend-result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/strict-result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/profile.execution.json"
+  ],
+  "original_cleanup_inferred_from_boot_change": false,
+  "outcomes": [
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 172332,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/native-tests/strict-result.json",
+        "role": "original/native-tests/strict-result.json",
+        "sha256": "0bcf8134c877be9f9c3a4c8853a88e75b8c16d242f5b274dd6f22cf7a11d2ed4",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/native-tests/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "native-tests",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 240543,
+              "signal": 15,
+              "start_ticks": 5542741
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 983.4494442740033,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 400289792,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 160182,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/native-fail-fast-tests/strict-result.json",
+        "role": "original/native-fail-fast-tests/strict-result.json",
+        "sha256": "3dfc13904a16525ffe0326d33d080d3f0224b25a2a7812f59e063aa46239c931",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/native-fail-fast-tests/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "native-fail-fast-tests",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 250405,
+              "signal": 15,
+              "start_ticks": 5680029
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 1068.954770852004,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 296132608,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 162870,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/correction-tests/strict-result.json",
+        "role": "original/correction-tests/strict-result.json",
+        "sha256": "f62b672a5f8a018d4aeb5d3c9ea5afd58a703c3809f24e0b2c88b5b3cd9bc392",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/correction-tests/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "correction-tests",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 259060,
+              "signal": 15,
+              "start_ticks": 5821719
+            },
+            {
+              "pid": 259060,
+              "signal": 15,
+              "start_ticks": 5821719
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 896.4818360119971,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 263159808,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 154285,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/synthetic-refinement-log_drag_ou/strict-result.json",
+        "role": "original/synthetic-refinement-log_drag_ou/strict-result.json",
+        "sha256": "48b30bbb3c20d7581469dd21c8d7d2857f7c60ad4d2e322fb243a8f3459f2d49",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/synthetic-refinement-log_drag_ou/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "synthetic-refinement-log_drag_ou",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 267696,
+              "signal": 15,
+              "start_ticks": 5945660
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 925.3489423959982,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 459239424,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 154240,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/synthetic-refinement-pulses/strict-result.json",
+        "role": "original/synthetic-refinement-pulses/strict-result.json",
+        "sha256": "ba4beb3bb4dfd53396f9189b741c6963ecdac5ef91a665fcbbac593c752d1153",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/synthetic-refinement-pulses/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "synthetic-refinement-pulses",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 276761,
+              "signal": 15,
+              "start_ticks": 6096526
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 1082.679798926998,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 456757248,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 154149,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/flight-refinement/strict-result.json",
+        "role": "original/flight-refinement/strict-result.json",
+        "sha256": "95db8cce069edd313c5364d8a6d5d811272effea09d89f4fbd8fbe8061ad18fc",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/flight-refinement/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "flight-refinement",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 287475,
+              "signal": 15,
+              "start_ticks": 6245809
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 1003.6502228600002,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 663101440,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 154204,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/eccentric-24h-refinement/strict-result.json",
+        "role": "original/eccentric-24h-refinement/strict-result.json",
+        "sha256": "8377974ff413d6fa69c410f3d71b36eeb563498b2c4f95418c64f6d4cdc248e6",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/eccentric-24h-refinement/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "eccentric-24h-refinement",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 298197,
+              "signal": 15,
+              "start_ticks": 6368870
+            },
+            {
+              "pid": 298197,
+              "signal": 15,
+              "start_ticks": 6368870
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 1545.431418316999,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 487641088,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 155609,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/objective-log_drag_ou/strict-result.json",
+        "role": "original/objective-log_drag_ou/strict-result.json",
+        "sha256": "89058d0cac0d685629f8694c9b237d5e80de00e7c195255903439a3293897a48",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/objective-log_drag_ou/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "objective-log_drag_ou",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 311838,
+              "signal": 15,
+              "start_ticks": 6560023
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 2524.3192085379997,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 446205952,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 155546,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/objective-pulses/strict-result.json",
+        "role": "original/objective-pulses/strict-result.json",
+        "sha256": "304495779482d234249d4d84b6caa90dbb68991c5dbac600f284002c3c2ea4bb",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/objective-pulses/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "objective-pulses",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 1541.9680010400043,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 444932096,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 154204,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/nuisance-replay/strict-result.json",
+        "role": "original/nuisance-replay/strict-result.json",
+        "sha256": "45869b7a427d3abe8ba91a8bc80fbd01d07370d21be1fbd7aca5442d079ab047",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/nuisance-replay/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "nuisance-replay",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 338722,
+              "signal": 15,
+              "start_ticks": 7042534
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 1181.6290051709948,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 392433664,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 154358,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/nuisance-replay-candidate1-point012/strict-result.json",
+        "role": "original/nuisance-replay-candidate1-point012/strict-result.json",
+        "sha256": "11abf365119856b1cf7fc69a242f1492261ec627df682f9c8f8eeff04493d216",
+        "status": "copied_byte_exact",
+        "target": "receipts/original/nuisance-replay-candidate1-point012/strict-result.json"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "nuisance-replay-candidate1-point012",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 349905,
+              "signal": 15,
+              "start_ticks": 7195045
+            },
+            {
+              "pid": 349905,
+              "signal": 15,
+              "start_ticks": 7195045
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 942.6462262170098,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 392429568,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "backend_recorded": {
+        "accepted_iterations": 10,
+        "confirmation_checks": [
+          {
+            "accepted_iteration": 10,
+            "normalized_gradient": 4.299922095674568e-09,
+            "nuisance_floor_limited": false,
+            "objective_before": 3235.4271854407007,
+            "objective_refreshed": 3235.4271848708195,
+            "physical_parameters_unchanged": true,
+            "rank": {
+              "columns": 91,
+              "condition_number": 2172.7823920130036,
+              "effective_rows": 7830,
+              "maximum_singular_value": 3.077449187211228,
+              "minimum_singular_value": 0.0014163632761954056,
+              "rank": 91,
+              "status": "full_rank",
+              "threshold": 5.350481643487707e-12
+            },
+            "raw_correction": {
+              "density_update": 0.0,
+              "position_change_m": 6.51925802230835e-09,
+              "pulse_update_m_s": 1.0500475322750857e-12
+            },
+            "stationary": true,
+            "trial_evaluations": 10
+          }
+        ],
+        "converged": true,
+        "covariance_valid": true,
+        "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+        "objective": 3235.427185391728,
+        "source_hash": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+        "status": "complete",
+        "trial_evaluations": 10
+      },
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_recorded_status": "passed",
+      "original_strict_receipt": {
+        "bytes": 5403,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/strict-result.json",
+        "role": "original/cold-pulses/strict-result.json",
+        "sha256": "7a4448fe6ef0c68192fa37bd46b143ff719ef0a430586c4422448fc96613c11c",
+        "status": "copied_byte_exact",
+        "target": "receipts/interruption/source-09-strict-result.json"
+      },
+      "preserved_individual_receipt_review": {
+        "accepted_iterations": 10,
+        "backend_sha256": "062739e4b4c9d123fd26f2f6c0c8a562ce290616d2e4fc524cec9d1ca07809c9",
+        "cleanup_SIGTERM_records": 7,
+        "cleanup_signal_target": {
+          "pid": 360944,
+          "start_ticks": 7420824
+        },
+        "columns": 91,
+        "fresh_normalized_gradient": 8.35656500814021e-09,
+        "fresh_position_change_m": 1.0588035919612342e-08,
+        "fresh_pulse_update_m_s": 6.181421462221263e-13,
+        "full_rank": 91,
+        "hard_kill": false,
+        "nuisance_floor_limited": false,
+        "objective": 3235.427185391728,
+        "owned_cleanup_kernel_ECHILD": true,
+        "prior_receipt_review_sha256": "680a6400e8e66cc2447cb8374e4527c07519018b61226382b1d49d0bacf11069",
+        "remaining": [],
+        "scope": "Actual strict/backend result and prior receipt review preserved. Four additional saved-output numerical audits remain pending; current review does not recompute covariance.",
+        "status": "passed",
+        "strict_converged": true,
+        "strict_sha256": "7a4448fe6ef0c68192fa37bd46b143ff719ef0a430586c4422448fc96613c11c",
+        "supervisor_complete_exit_zero": true,
+        "supervisor_sha256": "b6c42d654ed4f84a8d583f44651810cbfc65a732cf183e93a4e750d073f4d7dc",
+        "trials": 10
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "cold-pulses",
+      "supervisor": {
+        "cleanup": {
+          "empty_tree_certificate": "kernel_ECHILD",
+          "hard_kill": false,
+          "remaining": [],
+          "signals": [
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            },
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            },
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            },
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            },
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            },
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            },
+            {
+              "pid": 360944,
+              "signal": 15,
+              "start_ticks": 7420824
+            }
+          ],
+          "verified": true
+        },
+        "cleanup_certified": true,
+        "complete_exit_zero": true,
+        "elapsed_seconds": 3813.3908523319988,
+        "owned_process_group_cleaned": true,
+        "peak_process_tree_rss_bytes": 383758336,
+        "returncode": 0,
+        "signals_received": [],
+        "status": "complete"
+      }
+    },
+    {
+      "accepted_final_covariance": false,
+      "backend_recorded": null,
+      "candidate_source_identity": "b49cd3938791f1e3d6dcc828cb414d7010cf3175aa604d23c4631e95f485413a",
+      "original_cleanup_receipt_available": false,
+      "original_recorded_status": "interrupted_without_backend_or_strict_terminal",
+      "original_strict_receipt": {
+        "bytes": null,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/strict-result.json",
+        "role": "original/cold-density/strict-result.json",
+        "sha256": null,
+        "status": "unavailable",
+        "target": null
+      },
+      "partial_progress": {
+        "accepted_covariance": false,
+        "cleanup_receipt_available": false,
+        "current_partial_point": "point-015-trial-012",
+        "current_partial_point_physical_closure": {
+          "converged": true,
+          "position_change_m": 5.987324997948643e-08,
+          "velocity_change_m_s": 7.173630451762569e-11
+        },
+        "exact_original_trial2_failure_preserved": true,
+        "initial_objective": 6816074.455124643,
+        "last_accepted_objective": 1887918.8663166559,
+        "last_completed_nuisance_generation": 24,
+        "last_completed_observation": {
+          "accepted_iterations": 7,
+          "confirmation_checks": [],
+          "last_completed_trial": {
+            "accepted": true,
+            "accepted_iteration": 6,
+            "actual_reduction": 381083.56520947,
+            "damping": 0.03845130200493425,
+            "gain_ratio": 0.7262877265431165,
+            "normalized_gradient": 0.08386814512492971,
+            "nuisance_floor_limited_before": false,
+            "nuisance_floor_limited_trial": false,
+            "nuisance_resolution_sum": 0.0,
+            "objective_before": 2269002.431526126,
+            "objective_floor": 0.00123538076877594,
+            "objective_reduction_numerically_resolved": true,
+            "objective_trial": 1887918.8663166559,
+            "predicted_reduction": 524700.5439886732,
+            "rank": {
+              "columns": 146,
+              "condition_number": 3239.5979445946273,
+              "effective_rows": 7885,
+              "maximum_singular_value": 4.64948553752506,
+              "minimum_singular_value": 0.0014352044966823355,
+              "rank": 146,
+              "status": "full_rank",
+              "threshold": 8.140420218657484e-12
+            },
+            "raw_correction": {
+              "density_update": 8.403657054082492,
+              "position_change_m": 5.822762653518134,
+              "pulse_update_m_s": 0.0
+            },
+            "trial": 11,
+            "trial_correction": {
+              "density_update": 5.538679834926636,
+              "position_change_m": 2.072716957669067,
+              "pulse_update_m_s": 0.0
+            },
+            "trial_rank": {
+              "columns": 146,
+              "condition_number": 3098.43327299146,
+              "effective_rows": 7885,
+              "maximum_singular_value": 4.446958225185425,
+              "minimum_singular_value": 0.001435228011507893,
+              "rank": 146,
+              "status": "full_rank",
+              "threshold": 7.785831003378946e-12
+            }
+          },
+          "status": "running",
+          "trial_evaluations": 11
+        },
+        "last_nuisance_search_accepted_alpha": 0.5,
+        "last_nuisance_undamped_update_m": 3.744436102123317e-08,
+        "next_generation_partial_rows_present": 25,
+        "saved_supervisor": {
+          "boot_id": "cb2d0b40-9b17-45f8-9e5c-716efb8e6aa5",
+          "elapsed_seconds": 5482.670010838992,
+          "owned_process_group_cleaned": false,
+          "peak_process_tree_rss_bytes": 385662976,
+          "returncode": null,
+          "signals_received": [],
+          "status": "running",
+          "supervisor": {
+            "parent": 235535,
+            "pid": 367336,
+            "start_ticks": 7897725,
+            "state": "R"
+          },
+          "worker": {
+            "parent": 367336,
+            "pid": 367337,
+            "start_ticks": 7898136,
+            "state": "D"
+          }
+        },
+        "status": "interrupted_before_fit_terminal_result",
+        "strict_converged": false,
+        "trial12_acceptance_evidence": "No completed trial12 record; do not infer its optimizer decision from nuisance search acceptance.",
+        "trial12_accepted": null,
+        "trial2_failure_sha256": "62b69ab5345d26cd07fd8f6b058f62f6cb67a754c8a5a4f0e33f99ed364bbe03"
+      },
+      "saved_audit_evidence": {
+        "export": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "rank": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "scientific": {
+          "applicability": "not_applicable",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        },
+        "selected": {
+          "applicability": "no_row_available",
+          "overall_status": "unavailable",
+          "recorded_rows": []
+        }
+      },
+      "stage": "cold-density",
+      "strict_converged": false,
+      "supervisor": {
+        "cleanup": {},
+        "cleanup_certified": false,
+        "complete_exit_zero": false,
+        "elapsed_seconds": 5482.670010838992,
+        "owned_process_group_cleaned": false,
+        "peak_process_tree_rss_bytes": 385662976,
+        "returncode": null,
+        "signals_received": [],
+        "status": "running"
+      }
+    }
+  ],
+  "post_audit_independent_review": null,
+  "post_audit_independent_review_status": "pending",
+  "release_authority": false,
+  "release_ready": false,
+  "resource_control_deviation": {
+    "addendum": {
+      "author": "/root/trial_rollback_audit_readiness",
+      "cpu_affinity": null,
+      "cpu_affinity_recorded": false,
+      "cpu_time_or_peak_memory_recorded": false,
+      "execution_inventory": [
+        {
+          "completion": "Text output exists and extraction completed; exact shell exit receipt was not separately saved.",
+          "directory": "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02",
+          "executable": "/usr/bin/mutool",
+          "executable_sha256": "1ac6c3565ea6269f01491e95a824d48e7c02d8b438a8b1381ebb3ecf07932c04",
+          "file_timestamp_observations_utc": {
+            "stderr_mtime": "2026-10-26T12:45:44.742367300Z",
+            "stdout_mtime": "2026-10-26T12:45:31.984217500Z",
+            "text_mtime": "2026-10-26T12:45:44.745367200Z"
+          },
+          "literal_shell_command_availability": "The retained small log files do not store the literal original shell command or timestamps. This normalized command records the known executable/options/input/output; do not treat normalization as a copied shell transcript.",
+          "location": "local host via exec_command",
+          "logs": [
+            "text-extraction.stdout",
+            "text-extraction.stderr"
+          ],
+          "normalized_command": "mutool draw -F txt -o jaeggi2007.txt jaeggi2007.download",
+          "operation": "Full PDF text extraction",
+          "process_end_utc": null,
+          "process_start_utc": null,
+          "scope": "All 220 PDF pages; actual stderr records pages1 through220."
+        },
+        {
+          "completion": "exec_command returned pipeline exit0 and220-page metadata. Output retained in conversation tool result, not a dedicated file.",
+          "literal_command": "mutool info /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/jaeggi2007.download | head -18",
+          "operation": "PDF metadata inspection",
+          "process_end_utc": null,
+          "process_start_utc": null,
+          "working_directory": "/mnt/d/orbit-publication-review"
+        },
+        {
+          "completion": "Shell command batch returned0; probe output is printed page68.",
+          "file_timestamp_observations_utc": {
+            "stderr_mtime": "2026-10-26T12:50:10.643231700Z",
+            "text_mtime": "2026-10-26T12:50:10.645226400Z"
+          },
+          "literal_command": "mutool draw -F txt -o /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/probe-page85.txt /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/jaeggi2007.download 85 2>/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/probe-page85.stderr",
+          "logs": [
+            "probe-page85.stderr"
+          ],
+          "operation": "Single-page text extraction probe",
+          "process_end_utc": null,
+          "process_start_utc": null,
+          "tool_reported_batch_wall_seconds": 1.061464108,
+          "tool_wall_scope": "Includes subsequent head/tail reads in the same batch; not a measured CPU duration or exact process start/end.",
+          "working_directory": "/mnt/d/orbit-publication-review"
+        },
+        {
+          "completion": "Rendered pages80,81,82, then failed because94 was interpreted as a filename. Original failed stderr and all outputs remain unchanged.",
+          "exit_code": 1,
+          "file_timestamp_observations_utc": {
+            "stderr_mtime": "2026-10-26T12:50:27.430671500Z",
+            "stdout_mtime": "2026-10-26T12:50:26.142853400Z"
+          },
+          "literal_command": "mutool draw -F png -r 90 -o /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-%d.png /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/jaeggi2007.download 80-82 94 1>/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-render.stdout 2>/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-render.stderr",
+          "logs": [
+            "page-render.stdout",
+            "page-render.stderr"
+          ],
+          "operation": "First PNG rendering command",
+          "process_end_utc": null,
+          "process_start_utc": null,
+          "tool_reported_wall_seconds": 1.143542211,
+          "working_directory": "/mnt/d/orbit-publication-review"
+        },
+        {
+          "completion": "Rendered pages85,89,94.",
+          "exit_code": 0,
+          "file_timestamp_observations_utc": {
+            "last_png_mtime": "2026-10-26T12:50:54.550258400Z",
+            "stderr_mtime": "2026-10-26T12:50:54.548850600Z",
+            "stdout_mtime": "2026-10-26T12:50:53.378165100Z"
+          },
+          "literal_command": "mutool draw -F png -r 90 -o /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-%d.png /mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/jaeggi2007.download 85,89,94 1>/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-render02.stdout 2>/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-render02.stderr",
+          "logs": [
+            "page-render02.stdout",
+            "page-render02.stderr"
+          ],
+          "operation": "Second PNG rendering command",
+          "process_end_utc": null,
+          "process_start_utc": null,
+          "tool_reported_wall_seconds": 1.029452106,
+          "working_directory": "/mnt/d/orbit-publication-review"
+        },
+        {
+          "location": "Local image-file tool reads; processing implementation, affinity, CPU time and start/end not recorded.",
+          "operation": "Tool image reads",
+          "paths": [
+            "page-80.png",
+            "page-81.png",
+            "page-82.png",
+            "page-85.png",
+            "page-89.png",
+            "page-94.png"
+          ],
+          "process_end_utc": null,
+          "process_start_utc": null,
+          "tool": "view_image"
+        }
+      ],
+      "existing_receipts_modified": false,
+      "explicit_taskset_or_nice_used": false,
+      "fit_input_or_protocol_mutation": false,
+      "fit_restart_or_automatic_rerun_authorized_by_this_record": false,
+      "inherited_affinity_or_scheduling_unknown": true,
+      "local_execution": true,
+      "new_conversion_or_rendering_for_this_addendum": false,
+      "observation_metadata_read_utc": "2026-10-26T12:55:16.713811432Z",
+      "prior_evidence_sha256": "40a08caf9a17eb9ced20b1ecfb435cf9e9272236a67c37e559b011975915c178",
+      "process_end_utc_recorded": false,
+      "process_pid_or_process_tree_receipt_available": false,
+      "process_start_utc_recorded": false,
+      "project_run_state_basis": "Parent task messages stated sequence03 was live. This agent did not independently inspect its process or timing receipts during the literature task.",
+      "receipt_path_base": "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02",
+      "record_date": "2026-10-26",
+      "remote_execution": false,
+      "resource_consequence": "Local CPU, memory and filesystem activity occurred during an active local sequence. Possible timing interference must remain disclosed. Its magnitude is unmeasured; this record neither asserts harmlessness nor attributes any numerical failure to it.",
+      "schema": "orbit.concurrent-resource-observation.v1",
+      "statement": "PDF extraction and rendering were executed locally while the parent reported candidate07 sequence03 active. They were not remote jobs and were not covered by the numerical supervisor or exclusive-run admission. The parent's continuing local-renderer restriction was not honored. This addendum preserves that execution rather than treating 'no project numerical execution' as 'no local execution'.",
+      "timing_interpretation": "The UTC values are observed filesystem mtime/ctime metadata read after the work. Birth times are unavailable. They identify output writes, not certified process start/end, an execution envelope, CPU time, or proof of core separation. Tool-reported wall values are likewise not measurements of impact on the active numerical run."
+    },
+    "addendum_sha256": "7094f675d431d222a560d285927c4d15b49212d50105d77ac1737301342e56df",
+    "automatic_rerun_authorized": false,
+    "description": "Local PDF extraction, probing and PNG rendering occurred outside the admitted numerical process tree while the parent reported the density objective active. This violated the continuing local-renderer restriction.",
+    "exact_process_intervals_measured": false,
+    "harmlessness_certified": false,
+    "numerical_failure_attributed_to_rendering": false,
+    "numerical_or_timing_impact_measured": false,
+    "observed_output_write_times_utc": [
+      "2026-10-26T12:45:31.984217500Z",
+      "2026-10-26T12:45:44.742367300Z",
+      "2026-10-26T12:50:10.645226400Z",
+      "2026-10-26T12:50:26.142853400Z",
+      "2026-10-26T12:50:27.430671500Z",
+      "2026-10-26T12:50:53.378165100Z",
+      "2026-10-26T12:50:54.548850600Z"
+    ],
+    "original_failed_rendering_evidence_preserved": true,
+    "rerun_policy": "All original outcomes remain. No automatic rerun, replacement, timeout adjustment or correctness-threshold change is authorized by this disclosure.",
+    "review": {
+      "accepted_state_binding_issued": false,
+      "actual_frozen_policy": {
+        "admission_behavior": "reference_recovery classifies native and orbit numerical-Python workloads; reference_gates additionally checks native/compiler names. These startup/per-stage snapshots do not monitor arbitrary future sibling renderers and mutool is not among the classified names. A clean earlier admission receipt does not demonstrate that the later rendering did not occur.",
+        "admission_scope_exact": "Cooperative current-host admission; no exclusive CPU reservation or old-boot process attribution.",
+        "cpu": 4,
+        "density_objective_wall_limit_seconds": 7200,
+        "mathematical_acceptance_behavior": "The stage wrapper executes the original command, rechecks frozen dependency identities, invokes the original strict result parser and preserves its status. The parent gate requires all eleven ordered strict stages, complete zero-exit supervision, verified cleanup and unchanged inputs before cold fits. No inspected predicate changes the numerical threshold or declares a numerical pass solely from an admission/timing observation.",
+        "one_numerical_thread": true,
+        "plan_path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/plan.json",
+        "plan_sha256": "386b0aecc5a92b19fb9a95e749a597b7e89c92bc071438bda6b98fd09a29aa56",
+        "process_tree_rss_limit_bytes": 8589934592,
+        "references": [
+          "candidate07-correctness03/plan.json:9719",
+          "density-trial-controls03/reference_recovery.py:71",
+          "density-trial-controls03/reference_recovery.py:101",
+          "density-trial-controls03/reference_gates09.py:126",
+          "density-trial-controls03/reference_gates09.py:145",
+          "density-trial-controls03/reference_gates09.py:691",
+          "density-trial-controls03/reference_gates09.py:705",
+          "density-trial-controls03/reference_gates09.py:797",
+          "density-trial-controls03/reference_gates09.py:825",
+          "density-trial-sequence03/sequence.py:64",
+          "/mnt/d/orbit-v41-density-trial-candidate07/source/src/orbit_poc/segmented/supervisor.py:188"
+        ],
+        "supervision_behavior": "The supervisor accounts owned descendants' sampled RSS, wall timeout and free disk. Unrelated mutool processes are outside that owned tree. Their CPU/memory/filesystem contention and effect on the wall budget are not measured by the fit's own RSS receipt."
+      },
+      "assessment": {
+        "input_identity": "The disclosed commands target the separate literature directory and report no fit-input/protocol mutation. This is not substituted for the numerical campaign's required before/after hash checks; those remain mandatory.",
+        "mathematical_gate_eligibility": "The resource deviation is not itself proof that a numerical gate passed, failed or became invalid. Continue to judge the unchanged numerical predicates, native/raw evidence, source/input identity and cleanup through the prescribed independent audit. This review grants no numerical or covariance acceptance and does not certify harmlessness.",
+        "publication_requirement": "Attach this deviation and original addendum to the later candidate07 publication. Distinguish resource-control compliance from mathematical gate outcomes, mark affected timing claims as non-exclusive, retain the failed rendering evidence, and state that exact process intervals and numerical impact are unmeasured.",
+        "rerun_policy": "No automatic rerun, replacement, restart, timeout adjustment or threshold relaxation follows from this review. Preserve the current run and every existing outcome. Any later separately authorized timing experiment would need its own controls and must not replace this archived attempt.",
+        "timing_eligibility": "Retain recorded timings as operational observations with the concurrency deviation attached. They cannot establish uncontended or exclusively reserved performance during the reported overlap; the current correctness plan already explicitly lacks exclusive CPU reservation. No magnitude, sign or per-stage timing correction is justified. This record does not retrospectively classify other timings as uncontaminated.",
+        "unmeasured_risk": "Scheduling, memory and filesystem contention could affect elapsed time or budget exhaustion. The available evidence does not quantify that effect and cannot attribute a success, failure or timeout to rendering."
+      },
+      "automatic_rerun_authorized": false,
+      "covariance_authority": false,
+      "current_runs_modified": false,
+      "disclosure": {
+        "control_deviation_confirmed": true,
+        "description": "Local mutool extraction, metadata/probe commands and PNG rendering, plus local image reads, occurred while the parent reported candidate07 sequence03 active. They were outside numerical supervision/admission and violated the parent's continuing local-renderer restriction. 'No project numerical execution' does not mean no local resource consumption.",
+        "metadata_sha256": "bc2397fa3b38154848fce3419979814198daa428b8081d6d1adf894f06c336bc",
+        "original_disclosure_hashes_match": true,
+        "path": "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/resource-observation-addendum01/addendum.json",
+        "restriction_origin": "The local-renderer prohibition is the parent operational instruction and contemporaneous disclosure. It is not represented as a renderer-specific mathematical rejection predicate in the inspected frozen numerical controls.",
+        "sha256": "7094f675d431d222a560d285927c4d15b49212d50105d77ac1737301342e56df"
+      },
+      "exact_impact_measured": false,
+      "frozen_protocols_or_thresholds_changed": false,
+      "numerical_failure_attributed_to_rendering": false,
+      "observed_evidence": {
+        "correctness_controller_started_utc_from_saved_receipt": "2026-10-26T08:39:57.380664+00:00",
+        "failed_render_preserved": "First render log records pages80-82 and failure interpreting94 as another filename. The original failure and produced files remain; the subsequent separate command records pages85,89,94.",
+        "full_extraction_log_scope": "Actual stderr enumerates PDF pages1 through220.",
+        "logs_inspected": [
+          "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/text-extraction.stderr",
+          "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-render.stderr",
+          "/mnt/d/orbit-publication-review/2026-10-26-prior-work-fulltext02/page-render02.stderr"
+        ],
+        "reported_output_write_times_utc": [
+          "2026-10-26T12:45:31.984217500Z",
+          "2026-10-26T12:45:44.742367300Z",
+          "2026-10-26T12:50:10.645226400Z",
+          "2026-10-26T12:50:26.142853400Z",
+          "2026-10-26T12:50:27.430671500Z",
+          "2026-10-26T12:50:53.378165100Z",
+          "2026-10-26T12:50:54.548850600Z"
+        ],
+        "sequence_launch_utc_from_saved_receipt": "2026-10-26T08:34:11.258790+00:00",
+        "sequence_started_utc_from_saved_receipt": "2026-10-26T08:34:13.202141+00:00",
+        "stage_attribution_limit": "The parent identifies the density objective as active during the reported literature work. The inspected density-stage supervision receipt has elapsed duration and process start ticks, but no UTC start/end pair. This review does not convert those ticks, fabricate an overlap interval or independently certify exact stage boundaries. Both cold fits were reported not started at the time of the deviation; this record supplies no evidence of cold-fit overlap.",
+        "time_limitations": "These are saved filesystem output-write observations, corroborated by current file metadata; they are not certified process start/end times or an execution interval. No start/end bounds, CPU affinity, CPU time, peak memory, process-tree receipt or core separation may be reconstructed from them. The tool wall durations are not measurements of impact on the numerical run."
+      },
+      "release_authority": false,
+      "reported_harmless": false,
+      "reviewer": "npz_export_audit_readiness",
+      "schema": "candidate07-local-resource-control-deviation-independent-review-v1",
+      "scope": "Read-only shell/jq/hash/source assessment of the disclosed local PDF operations and actual frozen correctness/sequence controls. No numerical execution, imports, tests, SSH, new conversion, rendering, process signalling, restart or protocol mutation."
+    },
+    "review_sha256": "b0b76269016d7a379f003fa57d21a16df2160cb1bac3cffd99d7a0dc7b123692",
+    "status": "disclosed_independently_reviewed_operational_deviation",
+    "timing_and_numerical_limits": "Exact process intervals and numerical or timing impact were not measured. Output-write timestamps do not establish execution intervals or core separation. These timings cannot support an uncontended-performance claim during the reported overlap. No harmlessness, numerical failure or timeout is attributed to the rendering; this evidence does not establish overlap with the later cold fits.",
+    "uncontended_timing_claim_during_reported_overlap": false
+  },
+  "saved_audits": {
+    "export": {
+      "audit": null,
+      "controller_certified": false,
+      "covariance_authority": false,
+      "error": null,
+      "executor_source": null,
+      "independent_review_status": "see_separate_post_audit_review",
+      "manifest_source_attribution": null,
+      "result_link": null,
+      "status": "unavailable",
+      "supervisor": {
+        "complete_exit_zero": false,
+        "status": "unavailable"
+      },
+      "whole_pair_complete": false,
+      "worker_recorded_status": "unavailable",
+      "worker_schema_valid": false
+    },
+    "rank": {
+      "audit": null,
+      "controller_certified": false,
+      "covariance_authority": false,
+      "error": null,
+      "executor_source": null,
+      "independent_review_status": "see_separate_post_audit_review",
+      "manifest_source_attribution": null,
+      "result_link": null,
+      "status": "unavailable",
+      "supervisor": {
+        "complete_exit_zero": false,
+        "status": "unavailable"
+      },
+      "whole_pair_complete": false,
+      "worker_recorded_status": "unavailable",
+      "worker_schema_valid": false
+    },
+    "scientific": {
+      "audit": null,
+      "controller_certified": false,
+      "covariance_authority": false,
+      "error": null,
+      "executor_source": null,
+      "independent_review_status": "see_separate_post_audit_review",
+      "manifest_source_attribution": null,
+      "result_link": null,
+      "status": "unavailable",
+      "supervisor": {
+        "complete_exit_zero": false,
+        "status": "unavailable"
+      },
+      "whole_pair_complete": false,
+      "worker_recorded_status": "unavailable",
+      "worker_schema_valid": false
+    },
+    "selected": {
+      "audit": null,
+      "controller_certified": false,
+      "covariance_authority": false,
+      "error": null,
+      "executor_source": null,
+      "independent_review_status": "see_separate_post_audit_review",
+      "manifest_source_attribution": null,
+      "result_link": null,
+      "status": "unavailable",
+      "supervisor": {
+        "complete_exit_zero": false,
+        "status": "unavailable"
+      },
+      "whole_pair_complete": false,
+      "worker_recorded_status": "unavailable",
+      "worker_schema_valid": false
+    }
+  },
+  "schema": "candidate07-sequence03-publication-v1",
+  "sequence_status": "interrupted_across_boot_without_original_terminal",
+  "source_receipt_links": {
+    "candidate/source-snapshot.json": "receipts/candidate/source-snapshot.json",
+    "collection/controller-plan.json": "receipts/collection/controller-plan.json",
+    "collection/controller/actual-jobs.json": "receipts/collection/controller/actual-jobs.json",
+    "collection/controller/admission.json": "receipts/collection/controller/admission.json",
+    "collection/controller/result.json": "receipts/collection/controller/result.json",
+    "collection/controller/runtime-after.json": "receipts/collection/controller/runtime-after.json",
+    "collection/controller/runtime-before.json": "receipts/collection/controller/runtime-before.json",
+    "collection/controller/source-after.json": "receipts/collection/controller/source-after.json",
+    "collection/controller/source-before.json": "receipts/collection/controller/source-before.json",
+    "collection/recovered-individual-evidence.json": "receipts/collection/recovered-individual-evidence.json",
+    "collection/worker/context.json": "receipts/collection/worker/context.json",
+    "collection/worker/supervisor.json": "receipts/collection/worker/supervisor.json",
+    "collection/worker/supervisor.plan.json": "receipts/collection/worker/supervisor.plan.json",
+    "collection/worker/worker.log": "receipts/collection/worker/worker.log",
+    "controls/qualification02/auditors/junit.xml": "receipts/controls/qualification02/auditors/junit.xml",
+    "controls/qualification02/auditors/supervisor.json": "receipts/controls/qualification02/auditors/supervisor.json",
+    "controls/qualification02/auditors/supervisor.plan.json": "receipts/controls/qualification02/auditors/supervisor.plan.json",
+    "controls/qualification02/collector/junit.xml": "receipts/controls/qualification02/collector/junit.xml",
+    "controls/qualification02/collector/supervisor.json": "receipts/controls/qualification02/collector/supervisor.json",
+    "controls/qualification02/collector/supervisor.plan.json": "receipts/controls/qualification02/collector/supervisor.plan.json",
+    "controls/qualification02/publication/junit.xml": "receipts/controls/qualification02/publication/junit.xml",
+    "controls/qualification02/publication/supervisor.json": "receipts/controls/qualification02/publication/supervisor.json",
+    "controls/qualification02/publication/supervisor.plan.json": "receipts/controls/qualification02/publication/supervisor.plan.json",
+    "controls/qualification02/result.json": "receipts/controls/qualification02/result.json",
+    "controls/qualification02/review.json": "receipts/controls/qualification02/review.json",
+    "controls/qualification02/runtime-before.json": "receipts/controls/qualification02/runtime-before.json",
+    "controls/qualification02/source-after.json": "receipts/controls/qualification02/source-after.json",
+    "controls/qualification02/source-before.json": "receipts/controls/qualification02/source-before.json",
+    "controls/qualification04/auditors/junit.xml": "receipts/controls/qualification04/auditors/junit.xml",
+    "controls/qualification04/auditors/supervisor.json": "receipts/controls/qualification04/auditors/supervisor.json",
+    "controls/qualification04/auditors/supervisor.plan.json": "receipts/controls/qualification04/auditors/supervisor.plan.json",
+    "controls/qualification04/collector/junit.xml": "receipts/controls/qualification04/collector/junit.xml",
+    "controls/qualification04/collector/supervisor.json": "receipts/controls/qualification04/collector/supervisor.json",
+    "controls/qualification04/collector/supervisor.plan.json": "receipts/controls/qualification04/collector/supervisor.plan.json",
+    "controls/qualification04/publication/junit.xml": "receipts/controls/qualification04/publication/junit.xml",
+    "controls/qualification04/publication/supervisor.json": "receipts/controls/qualification04/publication/supervisor.json",
+    "controls/qualification04/publication/supervisor.plan.json": "receipts/controls/qualification04/publication/supervisor.plan.json",
+    "controls/qualification04/recovery-controls/junit.xml": "receipts/controls/qualification04/recovery-controls/junit.xml",
+    "controls/qualification04/recovery-controls/supervisor.json": "receipts/controls/qualification04/recovery-controls/supervisor.json",
+    "controls/qualification04/recovery-controls/supervisor.plan.json": "receipts/controls/qualification04/recovery-controls/supervisor.plan.json",
+    "controls/qualification04/result.json": "receipts/controls/qualification04/result.json",
+    "controls/qualification04/review.json": "receipts/controls/qualification04/review.json",
+    "controls/qualification04/runtime-after.json": "receipts/controls/qualification04/runtime-after.json",
+    "controls/qualification04/runtime-before.json": "receipts/controls/qualification04/runtime-before.json",
+    "controls/qualification04/source-after.json": "receipts/controls/qualification04/source-after.json",
+    "controls/qualification04/source-before.json": "receipts/controls/qualification04/source-before.json",
+    "controls/supplementary_adapter14/junit.xml": "receipts/controls/supplementary_adapter14/junit.xml",
+    "controls/supplementary_adapter14/result.json": "receipts/controls/supplementary_adapter14/result.json",
+    "controls/supplementary_adapter14/review.json": "receipts/controls/supplementary_adapter14/review.json",
+    "controls/supplementary_adapter14/runtime-after.json": "receipts/controls/supplementary_adapter14/runtime-after.json",
+    "controls/supplementary_adapter14/runtime-before.json": "receipts/controls/supplementary_adapter14/runtime-before.json",
+    "controls/supplementary_adapter14/source-after.json": "receipts/controls/supplementary_adapter14/source-after.json",
+    "controls/supplementary_adapter14/source-before.json": "receipts/controls/supplementary_adapter14/source-before.json",
+    "controls/supplementary_adapter14/supervisor.json": "receipts/controls/supplementary_adapter14/supervisor.json",
+    "controls/supplementary_adapter14/supervisor.plan.json": "receipts/controls/supplementary_adapter14/supervisor.plan.json",
+    "controls/supplementary_cold31/junit.xml": "receipts/controls/supplementary_cold31/junit.xml",
+    "controls/supplementary_cold31/result.json": "receipts/controls/supplementary_cold31/result.json",
+    "controls/supplementary_cold31/review.json": "receipts/controls/supplementary_cold31/review.json",
+    "controls/supplementary_cold31/runtime-after.json": "receipts/controls/supplementary_cold31/runtime-after.json",
+    "controls/supplementary_cold31/runtime-before.json": "receipts/controls/supplementary_cold31/runtime-before.json",
+    "controls/supplementary_cold31/source-after.json": "receipts/controls/supplementary_cold31/source-after.json",
+    "controls/supplementary_cold31/source-before.json": "receipts/controls/supplementary_cold31/source-before.json",
+    "controls/supplementary_cold31/supervisor.json": "receipts/controls/supplementary_cold31/supervisor.json",
+    "controls/supplementary_cold31/supervisor.plan.json": "receipts/controls/supplementary_cold31/supervisor.plan.json",
+    "history/candidate04/density.json": "receipts/history/candidate04/density.json",
+    "history/candidate04/pulse.json": "receipts/history/candidate04/pulse.json",
+    "history/candidate04/result.json": "receipts/history/candidate04/result.json",
+    "history/candidate06/published.json": "receipts/history/candidate06/published.json",
+    "history/candidate06/report.json": "receipts/history/candidate06/report.json",
+    "interruption/review.json": "receipts/interruption/review.json",
+    "interruption/source-00-plan.json": "receipts/interruption/source-00-plan.json",
+    "interruption/source-01-launch.json": "receipts/interruption/source-01-launch.json",
+    "interruption/source-02-sequence.py": "receipts/interruption/source-02-sequence.py",
+    "interruption/source-03-correctness-terminal-audit.json": "receipts/interruption/source-03-correctness-terminal-audit.json",
+    "interruption/source-04-result.json": "receipts/interruption/source-04-result.json",
+    "interruption/source-05-detached-result.json": "receipts/interruption/source-05-detached-result.json",
+    "interruption/source-06-review.json": "receipts/interruption/source-06-review.json",
+    "interruption/source-08-freeze.json": "receipts/interruption/source-08-freeze.json",
+    "interruption/source-09-strict-result.json": "receipts/interruption/source-09-strict-result.json",
+    "interruption/source-10-backend-result.json": "receipts/interruption/source-10-backend-result.json",
+    "interruption/source-11-supervisor.json": "receipts/interruption/source-11-supervisor.json",
+    "interruption/source-12-review.json": "receipts/interruption/source-12-review.json",
+    "interruption/source-13-supervisor.json": "receipts/interruption/source-13-supervisor.json",
+    "interruption/source-14-supervisor.plan.json": "receipts/interruption/source-14-supervisor.plan.json",
+    "interruption/source-15-request.json": "receipts/interruption/source-15-request.json",
+    "interruption/source-16-iterations.json": "receipts/interruption/source-16-iterations.json",
+    "interruption/source-17-trial-closure-failure.json": "receipts/interruption/source-17-trial-closure-failure.json",
+    "interruption/source-18-closure.json": "receipts/interruption/source-18-closure.json",
+    "interruption/source-19-qr.24.nuisance_line_search.json": "receipts/interruption/source-19-qr.24.nuisance_line_search.json",
+    "interruption/source-20-qr.24.profile.json": "receipts/interruption/source-20-qr.24.profile.json",
+    "interruption/source-21-profile.log": "receipts/interruption/source-21-profile.log",
+    "interruption/source-22-profile.xml": "receipts/interruption/source-22-profile.xml",
+    "original/cold-density/request.json": "receipts/interruption/source-15-request.json",
+    "original/cold-density/supervisor.json": "receipts/interruption/source-13-supervisor.json",
+    "original/cold-density/supervisor.plan.json": "receipts/interruption/source-14-supervisor.plan.json",
+    "original/cold-pulses/backend-result.json": "receipts/interruption/source-10-backend-result.json",
+    "original/cold-pulses/request.json": "receipts/original/cold-pulses/request.json",
+    "original/cold-pulses/strict-result.json": "receipts/interruption/source-09-strict-result.json",
+    "original/cold-pulses/supervisor.json": "receipts/interruption/source-11-supervisor.json",
+    "original/cold-pulses/supervisor.plan.json": "receipts/original/cold-pulses/supervisor.plan.json",
+    "original/cold/freeze.json": "receipts/interruption/source-08-freeze.json",
+    "original/correction-tests/strict-result.json": "receipts/original/correction-tests/strict-result.json",
+    "original/correction-tests/supervisor.json": "receipts/original/correction-tests/supervisor.json",
+    "original/correction-tests/supervisor.plan.json": "receipts/original/correction-tests/supervisor.plan.json",
+    "original/correctness/detached-result.json": "receipts/interruption/source-05-detached-result.json",
+    "original/correctness/freeze.json": "receipts/original/correctness/freeze.json",
+    "original/correctness/plan.json": "receipts/original/correctness/plan.json",
+    "original/correctness/result.json": "receipts/interruption/source-04-result.json",
+    "original/eccentric-24h-refinement/strict-result.json": "receipts/original/eccentric-24h-refinement/strict-result.json",
+    "original/eccentric-24h-refinement/supervisor.json": "receipts/original/eccentric-24h-refinement/supervisor.json",
+    "original/eccentric-24h-refinement/supervisor.plan.json": "receipts/original/eccentric-24h-refinement/supervisor.plan.json",
+    "original/flight-refinement/strict-result.json": "receipts/original/flight-refinement/strict-result.json",
+    "original/flight-refinement/supervisor.json": "receipts/original/flight-refinement/supervisor.json",
+    "original/flight-refinement/supervisor.plan.json": "receipts/original/flight-refinement/supervisor.plan.json",
+    "original/native-fail-fast-tests/strict-result.json": "receipts/original/native-fail-fast-tests/strict-result.json",
+    "original/native-fail-fast-tests/supervisor.json": "receipts/original/native-fail-fast-tests/supervisor.json",
+    "original/native-fail-fast-tests/supervisor.plan.json": "receipts/original/native-fail-fast-tests/supervisor.plan.json",
+    "original/native-tests/strict-result.json": "receipts/original/native-tests/strict-result.json",
+    "original/native-tests/supervisor.json": "receipts/original/native-tests/supervisor.json",
+    "original/native-tests/supervisor.plan.json": "receipts/original/native-tests/supervisor.plan.json",
+    "original/nuisance-replay-candidate1-point012/strict-result.json": "receipts/original/nuisance-replay-candidate1-point012/strict-result.json",
+    "original/nuisance-replay-candidate1-point012/supervisor.json": "receipts/original/nuisance-replay-candidate1-point012/supervisor.json",
+    "original/nuisance-replay-candidate1-point012/supervisor.plan.json": "receipts/original/nuisance-replay-candidate1-point012/supervisor.plan.json",
+    "original/nuisance-replay/strict-result.json": "receipts/original/nuisance-replay/strict-result.json",
+    "original/nuisance-replay/supervisor.json": "receipts/original/nuisance-replay/supervisor.json",
+    "original/nuisance-replay/supervisor.plan.json": "receipts/original/nuisance-replay/supervisor.plan.json",
+    "original/objective-log_drag_ou/strict-result.json": "receipts/original/objective-log_drag_ou/strict-result.json",
+    "original/objective-log_drag_ou/supervisor.json": "receipts/original/objective-log_drag_ou/supervisor.json",
+    "original/objective-log_drag_ou/supervisor.plan.json": "receipts/original/objective-log_drag_ou/supervisor.plan.json",
+    "original/objective-pulses/strict-result.json": "receipts/original/objective-pulses/strict-result.json",
+    "original/objective-pulses/supervisor.json": "receipts/original/objective-pulses/supervisor.json",
+    "original/objective-pulses/supervisor.plan.json": "receipts/original/objective-pulses/supervisor.plan.json",
+    "original/sequence/correctness-terminal-audit.json": "receipts/interruption/source-03-correctness-terminal-audit.json",
+    "original/sequence/launch.json": "receipts/interruption/source-01-launch.json",
+    "original/sequence/plan.json": "receipts/interruption/source-00-plan.json",
+    "original/sequence/sequence.py": "receipts/interruption/source-02-sequence.py",
+    "original/synthetic-refinement-log_drag_ou/strict-result.json": "receipts/original/synthetic-refinement-log_drag_ou/strict-result.json",
+    "original/synthetic-refinement-log_drag_ou/supervisor.json": "receipts/original/synthetic-refinement-log_drag_ou/supervisor.json",
+    "original/synthetic-refinement-log_drag_ou/supervisor.plan.json": "receipts/original/synthetic-refinement-log_drag_ou/supervisor.plan.json",
+    "original/synthetic-refinement-pulses/strict-result.json": "receipts/original/synthetic-refinement-pulses/strict-result.json",
+    "original/synthetic-refinement-pulses/supervisor.json": "receipts/original/synthetic-refinement-pulses/supervisor.json",
+    "original/synthetic-refinement-pulses/supervisor.plan.json": "receipts/original/synthetic-refinement-pulses/supervisor.plan.json",
+    "resource-deviation/addendum.json": "receipts/resource-deviation/addendum.json",
+    "resource-deviation/file-metadata-utc.tsv": "receipts/resource-deviation/file-metadata-utc.tsv",
+    "resource-deviation/original-evidence.json": "receipts/resource-deviation/original-evidence.json",
+    "resource-deviation/page-render.stderr": "receipts/resource-deviation/page-render.stderr",
+    "resource-deviation/page-render02.stderr": "receipts/resource-deviation/page-render02.stderr",
+    "resource-deviation/review.json": "receipts/resource-deviation/review.json",
+    "resource-deviation/source-evidence.sha256": "receipts/resource-deviation/source-evidence.sha256",
+    "resource-deviation/text-extraction.stderr": "receipts/resource-deviation/text-extraction.stderr"
+  },
+  "status": "diagnostic_failures_or_incomplete_evidence",
+  "summary": "The original sequence was interrupted by a host reboot. Eleven correctness checks and the pulse fit have individual terminal receipts; density has no terminal result or original cleanup certificate. Later saved-output audits are reported separately. This packet does not complete the original pair or establish completion of a frozen campaign.",
+  "whole_pair_complete": false
+}

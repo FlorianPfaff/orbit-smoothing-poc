@@ -1,0 +1,42 @@
+--- ../preparation01/fixture_control.py	2026-10-27 07:11:17.941330600 +0100
++++ fixture_control.py	2026-10-27 07:37:42.738931500 +0100
+@@ -14,8 +14,8 @@
+ HERE = Path(__file__).resolve().parent
+ SOURCE = Path('/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-objective-probe01/preparation01')
+ SOURCE_SHA = '754967b72939e921f0eafcb98766c1daa514bf8ae1e512c49dbe9f77518a3cef'
+-OUT = Path('/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures01')
+-SCRATCH = Path('/home/emper/orbit-density04-undamped-probe-fixtures01')
++OUT = Path('/mnt/d/orbit-v41-recovery02/candidate07-density04-undamped-probe-fixtures02')
++SCRATCH = Path('/home/emper/orbit-density04-undamped-probe-fixtures02')
+ LOCK = Path('/mnt/d/orbit-v41-recovery02/validation-controls07/cooperative-admission.lock')
+ PYTHON = '/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python'
+ PYTHON_SHA = '58f0ee5f4cb0af42a69aed9f122d63cc535fcfa6bca71132a3d0e24be95c4ac8'
+@@ -67,7 +67,8 @@
+ 
+ def runtime_snapshot():
+     """Verify the saved finite runtime envelope; never import/probe its packages."""
+-    envelope = read(HERE/'python-envelope.json'); rows = list(envelope['files'])
++    envelope = read(HERE/'python-envelope.json')
++    rows = [*envelope['files'],*read(HERE/'stdlib-extra-libraries.json')['files']]
+     for tree in envelope['trees']:
+         root = Path(tree['root'])
+         expected = {r['relative'] for r in tree['entries'] if r['kind'] != 'directory'}
+@@ -109,12 +110,15 @@
+     # parent is mounted. The supervisor uses the separately pinned host site.
+     stdlib = next(t['root'] for t in envelope['trees'] if t['root'].endswith('/lib/python3.11'))
+     mounts[stdlib] = stdlib; mounts[str(Path(stdlib).resolve())] = str(Path(stdlib).resolve())
+-    for row in envelope['files']:
++    for row in [*envelope['files'],*read(HERE/'stdlib-extra-libraries.json')['files']]:
+         if '/site-packages/' in row['path']: continue
+         mounts[row['path']] = row['resolved']; mounts[row['resolved']] = row['resolved']
+         canonical_base = str(Path(envelope['base_prefix']).resolve())
+-        if row['resolved'].startswith(canonical_base+'/lib/'):
+-            mounts[envelope['base_prefix']+row['resolved'][len(canonical_base):]] = row['resolved']
++        # The extension's $ORIGIN can be the logical stdlib mount. Preserve
++        # both its SONAME spelling and the resolved versioned spelling there.
++        for spelling in (row['path'],row['resolved']):
++            if spelling.startswith(canonical_base+'/lib/'):
++                mounts[envelope['base_prefix']+spelling[len(canonical_base):]] = row['resolved']
+     for target, source in sorted(mounts.items(), key=lambda item: (item[0].count('/'), item[0])):
+         args += ['--ro-bind', source, target]
+     for path in sorted({stdlib+'/site-packages', str(Path(stdlib).resolve())+'/site-packages'}):

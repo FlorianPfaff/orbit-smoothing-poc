@@ -1,0 +1,34 @@
+Source-only correction02 to independently reviewed preparation01.
+
+Original source ledger:41d9e2b24bafe39fee278d3ac1602b4acb18816b2dcfd0480bfa7f404deffdaa.
+Original independent review:e1dba4ef9f133fe902b76be2962056da70544a61fcedb33f15396b28e5504614.
+Both are copied under predecessor/. Preparation01 remains byte-for-byte intact.
+
+GIT01: push still verifies the exact direct-child commit and additive tree, then
+uses --force-with-lease=<fixed ref>:<reviewed parent>. This explicit old-value
+condition rejects a concurrent rewind, deletion or advance. The word force in
+Git's lease option does not grant arbitrary rewrite permission here: the source
+requires the pushed commit's sole parent to equal the reviewed current ref.
+No plain --force, force-if-includes, implicit tracking-ref lease, wildcard update,
+automatic retry/rebase or replacement parent is permitted.
+
+GIT02: after read-only validation and before any push-phase output, mkdir of
+PREPARED_OUTPUT/push-attempt01 exclusively claims the attempt. The directory is
+never removed on failure. A concurrent invocation cannot overwrite evidence or
+reach push. All new push-phase files are inside that directory with shell
+noclobber enabled. claim.json is a local claim record, attempt.json records
+unknown transmission outcome before push, receipt.json exists only after actual
+successful push and observed exact remote head. No process cleanup or PID-based
+kill authority follows from recording the claimant PID.
+
+The prepare_commit.sh and publication_contract.sh executables, entire exact
+correction archive and all model/threshold inputs are unchanged. Only push
+control and descriptive/source provenance are revised. A future prepared commit
+must bind this actual02 source ledger; an old01 prepared receipt cannot be reused.
+
+No command/helper/test/Git/network operation was executed. An independent source
+review and isolated qualification remain required before any actual publication.
+Meaningful future qualification should cover unchanged-parent success; changed,
+rewound and deleted remote refs; a non-descendant prepared commit; and concurrent
+claim refusal with original attempt files retained. These are test requirements,
+not assertions that any test or remote race has already run.

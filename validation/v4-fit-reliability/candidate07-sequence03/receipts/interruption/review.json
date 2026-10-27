@@ -1,0 +1,335 @@
+{
+  "schema": "candidate07-sequence03-interruption-independent-review-v1",
+  "reviewer": "/root/interruption_review",
+  "scope": "Read-only shell/jq/hash/source audit, plus new additive review files only. No Python, test, numerical recomputation, native execution, run mutation, cleanup signal or fabricated terminal receipt.",
+  "original_boot": "cb2d0b40-9b17-45f8-9e5c-716efb8e6aa5",
+  "observed_boot": "8e0af59f-3dd0-4063-b345-59e9ba9a2bab",
+  "observation_at_utc": "2026-10-26T20:00:53Z",
+  "classification": "interrupted_across_boot_without_original_terminal_receipt",
+  "original_identities": [
+    {
+      "role": "sequence_controller",
+      "pid": 235535,
+      "start_ticks": 5468362
+    },
+    {
+      "role": "density_supervisor",
+      "pid": 367336,
+      "start_ticks": 7897725
+    },
+    {
+      "role": "density_worker",
+      "pid": 367337,
+      "start_ticks": 7898136
+    },
+    {
+      "role": "previously_reported_density_native_driver",
+      "pid": 367359,
+      "start_ticks": null
+    }
+  ],
+  "all_listed_pids_absent_in_current_observation": true,
+  "missing_original_terminal_paths": [
+    "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/detached-result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/backend-result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/strict-result.json",
+    "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/profile.execution.json"
+  ],
+  "source_pins": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/plan.json",
+      "sha256": "6bc25edb02c797e3050b504dec9a8515bde368c38ed776cc57dc1a4e6e7e73ee",
+      "bytes": 5198
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/launch.json",
+      "sha256": "45d4fc35f1458d9fb4664490b032cd00c56e4d0be65473200ec25c876e56463f",
+      "bytes": 1379
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/sequence.py",
+      "sha256": "7bbd782607dec1d037b46f9df4332ef5afaaeec3deb37294ecf5166ef5ecaee4",
+      "bytes": 11729
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/density-trial-sequence03/correctness-terminal-audit.json",
+      "sha256": "3f05add78bb34e7becbf0d4983262f27b59ec26d6a23b425d7e6932ff8b49fa4",
+      "bytes": 6705
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/result.json",
+      "sha256": "7dafb280e5e396a4232b1058a98c0ef5cecd604315902c601b28cf551f483dd1",
+      "bytes": 15676
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03/detached-result.json",
+      "sha256": "8c4bd380c1baf7f1f403b3bab939487871ffe9eb43e504429d186456ecc40e92",
+      "bytes": 555
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-correctness03-aggregate-independent-review01/review.json",
+      "sha256": "4bd0ecb989625c0db7c3a6375ce7f5b1069a7ae438a92ed62de3a1977ed3137f",
+      "bytes": 6852
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/plan.json",
+      "sha256": "e0cb485ed468474a11e868f4fb5f9e06ee123a659ef43711d83355fadee51992",
+      "bytes": 8404667
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/freeze.json",
+      "sha256": "c47b7ec7a1e132f91c9617c943267be6fc2deff7acff0b051a3d9063b6e0822b",
+      "bytes": 942
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/strict-result.json",
+      "sha256": "7a4448fe6ef0c68192fa37bd46b143ff719ef0a430586c4422448fc96613c11c",
+      "bytes": 5403
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/backend-result.json",
+      "sha256": "062739e4b4c9d123fd26f2f6c0c8a562ce290616d2e4fc524cec9d1ca07809c9",
+      "bytes": 230973
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-pulses/supervisor.json",
+      "sha256": "b6c42d654ed4f84a8d583f44651810cbfc65a732cf183e93a4e750d073f4d7dc",
+      "bytes": 148323
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03-pulse-receipt-review01/review.json",
+      "sha256": "680a6400e8e66cc2447cb8374e4527c07519018b61226382b1d49d0bacf11069",
+      "bytes": 8433
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/supervisor.json",
+      "sha256": "3a46291712ab565237392af08c2df279c17feaea04ff91d546c060bce01cf1ee",
+      "bytes": 147434
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/supervisor.plan.json",
+      "sha256": "45c295515f9012d73e6552eb68d37d72f1bd361909b9f45ae75b416fa26a628f",
+      "bytes": 147234
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/request.json",
+      "sha256": "04e2f1cbf1ce4d76749edf0e3d4f3b46ca043560e2308920ed312e02ee906042",
+      "bytes": 75401
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/iterations.json",
+      "sha256": "e1bdefb91a6efea61486f1ae1bd710c2083c108dcd5fb7c7af703a35f27089bb",
+      "bytes": 20064
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-005-trial-002/trial-closure-failure.json",
+      "sha256": "62b69ab5345d26cd07fd8f6b058f62f6cb67a754c8a5a4f0e33f99ed364bbe03",
+      "bytes": 1492
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/closure.json",
+      "sha256": "3fd2e9b40e48cbb3f0612da5b97829418b488aa854e5c843ecf2fdb233c38697",
+      "bytes": 268
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/qr.24.nuisance_line_search.json",
+      "sha256": "7515768f403e62afed6bc06dc0ba67bb7a95274e11185a8acc31931d31484a00",
+      "bytes": 1845
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/qr.24.profile.json",
+      "sha256": "0d52fe8db42df6dc54973d41d0693c0e8f7ef89c499b268b5578b29b8b6a0a31",
+      "bytes": 767
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/profile.log",
+      "sha256": "dbb99210b7c78b1c8405b55776a5dd5b9b8d43ffe1ef7b09d818e3d8a65dea1e",
+      "bytes": 174188
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold03/cold-density/fit/point-015-trial-012/profile.xml",
+      "sha256": "9998baef15a7537d1e52b0479dee1c9e7ff0bde761f298e910fa2a8238a3dae4",
+      "bytes": 12195
+    }
+  ],
+  "preserved_correctness": {
+    "aggregate_sha256": "7dafb280e5e396a4232b1058a98c0ef5cecd604315902c601b28cf551f483dd1",
+    "detached_sha256": "8c4bd380c1baf7f1f403b3bab939487871ffe9eb43e504429d186456ecc40e92",
+    "prior_independent_review_sha256": "4bd0ecb989625c0db7c3a6375ce7f5b1069a7ae438a92ed62de3a1977ed3137f",
+    "all_eleven_strict_passed": true,
+    "error": null,
+    "all_22_saved_strict_and_supervisor_pins_reverified": true,
+    "exact_stages": 11,
+    "native_tests": 106,
+    "failfast_tests": 37,
+    "correction_tests": 51,
+    "refinements": 4,
+    "objective_prior_checks": 2,
+    "distinct_nuisance_replays": 2,
+    "scope": "Saved evidence integrity and terminal semantics rechecked; numerical checks not rerun here."
+  },
+  "preserved_pulse": {
+    "strict_sha256": "7a4448fe6ef0c68192fa37bd46b143ff719ef0a430586c4422448fc96613c11c",
+    "backend_sha256": "062739e4b4c9d123fd26f2f6c0c8a562ce290616d2e4fc524cec9d1ca07809c9",
+    "supervisor_sha256": "b6c42d654ed4f84a8d583f44651810cbfc65a732cf183e93a4e750d073f4d7dc",
+    "prior_receipt_review_sha256": "680a6400e8e66cc2447cb8374e4527c07519018b61226382b1d49d0bacf11069",
+    "status": "passed",
+    "strict_converged": true,
+    "accepted_iterations": 10,
+    "trials": 10,
+    "objective": 3235.427185391728,
+    "full_rank": 91,
+    "columns": 91,
+    "fresh_normalized_gradient": 8.35656500814021E-9,
+    "fresh_position_change_m": 1.0588035919612342E-8,
+    "fresh_pulse_update_m_s": 6.181421462221263E-13,
+    "nuisance_floor_limited": false,
+    "supervisor_complete_exit_zero": true,
+    "owned_cleanup_kernel_ECHILD": true,
+    "cleanup_SIGTERM_records": 7,
+    "cleanup_signal_target": {
+      "pid": 360944,
+      "start_ticks": 7420824
+    },
+    "hard_kill": false,
+    "remaining": [],
+    "scope": "Actual strict/backend result and prior receipt review preserved. Four additional saved-output numerical audits remain pending; current review does not recompute covariance."
+  },
+  "density": {
+    "last_completed_observation": {
+      "status": "running",
+      "accepted_iterations": 7,
+      "trial_evaluations": 11,
+      "confirmation_checks": [],
+      "last_completed_trial": {
+        "accepted": true,
+        "accepted_iteration": 6,
+        "actual_reduction": 381083.56520947,
+        "damping": 0.03845130200493425,
+        "gain_ratio": 0.7262877265431165,
+        "normalized_gradient": 0.08386814512492971,
+        "nuisance_floor_limited_before": false,
+        "nuisance_floor_limited_trial": false,
+        "nuisance_resolution_sum": 0.0,
+        "objective_before": 2269002.431526126,
+        "objective_floor": 0.00123538076877594,
+        "objective_reduction_numerically_resolved": true,
+        "objective_trial": 1887918.8663166559,
+        "predicted_reduction": 524700.5439886732,
+        "rank": {
+          "columns": 146,
+          "condition_number": 3239.5979445946273,
+          "effective_rows": 7885,
+          "maximum_singular_value": 4.64948553752506,
+          "minimum_singular_value": 0.0014352044966823355,
+          "rank": 146,
+          "status": "full_rank",
+          "threshold": 8.140420218657484E-12
+        },
+        "raw_correction": {
+          "density_update": 8.403657054082492,
+          "position_change_m": 5.822762653518134,
+          "pulse_update_m_s": 0.0
+        },
+        "trial": 11,
+        "trial_correction": {
+          "density_update": 5.538679834926636,
+          "position_change_m": 2.072716957669067,
+          "pulse_update_m_s": 0.0
+        },
+        "trial_rank": {
+          "columns": 146,
+          "condition_number": 3098.43327299146,
+          "effective_rows": 7885,
+          "maximum_singular_value": 4.446958225185425,
+          "minimum_singular_value": 0.001435228011507893,
+          "rank": 146,
+          "status": "full_rank",
+          "threshold": 7.785831003378946E-12
+        }
+      }
+    },
+    "saved_supervisor": {
+      "status": "running",
+      "boot_id": "cb2d0b40-9b17-45f8-9e5c-716efb8e6aa5",
+      "elapsed_seconds": 5482.670010838992,
+      "peak_process_tree_rss_bytes": 385662976,
+      "returncode": null,
+      "supervisor": {
+        "parent": 235535,
+        "pid": 367336,
+        "start_ticks": 7897725,
+        "state": "R"
+      },
+      "worker": {
+        "parent": 367336,
+        "pid": 367337,
+        "start_ticks": 7898136,
+        "state": "D"
+      },
+      "owned_process_group_cleaned": false,
+      "signals_received": []
+    },
+    "initial_objective": 6816074.455124643,
+    "last_accepted_objective": 1887918.8663166559,
+    "current_partial_point": "point-015-trial-012",
+    "current_partial_point_physical_closure": {
+      "converged": true,
+      "position_change_m": 5.987324997948643E-8,
+      "velocity_change_m_s": 7.173630451762569E-11
+    },
+    "last_completed_nuisance_generation": 24,
+    "last_nuisance_undamped_update_m": 3.7444361021233171E-8,
+    "last_nuisance_search_accepted_alpha": 0.5,
+    "next_generation_partial_rows_present": 25,
+    "trial12_accepted": null,
+    "trial12_acceptance_evidence": "No completed trial12 record; do not infer its optimizer decision from nuisance search acceptance.",
+    "strict_converged": false,
+    "accepted_covariance": false,
+    "cleanup_receipt_available": false,
+    "exact_original_trial2_failure_preserved": true,
+    "trial2_failure_sha256": "62b69ab5345d26cd07fd8f6b058f62f6cb67a754c8a5a4f0e33f99ed364bbe03",
+    "status": "interrupted_before_fit_terminal_result"
+  },
+  "timing": {
+    "last_supervisor_file_mtime_utc": "2026-10-26T19:35:28.979850100Z",
+    "last_profile_log_file_mtime_utc": "2026-10-26T19:35:29.912998400Z",
+    "last_iteration_file_mtime_utc": "2026-10-26T19:31:03.182741300Z",
+    "exact_reboot_or_interruption_time_unknown": true,
+    "reboot_cause_unknown": true,
+    "note": "UTC-normalized stat confirms ordinary local timezone difference; no future-mtime finding. mtimes and last saved elapsed are observations, not an exact termination timestamp or timeout result."
+  },
+  "recovery_constraints": [
+    "Never overwrite or synthesize the missing original sequence/cold/supervisor terminal files.",
+    "Cross-boot process absence establishes that this original process tree cannot continue; it is not an original owned-cleanup certificate.",
+    "Current-host admission, resource policy and process snapshot must be freshly checked under the new boot before any new work.",
+    "Existing sequence.py fresh checks and original cold controller reject relaunch in used outputs. Recovery requires separately versioned controls/output and explicit independent review.",
+    "Original auditor qualification terminal_guard pins old boot and requires original terminal/cleanup receipts. It cannot be launched unchanged; new recovery guard must preserve this interruption classification and all failures.",
+    "Existing collector can record missing evidence but derives successful cold selection from missing aggregate; recovery must explicitly attribute completed pulse from original strict/backend/supervisor pins without fabricating a cold aggregate or selecting density covariance.",
+    "The incomplete density attempt remains an interruption. Any new cold fit must use original initialization and unchanged model, weights, hyperparameters, thresholds and limits in a separately frozen output; no accepted partial iterate as a silent cold start."
+  ],
+  "authority": {
+    "original_sequence_complete": false,
+    "original_cold_pair_complete": false,
+    "density_strict_converged": false,
+    "density_covariance_authority": false,
+    "original_density_cleanup_certified": false,
+    "release_authority": false,
+    "automatic_relaunch_authority": false
+  },
+  "supporting_files": [
+    "host-observation.txt",
+    "process-presence.txt",
+    "terminal-presence.txt",
+    "utc-file-times.txt",
+    "observed-source-pins.sha256",
+    "observed-source-pins.json",
+    "expected-correctness-stage-pins.sha256",
+    "correctness-stage-pin-checks.txt",
+    "correctness-stage-statuses.jsonl",
+    "density-last-completed-observation.json",
+    "density-supervisor-observation.json"
+  ]
+}

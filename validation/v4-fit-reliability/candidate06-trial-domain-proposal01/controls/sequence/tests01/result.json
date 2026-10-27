@@ -1,0 +1,45 @@
+{
+  "schema": "candidate06-sequence-pure-tests-v1",
+  "status": "failed",
+  "tests": 52,
+  "failures": 4,
+  "errors": 1,
+  "skipped": 0,
+  "exit_code": 1,
+  "native_runs": 0,
+  "command": [
+    "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+    "-s",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_sequence"
+  ],
+  "driver_sha256": "fc54dc4161c12f2f337d7e7ba53236f140acef9b3d8371dc28181b3beba4fdec",
+  "source_unchanged_during_run": true,
+  "log_sha256": "852ead1da071b1b04906c86f690d6fd4df2d5b199f680bdfc760096c7981caca",
+  "findings": [
+    {
+      "cause": "zip omits unmatched jobs",
+      "tests": [
+        "test_empty_plan_rejected",
+        "test_extra_plan_job_rejected",
+        "test_truncated_plan_rejected"
+      ]
+    },
+    {
+      "cause": "cold aggregate passed without each row passing",
+      "tests": [
+        "test_failed_cold_row_cannot_pass_aggregate"
+      ]
+    },
+    {
+      "cause": "malformed phase terminal receipt escapes finally and prevents sequence result",
+      "tests": [
+        "test_malformed_phase_receipt_still_records_failure"
+      ]
+    }
+  ],
+  "scope": "Temporary fixtures and mocked controller execute only. No real gate/cold controller loaded, no native process started, original scientific paths untouched."
+}

@@ -1,0 +1,1 @@
+Static interrupted-candidate07 diagnostic packet. Read report.json and index.html. Compact original receipts are byte-exact; large originals are external exact pins. No numerical recomputation, source modification, original aggregate fabrication, covariance or release authority. The included build_packet.py is the actual assembler. Independent final-byte review is required.

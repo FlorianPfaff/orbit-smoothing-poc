@@ -1,0 +1,42 @@
+      UInt stagger = (orbit.size() < 100) ? 1 : orbit.size()/100;
+
+      OrbitArc sparseOrbit;
+      for(UInt k=0; k<orbit.size(); k += stagger)
+        sparseOrbit.push_back(orbit.at(k));
+
+      // Osculating orbit at first epoch
+      Vector3d velocity = sparseOrbit.at(0).velocity;
+      if(velocity.r()==0)
+        velocity = (1/(sparseOrbit.at(1).time-sparseOrbit.at(0).time).seconds()) * (sparseOrbit.at(1).position-sparseOrbit.at(0).position);
+
+      // We use an equinoctial orbit because Kepler is not accurate enough
+      Equinoctial referenceOrbit(sparseOrbit.at(0).time, sparseOrbit.at(0).position, velocity, GM);
+
+      UInt   iter    = 0;
+      UInt   maxIter = 100;
+      Vector dx;
+      do
+      {
+        // We will fit to positions only
+        Vector obs(3*sparseOrbit.size());
+        for(UInt i=0; i<sparseOrbit.size(); i++)
+        {
+          const Vector3d dpos = sparseOrbit.at(i).position - referenceOrbit.position(sparseOrbit.at(i).time);
+          obs(3*i+0) = dpos.x();
+          obs(3*i+1) = dpos.y();
+          obs(3*i+2) = dpos.z();
+        }
+
+        Matrix A(3*sparseOrbit.size(), 6);
+        for(UInt i=0; i<sparseOrbit.size(); i++)
+          copy(referenceOrbit.stateTransitionMatrix(sparseOrbit.at(i).time).row(0,3), A.row(3*i,3));
+
+        dx = leastSquares(A, obs);
+        referenceOrbit.a  += dx(0);
+        referenceOrbit.h  += dx(1);
+        referenceOrbit.k  += dx(2);
+        referenceOrbit.p  += dx(3);
+        referenceOrbit.q  += dx(4);
+        referenceOrbit.l0 += dx(5);
+      }
+      while((++iter < maxIter) && (maxabs(dx) > 1e-9));

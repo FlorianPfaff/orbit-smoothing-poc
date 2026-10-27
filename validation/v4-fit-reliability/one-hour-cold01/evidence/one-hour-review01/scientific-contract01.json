@@ -1,0 +1,448 @@
+{
+  "schema": "one-hour-independent-scientific-contract-v1",
+  "created_utc": "2026-10-25T05:02:41.638582+00:00",
+  "read_only": true,
+  "native_runs": 0,
+  "source_contract_checks_passed": true,
+  "checks": [
+    {
+      "name": "immutable candidate04 source src/orbit_poc/numerics/backend.py",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source src/orbit_poc/numerics/optimizer.py",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source src/orbit_poc/numerics/config.py",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source src/orbit_poc/comparison/backend.py",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source src/orbit_poc/comparison/protocol.py",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source src/orbit_poc/comparison/groops_config.py",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source groops/extension/gnssProcessingStepOrbitPocNumerics.h",
+      "passed": true
+    },
+    {
+      "name": "immutable candidate04 source groops/extension/scaledRowQr.h",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: exact archived request",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: original scientific fields",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: engineering full-fit input",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: one original preparation",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: exact preparation bytes",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: original GNSS-only bootstrap",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: initialization pin initial_bootstrap",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: initialization pin fixed_initial_state",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: initialization pin closed_nominal_orbit",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: original closed nominal orbit",
+      "passed": true
+    },
+    {
+      "name": "one-hour-pulses-cold-full-fit: bootstrap used only for initialization",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: exact archived request",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: original scientific fields",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: engineering full-fit input",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: one original preparation",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: exact preparation bytes",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: original GNSS-only bootstrap",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: initialization pin initial_bootstrap",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: initialization pin fixed_initial_state",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: initialization pin closed_nominal_orbit",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: original closed nominal orbit",
+      "passed": true
+    },
+    {
+      "name": "one-hour-log_drag_ou-cold-full-fit: bootstrap used only for initialization",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "one-hour-pulses-cold-full-fit",
+      "method": "groops_pulses",
+      "original_request": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/request.json",
+        "sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5",
+        "bytes": 75295
+      },
+      "preparation": {
+        "metadata": {
+          "kind": "native_preparation"
+        },
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/native_preparation.json",
+        "role": "force_auxiliary",
+        "sha256": "d1b5207f0f58ea7bee417824ab6d52000cc4555de225c48e5a84b0777b488f9c"
+      },
+      "bootstrap": {
+        "bytes": 72186,
+        "code_residual_rms_median_m": 3.4172236613358318,
+        "frame": "TRF",
+        "gap_fill": "central+J2 propagation from retained code-only solution",
+        "grid_epochs": 720,
+        "include_endpoint": false,
+        "input_sha256": [
+          "f8684cba376c7c78e9964deb209f8fd71db115de631b05cdbfa289be9ea5dead",
+          "c3a969a44c3dca28905d2ab48dd9c48aad39eb6bbc71b392a2438c4b7428919a",
+          "671d42fb1aa33fb9e20a3b68696a07267ff06df47fb012c8372ad806eb23fc9b"
+        ],
+        "integration_step_seconds": 5.0,
+        "mask_hash": "20c1fa242d7ebd698c7c6a6c67102a1358c6d885d6ce1b8a8ea9394ffadf7388",
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/bootstrap_trf.txt",
+        "provenance": "gnss_only",
+        "role": "bootstrap_orbit",
+        "sha256": "24e3870fbdedeb31d53edd56e93a0067c12b1444afa44dbc8bda40e70c312226",
+        "solved_epochs": 120,
+        "time_scale": "GPS",
+        "usage": "initialization only; not a measurement or accuracy reference"
+      },
+      "native_initial_orbit": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_orbit_2024-04-24.dat",
+        "role": "converted_estimation_input",
+        "sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1"
+      },
+      "nominal_initialization_receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/nominal-initialization/initialization.json",
+        "sha256": "50c872d70bc064a5bc7e19ddf5dd16daff094a8c3d1d2cf7a44510b5e6173d33",
+        "bytes": 5733
+      },
+      "expected_zero_force_coordinates": 6,
+      "case": {
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 1.0,
+        "epoch": "2024-04-24T00:00:00",
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [],
+          "time_scale": "elapsed"
+        },
+        "orbit": "leo500",
+        "seed": 300000,
+        "truth_model": "retained_tudat_engineering_truth_instruments"
+      },
+      "parameters": {
+        "interval_seconds": 1200.0,
+        "sigma_velocity_m_s": 0.0001
+      },
+      "controls": {
+        "initial_damping": 0.001,
+        "maximum_accepted_iterations": 32,
+        "maximum_density_update": 0.0001,
+        "maximum_position_change_m": 3e-05,
+        "maximum_pulse_update_m_s": 1e-08,
+        "maximum_trial_evaluations": 96,
+        "minimum_gain_ratio": 0.0001,
+        "normalized_gradient_tolerance": 1e-08,
+        "wall_time_seconds": 7200.0
+      }
+    },
+    {
+      "id": "one-hour-log_drag_ou-cold-full-fit",
+      "method": "groops_log_drag_ou",
+      "original_request": {
+        "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json",
+        "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd",
+        "bytes": 75440
+      },
+      "preparation": {
+        "metadata": {
+          "kind": "native_preparation"
+        },
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/native_preparation.json",
+        "role": "force_auxiliary",
+        "sha256": "d1b5207f0f58ea7bee417824ab6d52000cc4555de225c48e5a84b0777b488f9c"
+      },
+      "bootstrap": {
+        "bytes": 72186,
+        "code_residual_rms_median_m": 3.4172236613358318,
+        "frame": "TRF",
+        "gap_fill": "central+J2 propagation from retained code-only solution",
+        "grid_epochs": 720,
+        "include_endpoint": false,
+        "input_sha256": [
+          "f8684cba376c7c78e9964deb209f8fd71db115de631b05cdbfa289be9ea5dead",
+          "c3a969a44c3dca28905d2ab48dd9c48aad39eb6bbc71b392a2438c4b7428919a",
+          "671d42fb1aa33fb9e20a3b68696a07267ff06df47fb012c8372ad806eb23fc9b"
+        ],
+        "integration_step_seconds": 5.0,
+        "mask_hash": "20c1fa242d7ebd698c7c6a6c67102a1358c6d885d6ce1b8a8ea9394ffadf7388",
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/bootstrap_trf.txt",
+        "provenance": "gnss_only",
+        "role": "bootstrap_orbit",
+        "sha256": "24e3870fbdedeb31d53edd56e93a0067c12b1444afa44dbc8bda40e70c312226",
+        "solved_epochs": 120,
+        "time_scale": "GPS",
+        "usage": "initialization only; not a measurement or accuracy reference"
+      },
+      "native_initial_orbit": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_orbit_2024-04-24.dat",
+        "role": "converted_estimation_input",
+        "sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1"
+      },
+      "nominal_initialization_receipt": {
+        "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/nominal-initialization/initialization.json",
+        "sha256": "50c872d70bc064a5bc7e19ddf5dd16daff094a8c3d1d2cf7a44510b5e6173d33",
+        "bytes": 5733
+      },
+      "expected_zero_force_coordinates": 61,
+      "case": {
+        "atmosphere": "quiet",
+        "cadence": 30.0,
+        "coverage": "normal",
+        "duration_hours": 1.0,
+        "epoch": "2024-04-24T00:00:00",
+        "mask": {
+          "cadence_seconds": 30,
+          "intervals_seconds": [],
+          "time_scale": "elapsed"
+        },
+        "orbit": "leo500",
+        "seed": 300000,
+        "truth_model": "retained_tudat_engineering_truth_instruments"
+      },
+      "parameters": {
+        "empirical_acceleration": false,
+        "initial_prior": "stationary_ou",
+        "interpolation": "linear_log_density",
+        "knot_seconds": 60.0,
+        "sigma_log_density": 0.3,
+        "tau_seconds": 7200.0
+      },
+      "controls": {
+        "initial_damping": 0.001,
+        "maximum_accepted_iterations": 32,
+        "maximum_density_update": 0.0001,
+        "maximum_position_change_m": 3e-05,
+        "maximum_pulse_update_m_s": 1e-08,
+        "maximum_trial_evaluations": 96,
+        "minimum_gain_ratio": 0.0001,
+        "normalized_gradient_tolerance": 1e-08,
+        "wall_time_seconds": 7200.0
+      }
+    }
+  ],
+  "contract": {
+    "launch_requirements": [
+      "Exact source request hashes remain immutable; strict JSON parser rejects duplicate keys and unknown command/config options.",
+      "Runtime request is a reversible, explicit journal of only approved binary/source/runtime location rebinding. Original scientific fields, including preparation_source_hash, estimation input hashes, case, weights, mask and hyperparameters, reconstruct exactly.",
+      "Direct immutable candidate04 numerics.backend.fit_job calls its own NativeModel.initial_state and minimize. No monkeypatch, state override, fixed-point shortcut, point029 state, nuisance donor or warm-start environment.",
+      "Original prepared native orbit is the existing nominal-force closure of GNSS-only bootstrap. Preserve it; do not silently replace it with raw TRF bootstrap or another fitted orbit. Initial dynamic force coordinates are zero.",
+      "Clear inherited environment; pin one-thread runtime flags including ORBIT_POC_NUISANCE_CONDITIONAL_QR=1 and audited run14 fixed-dynamics/cost-only/cache flags. Every physical evaluation cold-refits nuisance parameters in a fresh native process.",
+      "Exact current-boot/current-host CPU and resource admission, serial two-job order, current native/Python/library/source identities, 7200s per-fit, 8GiB process tree and owned pidfd/subreaper cleanup.",
+      "Actual namespace probe proves all input aliases and read-only originals, denied truth/GNV/evaluation/saved-state/donor paths, output separation and dependency closure. Broad read-only host visibility is not truth isolation.",
+      "Exercise real candidate04 config construction for both methods without native execution. Historical alias/canonical replacement must route every output including final covariance to the fresh job backing; retain explicit namespace-to-host artifact identity mapping.",
+      "Reject an existing/nonempty output, changed request/source/input/runtime/control identity, missing file, stale admission/probe, or uncertain cleanup. No reuse of prior fit artifacts or passes."
+    ],
+    "terminal_success_requirements": [
+      "Worker and owned supervisor completed successfully; all output/input/source identities unchanged; empty-tree cleanup kernel_ECHILD and no unresolved descendants.",
+      "Actual result numerical_status=status=complete, converged=true and covariance_valid=true; iterations/native_runtime agree. Exit zero, covariance files, partial stage receipts or small damped steps alone are insufficient.",
+      "Trace genuine full fitting: original initial conversion, point001-initial closure/profile, repeat and closure-refinement, actual physical trial evaluation histories as required, outer confirmation and a separate final-covariance point. Do not impose positive iteration count if the original cold start truly satisfies strict fresh criteria.",
+      "Final confirmation and final-covariance nuisance profiles are strict: not floor-limited, threshold1e-8m, two consecutive undamped updates below threshold, fresh full-system update below threshold. Audited floor-limited intermediate progress remains permitted by the unchanged optimizer.",
+      "Fresh complete original-coordinate factor: lambda=0, full statistical rank including native SVD and Python rank thresholds, original dynamic/global nuisance coordinates. Conditional-only factors cannot authorize physical covariance.",
+      "Fresh undamped final dynamic correction satisfies original limits: position<3e-5m, density<1e-4, pulse<1e-8m/s, normalized gradient<1e-8. Require support and preprocessing/weights/ambiguity identity unchanged.",
+      "Accepted steps preserve positive actual reduction, minimum gain ratio and original inexact-profile forcing policy; rejected points are not installed. Preserve every rejected trial and failed/profile-limited point.",
+      "Final covariance artifacts bind to the final accepted physical state, fresh final factor, exact native binary and source. Verify finite/positive-definite Cartesian blocks and nuisance-marginalized full parameter scope. Native files may be written before later stale-covariance or wall-limit rejection, so result status takes precedence.",
+      "Failure, timeout, rank issue or incomplete history stays a failed/limited attempt. Do not shorten arcs, change budgets, rerun silently or replace frozen benchmark results. Successful one-hour fits establish only bounded engineering completion."
+    ],
+    "required_negative_tests": [
+      "altered original request, missing input, changed binary/source/runtime identity, forbidden scientific edit or unlisted journal key",
+      "point029/other saved physical initialization and nuisance donor/warm environment rejected",
+      "truth/reference/evaluation path visibility, unexpected input alias, wrong overlay backing or writable original denied",
+      "existing output, wrong source/output root, escaped final covariance destination or unresolvable namespace-only artifact rejected",
+      "stale boot/current-host admission, competing native workload, resource overrun, uncertain process identity and missing cleanup fail closed",
+      "final floor-limited profile, stale/damped/conditional factor, missing fresh confirmation, timeout with existing covariance and nonfinite/invalid covariance rejected",
+      "legitimate intermediate audited numerical-floor progress remains permitted without becoming convergence"
+    ],
+    "source_citations": {
+      "cold_initialization": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/backend.py:210",
+      "direct_full_fit": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/backend.py:452",
+      "strict_nuisance": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/backend.py:92",
+      "fresh_final_covariance": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/backend.py:404",
+      "outer_confirmation": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/optimizer.py:221",
+      "prepared_input_verification": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/comparison/backend.py:291",
+      "canonical_path_rebinding_risk": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/comparison/groops_config.py:583",
+      "inherited_environment": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/comparison/backend.py:57",
+      "conditional_nuisance_opt_in": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/scaledRowQr.h:50"
+    }
+  },
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/next-full-fit-plan01/plan.json",
+      "sha256": "43edddfce0063c86a6f116f895ead1aaa1d2c7161eda6033ee4695fe84ac6370",
+      "bytes": 16537
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source-snapshot.json",
+      "sha256": "f7e3e8ae35758ea42a607132f873c6fde9b81b6afe8c3389f5c47d9b2af3474f",
+      "bytes": 92337
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/backend.py",
+      "sha256": "62cf7f70154e7ffa913e85a574b64bfb4e9b0146323ec8e8abc0cc9a0da7c3d7",
+      "bytes": 34368
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/optimizer.py",
+      "sha256": "a1a086e6f5e93ec8982ccad78746ff9d352b7719f01e0af422d2f26797c5506c",
+      "bytes": 18214
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/numerics/config.py",
+      "sha256": "6a264254992982cda6c25d6e418d49bec63ced73cd5b8d5cef8bd6668a4a30f9",
+      "bytes": 5420
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/comparison/backend.py",
+      "sha256": "15bd9115078b0252ae60c2772a9cc4f77d64e060d403ace77bbb9cdf6a9d65ce",
+      "bytes": 63970
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/comparison/protocol.py",
+      "sha256": "b4ed6109d295a45b98596abf756bc74b52ebcef9397ce7872275f2061c58b5b5",
+      "bytes": 43771
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/src/orbit_poc/comparison/groops_config.py",
+      "sha256": "ecc98fb69d005a1bec46526fae3e170011dfc0a8a7bc596a9cd805e9f4400f63",
+      "bytes": 47937
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/gnssProcessingStepOrbitPocNumerics.h",
+      "sha256": "2635bb90d72190242ccae015d8b09e9cd26fd033b9f4c2e91f9fe28eb6f03a47",
+      "bytes": 6692
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/scaledRowQr.h",
+      "sha256": "3ff0694e9bc82cf7eb2245d51d1933f21b059461fd2dde77b1ec890862637d79",
+      "bytes": 50970
+    },
+    {
+      "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/request.json",
+      "sha256": "9de707ae51e5031a5b13f1d02ab5ec5a67e996195840de6c5c7e81457a74c9f5",
+      "bytes": 75295
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/native_preparation.json",
+      "sha256": "d1b5207f0f58ea7bee417824ab6d52000cc4555de225c48e5a84b0777b488f9c",
+      "bytes": 121123
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/preprocessing/bootstrap_trf.txt",
+      "sha256": "24e3870fbdedeb31d53edd56e93a0067c12b1444afa44dbc8bda40e70c312226",
+      "bytes": 72186
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/nominal-initialization/initialization.json",
+      "sha256": "50c872d70bc064a5bc7e19ddf5dd16daff094a8c3d1d2cf7a44510b5e6173d33",
+      "bytes": 5733
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/nominal-initialization/input_bootstrap.dat",
+      "sha256": "cb9972442b2c01969f9eb487c286f24319b9c35fd5d4369731be47af8b561573",
+      "bytes": 63422
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/nominal-initialization/initial_state.txt",
+      "sha256": "ed50841f7928ecaf5284028edacde0db9c878461d621a47d04686c66007eb690",
+      "bytes": 165
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/nominal-initialization/iteration-02/nominal.dat",
+      "sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1",
+      "bytes": 63422
+    },
+    {
+      "path": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/data/2024-04-24/gracefo/gracefo1_orbit_2024-04-24.dat",
+      "sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1",
+      "bytes": 63422
+    },
+    {
+      "path": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json",
+      "sha256": "2189944cfb519b5ca0730e6e02ee9cb809145a0845f66846931a8fb199694dfd",
+      "bytes": 75440
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/scientific_contract_audit.py",
+      "sha256": "caffed8956e8579d98a8cd7397333ea1a3f00bec800f0398ffd9f965c0796899",
+      "bytes": 10502
+    }
+  ],
+  "audit_source": {
+    "path": "/mnt/d/orbit-v41-recovery02/one-hour-review01/scientific_contract_audit.py",
+    "sha256": "caffed8956e8579d98a8cd7397333ea1a3f00bec800f0398ffd9f965c0796899",
+    "bytes": 10502
+  },
+  "launch_approved": false,
+  "reason": "Control implementation, namespace smoke, frozen execution manifest and exact final review are still required."
+}

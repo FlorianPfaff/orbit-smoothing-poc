@@ -1,0 +1,219 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>V4 fit reliability investigation</title><style>body{font:16px/1.5 system-ui,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1rem;color:#152634;background:#fafbfd}h1,h2{line-height:1.2}table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.9rem}th,td{border:1px solid #cbd5dd;padding:.5rem;text-align:left;vertical-align:top}th{background:#e8eef3}code{overflow-wrap:anywhere}.notice{border-left:5px solid #b96013;padding:1rem;background:#fff3df}a{color:#075a96}section{margin:2.5rem 0}.wrap{overflow-x:auto}</style>
+<h1>V4 fit reliability investigation</h1><p>Bounded fixed-parameter and nuisance-profile components, not a successful full orbit fit.</p>
+<p class="notice">Component evidence only. Whole-fit convergence, covariance, release and repeatable speedup are not established. Earlier failures remain part of this record.</p>
+<p><a href="report.json">Compact report JSON</a> · <a href="manifest.json">Packet manifest</a></p>
+<section><h2>Frozen campaign evidence</h2>
+<p>The detailed analysis covers 30 terminal attempts. The later snapshot contains 31 terminal attempts as of 2026-10-21T02:46:51.983964+00:00. These are separate observations.</p>
+<table><thead><tr><th>Observation</th><th>Timeout</th><th>Memory limit</th><th>Failed</th></tr></thead><tbody><tr><td>Detailed captured prefix</td><td>18</td><td>8</td><td>4</td></tr><tr><td>Later snapshot</td><td>19</td><td>8</td><td>4</td></tr></tbody></table>
+<p>30 captured attempts stopped before the first optimizer trial. 6 strict initial/repeat profiles completed; none was a completed orbit fit. Failed zero-replay execution is not a measured objective change. The 72-hour density logs reached the fixed-parameter evaluator after propagation wrote its archive.</p>
+<div class="wrap"><table><thead><tr><th>Captured attempt</th><th>Status</th><th>Last observed stage</th><th>Before first optimizer trial</th></tr></thead><tbody><tr><td>leo500-quiet-normal-groops_pulses-24h--dense_corrected</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_pulses-24h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_pulses-24h--segmented_4h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_pulses-48h--dense_corrected</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_pulses-48h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_pulses-72h--segmented_1h</td><td>failed</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_pulses-72h--dense_corrected</td><td>failed</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-24h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-24h--segmented_4h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-24h--dense_corrected</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-48h--segmented_1h</td><td>memory_limit</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-48h--dense_corrected</td><td>memory_limit</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-72h--dense_corrected</td><td>memory_limit</td><td>closure_orbit_evaluation_entered_without_completion</td><td>True</td></tr><tr><td>leo500-quiet-normal-groops_log_drag_ou-72h--segmented_1h</td><td>memory_limit</td><td>closure_orbit_evaluation_entered_without_completion</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-24h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-24h--segmented_4h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-24h--dense_corrected</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-48h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-48h--dense_corrected</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-72h--dense_corrected</td><td>failed</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_pulses-72h--segmented_1h</td><td>failed</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-24h--segmented_4h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-24h--dense_corrected</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-24h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-48h--dense_corrected</td><td>memory_limit</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-48h--segmented_1h</td><td>memory_limit</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-72h--segmented_1h</td><td>memory_limit</td><td>closure_orbit_evaluation_entered_without_completion</td><td>True</td></tr><tr><td>leo500-disturbed-blackout-groops_log_drag_ou-72h--dense_corrected</td><td>memory_limit</td><td>closure_orbit_evaluation_entered_without_completion</td><td>True</td></tr><tr><td>eccentric-quiet-normal-groops_pulses-24h--segmented_1h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr><tr><td>eccentric-quiet-normal-groops_pulses-24h--segmented_4h</td><td>timeout</td><td>native_profile_entered_without_success_record</td><td>True</td></tr></tbody></table></div></section>
+<section><h2>Native regression history</h2>
+<table><thead><tr><th>Candidate</th><th>Suite</th><th>Tests</th><th>Failures</th><th>Errors</th><th>Skipped</th><th>Verdict</th></tr></thead><tbody><tr><td>1</td><td>native</td><td>106</td><td>4</td><td>0</td><td>0</td><td>reject</td></tr><tr><td>1</td><td>correction</td><td>51</td><td>0</td><td>0</td><td>0</td><td>pass</td></tr><tr><td>2</td><td>native</td><td>106</td><td>0</td><td>0</td><td>0</td><td>pass</td></tr><tr><td>2</td><td>correction</td><td>51</td><td>0</td><td>0</td><td>0</td><td>pass</td></tr><tr><td>2</td><td>fail_fast</td><td>37</td><td>0</td><td>0</td><td>0</td><td>pass</td></tr><tr><td>2</td><td>cost_query</td><td>15</td><td>0</td><td>0</td><td>0</td><td>pass</td></tr></tbody></table>
+<p>Candidate01’s four native regression failures remain preserved. Candidate02 adds explicit fail-fast option and real Polynomial query-path tests; these do not constitute the complete release suite.</p></section>
+<section><h2>Fixed-parameter memory components</h2>
+<table><thead><tr><th>Run</th><th>Native SHA-256</th><th>Block epochs</th><th>Execution</th><th>Peak process-tree MiB</th><th>Seconds</th></tr></thead><tbody><tr><td>2</td><td>89a273a44a8a8e0a</td><td>0</td><td>memory_limit</td><td>10349.02</td><td>11.007349400999374</td></tr><tr><td>2</td><td>89a273a44a8a8e0a</td><td>64</td><td>complete</td><td>85.57</td><td>35.01444910200371</td></tr><tr><td>2</td><td>89a273a44a8a8e0a</td><td>256</td><td>complete</td><td>122.88</td><td>39.63680072799616</td></tr><tr><td>3</td><td>9f6f884739fd8a26</td><td>0</td><td>memory_limit</td><td>8200.77</td><td>5.034834171994589</td></tr><tr><td>3</td><td>9f6f884739fd8a26</td><td>64</td><td>complete</td><td>85.87</td><td>35.892600216000574</td></tr><tr><td>3</td><td>9f6f884739fd8a26</td><td>256</td><td>complete</td><td>124.59</td><td>36.30496252600278</td></tr></tbody></table>
+<p>Block64 and block256 results are compared under unchanged limits. The large unblocked replay’s memory stop prevents a large off/on equivalence claim. This component does not fix the 48-hour GNSS profile memory exits.</p>
+<table><thead><tr><th>Run</th><th>Blocked epochs</th><th>Position difference (m)</th><th>Velocity difference (m/s)</th><th>Blocked-pair verdict</th></tr></thead><tbody><tr><td>2</td><td>51840</td><td>0.0</td><td>0.0</td><td>True</td></tr><tr><td>3</td><td>51840</td><td>0.0</td><td>0.0</td><td>True</td></tr></tbody></table>
+</section>
+<section><h2>Cost-only nuisance profiles</h2><p>Run01 exited with no usable receivers after missing audit-output directories; it produced no scientific profile. Run02 uses candidate01. Run03 uses candidate02. Only existing trial resource fields are excluded from exact scientific comparison.</p>
+<table><thead><tr><th>Run</th><th>Pair</th><th>Exact verdict</th><th>Scientific artifacts</th><th>Off seconds</th><th>On seconds</th><th>Off/on iterations</th></tr></thead><tbody><tr><td>1</td><td>pulses-accumulate0</td><td>reject</td><td>0</td><td>8.28349844100012</td><td>6.747206518004532</td><td>None / None</td></tr><tr><td>1</td><td>pulses-accumulate1</td><td>reject</td><td>0</td><td>6.901168543001404</td><td>8.931952332000947</td><td>None / None</td></tr><tr><td>1</td><td>log_drag_ou-accumulate0</td><td>reject</td><td>0</td><td>10.564680991999921</td><td>7.223353581997799</td><td>None / None</td></tr><tr><td>1</td><td>log_drag_ou-accumulate1</td><td>reject</td><td>0</td><td>16.169448892993387</td><td>7.737969622001401</td><td>None / None</td></tr><tr><td>2</td><td>pulses-accumulate0</td><td>pass</td><td>101</td><td>42.34591641899897</td><td>56.27154144599626</td><td>6 / 6</td></tr><tr><td>2</td><td>pulses-accumulate1</td><td>pass</td><td>101</td><td>44.46000703499885</td><td>41.75619084000937</td><td>6 / 6</td></tr><tr><td>2</td><td>log_drag_ou-accumulate0</td><td>pass</td><td>101</td><td>46.08190292598738</td><td>43.11212746000092</td><td>6 / 6</td></tr><tr><td>2</td><td>log_drag_ou-accumulate1</td><td>pass</td><td>101</td><td>46.02469421600108</td><td>43.087465203003376</td><td>6 / 6</td></tr><tr><td>3</td><td>pulses-accumulate0</td><td>pass</td><td>101</td><td>50.85026378200564</td><td>43.10391724399233</td><td>6 / 6</td></tr><tr><td>3</td><td>pulses-accumulate1</td><td>pass</td><td>101</td><td>38.485946241999045</td><td>41.48231448899605</td><td>6 / 6</td></tr><tr><td>3</td><td>log_drag_ou-accumulate0</td><td>pass</td><td>101</td><td>41.01302967799711</td><td>42.98313370899996</td><td>6 / 6</td></tr><tr><td>3</td><td>log_drag_ou-accumulate1</td><td>pass</td><td>101</td><td>41.197047312001814</td><td>41.16724592000537</td><td>6 / 6</td></tr></tbody></table>
+</section>
+<section><h2>Preserved earlier test attempts</h2>
+<table><thead><tr><th>Receipt</th><th>Tests</th><th>Failures</th><th>Errors</th><th>Skipped</th></tr></thead><tbody><tr><td>outputs/analyzer-tests01.xml</td><td>25</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/analyzer-tests02.xml</td><td>27</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/candidate-build-controls-tests01.xml</td><td>15</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/component-tests01.xml</td><td>26</td><td>1</td><td>0</td><td>0</td></tr><tr><td>outputs/component-tests02.xml</td><td>26</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/component-tests03.xml</td><td>26</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/component-tests04.xml</td><td>26</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/cost-pair-checker-tests01.xml</td><td>56</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/cost-pair-checker-tests02.xml</td><td>60</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/publication-generator-tests01.xml</td><td>15</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/publication-generator-tests02.xml</td><td>15</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/publication-generator-tests03.xml</td><td>19</td><td>0</td><td>0</td><td>0</td></tr><tr><td>outputs/publication-generator-tests04.xml</td><td>21</td><td>0</td><td>0</td><td>0</td></tr><tr><td>variational-memory-author01/api-tests.xml</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>variational-memory-author01/tests.xml</td><td>10</td><td>0</td><td>0</td><td>0</td></tr><tr><td>variational-memory-author02/tests.xml</td><td>26</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>
+</section>
+<section><h2>Limits and unresolved work</h2><ul><li>The 48-hour GNSS full-design storage and fork process-tree memory exits are not solved by closure blocking.</li><li>The archived 72-hour pulse nuisance-child timeouts remain unresolved; short profiles do not establish their completion.</li><li>No complete v4 orbit fit, full-fit covariance, frozen-benchmark completion, or release acceptance is established.</li><li>Single off/on profile timings are mixed and do not establish a repeatable speedup.</li><li>Large blocked outputs are compared to each other; the unblocked large baseline was stopped for memory.</li><li>Candidate01 failures are retained. Candidate01 component passes cannot be attributed to candidate02.</li><li>The zero-column callback retains query/stencil/remainder checks but cannot inspect nonfinite or overflowing omitted derivative values; full parent/final linearizations still compute them.</li><li>Default-off fail-fast preserves valid search behavior; the caller additionally rejects invalid replay support or row counts, and nonfinite diagnostics.</li><li>Original remote record pins are collector claims retained in bounded captures; this publication performs no remote recheck.</li></ul></section>
+<section><h2>Evidence and provenance</h2><p>Local packet receipts and controls are byte copies. Controls are environment-specific and use absolute paths; reproduction requires the matching repository, runtime and external datasets. Hashes alone do not make missing objects available. Bulky inputs, native binaries and row archives remain outside Git. Full source inventories are in the retained build receipts.</p><ul>
+<li><a href="evidence/build-01/build-manifest.json">build-01/build-manifest.json</a></li>
+<li><a href="evidence/build-02/build-manifest.json">build-02/build-manifest.json</a></li>
+<li><a href="evidence/control/block-memory-independent-source-review01/review.json">control/block-memory-independent-source-review01/review.json</a></li>
+<li><a href="evidence/control/build-plan01.json">control/build-plan01.json</a></li>
+<li><a href="evidence/control/build-plan02.json">control/build-plan02.json</a></li>
+<li><a href="evidence/control/build-result01.json">control/build-result01.json</a></li>
+<li><a href="evidence/control/build-result02.json">control/build-result02.json</a></li>
+<li><a href="evidence/control/build_candidate01.py">control/build_candidate01.py</a></li>
+<li><a href="evidence/control/build_candidate02.py">control/build_candidate02.py</a></li>
+<li><a href="evidence/control/campaign-retention01.json">control/campaign-retention01.json</a></li>
+<li><a href="evidence/control/campaign-retention02.json">control/campaign-retention02.json</a></li>
+<li><a href="evidence/control/capture_memory_closure01.py">control/capture_memory_closure01.py</a></li>
+<li><a href="evidence/control/capture_nuisance_search01.py">control/capture_nuisance_search01.py</a></li>
+<li><a href="evidence/control/capture_point_details01.py">control/capture_point_details01.py</a></li>
+<li><a href="evidence/control/capture_terminal_details01.py">control/capture_terminal_details01.py</a></li>
+<li><a href="evidence/control/check_cost_pairs.py">control/check_cost_pairs.py</a></li>
+<li><a href="evidence/control/copy_memory_replay01.py">control/copy_memory_replay01.py</a></li>
+<li><a href="evidence/control/copy_memory_replay02.py">control/copy_memory_replay02.py</a></li>
+<li><a href="evidence/control/cost-pair-checker-ready01/readiness.json">control/cost-pair-checker-ready01/readiness.json</a></li>
+<li><a href="evidence/control/memory-pairs-independent-review01/documentation-count-correction.json">control/memory-pairs-independent-review01/documentation-count-correction.json</a></li>
+<li><a href="evidence/control/memory-pairs-independent-review01/review-72h.json">control/memory-pairs-independent-review01/review-72h.json</a></li>
+<li><a href="evidence/control/memory-pairs-independent-review01/review.json">control/memory-pairs-independent-review01/review.json</a></li>
+<li><a href="evidence/control/nuisance-final-source-review02/review.json">control/nuisance-final-source-review02/review.json</a></li>
+<li><a href="evidence/control/publication-generator-ready01/prose-correction02.json">control/publication-generator-ready01/prose-correction02.json</a></li>
+<li><a href="evidence/control/publication-generator-ready01/readiness.json">control/publication-generator-ready01/readiness.json</a></li>
+<li><a href="evidence/control/publish_investigation01.py">control/publish_investigation01.py</a></li>
+<li><a href="evidence/control/read_memory_replay_inputs01.py">control/read_memory_replay_inputs01.py</a></li>
+<li><a href="evidence/control/review01/candidate02-source/independent-review.json">control/review01/candidate02-source/independent-review.json</a></li>
+<li><a href="evidence/control/review01/cost-pairs02-outcomes/independent-review.json">control/review01/cost-pairs02-outcomes/independent-review.json</a></li>
+<li><a href="evidence/control/review01/cost-pairs03-outcomes/independent-review.json">control/review01/cost-pairs03-outcomes/independent-review.json</a></li>
+<li><a href="evidence/control/review01/memory03-outcomes/independent-review.json">control/review01/memory03-outcomes/independent-review.json</a></li>
+<li><a href="evidence/control/review01/native02-outcomes/independent-review.json">control/review01/native02-outcomes/independent-review.json</a></li>
+<li><a href="evidence/control/review01/publication-generator01/independent-review.json">control/review01/publication-generator01/independent-review.json</a></li>
+<li><a href="evidence/control/run_cost_pairs01.py">control/run_cost_pairs01.py</a></li>
+<li><a href="evidence/control/run_cost_pairs02.py">control/run_cost_pairs02.py</a></li>
+<li><a href="evidence/control/run_cost_pairs03.py">control/run_cost_pairs03.py</a></li>
+<li><a href="evidence/control/run_memory_checks01.py">control/run_memory_checks01.py</a></li>
+<li><a href="evidence/control/run_memory_checks02.py">control/run_memory_checks02.py</a></li>
+<li><a href="evidence/control/run_memory_checks03.py">control/run_memory_checks03.py</a></li>
+<li><a href="evidence/control/run_native_tests01.py">control/run_native_tests01.py</a></li>
+<li><a href="evidence/control/run_native_tests02.py">control/run_native_tests02.py</a></li>
+<li><a href="evidence/control/source-snapshot01.json">control/source-snapshot01.json</a></li>
+<li><a href="evidence/control/variational-memory-author01/api-tests.xml">control/variational-memory-author01/api-tests.xml</a></li>
+<li><a href="evidence/control/variational-memory-author01/tests.xml">control/variational-memory-author01/tests.xml</a></li>
+<li><a href="evidence/control/variational-memory-author02/tests.xml">control/variational-memory-author02/tests.xml</a></li>
+<li><a href="evidence/cost-pairs01/freeze.json">cost-pairs01/freeze.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate0-cost0/profile.execution.json">cost-pairs01/log_drag_ou-accumulate0-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate0-cost0/profile.log">cost-pairs01/log_drag_ou-accumulate0-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate0-cost0/supervisor.json">cost-pairs01/log_drag_ou-accumulate0-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate0-cost1/profile.execution.json">cost-pairs01/log_drag_ou-accumulate0-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate0-cost1/profile.log">cost-pairs01/log_drag_ou-accumulate0-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate0-cost1/supervisor.json">cost-pairs01/log_drag_ou-accumulate0-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate1-cost0/profile.execution.json">cost-pairs01/log_drag_ou-accumulate1-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate1-cost0/profile.log">cost-pairs01/log_drag_ou-accumulate1-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate1-cost0/supervisor.json">cost-pairs01/log_drag_ou-accumulate1-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate1-cost1/profile.execution.json">cost-pairs01/log_drag_ou-accumulate1-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate1-cost1/profile.log">cost-pairs01/log_drag_ou-accumulate1-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/log_drag_ou-accumulate1-cost1/supervisor.json">cost-pairs01/log_drag_ou-accumulate1-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate0-cost0/profile.execution.json">cost-pairs01/pulses-accumulate0-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate0-cost0/profile.log">cost-pairs01/pulses-accumulate0-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate0-cost0/supervisor.json">cost-pairs01/pulses-accumulate0-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate0-cost1/profile.execution.json">cost-pairs01/pulses-accumulate0-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate0-cost1/profile.log">cost-pairs01/pulses-accumulate0-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate0-cost1/supervisor.json">cost-pairs01/pulses-accumulate0-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate1-cost0/profile.execution.json">cost-pairs01/pulses-accumulate1-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate1-cost0/profile.log">cost-pairs01/pulses-accumulate1-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate1-cost0/supervisor.json">cost-pairs01/pulses-accumulate1-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate1-cost1/profile.execution.json">cost-pairs01/pulses-accumulate1-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate1-cost1/profile.log">cost-pairs01/pulses-accumulate1-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs01/pulses-accumulate1-cost1/supervisor.json">cost-pairs01/pulses-accumulate1-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs01/result.json">cost-pairs01/result.json</a></li>
+<li><a href="evidence/cost-pairs02/freeze.json">cost-pairs02/freeze.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate0-cost0/profile.execution.json">cost-pairs02/log_drag_ou-accumulate0-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate0-cost0/profile.log">cost-pairs02/log_drag_ou-accumulate0-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate0-cost0/supervisor.json">cost-pairs02/log_drag_ou-accumulate0-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate0-cost1/profile.execution.json">cost-pairs02/log_drag_ou-accumulate0-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate0-cost1/profile.log">cost-pairs02/log_drag_ou-accumulate0-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate0-cost1/supervisor.json">cost-pairs02/log_drag_ou-accumulate0-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate1-cost0/profile.execution.json">cost-pairs02/log_drag_ou-accumulate1-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate1-cost0/profile.log">cost-pairs02/log_drag_ou-accumulate1-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate1-cost0/supervisor.json">cost-pairs02/log_drag_ou-accumulate1-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate1-cost1/profile.execution.json">cost-pairs02/log_drag_ou-accumulate1-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate1-cost1/profile.log">cost-pairs02/log_drag_ou-accumulate1-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/log_drag_ou-accumulate1-cost1/supervisor.json">cost-pairs02/log_drag_ou-accumulate1-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate0-cost0/profile.execution.json">cost-pairs02/pulses-accumulate0-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate0-cost0/profile.log">cost-pairs02/pulses-accumulate0-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate0-cost0/supervisor.json">cost-pairs02/pulses-accumulate0-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate0-cost1/profile.execution.json">cost-pairs02/pulses-accumulate0-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate0-cost1/profile.log">cost-pairs02/pulses-accumulate0-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate0-cost1/supervisor.json">cost-pairs02/pulses-accumulate0-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate1-cost0/profile.execution.json">cost-pairs02/pulses-accumulate1-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate1-cost0/profile.log">cost-pairs02/pulses-accumulate1-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate1-cost0/supervisor.json">cost-pairs02/pulses-accumulate1-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate1-cost1/profile.execution.json">cost-pairs02/pulses-accumulate1-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate1-cost1/profile.log">cost-pairs02/pulses-accumulate1-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs02/pulses-accumulate1-cost1/supervisor.json">cost-pairs02/pulses-accumulate1-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs02/result.json">cost-pairs02/result.json</a></li>
+<li><a href="evidence/cost-pairs03/freeze.json">cost-pairs03/freeze.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate0-cost0/profile.execution.json">cost-pairs03/log_drag_ou-accumulate0-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate0-cost0/profile.log">cost-pairs03/log_drag_ou-accumulate0-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate0-cost0/supervisor.json">cost-pairs03/log_drag_ou-accumulate0-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate0-cost1/profile.execution.json">cost-pairs03/log_drag_ou-accumulate0-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate0-cost1/profile.log">cost-pairs03/log_drag_ou-accumulate0-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate0-cost1/supervisor.json">cost-pairs03/log_drag_ou-accumulate0-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate1-cost0/profile.execution.json">cost-pairs03/log_drag_ou-accumulate1-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate1-cost0/profile.log">cost-pairs03/log_drag_ou-accumulate1-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate1-cost0/supervisor.json">cost-pairs03/log_drag_ou-accumulate1-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate1-cost1/profile.execution.json">cost-pairs03/log_drag_ou-accumulate1-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate1-cost1/profile.log">cost-pairs03/log_drag_ou-accumulate1-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/log_drag_ou-accumulate1-cost1/supervisor.json">cost-pairs03/log_drag_ou-accumulate1-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate0-cost0/profile.execution.json">cost-pairs03/pulses-accumulate0-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate0-cost0/profile.log">cost-pairs03/pulses-accumulate0-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate0-cost0/supervisor.json">cost-pairs03/pulses-accumulate0-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate0-cost1/profile.execution.json">cost-pairs03/pulses-accumulate0-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate0-cost1/profile.log">cost-pairs03/pulses-accumulate0-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate0-cost1/supervisor.json">cost-pairs03/pulses-accumulate0-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate1-cost0/profile.execution.json">cost-pairs03/pulses-accumulate1-cost0/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate1-cost0/profile.log">cost-pairs03/pulses-accumulate1-cost0/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate1-cost0/supervisor.json">cost-pairs03/pulses-accumulate1-cost0/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate1-cost1/profile.execution.json">cost-pairs03/pulses-accumulate1-cost1/profile.execution.json</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate1-cost1/profile.log">cost-pairs03/pulses-accumulate1-cost1/profile.log</a></li>
+<li><a href="evidence/cost-pairs03/pulses-accumulate1-cost1/supervisor.json">cost-pairs03/pulses-accumulate1-cost1/supervisor.json</a></li>
+<li><a href="evidence/cost-pairs03/result.json">cost-pairs03/result.json</a></li>
+<li><a href="evidence/memory-checks02/freeze.json">memory-checks02/freeze.json</a></li>
+<li><a href="evidence/memory-checks02/native-pairs/result.json">memory-checks02/native-pairs/result.json</a></li>
+<li><a href="evidence/memory-checks02/native-pairs/tests.xml">memory-checks02/native-pairs/tests.xml</a></li>
+<li><a href="evidence/memory-checks02/replay72h-block0/result.json">memory-checks02/replay72h-block0/result.json</a></li>
+<li><a href="evidence/memory-checks02/replay72h-block256/result.json">memory-checks02/replay72h-block256/result.json</a></li>
+<li><a href="evidence/memory-checks02/replay72h-block64/result.json">memory-checks02/replay72h-block64/result.json</a></li>
+<li><a href="evidence/memory-checks02/result.json">memory-checks02/result.json</a></li>
+<li><a href="evidence/memory-checks03/freeze.json">memory-checks03/freeze.json</a></li>
+<li><a href="evidence/memory-checks03/native-pairs/result.json">memory-checks03/native-pairs/result.json</a></li>
+<li><a href="evidence/memory-checks03/native-pairs/tests.xml">memory-checks03/native-pairs/tests.xml</a></li>
+<li><a href="evidence/memory-checks03/replay72h-block0/result.json">memory-checks03/replay72h-block0/result.json</a></li>
+<li><a href="evidence/memory-checks03/replay72h-block256/result.json">memory-checks03/replay72h-block256/result.json</a></li>
+<li><a href="evidence/memory-checks03/replay72h-block64/result.json">memory-checks03/replay72h-block64/result.json</a></li>
+<li><a href="evidence/memory-checks03/result.json">memory-checks03/result.json</a></li>
+<li><a href="evidence/native-tests01/correction/result.json">native-tests01/correction/result.json</a></li>
+<li><a href="evidence/native-tests01/correction/tests.xml">native-tests01/correction/tests.xml</a></li>
+<li><a href="evidence/native-tests01/freeze.json">native-tests01/freeze.json</a></li>
+<li><a href="evidence/native-tests01/native/result.json">native-tests01/native/result.json</a></li>
+<li><a href="evidence/native-tests01/native/tests.xml">native-tests01/native/tests.xml</a></li>
+<li><a href="evidence/native-tests01/result.json">native-tests01/result.json</a></li>
+<li><a href="evidence/native-tests02/correction/result.json">native-tests02/correction/result.json</a></li>
+<li><a href="evidence/native-tests02/correction/tests.xml">native-tests02/correction/tests.xml</a></li>
+<li><a href="evidence/native-tests02/cost_query/result.json">native-tests02/cost_query/result.json</a></li>
+<li><a href="evidence/native-tests02/cost_query/tests.xml">native-tests02/cost_query/tests.xml</a></li>
+<li><a href="evidence/native-tests02/fail_fast/result.json">native-tests02/fail_fast/result.json</a></li>
+<li><a href="evidence/native-tests02/fail_fast/tests.xml">native-tests02/fail_fast/tests.xml</a></li>
+<li><a href="evidence/native-tests02/freeze.json">native-tests02/freeze.json</a></li>
+<li><a href="evidence/native-tests02/native/result.json">native-tests02/native/result.json</a></li>
+<li><a href="evidence/native-tests02/native/tests.xml">native-tests02/native/tests.xml</a></li>
+<li><a href="evidence/native-tests02/result.json">native-tests02/result.json</a></li>
+<li><a href="evidence/outputs/analyzer-tests01.xml">outputs/analyzer-tests01.xml</a></li>
+<li><a href="evidence/outputs/analyzer-tests02.xml">outputs/analyzer-tests02.xml</a></li>
+<li><a href="evidence/outputs/candidate-build-controls-tests01.xml">outputs/candidate-build-controls-tests01.xml</a></li>
+<li><a href="evidence/outputs/component-tests01.xml">outputs/component-tests01.xml</a></li>
+<li><a href="evidence/outputs/component-tests02.xml">outputs/component-tests02.xml</a></li>
+<li><a href="evidence/outputs/component-tests03.xml">outputs/component-tests03.xml</a></li>
+<li><a href="evidence/outputs/component-tests04.xml">outputs/component-tests04.xml</a></li>
+<li><a href="evidence/outputs/cost-pair-checker-tests01.xml">outputs/cost-pair-checker-tests01.xml</a></li>
+<li><a href="evidence/outputs/cost-pair-checker-tests02.xml">outputs/cost-pair-checker-tests02.xml</a></li>
+<li><a href="evidence/outputs/cost-pairs01-checks/index.json">outputs/cost-pairs01-checks/index.json</a></li>
+<li><a href="evidence/outputs/cost-pairs01-checks/log_drag_ou-accumulate0.json">outputs/cost-pairs01-checks/log_drag_ou-accumulate0.json</a></li>
+<li><a href="evidence/outputs/cost-pairs01-checks/log_drag_ou-accumulate1.json">outputs/cost-pairs01-checks/log_drag_ou-accumulate1.json</a></li>
+<li><a href="evidence/outputs/cost-pairs01-checks/outcome-review.json">outputs/cost-pairs01-checks/outcome-review.json</a></li>
+<li><a href="evidence/outputs/cost-pairs01-checks/pulses-accumulate0.json">outputs/cost-pairs01-checks/pulses-accumulate0.json</a></li>
+<li><a href="evidence/outputs/cost-pairs01-checks/pulses-accumulate1.json">outputs/cost-pairs01-checks/pulses-accumulate1.json</a></li>
+<li><a href="evidence/outputs/cost-pairs02-checks/index.json">outputs/cost-pairs02-checks/index.json</a></li>
+<li><a href="evidence/outputs/cost-pairs02-checks/log_drag_ou-accumulate0.json">outputs/cost-pairs02-checks/log_drag_ou-accumulate0.json</a></li>
+<li><a href="evidence/outputs/cost-pairs02-checks/log_drag_ou-accumulate1.json">outputs/cost-pairs02-checks/log_drag_ou-accumulate1.json</a></li>
+<li><a href="evidence/outputs/cost-pairs02-checks/pulses-accumulate0.json">outputs/cost-pairs02-checks/pulses-accumulate0.json</a></li>
+<li><a href="evidence/outputs/cost-pairs02-checks/pulses-accumulate1.json">outputs/cost-pairs02-checks/pulses-accumulate1.json</a></li>
+<li><a href="evidence/outputs/cost-pairs03-checks/index.json">outputs/cost-pairs03-checks/index.json</a></li>
+<li><a href="evidence/outputs/cost-pairs03-checks/log_drag_ou-accumulate0.json">outputs/cost-pairs03-checks/log_drag_ou-accumulate0.json</a></li>
+<li><a href="evidence/outputs/cost-pairs03-checks/log_drag_ou-accumulate1.json">outputs/cost-pairs03-checks/log_drag_ou-accumulate1.json</a></li>
+<li><a href="evidence/outputs/cost-pairs03-checks/pulses-accumulate0.json">outputs/cost-pairs03-checks/pulses-accumulate0.json</a></li>
+<li><a href="evidence/outputs/cost-pairs03-checks/pulses-accumulate1.json">outputs/cost-pairs03-checks/pulses-accumulate1.json</a></li>
+<li><a href="evidence/outputs/investigation01/report.json">outputs/investigation01/report.json</a></li>
+<li><a href="evidence/outputs/publication-generator-tests01.xml">outputs/publication-generator-tests01.xml</a></li>
+<li><a href="evidence/outputs/publication-generator-tests02.xml">outputs/publication-generator-tests02.xml</a></li>
+<li><a href="evidence/outputs/publication-generator-tests03.xml">outputs/publication-generator-tests03.xml</a></li>
+<li><a href="evidence/outputs/publication-generator-tests04.xml">outputs/publication-generator-tests04.xml</a></li>
+<li><a href="evidence/source/docs/v4-fit-failures.md">source/docs/v4-fit-failures.md</a></li>
+<li><a href="evidence/source/docs/variational-memory-candidate.md">source/docs/variational-memory-candidate.md</a></li>
+<li><a href="evidence/source/scripts/analyze_nuisance_profile.py">source/scripts/analyze_nuisance_profile.py</a></li>
+<li><a href="evidence/source/scripts/analyze_v4_fit_failures.py">source/scripts/analyze_v4_fit_failures.py</a></li>
+<li><a href="evidence/source/scripts/build_groops.py">source/scripts/build_groops.py</a></li>
+<li><a href="evidence/source/scripts/check_nuisance_cost_only_pair.py">source/scripts/check_nuisance_cost_only_pair.py</a></li>
+<li><a href="evidence/source/scripts/check_nuisance_performance_pair.py">source/scripts/check_nuisance_performance_pair.py</a></li>
+<li><a href="evidence/source/src/orbit_poc/comparison/backend.py">source/src/orbit_poc/comparison/backend.py</a></li>
+<li><a href="evidence/source/src/orbit_poc/segmented/supervisor.py">source/src/orbit_poc/segmented/supervisor.py</a></li>
+</ul></section></html>

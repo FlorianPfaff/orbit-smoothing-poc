@@ -1,0 +1,160 @@
+{
+  "schema": "independent-density-proposal-audit-v1",
+  "scope": "Archived 146-column linearization only; no nonlinear or native execution",
+  "approved": true,
+  "checks": {
+    "same_density_parameter_order": true,
+    "one_initial_and_sixty_transition_prior_rows": true,
+    "zero_prior_targets_at_zero_initial_density": true,
+    "independent_augmented_svd_matches_saved_steps": true,
+    "full_augmented_rank": true,
+    "trial_density_matches_damped_proposal": true,
+    "trial_physical_initial_matches_native_design": true,
+    "ou_analytic_and_matrix_cost_agree": true,
+    "ou_scaled_precision_not_greater_than_full_factor": true
+  },
+  "solutions": [
+    {
+      "damping": 0.0,
+      "augmented_rank": 146,
+      "maximum_native_step_discrepancy": 1.6833964777696053e-12,
+      "relative_native_step_discrepancy": 1.7708487686029946e-13,
+      "density_min": -0.13841530612761427,
+      "density_max": -0.03654309074410684,
+      "density_update_max": 0.13841530612761427,
+      "prior_cost_direct": 0.5162791078377873,
+      "prior_cost_matrix": 0.5162791078377873,
+      "predicted_reduction": 6812838.095400152,
+      "predicted_full_linear_cost": 3236.3597244897096,
+      "lm_dynamic_penalty_cost": 0.0,
+      "scaled_dynamic_step_norm": 144962.3482469755,
+      "scaled_least_squares_relative_stationarity": 1.20758707409653e-13
+    },
+    {
+      "damping": 0.001,
+      "augmented_rank": 146,
+      "maximum_native_step_discrepancy": 1.0018652574217413e-12,
+      "relative_native_step_discrepancy": 5.216270145286257e-14,
+      "density_min": -11.57709598031131,
+      "density_max": 20.376982950839047,
+      "density_update_max": 20.376982950839047,
+      "prior_cost_direct": 28392.6895490308,
+      "prior_cost_matrix": 28392.68954903081,
+      "predicted_reduction": 6371265.222850078,
+      "predicted_full_linear_cost": 444809.2322745647,
+      "lm_dynamic_penalty_cost": 262867.05498226313,
+      "scaled_dynamic_step_norm": 22928.892471389154,
+      "scaled_least_squares_relative_stationarity": 9.847117170844778e-14
+    }
+  ],
+  "accepted_point_objective": 6816074.455124643,
+  "rank_diagnostics": {
+    "schema": "orbit-poc-native-qr-v1",
+    "rank_status": "full",
+    "rank": 146,
+    "retained_parameters": 146,
+    "local_parameters": 240,
+    "source_rows": 8125,
+    "reduced_rows": 7885,
+    "rank_threshold": 9.64831574788955e-12,
+    "sigma_max": 5.510735726943343,
+    "sigma_min": 0.001433757815051601,
+    "rhs2": 13632148.910249323,
+    "projected_rhs2": 13632148.910249323,
+    "constant_residual2": 6472.719448979419,
+    "residual2": 6472.719448979419,
+    "gradient_scaled": 0.11135604936310257,
+    "lambda": 0
+  },
+  "ou": {
+    "tau_seconds": 7200.0,
+    "sigma": 0.3,
+    "dt_seconds": 60.0,
+    "phi": 0.991701292638876,
+    "innovation_sigma": 0.03856901808517331
+  },
+  "trial_density_max_discrepancy": 1.0018652574217413e-12,
+  "trial_initial_max_discrepancy": 6.661338147750939e-15,
+  "small_gram_prior_subtraction_minimum_eigenvalue": 1.3155389948828201e-09,
+  "density_column_scales_min_max": [
+    0.0032299835881541956,
+    0.038569016885403394
+  ],
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.factor.json",
+      "sha256": "d5001ecee52fbcc59c93aceccba27ea53f7c4747aa326d5405cd0dbc492008b6",
+      "bytes": 11668
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.profile.json",
+      "sha256": "a34b6fbc02da38f0b077ac5359f2fbe8975d9cc22ffd7b1ddc8045e70a272c5c",
+      "bytes": 768
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.diagnostics.json",
+      "sha256": "75bb68b2cd12ce44bf35cb2f178f9a94f4aa088e345ce76c99661ce93cfe6e3b",
+      "bytes": 442
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.R.bin",
+      "sha256": "e1db8f334d895fcf59836c45e307f06e89ec4c5a12be38cdb92497dec238a77d",
+      "bytes": 170544
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.rhs.bin",
+      "sha256": "766ad41072c4235e9620a0d168ad6b0da83074a3e3b42279865430bb4203758f",
+      "bytes": 1184
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-02/reference.txt",
+      "sha256": "2a8e9fcd30a22b7795eae0a4adc989d7d97b5478bc75575bf3b6e26231824566",
+      "bytes": 1858
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/closure-02/initial_design.txt",
+      "sha256": "32ad9fe21f39034a664d1af2ba6a39630e8174c991f8faeb20d8dba0d46efce0",
+      "bytes": 10507
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/physical_initial.txt",
+      "sha256": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965",
+      "bytes": 193
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/physical_initial.txt",
+      "sha256": "803494916275cd2df9a003ae83acf537738101cb4ad4d16ec7f44a0c94bbf341",
+      "bytes": 193
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/native/log_density.txt",
+      "sha256": "6ea345d46ba11c123d648cfd00e74cabf56a494291717eb535d494957864d6bb",
+      "bytes": 3039
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.parameters.tsv",
+      "sha256": "ac9dec87492f902326c840c635bb8484cc7dbdce4965691d75af10cf7d35f9bf",
+      "bytes": 41216
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/qr.74.rows.tsv.gz",
+      "sha256": "03026ef04a6675c3a7c2e57fa1fc7205c002a14dd623f09ff87c5e37aaaa6ba5",
+      "bytes": 138682
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-000/parameters.txt",
+      "sha256": "72a1b74f118f8fd123792613c087403ddf182dcc6c3bf586a4a4d7e06743f14f",
+      "bytes": 1720
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-003-closure-refinement/proposal-001/parameters.txt",
+      "sha256": "db5bdbf64bee38ab6fafb64b5780fe37de62bd151a4125c8143f757d37e91952",
+      "bytes": 1707
+    }
+  ],
+  "limitations": [
+    "Row provenance names and source equations checked; full observation row coefficient spool is not reconstructed.",
+    "A correct damped linear solution does not establish a valid nonlinear trial or explain the exact fitted nonfinite element.",
+    "No scientific parameter, clipping, damping setting, threshold, source or archived output changed."
+  ]
+}

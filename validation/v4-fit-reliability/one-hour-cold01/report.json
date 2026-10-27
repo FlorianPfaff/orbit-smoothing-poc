@@ -1,0 +1,155 @@
+{
+  "schema": "orbit-poc-cold-one-hour-publication-v1",
+  "scope": "Two bounded synthetic cold full-fit attempts: one strict pass and one preserved native failure.",
+  "created_at": "2026-10-25T13:46:16.917961+01:00",
+  "run": "/mnt/d/orbit-v41-recovery02/one-hour-run01",
+  "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+  "source_hash": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+  "freeze_sha256": "74b6456b8936c1b7aadedbf7c3479c5beb3e49164ba67d2601337eb94b72018d",
+  "counts": {
+    "planned": 2,
+    "passed": 1,
+    "failed": 1
+  },
+  "execution_order": [
+    "cold-pulses",
+    "cold-density"
+  ],
+  "stages": [
+    {
+      "stage": "cold-pulses",
+      "method": "groops_pulses",
+      "status": "passed",
+      "numerical_status": "complete",
+      "whole_fit_verified": true,
+      "accepted_covariance": true,
+      "backend_fit_seconds": 2559.4631982059946,
+      "supervised_seconds": 3546.238585743995,
+      "peak_process_tree_rss_bytes": 382865408,
+      "accepted_iterations": 10,
+      "trial_evaluations": 10,
+      "propagation_count": 41,
+      "cleanup_verified": true,
+      "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "source_hash": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+      "strict_result": "evidence/one-hour-run01/cold-pulses/strict-result.json",
+      "error": null
+    },
+    {
+      "stage": "cold-density",
+      "method": "groops_log_drag_ou",
+      "status": "failed",
+      "numerical_status": "native_failure",
+      "whole_fit_verified": false,
+      "accepted_covariance": false,
+      "backend_fit_seconds": 1272.851604999989,
+      "supervised_seconds": 1622.650467667001,
+      "peak_process_tree_rss_bytes": 382791680,
+      "accepted_iterations": 0,
+      "trial_evaluations": 1,
+      "propagation_count": 7,
+      "cleanup_verified": true,
+      "native_binary_sha256": "28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d",
+      "source_hash": "c3655f86f04ec4990f88accc092c41f2ac539d8a84300b69e7bac16f3d4ef260",
+      "strict_result": "evidence/one-hour-run01/cold-density/strict-result.json",
+      "error": "Native propagate exited 1; see /mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/fit/point-004-trial-001/closure-02/propagate.log"
+    }
+  ],
+  "pulse_final": {
+    "cold_start": {
+      "converted": {
+        "bytes": 187798,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/initial-input/orbit.txt",
+        "sha256": "014a0b01b26b4167f9d30797cd10577d717c9a1f1f2e16d09120197a6e6b1ef3"
+      },
+      "fixed_force": {
+        "bytes": 336,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/point-001-initial/fixed_force.txt",
+        "sha256": "0728324f81264f44a3c8b1547b929b544d8af679c876fa68815ea039a7843bfc"
+      },
+      "force": {
+        "bytes": 144,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/point-001-initial/full_pulses_um_s.txt",
+        "sha256": "ba554b8bf56ebd10f1a06bb313b21102ea739770c43dc83441151f94ce27d29b"
+      },
+      "initial_state_exact": true,
+      "initialization": "original GNSS-only bootstrap and unchanged nominal closure",
+      "no_nuisance_donor": true,
+      "no_physical_override": true,
+      "nominal_orbit_sha256": "16bb3d709b50d6918c0ee2dbb6d419f17f17e934c04f39d607c77abcf73f3db1",
+      "physical_initial": {
+        "bytes": 193,
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/point-001-initial/physical_initial.txt",
+        "sha256": "203238fc60d71165082dd0f4a19aaf34937abd5c9623540ff74d27f4eb22f965"
+      },
+      "zero_force_count": 6
+    },
+    "final_covariance_nuisance_marginalized": true,
+    "final_factor": {
+      "bytes": 66264,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/point-019-final-covariance/qr.7.R.bin",
+      "sha256": "de6fd9551313ab00bf0f12843870281f4186aa626f1dd856dc02244ff04d84e5"
+    },
+    "final_profile": {
+      "bytes": 1315,
+      "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/fit/point-019-final-covariance/qr.profile.json",
+      "sha256": "38ed9256edb8f06f3cba26a4bc205e828c218757a42af66e05b6244b9cffc4e1"
+    },
+    "fresh_final_correction": {
+      "normalized_gradient": 8.35656500814021e-09,
+      "nuisance_floor_limited": false,
+      "raw_correction": {
+        "density_update": 0.0,
+        "position_change_m": 1.0588035919612342e-08,
+        "pulse_update_m_s": 6.181421462221263e-13
+      },
+      "stationary": true
+    },
+    "rank": {
+      "columns": 91,
+      "condition_number": 2172.7823920117507,
+      "effective_rows": 7830,
+      "maximum_singular_value": 3.0774491872090635,
+      "minimum_singular_value": 0.001416363276195226,
+      "rank": 91,
+      "status": "full_rank",
+      "threshold": 5.3504816434839435e-12
+    }
+  },
+  "pulse_last_accepted_trial": {
+    "trial": 10,
+    "actual_reduction": 6.620211934205145e-09,
+    "objective_floor": 7.22743607184384e-06,
+    "objective_reduction_numerically_resolved": false
+  },
+  "pulse_convergence_basis": "Fresh undamped final correction, full-rank factor and strict fresh nuisance confirmation. The last accepted reduction is below the measured objective floor and is not convergence authority.",
+  "density_failure": {
+    "native_message": "Nonfinite equinoctial reference input",
+    "point": "point-004-trial-001",
+    "closure": "closure-02",
+    "trial_log_density_min": -11.577095980311807,
+    "trial_log_density_max": 20.37698295083867,
+    "maximum_trial_density_multiplier": 707312369.9593607,
+    "diagnosis_scope": "Observed native guard failure and extreme proposal only. Exact failing element/root cause and a corrective candidate are not established by this publication.",
+    "timeout": false,
+    "memory_limit": false,
+    "accepted_covariance": false
+  },
+  "independent_prelaunch_review": {
+    "path": "evidence/one-hour-review01/launch-review01.json",
+    "check_count": 583,
+    "approved": true
+  },
+  "control_tests": {
+    "path": "evidence/one-hour-controls01/tests05-result.json",
+    "tests": 50,
+    "passed": true
+  },
+  "terminal_review_scope": "Original strict receipts substantiate the outcomes. Prelaunch reviews are not terminal numerical audits. Independent publication approval is recorded separately.",
+  "no_new_native_runs_for_publication": true,
+  "frozen_benchmarks_changed": false,
+  "release_authority": false,
+  "scientific_accuracy_superiority_claim": false,
+  "covariance_calibration_verified": false,
+  "timing_scope": "Backend fitting and supervised elapsed time are separate. Supervision includes substantial identity I/O; these different methods are not a speedup comparison."
+}

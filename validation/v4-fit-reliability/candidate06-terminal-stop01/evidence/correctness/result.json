@@ -1,0 +1,177 @@
+{
+  "accepted_covariance": false,
+  "all_ten_strict_passed": false,
+  "end_to_end_run_seconds": 6686.771132131,
+  "error": "RuntimeError('Competing native/numerical workload; preserve it: [{\"pid\": 72934, \"parent\": 72933, \"state\": \"D\", \"start_ticks\": 1506771, \"name\": \"python\", \"argv\": [\"/mnt/c/Users/emper/Codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python\", \"-s\", \"-B\", \"-m\", \"pytest\", \"tests/test_scientific_execution.py\", \"/mnt/d/orbit-scientific-adapter01/execution-review01/test_adversarial.py\", \"/mnt/d/orbit-scientific-adapter01/execution-review02/test_review.py\", \"-p\", \"no:cacheprovider\", \"--junitxml=/mnt/d/orbit-scientific-adapter01/execution-revision03/tests02/tests.xml\"], \"reason\": \"numerical Python controller\"}]')",
+  "freeze": {
+    "bytes": 715,
+    "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/freeze.json",
+    "sha256": "72dd8ca113b62821ab62562e08653a5a5962d0d7e11dcea0fb92985f052e2c48"
+  },
+  "plan": {
+    "bytes": 594583,
+    "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+    "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+  },
+  "planned_stages": [
+    "native-tests",
+    "correction-tests",
+    "synthetic-refinement-log_drag_ou",
+    "synthetic-refinement-pulses",
+    "flight-refinement",
+    "eccentric-24h-refinement",
+    "objective-log_drag_ou",
+    "objective-pulses",
+    "nuisance-replay",
+    "nuisance-replay-candidate1-point012"
+  ],
+  "release_authority": false,
+  "runtime_inventory_costs_included": true,
+  "stages": [
+    {
+      "cleanup_verified": true,
+      "controller_after_stage_seconds": 328.7227839870011,
+      "controller_before_launch_seconds": 128.34756464900056,
+      "end_to_end_stage_seconds": 1314.8644342240004,
+      "execution": {
+        "bytes": 148768,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/supervisor.json",
+        "sha256": "9d02326bec142a6e24c610f57aca303bf9a09b521f16da44f3d19fe40bba5dcd"
+      },
+      "freeze": {
+        "bytes": 715,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/freeze.json",
+        "sha256": "72dd8ca113b62821ab62562e08653a5a5962d0d7e11dcea0fb92985f052e2c48"
+      },
+      "input_identity_after": "verified",
+      "plan": {
+        "bytes": 594583,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+        "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+      },
+      "stage": "native-tests",
+      "status": "failed",
+      "strict_result": {
+        "bytes": 154298,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/native-tests/strict-result.json",
+        "sha256": "901ced1abbb4f622c4a5fedb66d884b0f2ab42e947a84b72a00a42d80c2c70a0"
+      },
+      "supervised_stage_wall_seconds": 857.7940844549994
+    },
+    {
+      "cleanup_verified": true,
+      "controller_after_stage_seconds": 323.5940336090007,
+      "controller_before_launch_seconds": 172.6734880189997,
+      "end_to_end_stage_seconds": 1569.3609483559994,
+      "execution": {
+        "bytes": 148539,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/correction-tests/supervisor.json",
+        "sha256": "8d8e6a4ece0cf98c27573caa8a19704b88ecb28df44464d5aa603673dd067903"
+      },
+      "freeze": {
+        "bytes": 715,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/freeze.json",
+        "sha256": "72dd8ca113b62821ab62562e08653a5a5962d0d7e11dcea0fb92985f052e2c48"
+      },
+      "input_identity_after": "verified",
+      "plan": {
+        "bytes": 594583,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+        "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+      },
+      "stage": "correction-tests",
+      "status": "passed",
+      "strict_result": {
+        "bytes": 162866,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/correction-tests/strict-result.json",
+        "sha256": "7f1308d5b6b91a794010f3c82351a96aa856286442e9e3cdf2075512e5497f07"
+      },
+      "supervised_stage_wall_seconds": 1073.0934253119995
+    },
+    {
+      "cleanup_verified": true,
+      "controller_after_stage_seconds": 236.09984619699935,
+      "controller_before_launch_seconds": 323.56524562699997,
+      "end_to_end_stage_seconds": 1678.2559110790007,
+      "execution": {
+        "bytes": 148755,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/synthetic-refinement-log_drag_ou/supervisor.json",
+        "sha256": "d94c0152ddf60614ccee6457614f0bb2328fbf727eaae8f237c1da1a030bc732"
+      },
+      "freeze": {
+        "bytes": 715,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/freeze.json",
+        "sha256": "72dd8ca113b62821ab62562e08653a5a5962d0d7e11dcea0fb92985f052e2c48"
+      },
+      "input_identity_after": "verified",
+      "plan": {
+        "bytes": 594583,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+        "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+      },
+      "stage": "synthetic-refinement-log_drag_ou",
+      "status": "passed",
+      "strict_result": {
+        "bytes": 154290,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/synthetic-refinement-log_drag_ou/strict-result.json",
+        "sha256": "0a245c91fcf3f2bc63bb903c8f21677228c7ea43371aeb4fba89172b35dbfc1f"
+      },
+      "supervised_stage_wall_seconds": 1118.5908183280008
+    },
+    {
+      "cleanup_verified": true,
+      "controller_after_stage_seconds": 241.5748136659986,
+      "controller_before_launch_seconds": 233.3943301349991,
+      "end_to_end_stage_seconds": 1579.8349359149997,
+      "execution": {
+        "bytes": 148810,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/synthetic-refinement-pulses/supervisor.json",
+        "sha256": "c55d9560e12d0409a75a965ba8ffd95683d8d8ba3dbee036c33a8132d1dfaa0f"
+      },
+      "freeze": {
+        "bytes": 715,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/freeze.json",
+        "sha256": "72dd8ca113b62821ab62562e08653a5a5962d0d7e11dcea0fb92985f052e2c48"
+      },
+      "input_identity_after": "verified",
+      "plan": {
+        "bytes": 594583,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/plan.json",
+        "sha256": "aca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95"
+      },
+      "stage": "synthetic-refinement-pulses",
+      "status": "passed",
+      "strict_result": {
+        "bytes": 154240,
+        "path": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/synthetic-refinement-pulses/strict-result.json",
+        "sha256": "f8cd507cdff3017062b2e885e8892698d8dc7d949bc81724d355728b5a6b4f39"
+      },
+      "supervised_stage_wall_seconds": 1104.8657913300012
+    },
+    {
+      "stage": "flight-refinement",
+      "status": "not_executed_or_interrupted_without_receipt"
+    },
+    {
+      "stage": "eccentric-24h-refinement",
+      "status": "not_executed_or_interrupted_without_receipt"
+    },
+    {
+      "stage": "objective-log_drag_ou",
+      "status": "not_executed_or_interrupted_without_receipt"
+    },
+    {
+      "stage": "objective-pulses",
+      "status": "not_executed_or_interrupted_without_receipt"
+    },
+    {
+      "stage": "nuisance-replay",
+      "status": "not_executed_or_interrupted_without_receipt"
+    },
+    {
+      "stage": "nuisance-replay-candidate1-point012",
+      "status": "not_executed_or_interrupted_without_receipt"
+    }
+  ],
+  "whole_fit_verified": false
+}

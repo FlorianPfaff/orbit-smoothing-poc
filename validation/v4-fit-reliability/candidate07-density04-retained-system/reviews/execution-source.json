@@ -1,0 +1,57 @@
+{
+  "schema": "density04-retained-execution-independent-source-review-v1",
+  "reviewed_at_utc": "2026-10-27T02:27:36Z",
+  "reviewer": "/root/interruption_review",
+  "independence": "Independent source review of execution controls authored by root and scientific code authored by postboot_audits. No imports, tests, analysis or launch performed by reviewer.",
+  "approved_action": "qualify",
+  "source_sha256": "e32689579fb6cf392439dd19a41b08053824a6fc193244816102d9abc8ed2820",
+  "controls_sha256": "cd092ad6e25ce4fbf9b8c8cf0a2712de885f0b7eae97879800e880b3cf1bf54e",
+  "controls_root": "/mnt/d/orbit-v41-recovery02/candidate07-density04-retained-factor-execution01/preparation01",
+  "scientific_source_review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-retained-factor-analysis01-independent-source-review01/review.json",
+    "sha256": "366d601a810088782e581c7e4912fae5a74668bf2d3737ddcb0e47e0f4242279"
+  },
+  "controls_inventory": {
+    "members": 10,
+    "all_members_rehashed": true,
+    "exact_file_membership_verified": true,
+    "worker_sha256": "647b3b8c8a989a6d049822f9efc158eec6f8c0b6717385ec2e6d848ea972ab23",
+    "controller_sha256": "89d1b5fc10e4e745487a6c0d2ea7964f189936a25f21a6aa6b32dbcf4d24fb5a",
+    "source_ledger_filename": "inputs.sha256",
+    "supervisor_sha256": "060bc208a5d36631689905563c9e969ae4615299e39e87637f71393b62eed267",
+    "host_admission_sha256": "15f40502c44c948cdd454a40f52df83f686dad51d386e12f04d3e060e8db543f",
+    "scientific_runtime_inventory": "dd15f70ca65b3c6409aef1c461e877a0892d2b7771cb6ba0deed73ef0582010c"
+  },
+  "remote_scope": {
+    "root": "/home/florianpfaff/codex-runs/orbit-density-retained-qr11-20261027-01",
+    "action_output": "qualification01",
+    "expected_tests": 9,
+    "exact_test_ids_sha256": "79788cebc37205f79b4afb04e8a651ebdd3539f679f9b5936104844bd5174579",
+    "timeout_seconds": 300,
+    "max_process_tree_rss_bytes": 8589934592,
+    "cpu": 127,
+    "nice": 19,
+    "numerical_threads": 1,
+    "host": "workstation1",
+    "uid": 1002,
+    "boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa"
+  },
+  "reviewed_behavior": [
+    "Exact source/control/review digests are required by both controller and worker; this review's approved_action permits qualify only. Original scientific22-member source and all numerical thresholds remain unchanged.",
+    "Existing pinned current-host admission and owned-process supervisor are reused. Admission rejects competing numerical/build workloads and checks host/boot/UID/CPU/nice/memory/disk. No fake campaign receipt is introduced.",
+    "The clean environment and Python-I-S-B contract are exact. Scientific paths are explicitly selected; actual imported/mapped files, full reviewed source membership, runtime bytes and runtime alias targets are verified before/after. The six-file project import closure is explicit; site/.pth startup is prohibited.",
+    "The existing process audit guard remains closed throughout qualification; there is no lscpu exception or native child action. SciPy/NumPy use the established pinned scientific import/runtime policy.",
+    "Bubblewrap keeps the visible host root/source/runtime/input tree read-only, masks/mnt, and provides only the owned action output plus ephemeral/dev and/tmp writes. No fitting workspace or physical state is installed.",
+    "Qualification discovers exactly the nine reviewed IDs and requires zero failures/errors/skips/expected failures/unexpected successes. The controller separately requires successful supervisor return plus verified ECHILD empty tree/no cleanup signals/no hard kill and worker posthash success.",
+    "Controller and worker failed results are exclusive fresh files, including posthash errors. A passing worker cannot override failed supervision or controller identity checks.",
+    "The source also contains a later analyze branch, but this reviewed action cannot enter it. A new actual independent qualification outcome review bound to exact receipts is required before any saved-factor analysis."
+  ],
+  "findings": [],
+  "source_approval_for_separately_admitted_qualification": true,
+  "actual_tests_executed_by_reviewer": 0,
+  "actual_analysis_approved": false,
+  "native_execution_authority": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "required_actual_outcome_review": "Independently audit actual exact9 test IDs/counts, no errors/skips/process-policy events, source/runtime/module/alias identity, supervisor cleanup and current owned-process absence before granting later analysis. Root owns staging and launch after actual current-host admission."
+}

@@ -1,0 +1,160 @@
+{
+  "action": "audit",
+  "adapter_qualification": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collector-tests02/result.json",
+    "sha256": "53a6639075a8e3d8784b43b3b7d4e84a61244c08c06c7968352c508b02e7da96"
+  },
+  "covariance_authority": false,
+  "density_terminal_review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-cold-density04-independent-terminal-confirmation01/review.json",
+    "sha256": "5d37eb7852516c5f360511e50b98e5bcc2d6ff159b7e39ee757000c864795354"
+  },
+  "interruption_review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-sequence03-interruption-independent-review01/review.json",
+    "sha256": "559ab88a472c346eba5ca5d24584b56d2f7e95a8e37ef3eefaf105f4a0a026c4"
+  },
+  "jobs": [
+    {
+      "name": "scientific",
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-B",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-auditors04/worker.py",
+        "--action",
+        "scientific",
+        "--plan",
+        "/mnt/d/orbit-v41-recovery02/candidate07-collector04-followon-launch01/audit-plan.json",
+        "--plan-sha256",
+        "PLAN_SHA256_REBOUND_BY_CONTROLLER",
+        "--output",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/scientific/result.json"
+      ],
+      "cwd": "/mnt/d/orbit-v41-recovery02",
+      "timeout_seconds": 600
+    },
+    {
+      "name": "selected",
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-B",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-auditors04/worker.py",
+        "--action",
+        "selected",
+        "--plan",
+        "/mnt/d/orbit-v41-recovery02/candidate07-collector04-followon-launch01/audit-plan.json",
+        "--plan-sha256",
+        "PLAN_SHA256_REBOUND_BY_CONTROLLER",
+        "--output",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/selected/result.json"
+      ],
+      "cwd": "/mnt/d/orbit-v41-recovery02",
+      "timeout_seconds": 600
+    },
+    {
+      "name": "rank",
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-B",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-auditors04/worker.py",
+        "--action",
+        "rank",
+        "--plan",
+        "/mnt/d/orbit-v41-recovery02/candidate07-collector04-followon-launch01/audit-plan.json",
+        "--plan-sha256",
+        "PLAN_SHA256_REBOUND_BY_CONTROLLER",
+        "--output",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/rank/result.json"
+      ],
+      "cwd": "/mnt/d/orbit-v41-recovery02",
+      "timeout_seconds": 300
+    },
+    {
+      "name": "export",
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-B",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-auditors04/worker.py",
+        "--action",
+        "export",
+        "--plan",
+        "/mnt/d/orbit-v41-recovery02/candidate07-collector04-followon-launch01/audit-plan.json",
+        "--plan-sha256",
+        "PLAN_SHA256_REBOUND_BY_CONTROLLER",
+        "--output",
+        "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05/export/result.json"
+      ],
+      "cwd": "/mnt/d/orbit-v41-recovery02",
+      "timeout_seconds": 300
+    }
+  ],
+  "native_runs": false,
+  "output": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-saved-audits05",
+  "release_authority": false,
+  "review": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collection05-independent-outcome-review01/review.json",
+    "sha256": "03cf8841e07745deab48719e6c009d4bb5f004baa3f8626221e17a728dac6bc1"
+  },
+  "schema": "candidate07-postboot-audit-plan-v1",
+  "source_ledgers": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-audit-tests-preparation01/controls.sha256",
+      "sha256": "4a5a4f0e781a986d6c307dcef5fbcc7a98642d449339d5212f827251de7882f8"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-outcome-publication01/source.sha256",
+      "sha256": "567f7a8ab44853780569b3c797b081a9e10a5976f48023d50e2cd89d7efb27df"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-controls02/source.sha256",
+      "sha256": "3a5a16c13b028af5af37a39118047cb10dd83e078e822655d5472c40c9293e82"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-controls04/source.sha256",
+      "sha256": "a5f06dec1e09e0c42c9a91b5a4de2a2dfb7ff478e4f2c167502a3ba47d65bc4f"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-controls08/source.sha256",
+      "sha256": "fd634bee746a35bc197f11b047b3a9a0e10564a01c720ab6ee8dba407d28ea5c"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-auditors04/source.sha256",
+      "sha256": "4bca0e4a2dfa5807a930c103497f93a700a61ea8aae89b47b0b7c90fb227821b"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collector-tests-preparation02/source.sha256",
+      "sha256": "ae679bb3a2129398b03d0bd2762e69787c60c78da53d8163992b693702df32b6"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-collector04/source.sha256",
+      "sha256": "a160894bb0c10c2f58a7ab7801d55286d215703de54696af8c6efec54c658def"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-postsequence-auditors01/source.sha256",
+      "sha256": "2db15b545690cc39e845629310ab718af30a714c569c7a989b5b37cb1a86a808"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-publication-tests-preparation01/controls.sha256",
+      "sha256": "4dd9803bfd6a482b1c87c031019025957b27e07b4155b7b44197dc2c64be4672"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-qualification04-evidence02/source.sha256",
+      "sha256": "57485f14659ab40031d2878d419b10296160d064f951dc2ee6ba105f6d2a10e7"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-terminal-audit-preparation01/source.sha256",
+      "sha256": "36876b7c37db8dc0b86fd0c44d9ba0aa45108dd49ab9262970b539c21bf4eafc"
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-terminal-audit-tests-preparation01/controls.sha256",
+      "sha256": "56da439a7a8e70ef781ab6fb994de981e067b353d9f8855adfd9d90b2c6babb4"
+    }
+  ],
+  "collection": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate07-postboot-input-manifests04/collection.json",
+    "sha256": "5e0a612e1a0744232725182640c5aab10c25abfda29859afab0081caa2dfb67a"
+  }
+}

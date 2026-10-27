@@ -1,0 +1,11 @@
+--- execution01/source/verify_packet.py
++++ execution02/source/verify_packet.py
+@@ -138,7 +138,7 @@
+   check('timing limitation retained','not uncontended benchmark measurements' in audit['timing_caveat'])
+   check('report exact recomputation from evidence',read('report.json')==expected_report(audit,gate,seq))
+   for rel in ('README.md','index.html'):
+-   text=(packet/rel).read_text();check(rel+' essential disclosure',all(x in text for x in ('scheduling mistake','not uncontended benchmark measurements','133','51','102','failed','not launched')))
++   text=(packet/rel).read_text().casefold();check(rel+' essential disclosure',all(x in text for x in ('scheduling mistake','not uncontended benchmark measurements','133','51','102','failed','not launched')))
+   links=Links();links.feed((packet/'index.html').read_text())
+   for link in links.links:
+    url=urlsplit(link)

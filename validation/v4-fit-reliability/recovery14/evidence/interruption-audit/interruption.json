@@ -1,0 +1,130 @@
+{
+  "schema": "orbit-poc-preserved-interruption-audit-v1",
+  "observed_at": "2026-10-23T00:16:53.042883+00:00",
+  "host": "pfaff",
+  "uid": 1000,
+  "prior_boot_id": "015d7e0c-80cd-4de3-810e-7df2d89053c8",
+  "current_boot_id": "15b34862-9a5d-4dee-9077-0e69c8c02426",
+  "original_run": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01",
+  "finding": "The original run has no complete terminal record; its recorded processes belonged to a previous boot and cannot still be running. Exact shutdown time and process exit statuses were not recorded.",
+  "original_records_unchanged": true,
+  "completion_or_release_authority": false,
+  "covariance_authority": false,
+  "stages": [
+    {
+      "stage": "synthetic-refinement-log_drag_ou",
+      "strict_result_present": true,
+      "status": "passed",
+      "evidence": {
+        "maximum_fraction_of_sigma": 7.09405867382884e-07,
+        "result": {
+          "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/synthetic-refinement-log_drag_ou/result/result.json",
+          "sha256": "371a49ae1164d907fa0b848f740b0f4218a722e5fc04b86402e0290e4659a960"
+        }
+      },
+      "release_authority": false,
+      "covariance_authority": false
+    },
+    {
+      "stage": "synthetic-refinement-pulses",
+      "strict_result_present": false,
+      "status": "interrupted_by_host_restart",
+      "last_recorded_status": "running",
+      "last_recorded_elapsed_seconds": 203.16822544000024,
+      "original_boot_id": "015d7e0c-80cd-4de3-810e-7df2d89053c8",
+      "original_supervisor": {
+        "parent": 18181,
+        "pid": 29413,
+        "start_ticks": 314194,
+        "state": "R"
+      },
+      "original_worker": {
+        "parent": 29413,
+        "pid": 29414,
+        "start_ticks": 314249,
+        "state": "R"
+      },
+      "native_completion_unknown": true
+    },
+    {
+      "stage": "flight-refinement",
+      "strict_result_present": false,
+      "status": "not_started"
+    },
+    {
+      "stage": "eccentric-24h-refinement",
+      "strict_result_present": false,
+      "status": "not_started"
+    },
+    {
+      "stage": "objective-log_drag_ou",
+      "strict_result_present": false,
+      "status": "not_started"
+    },
+    {
+      "stage": "objective-pulses",
+      "strict_result_present": false,
+      "status": "not_started"
+    },
+    {
+      "stage": "nuisance-replay",
+      "strict_result_present": false,
+      "status": "not_started"
+    },
+    {
+      "stage": "nuisance-replay-candidate1-point012",
+      "strict_result_present": false,
+      "status": "not_started"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/plan.json",
+      "bytes": 572222,
+      "sha256": "5d4c6b237879b3e99b00015e8e86d34153c3b92ae503139d8df401b2eae4bfd8",
+      "mtime_ns": 1792616351555536900
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/freeze.json",
+      "bytes": 709,
+      "sha256": "ba862469e54be2b82eb57cd75af09033eb4493ecff98a161c726955600b937bb",
+      "mtime_ns": 1792617191929517900
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/run-started.json",
+      "bytes": 608,
+      "sha256": "992cd30fa2e19a2bce93ddf7ead51eec8066244a59a01953bcb5229aa8680498",
+      "mtime_ns": 1792617483201655200
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/storage.json",
+      "bytes": 6001,
+      "sha256": "455ffe35b45393fa519c3dfb2732d0e8fb9c439962e9308ce6f8d302bb4f830a",
+      "mtime_ns": 1792616075134668400
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/prepared/preflight-result.json",
+      "bytes": 153183,
+      "sha256": "a8a80558439ba6035342365fea385f5a4d70161094a33b5b7a7b5e5b906febfc",
+      "mtime_ns": 1792617102594014800
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/prepared/validation-inputs.json",
+      "bytes": 292852,
+      "sha256": "afeed6fa92e503faf88d37373dbbf1425e19b84047155bee0e8fc41c4fc8f4c7",
+      "mtime_ns": 1792616887921346200
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/synthetic-refinement-log_drag_ou/strict-result.json",
+      "bytes": 154226,
+      "sha256": "81da96d757e74dcefe8cda2a6a66953872ced72cc6e438665e43ead7c9259bf2",
+      "mtime_ns": 1792618129370156500
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery01/reference-gates10-run01/synthetic-refinement-pulses/supervisor.json",
+      "bytes": 149177,
+      "sha256": "685f74aba96f4c79d74a2473f8465a9e0177f224fc29364cda310d4314600df1",
+      "mtime_ns": 1792618481451237700
+    }
+  ]
+}

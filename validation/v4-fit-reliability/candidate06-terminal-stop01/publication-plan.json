@@ -1,0 +1,81 @@
+{
+  "schema": "candidate06-terminal-publication-source-draft-v1",
+  "status": "draft_only_not_built_or_verified",
+  "target_pr": "https://github.com/FlorianPfaff/orbit-smoothing-poc/pull/9",
+  "target_branch": "v4-fit-reliability",
+  "proposed_new_prefix": "validation/v4-fit-reliability/candidate06-terminal-stop01/",
+  "proposed_commit_title": "Archive candidate06 terminal admission stop and retained validation outcomes",
+  "parent_remote_commit": null,
+  "publication_authority": false,
+  "launch_authority": false,
+  "packet_builds": 0,
+  "validation_processes": 0,
+  "native_runs": 0,
+  "commits_created": 0,
+  "pushes": 0,
+  "pr_mutations": 0,
+  "terminal_audit": {
+    "path": "/mnt/d/orbit-v41-recovery02/candidate06-terminal-admission-audit01/audit01.json",
+    "sha256": "0a5921d6097ddb170dc2e2e2192e1f7e6f0d6e8510e09e66bb097dc2e28b6315",
+    "bytes": 74701,
+    "expected_check_count": 133,
+    "expected_field": "approved_terminal_attribution",
+    "expected_value": true,
+    "expected_aggregate_qualified": false
+  },
+  "existing_publication_reused": {
+    "commit": "1a82ecb6b5cba43bd6795adca7bf6acbbcfca90d",
+    "prefix": "validation/v4-fit-reliability/candidate06-native-failure01/",
+    "manifest_sha256": "ea58aee86610dd917a3c44901bad53a7082665efd756cb43f783503c55ce9b4b",
+    "reuse": "Immutable commit links and exact external pins. Do not copy or rewrite prior native fixtures, history audits, full native JUnit, source trees or published packets."
+  },
+  "compact_copy_selection": [
+    {"original": "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/plan.json", "destination": "evidence/sequence/plan.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/launch.json", "destination": "evidence/sequence/launch.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/started.json", "destination": "evidence/sequence/started.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/density-trial-sequence01/result.json", "destination": "evidence/sequence/result.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/result.json", "destination": "evidence/correctness/result.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/detached-result.json", "destination": "evidence/correctness/detached-result.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/correction-tests/tests.xml", "destination": "evidence/correction-tests/tests.xml"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/synthetic-refinement-log_drag_ou/result/result.json", "destination": "evidence/refinements/density.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-correctness01/synthetic-refinement-pulses/result/result.json", "destination": "evidence/refinements/pulses.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-terminal-admission-audit01/audit01.json", "destination": "evidence/terminal-audit/audit01.json"},
+    {"original": "/mnt/d/orbit-v41-recovery02/candidate06-terminal-admission-audit01/audit.py", "destination": "evidence/terminal-audit/audit.py"},
+    {"original": "/mnt/d/orbit-scientific-adapter01/execution-revision03/tests02/result.json", "destination": "evidence/overlapping-review/result.json"},
+    {"original": "/mnt/d/orbit-scientific-adapter01/execution-revision03/tests02/tests.xml", "destination": "evidence/overlapping-review/tests.xml"},
+    {"original": "/mnt/d/orbit-scientific-adapter01/execution-revision03/tests02/source-manifest.json", "destination": "evidence/overlapping-review/source-manifest.json"}
+  ],
+  "pin_resolution": "Before building, require the exact terminal_audit hash, all133 successful audit checks and aggregate_qualified=false. Resolve each selected original to its exact recorded hash/size in audit.evidence, except the audit itself from terminal_audit and audit.py from audit.audit_source. Missing, conflicting or changed identities block the build. Never infer new scientific passes or replace old receipts.",
+  "reusable_mechanism": {
+    "basis": "/mnt/d/orbit-v41-recovery02/candidate06-native-failure-publication01",
+    "builder_pattern": "New separate standard-library builder using the prior copy-bytes/open-x/provenance/HTML/manifest pattern, constrained to compact_copy_selection. Generate a new report.json directly from included sequence/result and audited stage summaries; preserve failed status and non-launch states.",
+    "verifier_pattern": "Reuse only the prior verifier's safe-path, exact manifest membership, size/SHA, copied-original provenance and HTML-link checks in a separate terminal-specific verifier. Add terminal claim checks; do not reuse native-failure-specific scientific assertions as if they validated this entire sequence.",
+    "portable_claim_checks": [
+      "Exact frozen sequence SHA40343c898a8ccf26d6f57575c520fe1abeab4e96bb3c79973952df6c845b06e2 and correctness SHAaca653aae8ae8c712defdc74b550e43be013552e26aebf9cc454f30757df8e95 are attributed through unchanged receipts.",
+      "Included terminal audit has133 successful checks and explicitly rejects aggregate, covariance and release qualification.",
+      "Original order contains four completed outcomes [failed,passed,passed,passed] and six unlaunched outcomes, with cleanup evidence preserved in the terminal audit.",
+      "Correction JUnit contains51 passes with no failure/error/skip, and both compact refinement results satisfy their original saved gates.",
+      "Native102/4 is retained and linked to its already published immutable evidence; no native stage is rerun or relabeled.",
+      "Observed competitor argv matches the included174-test review command and unique JUnit path. State the difference between admission-observed PID identity and receipt-based attribution.",
+      "Both cold fits remain unlaunched according to the audited prepared-only inventories; no full-fit outcome is fabricated.",
+      "Parent scheduling error and contaminated-timing limitations are mandatory report fields."
+    ],
+    "originals_mode": "Optionally rehash exact external originals in a separately scheduled serial verification. No full dependency inventory scan and no execution of archived Python/native code.",
+    "tamper_tests_before_publication": [
+      "Alter terminal failure to success or erase one of the four failed tests: reject.",
+      "Relabel an unlaunched stage or cold fit as passed: reject.",
+      "Change the competing command, report-path attribution, audit hash or cleanup summary: reject.",
+      "Omit scheduling responsibility or timing caveat: reject.",
+      "Change/add/omit a packet file or escape the packet path: reject."
+    ],
+    "commit_pattern": "After independent packet review, use the existing additive bare-index commit mechanism against a freshly checked remote head. Pin the actual parent; require the new prefix absent; permit only additions under the new prefix and separate audit receipt paths. Verify every committed blob; no previous published packet or active implementation changes. No force push.",
+    "pr_update": "Append pr-body-addendum.md with immutable new-commit links only after verified publication; preserve prior dated static packets. Do not imply merge readiness."
+  },
+  "recovery_state_at_draft": {
+    "new_correctness02_preparation": "completed separately",
+    "new_plan_sha256": "eb9f2a088b30cf631ab1437666e5f69cf23935f8e9fabbd355ef3254169c63f3",
+    "preflight_and_numerical_results_claimed": false,
+    "old_stopped_sequence_resumed_or_repaired": false
+  },
+  "required_serialization": "This is source-only. Do not run builder, verifier, tests, audits, commit preparation or publication until an exclusive serial slot is granted. Primary validation admission rules remain unchanged."
+}

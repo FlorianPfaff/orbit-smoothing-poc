@@ -37,6 +37,7 @@ def main():
     p.add_argument("--segmented", action="store_true", help="Enable v4 local-operator exports on top of --numerics; does not split force propagation")
     p.add_argument("--wide-tangent-candidate", action="store_true", help="Opt into the separately versioned wide-tangent candidate; requires --segmented")
     p.add_argument("--nuisance-performance", action="store_true", help="Install separate opt-in nuisance instrumentation and exact interpolation cache; requires --numerics")
+    p.add_argument("--variational-memory-candidate", action="store_true", help="Install default-off bounded closure evaluator; requires --segmented and --nuisance-performance")
     p.add_argument("--cmake-executable", type=Path, help="Use an independent CMake installation with the compiler prefix")
     args = p.parse_args()
     source, build = args.source_dir.resolve(), args.build_dir.resolve()
@@ -50,6 +51,8 @@ def main():
         p.error("--wide-tangent-candidate requires --segmented")
     if args.nuisance_performance and not args.numerics:
         p.error("--nuisance-performance requires --numerics")
+    if args.variational_memory_candidate and not (args.segmented and args.nuisance_performance):
+        p.error("--variational-memory-candidate requires --segmented and --nuisance-performance")
     if not source.exists():
         source.parent.mkdir(parents=True, exist_ok=True)
         run(["git", "clone", "--filter=blob:none", REPOSITORY, source])
@@ -59,16 +62,22 @@ def main():
     if revision != COMMIT:
         raise ValueError(f"Expected GROOPS {COMMIT}, found {revision}")
     installed_nuisance = (source / "orbit-poc-nuisance-performance-extension.json").is_file()
+    installed_memory = (source / "orbit-poc-variational-memory-extension.json").is_file()
+    if installed_memory and not installed_nuisance:
+        raise ValueError("Installed variational-memory profile lacks nuisance provenance; use a fresh source tree")
     if installed_nuisance:
         # The base installer copies original headers. Reapplying it would
         # overwrite the attributed optional extension before verification.
         if not args.nuisance_performance:
             raise ValueError("This source has the nuisance extension; retain --nuisance-performance or use a fresh source tree")
         for selected, name in ((args.segmented, "segmented"),
-                               (args.wide_tangent_candidate, "wide-tangent")):
+                               (args.wide_tangent_candidate, "wide-tangent"),
+                               (args.variational_memory_candidate, "variational-memory")):
             if selected != (source / f"orbit-poc-{name}-extension.json").is_file():
                 raise ValueError("Installed numerical profile differs; use a fresh source tree")
         run([sys.executable, extension.with_name("native_nuisance_performance.py"), "--source", source])
+        if args.variational_memory_candidate:
+            run([sys.executable, extension.with_name("native_variational_memory.py"), "--source", source])
     elif args.upstream_only:
         changed = subprocess.check_output(["git", "-C", str(source), "status", "--porcelain", "--untracked-files=all"], text=True)
         if changed.strip():
@@ -81,6 +90,8 @@ def main():
             run([sys.executable, extension.with_name("native_tangent_wide.py"), source])
         if args.nuisance_performance:
             run([sys.executable, extension.with_name("native_nuisance_performance.py"), "--source", source])
+        if args.variational_memory_candidate:
+            run([sys.executable, extension.with_name("native_variational_memory.py"), "--source", source])
     env = dict(os.environ)
     cmake = str(args.cmake_executable.resolve()) if args.cmake_executable else "cmake"
     command = [cmake, "-S", source / "source", "-B", build, "-G", "Ninja",
@@ -129,6 +140,9 @@ def main():
         if args.nuisance_performance:
             manifest["nuisance_performance_extension"] = json.loads(
                 (source / "orbit-poc-nuisance-performance-extension.json").read_text())
+        if args.variational_memory_candidate:
+            manifest["variational_memory_extension"] = json.loads(
+                (source / "orbit-poc-variational-memory-extension.json").read_text())
         (build / "build-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
 

@@ -1,0 +1,44 @@
+{
+ "schema":"candidate07-postboot-qualification02-independent-failure-review-v1",
+ "observed_utc":"2026-10-26T20:24:26Z",
+ "result":{"path":"/mnt/d/orbit-v41-recovery02/candidate07-postboot-audit-qualification02/result.json","sha256":"d3b5655433f6a137a9a8091881778962d46f50afd451751344b64f9f2a59e844"},
+ "plan_sha256":"0add2b8db27f111e9613f350376cd8439d4336c73230ee8fe9aee538467e4512",
+ "source_controls_sha256":"3a5a16c13b028af5af37a39118047cb10dd83e078e822655d5472c40c9293e82",
+ "classification":"failed_control_identity_guard_after_three_successful_test_workers",
+ "original_result_status":"failed",
+ "original_error":"ValueError('Wrong exact test identities')",
+ "actual_suites":[
+  {"name":"auditors","tests":118,"failures":0,"errors":0,"skipped":0,"unique_cases":118,"supervisor_status":"complete","returncode":0,"junit_sha256":"560fcf91bd1c1c278c196dacab7d1b89cf45718bffe66dee6be8d8fb8aca766f","supervisor_sha256":"adf435bf28d9f40eab2d7491fe7fafa8764e241e7f3e264d211e5095e39d6024","elapsed_seconds":27.615136681000195,"peak_process_tree_rss_bytes":74739712},
+  {"name":"publication","tests":19,"failures":0,"errors":0,"skipped":0,"unique_cases":19,"supervisor_status":"complete","returncode":0,"junit_sha256":"564e4383ceca6c9b92f85885e0e0e4659197e3a7bc3f98c25957c03e1c62fc1e","supervisor_sha256":"2fac1a347e74f40368690e55f5d6b6dba74122a6f189ac58b1a58a9fa61830b6","elapsed_seconds":13.789362110000184,"peak_process_tree_rss_bytes":38739968},
+  {"name":"collector","tests":15,"failures":0,"errors":0,"skipped":0,"unique_cases":15,"supervisor_status":"complete","returncode":0,"junit_sha256":"0b6bce2212e933a7b5b802d504f8b3c88cceb8ad0509fceededbcd9ffb600b38","supervisor_sha256":"9e0b97009c54ced207bbbda40009cfd598e70931b54d2f08a673123351dbc374","elapsed_seconds":12.412990265999952,"peak_process_tree_rss_bytes":37781504},
+  {"name":"recovery-controls","planned_tests":14,"status":"not_launched","output_directory_absent":true}
+ ],
+ "actual_cleanup":{"all_three_workers_owned_process_group_cleaned":true,"all_three_empty_tree_certificates":"kernel_ECHILD","all_three_remaining":[],"signals_received":[],"cleanup_signals":[],"hard_kill":false,"all_supervisor_plan_hashes_verified":true},
+ "current_observation":{"boot_id":"8e0af59f-3dd0-4063-b345-59e9ba9a2bab","absent_pids":[5560,7920,7921,8003,8004,8016,8018],"scope":"Observation after actual terminal result; no newly fabricated process or cleanup receipt"},
+ "source_verification":{"source_before_sha256":"752b25eee84543153e78f651e607b29854074a2af6e25b679bffd9d67777e1b0","source_after_sha256":"752b25eee84543153e78f651e607b29854074a2af6e25b679bffd9d67777e1b0","before_after_byte_identical":true,"all_listed_source_after_pins_rehashed":true},
+ "runtime_verification":{"runtime_before_sha256":"698d9fa5439249ba0f1529f01af9572445438b5eeed745d8f65fd8331cf11b74","runtime_after_available":false,"end_runtime_identity_certified":false},
+ "diagnosis":{
+  "expected_identity_example":"test_collection.CollectionTests.test_absent_density_is_explicit_and_never_invents_a_pin_or_history",
+  "actual_identity_example":".CollectionTests.test_absent_density_is_explicit_and_never_invents_a_pin_or_history",
+  "same_fifteen_original_method_names":true,
+  "all_actual_classnames":".CollectionTests",
+  "explanation":"The unchanged argv selects pytest.ini from the sibling controls directory via -c. Pinned pytest config/findpaths.py sets rootdir to that ini parent. The explicitly selected test_collection.py lies outside that root; nodes._check_initialpaths_for_relpath returns the empty string for an exact initial path. junitxml.mangle_test_address and record_testreport join the empty path component with CollectionTests, yielding .CollectionTests. The controller incorrectly compares this exact JUnit representation with unittest module-qualified IDs.",
+  "pinned_pytest_sources":{"_pytest/config/findpaths.py":"e3bbb530cc5d160d60f88b177e2d8f6baed6db507c639af0d8ba0c42650a61be","_pytest/nodes.py":"693b0385b2c45646767200bc517416e776c10c3e58ee5ed937007491be4d868e","_pytest/junitxml.py":"51ea93fb20122b8aa5f2c412b9cf946b6daf719cde470f6ca2c50430bed4135d"},
+  "pinned_sources_match_frozen_python_runtime_inventory":true
+ },
+ "minimal_followup":[
+  "Preserve failedqualification02 and its missing recovery-tests/runtime-after evidence unchanged.",
+  "Prepare separately versioned qualification04, preserving all original test source selectors,argv,counts,no-skips requirements and numerical limits.",
+  "Keep the original fifteen unittest IDs and add a separately pinned explicit bijection to the exact fifteen JUnit(classname,name) pairs observed here. Validate the original module/class and each method identity. Compare actual JUnit against that finite expected table without arbitrary prefix stripping or broad normalization.",
+  "Exercise exact mapping rejection with changed class,changed method,duplicates,missing entries and skipped/failed cases; no missing test may be normalized away.",
+  "Run the complete fresh qualification with start/end runtime verification and independent audit. The three earlier worker passes do not convert failedqualification02 into an overall success.",
+  "Downstream adapter and collection controls must explicitly reference the actual new successful qualification; never manufacture a success at the old qualification02 path."
+ ],
+ "supporting_artifacts":{"collector_identity_observation_sha256":"f647ea12d88df88b55a44a93cf251f11d5cdb020f2b136cdf78aa33ec30d397a","junit_observation_sha256":"a1cf24c54c30301d78b47837b694fff142266deaa353b9d4e06fe56f5b3ee85d","pytest_source_ledger_sha256":"0e92a307fd014e417932e5607d29065dd0f9bf90f20de0d668db176e18d53b32","source_after_check_sha256":"6cfa08d93f31f7d7a652ca228359dfed0ef1a8b6614824ac30c92f14afc3fe59"},
+ "full_qualification_passed":false,
+ "audit_permission_from_this_failure_review":false,
+ "new_tests_or_python_execution_performed_by_reviewer":false,
+ "original_files_modified":false,
+ "covariance_authority":false,
+ "release_authority":false
+}

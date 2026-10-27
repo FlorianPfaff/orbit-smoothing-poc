@@ -1,0 +1,60 @@
+{
+  "boot_id": "cb2d0b40-9b17-45f8-9e5c-716efb8e6aa5",
+  "created_at": "2026-10-25T12:54:43.860667+00:00",
+  "design_store_compatibility": false,
+  "error": null,
+  "numerical_authority": false,
+  "passed": true,
+  "probe": {
+    "path": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/stdio-probe/probe.py",
+    "sha256": "bb3bbbd4bd1fe80d27a7743e7c76f53e458356b74409236286f200b7a7b05990"
+  },
+  "schema": "orbit-poc-v41-drvs-qr-spool-stdio-probe-v1",
+  "scope": "8 MiB C stdio QR-spool filesystem semantics only; no GROOPS, compiler, numerical fit or large-file capacity test",
+  "scratch": "/mnt/d/orbit-v41-recovery02/density-trial-controls01/stdio-probe/owned-stdio-hircontt",
+  "scratch_empty_after_close": true,
+  "source": {
+    "path": "/mnt/d/orbit-v41-recovery01/candidate04/source/groops/extension/scaledRowQr.h",
+    "sha256": "3ff0694e9bc82cf7eb2245d51d1933f21b059461fd2dde77b1ec890862637d79"
+  },
+  "source_unchanged": true,
+  "steps": [
+    {
+      "device": 71,
+      "inode": 562949954125727,
+      "links": 0,
+      "operation": "mkstemp_fdopen_unlink",
+      "passed": true
+    },
+    {
+      "blocks": 1024,
+      "bytes": 8388608,
+      "element_bytes": 8,
+      "elements_per_block": 1024,
+      "operation": "fwrite",
+      "passed": true
+    },
+    {
+      "bytes": 8388608,
+      "operation": "fflush_fstat",
+      "passed": true
+    },
+    {
+      "operation": "fseek_start",
+      "passed": true
+    },
+    {
+      "bytes": 8388608,
+      "expected_sha256": "7d212b9c884f5c77896de960ae17cc341cda43b14d6a971f34ca29ebd4badf7f",
+      "operation": "fread_exact_content",
+      "passed": true,
+      "sha256": "7d212b9c884f5c77896de960ae17cc341cda43b14d6a971f34ca29ebd4badf7f"
+    },
+    {
+      "errno": 0,
+      "operation": "fclose",
+      "passed": true,
+      "result": 0
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "candidate06-terminal-rank-export-preparation-v1",
+  "preparer": "/root/trial_rollback_audit_readiness",
+  "status": "exact_saved_inputs_prepared_no_auditor_executed",
+  "input_manifests": {
+    "rank": {"path":"/mnt/d/orbit-v41-recovery02/candidate06-terminal-rank-export-manifests01/rank-inputs.json","sha256":"9d6512fabcbd5f8620f203796bec337a686dbbecff032268f4aa0ed4d26d4609"},
+    "export": {"path":"/mnt/d/orbit-v41-recovery02/candidate06-terminal-rank-export-manifests01/export-inputs.json","sha256":"3be52b0cca64f30cd62912a2d69b3960ec5fe469db3508ef4c5d677ba70c0c7c"},
+    "supplemental_exact_pin_inventory": {"path":"/mnt/d/orbit-v41-recovery02/candidate06-terminal-rank-export-manifests01/artifact-pins.json","sha256":"ba8ad0d24b05abfd5d51ec4a5b05d2ac0fce2184f35255ccc19d3503dc9129b9"}
+  },
+  "auditors": {
+    "rank": {"path":"/mnt/d/orbit-v41-recovery02/candidate06-rank-audit-draft03/rank_audit.py","sha256":"982f8dbc1ef4b91d015fade27d2b23e6979945b8fddb7a844a5511d330eaf872"},
+    "export": {"path":"/mnt/d/orbit-v41-recovery02/candidate06-export-audit-draft02/export_audit.py","sha256":"dbea05e6c10ccc6d30d07cda379b41e0d5a0518760090e8190e56d13dc0b8083"}
+  },
+  "recorded_outcomes": [{"stage":"cold-pulses","status":"passed"},{"stage":"cold-density","status":"failed"}],
+  "selection": {
+    "pulse_final_point": "/mnt/d/orbit-v41-recovery02/candidate06-cold02/cold-pulses/fit/point-019-final-covariance",
+    "pulse_final_factor": "qr.7",
+    "reviewed_dimensions": {"effective_rows":7830,"columns":91,"dynamic_count":12},
+    "dimension_evidence": "Actual final diagnostics reduced_rows=7830,retained_parameters=91,local_parameters=240,source_rows=8070; factor metadata rows=columns=91 and exactly12 true dynamic flags. Effective rows are the reduced stochastic rows, not the original 9414 objective rows.",
+    "native_factor_roles": "Unique backend roles native_qr_factor/coordinates/diagnostics/parameters select the same qr.7 generation. The sibling singular-value file is pinned independently. No earlier confirmation factor is substituted.",
+    "native_final_exports": "Final profile.xml contains one leoDynamicOrbits node and outputfilePrefix ending point-019-final-covariance/qr. The four distinct output filenames select ASCII orbit, native binary orbit, regular covariance and observation-epoch covariance. Manifest pins use those exact absolute owned filenames.",
+    "array_export_scope": "Actual headers show version20200123 ORBIT and Matrix(720 x37) regular / Matrix(120 x37) observation covariance. No NPZ arrays were loaded, and no covariance or SVD arithmetic was performed during preparation.",
+    "failed_density": "Rank manifest contains recorded_status=failed only. Export manifest pins actual density backend and strict result with empty exports. No nonexistent final factor or covariance is fabricated.",
+    "source_mapping": "Both request/result source_hash fields are the canonical source-file-list identity3c9174b52e0b894ffee58f0f4a28bb5e633e5861b377da0a587eac9eb8f2b702, distinct from snapshot-file SHA24c41840ad687aef76111e213b027c8ff613463313ccd7fb8fbf759e253db739. Both frozen request hashes match the export auditor constants. Native binary identity remains28c725765201e4702875ec8407d3bc497aa4bdfa3092a305b15a3233cfbd675d."
+  },
+  "pin_checks": {
+    "exact_file_pins":61,
+    "all_paths_canonical_regular_and_not_symlinks":true,
+    "all_pins_freshly_sha256_hashed_and_sized":true,
+    "all_nonretention_pulse_backend_artifact_hashes_match_saved_roles":true,
+    "selected_backend_roles_unique":true,
+    "all_nine_frozen_sequence_candidate_source_pins_match_checklist":true,
+    "sequence_and_phase_terminal_sources_pinned":true,
+    "supplemental_inventory_scope":"Both auditor sources; exact sequence launch/result/plan and original gate check; correctness/cold aggregates, detached receipts, plans/freezes; both backend/strict/supervisor/request receipts; all23 nonretention pulse backend artifacts; final singular values/z/delta and three ASCII exports; independent terminal read audit; nine frozen source files."
+  },
+  "execution_notes": [
+    "The rank auditor --inputs and export auditor --manifest contracts are intentionally different; use each exact manifest and recorded SHA.",
+    "Rank auditor returns1 unless both cases have full-rank checks; export auditor likewise cannot report both planned outcomes successful with a recorded failed density fit. A nonzero aggregate return is expected for this preserved mixed outcome and must be distinguished from a new pulse audit discrepancy using the full output rows.",
+    "Export manifest schema cannot contain extra terminal/source fields. Its unchanged two-field contract is used; the supplemental pin inventory and this preparation manifest bind terminal/source provenance for the supervising parent.",
+    "Parent owns helper qualification, fresh output paths, exclusive serial admission and numerical execution. No helper imports/tests or numerical audit was run by this preparer."
+  ],
+  "scientific_or_release_authority":false,
+  "covariance_accepted_by_this_preparation":false,
+  "prior_results_frozen_benchmarks_and_thresholds_unchanged":true
+}

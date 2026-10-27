@@ -1,0 +1,163 @@
+{
+  "schema": "nuisance-candidate02-independent-source-review-v1",
+  "created_utc": "2026-10-21T02:46:38.345573+00:00",
+  "decision": "accepted_for_opt_in_finite_data_component_experiment_not_full_release",
+  "blocking_implementation_defects_in_reviewed_supported_path": [],
+  "reviewer_scope": "Independent review of root-authored nuisance implementation. Reviewer authored the new fail-fast/query fixtures; their execution was performed by root, not rerun in this review.",
+  "no_native_jobs_or_compilers_run": true,
+  "build_inputs_modified": false,
+  "source_pins": [
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/nuisanceLineSearch.h",
+      "bytes": 23465,
+      "sha256": "b0c12444f0620db2b4c2bf9c4c9231940b9bf6d16bf010ffe1d3fd3b9cd1005c"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/native_row_qr.py",
+      "bytes": 38063,
+      "sha256": "79c08d409cec100b5a789bf651813247fd8088828051382c46754147d2c4907b"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/nuisancePerformance.h",
+      "bytes": 10639,
+      "sha256": "13be8b151ffeabf1105ad5432b32b518a954ca12c1a8ec4e0ecafabc963260c6"
+    },
+    {
+      "path": "/home/emper/orbit-v4-failure-investigation/source/groops/extension/native_nuisance_performance.py",
+      "bytes": 8672,
+      "sha256": "adc6e387f7d68f78573d28d946257192905721b6b83e7feac5b45d318fc61070"
+    }
+  ],
+  "reviewed_diff": {
+    "path": "/home/emper/orbit-v4-failure-investigation/control/nuisance-final-source-review02/reviewed.diff",
+    "bytes": 11811,
+    "sha256": "406a657ce224ab2a3c57690a52d8b413fd26504ddd2ba09bacd667ffa16adc8c"
+  },
+  "installed_manifest": {
+    "path": "/home/emper/orbit-v4-failure-investigation/native-source-02/orbit-poc-nuisance-performance-extension.json",
+    "bytes": 1852,
+    "sha256": "8edaed573a4d123221f0f0297f6dfb1bfef172a5e28ce7ecca6840b25483a468"
+  },
+  "installed_files_verified": {
+    "source/gnss/gnssParametrization/gnssParametrizationLeoDynamicOrbits.cpp": "b2d4690bbb19b432a993ec8739cf541c523450b3f1934e93765a8fbb254bea48",
+    "source/gnss/gnssProcessingStep/gnssProcessingStep.cpp": "4eb1c2c7c34452b992159fe9cca4683196508d46ceeaa7da3d07c3c51694beed",
+    "source/misc/orbitPoc/nuisanceLineSearch.h": "b9418dfbb11bff935f90515dadf500a90ae9a60152f8e8493fd3de2abd65e71c",
+    "source/misc/orbitPoc/nuisancePerformance.h": "13be8b151ffeabf1105ad5432b32b518a954ca12c1a8ec4e0ecafabc963260c6"
+  },
+  "native_binary": {
+    "path": "/home/emper/orbit-v4-failure-investigation/binaries/groops-fit-reliability-9f6f884739fd8a26",
+    "bytes": 24159952,
+    "sha256": "9f6f884739fd8a269cc5fb6ea81fe616eabed5903ae7436995c836b43d38056a"
+  },
+  "test_freeze": {
+    "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/freeze.json",
+    "bytes": 158420,
+    "sha256": "c395e376c7a2a6d5b3e1279563d4e8016de1a7146e255da11f678f3ee998fb25"
+  },
+  "tests": [
+    {
+      "suite": "native",
+      "tests": 106,
+      "result": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/native/result.json",
+        "bytes": 1981,
+        "sha256": "8e46c13c748f376806c1f7c9fb51e9c15bb041bea2e363dbf4b5b661fc3d11a1"
+      },
+      "junit": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/native/tests.xml",
+        "bytes": 17280,
+        "sha256": "73aac1b3c5eb9c9a48df0df3b239f772aa64a91aeceb68a0d28eb51536f59603"
+      },
+      "clean_terminal": true
+    },
+    {
+      "suite": "correction",
+      "tests": 51,
+      "result": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/correction/result.json",
+        "bytes": 1950,
+        "sha256": "c158e779583e53a17d81b2b32ff41205d847a7798bc704198203577be975c5e3"
+      },
+      "junit": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/correction/tests.xml",
+        "bytes": 7897,
+        "sha256": "6900d5fad77c0d12844c0197cf729f49491bc27446d8cb1026c16992428a8223"
+      },
+      "clean_terminal": true
+    },
+    {
+      "suite": "fail_fast",
+      "tests": 37,
+      "result": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/fail_fast/result.json",
+        "bytes": 1744,
+        "sha256": "e5cc02d342d696224bf40284e80c9f05bc0abe83f38618f47dfb8d3f02a2205c"
+      },
+      "junit": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/fail_fast/tests.xml",
+        "bytes": 5756,
+        "sha256": "f7ca1a90ac83906d2fc3e0f7c11151968bd6e88a4dbeafcaf83fd0972af12eb4"
+      },
+      "clean_terminal": true
+    },
+    {
+      "suite": "cost_query",
+      "tests": 15,
+      "result": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/cost_query/result.json",
+        "bytes": 1744,
+        "sha256": "141cfc08a2c123503b6e3ab77b188eff70fc3bef56456036f975e0ae1ead271d"
+      },
+      "junit": {
+        "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/cost_query/tests.xml",
+        "bytes": 2801,
+        "sha256": "11845700020fdda788ba6a9b38c6fe6e1e8059dfe97a6b0c965b7b7170c7d719"
+      },
+      "clean_terminal": true
+    }
+  ],
+  "total_tests": 209,
+  "native_query_compile": {
+    "path": "/home/emper/orbit-v4-failure-investigation/native-tests02/cost_query/temp/native-cost-query0/compile.json",
+    "bytes": 244272,
+    "sha256": "4b07b4e9eac879e7f2b8af276f074fc078ac9ec3b4f059d423ab9f30e7397542"
+  },
+  "findings": [
+    {
+      "topic": "Defaults",
+      "finding": "Both new flags accept only exact0/1, default0. The fail-fast flag is validated before the first fork; cost-only option is parsed before parent row work can enter any child. Unset/0 retains the prior17-proposal search effort."
+    },
+    {
+      "topic": "Failure rejection",
+      "finding": "Flag1 returns early only after an invalid mandatory zero replay, with no accepted/stationary/floor result. Caller always rejects the invalid replay; new diagnostic identifies child execution errors. The caller additionally verifies support/row identity and finite replay diagnostics even with flag0; this is stronger invalid-input rejection, not literal behavior equality for malformed inputs."
+    },
+    {
+      "topic": "Costs and priors",
+      "finding": "Only the physical Leo observation interpolation is omitted within an active cost-only row build. Original precise measurement residuals, support fingerprints, group ionosphere QR/rank, all full accumulated Gaussian prior rows and direct compensated objective calculations remain on the unchanged paths. scaledRowQr.h is byte-unchanged relative to HEAD."
+    },
+    {
+      "topic": "Full solves and covariance",
+      "finding": "Parent full weighted rows, undamped QR/rank, proposals and selected covariance retain full derivative computation. The native3xP zero return is neither used as a retained solve factor nor a covariance factor."
+    },
+    {
+      "topic": "Thresholds and transactions",
+      "finding": "17 ordinary proposals,300s child deadline,1e-4 gain threshold, undamped stationarity input, numerical-floor audits/caps, process-isolated updates and accepted-objective reproduction are unchanged. The fail-fast switch saves only already-inadmissible work."
+    },
+    {
+      "topic": "Actual query guard",
+      "finding": "Real native Polynomial zero-column interpolation preserves finite query/stencil/extrapolation/sub-Time remainder errors;15 actual linked-native cases passed, including exact flag0/1 exception equality and full/outside-context columns."
+    },
+    {
+      "topic": "Compatibility evidence",
+      "finding": "Original106+51 test bytes match HEAD and209total cases passed without skips, with clean process cleanup and pinned runtime/input evidence."
+    }
+  ],
+  "limitations_and_claim_restrictions": [
+    "Zero-column validation cannot detect nonfinite or overflow in omitted derivative values. Full parent/final linearizations still compute/check those values; do not claim universal preservation of every prior derivative-admissibility failure on arbitrary corrupted/extreme inputs.",
+    "The validated experimental scope is finite admissible data. The completed unit suites alone do not establish exact GNSS objective, nuisance-state, prior or covariance equality; the separately running cost03 off/on profiles supply that evidence.",
+    "No whole nonlinear fit,72h pulse recovery,48h GNSS memory fix, scientific superiority or speedup is established by this source review.",
+    "Default numerical behavior on valid inputs is preserved; additive error receipts and stronger malformed-zero-replay guards change failure diagnostics/policy and should be described explicitly."
+  ],
+  "whole_fit_verified": false,
+  "release_authority": false
+}

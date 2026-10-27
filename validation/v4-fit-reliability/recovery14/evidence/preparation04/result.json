@@ -1,0 +1,47 @@
+{
+  "status": "failed",
+  "error": "RuntimeError('Preparation step failed; preserve attempt')",
+  "steps": [
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-B",
+        "/mnt/d/orbit-v41-recovery02/validation-controls06/reference_gates09.py",
+        "prepare",
+        "--output",
+        "/mnt/d/orbit-v41-recovery02/reference-gates13-run01"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "/mnt/d/orbit-v41-recovery02/preparation04/step01.log",
+        "sha256": "38257e1e607a5702cfcbe04151e5a5a52738b99cf355f9892ea18bee542aba05",
+        "bytes": 62
+      }
+    },
+    {
+      "argv": [
+        "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+        "-s",
+        "-B",
+        "/mnt/d/orbit-v41-recovery02/validation-controls06/reference_gates09.py",
+        "preflight",
+        "--plan",
+        "/mnt/d/orbit-v41-recovery02/reference-gates13-run01/plan.json"
+      ],
+      "returncode": 1,
+      "log": {
+        "path": "/mnt/d/orbit-v41-recovery02/preparation04/step02.log",
+        "sha256": "5e265d7f16958367df744334480652ccf6202a7a26499782d5c6e28ce9e771d0",
+        "bytes": 533
+      }
+    }
+  ],
+  "elapsed_seconds": 1733.355500630998,
+  "freeze": null,
+  "boot_id": "8a138607-8bb2-45b1-9f2f-b6187bdeb161",
+  "topology_unchanged": true,
+  "topology_error": null,
+  "native_launch": false,
+  "release_authority": false
+}

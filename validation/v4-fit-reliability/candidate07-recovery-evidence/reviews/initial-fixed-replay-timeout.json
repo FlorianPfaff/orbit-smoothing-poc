@@ -1,0 +1,587 @@
+{
+  "schema": "initial-density-fixed-physical-replay-independent-native-failure-review-v1",
+  "reviewed_utc": "2026-10-27T03:59:41Z",
+  "reviewer": "/root/interruption_review",
+  "review_role": "Independent outcome review; this agent neither authored this replay source/control implementation nor launched the native replay. It previously reviewed the source and phase receipts. Shell, jq, hash, archive comparison and a read-only remote process observation only; no numerical solver, native replay, imports, tests or state edits during this review.",
+  "outcome": "verified_preserved_timeout_failure",
+  "source_ledger_sha256": "a4f36ee0e0ce263e232554fb19d50b5d8e810729d87d861fe47cb5af10acd193",
+  "controls_ledger_sha256": "064940cbf9ed87a05a188f6abc2955961b14c26affe711501ccf90e80df6d4d0",
+  "actual_controller_status": "failed",
+  "actual_controller_error": "ValueError('owned completion not clean; preserve failure')",
+  "native_main_was_released": true,
+  "native_terminal_outcome_available": false,
+  "native_launch_receipt_status": "running",
+  "terminal": {
+    "supervisor_status": "timeout",
+    "returncode": -15,
+    "elapsed_seconds": 600.1729960988741,
+    "peak_process_tree_rss_bytes": 313798656,
+    "timeout_seconds": 600,
+    "max_process_tree_rss_bytes": 8589934592,
+    "controller_signals_received": [],
+    "supervisor_signals_received": []
+  },
+  "cleanup": {
+    "verified": true,
+    "empty_tree_certificate": "kernel_ECHILD",
+    "remaining": [],
+    "hard_kill": false,
+    "signals": [
+      {
+        "pid": 2123175,
+        "signal": 15,
+        "start_ticks": 205583948
+      }
+    ],
+    "owned_process_group_cleaned": true,
+    "distinction": "The controller clean predicate additionally requires zero cleanup signals and therefore rejects this timeout. This does not erase the supervisor kernel_ECHILD/empty-tree certificate. One owned SIGTERM was recorded; no hard kill was recorded. There is no nested native wait/exit receipt because the worker was interrupted."
+  },
+  "process_observation": {
+    "observed_utc": "2026-10-27T03:54:51Z",
+    "same_boot_id": "95156dd4-0d4c-499d-a214-8883a2d650fa",
+    "all_listed_pids_absent": true,
+    "identities": [
+      {
+        "role": "controller",
+        "pid": 2123092,
+        "start_ticks": 205583744
+      },
+      {
+        "role": "supervisor",
+        "pid": 2123174,
+        "start_ticks": 205583945
+      },
+      {
+        "role": "supervised_outer_bwrap",
+        "pid": 2123175,
+        "start_ticks": 205583948
+      },
+      {
+        "role": "inner_python_tracer",
+        "pid": 2123176,
+        "start_ticks": null,
+        "limitation": "PID is established by launcher parent and native TracerPid; no start-tick receipt was saved. Current PID absence is verified, without inventing a start identity."
+      },
+      {
+        "role": "native_bwrap_launcher",
+        "pid": 2123190,
+        "start_ticks": 205584121
+      },
+      {
+        "role": "native_child",
+        "pid": 2123191,
+        "start_ticks": 205584121
+      }
+    ]
+  },
+  "identity_checks": {
+    "all_31_source_and_11_controls_members_rehashed": true,
+    "source_input_runtime_action_review_before_after_byte_identical": true,
+    "controller_posthash_verified": true,
+    "runtime_snapshot_files": 1496,
+    "runtime_snapshot_aliases": 13,
+    "all_loaded_before_pins_match_runtime_snapshot": true,
+    "loaded_before_files": 98,
+    "worker_loaded_after_available": false,
+    "post_exec_canonical_file_records": 200,
+    "post_exec_alias_records": 281,
+    "actual_prepared_argv_environment_and_cwd_match": true,
+    "private_pid1_and_readonly_proc_proof_pass": true,
+    "strict_standard_descriptors_and_no_directory_handles_pass": true,
+    "archive_sha256": "6edaf78c96803930198bea12e25a1e27b5ff15197f7c4c83202a8c55d1e9ce35",
+    "archive_regular_files": 1063,
+    "archive_content_size_time_and_membership_compare_pass": true,
+    "archive_extraction_metadata_difference": "Local /mnt/d extraction mode/UID/GID differ from remote tar metadata; first strict tar comparison stopped the initial audit script on these differences. Preserved comparison log contains only Mode/Uid/Gid differences. Follow-on content audit verified no payload/size/time/missing differences; no original artifacts were changed.",
+    "fresh_full_remote_runtime_rehash_by_reviewer": false,
+    "scope": "The reviewer rehashed source/control members, all extracted archive files and the archive; verified exact recorded before/after runtime/input maps and the source implementing their checks. The source-qualified controller performed the actual remote closing runtime/input/tree verification. The reviewer did not independently rehash all1496 runtime files again."
+  },
+  "partial_progress": {
+    "completed_nuisance_line_search_generations": 68,
+    "completed_nuisance_performance_generations": 68,
+    "complete_generation_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68
+    ],
+    "next_partial_generation": 69,
+    "last_complete": {
+      "objective_before": 6816074.4551246427,
+      "full_step_prediction": 1.9907186002306475E-16,
+      "undamped_maximum_update_m": 1.2218304769954294E-8,
+      "accepted": true,
+      "alpha": 0.25,
+      "accepted_update_m": 3.0545761924885735E-9,
+      "accepted_actual_reduction": 2.5113278478941844E-14,
+      "stationary_without_update": false,
+      "nuisance_floor_limited": false
+    },
+    "strict_update_limit_m": 1E-8,
+    "last_undamped_update_passes": false,
+    "fresh_full_nuisance_confirmation_available": false,
+    "partial_factor": {
+      "generation": 69,
+      "schema": "orbit-poc-conditional-nuisance-qr-factor-v1",
+      "rows": 79,
+      "columns": 79,
+      "dynamic_columns": 0,
+      "retained_global_indices": [
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385
+      ],
+      "original_retained_parameter_count": 146,
+      "full_rank_certificate": false,
+      "covariance_authority": false,
+      "only_retained_R_sha256": "cc292fb9ef014a5cbf67fecf42b5800496a6a5e7c393f6a0a4ca96ab4c40fe0f",
+      "original_deleted_full_R_sha256": "e1db8f334d895fcf59836c45e307f06e89ec4c5a12be38cdb92497dec238a77d",
+      "byte_identical_to_original_deleted_R": false,
+      "eligible_as_final_full_factor": false
+    },
+    "missing_outputs": [
+      "arms/A-original/control/result.json",
+      "arms/A-original/control/loaded-after.json",
+      "arms/A-original/output/qr.profile.json",
+      "arms/A-original/output/qr.69.nuisance_line_search.json",
+      "arms/A-original/output/qr.69.nuisance_performance.json"
+    ],
+    "interpretation": "An accepted small line-search step is not the required small undamped correction. Generation69 is only a conditional79-column factor, not a fresh final146-column factor. The original deleted full factor remains unrecovered."
+  },
+  "measured_timing": {
+    "completed_generations": 68,
+    "parent_row_build_seconds": 99.11455300199997,
+    "ordinary_trials": 76,
+    "ordinary_trial_wall_seconds": 201.647823313,
+    "ordinary_trial_user_seconds": 126.986613,
+    "ordinary_trial_system_seconds": 0.3613669999999999,
+    "zero_replays": 68,
+    "zero_replay_wall_seconds": 104.05407946100001,
+    "zero_replay_user_seconds": 65.199957,
+    "zero_replay_system_seconds": 0.336779,
+    "probe_rounds": 0,
+    "arithmetic_audits": 0,
+    "unmeasured_parent_stages": [
+      "nuisance_solves",
+      "local_recovery",
+      "parameter_update"
+    ],
+    "timing_scope": "monotonic_wall_nested_design_time_included_in_row_build",
+    "coverage": "search_iterations_only_final_linearization_not_emitted"
+  },
+  "timing_limits": [
+    "Recorded child user/system times are genuine per-trial measurements, not a complete CPU profile.",
+    "The summaries cover only68 completed search generations; generation69, setup, nuisance solves, local recovery and parameter updates are not fully accounted for.",
+    "Observation-design/interpolation times are nested within row-build time and were not added again.",
+    "Repeated row construction and trial evaluations are directly measured work. The causal reason the original426.1585s execution completed while this replay reached its600s wall budget is not established; no hardware, contention or speedup conclusion is made."
+  ],
+  "original_common_history_comparison": {
+    "generations": 68,
+    "exact_nonresource_generations": 0,
+    "first_difference": {
+      "generation": 1,
+      "all_nonresource_fields_exact": false,
+      "objective_before_original": 2323920819.0708723,
+      "objective_before_replay": 2323920819.0708723,
+      "objective_difference": 0,
+      "undamped_original": 38.67124827557857,
+      "undamped_replay": 38.671248275578527,
+      "update_difference": -4.263256414560601E-14,
+      "alpha_original": 1,
+      "alpha_replay": 1,
+      "trials_original": 1,
+      "trials_replay": 1,
+      "accepted_original": true,
+      "accepted_replay": true,
+      "signatures_original": [
+        "468164590554894258"
+      ],
+      "signatures_replay": [
+        "468164590554894258"
+      ],
+      "first_differing_scalar_path": [
+        "undamped_maximum_update_m"
+      ]
+    },
+    "maximum_objective_absolute_difference": 9.313225746154785E-10,
+    "maximum_undamped_update_absolute_difference": 2.393834607687332E-8,
+    "alpha_mismatches": 6,
+    "trial_count_mismatches": 6,
+    "accepted_flag_mismatches": 0,
+    "observation_signature_mismatches": 0,
+    "last": {
+      "generation": 68,
+      "all_nonresource_fields_exact": false,
+      "objective_before_original": 6816074.4551246427,
+      "objective_before_replay": 6816074.4551246427,
+      "objective_difference": 0,
+      "undamped_original": 2.0095143988307208E-8,
+      "undamped_replay": 1.2218304769954294E-8,
+      "update_difference": -7.876839218352914E-9,
+      "alpha_original": 0.5,
+      "alpha_replay": 0.25,
+      "trials_original": 2,
+      "trials_replay": 3,
+      "accepted_original": true,
+      "accepted_replay": true,
+      "signatures_original": [
+        "468164590554894258"
+      ],
+      "signatures_replay": [
+        "468164590554894258"
+      ],
+      "first_differing_scalar_path": [
+        "alpha"
+      ]
+    }
+  },
+  "original_successful_profile": {
+    "iterations": 73,
+    "nuisance_converged": true,
+    "nuisance_floor_limited": false,
+    "fresh_full_nuisance_confirmed": true,
+    "fresh_full_nuisance_update_m": 9.8872860561874686E-9,
+    "scope": "Archived original point003 receipt only; it does not confer convergence or a final factor on this timed-out replay."
+  },
+  "findings": [
+    "Native initialization and guarded TRACEEXEC succeeded; failure was the unchanged600-second supervision limit while nuisance profiling remained active.",
+    "Peak recorded process-tree RSS313798656B was below8GiB; this receipt is a wall timeout, not a reported memory-limit stop.",
+    "The common histories differ numerically from generation1 and have six different line-search/trial-count choices. Exact observation signatures and accepted flags agree across68. No equivalence claim or cross-host cause is inferred from their small stored differences.",
+    "Native stderr contains two deprecated configuration-key warnings and GPS.G01 no-usable-epochs notice, not a native terminal convergence/error receipt."
+  ],
+  "approved_for_saved_initial_factor_analysis": false,
+  "retained_analysis_prerequisite_issued": false,
+  "approved_actions": [],
+  "native_retry_authority": false,
+  "threshold_change_authority": false,
+  "physical_optimization_authority": false,
+  "covariance_authority": false,
+  "release_authority": false,
+  "publication_scope": "May describe this preserved timeout and its audited partial progress. No successful initial-factor recovery, full-fit convergence, covariance acceptance or scientific accuracy conclusion.",
+  "evidence": [
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/result.json",
+      "sha256": "06486b7aabd75f37425759da4d0ea3f3857d2b1a9bc02ef8101439533763d2e1",
+      "bytes": 4920
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/supervisor.json",
+      "sha256": "124266af3615e5f3e12f182668c503b0ccb80c59a9a5e39757d5d4a301436f65",
+      "bytes": 3011
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/supervisor.plan.json",
+      "sha256": "17f75c1ba9cfb54487f758ae0aedad2e6e90f90b48fad4f516814f3ac12164ea",
+      "bytes": 2708
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/launch.json",
+      "sha256": "d75ee2ae9339652d8189935a4b7f3f9ddc37f07fc2b7b7df65f2a3995a043949",
+      "bytes": 7133
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/readonly-proof.json",
+      "sha256": "af720d0c9a5805f98568cbb30139a262af672e414d6f1f20e1623b23f2eb4d67",
+      "bytes": 15067
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/post-exec-proof.json",
+      "sha256": "2eaa6f3280d81ceef5f35d271a07c9bf8ce3226ba92c0cf85b914644d026946a",
+      "bytes": 20583
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/inherited-descriptors-observation.json",
+      "sha256": "2512671d555cf2f699d1ddb857fece064e6450cb88012747e8230fd024f7b8f3",
+      "bytes": 1477
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/loaded-before.json",
+      "sha256": "7770764faeb4a492e8f7ecd7184e118f073faa425f2152785f9d451da74faae6",
+      "bytes": 11474
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/native.stderr",
+      "sha256": "b7c0187637db4f54e857c3e55d7b253fe29dfb2c499ab006c854839c4e99dfe5",
+      "bytes": 505
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/control/native.stdout",
+      "sha256": "564f0d775c3b9960ab55b247990426029623f08fe46e8d263fdf50a7870ecb39",
+      "bytes": 481777
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/output/qr.68.nuisance_line_search.json",
+      "sha256": "6332de88455b5acfc4949fbdfdabe0e785f28ddfd9f2759754292f14745c045f",
+      "bytes": 2363
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/output/qr.68.nuisance_performance.json",
+      "sha256": "0cd7cf7a6d3fe377a5eae956f1d7ff1d9effc7bbe91f0869271eead2d3412bed",
+      "bytes": 3083
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/output/qr.69.conditional_factor.json",
+      "sha256": "2612ac8100e5273aa6b66bd36e318f668b0a841446de8a56b43fb1e8a2a94ba6",
+      "bytes": 10255
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/output/qr.69.profile.json",
+      "sha256": "a2f6ff8d6fedd7ab4d88c6ef7d5f98ab13c6f554ff8ac98db9452f90d5ce0818",
+      "bytes": 764
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/arms/A-original/output/qr.69.R.bin",
+      "sha256": "cc292fb9ef014a5cbf67fecf42b5800496a6a5e7c393f6a0a4ca96ab4c40fe0f",
+      "bytes": 49944
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/sources-before.json",
+      "sha256": "8a9531338216866b4e465755ecf72448199fa587477965b72eedcf851e7720a5",
+      "bytes": 11805
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/sources-after.json",
+      "sha256": "8a9531338216866b4e465755ecf72448199fa587477965b72eedcf851e7720a5",
+      "bytes": 11805
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/runtime-before.json",
+      "sha256": "7aedaac0bf64f40eee6235db5f25ac13dfb03e380d7a587f2485adcb47a72229",
+      "bytes": 195757
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/runtime-after.json",
+      "sha256": "7aedaac0bf64f40eee6235db5f25ac13dfb03e380d7a587f2485adcb47a72229",
+      "bytes": 195757
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/inputs-before.json",
+      "sha256": "617803cade3f51595c24b4a85e6dadba9efcf4861154fe1efb9e8b5e5a49f75c",
+      "bytes": 133807
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/inputs-after.json",
+      "sha256": "617803cade3f51595c24b4a85e6dadba9efcf4861154fe1efb9e8b5e5a49f75c",
+      "bytes": 133807
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/review-before.json",
+      "sha256": "c9dde54167a593980b0a236e8f280dbdf4d7cf06c0571198ad6e659d104eee4c",
+      "bytes": 217
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01/native-controller01/review-after.json",
+      "sha256": "c9dde54167a593980b0a236e8f280dbdf4d7cf06c0571198ad6e659d104eee4c",
+      "bytes": 217
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-outcome01.tar",
+      "sha256": "6edaf78c96803930198bea12e25a1e27b5ff15197f7c4c83202a8c55d1e9ce35",
+      "bytes": 19886080
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-launch01/native-absence.txt",
+      "sha256": "3e0884bcd933cb9c82b7a45aab223abdb177bcdafb6d2b71196456b323910597",
+      "bytes": 111
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-stage-review01/review.json",
+      "sha256": "4709f8a5f87eaed96d464214ab2d2828c7ae9368d4364c5e050653dddfb85e1e",
+      "bytes": 9011
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay01/preparation01/inputs.sha256",
+      "sha256": "a4f36ee0e0ce263e232554fb19d50b5d8e810729d87d861fe47cb5af10acd193",
+      "bytes": 2974
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01/preparation01/inputs.sha256",
+      "sha256": "064940cbf9ed87a05a188f6abc2955961b14c26affe711501ccf90e80df6d4d0",
+      "bytes": 987
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay01/preparation01/provenance/qr.profile.json",
+      "sha256": "b1cd5c9abe16cb178e26dbcc1f4d9c64e7c23fb30f1a8039df8d2b2551af3500",
+      "bytes": 10000
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay01/preparation01/provenance/profile.execution.json",
+      "sha256": "ae3c4c632fc0b41da539d6f7506f1eb43eca75a83d5a883000814b8c16c0c1a9",
+      "bytes": 777
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/process-observation.txt",
+      "sha256": "ec9ea66a02faca234ea620a9d9d90db837f14f8502c137a1e9ed5d7707e5d42a",
+      "bytes": 148
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/history-comparison-summary.json",
+      "sha256": "a156fb2639fbdfe77b838f2ebe448305ff329bdbe497fa9506eb492bdca098be",
+      "bytes": 1756
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/history-comparison.jsonl",
+      "sha256": "a3609f1100cde014eb974fb294c27ef72c0ef86543de3449e14036a08420cccf",
+      "bytes": 38476
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/partial-timing-summary.json",
+      "sha256": "a12ec490e45085e07ca4aad0bdedca439b966bd184d2d671b7d1a5cb87d01fa2",
+      "bytes": 712
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/original-line-search-files.sha256",
+      "sha256": "46600d7d37e9c9d0c1c739943897fe53f5c123ecafbc1a7233c243373acd8f13",
+      "bytes": 12474
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/actual-files.sha256",
+      "sha256": "f885429cf60ff86e06e2b480879bb6a8641fd421b7ad99d63339e5bf2e4fbba9",
+      "bytes": 196733
+    },
+    {
+      "path": "/mnt/d/orbit-v41-recovery02/candidate07-density04-initial-fixed-replay-controls01-independent-native-failure-review01/content-verification.txt",
+      "sha256": "9518fe0f73f308b4b1e4ac2df33125f8d3ecd2722db30890fd1963e4df8cd329",
+      "bytes": 500
+    }
+  ]
+}

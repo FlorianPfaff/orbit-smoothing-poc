@@ -1,0 +1,387 @@
+{
+  "schema": "orbit-poc-one-hour-launch-lifecycle-review-v1",
+  "observed_at": "2026-10-25T07:08:02.848941+01:00",
+  "approved_within_scope": true,
+  "scope": "Read-only lightweight actual launch/lifecycle audit. No bulk input rescan, native computation, process signaling or run modification. Exact583-checklaunchreview remains independent input/runtime/scientific authority.",
+  "status": "durable_controller_running_startup_integrity",
+  "controller": {
+    "pid": 148797,
+    "state": "D",
+    "parent": 17662,
+    "group": 148797,
+    "session": 148797,
+    "start_ticks": 8455829,
+    "argv": [
+      "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/python/bin/python",
+      "-s",
+      "-B",
+      "/mnt/d/orbit-v41-recovery02/one-hour-controls01/one_hour_controls.py",
+      "_run",
+      "--freeze",
+      "/mnt/d/orbit-v41-recovery02/one-hour-run01/freeze.json",
+      "--sha256",
+      "74b6456b8936c1b7aadedbf7c3479c5beb3e49164ba67d2601337eb94b72018d",
+      "--audit",
+      "/mnt/d/orbit-v41-recovery02/one-hour-review01/launch-review01.json",
+      "--audit-sha256",
+      "92e16cef393ac50a14e5d7da512a934c40f5c69cd9ce31bdfc024eae98ad4056"
+    ]
+  },
+  "stdio": {
+    "0": "/dev/null",
+    "1": "/mnt/d/orbit-v41-recovery02/one-hour-run01/detached.log",
+    "2": "/mnt/d/orbit-v41-recovery02/one-hour-run01/detached.log"
+  },
+  "owned_descendants": [],
+  "stage_status": [
+    {
+      "stage": "cold-pulses",
+      "admission": false,
+      "supervisor": false,
+      "strict_result": false,
+      "fit_exists": false
+    },
+    {
+      "stage": "cold-density",
+      "admission": false,
+      "supervisor": false,
+      "strict_result": false,
+      "fit_exists": false
+    }
+  ],
+  "actual_native_fit_started_confirmed": false,
+  "controller_io_delta_over1s": {
+    "rchar": 1388864,
+    "wchar": 0,
+    "syscr": 70,
+    "syscw": 0,
+    "read_bytes": 1388864,
+    "write_bytes": 0,
+    "cancelled_write_bytes": 0
+  },
+  "run_started_receipt": false,
+  "check_count": 50,
+  "checks": [
+    {
+      "name": "launch_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "freeze_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "independent_launch_review_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "independent_launch_review_approved",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "independent_launch_review_no_failed_checks",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "plan_hash_bound",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "current_boot",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "recorded_launch_admission",
+      "passed": true,
+      "evidence": {
+        "allowed_cpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "available_memory_bytes": 30200143872,
+        "boot_id": "8a138607-8bb2-45b1-9f2f-b6187bdeb161",
+        "competing_workloads": [],
+        "cpu": 4,
+        "host": "pfaff",
+        "pid": 147224,
+        "required_memory_bytes": 8589934592,
+        "scope": "Cooperative current-host admission; no exclusive CPU reservation or old-boot process attribution."
+      }
+    },
+    {
+      "name": "reviewed_source:one_hour_controls.py",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "reviewed_source:contracts.py",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "controller_live_exact_ticks",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "controller_argv_matches",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "durable_session_group",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "durable_stdio",
+      "passed": true,
+      "evidence": {
+        "0": "/dev/null",
+        "1": "/mnt/d/orbit-v41-recovery02/one-hour-run01/detached.log",
+        "2": "/mnt/d/orbit-v41-recovery02/one-hour-run01/detached.log"
+      }
+    },
+    {
+      "name": "controller_no_terminal_result",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "serial_stage_order",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "unchanged_resource_limits",
+      "passed": true,
+      "evidence": {
+        "cpu": 4,
+        "min_free_disk_bytes": 34359738368,
+        "minimum_available_memory_bytes": 17179869184,
+        "numerical_threads": 1,
+        "process_tree_rss_bytes": 8589934592,
+        "timeout_seconds": 7200
+      }
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/home/emper/orbit-one-hour-scratch01",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/prepared",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/prepared/tmp",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/prepared/scratch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/prepared/row-spool",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/prepared/legacy-output",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/tmp",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/scratch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/row-spool",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-pulses/legacy-output",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/tmp",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/scratch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/row-spool",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "owned_directory:/mnt/d/orbit-v41-recovery02/one-hour-run01/cold-density/legacy-output",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-density/legacy-output",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-density/row-spool",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-density/scratch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-density/tmp",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-pulses/legacy-output",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-pulses/row-spool",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-pulses/scratch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/cold-pulses/tmp",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/prepared/legacy-output",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/prepared/row-spool",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/prepared/scratch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "scratch_leaf:/home/emper/orbit-one-hour-scratch01/prepared/tmp",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "current_disk_capacity:scratch",
+      "passed": true,
+      "evidence": {
+        "path": "/home/emper/orbit-one-hour-scratch01",
+        "free_bytes": 961110929408
+      }
+    },
+    {
+      "name": "current_disk_capacity:output",
+      "passed": true,
+      "evidence": {
+        "path": "/mnt/d/orbit-v41-recovery02/one-hour-run01",
+        "free_bytes": 732557910016
+      }
+    },
+    {
+      "name": "scratch_native_filesystem",
+      "passed": true,
+      "evidence": {
+        "device": 2096,
+        "filesystem_type": "ext4",
+        "major_minor": "8:48",
+        "mount_point": "/",
+        "mount_source": "/dev/sdd"
+      }
+    },
+    {
+      "name": "process_identity_stable_during_review",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "failed": [],
+  "native_runs_launched": 0,
+  "run_files_modified": false,
+  "launch_authority": false,
+  "release_authority": false
+}

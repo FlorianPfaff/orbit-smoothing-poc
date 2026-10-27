@@ -1,0 +1,841 @@
+{
+  "schema": "orbit-recovery-status-readonly-audit-v1",
+  "created_at": "2026-10-23T07:57:46.193270+00:00",
+  "scope": "Read-only bounded audit of terminal recovery stage receipts, hashes,14 original inputs and exact objective failure tracebacks. Does not repeat every dependency/runtime inventory or independently recalculate six numerical gate results.",
+  "result": {
+    "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/result.json",
+    "sha256": "3cf58289e952a890cc232ebb83b4377f929bb32cf1cc91ddd430222000085013",
+    "bytes": 11564
+  },
+  "detached_result": {
+    "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/detached-result.json",
+    "sha256": "76a55aae1235caf3586107fbb6492f248867992103b7192f0833a930bc41fe8e",
+    "bytes": 548
+  },
+  "terminal_completed_at_utc_from_receipt_mtime": "2026-10-23T05:17:08.016519+00:00",
+  "stage_counts": {
+    "passed": 6,
+    "failed": 2
+  },
+  "stages": [
+    {
+      "stage": "synthetic-refinement-log_drag_ou",
+      "status": "passed",
+      "scientific_command_seconds": 139.708928345,
+      "supervisor_seconds": 947.5326981339999,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154231,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-log_drag_ou/strict-result.json",
+        "sha256": "f73c62b62856b83d8cc55bb8c15fbdd46215111936dbacfe0d8b290aa8ab9f46"
+      },
+      "supervisor": {
+        "bytes": 150200,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-log_drag_ou/supervisor.json",
+        "sha256": "454d8406dc732584a53d0317fa1210520a8b5957a2f8d98dbac4fdb89fe74723"
+      }
+    },
+    {
+      "stage": "synthetic-refinement-pulses",
+      "status": "passed",
+      "scientific_command_seconds": 142.3930654980004,
+      "supervisor_seconds": 954.4821682869997,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 36913,
+            "signal": 15,
+            "start_ticks": 477277
+          },
+          {
+            "pid": 36913,
+            "signal": 15,
+            "start_ticks": 477277
+          }
+        ],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154188,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-pulses/strict-result.json",
+        "sha256": "422263c39616b39945661ea1356dbda0b32070715acf04c34f9f3622c5ecf094"
+      },
+      "supervisor": {
+        "bytes": 150346,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-pulses/supervisor.json",
+        "sha256": "17a24c74112ba347e990bdadde9dee83e665fcf85eab20edd77f1f5d92452d4a"
+      }
+    },
+    {
+      "stage": "flight-refinement",
+      "status": "passed",
+      "scientific_command_seconds": 254.68928086899996,
+      "supervisor_seconds": 944.6496033350004,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 45474,
+            "signal": 15,
+            "start_ticks": 610026
+          }
+        ],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154122,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/flight-refinement/strict-result.json",
+        "sha256": "f787316d26ec2754b2ed389190cc33aa07be6778442cd98362aea58cac24e442"
+      },
+      "supervisor": {
+        "bytes": 150175,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/flight-refinement/supervisor.json",
+        "sha256": "539bfec7ef1586982566f324be26362a703f25b19db8ebde1c610df947b7faec"
+      }
+    },
+    {
+      "stage": "eccentric-24h-refinement",
+      "status": "passed",
+      "scientific_command_seconds": 938.4426737819995,
+      "supervisor_seconds": 1804.2289886440003,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 53757,
+            "signal": 15,
+            "start_ticks": 742812
+          }
+        ],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154175,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/eccentric-24h-refinement/strict-result.json",
+        "sha256": "7745d4d14f8a05d805caae00d8f6b8989389bbe1905595ace08becdb788be27f"
+      },
+      "supervisor": {
+        "bytes": 150232,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/eccentric-24h-refinement/supervisor.json",
+        "sha256": "04074ef027161fa4706c5d977cb58183964cfba5347a3b03dc9d74bcfdb4901b"
+      }
+    },
+    {
+      "stage": "objective-log_drag_ou",
+      "status": "failed",
+      "scientific_command_seconds": 89.97558233100062,
+      "supervisor_seconds": 828.1489094709996,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          },
+          {
+            "pid": 62294,
+            "signal": 15,
+            "start_ticks": 968919
+          }
+        ],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154071,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-log_drag_ou/strict-result.json",
+        "sha256": "947757ef78224a10b5c815e54ab016056a4b501632e172200017e2c58e1a1fa4"
+      },
+      "supervisor": {
+        "bytes": 150842,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-log_drag_ou/supervisor.json",
+        "sha256": "31de2b0bd07e5be9d49e5a5825a85128f71ce6f6646d4ea187519842c238f376"
+      },
+      "failure_kind": "writable-output namespace/preparation error before profile evaluation",
+      "error": "OSError: [Errno 30] Read-only file system: '/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/output'",
+      "numerical_threshold_evaluated": false,
+      "validation": {
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-log_drag_ou/result/validation.json",
+        "sha256": "37b0f5ad4d3fab9d6647fa53ed6ad3be77fe98d9fbd6866f926e6ccd7e15d272",
+        "bytes": 2638
+      },
+      "stage_log": {
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-log_drag_ou/stage.log",
+        "sha256": "4283e8e2b618adea1da6bf0e4a26769d7e85f54692e24b87433e4b800d42f485",
+        "bytes": 177
+      }
+    },
+    {
+      "stage": "objective-pulses",
+      "status": "failed",
+      "scientific_command_seconds": 90.24342788600006,
+      "supervisor_seconds": 789.7265357010001,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 68744,
+            "signal": 15,
+            "start_ticks": 1098490
+          }
+        ],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154023,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-pulses/strict-result.json",
+        "sha256": "7fb8ed93afb38e3759fac702f229cf3c27edd74cb2c8f28fa3b15dfc7424304a"
+      },
+      "supervisor": {
+        "bytes": 150170,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-pulses/supervisor.json",
+        "sha256": "a28d9e5f425f7ad90719e62b57c4ed62818f537c6f725a8abdd20be3c5d22aab"
+      },
+      "failure_kind": "writable-output namespace/preparation error before profile evaluation",
+      "error": "OSError: [Errno 30] Read-only file system: '/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/development-02/prepared/output'",
+      "numerical_threshold_evaluated": false,
+      "validation": {
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-pulses/result/validation.json",
+        "sha256": "37b0f5ad4d3fab9d6647fa53ed6ad3be77fe98d9fbd6866f926e6ccd7e15d272",
+        "bytes": 2638
+      },
+      "stage_log": {
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-pulses/stage.log",
+        "sha256": "4283e8e2b618adea1da6bf0e4a26769d7e85f54692e24b87433e4b800d42f485",
+        "bytes": 177
+      }
+    },
+    {
+      "stage": "nuisance-replay",
+      "status": "passed",
+      "scientific_command_seconds": 75.5674913540006,
+      "supervisor_seconds": 860.8252749380008,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154156,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay/strict-result.json",
+        "sha256": "be7371be2d1249b9ba62170d2b9071cea76cef7e4385904bd5ebb0b68ab2ea95"
+      },
+      "supervisor": {
+        "bytes": 150068,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay/supervisor.json",
+        "sha256": "0a824435252bc2feb4c6d653280b392609728985eb3b99bbb6b86f285a1e9801"
+      }
+    },
+    {
+      "stage": "nuisance-replay-candidate1-point012",
+      "status": "passed",
+      "scientific_command_seconds": 60.23388454400083,
+      "supervisor_seconds": 1479.3010210949997,
+      "cleanup": {
+        "empty_tree_certificate": "kernel_ECHILD",
+        "hard_kill": false,
+        "remaining": [],
+        "signals": [
+          {
+            "pid": 83299,
+            "signal": 15,
+            "start_ticks": 1348628
+          },
+          {
+            "pid": 83299,
+            "signal": 15,
+            "start_ticks": 1348628
+          }
+        ],
+        "verified": true
+      },
+      "strict_result": {
+        "bytes": 154311,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay-candidate1-point012/strict-result.json",
+        "sha256": "341e33e005489687a7a750da5b5d9f9e34b776f22c6fb2ba4af87d3ebebf152d"
+      },
+      "supervisor": {
+        "bytes": 150417,
+        "path": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay-candidate1-point012/supervisor.json",
+        "sha256": "7d361b0ef426125f8c8624c706a1cd50929a1dca35c1cfc54089c13169d70460"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "freeze plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "freeze preflight",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/prepared/preflight-result.json"
+    },
+    {
+      "name": "freeze validation_inputs",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/prepared/validation-inputs.json"
+    },
+    {
+      "name": "aggregate plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "aggregate freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "original input candidate1_nuisance_replay",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/profile.xml"
+    },
+    {
+      "name": "original input density_request",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/request.json"
+    },
+    {
+      "name": "original input flight_prepared",
+      "passed": true,
+      "detail": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/v3/utc-receiver-epoch-check/normal/preparation_manifest.json"
+    },
+    {
+      "name": "original input full_day_request",
+      "passed": true,
+      "detail": "/mnt/c/users/emper/documents/codex/2026-10-13/i-x20/work/numerics-v3.1/resource-preflight-24h-request.json"
+    },
+    {
+      "name": "original input initial_state",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1/engineering-archive/development-fits-07/pulses-staged/point-029-confirmation/physical_initial.txt"
+    },
+    {
+      "name": "original input new_replay_density",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/native/log_density.txt"
+    },
+    {
+      "name": "original input new_replay_reference",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/closure-02/reference.txt"
+    },
+    {
+      "name": "original input new_replay_variational",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1/correctness/validation-02/objective-log_drag_ou/point-012-direction-0.25--1-repeat/closure-02/variational.dat"
+    },
+    {
+      "name": "original input old_nuisance_replay",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/profile.xml"
+    },
+    {
+      "name": "original input old_replay_density",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/native/log_density.txt"
+    },
+    {
+      "name": "original input old_replay_reference",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/closure-02/reference.txt"
+    },
+    {
+      "name": "original input old_replay_variational",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/log_drag_ou-staged/point-030-direction-0.015625-1-repeat/closure-02/variational.dat"
+    },
+    {
+      "name": "original input prior_validation",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1/correctness/validation-02/pipeline.json"
+    },
+    {
+      "name": "original input pulse_request",
+      "passed": true,
+      "detail": "/mnt/d/orbit-numerics-v3.1-artifacts/engineering/objective-validation-near-03/pulses-staged/request.json"
+    },
+    {
+      "name": "eight planned recorded exactly",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "six passed two failed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "terminal failed no exception or signal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no release covariance authority",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-log_drag_ou/supervisor.json"
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-log_drag_ou/strict-result.json"
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-log_drag_ou no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "complete",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "synthetic-refinement-pulses execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-pulses/supervisor.json"
+    },
+    {
+      "name": "synthetic-refinement-pulses strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/synthetic-refinement-pulses/strict-result.json"
+    },
+    {
+      "name": "synthetic-refinement-pulses plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "synthetic-refinement-pulses freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "synthetic-refinement-pulses strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-pulses original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-pulses input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic-refinement-pulses no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "complete",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "flight-refinement execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/flight-refinement/supervisor.json"
+    },
+    {
+      "name": "flight-refinement strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/flight-refinement/strict-result.json"
+    },
+    {
+      "name": "flight-refinement plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "flight-refinement freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "flight-refinement strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "flight-refinement original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "flight-refinement input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "flight-refinement no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "complete",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "eccentric-24h-refinement execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/eccentric-24h-refinement/supervisor.json"
+    },
+    {
+      "name": "eccentric-24h-refinement strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/eccentric-24h-refinement/strict-result.json"
+    },
+    {
+      "name": "eccentric-24h-refinement plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "eccentric-24h-refinement freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "eccentric-24h-refinement strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "eccentric-24h-refinement original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "eccentric-24h-refinement input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "eccentric-24h-refinement no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "complete",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "objective-log_drag_ou execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-log_drag_ou/supervisor.json"
+    },
+    {
+      "name": "objective-log_drag_ou strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-log_drag_ou/strict-result.json"
+    },
+    {
+      "name": "objective-log_drag_ou plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "objective-log_drag_ou freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "objective-log_drag_ou strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-log_drag_ou original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-log_drag_ou input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-log_drag_ou no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "failed",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "objective-log_drag_ou fails before objective evaluation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-log_drag_ou unchanged derivative thresholds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-pulses execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-pulses/supervisor.json"
+    },
+    {
+      "name": "objective-pulses strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/objective-pulses/strict-result.json"
+    },
+    {
+      "name": "objective-pulses plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "objective-pulses freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "objective-pulses strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-pulses original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-pulses input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-pulses no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "failed",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "objective-pulses fails before objective evaluation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "objective-pulses unchanged derivative thresholds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay/supervisor.json"
+    },
+    {
+      "name": "nuisance-replay strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay/strict-result.json"
+    },
+    {
+      "name": "nuisance-replay plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "nuisance-replay freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "nuisance-replay strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "complete",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 execution",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay-candidate1-point012/supervisor.json"
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 strict_result",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/nuisance-replay-candidate1-point012/strict-result.json"
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 plan",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/plan.json"
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 freeze",
+      "passed": true,
+      "detail": "/mnt/d/orbit-v41-recovery02/reference-gates12-run01/freeze.json"
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 strict/aggregate agreement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 original cleanup receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 input identity recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nuisance-replay-candidate1-point012 no supervisor signal/timeout",
+      "passed": true,
+      "detail": {
+        "observed_supervisor_status": "complete",
+        "signals_received": []
+      }
+    },
+    {
+      "name": "original local controller absent",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": true,
+  "numerical_release_authority": false,
+  "changes_to_runs_inputs_or_controls": false,
+  "supersedes_audit_only": {
+    "path": "/mnt/d/orbit-v41-recovery02/status-audit-20261023-01/recovered-validation-audit.json",
+    "sha256": "0dd4576f59c01ef94364e48efbe7c48631c902c019b6f389f223aeb535b34c75",
+    "reason": "Correct audit parser status spelling from completed to actual supervisor complete. Original audit and all run artifacts preserved."
+  },
+  "status_spelling_evidence": [
+    {
+      "stage": "synthetic-refinement-log_drag_ou",
+      "actual_supervisor_status": "complete"
+    },
+    {
+      "stage": "synthetic-refinement-pulses",
+      "actual_supervisor_status": "complete"
+    },
+    {
+      "stage": "flight-refinement",
+      "actual_supervisor_status": "complete"
+    },
+    {
+      "stage": "eccentric-24h-refinement",
+      "actual_supervisor_status": "complete"
+    },
+    {
+      "stage": "objective-log_drag_ou",
+      "actual_supervisor_status": "failed"
+    },
+    {
+      "stage": "objective-pulses",
+      "actual_supervisor_status": "failed"
+    },
+    {
+      "stage": "nuisance-replay",
+      "actual_supervisor_status": "complete"
+    },
+    {
+      "stage": "nuisance-replay-candidate1-point012",
+      "actual_supervisor_status": "complete"
+    }
+  ]
+}
